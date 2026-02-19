@@ -5,29 +5,36 @@ Version-controlled KubeJS scripts for the Createrington Minecraft server. Script
 ## Setup
 
 1. **Install dependencies:**
+
    ```bash
    npm install
    ```
 
 2. **Configure your connection:**
+
    ```bash
    cp .env.example .env
    ```
+
    Edit `.env` with the Createrington server's SFTP credentials:
+
    ```env
-   SFTP_HOST=gamesfra1113.bisecthosting.com
-   SFTP_PORT=2022
+   SFTP_HOST=your-host
+   SFTP_PORT=your-port
    SFTP_USERNAME=your-username
    SFTP_PASSWORD=your-password
    REMOTE_KUBEJS_PATH=/kubejs
    REMOTE_BACKUP_PATH=/kubejs-backup
    ```
+
    You can also use key-based auth by setting `SFTP_PRIVATE_KEY_PATH` instead of `SFTP_PASSWORD`.
 
 3. **Pull the current scripts from the server:**
+
    ```bash
    npm run pull
    ```
+
    This downloads remote files into `src/`, mapping paths automatically (e.g. `server_scripts/foo.js` becomes `server/foo.ts`).
 
 4. **Build to verify everything compiles:**
@@ -37,15 +44,15 @@ Version-controlled KubeJS scripts for the Createrington Minecraft server. Script
 
 ## Usage
 
-| Command            | Description                                                        |
-| ------------------ | ------------------------------------------------------------------ |
-| `npm run pull`     | Download remote scripts into `src/` (overwrites local)             |
-| `npm run build`    | Compile `src/*.ts` → `kubejs/*.js` via `@kubejs/plugin`            |
-| `npm run watch`    | Same as build, but watches for changes                             |
-| `npm run push`     | Upload `kubejs/` build output to the server (overwrites remote)    |
-| `npm run status`   | Compare src/ and kubejs/ against remote (existence + size)         |
-| `npm run extract-tags` | Extract tag resource locations from mod JARs into `.probe/`    |
-| `node scripts/fix-probe-types.js` | Fix ProbeJS type bugs and inject real registry IDs |
+| Command                           | Description                                                     |
+| --------------------------------- | --------------------------------------------------------------- |
+| `npm run pull`                    | Download remote scripts into `src/` (overwrites local)          |
+| `npm run build`                   | Compile `src/*.ts` → `kubejs/*.js` via `@kubejs/plugin`         |
+| `npm run watch`                   | Same as build, but watches for changes                          |
+| `npm run push`                    | Upload `kubejs/` build output to the server (overwrites remote) |
+| `npm run status`                  | Compare src/ and kubejs/ against remote (existence + size)      |
+| `npm run extract-tags`            | Extract tag resource locations from mod JARs into `.probe/`     |
+| `node scripts/fix-probe-types.js` | Fix ProbeJS type bugs and inject real registry IDs              |
 
 ### Typical workflow
 
@@ -99,12 +106,12 @@ createrington-kubejs/
 
 Scripts are mapped between the remote server layout and the local `src/` layout:
 
-| Remote (server)          | Local (src/)        |
-| ------------------------ | ------------------- |
-| `server_scripts/foo.js`  | `server/foo.ts`     |
-| `startup_scripts/foo.js` | `startup/foo.ts`    |
-| `client_scripts/foo.js`  | `client/foo.ts`     |
-| `config/common.json`     | `config/common.json`|
+| Remote (server)          | Local (src/)         |
+| ------------------------ | -------------------- |
+| `server_scripts/foo.js`  | `server/foo.ts`      |
+| `startup_scripts/foo.js` | `startup/foo.ts`     |
+| `client_scripts/foo.js`  | `client/foo.ts`      |
+| `config/common.json`     | `config/common.json` |
 
 The `_scripts` suffix is stripped and `.js` is swapped to `.ts` for script directories. Non-script files (configs, etc.) keep their paths unchanged.
 
