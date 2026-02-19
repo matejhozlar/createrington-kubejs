@@ -1,0 +1,566 @@
+declare module "net.minecraft.core.component.DataComponentMap$Builder" {
+import {$Potion$$Type} from "net.minecraft.world.item.alchemy.Potion"
+import {$DataComponentMap, $DataComponentMap$$Type} from "net.minecraft.core.component.DataComponentMap"
+import {$CompoundTag, $CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
+import {$ComponentFunctions, $ComponentFunctions$$Interface} from "dev.latvian.mods.kubejs.component.ComponentFunctions"
+import {$Map$$Type} from "java.util.Map"
+import {$UUID$$Type} from "java.util.UUID"
+import {$List, $List$$Type} from "java.util.List"
+import {$IDataComponentMapBuilderExtensions$$Interface} from "net.neoforged.neoforge.common.extensions.IDataComponentMapBuilderExtensions"
+import {$Rarity$$Type} from "net.minecraft.world.item.Rarity"
+import {$DataComponentType$$Type} from "net.minecraft.core.component.DataComponentType"
+import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component"
+import {$LootTable$$Type} from "net.minecraft.world.level.storage.loot.LootTable"
+import {$Holder$$Type} from "net.minecraft.core.Holder"
+import {$DataComponentPatch$$Type} from "net.minecraft.core.component.DataComponentPatch"
+import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$DyeColor$$Type} from "net.minecraft.world.item.DyeColor"
+import {$KubeColor$$Type} from "dev.latvian.mods.kubejs.color.KubeColor"
+import {$FabricComponentMapBuilder$$Interface} from "net.fabricmc.fabric.api.item.v1.FabricComponentMapBuilder"
+import {$ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
+import {$PotionContents$$Type} from "net.minecraft.world.item.alchemy.PotionContents"
+import {$GameProfile$$Type} from "com.mojang.authlib.GameProfile"
+import {$Unit$$Type} from "net.minecraft.util.Unit"
+
+export class $DataComponentMap$Builder implements $IDataComponentMapBuilderExtensions$$Interface, $FabricComponentMapBuilder$$Interface, $ComponentFunctions$$Interface {
+public "getOrCreate"(arg0: $DataComponentType$$Type, arg1: $Supplier$$Type): any
+public "addAll"(arg0: $DataComponentMap$$Type): $DataComponentMap$Builder
+public "build"(): $DataComponentMap
+public "getComponentMap"(): $DataComponentMap
+public "getOrEmpty"(arg0: $DataComponentType$$Type): $List
+public "get"(type: $DataComponentType$$Type): any
+public "remove"(type: $DataComponentType$$Type): $ComponentFunctions
+public "set"<T>(arg0: $Supplier$$Type<($DataComponentType$$Type<(T)>)>, arg1: T): $DataComponentMap$Builder
+public "getOrDefault"<T>(arg0: $DataComponentType$$Type<(T)>, arg1: T): T
+public "setAdditionalTooltipHidden"(): void
+public "setDyedColorWithTooltip"(color: $KubeColor$$Type): void
+public "setBlockStateProperties"(properties: $Map$$Type<(StringJS), (StringJS)>): void
+public "resetComponents"(): $ComponentFunctions
+public "getComponentString"(): StringJS
+public "setCustomModelData"(data: integer): void
+public "setContainerLootTable"(lootTable: $ResourceKey$$Type<($LootTable)>, seed: long): void
+public "setContainerLootTable"(lootTable: $ResourceKey$$Type<($LootTable)>): void
+public "setTooltipHidden"(): void
+public "setPotionContents"(contents: $PotionContents$$Type): void
+public "setGlintOverride"(override: boolean): void
+public "patch"(components: $DataComponentPatch$$Type): $ComponentFunctions
+public "set"(component: $DataComponentType$$Type<(never)>, value: any): $ComponentFunctions
+public "set"(components: $DataComponentMap$$Type): $ComponentFunctions
+public "setDyedColor"(color: $KubeColor$$Type): void
+public "setCustomData"(tag: $CompoundTag$$Type): void
+public "setProfile"(profile: $GameProfile$$Type): void
+public "setProfile"(name: StringJS, uuid: $UUID$$Type): void
+public "setUnit"(component: $DataComponentType$$Type<($Unit$$Type)>): $ComponentFunctions
+public "setPotionId"(potion: $Holder$$Type<($Potion)>): void
+public "getCustomData"(): $CompoundTag
+public "setLockCode"(lock: StringJS): void
+public "getCustomName"(): $Component
+public "setLore"(lines: $List$$Type<($Component$$Type)>, styledLines: $List$$Type<($Component$$Type)>): void
+public "setLore"(lines: $List$$Type<($Component$$Type)>): void
+public "setEntityData"(tag: $CompoundTag$$Type): void
+public "setRarity"(rarity: $Rarity$$Type): void
+public "setBaseColor"(color: $DyeColor$$Type): void
+public "setCustomName"(name: $Component$$Type): void
+get "componentMap"(): $DataComponentMap
+get "additionalTooltipHidden"(): void
+set "dyedColorWithTooltip"(value: $KubeColor$$Type)
+set "blockStateProperties"(value: $Map$$Type<(StringJS), (StringJS)>)
+get "componentString"(): StringJS
+set "customModelData"(value: integer)
+set "containerLootTable"(value: $ResourceKey$$Type<($LootTable)>)
+get "tooltipHidden"(): void
+set "potionContents"(value: $PotionContents$$Type)
+set "glintOverride"(value: boolean)
+set "dyedColor"(value: $KubeColor$$Type)
+set "customData"(value: $CompoundTag$$Type)
+set "profile"(value: $GameProfile$$Type)
+set "unit"(value: $DataComponentType$$Type<($Unit$$Type)>)
+set "potionId"(value: $Holder$$Type<($Potion)>)
+get "customData"(): $CompoundTag
+set "lockCode"(value: StringJS)
+get "customName"(): $Component
+set "lore"(value: $List$$Type<($Component$$Type)>)
+set "entityData"(value: $CompoundTag$$Type)
+set "rarity"(value: $Rarity$$Type)
+set "baseColor"(value: $DyeColor$$Type)
+set "customName"(value: $Component$$Type)
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $DataComponentMap$Builder$$Type = ($DataComponentMap$Builder);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $DataComponentMap$Builder$$Original = $DataComponentMap$Builder;}
+declare module "net.minecraft.core.component.PatchedDataComponentMap" {
+import {$Iterator} from "java.util.Iterator"
+import {$DataComponentMap, $DataComponentMap$$Type, $DataComponentMap$$Interface} from "net.minecraft.core.component.DataComponentMap"
+import {$ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
+import {$Map$$Type} from "java.util.Map"
+import {$Spliterator} from "java.util.Spliterator"
+import {$Predicate$$Type} from "java.util.function.Predicate"
+import {$DataComponentMap$Builder} from "net.minecraft.core.component.DataComponentMap$Builder"
+import {$DataComponentType, $DataComponentType$$Type} from "net.minecraft.core.component.DataComponentType"
+import {$ChangeSubscriber$$Type} from "net.caffeinemc.mods.lithium.common.util.change_tracking.ChangeSubscriber"
+import {$Consumer$$Type} from "java.util.function.Consumer"
+import {$DataComponentPatch, $DataComponentPatch$$Type} from "net.minecraft.core.component.DataComponentPatch"
+import {$Codec, $Codec$$Type} from "com.mojang.serialization.Codec"
+import {$Set} from "java.util.Set"
+import {$ChangePublisher$$Interface} from "net.caffeinemc.mods.lithium.common.util.change_tracking.ChangePublisher"
+import {$Stream} from "java.util.stream.Stream"
+import {$TypedDataComponent, $TypedDataComponent$$Type} from "net.minecraft.core.component.TypedDataComponent"
+
+export class $PatchedDataComponentMap implements $DataComponentMap$$Interface, $ChangePublisher$$Interface {
+ "copyOnWrite": boolean
+
+constructor(arg0: $DataComponentMap$$Type)
+
+public "applyPatch"(arg0: $DataComponentPatch$$Type): void
+public "remove"<T>(arg0: $DataComponentType$$Type<(T)>): T
+public "size"(): integer
+public "get"<T>(arg0: $DataComponentType$$Type<(T)>): T
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "iterator"(): $Iterator<($TypedDataComponent<(never)>)>
+public "set"<T>(arg0: $DataComponentType$$Type<(T)>, arg1: T): T
+public "keySet"(): $Set<($DataComponentType<(never)>)>
+public "copy"(): $PatchedDataComponentMap
+public "setAll"(arg0: $DataComponentMap$$Type): void
+public "lithium$unsubscribe"(arg0: $ChangeSubscriber$$Type): integer
+public "lithium$subscribe"(arg0: $ChangeSubscriber$$Type, arg1: integer): void
+public static "fromPatch"(arg0: $DataComponentMap$$Type, arg1: $DataComponentPatch$$Type): $PatchedDataComponentMap
+public "asPatch"(): $DataComponentPatch
+public "restorePatch"(arg0: $DataComponentPatch$$Type): void
+public "isPatchEmpty"(): boolean
+public "isEmpty"(): boolean
+public "stream"(): $Stream<($TypedDataComponent<(never)>)>
+public static "builder"(): $DataComponentMap$Builder
+public "filter"(arg0: $Predicate$$Type<($DataComponentType<(never)>)>): $DataComponentMap
+public "getOrDefault"<T>(arg0: $DataComponentType$$Type<(T)>, arg1: T): T
+public "has"(arg0: $DataComponentType$$Type<(never)>): boolean
+public static "makeCodecFromMap"(arg0: $Codec$$Type<($Map$$Type<($DataComponentType$$Type<(never)>), (any)>)>): $Codec<($DataComponentMap)>
+public static "makeCodec"(arg0: $Codec$$Type<($DataComponentType$$Type<(never)>)>): $Codec<($DataComponentMap)>
+public static "composite"(arg0: $DataComponentMap$$Type, arg1: $DataComponentMap$$Type): $DataComponentMap
+public "getTyped"<T>(arg0: $DataComponentType$$Type<(T)>): $TypedDataComponent<(T)>
+public "lithium$unsubscribeWithData"(arg0: $ChangeSubscriber$$Type<(any)>, arg1: integer): void
+public "lithium$isSubscribedWithData"(arg0: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg1: integer): boolean
+public "spliterator"(): $Spliterator<($TypedDataComponent<(never)>)>
+public "forEach"(arg0: $Consumer$$Type<($TypedDataComponent<(never)>)>): void
+[Symbol.iterator](): IterableIterator<$TypedDataComponent<(never)>>;
+set "all"(value: $DataComponentMap$$Type)
+get "patchEmpty"(): boolean
+get "empty"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $PatchedDataComponentMap$$Type = ($PatchedDataComponentMap);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $PatchedDataComponentMap$$Original = $PatchedDataComponentMap;}
+declare module "net.minecraft.core.component.DataComponentHolder" {
+import {$IDataComponentHolderExtension$$Interface} from "net.neoforged.neoforge.common.extensions.IDataComponentHolderExtension"
+import {$DataComponentMap, $DataComponentMap$$Type} from "net.minecraft.core.component.DataComponentMap"
+import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$TooltipProvider} from "net.minecraft.world.item.component.TooltipProvider"
+import {$DataComponentType$$Type} from "net.minecraft.core.component.DataComponentType"
+import {$Component$$Type} from "net.minecraft.network.chat.Component"
+import {$Item$TooltipContext$$Type} from "net.minecraft.world.item.Item$TooltipContext"
+import {$TooltipFlag$$Type} from "net.minecraft.world.item.TooltipFlag"
+import {$Consumer$$Type} from "java.util.function.Consumer"
+
+export interface $DataComponentHolder$$Interface extends $IDataComponentHolderExtension$$Interface {
+
+(): $DataComponentMap$$Type
+get "components"(): $DataComponentMap
+}
+
+export class $DataComponentHolder implements $DataComponentHolder$$Interface {
+ "get"<T>(arg0: $DataComponentType$$Type<(T)>): T
+ "getOrDefault"<T>(arg0: $DataComponentType$$Type<(T)>, arg1: T): T
+ "has"(arg0: $DataComponentType$$Type<(never)>): boolean
+ "getComponents"(): $DataComponentMap
+ "get"<T>(arg0: $Supplier$$Type<($DataComponentType$$Type<(T)>)>): T
+ "getOrDefault"<T>(arg0: $Supplier$$Type<($DataComponentType$$Type<(T)>)>, arg1: T): T
+ "has"(arg0: $Supplier$$Type<($DataComponentType$$Type<(never)>)>): boolean
+ "addToTooltip"<T extends $TooltipProvider>(arg0: $DataComponentType$$Type<(T)>, arg1: $Item$TooltipContext$$Type, arg2: $Consumer$$Type<($Component)>, arg3: $TooltipFlag$$Type): void
+ "addToTooltip"<T extends $TooltipProvider>(arg0: $Supplier$$Type<($DataComponentType$$Type<(T)>)>, arg1: $Item$TooltipContext$$Type, arg2: $Consumer$$Type<($Component)>, arg3: $TooltipFlag$$Type): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $DataComponentHolder$$Type = (() => $DataComponentMap$$Type);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $DataComponentHolder$$Original = $DataComponentHolder;}
+declare module "net.minecraft.core.component.DataComponentPredicate" {
+import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
+import {$DataComponentPatch} from "net.minecraft.core.component.DataComponentPatch"
+import {$DataComponentMap, $DataComponentMap$$Type} from "net.minecraft.core.component.DataComponentMap"
+import {$Codec} from "com.mojang.serialization.Codec"
+import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
+import {$Predicate, $Predicate$$Type, $Predicate$$Interface} from "java.util.function.Predicate"
+import {$DataComponentPredicate$Builder} from "net.minecraft.core.component.DataComponentPredicate$Builder"
+import {$DataComponentHolder$$Type} from "net.minecraft.core.component.DataComponentHolder"
+
+export class $DataComponentPredicate implements $Predicate$$Interface<($DataComponentMap)> {
+static readonly "CODEC": $Codec<($DataComponentPredicate)>
+static readonly "EMPTY": $DataComponentPredicate
+static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($DataComponentPredicate)>
+
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "test"(arg0: $DataComponentHolder$$Type): boolean
+public "test"(arg0: any): boolean
+public "test"(arg0: $DataComponentMap$$Type): boolean
+public static "builder"(): $DataComponentPredicate$Builder
+public static "allOf"(arg0: $DataComponentMap$$Type): $DataComponentPredicate
+public "asPatch"(): $DataComponentPatch
+public "alwaysMatches"(): boolean
+public "or"(arg0: $Predicate$$Type<($DataComponentMap)>): $Predicate<($DataComponentMap)>
+public "negate"(): $Predicate<($DataComponentMap)>
+public "and"(arg0: $Predicate$$Type<($DataComponentMap)>): $Predicate<($DataComponentMap)>
+public static "not"<T>(arg0: $Predicate$$Type<($DataComponentMap)>): $Predicate<($DataComponentMap)>
+public static "isEqual"<T>(arg0: any): $Predicate<($DataComponentMap)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $DataComponentPredicate$$Type = ($DataComponentPredicate);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $DataComponentPredicate$$Original = $DataComponentPredicate;}
+declare module "net.minecraft.core.component.DataComponentPatch$SplitResult" {
+import {$DataComponentMap, $DataComponentMap$$Type} from "net.minecraft.core.component.DataComponentMap"
+import {$Set, $Set$$Type} from "java.util.Set"
+import {$DataComponentType, $DataComponentType$$Type} from "net.minecraft.core.component.DataComponentType"
+import {$Record} from "java.lang.Record"
+
+export class $DataComponentPatch$SplitResult extends $Record {
+static readonly "EMPTY": $DataComponentPatch$SplitResult
+
+constructor(added: $DataComponentMap$$Type, removed: $Set$$Type<($DataComponentType$$Type<(never)>)>)
+
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "added"(): $DataComponentMap
+public "removed"(): $Set<($DataComponentType<(never)>)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $DataComponentPatch$SplitResult$$Type = ({"removed"?: $Set$$Type<($DataComponentType$$Type<(never)>)>, "added"?: $DataComponentMap$$Type}) | ([removed?: $Set$$Type<($DataComponentType$$Type<(never)>)>, added?: $DataComponentMap$$Type]);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $DataComponentPatch$SplitResult$$Original = $DataComponentPatch$SplitResult;}
+declare module "net.minecraft.core.component.DataComponentType$Builder" {
+import {$StreamCodec$$Type} from "net.minecraft.network.codec.StreamCodec"
+import {$Codec$$Type} from "com.mojang.serialization.Codec"
+import {$RegistryFriendlyByteBuf$$Type} from "net.minecraft.network.RegistryFriendlyByteBuf"
+import {$DataComponentType} from "net.minecraft.core.component.DataComponentType"
+
+export class $DataComponentType$Builder<T> {
+constructor()
+
+public "build"(): $DataComponentType<(T)>
+public "persistent"(arg0: $Codec$$Type<(T)>): $DataComponentType$Builder<(T)>
+public "cacheEncoding"(): $DataComponentType$Builder<(T)>
+public "networkSynchronized"(arg0: $StreamCodec$$Type<($RegistryFriendlyByteBuf$$Type), (T)>): $DataComponentType$Builder<(T)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $DataComponentType$Builder$$Type<T> = ($DataComponentType$Builder<(T)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $DataComponentType$Builder$$Original<T> = $DataComponentType$Builder<(T)>;}
+declare module "net.minecraft.core.component.DataComponentPredicate$Builder" {
+import {$DataComponentPredicate} from "net.minecraft.core.component.DataComponentPredicate"
+import {$DataComponentType$$Type} from "net.minecraft.core.component.DataComponentType"
+
+export class $DataComponentPredicate$Builder {
+public "build"(): $DataComponentPredicate
+public "expect"<T>(arg0: $DataComponentType$$Type<(T)>, arg1: T): $DataComponentPredicate$Builder
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $DataComponentPredicate$Builder$$Type = ($DataComponentPredicate$Builder);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $DataComponentPredicate$Builder$$Original = $DataComponentPredicate$Builder;}
+declare module "net.minecraft.core.component.DataComponentPatch" {
+import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
+import {$Optional} from "java.util.Optional"
+import {$Codec} from "com.mojang.serialization.Codec"
+import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
+import {$Predicate$$Type} from "java.util.function.Predicate"
+import {$DataComponentPatch$SplitResult} from "net.minecraft.core.component.DataComponentPatch$SplitResult"
+import {$Set} from "java.util.Set"
+import {$DataComponentType, $DataComponentType$$Type} from "net.minecraft.core.component.DataComponentType"
+import {$DataComponentPatch$Builder} from "net.minecraft.core.component.DataComponentPatch$Builder"
+import {$Map$Entry} from "java.util.Map$Entry"
+
+export class $DataComponentPatch {
+static readonly "CODEC": $Codec<($DataComponentPatch)>
+static readonly "EMPTY": $DataComponentPatch
+static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($DataComponentPatch)>
+
+public "size"(): integer
+public "get"<T>(arg0: $DataComponentType$$Type<(T)>): $Optional<(T)>
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "isEmpty"(): boolean
+public "split"(): $DataComponentPatch$SplitResult
+public static "builder"(): $DataComponentPatch$Builder
+public "entrySet"(): $Set<($Map$Entry<($DataComponentType<(never)>), ($Optional<(never)>)>)>
+public "forget"(arg0: $Predicate$$Type<($DataComponentType<(never)>)>): $DataComponentPatch
+get "empty"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $DataComponentPatch$$Type = ($DataComponentPatch);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $DataComponentPatch$$Original = $DataComponentPatch;}
+declare module "net.minecraft.core.component.DataComponentMap" {
+import {$Iterator} from "java.util.Iterator"
+import {$Iterable$$Interface} from "java.lang.Iterable"
+import {$Map$$Type} from "java.util.Map"
+import {$Spliterator} from "java.util.Spliterator"
+import {$Predicate$$Type} from "java.util.function.Predicate"
+import {$DataComponentMap$Builder} from "net.minecraft.core.component.DataComponentMap$Builder"
+import {$DataComponentType, $DataComponentType$$Type} from "net.minecraft.core.component.DataComponentType"
+import {$Consumer$$Type} from "java.util.function.Consumer"
+import {$Codec, $Codec$$Type} from "com.mojang.serialization.Codec"
+import {$Set} from "java.util.Set"
+import {$Stream} from "java.util.stream.Stream"
+import {$TypedDataComponent, $TypedDataComponent$$Type} from "net.minecraft.core.component.TypedDataComponent"
+
+export interface $DataComponentMap$$Interface extends $Iterable$$Interface<($TypedDataComponent<(never)>)> {
+[Symbol.iterator](): IterableIterator<$TypedDataComponent<(never)>>;
+get "empty"(): boolean
+}
+
+export class $DataComponentMap implements $DataComponentMap$$Interface {
+static readonly "CODEC": $Codec<($DataComponentMap)>
+static readonly "EMPTY": $DataComponentMap
+
+ "size"(): integer
+ "get"<T>(arg0: $DataComponentType$$Type<(T)>): T
+ "isEmpty"(): boolean
+ "iterator"(): $Iterator<($TypedDataComponent<(never)>)>
+ "stream"(): $Stream<($TypedDataComponent<(never)>)>
+static "builder"(): $DataComponentMap$Builder
+ "filter"(arg0: $Predicate$$Type<($DataComponentType<(never)>)>): $DataComponentMap
+ "keySet"(): $Set<($DataComponentType<(never)>)>
+ "getOrDefault"<T>(arg0: $DataComponentType$$Type<(T)>, arg1: T): T
+ "has"(arg0: $DataComponentType$$Type<(never)>): boolean
+static "makeCodecFromMap"(arg0: $Codec$$Type<($Map$$Type<($DataComponentType$$Type<(never)>), (any)>)>): $Codec<($DataComponentMap)>
+static "makeCodec"(arg0: $Codec$$Type<($DataComponentType$$Type<(never)>)>): $Codec<($DataComponentMap)>
+static "composite"(arg0: $DataComponentMap$$Type, arg1: $DataComponentMap$$Type): $DataComponentMap
+ "getTyped"<T>(arg0: $DataComponentType$$Type<(T)>): $TypedDataComponent<(T)>
+ "spliterator"(): $Spliterator<($TypedDataComponent<(never)>)>
+ "forEach"(arg0: $Consumer$$Type<($TypedDataComponent<(never)>)>): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $DataComponentMap$$Type = (StringJS);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $DataComponentMap$$Original = $DataComponentMap;}
+declare module "net.minecraft.core.component.DataComponentType" {
+import {$DataComponentType$Builder} from "net.minecraft.core.component.DataComponentType$Builder"
+import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
+import {$Map} from "java.util.Map"
+import {$Codec} from "com.mojang.serialization.Codec"
+import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
+
+export interface $DataComponentType$$Interface<T> {
+get "transient"(): boolean
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Literal": Special.DataComponentType
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Tag": Special.DataComponentTypeTag
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Literal": Special.EnchantmentEffectComponentType
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Tag": Special.EnchantmentEffectComponentTypeTag
+}
+
+export class $DataComponentType<T> implements $DataComponentType$$Interface {
+static readonly "CODEC": $Codec<($DataComponentType<(never)>)>
+static readonly "VALUE_MAP_CODEC": $Codec<($Map<($DataComponentType<(never)>), (any)>)>
+static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($DataComponentType<(never)>)>
+static readonly "PERSISTENT_CODEC": $Codec<($DataComponentType<(never)>)>
+
+static "builder"<T>(): $DataComponentType$Builder<(T)>
+ "isTransient"(): boolean
+ "codecOrThrow"(): $Codec<(T)>
+ "codec"(): $Codec<(T)>
+ "streamCodec"(): $StreamCodec<($RegistryFriendlyByteBuf), (T)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $DataComponentType$$Type<T> = (Special.DataComponentType) | (Special.EnchantmentEffectComponentType);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $DataComponentType$$Original<T> = $DataComponentType<(T)>;}
+declare module "net.minecraft.core.component.DataComponentPatch$Builder" {
+import {$Potion$$Type} from "net.minecraft.world.item.alchemy.Potion"
+import {$DataComponentMap, $DataComponentMap$$Type} from "net.minecraft.core.component.DataComponentMap"
+import {$CompoundTag, $CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
+import {$ComponentFunctions, $ComponentFunctions$$Interface} from "dev.latvian.mods.kubejs.component.ComponentFunctions"
+import {$Map$$Type} from "java.util.Map"
+import {$UUID$$Type} from "java.util.UUID"
+import {$List$$Type} from "java.util.List"
+import {$Rarity$$Type} from "net.minecraft.world.item.Rarity"
+import {$DataComponentType$$Type} from "net.minecraft.core.component.DataComponentType"
+import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component"
+import {$LootTable$$Type} from "net.minecraft.world.level.storage.loot.LootTable"
+import {$Holder$$Type} from "net.minecraft.core.Holder"
+import {$DataComponentPatch, $DataComponentPatch$$Type} from "net.minecraft.core.component.DataComponentPatch"
+import {$DyeColor$$Type} from "net.minecraft.world.item.DyeColor"
+import {$KubeColor$$Type} from "dev.latvian.mods.kubejs.color.KubeColor"
+import {$ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
+import {$PotionContents$$Type} from "net.minecraft.world.item.alchemy.PotionContents"
+import {$GameProfile$$Type} from "com.mojang.authlib.GameProfile"
+import {$TypedDataComponent$$Type} from "net.minecraft.core.component.TypedDataComponent"
+import {$Unit$$Type} from "net.minecraft.util.Unit"
+
+export class $DataComponentPatch$Builder implements $ComponentFunctions$$Interface {
+public "remove"<T>(arg0: $DataComponentType$$Type<(T)>): $DataComponentPatch$Builder
+public "set"<T>(arg0: $TypedDataComponent$$Type<(T)>): $DataComponentPatch$Builder
+public "build"(): $DataComponentPatch
+public "get"(type: $DataComponentType$$Type): any
+public "remove"(type: $DataComponentType$$Type): $ComponentFunctions
+public "setAdditionalTooltipHidden"(): void
+public "setDyedColorWithTooltip"(color: $KubeColor$$Type): void
+public "setBlockStateProperties"(properties: $Map$$Type<(StringJS), (StringJS)>): void
+public "getComponentMap"(): $DataComponentMap
+public "resetComponents"(): $ComponentFunctions
+public "getComponentString"(): StringJS
+public "setCustomModelData"(data: integer): void
+public "setContainerLootTable"(lootTable: $ResourceKey$$Type<($LootTable)>, seed: long): void
+public "setContainerLootTable"(lootTable: $ResourceKey$$Type<($LootTable)>): void
+public "setTooltipHidden"(): void
+public "setPotionContents"(contents: $PotionContents$$Type): void
+public "setGlintOverride"(override: boolean): void
+public "patch"(components: $DataComponentPatch$$Type): $ComponentFunctions
+public "set"(component: $DataComponentType$$Type<(never)>, value: any): $ComponentFunctions
+public "set"(components: $DataComponentMap$$Type): $ComponentFunctions
+public "setDyedColor"(color: $KubeColor$$Type): void
+public "setCustomData"(tag: $CompoundTag$$Type): void
+public "setProfile"(profile: $GameProfile$$Type): void
+public "setProfile"(name: StringJS, uuid: $UUID$$Type): void
+public "setUnit"(component: $DataComponentType$$Type<($Unit$$Type)>): $ComponentFunctions
+public "setPotionId"(potion: $Holder$$Type<($Potion)>): void
+public "getCustomData"(): $CompoundTag
+public "setLockCode"(lock: StringJS): void
+public "getCustomName"(): $Component
+public "setLore"(lines: $List$$Type<($Component$$Type)>, styledLines: $List$$Type<($Component$$Type)>): void
+public "setLore"(lines: $List$$Type<($Component$$Type)>): void
+public "setEntityData"(tag: $CompoundTag$$Type): void
+public "setRarity"(rarity: $Rarity$$Type): void
+public "setBaseColor"(color: $DyeColor$$Type): void
+public "setCustomName"(name: $Component$$Type): void
+get "additionalTooltipHidden"(): void
+set "dyedColorWithTooltip"(value: $KubeColor$$Type)
+set "blockStateProperties"(value: $Map$$Type<(StringJS), (StringJS)>)
+get "componentMap"(): $DataComponentMap
+get "componentString"(): StringJS
+set "customModelData"(value: integer)
+set "containerLootTable"(value: $ResourceKey$$Type<($LootTable)>)
+get "tooltipHidden"(): void
+set "potionContents"(value: $PotionContents$$Type)
+set "glintOverride"(value: boolean)
+set "dyedColor"(value: $KubeColor$$Type)
+set "customData"(value: $CompoundTag$$Type)
+set "profile"(value: $GameProfile$$Type)
+set "unit"(value: $DataComponentType$$Type<($Unit$$Type)>)
+set "potionId"(value: $Holder$$Type<($Potion)>)
+get "customData"(): $CompoundTag
+set "lockCode"(value: StringJS)
+get "customName"(): $Component
+set "lore"(value: $List$$Type<($Component$$Type)>)
+set "entityData"(value: $CompoundTag$$Type)
+set "rarity"(value: $Rarity$$Type)
+set "baseColor"(value: $DyeColor$$Type)
+set "customName"(value: $Component$$Type)
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $DataComponentPatch$Builder$$Type = ($DataComponentPatch$Builder);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $DataComponentPatch$Builder$$Original = $DataComponentPatch$Builder;}
+declare module "net.minecraft.core.component.TypedDataComponent" {
+import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
+import {$DynamicOps$$Type} from "com.mojang.serialization.DynamicOps"
+import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
+import {$DataResult} from "com.mojang.serialization.DataResult"
+import {$PatchedDataComponentMap$$Type} from "net.minecraft.core.component.PatchedDataComponentMap"
+import {$DataComponentType, $DataComponentType$$Type} from "net.minecraft.core.component.DataComponentType"
+import {$Record} from "java.lang.Record"
+
+export class $TypedDataComponent<T> extends $Record {
+static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($TypedDataComponent<(never)>)>
+
+constructor(arg0: $DataComponentType$$Type<(T)>, arg1: T)
+
+public static "createUnchecked"<T>(arg0: $DataComponentType$$Type<(T)>, arg1: any): $TypedDataComponent<(T)>
+public "type"(): $DataComponentType<(T)>
+public "value"(): T
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "encodeValue"<D>(arg0: $DynamicOps$$Type<(D)>): $DataResult<(D)>
+public "applyTo"(arg0: $PatchedDataComponentMap$$Type): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $TypedDataComponent$$Type<T> = ({"value"?: T, "type"?: $DataComponentType$$Type<(T)>}) | ([value?: T, type?: $DataComponentType$$Type<(T)>]);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $TypedDataComponent$$Original<T> = $TypedDataComponent<(T)>;}

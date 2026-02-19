@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import fs from "node:fs";
 import chalk from "chalk";
 import ora from "ora";
-import { connect, listRemoteFiles, cleanLocalDir } from "../lib/sftp.js";
+import { connect, listRemoteFiles, remoteToSrc } from "../lib/sftp.js";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -11,8 +11,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 dotenv.config({ quiet: true });
 
-const LOCAL_KUBEJS = path.resolve(__dirname, "..", "kubejs");
+const LOCAL_SRC = path.resolve(__dirname, "..", "src");
 const REMOTE_KUBEJS = process.env.REMOTE_KUBEJS_PATH;
+
+/** Files in src/ that should not be deleted during clean. */
+const PRESERVE = new Set(["globals.d.ts"]);
 
 async function pull() {
   console.log(chalk.cyan.bold("\nCreaterington — Pull\n"));
@@ -43,22 +46,30 @@ async function pull() {
       return;
     }
 
-    // Clean local kubejs directory
-    spinner.start("Cleaning local kubejs folder...");
-    cleanLocalDir(LOCAL_KUBEJS);
-    spinner.succeed("Cleaned local kubejs folder");
+    // Clean local src/ directory, preserving specific files
+    spinner.start("Cleaning local src/ folder...");
+    if (fs.existsSync(LOCAL_SRC)) {
+      for (const entry of fs.readdirSync(LOCAL_SRC)) {
+        if (PRESERVE.has(entry)) continue;
+        fs.rmSync(path.join(LOCAL_SRC, entry), { recursive: true, force: true });
+      }
+    } else {
+      fs.mkdirSync(LOCAL_SRC, { recursive: true });
+    }
+    spinner.succeed("Cleaned local src/ folder");
 
-    // Download each file
+    // Download each file, mapping remote paths to src/ layout
     console.log("");
     let downloaded = 0;
 
     for (const file of remoteFiles) {
-      const localDest = path.join(LOCAL_KUBEJS, file.relative);
+      const srcRelative = remoteToSrc(file.relative);
+      const localDest = path.join(LOCAL_SRC, srcRelative);
       const localDir = path.dirname(localDest);
 
       fs.mkdirSync(localDir, { recursive: true });
 
-      spinner.start(`Downloading ${chalk.gray(file.relative)}`);
+      spinner.start(`Downloading ${chalk.gray(file.relative)} → ${chalk.gray(srcRelative)}`);
       await sftp.fastGet(file.remote, localDest);
       downloaded++;
     }

@@ -5,14 +5,22 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build": "kubejs build",
+    "watch": "kubejs build --watch",
     "pull": "node scripts/pull.js",
     "push": "node scripts/push.js",
-    "status": "node scripts/status.js"
+    "status": "node scripts/status.js",
+    "extract-tags": "node scripts/extract-tags.js"
   },
   "dependencies": {
+    "@kubejs/plugin": "^1.2.11",
+    "adm-zip": "^0.5.16",
     "chalk": "^4.1.2",
     "dotenv": "^16.4.7",
     "ora": "^5.4.1",
     "ssh2-sftp-client": "^11.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
   }
 }
