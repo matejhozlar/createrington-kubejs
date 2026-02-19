@@ -110,7 +110,7 @@ The `_scripts` suffix is stripped and `.js` is swapped to `.ts` for script direc
 
 ## Mod JARs
 
-The modpack's `.jar` files must be present in the `mods/` directory for tag extraction to work. Copy them from your Minecraft instance (e.g. `.minecraft/mods/`) or the server. The `mods/` folder is git-ignored.
+The modpack's `.jar` files must be present in the `mods/` directory for tag extraction to work. Place the mods from the latest serverpack into `mods/`. Alternatively, copy them from your Minecraft instance (e.g. `.minecraft/mods/`) or the server. The `mods/` folder is git-ignored.
 
 ## Type generation with ProbeJS
 
