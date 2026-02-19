@@ -1,0 +1,65 @@
+// KubeJS file to add Create Garnished Roots recipes
+ServerEvents.recipes(event => {
+    event.custom({
+        "type": "create:sequenced_assembly",
+        "ingredient": {
+            "item": "minecraft:phantom_membrane"
+        },
+        "results": [
+            {
+            "count": 32,
+            "id": "railways:track_phantom"
+            }
+        ],
+        "sequence": [
+            {
+            "type": "create:deploying",
+            "ingredients": [
+                {
+                "item": "railways:track_incomplete_phantom"
+                },
+                {
+                "tag": "railways:internal/ingots/iron_ingots"
+                }
+            ],
+            "results": [
+                {
+                "id": "railways:track_incomplete_phantom"
+                }
+            ]
+            },
+            {
+            "type": "create:deploying",
+            "ingredients": [
+                {
+                "item": "railways:track_incomplete_phantom"
+                },
+                {
+                "tag": "railways:internal/ingots/iron_ingots"
+                }
+            ],
+            "results": [
+                {
+                "id": "railways:track_incomplete_phantom"
+                }
+            ]
+            },
+            {
+            "type": "create:pressing",
+            "ingredients": [
+                {
+                "item": "railways:track_incomplete_phantom"
+                }
+            ],
+            "results": [
+                {
+                "id": "railways:track_incomplete_phantom"
+                }
+            ]
+            }
+        ],
+        "transitional_item": {
+            "id": "railways:track_incomplete_phantom"
+        }
+    })
+});

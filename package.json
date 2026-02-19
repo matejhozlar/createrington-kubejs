@@ -1,0 +1,18 @@
+{
+  "name": "createrington-kubejs",
+  "version": "1.0.0",
+  "description": "Version-controlled KubeJS scripts for the Createrington server",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "pull": "node scripts/pull.js",
+    "push": "node scripts/push.js",
+    "status": "node scripts/status.js"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "dotenv": "^16.4.7",
+    "ora": "^5.4.1",
+    "ssh2-sftp-client": "^11.0.0"
+  }
+}
