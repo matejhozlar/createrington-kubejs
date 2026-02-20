@@ -23,58 +23,58 @@ constructor(arg0: integer, arg1: integer, arg2: integer)
 public "setValue"(arg0: integer): $Color
 public "copy"(): $Color
 public "copy"(arg0: boolean): $Color
-public "getRGB"(): integer
-public static "mixColors"(arg0: $Couple$$Type<($Color$$Type)>, arg1: float): $Color
-public static "mixColors"(arg0: $Color$$Type, arg1: $Color$$Type, arg2: float): $Color
-public static "mixColors"(arg0: integer, arg1: integer, arg2: float): integer
-public "scaleAlphaForText"(arg0: float): $Color
-public static "rainbowColor"(arg0: integer): $Color
-public "getAlphaAsFloat"(): float
-public "ensureMutable"(): $Color
-public "getRedAsFloat"(): float
-public "getGreenAsFloat"(): float
-public static "generateFromLong"(arg0: long): $Color
-public "getBlueAsFloat"(): float
-public "modifyValue"(arg0: $UnaryOperator$$Type<(integer)>): $Color
-public "asVector"(): $Vec3
-public "mixWith"(arg0: $Color$$Type, arg1: float): $Color
-public "scaleAlpha"(arg0: float): $Color
-public "asStyle"(): $Style
-public "darker"(): $Color
-public "brighter"(): $Color
-public "setImmutable"(): $Color
-public "asVectorF"(): $Vector3f
 public "setAlpha"(arg0: integer): $Color
 public "setAlpha"(arg0: float): $Color
+public "setImmutable"(): $Color
+public "asVectorF"(): $Vector3f
+public "getRed"(): integer
+public "getGreen"(): integer
+public "getBlue"(): integer
+public "getAlpha"(): integer
 public "setRed"(arg0: float): $Color
 public "setRed"(arg0: integer): $Color
 public "setGreen"(arg0: integer): $Color
 public "setGreen"(arg0: float): $Color
-public "setBlue"(arg0: float): $Color
 public "setBlue"(arg0: integer): $Color
-public "getGreen"(): integer
-public "getBlue"(): integer
-public "getRed"(): integer
-public "getAlpha"(): integer
+public "setBlue"(arg0: float): $Color
+public "getRGB"(): integer
+public static "mixColors"(arg0: $Couple$$Type<($Color$$Type)>, arg1: float): $Color
+public static "mixColors"(arg0: integer, arg1: integer, arg2: float): integer
+public static "mixColors"(arg0: $Color$$Type, arg1: $Color$$Type, arg2: float): $Color
+public "brighter"(): $Color
+public "darker"(): $Color
+public "asStyle"(): $Style
+public "asVector"(): $Vec3
+public "mixWith"(arg0: $Color$$Type, arg1: float): $Color
+public "scaleAlpha"(arg0: float): $Color
+public static "generateFromLong"(arg0: long): $Color
+public static "rainbowColor"(arg0: integer): $Color
+public "modifyValue"(arg0: $UnaryOperator$$Type<(integer)>): $Color
+public "ensureMutable"(): $Color
+public "scaleAlphaForText"(arg0: float): $Color
+public "getAlphaAsFloat"(): float
+public "getBlueAsFloat"(): float
+public "getRedAsFloat"(): float
+public "getGreenAsFloat"(): float
 set "value"(value: integer)
-get "RGB"(): integer
-get "alphaAsFloat"(): float
-get "redAsFloat"(): float
-get "greenAsFloat"(): float
-get "blueAsFloat"(): float
-get "immutable"(): $Color
 set "alpha"(value: integer)
 set "alpha"(value: float)
+get "immutable"(): $Color
+get "red"(): integer
+get "green"(): integer
+get "blue"(): integer
+get "alpha"(): integer
 set "red"(value: float)
 set "red"(value: integer)
 set "green"(value: integer)
 set "green"(value: float)
-set "blue"(value: float)
 set "blue"(value: integer)
-get "green"(): integer
-get "blue"(): integer
-get "red"(): integer
-get "alpha"(): integer
+set "blue"(value: float)
+get "RGB"(): integer
+get "alphaAsFloat"(): float
+get "blueAsFloat"(): float
+get "redAsFloat"(): float
+get "greenAsFloat"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

@@ -1,3 +1,42 @@
+declare module "org.embeddedt.modernfix.duck.IChunkGenerator" {
+import {$ServerLevel, $ServerLevel$$Type} from "net.minecraft.server.level.ServerLevel"
+
+export interface $IChunkGenerator$$Interface {
+
+(arg0: $ServerLevel): void
+}
+
+export class $IChunkGenerator implements $IChunkGenerator$$Interface {
+ "mfix$setAssociatedServerLevel"(arg0: $ServerLevel$$Type): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $IChunkGenerator$$Type = ((arg0: $ServerLevel) => void);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $IChunkGenerator$$Original = $IChunkGenerator;}
+declare module "org.embeddedt.modernfix.duck.ITimeTrackingServer" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export interface $ITimeTrackingServer$$Interface {
+
+(): long
+}
+
+export class $ITimeTrackingServer implements $ITimeTrackingServer$$Interface {
+ "mfix$getLastTickStartTime"(): long
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ITimeTrackingServer$$Type = (() => long);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ITimeTrackingServer$$Original = $ITimeTrackingServer;}
 declare module "org.embeddedt.modernfix.duck.IProfilingServerFunctionManager" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $IProfilingServerFunctionManager$$Interface {
@@ -76,42 +115,3 @@ export type $IBlockState$$Type = ($IBlockState);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $IBlockState$$Original = $IBlockState;}
-declare module "org.embeddedt.modernfix.duck.IChunkGenerator" {
-import {$ServerLevel, $ServerLevel$$Type} from "net.minecraft.server.level.ServerLevel"
-
-export interface $IChunkGenerator$$Interface {
-
-(arg0: $ServerLevel): void
-}
-
-export class $IChunkGenerator implements $IChunkGenerator$$Interface {
- "mfix$setAssociatedServerLevel"(arg0: $ServerLevel$$Type): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $IChunkGenerator$$Type = ((arg0: $ServerLevel) => void);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $IChunkGenerator$$Original = $IChunkGenerator;}
-declare module "org.embeddedt.modernfix.duck.ITimeTrackingServer" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-export interface $ITimeTrackingServer$$Interface {
-
-(): long
-}
-
-export class $ITimeTrackingServer implements $ITimeTrackingServer$$Interface {
- "mfix$getLastTickStartTime"(): long
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ITimeTrackingServer$$Type = (() => long);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ITimeTrackingServer$$Original = $ITimeTrackingServer;}

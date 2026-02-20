@@ -10,7 +10,8 @@
     "pull": "node scripts/pull.js",
     "push": "node scripts/push.js",
     "status": "node scripts/status.js",
-    "extract-tags": "node scripts/extract-tags.js"
+    "extract-tags": "node scripts/extract-tags.js",
+    "deploy-local": "node scripts/deploy-local.js"
   },
   "dependencies": {
     "@kubejs/plugin": "^1.2.11",

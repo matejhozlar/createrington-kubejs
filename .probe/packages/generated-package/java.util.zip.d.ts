@@ -1,8 +1,8 @@
 declare module "java.util.zip.ZipEntry" {
 import {$LocalDateTime, $LocalDateTime$$Type} from "java.time.LocalDateTime"
 import {$Cloneable$$Interface} from "java.lang.Cloneable"
-import {$FileTime, $FileTime$$Type} from "java.nio.file.attribute.FileTime"
 import {$ZipConstants$$Interface} from "java.util.zip.ZipConstants"
+import {$FileTime, $FileTime$$Type} from "java.nio.file.attribute.FileTime"
 
 /**
  * This class is not allowed By KubeJS!
@@ -99,8 +99,8 @@ export type $ZipConstants$$Type = ($ZipConstants);
  */
 export type $ZipConstants$$Original = $ZipConstants;}
 declare module "java.util.zip.ZipFile" {
-import {$File$$Type} from "java.io.File"
 import {$Charset$$Type} from "java.nio.charset.Charset"
+import {$File$$Type} from "java.io.File"
 import {$Closeable$$Interface} from "java.io.Closeable"
 import {$InputStream} from "java.io.InputStream"
 import {$Stream} from "java.util.stream.Stream"

@@ -48,48 +48,6 @@ export type $Stream$Builder$$Type<T> = ($Stream$Builder<(T)>);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $Stream$Builder$$Original<T> = $Stream$Builder<(T)>;}
-declare module "java.util.stream.Collector$Characteristics" {
-import {$Enum} from "java.lang.Enum"
-
-export class $Collector$Characteristics extends $Enum<($Collector$Characteristics)> {
-static readonly "IDENTITY_FINISH": $Collector$Characteristics
-static readonly "UNORDERED": $Collector$Characteristics
-static readonly "CONCURRENT": $Collector$Characteristics
-
-public static "values"(): ($Collector$Characteristics)[]
-public static "valueOf"(arg0: StringJS): $Collector$Characteristics
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Collector$Characteristics$$Type = (("concurrent") | ("unordered") | ("identity_finish"));
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Collector$Characteristics$$Original = $Collector$Characteristics;}
-declare module "java.util.stream.DoubleStream$Builder" {
-import {$DoubleConsumer, $DoubleConsumer$$Type, $DoubleConsumer$$Interface} from "java.util.function.DoubleConsumer"
-import {$DoubleStream} from "java.util.stream.DoubleStream"
-
-export interface $DoubleStream$Builder$$Interface extends $DoubleConsumer$$Interface {
-}
-
-export class $DoubleStream$Builder implements $DoubleStream$Builder$$Interface {
- "add"(arg0: double): $DoubleStream$Builder
- "accept"(arg0: double): void
- "build"(): $DoubleStream
- "andThen"(arg0: $DoubleConsumer$$Type): $DoubleConsumer
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $DoubleStream$Builder$$Type = ($DoubleStream$Builder);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $DoubleStream$Builder$$Original = $DoubleStream$Builder;}
 declare module "java.util.stream.LongStream" {
 import {$LongPredicate$$Type} from "java.util.function.LongPredicate"
 import {$LongStream$LongMapMultiConsumer$$Type} from "java.util.stream.LongStream$LongMapMultiConsumer"
@@ -105,11 +63,11 @@ import {$LongUnaryOperator$$Type} from "java.util.function.LongUnaryOperator"
 import {$LongSupplier$$Type} from "java.util.function.LongSupplier"
 import {$LongToDoubleFunction$$Type} from "java.util.function.LongToDoubleFunction"
 import {$LongConsumer$$Type} from "java.util.function.LongConsumer"
-import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$PrimitiveIterator$OfLong} from "java.util.PrimitiveIterator$OfLong"
+import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
-import {$LongSummaryStatistics} from "java.util.LongSummaryStatistics"
 import {$LongBinaryOperator$$Type} from "java.util.function.LongBinaryOperator"
+import {$LongSummaryStatistics} from "java.util.LongSummaryStatistics"
 import {$Stream} from "java.util.stream.Stream"
 import {$DoubleStream} from "java.util.stream.DoubleStream"
 import {$LongStream$Builder} from "java.util.stream.LongStream$Builder"
@@ -180,11 +138,270 @@ export type $LongStream$$Type = ($LongStream);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $LongStream$$Original = $LongStream;}
+declare module "java.util.stream.IntStream" {
+import {$BaseStream, $BaseStream$$Interface} from "java.util.stream.BaseStream"
+import {$OptionalDouble} from "java.util.OptionalDouble"
+import {$LongStream} from "java.util.stream.LongStream"
+import {$PrimitiveIterator$OfInt} from "java.util.PrimitiveIterator$OfInt"
+import {$Runnable$$Type} from "java.lang.Runnable"
+import {$IntPredicate$$Type} from "java.util.function.IntPredicate"
+import {$IntBinaryOperator$$Type} from "java.util.function.IntBinaryOperator"
+import {$IntFunction$$Type} from "java.util.function.IntFunction"
+import {$IntStream$Builder} from "java.util.stream.IntStream$Builder"
+import {$IntSupplier$$Type} from "java.util.function.IntSupplier"
+import {$IntUnaryOperator$$Type} from "java.util.function.IntUnaryOperator"
+import {$IntToLongFunction$$Type} from "java.util.function.IntToLongFunction"
+import {$OptionalInt} from "java.util.OptionalInt"
+import {$IntStream$IntMapMultiConsumer$$Type} from "java.util.stream.IntStream$IntMapMultiConsumer"
+import {$Spliterator$OfInt} from "java.util.Spliterator$OfInt"
+import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$IntConsumer$$Type} from "java.util.function.IntConsumer"
+import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
+import {$IntSummaryStatistics} from "java.util.IntSummaryStatistics"
+import {$ObjIntConsumer$$Type} from "java.util.function.ObjIntConsumer"
+import {$IntToDoubleFunction$$Type} from "java.util.function.IntToDoubleFunction"
+import {$Stream} from "java.util.stream.Stream"
+import {$DoubleStream} from "java.util.stream.DoubleStream"
+
+export interface $IntStream$$Interface extends $BaseStream$$Interface<(integer), ($IntStream)> {
+}
+
+export class $IntStream implements $IntStream$$Interface {
+ "average"(): $OptionalDouble
+ "summaryStatistics"(): $IntSummaryStatistics
+ "asLongStream"(): $LongStream
+ "asDoubleStream"(): $DoubleStream
+ "min"(): $OptionalInt
+ "max"(): $OptionalInt
+ "toArray"(): (integer)[]
+ "iterator"(): $PrimitiveIterator$OfInt
+ "map"(arg0: $IntUnaryOperator$$Type): $IntStream
+ "collect"<R>(arg0: $Supplier$$Type<(R)>, arg1: $ObjIntConsumer$$Type<(R)>, arg2: $BiConsumer$$Type<(R), (R)>): R
+static "of"(...arg0: (integer)[]): $IntStream
+static "of"(arg0: integer): $IntStream
+ "count"(): long
+static "builder"(): $IntStream$Builder
+static "concat"(arg0: $IntStream$$Type, arg1: $IntStream$$Type): $IntStream
+ "limit"(arg0: long): $IntStream
+ "spliterator"(): $Spliterator$OfInt
+ "filter"(arg0: $IntPredicate$$Type): $IntStream
+static "empty"(): $IntStream
+ "anyMatch"(arg0: $IntPredicate$$Type): boolean
+ "flatMap"(arg0: $IntFunction$$Type<($IntStream$$Type)>): $IntStream
+ "forEach"(arg0: $IntConsumer$$Type): void
+ "findAny"(): $OptionalInt
+ "skip"(arg0: long): $IntStream
+ "peek"(arg0: $IntConsumer$$Type): $IntStream
+ "sum"(): integer
+ "reduce"(arg0: $IntBinaryOperator$$Type): $OptionalInt
+ "reduce"(arg0: integer, arg1: $IntBinaryOperator$$Type): integer
+static "range"(arg0: integer, arg1: integer): $IntStream
+ "parallel"(): $BaseStream
+static "iterate"(arg0: integer, arg1: $IntUnaryOperator$$Type): $IntStream
+static "iterate"(arg0: integer, arg1: $IntPredicate$$Type, arg2: $IntUnaryOperator$$Type): $IntStream
+ "distinct"(): $IntStream
+ "findFirst"(): $OptionalInt
+ "allMatch"(arg0: $IntPredicate$$Type): boolean
+ "noneMatch"(arg0: $IntPredicate$$Type): boolean
+ "mapToObj"<U>(arg0: $IntFunction$$Type<(U)>): $Stream<(U)>
+ "sorted"(): $IntStream
+static "generate"(arg0: $IntSupplier$$Type): $IntStream
+static "rangeClosed"(arg0: integer, arg1: integer): $IntStream
+ "sequential"(): $IntStream
+ "forEachOrdered"(arg0: $IntConsumer$$Type): void
+ "boxed"(): $Stream<(integer)>
+ "mapToLong"(arg0: $IntToLongFunction$$Type): $LongStream
+ "mapToDouble"(arg0: $IntToDoubleFunction$$Type): $DoubleStream
+ "mapMulti"(arg0: $IntStream$IntMapMultiConsumer$$Type): $IntStream
+ "takeWhile"(arg0: $IntPredicate$$Type): $IntStream
+ "dropWhile"(arg0: $IntPredicate$$Type): $IntStream
+ "close"(): void
+ "onClose"(arg0: $Runnable$$Type): $IntStream
+ "isParallel"(): boolean
+ "unordered"(): $IntStream
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $IntStream$$Type = ($IntStream);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $IntStream$$Original = $IntStream;}
+declare module "java.util.stream.IntStream$IntMapMultiConsumer" {
+import {$IntConsumer, $IntConsumer$$Type} from "java.util.function.IntConsumer"
+
+export interface $IntStream$IntMapMultiConsumer$$Interface {
+
+(arg0: integer, arg1: $IntConsumer): void
+}
+
+export class $IntStream$IntMapMultiConsumer implements $IntStream$IntMapMultiConsumer$$Interface {
+ "accept"(arg0: integer, arg1: $IntConsumer$$Type): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $IntStream$IntMapMultiConsumer$$Type = ((arg0: integer, arg1: $IntConsumer) => void);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $IntStream$IntMapMultiConsumer$$Original = $IntStream$IntMapMultiConsumer;}
+declare module "java.util.stream.LongStream$LongMapMultiConsumer" {
+import {$LongConsumer, $LongConsumer$$Type} from "java.util.function.LongConsumer"
+
+export interface $LongStream$LongMapMultiConsumer$$Interface {
+
+(arg0: long, arg1: $LongConsumer): void
+}
+
+export class $LongStream$LongMapMultiConsumer implements $LongStream$LongMapMultiConsumer$$Interface {
+ "accept"(arg0: long, arg1: $LongConsumer$$Type): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $LongStream$LongMapMultiConsumer$$Type = ((arg0: long, arg1: $LongConsumer) => void);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $LongStream$LongMapMultiConsumer$$Original = $LongStream$LongMapMultiConsumer;}
+declare module "java.util.stream.DoubleStream" {
+import {$DoubleStream$Builder} from "java.util.stream.DoubleStream$Builder"
+import {$DoubleUnaryOperator$$Type} from "java.util.function.DoubleUnaryOperator"
+import {$DoubleStream$DoubleMapMultiConsumer$$Type} from "java.util.stream.DoubleStream$DoubleMapMultiConsumer"
+import {$IntStream} from "java.util.stream.IntStream"
+import {$BaseStream, $BaseStream$$Interface} from "java.util.stream.BaseStream"
+import {$OptionalDouble} from "java.util.OptionalDouble"
+import {$LongStream} from "java.util.stream.LongStream"
+import {$Runnable$$Type} from "java.lang.Runnable"
+import {$PrimitiveIterator$OfDouble} from "java.util.PrimitiveIterator$OfDouble"
+import {$DoubleBinaryOperator$$Type} from "java.util.function.DoubleBinaryOperator"
+import {$DoubleConsumer$$Type} from "java.util.function.DoubleConsumer"
+import {$DoubleSupplier$$Type} from "java.util.function.DoubleSupplier"
+import {$DoubleToIntFunction$$Type} from "java.util.function.DoubleToIntFunction"
+import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
+import {$ObjDoubleConsumer$$Type} from "java.util.function.ObjDoubleConsumer"
+import {$DoubleFunction$$Type} from "java.util.function.DoubleFunction"
+import {$Spliterator$OfDouble} from "java.util.Spliterator$OfDouble"
+import {$DoubleSummaryStatistics} from "java.util.DoubleSummaryStatistics"
+import {$Stream} from "java.util.stream.Stream"
+import {$DoublePredicate$$Type} from "java.util.function.DoublePredicate"
+import {$DoubleToLongFunction$$Type} from "java.util.function.DoubleToLongFunction"
+
+export interface $DoubleStream$$Interface extends $BaseStream$$Interface<(double), ($DoubleStream)> {
+}
+
+export class $DoubleStream implements $DoubleStream$$Interface {
+ "average"(): $OptionalDouble
+ "summaryStatistics"(): $DoubleSummaryStatistics
+ "min"(): $OptionalDouble
+ "max"(): $OptionalDouble
+ "toArray"(): (double)[]
+ "iterator"(): $PrimitiveIterator$OfDouble
+ "map"(arg0: $DoubleUnaryOperator$$Type): $DoubleStream
+ "collect"<R>(arg0: $Supplier$$Type<(R)>, arg1: $ObjDoubleConsumer$$Type<(R)>, arg2: $BiConsumer$$Type<(R), (R)>): R
+static "of"(arg0: double): $DoubleStream
+static "of"(...arg0: (double)[]): $DoubleStream
+ "count"(): long
+static "builder"(): $DoubleStream$Builder
+static "concat"(arg0: $DoubleStream$$Type, arg1: $DoubleStream$$Type): $DoubleStream
+ "limit"(arg0: long): $DoubleStream
+ "spliterator"(): $Spliterator$OfDouble
+ "filter"(arg0: $DoublePredicate$$Type): $DoubleStream
+static "empty"(): $DoubleStream
+ "anyMatch"(arg0: $DoublePredicate$$Type): boolean
+ "flatMap"(arg0: $DoubleFunction$$Type<($DoubleStream$$Type)>): $DoubleStream
+ "forEach"(arg0: $DoubleConsumer$$Type): void
+ "findAny"(): $OptionalDouble
+ "skip"(arg0: long): $DoubleStream
+ "peek"(arg0: $DoubleConsumer$$Type): $DoubleStream
+ "sum"(): double
+ "reduce"(arg0: $DoubleBinaryOperator$$Type): $OptionalDouble
+ "reduce"(arg0: double, arg1: $DoubleBinaryOperator$$Type): double
+ "parallel"(): $DoubleStream
+static "iterate"(arg0: double, arg1: $DoubleUnaryOperator$$Type): $DoubleStream
+static "iterate"(arg0: double, arg1: $DoublePredicate$$Type, arg2: $DoubleUnaryOperator$$Type): $DoubleStream
+ "distinct"(): $DoubleStream
+ "findFirst"(): $OptionalDouble
+ "allMatch"(arg0: $DoublePredicate$$Type): boolean
+ "noneMatch"(arg0: $DoublePredicate$$Type): boolean
+ "mapToObj"<U>(arg0: $DoubleFunction$$Type<(U)>): $Stream<(U)>
+ "sorted"(): $DoubleStream
+static "generate"(arg0: $DoubleSupplier$$Type): $DoubleStream
+ "sequential"(): $BaseStream
+ "forEachOrdered"(arg0: $DoubleConsumer$$Type): void
+ "boxed"(): $Stream<(double)>
+ "mapToInt"(arg0: $DoubleToIntFunction$$Type): $IntStream
+ "mapToLong"(arg0: $DoubleToLongFunction$$Type): $LongStream
+ "mapMulti"(arg0: $DoubleStream$DoubleMapMultiConsumer$$Type): $DoubleStream
+ "takeWhile"(arg0: $DoublePredicate$$Type): $DoubleStream
+ "dropWhile"(arg0: $DoublePredicate$$Type): $DoubleStream
+ "close"(): void
+ "onClose"(arg0: $Runnable$$Type): $DoubleStream
+ "isParallel"(): boolean
+ "unordered"(): $DoubleStream
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $DoubleStream$$Type = ($DoubleStream);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $DoubleStream$$Original = $DoubleStream;}
+declare module "java.util.stream.Collector$Characteristics" {
+import {$Enum} from "java.lang.Enum"
+
+export class $Collector$Characteristics extends $Enum<($Collector$Characteristics)> {
+static readonly "IDENTITY_FINISH": $Collector$Characteristics
+static readonly "UNORDERED": $Collector$Characteristics
+static readonly "CONCURRENT": $Collector$Characteristics
+
+public static "values"(): ($Collector$Characteristics)[]
+public static "valueOf"(arg0: StringJS): $Collector$Characteristics
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Collector$Characteristics$$Type = (("concurrent") | ("unordered") | ("identity_finish"));
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Collector$Characteristics$$Original = $Collector$Characteristics;}
+declare module "java.util.stream.DoubleStream$Builder" {
+import {$DoubleConsumer, $DoubleConsumer$$Type, $DoubleConsumer$$Interface} from "java.util.function.DoubleConsumer"
+import {$DoubleStream} from "java.util.stream.DoubleStream"
+
+export interface $DoubleStream$Builder$$Interface extends $DoubleConsumer$$Interface {
+}
+
+export class $DoubleStream$Builder implements $DoubleStream$Builder$$Interface {
+ "add"(arg0: double): $DoubleStream$Builder
+ "accept"(arg0: double): void
+ "build"(): $DoubleStream
+ "andThen"(arg0: $DoubleConsumer$$Type): $DoubleConsumer
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $DoubleStream$Builder$$Type = ($DoubleStream$Builder);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $DoubleStream$Builder$$Original = $DoubleStream$Builder;}
 declare module "java.util.stream.Stream" {
 import {$ToDoubleFunction$$Type} from "java.util.function.ToDoubleFunction"
 import {$Optional} from "java.util.Optional"
-import {$BaseStream$$Interface} from "java.util.stream.BaseStream"
 import {$Spliterator} from "java.util.Spliterator"
+import {$BaseStream$$Interface} from "java.util.stream.BaseStream"
 import {$Stream$Builder} from "java.util.stream.Stream$Builder"
 import {$List} from "java.util.List"
 import {$BinaryOperator$$Type} from "java.util.function.BinaryOperator"
@@ -192,9 +409,9 @@ import {$Runnable$$Type} from "java.lang.Runnable"
 import {$IntFunction$$Type} from "java.util.function.IntFunction"
 import {$ToLongFunction$$Type} from "java.util.function.ToLongFunction"
 import {$LongConsumer$$Type} from "java.util.function.LongConsumer"
+import {$Function$$Type} from "java.util.function.Function"
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$IntConsumer$$Type} from "java.util.function.IntConsumer"
-import {$Function$$Type} from "java.util.function.Function"
 import {$Collector$$Type} from "java.util.stream.Collector"
 import {$Iterator} from "java.util.Iterator"
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
@@ -299,117 +516,6 @@ export type $DoubleStream$DoubleMapMultiConsumer$$Type = ((arg0: double, arg1: $
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $DoubleStream$DoubleMapMultiConsumer$$Original = $DoubleStream$DoubleMapMultiConsumer;}
-declare module "java.util.stream.IntStream" {
-import {$BaseStream, $BaseStream$$Interface} from "java.util.stream.BaseStream"
-import {$OptionalDouble} from "java.util.OptionalDouble"
-import {$LongStream} from "java.util.stream.LongStream"
-import {$PrimitiveIterator$OfInt} from "java.util.PrimitiveIterator$OfInt"
-import {$Runnable$$Type} from "java.lang.Runnable"
-import {$IntPredicate$$Type} from "java.util.function.IntPredicate"
-import {$IntBinaryOperator$$Type} from "java.util.function.IntBinaryOperator"
-import {$IntSupplier$$Type} from "java.util.function.IntSupplier"
-import {$IntStream$Builder} from "java.util.stream.IntStream$Builder"
-import {$IntFunction$$Type} from "java.util.function.IntFunction"
-import {$IntUnaryOperator$$Type} from "java.util.function.IntUnaryOperator"
-import {$IntToLongFunction$$Type} from "java.util.function.IntToLongFunction"
-import {$OptionalInt} from "java.util.OptionalInt"
-import {$IntStream$IntMapMultiConsumer$$Type} from "java.util.stream.IntStream$IntMapMultiConsumer"
-import {$Supplier$$Type} from "java.util.function.Supplier"
-import {$IntConsumer$$Type} from "java.util.function.IntConsumer"
-import {$Spliterator$OfInt} from "java.util.Spliterator$OfInt"
-import {$IntSummaryStatistics} from "java.util.IntSummaryStatistics"
-import {$ObjIntConsumer$$Type} from "java.util.function.ObjIntConsumer"
-import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
-import {$IntToDoubleFunction$$Type} from "java.util.function.IntToDoubleFunction"
-import {$Stream} from "java.util.stream.Stream"
-import {$DoubleStream} from "java.util.stream.DoubleStream"
-
-export interface $IntStream$$Interface extends $BaseStream$$Interface<(integer), ($IntStream)> {
-}
-
-export class $IntStream implements $IntStream$$Interface {
- "average"(): $OptionalDouble
- "summaryStatistics"(): $IntSummaryStatistics
- "asLongStream"(): $LongStream
- "asDoubleStream"(): $DoubleStream
- "min"(): $OptionalInt
- "max"(): $OptionalInt
- "toArray"(): (integer)[]
- "iterator"(): $PrimitiveIterator$OfInt
- "map"(arg0: $IntUnaryOperator$$Type): $IntStream
- "collect"<R>(arg0: $Supplier$$Type<(R)>, arg1: $ObjIntConsumer$$Type<(R)>, arg2: $BiConsumer$$Type<(R), (R)>): R
-static "of"(...arg0: (integer)[]): $IntStream
-static "of"(arg0: integer): $IntStream
- "count"(): long
-static "builder"(): $IntStream$Builder
-static "concat"(arg0: $IntStream$$Type, arg1: $IntStream$$Type): $IntStream
- "limit"(arg0: long): $IntStream
- "spliterator"(): $Spliterator$OfInt
- "filter"(arg0: $IntPredicate$$Type): $IntStream
-static "empty"(): $IntStream
- "anyMatch"(arg0: $IntPredicate$$Type): boolean
- "flatMap"(arg0: $IntFunction$$Type<($IntStream$$Type)>): $IntStream
- "forEach"(arg0: $IntConsumer$$Type): void
- "findAny"(): $OptionalInt
- "skip"(arg0: long): $IntStream
- "peek"(arg0: $IntConsumer$$Type): $IntStream
- "sum"(): integer
- "reduce"(arg0: $IntBinaryOperator$$Type): $OptionalInt
- "reduce"(arg0: integer, arg1: $IntBinaryOperator$$Type): integer
-static "range"(arg0: integer, arg1: integer): $IntStream
- "parallel"(): $BaseStream
-static "iterate"(arg0: integer, arg1: $IntUnaryOperator$$Type): $IntStream
-static "iterate"(arg0: integer, arg1: $IntPredicate$$Type, arg2: $IntUnaryOperator$$Type): $IntStream
- "distinct"(): $IntStream
- "findFirst"(): $OptionalInt
- "allMatch"(arg0: $IntPredicate$$Type): boolean
- "noneMatch"(arg0: $IntPredicate$$Type): boolean
- "mapToObj"<U>(arg0: $IntFunction$$Type<(U)>): $Stream<(U)>
- "sorted"(): $IntStream
-static "generate"(arg0: $IntSupplier$$Type): $IntStream
-static "rangeClosed"(arg0: integer, arg1: integer): $IntStream
- "sequential"(): $IntStream
- "forEachOrdered"(arg0: $IntConsumer$$Type): void
- "boxed"(): $Stream<(integer)>
- "mapToLong"(arg0: $IntToLongFunction$$Type): $LongStream
- "mapToDouble"(arg0: $IntToDoubleFunction$$Type): $DoubleStream
- "mapMulti"(arg0: $IntStream$IntMapMultiConsumer$$Type): $IntStream
- "takeWhile"(arg0: $IntPredicate$$Type): $IntStream
- "dropWhile"(arg0: $IntPredicate$$Type): $IntStream
- "close"(): void
- "onClose"(arg0: $Runnable$$Type): $IntStream
- "isParallel"(): boolean
- "unordered"(): $IntStream
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $IntStream$$Type = ($IntStream);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $IntStream$$Original = $IntStream;}
-declare module "java.util.stream.IntStream$IntMapMultiConsumer" {
-import {$IntConsumer, $IntConsumer$$Type} from "java.util.function.IntConsumer"
-
-export interface $IntStream$IntMapMultiConsumer$$Interface {
-
-(arg0: integer, arg1: $IntConsumer): void
-}
-
-export class $IntStream$IntMapMultiConsumer implements $IntStream$IntMapMultiConsumer$$Interface {
- "accept"(arg0: integer, arg1: $IntConsumer$$Type): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $IntStream$IntMapMultiConsumer$$Type = ((arg0: integer, arg1: $IntConsumer) => void);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $IntStream$IntMapMultiConsumer$$Original = $IntStream$IntMapMultiConsumer;}
 declare module "java.util.stream.LongStream$Builder" {
 import {$LongConsumer, $LongConsumer$$Type, $LongConsumer$$Interface} from "java.util.function.LongConsumer"
 import {$LongStream} from "java.util.stream.LongStream"
@@ -432,26 +538,6 @@ export type $LongStream$Builder$$Type = ($LongStream$Builder);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $LongStream$Builder$$Original = $LongStream$Builder;}
-declare module "java.util.stream.LongStream$LongMapMultiConsumer" {
-import {$LongConsumer, $LongConsumer$$Type} from "java.util.function.LongConsumer"
-
-export interface $LongStream$LongMapMultiConsumer$$Interface {
-
-(arg0: long, arg1: $LongConsumer): void
-}
-
-export class $LongStream$LongMapMultiConsumer implements $LongStream$LongMapMultiConsumer$$Interface {
- "accept"(arg0: long, arg1: $LongConsumer$$Type): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $LongStream$LongMapMultiConsumer$$Type = ((arg0: long, arg1: $LongConsumer) => void);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $LongStream$LongMapMultiConsumer$$Original = $LongStream$LongMapMultiConsumer;}
 declare module "java.util.stream.IntStream$Builder" {
 import {$IntStream} from "java.util.stream.IntStream"
 import {$IntConsumer, $IntConsumer$$Type, $IntConsumer$$Interface} from "java.util.function.IntConsumer"
@@ -474,92 +560,6 @@ export type $IntStream$Builder$$Type = ($IntStream$Builder);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $IntStream$Builder$$Original = $IntStream$Builder;}
-declare module "java.util.stream.DoubleStream" {
-import {$DoubleStream$Builder} from "java.util.stream.DoubleStream$Builder"
-import {$DoubleUnaryOperator$$Type} from "java.util.function.DoubleUnaryOperator"
-import {$DoubleStream$DoubleMapMultiConsumer$$Type} from "java.util.stream.DoubleStream$DoubleMapMultiConsumer"
-import {$IntStream} from "java.util.stream.IntStream"
-import {$BaseStream, $BaseStream$$Interface} from "java.util.stream.BaseStream"
-import {$OptionalDouble} from "java.util.OptionalDouble"
-import {$LongStream} from "java.util.stream.LongStream"
-import {$Runnable$$Type} from "java.lang.Runnable"
-import {$PrimitiveIterator$OfDouble} from "java.util.PrimitiveIterator$OfDouble"
-import {$DoubleBinaryOperator$$Type} from "java.util.function.DoubleBinaryOperator"
-import {$DoubleConsumer$$Type} from "java.util.function.DoubleConsumer"
-import {$DoubleSupplier$$Type} from "java.util.function.DoubleSupplier"
-import {$DoubleToIntFunction$$Type} from "java.util.function.DoubleToIntFunction"
-import {$Supplier$$Type} from "java.util.function.Supplier"
-import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
-import {$ObjDoubleConsumer$$Type} from "java.util.function.ObjDoubleConsumer"
-import {$Spliterator$OfDouble} from "java.util.Spliterator$OfDouble"
-import {$DoubleFunction$$Type} from "java.util.function.DoubleFunction"
-import {$DoubleSummaryStatistics} from "java.util.DoubleSummaryStatistics"
-import {$Stream} from "java.util.stream.Stream"
-import {$DoublePredicate$$Type} from "java.util.function.DoublePredicate"
-import {$DoubleToLongFunction$$Type} from "java.util.function.DoubleToLongFunction"
-
-export interface $DoubleStream$$Interface extends $BaseStream$$Interface<(double), ($DoubleStream)> {
-}
-
-export class $DoubleStream implements $DoubleStream$$Interface {
- "average"(): $OptionalDouble
- "summaryStatistics"(): $DoubleSummaryStatistics
- "min"(): $OptionalDouble
- "max"(): $OptionalDouble
- "toArray"(): (double)[]
- "iterator"(): $PrimitiveIterator$OfDouble
- "map"(arg0: $DoubleUnaryOperator$$Type): $DoubleStream
- "collect"<R>(arg0: $Supplier$$Type<(R)>, arg1: $ObjDoubleConsumer$$Type<(R)>, arg2: $BiConsumer$$Type<(R), (R)>): R
-static "of"(arg0: double): $DoubleStream
-static "of"(...arg0: (double)[]): $DoubleStream
- "count"(): long
-static "builder"(): $DoubleStream$Builder
-static "concat"(arg0: $DoubleStream$$Type, arg1: $DoubleStream$$Type): $DoubleStream
- "limit"(arg0: long): $DoubleStream
- "spliterator"(): $Spliterator$OfDouble
- "filter"(arg0: $DoublePredicate$$Type): $DoubleStream
-static "empty"(): $DoubleStream
- "anyMatch"(arg0: $DoublePredicate$$Type): boolean
- "flatMap"(arg0: $DoubleFunction$$Type<($DoubleStream$$Type)>): $DoubleStream
- "forEach"(arg0: $DoubleConsumer$$Type): void
- "findAny"(): $OptionalDouble
- "skip"(arg0: long): $DoubleStream
- "peek"(arg0: $DoubleConsumer$$Type): $DoubleStream
- "sum"(): double
- "reduce"(arg0: $DoubleBinaryOperator$$Type): $OptionalDouble
- "reduce"(arg0: double, arg1: $DoubleBinaryOperator$$Type): double
- "parallel"(): $DoubleStream
-static "iterate"(arg0: double, arg1: $DoubleUnaryOperator$$Type): $DoubleStream
-static "iterate"(arg0: double, arg1: $DoublePredicate$$Type, arg2: $DoubleUnaryOperator$$Type): $DoubleStream
- "distinct"(): $DoubleStream
- "findFirst"(): $OptionalDouble
- "allMatch"(arg0: $DoublePredicate$$Type): boolean
- "noneMatch"(arg0: $DoublePredicate$$Type): boolean
- "mapToObj"<U>(arg0: $DoubleFunction$$Type<(U)>): $Stream<(U)>
- "sorted"(): $DoubleStream
-static "generate"(arg0: $DoubleSupplier$$Type): $DoubleStream
- "sequential"(): $BaseStream
- "forEachOrdered"(arg0: $DoubleConsumer$$Type): void
- "boxed"(): $Stream<(double)>
- "mapToInt"(arg0: $DoubleToIntFunction$$Type): $IntStream
- "mapToLong"(arg0: $DoubleToLongFunction$$Type): $LongStream
- "mapMulti"(arg0: $DoubleStream$DoubleMapMultiConsumer$$Type): $DoubleStream
- "takeWhile"(arg0: $DoublePredicate$$Type): $DoubleStream
- "dropWhile"(arg0: $DoublePredicate$$Type): $DoubleStream
- "close"(): void
- "onClose"(arg0: $Runnable$$Type): $DoubleStream
- "isParallel"(): boolean
- "unordered"(): $DoubleStream
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $DoubleStream$$Type = ($DoubleStream);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $DoubleStream$$Original = $DoubleStream;}
 declare module "java.util.stream.Collector" {
 import {$Function, $Function$$Type} from "java.util.function.Function"
 import {$Supplier, $Supplier$$Type} from "java.util.function.Supplier"

@@ -26,8 +26,8 @@ export interface $EntityTypeExtension$$Interface<T extends $Entity> {
 }
 
 export class $EntityTypeExtension<T extends $Entity> implements $EntityTypeExtension$$Interface {
- "flywheel$getVisualizer"(): $EntityVisualizer<(T)>
  "flywheel$setVisualizer"(arg0: $EntityVisualizer$$Type<(T)>): void
+ "flywheel$getVisualizer"(): $EntityVisualizer<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -46,8 +46,8 @@ export interface $BlockEntityTypeExtension$$Interface<T extends $BlockEntity> {
 }
 
 export class $BlockEntityTypeExtension<T extends $BlockEntity> implements $BlockEntityTypeExtension$$Interface {
- "flywheel$getVisualizer"(): $BlockEntityVisualizer<(T)>
  "flywheel$setVisualizer"(arg0: $BlockEntityVisualizer$$Type<(T)>): void
+ "flywheel$getVisualizer"(): $BlockEntityVisualizer<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

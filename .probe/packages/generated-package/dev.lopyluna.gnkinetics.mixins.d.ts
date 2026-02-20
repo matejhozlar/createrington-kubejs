@@ -17,6 +17,24 @@ export type $KineticEffectHandlerAccessor$$Type = (() => float);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $KineticEffectHandlerAccessor$$Original = $KineticEffectHandlerAccessor;}
+declare module "dev.lopyluna.gnkinetics.mixins.ServerGamePacketListenerImplAccessor" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export interface $ServerGamePacketListenerImplAccessor$$Interface {
+}
+
+export class $ServerGamePacketListenerImplAccessor implements $ServerGamePacketListenerImplAccessor$$Interface {
+ "aboveGroundVehicleTickCount"(arg0: integer): void
+ "aboveGroundTickCount"(arg0: integer): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ServerGamePacketListenerImplAccessor$$Type = ($ServerGamePacketListenerImplAccessor);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ServerGamePacketListenerImplAccessor$$Original = $ServerGamePacketListenerImplAccessor;}
 declare module "dev.lopyluna.gnkinetics.mixins.KineticBlockEntityAccessor" {
 import {$KineticEffectHandler, $KineticEffectHandler$$Type} from "com.simibubi.create.content.kinetics.base.KineticEffectHandler"
 
@@ -37,21 +55,3 @@ export type $KineticBlockEntityAccessor$$Type = (() => $KineticEffectHandler$$Ty
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $KineticBlockEntityAccessor$$Original = $KineticBlockEntityAccessor;}
-declare module "dev.lopyluna.gnkinetics.mixins.ServerGamePacketListenerImplAccessor" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-export interface $ServerGamePacketListenerImplAccessor$$Interface {
-}
-
-export class $ServerGamePacketListenerImplAccessor implements $ServerGamePacketListenerImplAccessor$$Interface {
- "aboveGroundVehicleTickCount"(arg0: integer): void
- "aboveGroundTickCount"(arg0: integer): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ServerGamePacketListenerImplAccessor$$Type = ($ServerGamePacketListenerImplAccessor);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ServerGamePacketListenerImplAccessor$$Original = $ServerGamePacketListenerImplAccessor;}

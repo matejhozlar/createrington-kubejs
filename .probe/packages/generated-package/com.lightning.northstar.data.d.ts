@@ -37,10 +37,10 @@ export class $Mod implements $Mod$$Interface {
  "loc"(path: StringJS): $ResourceLocation
  "isLoaded"(): boolean
  "getItem"(id: StringJS): $Item
- "getModId"(): StringJS
  "getBlock"(id: StringJS): $Block
- "executeIfLoaded"(action: $Supplier$$Type<($Runnable$$Type)>): void
+ "getModId"(): StringJS
  "runIfLoaded"<T>(action: $Supplier$$Type<($Supplier$$Type<(T)>)>): $Optional<(T)>
+ "executeIfLoaded"(action: $Supplier$$Type<($Runnable$$Type)>): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

@@ -82,28 +82,6 @@ export type $InjectedBlockExtension$$Type = ($InjectedBlockExtension);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $InjectedBlockExtension$$Original = $InjectedBlockExtension;}
-declare module "dev.architectury.extensions.injected.InjectedFluidExtension" {
-import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
-import {$Fluid} from "net.minecraft.world.level.material.Fluid"
-import {$InjectedRegistryEntryExtension$$Interface} from "dev.architectury.extensions.injected.InjectedRegistryEntryExtension"
-import {$Holder} from "net.minecraft.core.Holder"
-
-export interface $InjectedFluidExtension$$Interface extends $InjectedRegistryEntryExtension$$Interface<($Fluid)> {
-}
-
-export class $InjectedFluidExtension implements $InjectedFluidExtension$$Interface {
- "arch$holder"(): $Holder<($Fluid)>
- "arch$registryName"(): $ResourceLocation
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $InjectedFluidExtension$$Type = ($InjectedFluidExtension);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $InjectedFluidExtension$$Original = $InjectedFluidExtension;}
 declare module "dev.architectury.extensions.injected.InjectedItemPropertiesExtension" {
 import {$CreativeModeTab$$Type} from "net.minecraft.world.item.CreativeModeTab"
 import {$Item$Properties} from "net.minecraft.world.item.Item$Properties"
@@ -149,3 +127,25 @@ export type $InjectedEntityTypeExtension$$Type = ($InjectedEntityTypeExtension);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $InjectedEntityTypeExtension$$Original = $InjectedEntityTypeExtension;}
+declare module "dev.architectury.extensions.injected.InjectedFluidExtension" {
+import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
+import {$Fluid} from "net.minecraft.world.level.material.Fluid"
+import {$InjectedRegistryEntryExtension$$Interface} from "dev.architectury.extensions.injected.InjectedRegistryEntryExtension"
+import {$Holder} from "net.minecraft.core.Holder"
+
+export interface $InjectedFluidExtension$$Interface extends $InjectedRegistryEntryExtension$$Interface<($Fluid)> {
+}
+
+export class $InjectedFluidExtension implements $InjectedFluidExtension$$Interface {
+ "arch$holder"(): $Holder<($Fluid)>
+ "arch$registryName"(): $ResourceLocation
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $InjectedFluidExtension$$Type = ($InjectedFluidExtension);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $InjectedFluidExtension$$Original = $InjectedFluidExtension;}

@@ -7,28 +7,28 @@ import {$SoundBuffer$$Type} from "com.mojang.blaze3d.audio.SoundBuffer"
 export class $Channel implements $ChannelAccessor$$Interface {
 static readonly "BUFFER_DURATION_SECONDS": integer
 
-public "playing"(): boolean
-public "pause"(): void
-public "setLooping"(arg0: boolean): void
 public "stop"(): void
 public "destroy"(): void
 public "getSource"(): integer
-public "setPitch"(arg0: float): void
-public "setVolume"(arg0: float): void
 public "stopped"(): boolean
-public "unpause"(): void
+public "pause"(): void
 public "play"(): void
+public "setVolume"(arg0: float): void
+public "setPitch"(arg0: float): void
+public "unpause"(): void
+public "playing"(): boolean
+public "setLooping"(arg0: boolean): void
 public "attachBufferStream"(arg0: $AudioStream$$Type): void
 public "linearAttenuation"(arg0: float): void
-public "disableAttenuation"(): void
 public "setSelfPosition"(arg0: $Vec3$$Type): void
 public "attachStaticBuffer"(arg0: $SoundBuffer$$Type): void
+public "disableAttenuation"(): void
 public "updateStream"(): void
 public "setRelative"(arg0: boolean): void
-set "looping"(value: boolean)
 get "source"(): integer
-set "pitch"(value: float)
 set "volume"(value: float)
+set "pitch"(value: float)
+set "looping"(value: boolean)
 set "selfPosition"(value: $Vec3$$Type)
 set "relative"(value: boolean)
 }
@@ -62,7 +62,7 @@ public "forward"(): $Vec3
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $ListenerTransform$$Type = ({"up"?: $Vec3$$Type, "forward"?: $Vec3$$Type, "position"?: $Vec3$$Type}) | ([up?: $Vec3$$Type, forward?: $Vec3$$Type, position?: $Vec3$$Type]);
+export type $ListenerTransform$$Type = ({"up"?: $Vec3$$Type, "position"?: $Vec3$$Type, "forward"?: $Vec3$$Type}) | ([up?: $Vec3$$Type, position?: $Vec3$$Type, forward?: $Vec3$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -117,21 +117,21 @@ constructor()
 
 public "init"(arg0: StringJS, arg1: boolean): void
 public "cleanup"(): void
-public "getAvailableSoundDevices"(): $List<(StringJS)>
 public "getListener"(): $Listener
+public "getAvailableSoundDevices"(): $List<(StringJS)>
 public "getDebugString"(): StringJS
 public "acquireChannel"(arg0: $Library$Pool$$Type): $Channel
 public "releaseChannel"(arg0: $Channel$$Type): void
-public "isCurrentDeviceDisconnected"(): boolean
-public static "getDefaultDeviceName"(): StringJS
 public "hasDefaultDeviceChanged"(): boolean
 public "getCurrentDeviceName"(): StringJS
-get "availableSoundDevices"(): $List<(StringJS)>
+public static "getDefaultDeviceName"(): StringJS
+public "isCurrentDeviceDisconnected"(): boolean
 get "listener"(): $Listener
+get "availableSoundDevices"(): $List<(StringJS)>
 get "debugString"(): StringJS
-get "currentDeviceDisconnected"(): boolean
-get "defaultDeviceName"(): StringJS
 get "currentDeviceName"(): StringJS
+get "defaultDeviceName"(): StringJS
+get "currentDeviceDisconnected"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

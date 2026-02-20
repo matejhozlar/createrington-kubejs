@@ -1,10 +1,184 @@
-declare module "net.fabricmc.loader.api.metadata.ModMetadata" {
-import {$ModDependency} from "net.fabricmc.loader.api.metadata.ModDependency"
-import {$ContactInformation} from "net.fabricmc.loader.api.metadata.ContactInformation"
+declare module "net.fabricmc.loader.api.metadata.ContactInformation" {
 import {$Map} from "java.util.Map"
-import {$Collection} from "java.util.Collection"
-import {$Person} from "net.fabricmc.loader.api.metadata.Person"
 import {$Optional} from "java.util.Optional"
+
+export interface $ContactInformation$$Interface {
+}
+
+export class $ContactInformation implements $ContactInformation$$Interface {
+static readonly "EMPTY": $ContactInformation
+
+ "get"(arg0: StringJS): $Optional<(StringJS)>
+ "asMap"(): $Map<(StringJS), (StringJS)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ContactInformation$$Type = ($ContactInformation);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ContactInformation$$Original = $ContactInformation;}
+declare module "net.fabricmc.loader.api.metadata.CustomValue$CvType" {
+import {$Enum} from "java.lang.Enum"
+
+export class $CustomValue$CvType extends $Enum<($CustomValue$CvType)> {
+static readonly "NUMBER": $CustomValue$CvType
+static readonly "ARRAY": $CustomValue$CvType
+static readonly "NULL": $CustomValue$CvType
+static readonly "STRING": $CustomValue$CvType
+static readonly "OBJECT": $CustomValue$CvType
+static readonly "BOOLEAN": $CustomValue$CvType
+
+public static "values"(): ($CustomValue$CvType)[]
+public static "valueOf"(name: StringJS): $CustomValue$CvType
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $CustomValue$CvType$$Type = (("object") | ("array") | ("string") | ("number") | ("boolean") | ("null"));
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $CustomValue$CvType$$Original = $CustomValue$CvType;}
+declare module "net.fabricmc.loader.api.metadata.ModEnvironment" {
+import {$EnvType$$Type} from "net.fabricmc.api.EnvType"
+import {$Enum} from "java.lang.Enum"
+
+export class $ModEnvironment extends $Enum<($ModEnvironment)> {
+static readonly "UNIVERSAL": $ModEnvironment
+static readonly "SERVER": $ModEnvironment
+static readonly "CLIENT": $ModEnvironment
+
+public static "values"(): ($ModEnvironment)[]
+public static "valueOf"(name: StringJS): $ModEnvironment
+public "matches"(type: $EnvType$$Type): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ModEnvironment$$Type = (("client") | ("server") | ("universal"));
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ModEnvironment$$Original = $ModEnvironment;}
+declare module "net.fabricmc.loader.api.metadata.version.VersionInterval" {
+import {$Collection$$Type} from "java.util.Collection"
+import {$List} from "java.util.List"
+import {$Version} from "net.fabricmc.loader.api.Version"
+
+export interface $VersionInterval$$Interface {
+get "min"(): $Version
+get "max"(): $Version
+get "minInclusive"(): boolean
+get "maxInclusive"(): boolean
+get "semantic"(): boolean
+}
+
+export class $VersionInterval implements $VersionInterval$$Interface {
+static readonly "INFINITE": $VersionInterval
+
+static "or"(a: $Collection$$Type<($VersionInterval$$Type)>, b: $VersionInterval$$Type): $List<($VersionInterval)>
+ "or"(o: $Collection$$Type<($VersionInterval$$Type)>): $List<($VersionInterval)>
+static "and"(a: $VersionInterval$$Type, b: $VersionInterval$$Type): $VersionInterval
+ "and"(o: $VersionInterval$$Type): $VersionInterval
+static "and"(a: $Collection$$Type<($VersionInterval$$Type)>, b: $Collection$$Type<($VersionInterval$$Type)>): $List<($VersionInterval)>
+static "not"(interval: $VersionInterval$$Type): $List<($VersionInterval)>
+static "not"(intervals: $Collection$$Type<($VersionInterval$$Type)>): $List<($VersionInterval)>
+ "not"(): $List<($VersionInterval)>
+ "getMin"(): $Version
+ "getMax"(): $Version
+ "isMinInclusive"(): boolean
+ "isMaxInclusive"(): boolean
+ "isSemantic"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $VersionInterval$$Type = ($VersionInterval);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $VersionInterval$$Original = $VersionInterval;}
+declare module "net.fabricmc.loader.api.Version" {
+import {$Comparable$$Interface} from "java.lang.Comparable"
+
+export interface $Version$$Interface extends $Comparable$$Interface<($Version)> {
+get "friendlyString"(): StringJS
+}
+
+export class $Version implements $Version$$Interface {
+static "parse"(string: StringJS): $Version
+ "getFriendlyString"(): StringJS
+ "compareTo"(arg0: $Version$$Type): integer
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Version$$Type = ($Version);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Version$$Original = $Version;}
+declare module "net.fabricmc.loader.api.metadata.ModOrigin" {
+import {$List} from "java.util.List"
+import {$ModOrigin$Kind} from "net.fabricmc.loader.api.metadata.ModOrigin$Kind"
+import {$Path} from "java.nio.file.Path"
+
+export interface $ModOrigin$$Interface {
+get "parentSubLocation"(): StringJS
+get "parentModId"(): StringJS
+get "kind"(): $ModOrigin$Kind
+get "paths"(): $List<($Path)>
+}
+
+export class $ModOrigin implements $ModOrigin$$Interface {
+ "getParentSubLocation"(): StringJS
+ "getParentModId"(): StringJS
+ "getKind"(): $ModOrigin$Kind
+ "getPaths"(): $List<($Path)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ModOrigin$$Type = ($ModOrigin);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ModOrigin$$Original = $ModOrigin;}
+declare module "net.fabricmc.loader.api.metadata.ModOrigin$Kind" {
+import {$Enum} from "java.lang.Enum"
+
+export class $ModOrigin$Kind extends $Enum<($ModOrigin$Kind)> {
+static readonly "PATH": $ModOrigin$Kind
+static readonly "NESTED": $ModOrigin$Kind
+static readonly "UNKNOWN": $ModOrigin$Kind
+
+public static "values"(): ($ModOrigin$Kind)[]
+public static "valueOf"(name: StringJS): $ModOrigin$Kind
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ModOrigin$Kind$$Type = (("path") | ("nested") | ("unknown"));
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ModOrigin$Kind$$Original = $ModOrigin$Kind;}
+declare module "net.fabricmc.loader.api.metadata.ModMetadata" {
+import {$ContactInformation} from "net.fabricmc.loader.api.metadata.ContactInformation"
+import {$ModDependency} from "net.fabricmc.loader.api.metadata.ModDependency"
+import {$Collection} from "java.util.Collection"
+import {$Map} from "java.util.Map"
+import {$Optional} from "java.util.Optional"
+import {$Person} from "net.fabricmc.loader.api.metadata.Person"
 import {$Version} from "net.fabricmc.loader.api.Version"
 import {$CustomValue} from "net.fabricmc.loader.api.metadata.CustomValue"
 import {$ModEnvironment} from "net.fabricmc.loader.api.metadata.ModEnvironment"
@@ -17,17 +191,17 @@ get "id"(): StringJS
 get "type"(): StringJS
 get "version"(): $Version
 get "license"(): $Collection<(StringJS)>
+get "depends"(): $Collection<($ModDependency)>
+get "breaks"(): $Collection<($ModDependency)>
+get "authors"(): $Collection<($Person)>
+get "contact"(): $ContactInformation
 get "dependencies"(): $Collection<($ModDependency)>
 get "customValues"(): $Map<(StringJS), ($CustomValue)>
 get "conflicts"(): $Collection<($ModDependency)>
-get "recommends"(): $Collection<($ModDependency)>
 get "provides"(): $Collection<(StringJS)>
+get "recommends"(): $Collection<($ModDependency)>
 get "suggests"(): $Collection<($ModDependency)>
 get "contributors"(): $Collection<($Person)>
-get "authors"(): $Collection<($Person)>
-get "contact"(): $ContactInformation
-get "depends"(): $Collection<($ModDependency)>
-get "breaks"(): $Collection<($ModDependency)>
 }
 
 export class $ModMetadata implements $ModMetadata$$Interface {
@@ -37,30 +211,13 @@ export class $ModMetadata implements $ModMetadata$$Interface {
  "getId"(): StringJS
  "getType"(): StringJS
  "getVersion"(): $Version
+ "containsCustomValue"(arg0: StringJS): boolean
+/**
+ * 
+ * @deprecated
+ */
+ "containsCustomElement"(arg0: StringJS): boolean
  "getLicense"(): $Collection<(StringJS)>
- "getDependencies"(): $Collection<($ModDependency)>
- "getCustomValues"(): $Map<(StringJS), ($CustomValue)>
-/**
- * 
- * @deprecated
- */
- "getConflicts"(): $Collection<($ModDependency)>
- "getCustomValue"(arg0: StringJS): $CustomValue
-/**
- * 
- * @deprecated
- */
- "getRecommends"(): $Collection<($ModDependency)>
- "getIconPath"(arg0: integer): $Optional<(StringJS)>
- "getProvides"(): $Collection<(StringJS)>
-/**
- * 
- * @deprecated
- */
- "getSuggests"(): $Collection<($ModDependency)>
- "getContributors"(): $Collection<($Person)>
- "getAuthors"(): $Collection<($Person)>
- "getContact"(): $ContactInformation
 /**
  * 
  * @deprecated
@@ -71,12 +228,29 @@ export class $ModMetadata implements $ModMetadata$$Interface {
  * @deprecated
  */
  "getBreaks"(): $Collection<($ModDependency)>
+ "getAuthors"(): $Collection<($Person)>
+ "getContact"(): $ContactInformation
+ "getDependencies"(): $Collection<($ModDependency)>
+ "getCustomValue"(arg0: StringJS): $CustomValue
+ "getIconPath"(arg0: integer): $Optional<(StringJS)>
+ "getCustomValues"(): $Map<(StringJS), ($CustomValue)>
 /**
  * 
  * @deprecated
  */
- "containsCustomElement"(arg0: StringJS): boolean
- "containsCustomValue"(arg0: StringJS): boolean
+ "getConflicts"(): $Collection<($ModDependency)>
+ "getProvides"(): $Collection<(StringJS)>
+/**
+ * 
+ * @deprecated
+ */
+ "getRecommends"(): $Collection<($ModDependency)>
+/**
+ * 
+ * @deprecated
+ */
+ "getSuggests"(): $Collection<($ModDependency)>
+ "getContributors"(): $Collection<($Person)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -98,9 +272,9 @@ static readonly "DEPENDS": $ModDependency$Kind
 static readonly "SUGGESTS": $ModDependency$Kind
 
 public static "values"(): ($ModDependency$Kind)[]
-public static "valueOf"(arg0: StringJS): $ModDependency$Kind
+public static "valueOf"(name: StringJS): $ModDependency$Kind
 public "getKey"(): StringJS
-public static "parse"(arg0: StringJS): $ModDependency$Kind
+public static "parse"(key: StringJS): $ModDependency$Kind
 public "isPositive"(): boolean
 public "isSoft"(): boolean
 get "key"(): StringJS
@@ -147,54 +321,9 @@ export type $CustomValue$$Type = ($CustomValue);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $CustomValue$$Original = $CustomValue;}
-declare module "net.fabricmc.loader.api.metadata.ContactInformation" {
-import {$Map} from "java.util.Map"
-import {$Optional} from "java.util.Optional"
-
-export interface $ContactInformation$$Interface {
-}
-
-export class $ContactInformation implements $ContactInformation$$Interface {
-static readonly "EMPTY": $ContactInformation
-
- "get"(arg0: StringJS): $Optional<(StringJS)>
- "asMap"(): $Map<(StringJS), (StringJS)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ContactInformation$$Type = ($ContactInformation);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ContactInformation$$Original = $ContactInformation;}
-declare module "net.fabricmc.loader.api.metadata.CustomValue$CvType" {
-import {$Enum} from "java.lang.Enum"
-
-export class $CustomValue$CvType extends $Enum<($CustomValue$CvType)> {
-static readonly "NUMBER": $CustomValue$CvType
-static readonly "ARRAY": $CustomValue$CvType
-static readonly "NULL": $CustomValue$CvType
-static readonly "STRING": $CustomValue$CvType
-static readonly "OBJECT": $CustomValue$CvType
-static readonly "BOOLEAN": $CustomValue$CvType
-
-public static "values"(): ($CustomValue$CvType)[]
-public static "valueOf"(arg0: StringJS): $CustomValue$CvType
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $CustomValue$CvType$$Type = (("object") | ("array") | ("string") | ("number") | ("boolean") | ("null"));
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $CustomValue$CvType$$Original = $CustomValue$CvType;}
 declare module "net.fabricmc.loader.api.metadata.CustomValue$CvArray" {
-import {$Iterable$$Interface} from "java.lang.Iterable"
 import {$Iterator} from "java.util.Iterator"
+import {$Iterable$$Interface} from "java.lang.Iterable"
 import {$Spliterator} from "java.util.Spliterator"
 import {$CustomValue, $CustomValue$$Type, $CustomValue$$Interface} from "net.fabricmc.loader.api.metadata.CustomValue"
 import {$CustomValue$CvType} from "net.fabricmc.loader.api.metadata.CustomValue$CvType"
@@ -246,8 +375,8 @@ get "terms"(): $Collection<($VersionPredicate$PredicateTerm)>
 }
 
 export class $VersionPredicate implements $VersionPredicate$$Interface {
-static "parse"(arg0: $Collection$$Type<(StringJS)>): $Collection<($VersionPredicate)>
-static "parse"(arg0: StringJS): $VersionPredicate
+static "parse"(predicates: $Collection$$Type<(StringJS)>): $Collection<($VersionPredicate)>
+static "parse"(predicate: StringJS): $VersionPredicate
  "getInterval"(): $VersionInterval
  "getTerms"(): $Collection<($VersionPredicate$PredicateTerm)>
  "test"(arg0: $Version$$Type): boolean
@@ -266,86 +395,25 @@ export type $VersionPredicate$$Type = ($VersionPredicate);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $VersionPredicate$$Original = $VersionPredicate;}
-declare module "net.fabricmc.loader.api.metadata.ModEnvironment" {
-import {$EnvType$$Type} from "net.fabricmc.api.EnvType"
-import {$Enum} from "java.lang.Enum"
-
-export class $ModEnvironment extends $Enum<($ModEnvironment)> {
-static readonly "UNIVERSAL": $ModEnvironment
-static readonly "SERVER": $ModEnvironment
-static readonly "CLIENT": $ModEnvironment
-
-public static "values"(): ($ModEnvironment)[]
-public static "valueOf"(arg0: StringJS): $ModEnvironment
-public "matches"(arg0: $EnvType$$Type): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ModEnvironment$$Type = (("client") | ("server") | ("universal"));
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ModEnvironment$$Original = $ModEnvironment;}
-declare module "net.fabricmc.loader.api.metadata.version.VersionInterval" {
-import {$Collection$$Type} from "java.util.Collection"
-import {$List} from "java.util.List"
-import {$Version} from "net.fabricmc.loader.api.Version"
-
-export interface $VersionInterval$$Interface {
-get "min"(): $Version
-get "max"(): $Version
-get "maxInclusive"(): boolean
-get "minInclusive"(): boolean
-get "semantic"(): boolean
-}
-
-export class $VersionInterval implements $VersionInterval$$Interface {
-static readonly "INFINITE": $VersionInterval
-
-static "or"(arg0: $Collection$$Type<($VersionInterval$$Type)>, arg1: $VersionInterval$$Type): $List<($VersionInterval)>
- "or"(arg0: $Collection$$Type<($VersionInterval$$Type)>): $List<($VersionInterval)>
-static "and"(arg0: $VersionInterval$$Type, arg1: $VersionInterval$$Type): $VersionInterval
- "and"(arg0: $VersionInterval$$Type): $VersionInterval
-static "and"(arg0: $Collection$$Type<($VersionInterval$$Type)>, arg1: $Collection$$Type<($VersionInterval$$Type)>): $List<($VersionInterval)>
-static "not"(arg0: $VersionInterval$$Type): $List<($VersionInterval)>
-static "not"(arg0: $Collection$$Type<($VersionInterval$$Type)>): $List<($VersionInterval)>
- "not"(): $List<($VersionInterval)>
- "getMin"(): $Version
- "getMax"(): $Version
- "isMaxInclusive"(): boolean
- "isMinInclusive"(): boolean
- "isSemantic"(): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $VersionInterval$$Type = ($VersionInterval);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $VersionInterval$$Original = $VersionInterval;}
 declare module "net.fabricmc.loader.api.metadata.ModDependency" {
 import {$Collection} from "java.util.Collection"
 import {$VersionInterval} from "net.fabricmc.loader.api.metadata.version.VersionInterval"
-import {$List} from "java.util.List"
 import {$VersionPredicate} from "net.fabricmc.loader.api.metadata.version.VersionPredicate"
+import {$List} from "java.util.List"
 import {$Version$$Type} from "net.fabricmc.loader.api.Version"
 import {$ModDependency$Kind} from "net.fabricmc.loader.api.metadata.ModDependency$Kind"
 
 export interface $ModDependency$$Interface {
-get "modId"(): StringJS
 get "kind"(): $ModDependency$Kind
+get "modId"(): StringJS
 get "versionRequirements"(): $Collection<($VersionPredicate)>
 get "versionIntervals"(): $List<($VersionInterval)>
 }
 
 export class $ModDependency implements $ModDependency$$Interface {
  "matches"(arg0: $Version$$Type): boolean
- "getModId"(): StringJS
  "getKind"(): $ModDependency$Kind
+ "getModId"(): StringJS
  "getVersionRequirements"(): $Collection<($VersionPredicate)>
  "getVersionIntervals"(): $List<($VersionInterval)>
 }
@@ -380,8 +448,8 @@ export type $Person$$Type = ($Person);
  */
 export type $Person$$Original = $Person;}
 declare module "net.fabricmc.loader.api.metadata.CustomValue$CvObject" {
-import {$Iterable$$Interface} from "java.lang.Iterable"
 import {$Iterator} from "java.util.Iterator"
+import {$Iterable$$Interface} from "java.lang.Iterable"
 import {$CustomValue$CvArray} from "net.fabricmc.loader.api.metadata.CustomValue$CvArray"
 import {$Spliterator} from "java.util.Spliterator"
 import {$CustomValue, $CustomValue$$Type, $CustomValue$$Interface} from "net.fabricmc.loader.api.metadata.CustomValue"
@@ -422,74 +490,6 @@ export type $CustomValue$CvObject$$Type = ($CustomValue$CvObject);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $CustomValue$CvObject$$Original = $CustomValue$CvObject;}
-declare module "net.fabricmc.loader.api.Version" {
-import {$Comparable$$Interface} from "java.lang.Comparable"
-
-export interface $Version$$Interface extends $Comparable$$Interface<($Version)> {
-get "friendlyString"(): StringJS
-}
-
-export class $Version implements $Version$$Interface {
-static "parse"(arg0: StringJS): $Version
- "getFriendlyString"(): StringJS
- "compareTo"(arg0: $Version$$Type): integer
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Version$$Type = ($Version);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Version$$Original = $Version;}
-declare module "net.fabricmc.loader.api.metadata.ModOrigin" {
-import {$List} from "java.util.List"
-import {$ModOrigin$Kind} from "net.fabricmc.loader.api.metadata.ModOrigin$Kind"
-import {$Path} from "java.nio.file.Path"
-
-export interface $ModOrigin$$Interface {
-get "paths"(): $List<($Path)>
-get "kind"(): $ModOrigin$Kind
-get "parentModId"(): StringJS
-get "parentSubLocation"(): StringJS
-}
-
-export class $ModOrigin implements $ModOrigin$$Interface {
- "getPaths"(): $List<($Path)>
- "getKind"(): $ModOrigin$Kind
- "getParentModId"(): StringJS
- "getParentSubLocation"(): StringJS
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ModOrigin$$Type = ($ModOrigin);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ModOrigin$$Original = $ModOrigin;}
-declare module "net.fabricmc.loader.api.metadata.ModOrigin$Kind" {
-import {$Enum} from "java.lang.Enum"
-
-export class $ModOrigin$Kind extends $Enum<($ModOrigin$Kind)> {
-static readonly "PATH": $ModOrigin$Kind
-static readonly "NESTED": $ModOrigin$Kind
-static readonly "UNKNOWN": $ModOrigin$Kind
-
-public static "values"(): ($ModOrigin$Kind)[]
-public static "valueOf"(arg0: StringJS): $ModOrigin$Kind
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ModOrigin$Kind$$Type = (("path") | ("nested") | ("unknown"));
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ModOrigin$Kind$$Original = $ModOrigin$Kind;}
 declare module "net.fabricmc.loader.api.ModContainer" {
 import {$ModOrigin} from "net.fabricmc.loader.api.metadata.ModOrigin"
 import {$Collection} from "java.util.Collection"
@@ -501,11 +501,11 @@ import {$ModMetadata} from "net.fabricmc.loader.api.metadata.ModMetadata"
 export interface $ModContainer$$Interface {
 get "root"(): $Path
 get "rootPath"(): $Path
-get "origin"(): $ModOrigin
-get "containingMod"(): $Optional<($ModContainer)>
-get "rootPaths"(): $List<($Path)>
-get "metadata"(): $ModMetadata
 get "containedMods"(): $Collection<($ModContainer)>
+get "rootPaths"(): $List<($Path)>
+get "containingMod"(): $Optional<($ModContainer)>
+get "origin"(): $ModOrigin
+get "metadata"(): $ModMetadata
 }
 
 export class $ModContainer implements $ModContainer$$Interface {
@@ -524,12 +524,12 @@ export class $ModContainer implements $ModContainer$$Interface {
  * @deprecated
  */
  "getRootPath"(): $Path
- "getOrigin"(): $ModOrigin
- "getContainingMod"(): $Optional<($ModContainer)>
- "getRootPaths"(): $List<($Path)>
- "getMetadata"(): $ModMetadata
  "getContainedMods"(): $Collection<($ModContainer)>
- "findPath"(arg0: StringJS): $Optional<($Path)>
+ "getRootPaths"(): $List<($Path)>
+ "getContainingMod"(): $Optional<($ModContainer)>
+ "findPath"(file: StringJS): $Optional<($Path)>
+ "getOrigin"(): $ModOrigin
+ "getMetadata"(): $ModMetadata
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

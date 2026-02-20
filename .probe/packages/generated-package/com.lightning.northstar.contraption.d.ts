@@ -15,11 +15,11 @@ public "tag"(tag: $Tags$Tag$$Type<($Fluid$$Type)>): $FuelType$Builder
 public "tag"(tag: $ResourceLocation$$Type): $FuelType$Builder
 public "tag"(mod: $Mod$$Type, tag: StringJS): $FuelType$Builder
 public "tag"(tag: $TagKey$$Type<($Fluid)>): $FuelType$Builder
-public "combustionEngine"(usePerTick: float, rpm: float): $FuelType$Builder
+public "fluid"(mod: $Mod$$Type, tag: StringJS): $FuelType$Builder
 public "fluid"(fluid: $Fluid$$Type): $FuelType$Builder
 public "fluid"(fluid: $FluidEntry$$Type<(never)>): $FuelType$Builder
-public "fluid"(mod: $Mod$$Type, tag: StringJS): $FuelType$Builder
 public "gjPerMb"(gjPerMb: float): $FuelType$Builder
+public "combustionEngine"(usePerTick: float, rpm: float): $FuelType$Builder
 public "rawFluid"(fluid: $ResourceLocation$$Type): $FuelType$Builder
 }
 /**
@@ -36,23 +36,23 @@ import {$FuelType$Builder} from "com.lightning.northstar.contraption.FuelType$Bu
 import {$Fluid$$Type} from "net.minecraft.world.level.material.Fluid"
 import {$Codec} from "com.mojang.serialization.Codec"
 import {$List, $List$$Type} from "java.util.List"
-import {$Record} from "java.lang.Record"
 import {$RegistryAccess$$Type} from "net.minecraft.core.RegistryAccess"
+import {$Record} from "java.lang.Record"
 
 export class $FuelType extends $Record {
 static readonly "CODEC": $Codec<($FuelType)>
 
 constructor(fluids: $List$$Type<(StringJS)>, gjPerMb: float, combustionEngineUse: float, combustionEngineRpm: float)
 
-public "combustionEngineRpm"(): float
-public "combustionEngineUse"(): float
-public "fluids"(): $List<(StringJS)>
 public "equals"(o: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public static "builder"(): $FuelType$Builder
-public "supports"(fluid: $Fluid$$Type): boolean
 public static "recacheFuels"(registryAccess: $RegistryAccess$$Type): void
+public "combustionEngineUse"(): float
+public "combustionEngineRpm"(): float
+public "fluids"(): $List<(StringJS)>
+public "supports"(fluid: $Fluid$$Type): boolean
 public static "getFuelType"(fluid: $Fluid$$Type): $FuelType
 public "gjPerMb"(): float
 /**
@@ -68,7 +68,7 @@ public "gjPerMb"(): float
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $FuelType$$Type = (Special.NorthstarFuelType) | ({"gjPerMb"?: float, "fluids"?: $List$$Type<(StringJS)>, "combustionEngineRpm"?: float, "combustionEngineUse"?: float}) | ([gjPerMb?: float, fluids?: $List$$Type<(StringJS)>, combustionEngineRpm?: float, combustionEngineUse?: float]);
+export type $FuelType$$Type = (Special.NorthstarFuelType) | ({"combustionEngineUse"?: float, "combustionEngineRpm"?: float, "fluids"?: $List$$Type<(StringJS)>, "gjPerMb"?: float}) | ([combustionEngineUse?: float, combustionEngineRpm?: float, fluids?: $List$$Type<(StringJS)>, gjPerMb?: float]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */

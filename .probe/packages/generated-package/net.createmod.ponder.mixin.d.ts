@@ -17,26 +17,6 @@ export type $BiomeManagerAccessor$$Type = (() => long);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $BiomeManagerAccessor$$Original = $BiomeManagerAccessor;}
-declare module "net.createmod.ponder.mixin.accessor.EntityAccessor" {
-import {$Level, $Level$$Type} from "net.minecraft.world.level.Level"
-
-export interface $EntityAccessor$$Interface {
-
-(arg0: $Level): void
-}
-
-export class $EntityAccessor implements $EntityAccessor$$Interface {
- "catnip$callSetLevel"(arg0: $Level$$Type): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $EntityAccessor$$Type = ((arg0: $Level) => void);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $EntityAccessor$$Original = $EntityAccessor;}
 declare module "net.createmod.ponder.mixin.client.accessor.GameRendererAccessor" {
 import {$Camera, $Camera$$Type} from "net.minecraft.client.Camera"
 
@@ -76,67 +56,6 @@ export type $ClientPacketListenerAccessor$$Type = (() => integer);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ClientPacketListenerAccessor$$Original = $ClientPacketListenerAccessor;}
-declare module "net.createmod.ponder.mixin.client.accessor.ItemRendererAccessor" {
-import {$TextureManager, $TextureManager$$Type} from "net.minecraft.client.renderer.texture.TextureManager"
-
-export interface $ItemRendererAccessor$$Interface {
-
-(): $TextureManager$$Type
-}
-
-export class $ItemRendererAccessor implements $ItemRendererAccessor$$Interface {
- "catnip$getTextureManager"(): $TextureManager
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ItemRendererAccessor$$Type = (() => $TextureManager$$Type);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ItemRendererAccessor$$Original = $ItemRendererAccessor;}
-declare module "net.createmod.ponder.mixin.client.accessor.ScreenAccessor" {
-import {$List, $List$$Type} from "java.util.List"
-import {$Renderable, $Renderable$$Type} from "net.minecraft.client.gui.components.Renderable"
-
-export interface $ScreenAccessor$$Interface {
-
-(): $List$$Type<($Renderable$$Type)>
-}
-
-export class $ScreenAccessor implements $ScreenAccessor$$Interface {
- "catnip$getRenderables"(): $List<($Renderable)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ScreenAccessor$$Type = (() => $List$$Type<($Renderable$$Type)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ScreenAccessor$$Original = $ScreenAccessor;}
-declare module "net.createmod.ponder.mixin.accessor.MinecraftServerAccessor" {
-import {$LevelStorageSource$LevelStorageAccess, $LevelStorageSource$LevelStorageAccess$$Type} from "net.minecraft.world.level.storage.LevelStorageSource$LevelStorageAccess"
-
-export interface $MinecraftServerAccessor$$Interface {
-
-(): $LevelStorageSource$LevelStorageAccess$$Type
-}
-
-export class $MinecraftServerAccessor implements $MinecraftServerAccessor$$Interface {
- "catnip$getStorageSource"(): $LevelStorageSource$LevelStorageAccess
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $MinecraftServerAccessor$$Type = (() => $LevelStorageSource$LevelStorageAccess$$Type);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $MinecraftServerAccessor$$Original = $MinecraftServerAccessor;}
 declare module "net.createmod.ponder.mixin.client.accessor.BufferBuilderAccessor" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $BufferBuilderAccessor$$Interface {
@@ -199,3 +118,103 @@ export type $RenderTypeAccessor$$Type = ($RenderTypeAccessor);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $RenderTypeAccessor$$Original = $RenderTypeAccessor;}
+declare module "net.createmod.ponder.mixin.accessor.TimerAccessor" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export interface $TimerAccessor$$Interface {
+
+(): float
+}
+
+export class $TimerAccessor implements $TimerAccessor$$Interface {
+ "catnip$getDeltaTickResidual"(): float
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $TimerAccessor$$Type = (() => float);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $TimerAccessor$$Original = $TimerAccessor;}
+declare module "net.createmod.ponder.mixin.accessor.EntityAccessor" {
+import {$Level, $Level$$Type} from "net.minecraft.world.level.Level"
+
+export interface $EntityAccessor$$Interface {
+
+(arg0: $Level): void
+}
+
+export class $EntityAccessor implements $EntityAccessor$$Interface {
+ "catnip$callSetLevel"(arg0: $Level$$Type): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $EntityAccessor$$Type = ((arg0: $Level) => void);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $EntityAccessor$$Original = $EntityAccessor;}
+declare module "net.createmod.ponder.mixin.client.accessor.ItemRendererAccessor" {
+import {$TextureManager, $TextureManager$$Type} from "net.minecraft.client.renderer.texture.TextureManager"
+
+export interface $ItemRendererAccessor$$Interface {
+
+(): $TextureManager$$Type
+}
+
+export class $ItemRendererAccessor implements $ItemRendererAccessor$$Interface {
+ "catnip$getTextureManager"(): $TextureManager
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ItemRendererAccessor$$Type = (() => $TextureManager$$Type);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ItemRendererAccessor$$Original = $ItemRendererAccessor;}
+declare module "net.createmod.ponder.mixin.client.accessor.ScreenAccessor" {
+import {$List, $List$$Type} from "java.util.List"
+import {$Renderable, $Renderable$$Type} from "net.minecraft.client.gui.components.Renderable"
+
+export interface $ScreenAccessor$$Interface {
+
+(): $List$$Type<($Renderable$$Type)>
+}
+
+export class $ScreenAccessor implements $ScreenAccessor$$Interface {
+ "catnip$getRenderables"(): $List<($Renderable)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ScreenAccessor$$Type = (() => $List$$Type<($Renderable$$Type)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ScreenAccessor$$Original = $ScreenAccessor;}
+declare module "net.createmod.ponder.mixin.accessor.MinecraftServerAccessor" {
+import {$LevelStorageSource$LevelStorageAccess, $LevelStorageSource$LevelStorageAccess$$Type} from "net.minecraft.world.level.storage.LevelStorageSource$LevelStorageAccess"
+
+export interface $MinecraftServerAccessor$$Interface {
+
+(): $LevelStorageSource$LevelStorageAccess$$Type
+}
+
+export class $MinecraftServerAccessor implements $MinecraftServerAccessor$$Interface {
+ "catnip$getStorageSource"(): $LevelStorageSource$LevelStorageAccess
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $MinecraftServerAccessor$$Type = (() => $LevelStorageSource$LevelStorageAccess$$Type);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $MinecraftServerAccessor$$Original = $MinecraftServerAccessor;}

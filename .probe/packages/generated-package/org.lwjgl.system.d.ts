@@ -9,14 +9,14 @@ import {$NativeResource$$Interface} from "org.lwjgl.system.NativeResource"
  * Loading the class using require() will not throw an error, but the class will be undefined.
  */
 export class $Callback implements $Pointer$$Interface, $NativeResource$$Interface {
+public static "getSafe"<T extends $CallbackI>(arg0: long): T
 public static "get"<T extends $CallbackI>(arg0: long): T
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "address"(): long
-public "free"(): void
 public static "free"(arg0: long): void
-public static "getSafe"<T extends $CallbackI>(arg0: long): T
+public "free"(): void
 public "close"(): void
 }
 /**
@@ -109,6 +109,235 @@ export type $CallbackI$$Type = ($CallbackI);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $CallbackI$$Original = $CallbackI;}
+declare module "org.lwjgl.system.MemoryStack" {
+import {$Pointer$$Type} from "org.lwjgl.system.Pointer"
+import {$AutoCloseable$$Interface} from "java.lang.AutoCloseable"
+import {$CustomBuffer$$Type} from "org.lwjgl.system.CustomBuffer"
+import {$IntBuffer} from "java.nio.IntBuffer"
+import {$LongBuffer} from "java.nio.LongBuffer"
+import {$Buffer$$Type} from "java.nio.Buffer"
+import {$CLongBuffer} from "org.lwjgl.CLongBuffer"
+import {$DoubleBuffer} from "java.nio.DoubleBuffer"
+import {$PointerBuffer} from "org.lwjgl.PointerBuffer"
+import {$ShortBuffer} from "java.nio.ShortBuffer"
+import {$FloatBuffer} from "java.nio.FloatBuffer"
+import {$Pointer$Default} from "org.lwjgl.system.Pointer$Default"
+import {$ByteBuffer, $ByteBuffer$$Type} from "java.nio.ByteBuffer"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $MemoryStack extends $Pointer$Default implements $AutoCloseable$$Interface {
+public "UTF16"(arg0: charseq, arg1: boolean): $ByteBuffer
+public "UTF16"(arg0: charseq): $ByteBuffer
+public "bytes"(arg0: byte, arg1: byte): $ByteBuffer
+public "bytes"(arg0: byte, arg1: byte, arg2: byte, arg3: byte): $ByteBuffer
+public "bytes"(...arg0: (byte)[]): $ByteBuffer
+public "bytes"(arg0: byte): $ByteBuffer
+public "bytes"(arg0: byte, arg1: byte, arg2: byte): $ByteBuffer
+public "close"(): void
+public "getSize"(): integer
+public static "create"(): $MemoryStack
+public static "create"(arg0: $ByteBuffer$$Type): $MemoryStack
+public static "create"(arg0: integer): $MemoryStack
+public "getAddress"(): long
+public "nbyte"(arg0: byte): long
+public "ASCII"(arg0: charseq): $ByteBuffer
+public "ASCII"(arg0: charseq, arg1: boolean): $ByteBuffer
+public "UTF8"(arg0: charseq, arg1: boolean): $ByteBuffer
+public "UTF8"(arg0: charseq): $ByteBuffer
+public "push"(): $MemoryStack
+public "pop"(): $MemoryStack
+public "ints"(arg0: integer, arg1: integer): $IntBuffer
+public "ints"(arg0: integer): $IntBuffer
+public "ints"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): $IntBuffer
+public "ints"(arg0: integer, arg1: integer, arg2: integer): $IntBuffer
+public "ints"(...arg0: (integer)[]): $IntBuffer
+public "longs"(arg0: long, arg1: long, arg2: long): $LongBuffer
+public "longs"(arg0: long, arg1: long, arg2: long, arg3: long): $LongBuffer
+public "longs"(arg0: long, arg1: long): $LongBuffer
+public "longs"(arg0: long): $LongBuffer
+public "longs"(...arg0: (long)[]): $LongBuffer
+public "doubles"(arg0: double, arg1: double): $DoubleBuffer
+public "doubles"(arg0: double, arg1: double, arg2: double): $DoubleBuffer
+public "doubles"(arg0: double, arg1: double, arg2: double, arg3: double): $DoubleBuffer
+public "doubles"(...arg0: (double)[]): $DoubleBuffer
+public "doubles"(arg0: double): $DoubleBuffer
+public "nmalloc"(arg0: integer, arg1: integer): long
+public "nmalloc"(arg0: integer): long
+public "ncalloc"(arg0: integer, arg1: integer, arg2: integer): long
+public static "stackGet"(): $MemoryStack
+public "calloc"(arg0: integer): $ByteBuffer
+public "calloc"(arg0: integer, arg1: integer): $ByteBuffer
+public "getPointer"(): integer
+public "nASCII"(arg0: charseq, arg1: boolean): integer
+public "setPointer"(arg0: integer): void
+public "nUTF8"(arg0: charseq, arg1: boolean): integer
+public "callocInt"(arg0: integer): $IntBuffer
+public "pointers"(...arg0: ($Pointer$$Type)[]): $PointerBuffer
+public "pointers"(arg0: $Pointer$$Type): $PointerBuffer
+public "pointers"(arg0: $Buffer$$Type, arg1: $Buffer$$Type, arg2: $Buffer$$Type, arg3: $Buffer$$Type): $PointerBuffer
+public "pointers"(arg0: $Buffer$$Type, arg1: $Buffer$$Type): $PointerBuffer
+public "pointers"(arg0: $Buffer$$Type, arg1: $Buffer$$Type, arg2: $Buffer$$Type): $PointerBuffer
+public "pointers"(arg0: long): $PointerBuffer
+public "pointers"(arg0: long, arg1: long): $PointerBuffer
+public "pointers"(arg0: long, arg1: long, arg2: long): $PointerBuffer
+public "pointers"(arg0: long, arg1: long, arg2: long, arg3: long): $PointerBuffer
+public "pointers"(arg0: $Pointer$$Type, arg1: $Pointer$$Type, arg2: $Pointer$$Type, arg3: $Pointer$$Type): $PointerBuffer
+public "pointers"(...arg0: (long)[]): $PointerBuffer
+public "pointers"(arg0: $Pointer$$Type, arg1: $Pointer$$Type, arg2: $Pointer$$Type): $PointerBuffer
+public "pointers"(arg0: $Pointer$$Type, arg1: $Pointer$$Type): $PointerBuffer
+public "pointers"(...arg0: ($Buffer$$Type)[]): $PointerBuffer
+public "pointers"(arg0: $Buffer$$Type): $PointerBuffer
+public "mallocInt"(arg0: integer): $IntBuffer
+public static "stackPush"(): $MemoryStack
+public "malloc"(arg0: integer): $ByteBuffer
+public "malloc"(arg0: integer, arg1: integer): $ByteBuffer
+public "nint"(arg0: integer): long
+public "nUTF16"(arg0: charseq, arg1: boolean): integer
+public "UTF16Safe"(arg0: charseq): $ByteBuffer
+public "UTF16Safe"(arg0: charseq, arg1: boolean): $ByteBuffer
+public static "stackASCII"(arg0: charseq): $ByteBuffer
+public static "stackASCII"(arg0: charseq, arg1: boolean): $ByteBuffer
+public static "stackUTF8"(arg0: charseq, arg1: boolean): $ByteBuffer
+public static "stackUTF8"(arg0: charseq): $ByteBuffer
+public "floats"(arg0: float): $FloatBuffer
+public "floats"(arg0: float, arg1: float, arg2: float, arg3: float): $FloatBuffer
+public "floats"(...arg0: (float)[]): $FloatBuffer
+public "floats"(arg0: float, arg1: float, arg2: float): $FloatBuffer
+public "floats"(arg0: float, arg1: float): $FloatBuffer
+public "npointer"(arg0: $Buffer$$Type): long
+public "npointer"(arg0: $Pointer$$Type): long
+public "npointer"(arg0: long): long
+public static "ncreate"(arg0: long, arg1: integer): $MemoryStack
+public static "stackPop"(): $MemoryStack
+public "UTF8Safe"(arg0: charseq): $ByteBuffer
+public "UTF8Safe"(arg0: charseq, arg1: boolean): $ByteBuffer
+public static "stackUTF16"(arg0: charseq, arg1: boolean): $ByteBuffer
+public static "stackUTF16"(arg0: charseq): $ByteBuffer
+public "callocLong"(arg0: integer): $LongBuffer
+public "shorts"(arg0: short, arg1: short, arg2: short): $ShortBuffer
+public "shorts"(arg0: short, arg1: short): $ShortBuffer
+public "shorts"(arg0: short, arg1: short, arg2: short, arg3: short): $ShortBuffer
+public "shorts"(...arg0: (short)[]): $ShortBuffer
+public "shorts"(arg0: short): $ShortBuffer
+public "mallocLong"(arg0: integer): $LongBuffer
+public "nclong"(arg0: long): long
+public "nshort"(arg0: short): long
+public "nfloat"(arg0: float): long
+public "ndouble"(arg0: double): long
+public "ASCIISafe"(arg0: charseq, arg1: boolean): $ByteBuffer
+public "ASCIISafe"(arg0: charseq): $ByteBuffer
+public "nASCIISafe"(arg0: charseq, arg1: boolean): integer
+public "nUTF16Safe"(arg0: charseq, arg1: boolean): integer
+public static "stackLongs"(arg0: long, arg1: long): $LongBuffer
+public static "stackLongs"(arg0: long): $LongBuffer
+public static "stackLongs"(...arg0: (long)[]): $LongBuffer
+public static "stackLongs"(arg0: long, arg1: long, arg2: long, arg3: long): $LongBuffer
+public static "stackLongs"(arg0: long, arg1: long, arg2: long): $LongBuffer
+public "nUTF8Safe"(arg0: charseq, arg1: boolean): integer
+public "nlong"(arg0: long): long
+public "clongs"(arg0: long, arg1: long): $CLongBuffer
+public "clongs"(...arg0: (long)[]): $CLongBuffer
+public "clongs"(arg0: long, arg1: long, arg2: long): $CLongBuffer
+public "clongs"(arg0: long, arg1: long, arg2: long, arg3: long): $CLongBuffer
+public "clongs"(arg0: long): $CLongBuffer
+public static "stackBytes"(arg0: byte): $ByteBuffer
+public static "stackBytes"(arg0: byte, arg1: byte, arg2: byte, arg3: byte): $ByteBuffer
+public static "stackBytes"(arg0: byte, arg1: byte, arg2: byte): $ByteBuffer
+public static "stackBytes"(arg0: byte, arg1: byte): $ByteBuffer
+public static "stackBytes"(...arg0: (byte)[]): $ByteBuffer
+public static "stackInts"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): $IntBuffer
+public static "stackInts"(arg0: integer): $IntBuffer
+public static "stackInts"(...arg0: (integer)[]): $IntBuffer
+public static "stackInts"(arg0: integer, arg1: integer, arg2: integer): $IntBuffer
+public static "stackInts"(arg0: integer, arg1: integer): $IntBuffer
+public "mallocPointer"(arg0: integer): $PointerBuffer
+public "getPointerAddress"(): long
+public "callocPointer"(arg0: integer): $PointerBuffer
+public "getFrameIndex"(): integer
+public static "stackMalloc"(arg0: integer): $ByteBuffer
+public "pointersOfElements"(arg0: $CustomBuffer$$Type<(never)>): $PointerBuffer
+public static "nstackMalloc"(arg0: integer): long
+public static "nstackMalloc"(arg0: integer, arg1: integer): long
+public static "stackMallocFloat"(arg0: integer): $FloatBuffer
+public static "stackCalloc"(arg0: integer): $ByteBuffer
+public static "nstackCalloc"(arg0: integer, arg1: integer, arg2: integer): long
+public static "stackCallocShort"(arg0: integer): $ShortBuffer
+public "callocCLong"(arg0: integer): $CLongBuffer
+public static "stackCallocInt"(arg0: integer): $IntBuffer
+public static "stackCallocDouble"(arg0: integer): $DoubleBuffer
+public static "stackCLongs"(arg0: long, arg1: long): $CLongBuffer
+public static "stackCLongs"(arg0: long, arg1: long, arg2: long): $CLongBuffer
+public static "stackCLongs"(arg0: long): $CLongBuffer
+public static "stackCLongs"(...arg0: (long)[]): $CLongBuffer
+public static "stackCLongs"(arg0: long, arg1: long, arg2: long, arg3: long): $CLongBuffer
+public "mallocFloat"(arg0: integer): $FloatBuffer
+public static "stackCallocLong"(arg0: integer): $LongBuffer
+public "callocShort"(arg0: integer): $ShortBuffer
+public "callocFloat"(arg0: integer): $FloatBuffer
+public static "stackMallocShort"(arg0: integer): $ShortBuffer
+public "callocDouble"(arg0: integer): $DoubleBuffer
+public static "stackFloats"(arg0: float): $FloatBuffer
+public static "stackFloats"(arg0: float, arg1: float): $FloatBuffer
+public static "stackFloats"(...arg0: (float)[]): $FloatBuffer
+public static "stackFloats"(arg0: float, arg1: float, arg2: float): $FloatBuffer
+public static "stackFloats"(arg0: float, arg1: float, arg2: float, arg3: float): $FloatBuffer
+public "mallocDouble"(arg0: integer): $DoubleBuffer
+public static "stackDoubles"(arg0: double, arg1: double, arg2: double): $DoubleBuffer
+public static "stackDoubles"(...arg0: (double)[]): $DoubleBuffer
+public static "stackDoubles"(arg0: double, arg1: double, arg2: double, arg3: double): $DoubleBuffer
+public static "stackDoubles"(arg0: double): $DoubleBuffer
+public static "stackDoubles"(arg0: double, arg1: double): $DoubleBuffer
+public static "stackMallocPointer"(arg0: integer): $PointerBuffer
+public static "stackCallocFloat"(arg0: integer): $FloatBuffer
+public static "stackCallocPointer"(arg0: integer): $PointerBuffer
+public static "stackMallocCLong"(arg0: integer): $CLongBuffer
+public static "stackMallocLong"(arg0: integer): $LongBuffer
+public static "stackCallocCLong"(arg0: integer): $CLongBuffer
+public static "stackMallocDouble"(arg0: integer): $DoubleBuffer
+public static "stackPointers"(arg0: $Pointer$$Type, arg1: $Pointer$$Type): $PointerBuffer
+public static "stackPointers"(arg0: $Pointer$$Type): $PointerBuffer
+public static "stackPointers"(...arg0: (long)[]): $PointerBuffer
+public static "stackPointers"(arg0: long, arg1: long, arg2: long, arg3: long): $PointerBuffer
+public static "stackPointers"(arg0: $Pointer$$Type, arg1: $Pointer$$Type, arg2: $Pointer$$Type): $PointerBuffer
+public static "stackPointers"(arg0: $Pointer$$Type, arg1: $Pointer$$Type, arg2: $Pointer$$Type, arg3: $Pointer$$Type): $PointerBuffer
+public static "stackPointers"(arg0: long): $PointerBuffer
+public static "stackPointers"(...arg0: ($Pointer$$Type)[]): $PointerBuffer
+public static "stackPointers"(arg0: long, arg1: long): $PointerBuffer
+public static "stackPointers"(arg0: long, arg1: long, arg2: long): $PointerBuffer
+public static "stackASCIISafe"(arg0: charseq, arg1: boolean): $ByteBuffer
+public static "stackASCIISafe"(arg0: charseq): $ByteBuffer
+public static "stackUTF8Safe"(arg0: charseq): $ByteBuffer
+public static "stackUTF8Safe"(arg0: charseq, arg1: boolean): $ByteBuffer
+public static "stackShorts"(arg0: short, arg1: short): $ShortBuffer
+public static "stackShorts"(arg0: short, arg1: short, arg2: short, arg3: short): $ShortBuffer
+public static "stackShorts"(...arg0: (short)[]): $ShortBuffer
+public static "stackShorts"(arg0: short, arg1: short, arg2: short): $ShortBuffer
+public static "stackShorts"(arg0: short): $ShortBuffer
+public static "stackUTF16Safe"(arg0: charseq, arg1: boolean): $ByteBuffer
+public static "stackUTF16Safe"(arg0: charseq): $ByteBuffer
+public static "stackMallocInt"(arg0: integer): $IntBuffer
+public "mallocShort"(arg0: integer): $ShortBuffer
+public "mallocCLong"(arg0: integer): $CLongBuffer
+get "size"(): integer
+get "address"(): long
+get "pointer"(): integer
+set "pointer"(value: integer)
+get "pointerAddress"(): long
+get "frameIndex"(): integer
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $MemoryStack$$Type = ($MemoryStack);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $MemoryStack$$Original = $MemoryStack;}
 declare module "org.lwjgl.system.Struct$StructValidation" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /**
@@ -159,235 +388,6 @@ export type $NativeResource$$Type = (() => void);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $NativeResource$$Original = $NativeResource;}
-declare module "org.lwjgl.system.MemoryStack" {
-import {$Pointer$$Type} from "org.lwjgl.system.Pointer"
-import {$AutoCloseable$$Interface} from "java.lang.AutoCloseable"
-import {$CustomBuffer$$Type} from "org.lwjgl.system.CustomBuffer"
-import {$IntBuffer} from "java.nio.IntBuffer"
-import {$LongBuffer} from "java.nio.LongBuffer"
-import {$Buffer$$Type} from "java.nio.Buffer"
-import {$CLongBuffer} from "org.lwjgl.CLongBuffer"
-import {$DoubleBuffer} from "java.nio.DoubleBuffer"
-import {$PointerBuffer} from "org.lwjgl.PointerBuffer"
-import {$ShortBuffer} from "java.nio.ShortBuffer"
-import {$FloatBuffer} from "java.nio.FloatBuffer"
-import {$ByteBuffer, $ByteBuffer$$Type} from "java.nio.ByteBuffer"
-import {$Pointer$Default} from "org.lwjgl.system.Pointer$Default"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $MemoryStack extends $Pointer$Default implements $AutoCloseable$$Interface {
-public "UTF16"(arg0: charseq, arg1: boolean): $ByteBuffer
-public "UTF16"(arg0: charseq): $ByteBuffer
-public "bytes"(arg0: byte, arg1: byte): $ByteBuffer
-public "bytes"(arg0: byte, arg1: byte, arg2: byte, arg3: byte): $ByteBuffer
-public "bytes"(...arg0: (byte)[]): $ByteBuffer
-public "bytes"(arg0: byte): $ByteBuffer
-public "bytes"(arg0: byte, arg1: byte, arg2: byte): $ByteBuffer
-public "close"(): void
-public "getSize"(): integer
-public static "create"(): $MemoryStack
-public static "create"(arg0: $ByteBuffer$$Type): $MemoryStack
-public static "create"(arg0: integer): $MemoryStack
-public "getAddress"(): long
-public "nbyte"(arg0: byte): long
-public "ASCII"(arg0: charseq): $ByteBuffer
-public "ASCII"(arg0: charseq, arg1: boolean): $ByteBuffer
-public "UTF8"(arg0: charseq): $ByteBuffer
-public "UTF8"(arg0: charseq, arg1: boolean): $ByteBuffer
-public "push"(): $MemoryStack
-public "pop"(): $MemoryStack
-public "ints"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): $IntBuffer
-public "ints"(arg0: integer, arg1: integer, arg2: integer): $IntBuffer
-public "ints"(...arg0: (integer)[]): $IntBuffer
-public "ints"(arg0: integer): $IntBuffer
-public "ints"(arg0: integer, arg1: integer): $IntBuffer
-public "longs"(arg0: long, arg1: long): $LongBuffer
-public "longs"(arg0: long, arg1: long, arg2: long): $LongBuffer
-public "longs"(...arg0: (long)[]): $LongBuffer
-public "longs"(arg0: long, arg1: long, arg2: long, arg3: long): $LongBuffer
-public "longs"(arg0: long): $LongBuffer
-public "doubles"(arg0: double, arg1: double, arg2: double): $DoubleBuffer
-public "doubles"(...arg0: (double)[]): $DoubleBuffer
-public "doubles"(arg0: double): $DoubleBuffer
-public "doubles"(arg0: double, arg1: double): $DoubleBuffer
-public "doubles"(arg0: double, arg1: double, arg2: double, arg3: double): $DoubleBuffer
-public "nASCII"(arg0: charseq, arg1: boolean): integer
-public static "stackPush"(): $MemoryStack
-public "malloc"(arg0: integer, arg1: integer): $ByteBuffer
-public "malloc"(arg0: integer): $ByteBuffer
-public static "stackGet"(): $MemoryStack
-public "nmalloc"(arg0: integer): long
-public "nmalloc"(arg0: integer, arg1: integer): long
-public "ncalloc"(arg0: integer, arg1: integer, arg2: integer): long
-public "calloc"(arg0: integer): $ByteBuffer
-public "calloc"(arg0: integer, arg1: integer): $ByteBuffer
-public "getPointer"(): integer
-public "callocInt"(arg0: integer): $IntBuffer
-public "setPointer"(arg0: integer): void
-public "nUTF8"(arg0: charseq, arg1: boolean): integer
-public "pointers"(arg0: $Buffer$$Type, arg1: $Buffer$$Type, arg2: $Buffer$$Type): $PointerBuffer
-public "pointers"(arg0: long, arg1: long): $PointerBuffer
-public "pointers"(arg0: long, arg1: long, arg2: long): $PointerBuffer
-public "pointers"(arg0: $Buffer$$Type, arg1: $Buffer$$Type): $PointerBuffer
-public "pointers"(...arg0: ($Buffer$$Type)[]): $PointerBuffer
-public "pointers"(arg0: long): $PointerBuffer
-public "pointers"(arg0: $Pointer$$Type, arg1: $Pointer$$Type, arg2: $Pointer$$Type): $PointerBuffer
-public "pointers"(arg0: long, arg1: long, arg2: long, arg3: long): $PointerBuffer
-public "pointers"(arg0: $Pointer$$Type, arg1: $Pointer$$Type): $PointerBuffer
-public "pointers"(arg0: $Pointer$$Type): $PointerBuffer
-public "pointers"(...arg0: (long)[]): $PointerBuffer
-public "pointers"(arg0: $Pointer$$Type, arg1: $Pointer$$Type, arg2: $Pointer$$Type, arg3: $Pointer$$Type): $PointerBuffer
-public "pointers"(...arg0: ($Pointer$$Type)[]): $PointerBuffer
-public "pointers"(arg0: $Buffer$$Type): $PointerBuffer
-public "pointers"(arg0: $Buffer$$Type, arg1: $Buffer$$Type, arg2: $Buffer$$Type, arg3: $Buffer$$Type): $PointerBuffer
-public "mallocInt"(arg0: integer): $IntBuffer
-public "nASCIISafe"(arg0: charseq, arg1: boolean): integer
-public "nUTF16Safe"(arg0: charseq, arg1: boolean): integer
-public "shorts"(arg0: short, arg1: short, arg2: short): $ShortBuffer
-public "shorts"(...arg0: (short)[]): $ShortBuffer
-public "shorts"(arg0: short): $ShortBuffer
-public "shorts"(arg0: short, arg1: short): $ShortBuffer
-public "shorts"(arg0: short, arg1: short, arg2: short, arg3: short): $ShortBuffer
-public "nint"(arg0: integer): long
-public "ndouble"(arg0: double): long
-public static "ncreate"(arg0: long, arg1: integer): $MemoryStack
-public "nclong"(arg0: long): long
-public static "stackInts"(arg0: integer, arg1: integer): $IntBuffer
-public static "stackInts"(arg0: integer, arg1: integer, arg2: integer): $IntBuffer
-public static "stackInts"(arg0: integer): $IntBuffer
-public static "stackInts"(...arg0: (integer)[]): $IntBuffer
-public static "stackInts"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): $IntBuffer
-public static "stackLongs"(...arg0: (long)[]): $LongBuffer
-public static "stackLongs"(arg0: long, arg1: long, arg2: long): $LongBuffer
-public static "stackLongs"(arg0: long, arg1: long, arg2: long, arg3: long): $LongBuffer
-public static "stackLongs"(arg0: long): $LongBuffer
-public static "stackLongs"(arg0: long, arg1: long): $LongBuffer
-public static "stackASCII"(arg0: charseq, arg1: boolean): $ByteBuffer
-public static "stackASCII"(arg0: charseq): $ByteBuffer
-public "callocLong"(arg0: integer): $LongBuffer
-public "npointer"(arg0: $Buffer$$Type): long
-public "npointer"(arg0: $Pointer$$Type): long
-public "npointer"(arg0: long): long
-public "UTF8Safe"(arg0: charseq): $ByteBuffer
-public "UTF8Safe"(arg0: charseq, arg1: boolean): $ByteBuffer
-public "nfloat"(arg0: float): long
-public "nUTF16"(arg0: charseq, arg1: boolean): integer
-public "ASCIISafe"(arg0: charseq): $ByteBuffer
-public "ASCIISafe"(arg0: charseq, arg1: boolean): $ByteBuffer
-public "clongs"(arg0: long, arg1: long, arg2: long, arg3: long): $CLongBuffer
-public "clongs"(arg0: long, arg1: long): $CLongBuffer
-public "clongs"(arg0: long, arg1: long, arg2: long): $CLongBuffer
-public "clongs"(...arg0: (long)[]): $CLongBuffer
-public "clongs"(arg0: long): $CLongBuffer
-public static "stackUTF16"(arg0: charseq, arg1: boolean): $ByteBuffer
-public static "stackUTF16"(arg0: charseq): $ByteBuffer
-public "nshort"(arg0: short): long
-public "UTF16Safe"(arg0: charseq, arg1: boolean): $ByteBuffer
-public "UTF16Safe"(arg0: charseq): $ByteBuffer
-public "nlong"(arg0: long): long
-public "nUTF8Safe"(arg0: charseq, arg1: boolean): integer
-public static "stackBytes"(...arg0: (byte)[]): $ByteBuffer
-public static "stackBytes"(arg0: byte, arg1: byte): $ByteBuffer
-public static "stackBytes"(arg0: byte, arg1: byte, arg2: byte): $ByteBuffer
-public static "stackBytes"(arg0: byte, arg1: byte, arg2: byte, arg3: byte): $ByteBuffer
-public static "stackBytes"(arg0: byte): $ByteBuffer
-public static "stackUTF8"(arg0: charseq, arg1: boolean): $ByteBuffer
-public static "stackUTF8"(arg0: charseq): $ByteBuffer
-public "floats"(...arg0: (float)[]): $FloatBuffer
-public "floats"(arg0: float, arg1: float, arg2: float, arg3: float): $FloatBuffer
-public "floats"(arg0: float): $FloatBuffer
-public "floats"(arg0: float, arg1: float): $FloatBuffer
-public "floats"(arg0: float, arg1: float, arg2: float): $FloatBuffer
-public "mallocLong"(arg0: integer): $LongBuffer
-public static "stackPop"(): $MemoryStack
-public "mallocPointer"(arg0: integer): $PointerBuffer
-public "getPointerAddress"(): long
-public static "stackMallocShort"(arg0: integer): $ShortBuffer
-public static "stackCallocShort"(arg0: integer): $ShortBuffer
-public "callocCLong"(arg0: integer): $CLongBuffer
-public static "stackShorts"(arg0: short, arg1: short, arg2: short): $ShortBuffer
-public static "stackShorts"(...arg0: (short)[]): $ShortBuffer
-public static "stackShorts"(arg0: short, arg1: short, arg2: short, arg3: short): $ShortBuffer
-public static "stackShorts"(arg0: short): $ShortBuffer
-public static "stackShorts"(arg0: short, arg1: short): $ShortBuffer
-public static "stackMallocInt"(arg0: integer): $IntBuffer
-public static "stackCallocInt"(arg0: integer): $IntBuffer
-public static "stackMallocLong"(arg0: integer): $LongBuffer
-public static "stackCallocLong"(arg0: integer): $LongBuffer
-public static "nstackCalloc"(arg0: integer, arg1: integer, arg2: integer): long
-public static "stackCalloc"(arg0: integer): $ByteBuffer
-public "callocShort"(arg0: integer): $ShortBuffer
-public "getFrameIndex"(): integer
-public "mallocShort"(arg0: integer): $ShortBuffer
-public "mallocFloat"(arg0: integer): $FloatBuffer
-public "callocFloat"(arg0: integer): $FloatBuffer
-public "mallocDouble"(arg0: integer): $DoubleBuffer
-public "callocDouble"(arg0: integer): $DoubleBuffer
-public "mallocCLong"(arg0: integer): $CLongBuffer
-public "callocPointer"(arg0: integer): $PointerBuffer
-public "pointersOfElements"(arg0: $CustomBuffer$$Type<(never)>): $PointerBuffer
-public static "nstackMalloc"(arg0: integer): long
-public static "nstackMalloc"(arg0: integer, arg1: integer): long
-public static "stackMalloc"(arg0: integer): $ByteBuffer
-public static "stackCallocCLong"(arg0: integer): $CLongBuffer
-public static "stackCallocPointer"(arg0: integer): $PointerBuffer
-public static "stackCLongs"(arg0: long): $CLongBuffer
-public static "stackCLongs"(arg0: long, arg1: long, arg2: long): $CLongBuffer
-public static "stackCLongs"(arg0: long, arg1: long): $CLongBuffer
-public static "stackCLongs"(arg0: long, arg1: long, arg2: long, arg3: long): $CLongBuffer
-public static "stackCLongs"(...arg0: (long)[]): $CLongBuffer
-public static "stackUTF8Safe"(arg0: charseq, arg1: boolean): $ByteBuffer
-public static "stackUTF8Safe"(arg0: charseq): $ByteBuffer
-public static "stackCallocFloat"(arg0: integer): $FloatBuffer
-public static "stackCallocDouble"(arg0: integer): $DoubleBuffer
-public static "stackDoubles"(...arg0: (double)[]): $DoubleBuffer
-public static "stackDoubles"(arg0: double, arg1: double, arg2: double, arg3: double): $DoubleBuffer
-public static "stackDoubles"(arg0: double): $DoubleBuffer
-public static "stackDoubles"(arg0: double, arg1: double): $DoubleBuffer
-public static "stackDoubles"(arg0: double, arg1: double, arg2: double): $DoubleBuffer
-public static "stackMallocDouble"(arg0: integer): $DoubleBuffer
-public static "stackASCIISafe"(arg0: charseq, arg1: boolean): $ByteBuffer
-public static "stackASCIISafe"(arg0: charseq): $ByteBuffer
-public static "stackMallocFloat"(arg0: integer): $FloatBuffer
-public static "stackUTF16Safe"(arg0: charseq): $ByteBuffer
-public static "stackUTF16Safe"(arg0: charseq, arg1: boolean): $ByteBuffer
-public static "stackMallocCLong"(arg0: integer): $CLongBuffer
-public static "stackFloats"(arg0: float, arg1: float, arg2: float): $FloatBuffer
-public static "stackFloats"(arg0: float, arg1: float, arg2: float, arg3: float): $FloatBuffer
-public static "stackFloats"(...arg0: (float)[]): $FloatBuffer
-public static "stackFloats"(arg0: float, arg1: float): $FloatBuffer
-public static "stackFloats"(arg0: float): $FloatBuffer
-public static "stackMallocPointer"(arg0: integer): $PointerBuffer
-public static "stackPointers"(arg0: long, arg1: long): $PointerBuffer
-public static "stackPointers"(arg0: $Pointer$$Type): $PointerBuffer
-public static "stackPointers"(...arg0: (long)[]): $PointerBuffer
-public static "stackPointers"(arg0: long, arg1: long, arg2: long, arg3: long): $PointerBuffer
-public static "stackPointers"(arg0: long, arg1: long, arg2: long): $PointerBuffer
-public static "stackPointers"(arg0: long): $PointerBuffer
-public static "stackPointers"(...arg0: ($Pointer$$Type)[]): $PointerBuffer
-public static "stackPointers"(arg0: $Pointer$$Type, arg1: $Pointer$$Type, arg2: $Pointer$$Type, arg3: $Pointer$$Type): $PointerBuffer
-public static "stackPointers"(arg0: $Pointer$$Type, arg1: $Pointer$$Type, arg2: $Pointer$$Type): $PointerBuffer
-public static "stackPointers"(arg0: $Pointer$$Type, arg1: $Pointer$$Type): $PointerBuffer
-get "size"(): integer
-get "address"(): long
-get "pointer"(): integer
-set "pointer"(value: integer)
-get "pointerAddress"(): long
-get "frameIndex"(): integer
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $MemoryStack$$Type = ($MemoryStack);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $MemoryStack$$Original = $MemoryStack;}
 declare module "org.lwjgl.system.Struct" {
 import {$Struct$StructValidation$$Type} from "org.lwjgl.system.Struct$StructValidation"
 import {$Pointer$Default} from "org.lwjgl.system.Pointer$Default"
@@ -414,11 +414,11 @@ export type $Struct$$Type<SELF> = ($Struct<(SELF)>);
  */
 export type $Struct$$Original<SELF> = $Struct<(SELF)>;}
 declare module "org.lwjgl.system.StructBuffer" {
-import {$Iterable$$Interface} from "java.lang.Iterable"
 import {$Iterator} from "java.util.Iterator"
+import {$Iterable$$Interface} from "java.lang.Iterable"
 import {$Spliterator} from "java.util.Spliterator"
-import {$Struct, $Struct$$Type} from "org.lwjgl.system.Struct"
 import {$CustomBuffer} from "org.lwjgl.system.CustomBuffer"
+import {$Struct, $Struct$$Type} from "org.lwjgl.system.Struct"
 import {$Stream} from "java.util.stream.Stream"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 

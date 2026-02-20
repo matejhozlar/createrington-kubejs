@@ -4,8 +4,8 @@ export interface $VillagerInvoker$$Interface {
 }
 
 export class $VillagerInvoker implements $VillagerInvoker$$Interface {
- "countFoodPointsInInventoryInvoker"(): integer
  "hungryInvoker"(): boolean
+ "countFoodPointsInInventoryInvoker"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

@@ -45,9 +45,9 @@ static readonly "RESTRICTED_LOWDELAY": $ServerConfig$Codec
 static readonly "VOIP": $ServerConfig$Codec
 static readonly "AUDIO": $ServerConfig$Codec
 
-public "getApplication"(): $OpusEncoder$Application
 public static "values"(): ($ServerConfig$Codec)[]
 public static "valueOf"(arg0: StringJS): $ServerConfig$Codec
+public "getApplication"(): $OpusEncoder$Application
 public "getMode"(): $OpusEncoderMode
 get "application"(): $OpusEncoder$Application
 get "mode"(): $OpusEncoderMode

@@ -1,5 +1,5 @@
-import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
 import {$ItemToolTierRegistryKubeEvent} from "dev.latvian.mods.kubejs.item.custom.ItemToolTierRegistryKubeEvent"
+import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
 import {$KubeStartupEvent} from "dev.latvian.mods.kubejs.event.KubeStartupEvent"
 import {$MoldEventJS} from "com.jesz.createdieselgenerators.compat.kubejs.MoldEventJS"
 import {$BlockModificationKubeEvent} from "dev.latvian.mods.kubejs.block.BlockModificationKubeEvent"

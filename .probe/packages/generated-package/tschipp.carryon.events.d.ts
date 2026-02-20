@@ -1,8 +1,8 @@
 declare module "tschipp.carryon.events.EntityPickupEvent" {
 import {$ICancellableEvent$$Interface} from "net.neoforged.bus.api.ICancellableEvent"
 import {$Event} from "net.neoforged.bus.api.Event"
-import {$ServerPlayer, $ServerPlayer$$Type} from "net.minecraft.server.level.ServerPlayer"
 import {$Entity, $Entity$$Type} from "net.minecraft.world.entity.Entity"
+import {$ServerPlayer, $ServerPlayer$$Type} from "net.minecraft.server.level.ServerPlayer"
 
 export class $EntityPickupEvent extends $Event implements $ICancellableEvent$$Interface {
 readonly "player": $ServerPlayer

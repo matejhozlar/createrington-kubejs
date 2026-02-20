@@ -12,8 +12,6 @@ constructor(arg0: $AffineTransform$$Type, arg1: $Shape$$Type, arg2: $RenderingHi
 
 public "clone"(): any
 public "getTransform"(): $AffineTransform
-public "setTransform"(arg0: $AffineTransform$$Type): void
-public "getRenderingHints"(): $RenderingHints
 /**
  * 
  * @deprecated
@@ -28,12 +26,14 @@ public "preConcatenateTransform"(arg0: $AffineTransform$$Type): void
 public "concatenateTransform"(arg0: $AffineTransform$$Type): void
 public "setAreaOfInterest"(arg0: $Shape$$Type): void
 public "getAreaOfInterest"(): $Shape
+public "setTransform"(arg0: $AffineTransform$$Type): void
+public "getRenderingHints"(): $RenderingHints
 public "setRenderingHints"(arg0: $RenderingHints$$Type): void
 get "transform"(): $AffineTransform
-set "transform"(value: $AffineTransform$$Type)
-get "renderingHints"(): $RenderingHints
 set "areaOfInterest"(value: $Shape$$Type)
 get "areaOfInterest"(): $Shape
+set "transform"(value: $AffineTransform$$Type)
+get "renderingHints"(): $RenderingHints
 set "renderingHints"(value: $RenderingHints$$Type)
 }
 /**
@@ -47,31 +47,31 @@ export type $RenderContext$$Type = ($RenderContext);
 export type $RenderContext$$Original = $RenderContext;}
 declare module "java.awt.image.renderable.RenderableImage" {
 import {$Vector} from "java.util.Vector"
-import {$RenderedImage} from "java.awt.image.RenderedImage"
 import {$RenderContext$$Type} from "java.awt.image.renderable.RenderContext"
 import {$RenderingHints$$Type} from "java.awt.RenderingHints"
+import {$RenderedImage} from "java.awt.image.RenderedImage"
 
 export interface $RenderableImage$$Interface {
-get "sources"(): $Vector<($RenderableImage)>
+get "minX"(): float
+get "width"(): float
 get "dynamic"(): boolean
 get "propertyNames"(): (StringJS)[]
-get "width"(): float
+get "sources"(): $Vector<($RenderableImage)>
 get "height"(): float
 get "minY"(): float
-get "minX"(): float
 }
 
 export class $RenderableImage implements $RenderableImage$$Interface {
 static readonly "HINTS_OBSERVED": StringJS
 
+ "getMinX"(): float
  "getProperty"(arg0: StringJS): any
- "getSources"(): $Vector<($RenderableImage)>
+ "getWidth"(): float
  "isDynamic"(): boolean
  "getPropertyNames"(): (StringJS)[]
- "getWidth"(): float
+ "getSources"(): $Vector<($RenderableImage)>
  "getHeight"(): float
  "getMinY"(): float
- "getMinX"(): float
  "createScaledRendering"(arg0: integer, arg1: integer, arg2: $RenderingHints$$Type): $RenderedImage
  "createDefaultRendering"(): $RenderedImage
  "createRendering"(arg0: $RenderContext$$Type): $RenderedImage

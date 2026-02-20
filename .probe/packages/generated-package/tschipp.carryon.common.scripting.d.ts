@@ -12,46 +12,18 @@ public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "commandLoop"(): StringJS
-public "commandInit"(): StringJS
 public "commandPlace"(): StringJS
+public "commandInit"(): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $CarryOnScript$ScriptEffects$$Type = ({"commandPlace"?: StringJS, "commandInit"?: StringJS, "commandLoop"?: StringJS}) | ([commandPlace?: StringJS, commandInit?: StringJS, commandLoop?: StringJS]);
+export type $CarryOnScript$ScriptEffects$$Type = ({"commandLoop"?: StringJS, "commandInit"?: StringJS, "commandPlace"?: StringJS}) | ([commandLoop?: StringJS, commandInit?: StringJS, commandPlace?: StringJS]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $CarryOnScript$ScriptEffects$$Original = $CarryOnScript$ScriptEffects;}
-declare module "tschipp.carryon.common.scripting.Matchables$EffectsCondition" {
-import {$Codec} from "com.mojang.serialization.Codec"
-import {$ServerPlayer, $ServerPlayer$$Type} from "net.minecraft.server.level.ServerPlayer"
-import {$Matchables$Matchable$$Interface} from "tschipp.carryon.common.scripting.Matchables$Matchable"
-import {$Record} from "java.lang.Record"
-
-export class $Matchables$EffectsCondition extends $Record implements $Matchables$Matchable$$Interface<($ServerPlayer)> {
-static readonly "CODEC": $Codec<($Matchables$EffectsCondition)>
-static readonly "NONE": $Matchables$EffectsCondition
-
-constructor(effects: StringJS)
-
-public "equals"(arg0: any): boolean
-public "toString"(): StringJS
-public "hashCode"(): integer
-public "matches"(arg0: any): boolean
-public "matches"(arg0: $ServerPlayer$$Type): boolean
-public "effects"(): StringJS
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Matchables$EffectsCondition$$Type = ({"effects"?: StringJS}) | ([effects?: StringJS]);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Matchables$EffectsCondition$$Original = $Matchables$EffectsCondition;}
 declare module "tschipp.carryon.common.scripting.Matchables$ScoreboardCondition" {
 import {$Codec} from "com.mojang.serialization.Codec"
 import {$ServerPlayer, $ServerPlayer$$Type} from "net.minecraft.server.level.ServerPlayer"
@@ -80,6 +52,126 @@ export type $Matchables$ScoreboardCondition$$Type = ({"cond"?: StringJS}) | ([co
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $Matchables$ScoreboardCondition$$Original = $Matchables$ScoreboardCondition;}
+declare module "tschipp.carryon.common.scripting.CarryOnScript$ScriptObject" {
+import {$CarryOnScript$ScriptObject$ScriptObjectBlock, $CarryOnScript$ScriptObject$ScriptObjectBlock$$Type} from "tschipp.carryon.common.scripting.CarryOnScript$ScriptObject$ScriptObjectBlock"
+import {$Codec} from "com.mojang.serialization.Codec"
+import {$CarryOnScript$ScriptObject$ScriptObjectEntity, $CarryOnScript$ScriptObject$ScriptObjectEntity$$Type} from "tschipp.carryon.common.scripting.CarryOnScript$ScriptObject$ScriptObjectEntity"
+import {$Record} from "java.lang.Record"
+
+export class $CarryOnScript$ScriptObject extends $Record {
+static readonly "CODEC": $Codec<($CarryOnScript$ScriptObject)>
+
+constructor(block: $CarryOnScript$ScriptObject$ScriptObjectBlock$$Type, entity: $CarryOnScript$ScriptObject$ScriptObjectEntity$$Type)
+
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "block"(): $CarryOnScript$ScriptObject$ScriptObjectBlock
+public "entity"(): $CarryOnScript$ScriptObject$ScriptObjectEntity
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $CarryOnScript$ScriptObject$$Type = ({"block"?: $CarryOnScript$ScriptObject$ScriptObjectBlock$$Type, "entity"?: $CarryOnScript$ScriptObject$ScriptObjectEntity$$Type}) | ([block?: $CarryOnScript$ScriptObject$ScriptObjectBlock$$Type, entity?: $CarryOnScript$ScriptObject$ScriptObjectEntity$$Type]);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $CarryOnScript$ScriptObject$$Original = $CarryOnScript$ScriptObject;}
+declare module "tschipp.carryon.common.scripting.CarryOnScript$ScriptRender" {
+import {$CompoundTag, $CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
+import {$Codec} from "com.mojang.serialization.Codec"
+import {$Optional, $Optional$$Type} from "java.util.Optional"
+import {$Block, $Block$$Type} from "net.minecraft.world.level.block.Block"
+import {$ResourceKey, $ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
+import {$Matchables$OptionalVec3, $Matchables$OptionalVec3$$Type} from "tschipp.carryon.common.scripting.Matchables$OptionalVec3"
+import {$Record} from "java.lang.Record"
+import {$EntityType, $EntityType$$Type} from "net.minecraft.world.entity.EntityType"
+
+export class $CarryOnScript$ScriptRender extends $Record {
+static readonly "CODEC": $Codec<($CarryOnScript$ScriptRender)>
+static readonly "EMPTY": $CarryOnScript$ScriptRender
+
+constructor(renderNameBlock: ($ResourceKey$$Type<($Block$$Type)>)?, renderNameEntity: ($ResourceKey$$Type<($EntityType$$Type<(never)>)>)?, renderNBT: ($CompoundTag$$Type)?, renderTranslation: $Matchables$OptionalVec3$$Type, renderRotation: $Matchables$OptionalVec3$$Type, renderscale: $Matchables$OptionalVec3$$Type, renderRotationLeftArm: $Matchables$OptionalVec3$$Type, renderRotationRightArm: $Matchables$OptionalVec3$$Type, renderLeftArm: boolean, renderRightArm: boolean)
+
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "renderRotation"(): $Matchables$OptionalVec3
+public "renderNBT"(): $Optional<($CompoundTag)>
+public "renderLeftArm"(): boolean
+public "renderRightArm"(): boolean
+public "renderRotationRightArm"(): $Matchables$OptionalVec3
+public "renderRotationLeftArm"(): $Matchables$OptionalVec3
+public "renderTranslation"(): $Matchables$OptionalVec3
+public "renderscale"(): $Matchables$OptionalVec3
+public "renderNameBlock"(): $Optional<($ResourceKey<($Block)>)>
+public "renderNameEntity"(): $Optional<($ResourceKey<($EntityType<(never)>)>)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $CarryOnScript$ScriptRender$$Type = ({"renderNBT"?: ($CompoundTag$$Type)?, "renderNameBlock"?: ($ResourceKey$$Type<($Block$$Type)>)?, "renderRotationLeftArm"?: $Matchables$OptionalVec3$$Type, "renderscale"?: $Matchables$OptionalVec3$$Type, "renderRightArm"?: boolean, "renderRotation"?: $Matchables$OptionalVec3$$Type, "renderTranslation"?: $Matchables$OptionalVec3$$Type, "renderRotationRightArm"?: $Matchables$OptionalVec3$$Type, "renderNameEntity"?: ($ResourceKey$$Type<($EntityType$$Type<(never)>)>)?, "renderLeftArm"?: boolean}) | ([renderNBT?: ($CompoundTag$$Type)?, renderNameBlock?: ($ResourceKey$$Type<($Block$$Type)>)?, renderRotationLeftArm?: $Matchables$OptionalVec3$$Type, renderscale?: $Matchables$OptionalVec3$$Type, renderRightArm?: boolean, renderRotation?: $Matchables$OptionalVec3$$Type, renderTranslation?: $Matchables$OptionalVec3$$Type, renderRotationRightArm?: $Matchables$OptionalVec3$$Type, renderNameEntity?: ($ResourceKey$$Type<($EntityType$$Type<(never)>)>)?, renderLeftArm?: boolean]);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $CarryOnScript$ScriptRender$$Original = $CarryOnScript$ScriptRender;}
+declare module "tschipp.carryon.common.scripting.Matchables$NumberBoundCondition" {
+import {$Codec} from "com.mojang.serialization.Codec"
+import {$Matchables$Matchable$$Interface} from "tschipp.carryon.common.scripting.Matchables$Matchable"
+import {$Record} from "java.lang.Record"
+
+export class $Matchables$NumberBoundCondition extends $Record implements $Matchables$Matchable$$Interface<(number)> {
+static readonly "CODEC": $Codec<($Matchables$NumberBoundCondition)>
+static readonly "NONE": $Matchables$NumberBoundCondition
+
+constructor(bounds: StringJS)
+
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "matches"(arg0: any): boolean
+public "matches"(arg0: number): boolean
+public "bounds"(): StringJS
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Matchables$NumberBoundCondition$$Type = ({"bounds"?: StringJS}) | ([bounds?: StringJS]);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Matchables$NumberBoundCondition$$Original = $Matchables$NumberBoundCondition;}
+declare module "tschipp.carryon.common.scripting.Matchables$EffectsCondition" {
+import {$Codec} from "com.mojang.serialization.Codec"
+import {$ServerPlayer, $ServerPlayer$$Type} from "net.minecraft.server.level.ServerPlayer"
+import {$Matchables$Matchable$$Interface} from "tschipp.carryon.common.scripting.Matchables$Matchable"
+import {$Record} from "java.lang.Record"
+
+export class $Matchables$EffectsCondition extends $Record implements $Matchables$Matchable$$Interface<($ServerPlayer)> {
+static readonly "CODEC": $Codec<($Matchables$EffectsCondition)>
+static readonly "NONE": $Matchables$EffectsCondition
+
+constructor(effects: StringJS)
+
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "matches"(arg0: any): boolean
+public "matches"(arg0: $ServerPlayer$$Type): boolean
+public "effects"(): StringJS
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Matchables$EffectsCondition$$Type = ({"effects"?: StringJS}) | ([effects?: StringJS]);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Matchables$EffectsCondition$$Original = $Matchables$EffectsCondition;}
 declare module "tschipp.carryon.common.scripting.CarryOnScript$ScriptObject$ScriptObjectBlock" {
 import {$Codec} from "com.mojang.serialization.Codec"
 import {$Optional, $Optional$$Type} from "java.util.Optional"
@@ -98,16 +190,16 @@ constructor(typeNameBlock: ($ResourceKey$$Type<($Block$$Type)>)?, typeHardness: 
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public "typeNameBlock"(): $Optional<($ResourceKey<($Block)>)>
-public "typeBlockTag"(): $Matchables$NBTCondition
 public "typeHardness"(): $Matchables$NumberBoundCondition
 public "typeResistance"(): $Matchables$NumberBoundCondition
+public "typeNameBlock"(): $Optional<($ResourceKey<($Block)>)>
+public "typeBlockTag"(): $Matchables$NBTCondition
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $CarryOnScript$ScriptObject$ScriptObjectBlock$$Type = ({"typeBlockTag"?: $Matchables$NBTCondition$$Type, "typeNameBlock"?: ($ResourceKey$$Type<($Block$$Type)>)?, "typeResistance"?: $Matchables$NumberBoundCondition$$Type, "typeHardness"?: $Matchables$NumberBoundCondition$$Type}) | ([typeBlockTag?: $Matchables$NBTCondition$$Type, typeNameBlock?: ($ResourceKey$$Type<($Block$$Type)>)?, typeResistance?: $Matchables$NumberBoundCondition$$Type, typeHardness?: $Matchables$NumberBoundCondition$$Type]);
+export type $CarryOnScript$ScriptObject$ScriptObjectBlock$$Type = ({"typeResistance"?: $Matchables$NumberBoundCondition$$Type, "typeNameBlock"?: ($ResourceKey$$Type<($Block$$Type)>)?, "typeBlockTag"?: $Matchables$NBTCondition$$Type, "typeHardness"?: $Matchables$NumberBoundCondition$$Type}) | ([typeResistance?: $Matchables$NumberBoundCondition$$Type, typeNameBlock?: ($ResourceKey$$Type<($Block$$Type)>)?, typeBlockTag?: $Matchables$NBTCondition$$Type, typeHardness?: $Matchables$NumberBoundCondition$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -119,8 +211,8 @@ import {$Matchables$PositionCondition, $Matchables$PositionCondition$$Type} from
 import {$Matchables$GamestageCondition, $Matchables$GamestageCondition$$Type} from "tschipp.carryon.common.scripting.Matchables$GamestageCondition"
 import {$Matchables$NumberBoundCondition, $Matchables$NumberBoundCondition$$Type} from "tschipp.carryon.common.scripting.Matchables$NumberBoundCondition"
 import {$Matchables$EffectsCondition, $Matchables$EffectsCondition$$Type} from "tschipp.carryon.common.scripting.Matchables$EffectsCondition"
-import {$Record} from "java.lang.Record"
 import {$Matchables$ScoreboardCondition, $Matchables$ScoreboardCondition$$Type} from "tschipp.carryon.common.scripting.Matchables$ScoreboardCondition"
+import {$Record} from "java.lang.Record"
 
 export class $CarryOnScript$ScriptConditions extends $Record {
 static readonly "CODEC": $Codec<($CarryOnScript$ScriptConditions)>
@@ -131,19 +223,19 @@ constructor(conditionGamestage: $Matchables$GamestageCondition$$Type, conditionA
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public "conditionPosition"(): $Matchables$PositionCondition
-public "conditionEffects"(): $Matchables$EffectsCondition
+public "conditionAchievement"(): $Matchables$AdvancementCondition
+public "conditionScoreboard"(): $Matchables$ScoreboardCondition
 public "conditionGamestage"(): $Matchables$GamestageCondition
 public "conditionXp"(): $Matchables$NumberBoundCondition
 public "conditionGamemode"(): $Matchables$NumberBoundCondition
-public "conditionScoreboard"(): $Matchables$ScoreboardCondition
-public "conditionAchievement"(): $Matchables$AdvancementCondition
+public "conditionEffects"(): $Matchables$EffectsCondition
+public "conditionPosition"(): $Matchables$PositionCondition
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $CarryOnScript$ScriptConditions$$Type = ({"conditionGamemode"?: $Matchables$NumberBoundCondition$$Type, "conditionGamestage"?: $Matchables$GamestageCondition$$Type, "conditionEffects"?: $Matchables$EffectsCondition$$Type, "conditionAchievement"?: $Matchables$AdvancementCondition$$Type, "conditionXp"?: $Matchables$NumberBoundCondition$$Type, "conditionPosition"?: $Matchables$PositionCondition$$Type, "conditionScoreboard"?: $Matchables$ScoreboardCondition$$Type}) | ([conditionGamemode?: $Matchables$NumberBoundCondition$$Type, conditionGamestage?: $Matchables$GamestageCondition$$Type, conditionEffects?: $Matchables$EffectsCondition$$Type, conditionAchievement?: $Matchables$AdvancementCondition$$Type, conditionXp?: $Matchables$NumberBoundCondition$$Type, conditionPosition?: $Matchables$PositionCondition$$Type, conditionScoreboard?: $Matchables$ScoreboardCondition$$Type]);
+export type $CarryOnScript$ScriptConditions$$Type = ({"conditionAchievement"?: $Matchables$AdvancementCondition$$Type, "conditionEffects"?: $Matchables$EffectsCondition$$Type, "conditionGamestage"?: $Matchables$GamestageCondition$$Type, "conditionGamemode"?: $Matchables$NumberBoundCondition$$Type, "conditionScoreboard"?: $Matchables$ScoreboardCondition$$Type, "conditionPosition"?: $Matchables$PositionCondition$$Type, "conditionXp"?: $Matchables$NumberBoundCondition$$Type}) | ([conditionAchievement?: $Matchables$AdvancementCondition$$Type, conditionEffects?: $Matchables$EffectsCondition$$Type, conditionGamestage?: $Matchables$GamestageCondition$$Type, conditionGamemode?: $Matchables$NumberBoundCondition$$Type, conditionScoreboard?: $Matchables$ScoreboardCondition$$Type, conditionPosition?: $Matchables$PositionCondition$$Type, conditionXp?: $Matchables$NumberBoundCondition$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -176,32 +268,6 @@ export type $Matchables$AdvancementCondition$$Type = ({"advancement"?: StringJS}
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $Matchables$AdvancementCondition$$Original = $Matchables$AdvancementCondition;}
-declare module "tschipp.carryon.common.scripting.CarryOnScript$ScriptObject" {
-import {$CarryOnScript$ScriptObject$ScriptObjectBlock, $CarryOnScript$ScriptObject$ScriptObjectBlock$$Type} from "tschipp.carryon.common.scripting.CarryOnScript$ScriptObject$ScriptObjectBlock"
-import {$Codec} from "com.mojang.serialization.Codec"
-import {$CarryOnScript$ScriptObject$ScriptObjectEntity, $CarryOnScript$ScriptObject$ScriptObjectEntity$$Type} from "tschipp.carryon.common.scripting.CarryOnScript$ScriptObject$ScriptObjectEntity"
-import {$Record} from "java.lang.Record"
-
-export class $CarryOnScript$ScriptObject extends $Record {
-static readonly "CODEC": $Codec<($CarryOnScript$ScriptObject)>
-
-constructor(block: $CarryOnScript$ScriptObject$ScriptObjectBlock$$Type, entity: $CarryOnScript$ScriptObject$ScriptObjectEntity$$Type)
-
-public "equals"(arg0: any): boolean
-public "toString"(): StringJS
-public "hashCode"(): integer
-public "block"(): $CarryOnScript$ScriptObject$ScriptObjectBlock
-public "entity"(): $CarryOnScript$ScriptObject$ScriptObjectEntity
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $CarryOnScript$ScriptObject$$Type = ({"block"?: $CarryOnScript$ScriptObject$ScriptObjectBlock$$Type, "entity"?: $CarryOnScript$ScriptObject$ScriptObjectEntity$$Type}) | ([block?: $CarryOnScript$ScriptObject$ScriptObjectBlock$$Type, entity?: $CarryOnScript$ScriptObject$ScriptObjectEntity$$Type]);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $CarryOnScript$ScriptObject$$Original = $CarryOnScript$ScriptObject;}
 declare module "tschipp.carryon.common.scripting.Matchables$PositionCondition" {
 import {$Codec} from "com.mojang.serialization.Codec"
 import {$ServerPlayer, $ServerPlayer$$Type} from "net.minecraft.server.level.ServerPlayer"
@@ -230,45 +296,6 @@ export type $Matchables$PositionCondition$$Type = ({"cond"?: StringJS}) | ([cond
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $Matchables$PositionCondition$$Original = $Matchables$PositionCondition;}
-declare module "tschipp.carryon.common.scripting.CarryOnScript$ScriptRender" {
-import {$CompoundTag, $CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
-import {$Codec} from "com.mojang.serialization.Codec"
-import {$Optional, $Optional$$Type} from "java.util.Optional"
-import {$Block, $Block$$Type} from "net.minecraft.world.level.block.Block"
-import {$ResourceKey, $ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
-import {$Record} from "java.lang.Record"
-import {$Matchables$OptionalVec3, $Matchables$OptionalVec3$$Type} from "tschipp.carryon.common.scripting.Matchables$OptionalVec3"
-import {$EntityType, $EntityType$$Type} from "net.minecraft.world.entity.EntityType"
-
-export class $CarryOnScript$ScriptRender extends $Record {
-static readonly "CODEC": $Codec<($CarryOnScript$ScriptRender)>
-static readonly "EMPTY": $CarryOnScript$ScriptRender
-
-constructor(renderNameBlock: ($ResourceKey$$Type<($Block$$Type)>)?, renderNameEntity: ($ResourceKey$$Type<($EntityType$$Type<(never)>)>)?, renderNBT: ($CompoundTag$$Type)?, renderTranslation: $Matchables$OptionalVec3$$Type, renderRotation: $Matchables$OptionalVec3$$Type, renderscale: $Matchables$OptionalVec3$$Type, renderRotationLeftArm: $Matchables$OptionalVec3$$Type, renderRotationRightArm: $Matchables$OptionalVec3$$Type, renderLeftArm: boolean, renderRightArm: boolean)
-
-public "equals"(arg0: any): boolean
-public "toString"(): StringJS
-public "hashCode"(): integer
-public "renderRotation"(): $Matchables$OptionalVec3
-public "renderLeftArm"(): boolean
-public "renderRightArm"(): boolean
-public "renderRotationRightArm"(): $Matchables$OptionalVec3
-public "renderRotationLeftArm"(): $Matchables$OptionalVec3
-public "renderNBT"(): $Optional<($CompoundTag)>
-public "renderNameEntity"(): $Optional<($ResourceKey<($EntityType<(never)>)>)>
-public "renderscale"(): $Matchables$OptionalVec3
-public "renderTranslation"(): $Matchables$OptionalVec3
-public "renderNameBlock"(): $Optional<($ResourceKey<($Block)>)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $CarryOnScript$ScriptRender$$Type = ({"renderRightArm"?: boolean, "renderscale"?: $Matchables$OptionalVec3$$Type, "renderRotationLeftArm"?: $Matchables$OptionalVec3$$Type, "renderNameBlock"?: ($ResourceKey$$Type<($Block$$Type)>)?, "renderNBT"?: ($CompoundTag$$Type)?, "renderLeftArm"?: boolean, "renderNameEntity"?: ($ResourceKey$$Type<($EntityType$$Type<(never)>)>)?, "renderRotationRightArm"?: $Matchables$OptionalVec3$$Type, "renderTranslation"?: $Matchables$OptionalVec3$$Type, "renderRotation"?: $Matchables$OptionalVec3$$Type}) | ([renderRightArm?: boolean, renderscale?: $Matchables$OptionalVec3$$Type, renderRotationLeftArm?: $Matchables$OptionalVec3$$Type, renderNameBlock?: ($ResourceKey$$Type<($Block$$Type)>)?, renderNBT?: ($CompoundTag$$Type)?, renderLeftArm?: boolean, renderNameEntity?: ($ResourceKey$$Type<($EntityType$$Type<(never)>)>)?, renderRotationRightArm?: $Matchables$OptionalVec3$$Type, renderTranslation?: $Matchables$OptionalVec3$$Type, renderRotation?: $Matchables$OptionalVec3$$Type]);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $CarryOnScript$ScriptRender$$Original = $CarryOnScript$ScriptRender;}
 declare module "tschipp.carryon.common.scripting.Matchables$GamestageCondition" {
 import {$Codec} from "com.mojang.serialization.Codec"
 import {$ServerPlayer, $ServerPlayer$$Type} from "net.minecraft.server.level.ServerPlayer"
@@ -312,20 +339,20 @@ static readonly "EMPTY": $CarryOnScript$ScriptObject$ScriptObjectEntity
 
 constructor(typeNameEntity: ($ResourceKey$$Type<($EntityType$$Type<(never)>)>)?, typeHealth: $Matchables$NumberBoundCondition$$Type, typeHeight: $Matchables$NumberBoundCondition$$Type, typeWidth: $Matchables$NumberBoundCondition$$Type, typeEntityTag: $Matchables$NBTCondition$$Type)
 
-public "typeWidth"(): $Matchables$NumberBoundCondition
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public "typeNameEntity"(): $Optional<($ResourceKey<($EntityType<(never)>)>)>
-public "typeEntityTag"(): $Matchables$NBTCondition
+public "typeWidth"(): $Matchables$NumberBoundCondition
 public "typeHealth"(): $Matchables$NumberBoundCondition
 public "typeHeight"(): $Matchables$NumberBoundCondition
+public "typeEntityTag"(): $Matchables$NBTCondition
+public "typeNameEntity"(): $Optional<($ResourceKey<($EntityType<(never)>)>)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $CarryOnScript$ScriptObject$ScriptObjectEntity$$Type = ({"typeEntityTag"?: $Matchables$NBTCondition$$Type, "typeHealth"?: $Matchables$NumberBoundCondition$$Type, "typeHeight"?: $Matchables$NumberBoundCondition$$Type, "typeNameEntity"?: ($ResourceKey$$Type<($EntityType$$Type<(never)>)>)?, "typeWidth"?: $Matchables$NumberBoundCondition$$Type}) | ([typeEntityTag?: $Matchables$NBTCondition$$Type, typeHealth?: $Matchables$NumberBoundCondition$$Type, typeHeight?: $Matchables$NumberBoundCondition$$Type, typeNameEntity?: ($ResourceKey$$Type<($EntityType$$Type<(never)>)>)?, typeWidth?: $Matchables$NumberBoundCondition$$Type]);
+export type $CarryOnScript$ScriptObject$ScriptObjectEntity$$Type = ({"typeNameEntity"?: ($ResourceKey$$Type<($EntityType$$Type<(never)>)>)?, "typeHeight"?: $Matchables$NumberBoundCondition$$Type, "typeHealth"?: $Matchables$NumberBoundCondition$$Type, "typeEntityTag"?: $Matchables$NBTCondition$$Type, "typeWidth"?: $Matchables$NumberBoundCondition$$Type}) | ([typeNameEntity?: ($ResourceKey$$Type<($EntityType$$Type<(never)>)>)?, typeHeight?: $Matchables$NumberBoundCondition$$Type, typeHealth?: $Matchables$NumberBoundCondition$$Type, typeEntityTag?: $Matchables$NBTCondition$$Type, typeWidth?: $Matchables$NumberBoundCondition$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -351,11 +378,11 @@ public "hashCode"(): integer
 public "isValid"(): boolean
 public "isEntity"(): boolean
 public "scriptObject"(): $CarryOnScript$ScriptObject
-public "fulfillsConditions"(arg0: $ServerPlayer$$Type): boolean
-public "scriptConditions"(): $CarryOnScript$ScriptConditions
 public "scriptEffects"(): $CarryOnScript$ScriptEffects
 public "scriptRender"(): $CarryOnScript$ScriptRender
 public "isBlock"(): boolean
+public "fulfillsConditions"(arg0: $ServerPlayer$$Type): boolean
+public "scriptConditions"(): $CarryOnScript$ScriptConditions
 get "valid"(): boolean
 get "entity"(): boolean
 get "block"(): boolean
@@ -364,7 +391,7 @@ get "block"(): boolean
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $CarryOnScript$$Type = ({"priority"?: long, "scriptEffects"?: $CarryOnScript$ScriptEffects$$Type, "scriptObject"?: $CarryOnScript$ScriptObject$$Type, "scriptConditions"?: $CarryOnScript$ScriptConditions$$Type, "scriptRender"?: $CarryOnScript$ScriptRender$$Type}) | ([priority?: long, scriptEffects?: $CarryOnScript$ScriptEffects$$Type, scriptObject?: $CarryOnScript$ScriptObject$$Type, scriptConditions?: $CarryOnScript$ScriptConditions$$Type, scriptRender?: $CarryOnScript$ScriptRender$$Type]);
+export type $CarryOnScript$$Type = ({"priority"?: long, "scriptRender"?: $CarryOnScript$ScriptRender$$Type, "scriptConditions"?: $CarryOnScript$ScriptConditions$$Type, "scriptObject"?: $CarryOnScript$ScriptObject$$Type, "scriptEffects"?: $CarryOnScript$ScriptEffects$$Type}) | ([priority?: long, scriptRender?: $CarryOnScript$ScriptRender$$Type, scriptConditions?: $CarryOnScript$ScriptConditions$$Type, scriptObject?: $CarryOnScript$ScriptObject$$Type, scriptEffects?: $CarryOnScript$ScriptEffects$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -392,30 +419,3 @@ export type $Matchables$OptionalVec3$$Type = ($Matchables$OptionalVec3);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $Matchables$OptionalVec3$$Original = $Matchables$OptionalVec3;}
-declare module "tschipp.carryon.common.scripting.Matchables$NumberBoundCondition" {
-import {$Codec} from "com.mojang.serialization.Codec"
-import {$Matchables$Matchable$$Interface} from "tschipp.carryon.common.scripting.Matchables$Matchable"
-import {$Record} from "java.lang.Record"
-
-export class $Matchables$NumberBoundCondition extends $Record implements $Matchables$Matchable$$Interface<(number)> {
-static readonly "CODEC": $Codec<($Matchables$NumberBoundCondition)>
-static readonly "NONE": $Matchables$NumberBoundCondition
-
-constructor(bounds: StringJS)
-
-public "equals"(arg0: any): boolean
-public "toString"(): StringJS
-public "hashCode"(): integer
-public "matches"(arg0: any): boolean
-public "matches"(arg0: number): boolean
-public "bounds"(): StringJS
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Matchables$NumberBoundCondition$$Type = ({"bounds"?: StringJS}) | ([bounds?: StringJS]);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Matchables$NumberBoundCondition$$Original = $Matchables$NumberBoundCondition;}

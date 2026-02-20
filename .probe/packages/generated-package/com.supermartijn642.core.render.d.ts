@@ -5,10 +5,10 @@ import {$Event} from "net.neoforged.bus.api.Event"
 export class $RenderWorldEvent extends $Event {
 constructor(poseStack: $PoseStack$$Type, partialTicks: float)
 
-public "getPartialTicks"(): float
 public "getPoseStack"(): $PoseStack
-get "partialTicks"(): float
+public "getPartialTicks"(): float
 get "poseStack"(): $PoseStack
+get "partialTicks"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

@@ -1,136 +1,6 @@
-declare module "net.minecraft.server.packs.resources.ResourceManagerReloadListener" {
-import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
-import {$Executor$$Type} from "java.util.concurrent.Executor"
-import {$PreparableReloadListener$$Interface} from "net.minecraft.server.packs.resources.PreparableReloadListener"
-import {$PreparableReloadListener$PreparationBarrier$$Type} from "net.minecraft.server.packs.resources.PreparableReloadListener$PreparationBarrier"
-import {$ProfilerFiller$$Type} from "net.minecraft.util.profiling.ProfilerFiller"
-import {$ResourceManager, $ResourceManager$$Type} from "net.minecraft.server.packs.resources.ResourceManager"
-
-export interface $ResourceManagerReloadListener$$Interface extends $PreparableReloadListener$$Interface {
-
-(arg0: $ResourceManager): void
-get "name"(): StringJS
-}
-
-export class $ResourceManagerReloadListener implements $ResourceManagerReloadListener$$Interface {
- "reload"(arg0: $PreparableReloadListener$PreparationBarrier$$Type, arg1: $ResourceManager$$Type, arg2: $ProfilerFiller$$Type, arg3: $ProfilerFiller$$Type, arg4: $Executor$$Type, arg5: $Executor$$Type): $CompletableFuture<(void)>
- "onResourceManagerReload"(arg0: $ResourceManager$$Type): void
- "getName"(): StringJS
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ResourceManagerReloadListener$$Type = ((arg0: $ResourceManager) => void);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ResourceManagerReloadListener$$Original = $ResourceManagerReloadListener;}
-declare module "net.minecraft.server.packs.AbstractPackResources" {
-import {$PackLocationInfo} from "net.minecraft.server.packs.PackLocationInfo"
-import {$KnownPack} from "net.minecraft.server.packs.repository.KnownPack"
-import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
-import {$MetadataSectionSerializer$$Type} from "net.minecraft.server.packs.metadata.MetadataSectionSerializer"
-import {$Optional} from "java.util.Optional"
-import {$PackType$$Type} from "net.minecraft.server.packs.PackType"
-import {$PackResources$$Interface} from "net.minecraft.server.packs.PackResources"
-import {$PackResources$ResourceOutput$$Type} from "net.minecraft.server.packs.PackResources$ResourceOutput"
-import {$Set} from "java.util.Set"
-import {$IoSupplier} from "net.minecraft.server.packs.resources.IoSupplier"
-import {$InputStream, $InputStream$$Type} from "java.io.InputStream"
-
-export class $AbstractPackResources implements $PackResources$$Interface {
-public "toString"(): StringJS
-public "location"(): $PackLocationInfo
-public static "getMetadataFromStream"<T>(arg0: $MetadataSectionSerializer$$Type<(T)>, arg1: $InputStream$$Type): T
-public "getMetadataSection"<T>(arg0: $MetadataSectionSerializer$$Type<(T)>): T
-public "getResource"(arg0: $PackType$$Type, arg1: $ResourceLocation$$Type): $IoSupplier<($InputStream)>
-public "close"(): void
-public "getNamespaces"(arg0: $PackType$$Type): $Set<(StringJS)>
-public "listResources"(arg0: $PackType$$Type, arg1: StringJS, arg2: StringJS, arg3: $PackResources$ResourceOutput$$Type): void
-public "packId"(): StringJS
-public "getRootResource"(...arg0: (StringJS)[]): $IoSupplier<($InputStream)>
-public "knownPackInfo"(): $Optional<($KnownPack)>
-public "isHidden"(): boolean
-get "hidden"(): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $AbstractPackResources$$Type = ($AbstractPackResources);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $AbstractPackResources$$Original = $AbstractPackResources;}
-declare module "net.minecraft.server.packs.resources.ReloadInstance" {
-import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
-
-export interface $ReloadInstance$$Interface {
-get "actualProgress"(): float
-}
-
-export class $ReloadInstance implements $ReloadInstance$$Interface {
- "done"(): $CompletableFuture<(never)>
- "isDone"(): boolean
- "checkExceptions"(): void
- "getActualProgress"(): float
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ReloadInstance$$Type = ($ReloadInstance);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ReloadInstance$$Original = $ReloadInstance;}
-declare module "net.minecraft.server.packs.resources.SimplePreparableReloadListener" {
-import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
-import {$ContextAwareReloadListener} from "net.neoforged.neoforge.resource.ContextAwareReloadListener"
-import {$Executor$$Type} from "java.util.concurrent.Executor"
-import {$PreparableReloadListener$$Interface} from "net.minecraft.server.packs.resources.PreparableReloadListener"
-import {$PreparableReloadListener$PreparationBarrier$$Type} from "net.minecraft.server.packs.resources.PreparableReloadListener$PreparationBarrier"
-import {$ProfilerFiller$$Type} from "net.minecraft.util.profiling.ProfilerFiller"
-import {$ResourceManager$$Type} from "net.minecraft.server.packs.resources.ResourceManager"
-
-export class $SimplePreparableReloadListener<T> extends $ContextAwareReloadListener implements $PreparableReloadListener$$Interface {
-constructor()
-
-public "reload"(arg0: $PreparableReloadListener$PreparationBarrier$$Type, arg1: $ResourceManager$$Type, arg2: $ProfilerFiller$$Type, arg3: $ProfilerFiller$$Type, arg4: $Executor$$Type, arg5: $Executor$$Type): $CompletableFuture<(void)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $SimplePreparableReloadListener$$Type<T> = ($SimplePreparableReloadListener<(T)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $SimplePreparableReloadListener$$Original<T> = $SimplePreparableReloadListener<(T)>;}
-declare module "net.minecraft.server.packs.metadata.MetadataSectionSerializer" {
-import {$JsonObject$$Type} from "com.google.gson.JsonObject"
-
-export interface $MetadataSectionSerializer$$Interface<T> {
-get "metadataSectionName"(): StringJS
-}
-
-export class $MetadataSectionSerializer<T> implements $MetadataSectionSerializer$$Interface {
- "getMetadataSectionName"(): StringJS
- "fromJson"(arg0: $JsonObject$$Type): T
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $MetadataSectionSerializer$$Type<T> = ($MetadataSectionSerializer<(T)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $MetadataSectionSerializer$$Original<T> = $MetadataSectionSerializer<(T)>;}
 declare module "net.minecraft.server.packs.resources.ResourceProvider" {
-import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
 import {$Map$$Type} from "java.util.Map"
+import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
 import {$Optional, $Optional$$Type} from "java.util.Optional"
 import {$BufferedReader} from "java.io.BufferedReader"
 import {$InputStream} from "java.io.InputStream"
@@ -159,14 +29,411 @@ export type $ResourceProvider$$Type = ((arg0: $ResourceLocation) => ($Resource$$
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ResourceProvider$$Original = $ResourceProvider;}
+declare module "net.minecraft.server.packs.BuiltInMetadata" {
+import {$MetadataSectionSerializer$$Type} from "net.minecraft.server.packs.metadata.MetadataSectionSerializer"
+
+export class $BuiltInMetadata {
+public "get"<T>(arg0: $MetadataSectionSerializer$$Type<(T)>): T
+public static "of"<T>(arg0: $MetadataSectionSerializer$$Type<(T)>, arg1: T): $BuiltInMetadata
+public static "of"<T1, T2>(arg0: $MetadataSectionSerializer$$Type<(T1)>, arg1: T1, arg2: $MetadataSectionSerializer$$Type<(T2)>, arg3: T2): $BuiltInMetadata
+public static "of"(): $BuiltInMetadata
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $BuiltInMetadata$$Type = ($BuiltInMetadata);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $BuiltInMetadata$$Original = $BuiltInMetadata;}
+declare module "net.minecraft.server.packs.PackSelectionConfig" {
+import {$Pack$Position, $Pack$Position$$Type} from "net.minecraft.server.packs.repository.Pack$Position"
+import {$Record} from "java.lang.Record"
+
+export class $PackSelectionConfig extends $Record {
+constructor(arg0: boolean, arg1: $Pack$Position$$Type, arg2: boolean)
+
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "required"(): boolean
+public "defaultPosition"(): $Pack$Position
+public "fixedPosition"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $PackSelectionConfig$$Type = ({"defaultPosition"?: $Pack$Position$$Type, "required"?: boolean, "fixedPosition"?: boolean}) | ([defaultPosition?: $Pack$Position$$Type, required?: boolean, fixedPosition?: boolean]);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $PackSelectionConfig$$Original = $PackSelectionConfig;}
+declare module "net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener" {
+import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
+import {$Map, $Map$$Type} from "java.util.Map"
+import {$JsonElement, $JsonElement$$Type} from "com.google.gson.JsonElement"
+import {$Gson$$Type} from "com.google.gson.Gson"
+import {$SimplePreparableReloadListener} from "net.minecraft.server.packs.resources.SimplePreparableReloadListener"
+import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
+import {$ResourceManager$$Type} from "net.minecraft.server.packs.resources.ResourceManager"
+import {$ProfilerFiller$$Type} from "net.minecraft.util.profiling.ProfilerFiller"
+
+export class $SimpleJsonResourceReloadListener extends $SimplePreparableReloadListener<($Map<($ResourceLocation), ($JsonElement)>)> {
+constructor(arg0: $Gson$$Type, arg1: StringJS)
+
+public "prepare"(arg0: $ResourceManager$$Type, arg1: $ProfilerFiller$$Type): any
+public static "scanDirectory"(arg0: $ResourceManager$$Type, arg1: StringJS, arg2: $Gson$$Type, arg3: $Map$$Type<($ResourceLocation$$Type), ($JsonElement$$Type)>): void
+public "getPreparedPath"(arg0: $ResourceLocation$$Type): $ResourceLocation
+public "fabric_applyResourceConditions"(arg0: $ResourceManager$$Type, arg1: $ProfilerFiller$$Type, arg2: any, arg3: $HolderLookup$Provider$$Type): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $SimpleJsonResourceReloadListener$$Type = ($SimpleJsonResourceReloadListener);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $SimpleJsonResourceReloadListener$$Original = $SimpleJsonResourceReloadListener;}
+declare module "net.minecraft.server.packs.metadata.MetadataSectionType" {
+import {$MetadataSectionSerializer$$Interface} from "net.minecraft.server.packs.metadata.MetadataSectionSerializer"
+import {$Codec$$Type} from "com.mojang.serialization.Codec"
+import {$JsonObject, $JsonObject$$Type} from "com.google.gson.JsonObject"
+
+export interface $MetadataSectionType$$Interface<T> extends $MetadataSectionSerializer$$Interface<(T)> {
+get "metadataSectionName"(): StringJS
+}
+
+export class $MetadataSectionType<T> implements $MetadataSectionType$$Interface {
+ "toJson"(arg0: T): $JsonObject
+static "fromCodec"<T>(arg0: StringJS, arg1: $Codec$$Type<(T)>): $MetadataSectionType<(T)>
+ "fromJson"(arg0: $JsonObject$$Type): T
+ "getMetadataSectionName"(): StringJS
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $MetadataSectionType$$Type<T> = ($MetadataSectionType<(T)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $MetadataSectionType$$Original<T> = $MetadataSectionType<(T)>;}
+declare module "net.minecraft.server.packs.resources.IoSupplier" {
+import {$Path$$Type} from "java.nio.file.Path"
+import {$InputStream} from "java.io.InputStream"
+import {$ZipFile$$Type} from "java.util.zip.ZipFile"
+import {$ZipEntry$$Type} from "java.util.zip.ZipEntry"
+
+export interface $IoSupplier$$Interface<T> {
+
+(): T
+}
+
+export class $IoSupplier<T> implements $IoSupplier$$Interface {
+ "get"(): T
+static "create"(arg0: $Path$$Type): $IoSupplier<($InputStream)>
+static "create"(arg0: $ZipFile$$Type, arg1: $ZipEntry$$Type): $IoSupplier<($InputStream)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $IoSupplier$$Type<T> = (() => T);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $IoSupplier$$Original<T> = $IoSupplier<(T)>;}
+declare module "net.minecraft.server.packs.repository.Pack$Position" {
+import {$Enum} from "java.lang.Enum"
+import {$List$$Type} from "java.util.List"
+import {$Function$$Type} from "java.util.function.Function"
+import {$PackSelectionConfig$$Type} from "net.minecraft.server.packs.PackSelectionConfig"
+
+export class $Pack$Position extends $Enum<($Pack$Position)> {
+static readonly "TOP": $Pack$Position
+static readonly "BOTTOM": $Pack$Position
+
+public static "values"(): ($Pack$Position)[]
+public "insert"<T>(arg0: $List$$Type<(T)>, arg1: T, arg2: $Function$$Type<(T), ($PackSelectionConfig$$Type)>, arg3: boolean): integer
+public static "valueOf"(arg0: StringJS): $Pack$Position
+public "opposite"(): $Pack$Position
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Pack$Position$$Type = (("top") | ("bottom"));
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Pack$Position$$Original = $Pack$Position;}
+declare module "net.minecraft.server.packs.resources.ResourceMetadata" {
+import {$Collection$$Type} from "java.util.Collection"
+import {$MetadataSectionSerializer, $MetadataSectionSerializer$$Type} from "net.minecraft.server.packs.metadata.MetadataSectionSerializer"
+import {$Optional, $Optional$$Type} from "java.util.Optional"
+import {$IoSupplier} from "net.minecraft.server.packs.resources.IoSupplier"
+import {$InputStream$$Type} from "java.io.InputStream"
+
+export interface $ResourceMetadata$$Interface {
+
+(arg0: $MetadataSectionSerializer<(T)>): (T)?
+}
+
+export class $ResourceMetadata implements $ResourceMetadata$$Interface {
+static readonly "EMPTY_SUPPLIER": $IoSupplier<($ResourceMetadata)>
+static readonly "EMPTY": $ResourceMetadata
+
+static "fromJsonStream"(arg0: $InputStream$$Type): $ResourceMetadata
+ "copySections"(arg0: $Collection$$Type<($MetadataSectionSerializer$$Type<(never)>)>): $ResourceMetadata
+ "getSection"<T>(arg0: $MetadataSectionSerializer$$Type<(T)>): $Optional<(T)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ResourceMetadata$$Type = ((arg0: $MetadataSectionSerializer<(T)>) => (T)?);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ResourceMetadata$$Original = $ResourceMetadata;}
+declare module "net.minecraft.server.packs.DownloadQueue$DownloadRequest" {
+import {$URL, $URL$$Type} from "java.net.URL"
+import {$HashCode, $HashCode$$Type} from "com.google.common.hash.HashCode"
+import {$Record} from "java.lang.Record"
+
+export class $DownloadQueue$DownloadRequest extends $Record {
+constructor(arg0: $URL$$Type, arg1: $HashCode$$Type)
+
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "hash"(): $HashCode
+public "url"(): $URL
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $DownloadQueue$DownloadRequest$$Type = ({"url"?: $URL$$Type, "hash"?: $HashCode$$Type}) | ([url?: $URL$$Type, hash?: $HashCode$$Type]);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $DownloadQueue$DownloadRequest$$Original = $DownloadQueue$DownloadRequest;}
+declare module "net.minecraft.server.packs.resources.PreparableReloadListener$PreparationBarrier" {
+import {$CompletableFuture, $CompletableFuture$$Type} from "java.util.concurrent.CompletableFuture"
+
+export interface $PreparableReloadListener$PreparationBarrier$$Interface {
+
+(arg0: T): $CompletableFuture$$Type<(T)>
+}
+
+export class $PreparableReloadListener$PreparationBarrier implements $PreparableReloadListener$PreparationBarrier$$Interface {
+ "wait"<T>(arg0: T): $CompletableFuture<(T)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $PreparableReloadListener$PreparationBarrier$$Type = ((arg0: T) => $CompletableFuture$$Type<(T)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $PreparableReloadListener$PreparationBarrier$$Original = $PreparableReloadListener$PreparationBarrier;}
+declare module "net.minecraft.server.packs.repository.RepositorySource" {
+import {$Pack, $Pack$$Type} from "net.minecraft.server.packs.repository.Pack"
+import {$Consumer, $Consumer$$Type} from "java.util.function.Consumer"
+
+export interface $RepositorySource$$Interface {
+
+(arg0: $Consumer<($Pack)>): void
+}
+
+export class $RepositorySource implements $RepositorySource$$Interface {
+ "loadPacks"(arg0: $Consumer$$Type<($Pack)>): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $RepositorySource$$Type = ((arg0: $Consumer<($Pack)>) => void);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $RepositorySource$$Original = $RepositorySource;}
+declare module "net.minecraft.server.packs.resources.ResourceManagerReloadListener" {
+import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
+import {$Executor$$Type} from "java.util.concurrent.Executor"
+import {$PreparableReloadListener$$Interface} from "net.minecraft.server.packs.resources.PreparableReloadListener"
+import {$PreparableReloadListener$PreparationBarrier$$Type} from "net.minecraft.server.packs.resources.PreparableReloadListener$PreparationBarrier"
+import {$ResourceManager, $ResourceManager$$Type} from "net.minecraft.server.packs.resources.ResourceManager"
+import {$ProfilerFiller$$Type} from "net.minecraft.util.profiling.ProfilerFiller"
+
+export interface $ResourceManagerReloadListener$$Interface extends $PreparableReloadListener$$Interface {
+
+(arg0: $ResourceManager): void
+get "name"(): StringJS
+}
+
+export class $ResourceManagerReloadListener implements $ResourceManagerReloadListener$$Interface {
+ "reload"(arg0: $PreparableReloadListener$PreparationBarrier$$Type, arg1: $ResourceManager$$Type, arg2: $ProfilerFiller$$Type, arg3: $ProfilerFiller$$Type, arg4: $Executor$$Type, arg5: $Executor$$Type): $CompletableFuture<(void)>
+ "onResourceManagerReload"(arg0: $ResourceManager$$Type): void
+ "getName"(): StringJS
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ResourceManagerReloadListener$$Type = ((arg0: $ResourceManager) => void);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ResourceManagerReloadListener$$Original = $ResourceManagerReloadListener;}
+declare module "net.minecraft.server.packs.AbstractPackResources" {
+import {$PackLocationInfo, $PackLocationInfo$$Type} from "net.minecraft.server.packs.PackLocationInfo"
+import {$KnownPack} from "net.minecraft.server.packs.repository.KnownPack"
+import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
+import {$MetadataSectionSerializer$$Type} from "net.minecraft.server.packs.metadata.MetadataSectionSerializer"
+import {$Optional} from "java.util.Optional"
+import {$PackType$$Type} from "net.minecraft.server.packs.PackType"
+import {$PackResources$ResourceOutput$$Type} from "net.minecraft.server.packs.PackResources$ResourceOutput"
+import {$PackResources$$Interface} from "net.minecraft.server.packs.PackResources"
+import {$Set} from "java.util.Set"
+import {$IoSupplier} from "net.minecraft.server.packs.resources.IoSupplier"
+import {$InputStream, $InputStream$$Type} from "java.io.InputStream"
+
+export class $AbstractPackResources implements $PackResources$$Interface {
+constructor(arg0: $PackLocationInfo$$Type)
+
+public "toString"(): StringJS
+public "location"(): $PackLocationInfo
+public static "getMetadataFromStream"<T>(arg0: $MetadataSectionSerializer$$Type<(T)>, arg1: $InputStream$$Type): T
+public "getMetadataSection"<T>(arg0: $MetadataSectionSerializer$$Type<(T)>): T
+public "getResource"(arg0: $PackType$$Type, arg1: $ResourceLocation$$Type): $IoSupplier<($InputStream)>
+public "close"(): void
+public "listResources"(arg0: $PackType$$Type, arg1: StringJS, arg2: StringJS, arg3: $PackResources$ResourceOutput$$Type): void
+public "getNamespaces"(arg0: $PackType$$Type): $Set<(StringJS)>
+public "knownPackInfo"(): $Optional<($KnownPack)>
+public "getRootResource"(...arg0: (StringJS)[]): $IoSupplier<($InputStream)>
+public "packId"(): StringJS
+public "isHidden"(): boolean
+get "hidden"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $AbstractPackResources$$Type = ($AbstractPackResources);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $AbstractPackResources$$Original = $AbstractPackResources;}
+declare module "net.minecraft.server.packs.resources.ReloadInstance" {
+import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
+
+export interface $ReloadInstance$$Interface {
+get "actualProgress"(): float
+}
+
+export class $ReloadInstance implements $ReloadInstance$$Interface {
+ "done"(): $CompletableFuture<(never)>
+ "isDone"(): boolean
+ "getActualProgress"(): float
+ "checkExceptions"(): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ReloadInstance$$Type = ($ReloadInstance);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ReloadInstance$$Original = $ReloadInstance;}
+declare module "net.minecraft.server.packs.resources.SimplePreparableReloadListener" {
+import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
+import {$ContextAwareReloadListener} from "net.neoforged.neoforge.resource.ContextAwareReloadListener"
+import {$Executor$$Type} from "java.util.concurrent.Executor"
+import {$PreparableReloadListener$$Interface} from "net.minecraft.server.packs.resources.PreparableReloadListener"
+import {$PreparableReloadListener$PreparationBarrier$$Type} from "net.minecraft.server.packs.resources.PreparableReloadListener$PreparationBarrier"
+import {$HolderLookup$Provider, $HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
+import {$ResourceManager$$Type} from "net.minecraft.server.packs.resources.ResourceManager"
+import {$ProfilerFiller$$Type} from "net.minecraft.util.profiling.ProfilerFiller"
+
+export class $SimplePreparableReloadListener<T> extends $ContextAwareReloadListener implements $PreparableReloadListener$$Interface {
+constructor()
+
+public "apply"(arg0: T, arg1: $ResourceManager$$Type, arg2: $ProfilerFiller$$Type): void
+public "prepare"(arg0: $ResourceManager$$Type, arg1: $ProfilerFiller$$Type): T
+public "reload"(arg0: $PreparableReloadListener$PreparationBarrier$$Type, arg1: $ResourceManager$$Type, arg2: $ProfilerFiller$$Type, arg3: $ProfilerFiller$$Type, arg4: $Executor$$Type, arg5: $Executor$$Type): $CompletableFuture<(void)>
+public "fabric_getRegistryLookup"(): $HolderLookup$Provider
+public "fabric_applyResourceConditions"(arg0: $ResourceManager$$Type, arg1: $ProfilerFiller$$Type, arg2: any, arg3: $HolderLookup$Provider$$Type): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $SimplePreparableReloadListener$$Type<T> = ($SimplePreparableReloadListener<(T)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $SimplePreparableReloadListener$$Original<T> = $SimplePreparableReloadListener<(T)>;}
+declare module "net.minecraft.server.packs.metadata.MetadataSectionSerializer" {
+import {$JsonObject$$Type} from "com.google.gson.JsonObject"
+
+export interface $MetadataSectionSerializer$$Interface<T> {
+get "metadataSectionName"(): StringJS
+}
+
+export class $MetadataSectionSerializer<T> implements $MetadataSectionSerializer$$Interface {
+ "fromJson"(arg0: $JsonObject$$Type): T
+ "getMetadataSectionName"(): StringJS
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $MetadataSectionSerializer$$Type<T> = ($MetadataSectionSerializer<(T)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $MetadataSectionSerializer$$Original<T> = $MetadataSectionSerializer<(T)>;}
+declare module "net.minecraft.server.packs.DownloadQueue$BatchResult" {
+import {$Map, $Map$$Type} from "java.util.Map"
+import {$UUID, $UUID$$Type} from "java.util.UUID"
+import {$Set, $Set$$Type} from "java.util.Set"
+import {$Path, $Path$$Type} from "java.nio.file.Path"
+import {$Record} from "java.lang.Record"
+
+export class $DownloadQueue$BatchResult extends $Record {
+constructor()
+constructor(arg0: $Map$$Type<($UUID$$Type), ($Path$$Type)>, arg1: $Set$$Type<($UUID$$Type)>)
+
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "failed"(): $Set<($UUID)>
+public "downloaded"(): $Map<($UUID), ($Path)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $DownloadQueue$BatchResult$$Type = ({"failed"?: $Set$$Type<($UUID$$Type)>, "downloaded"?: $Map$$Type<($UUID$$Type), ($Path$$Type)>}) | ([failed?: $Set$$Type<($UUID$$Type)>, downloaded?: $Map$$Type<($UUID$$Type), ($Path$$Type)>]);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $DownloadQueue$BatchResult$$Original = $DownloadQueue$BatchResult;}
 declare module "net.minecraft.server.packs.repository.Pack" {
 import {$FeatureFlagSet} from "net.minecraft.world.flag.FeatureFlagSet"
 import {$FusionPackMetadata} from "com.supermartijn642.fusion.resources.FusionPackMetadata"
 import {$PackLocationInfo, $PackLocationInfo$$Type} from "net.minecraft.server.packs.PackLocationInfo"
 import {$PackMetadataSection$$Type} from "net.minecraft.server.packs.metadata.pack.PackMetadataSection"
-import {$List, $List$$Type} from "java.util.List"
-import {$Pack$Metadata, $Pack$Metadata$$Type} from "net.minecraft.server.packs.repository.Pack$Metadata"
 import {$Predicate$$Type} from "java.util.function.Predicate"
+import {$Pack$Metadata, $Pack$Metadata$$Type} from "net.minecraft.server.packs.repository.Pack$Metadata"
+import {$List, $List$$Type} from "java.util.List"
 import {$PackResources} from "net.minecraft.server.packs.PackResources"
 import {$PackSource} from "net.minecraft.server.packs.repository.PackSource"
 import {$Component} from "net.minecraft.network.chat.Component"
@@ -192,36 +459,36 @@ public "location"(): $PackLocationInfo
 public "getId"(): StringJS
 public "open"(): $PackResources
 public "getChildren"(): $List<($Pack)>
-public static "getDeclaredPackVersions"(arg0: StringJS, arg1: $PackMetadataSection$$Type): $InclusiveRange<(integer)>
-public "fabric_setParentsPredicate"(arg0: $Predicate$$Type): void
-public "getRequestedFeatures"(): $FeatureFlagSet
-public "streamSelfAndChildren"(): $Stream<($Pack)>
+public "isFixedPosition"(): boolean
 public "fabric_parentsEnabled"(arg0: $Set$$Type): boolean
+public "streamSelfAndChildren"(): $Stream<($Pack)>
+public "getRequestedFeatures"(): $FeatureFlagSet
 public "hidden"(): $Pack
+public "getDefaultPosition"(): $Pack$Position
+public "selectionConfig"(): $PackSelectionConfig
+public static "getDeclaredPackVersions"(arg0: StringJS, arg1: $PackMetadataSection$$Type): $InclusiveRange<(integer)>
 public "isRequired"(): boolean
-public "fabric_isHidden"(): boolean
-public "getChatLink"(arg0: boolean): $Component
-public "getFusionMetadata"(): $FusionPackMetadata
-public "getPackSource"(): $PackSource
-public "withChildren"(arg0: $List$$Type<($Pack$$Type)>): $Pack
 public "getTitle"(): $Component
 public "getCompatibility"(): $PackCompatibility
-public "isFixedPosition"(): boolean
+public "fabric_setParentsPredicate"(arg0: $Predicate$$Type): void
 public static "readMetaAndCreate"(arg0: $PackLocationInfo$$Type, arg1: $Pack$ResourcesSupplier$$Type, arg2: $PackType$$Type, arg3: $PackSelectionConfig$$Type): $Pack
+public "getPackSource"(): $PackSource
+public "withChildren"(arg0: $List$$Type<($Pack$$Type)>): $Pack
+public "getFusionMetadata"(): $FusionPackMetadata
+public "fabric_isHidden"(): boolean
+public "getChatLink"(arg0: boolean): $Component
 public static "readPackMetadata"(arg0: $PackLocationInfo$$Type, arg1: $Pack$ResourcesSupplier$$Type, arg2: integer): $Pack$Metadata
-public "selectionConfig"(): $PackSelectionConfig
-public "getDefaultPosition"(): $Pack$Position
 get "description"(): $Component
 get "id"(): StringJS
 get "children"(): $List<($Pack)>
+get "fixedPosition"(): boolean
 get "requestedFeatures"(): $FeatureFlagSet
+get "defaultPosition"(): $Pack$Position
 get "required"(): boolean
-get "fusionMetadata"(): $FusionPackMetadata
-get "packSource"(): $PackSource
 get "title"(): $Component
 get "compatibility"(): $PackCompatibility
-get "fixedPosition"(): boolean
-get "defaultPosition"(): $Pack$Position
+get "packSource"(): $PackSource
+get "fusionMetadata"(): $FusionPackMetadata
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -239,8 +506,8 @@ import {$AutoCloseable$$Interface} from "java.lang.AutoCloseable"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$List} from "java.util.List"
 import {$PackResources} from "net.minecraft.server.packs.PackResources"
-import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
 import {$ResourceProvider} from "net.minecraft.server.packs.resources.ResourceProvider"
+import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
 import {$BufferedReader} from "java.io.BufferedReader"
 import {$Set} from "java.util.Set"
 import {$InputStream} from "java.io.InputStream"
@@ -254,9 +521,9 @@ get "namespaces"(): $Set<(StringJS)>
 
 export class $CloseableResourceManager implements $CloseableResourceManager$$Interface {
  "close"(): void
- "getNamespaces"(): $Set<(StringJS)>
- "listResources"(arg0: StringJS, arg1: $Predicate$$Type<($ResourceLocation)>): $Map<($ResourceLocation), ($Resource)>
  "listPacks"(): $Stream<($PackResources)>
+ "listResources"(arg0: StringJS, arg1: $Predicate$$Type<($ResourceLocation)>): $Map<($ResourceLocation), ($Resource)>
+ "getNamespaces"(): $Set<(StringJS)>
  "getResourceStack"(arg0: $ResourceLocation$$Type): $List<($Resource)>
  "listResourceStacks"(arg0: StringJS, arg1: $Predicate$$Type<($ResourceLocation)>): $Map<($ResourceLocation), ($List<($Resource)>)>
  "getResource"(arg0: $ResourceLocation$$Type): $Optional<($Resource)>
@@ -297,8 +564,8 @@ export type $Pack$ResourcesSupplier$$Type = ($Pack$ResourcesSupplier);
 export type $Pack$ResourcesSupplier$$Original = $Pack$ResourcesSupplier;}
 declare module "net.minecraft.server.packs.metadata.pack.PackMetadataSection" {
 import {$InclusiveRange, $InclusiveRange$$Type} from "net.minecraft.util.InclusiveRange"
-import {$Optional, $Optional$$Type} from "java.util.Optional"
 import {$Codec} from "com.mojang.serialization.Codec"
+import {$Optional, $Optional$$Type} from "java.util.Optional"
 import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component"
 import {$MetadataSectionType} from "net.minecraft.server.packs.metadata.MetadataSectionType"
 import {$Record} from "java.lang.Record"
@@ -310,18 +577,18 @@ static readonly "TYPE": $MetadataSectionType<($PackMetadataSection)>
 constructor(arg0: $Component$$Type, arg1: integer)
 constructor(description: $Component$$Type, packFormat: integer, supportedFormats: ($InclusiveRange$$Type<(integer)>)?)
 
-public "packFormat"(): integer
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "description"(): $Component
+public "packFormat"(): integer
 public "supportedFormats"(): $Optional<($InclusiveRange<(integer)>)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $PackMetadataSection$$Type = ({"packFormat"?: integer, "supportedFormats"?: ($InclusiveRange$$Type<(integer)>)?, "description"?: $Component$$Type}) | ([packFormat?: integer, supportedFormats?: ($InclusiveRange$$Type<(integer)>)?, description?: $Component$$Type]);
+export type $PackMetadataSection$$Type = ({"description"?: $Component$$Type, "supportedFormats"?: ($InclusiveRange$$Type<(integer)>)?, "packFormat"?: integer}) | ([description?: $Component$$Type, supportedFormats?: ($InclusiveRange$$Type<(integer)>)?, packFormat?: integer]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -369,8 +636,8 @@ public "source"(): $PackResources
 public "open"(): $InputStream
 public "metadata"(): $ResourceMetadata
 public "sourcePackId"(): StringJS
-public "knownPackInfo"(): $Optional<($KnownPack)>
 public "openAsReader"(): $BufferedReader
+public "knownPackInfo"(): $Optional<($KnownPack)>
 public "getFabricPackSource"(): $PackSource
 get "fabricPackSource"(): $PackSource
 }
@@ -384,34 +651,42 @@ export type $Resource$$Type = ($Resource);
  */
 export type $Resource$$Original = $Resource;}
 declare module "net.minecraft.server.packs.VanillaPackResources" {
-import {$PackLocationInfo} from "net.minecraft.server.packs.PackLocationInfo"
+import {$PackLocationInfo, $PackLocationInfo$$Type} from "net.minecraft.server.packs.PackLocationInfo"
 import {$KnownPack} from "net.minecraft.server.packs.repository.KnownPack"
+import {$VanillaPackResourcesAccessor$$Interface} from "team.creative.creativecore.mixin.VanillaPackResourcesAccessor"
+import {$Map, $Map$$Type} from "java.util.Map"
 import {$MetadataSectionSerializer$$Type} from "net.minecraft.server.packs.metadata.MetadataSectionSerializer"
 import {$Optional} from "java.util.Optional"
+import {$List$$Type} from "java.util.List"
 import {$PackResources$$Interface} from "net.minecraft.server.packs.PackResources"
 import {$IoSupplier} from "net.minecraft.server.packs.resources.IoSupplier"
+import {$BuiltInMetadata$$Type} from "net.minecraft.server.packs.BuiltInMetadata"
 import {$Consumer$$Type} from "java.util.function.Consumer"
-import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
 import {$ResourceProvider} from "net.minecraft.server.packs.resources.ResourceProvider"
+import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
 import {$PackType$$Type} from "net.minecraft.server.packs.PackType"
 import {$PackResources$ResourceOutput$$Type} from "net.minecraft.server.packs.PackResources$ResourceOutput"
-import {$Set} from "java.util.Set"
+import {$Set, $Set$$Type} from "java.util.Set"
 import {$InputStream} from "java.io.InputStream"
 import {$Path$$Type} from "java.nio.file.Path"
 
-export class $VanillaPackResources implements $PackResources$$Interface {
-public "asProvider"(): $ResourceProvider
+export class $VanillaPackResources implements $PackResources$$Interface, $VanillaPackResourcesAccessor$$Interface {
+constructor(arg0: $PackLocationInfo$$Type, arg1: $BuiltInMetadata$$Type, arg2: $Set$$Type<(StringJS)>, arg3: $List$$Type<($Path$$Type)>, arg4: $Map$$Type<($PackType$$Type), ($List$$Type<($Path$$Type)>)>)
+
 public "getResource"(arg0: $PackType$$Type, arg1: $ResourceLocation$$Type): $IoSupplier<($InputStream)>
 public "location"(): $PackLocationInfo
 public "close"(): void
-public "getNamespaces"(arg0: $PackType$$Type): $Set<(StringJS)>
+public "asProvider"(): $ResourceProvider
 public "listResources"(arg0: $PackType$$Type, arg1: StringJS, arg2: StringJS, arg3: $PackResources$ResourceOutput$$Type): void
-public "getMetadataSection"<T>(arg0: $MetadataSectionSerializer$$Type<(T)>): T
-public "getRootResource"(...arg0: (StringJS)[]): $IoSupplier<($InputStream)>
+public "getNamespaces"(arg0: $PackType$$Type): $Set<(StringJS)>
 public "listRawPaths"(arg0: $PackType$$Type, arg1: $ResourceLocation$$Type, arg2: $Consumer$$Type<($Path)>): void
-public "packId"(): StringJS
+public "getMetadataSection"<T>(arg0: $MetadataSectionSerializer$$Type<(T)>): T
+public "getPathsForType"(): $Map
+public "getRootResource"(...arg0: (StringJS)[]): $IoSupplier<($InputStream)>
 public "knownPackInfo"(): $Optional<($KnownPack)>
+public "packId"(): StringJS
 public "isHidden"(): boolean
+get "pathsForType"(): $Map
 get "hidden"(): boolean
 }
 /**
@@ -425,11 +700,11 @@ export type $VanillaPackResources$$Type = ($VanillaPackResources);
 export type $VanillaPackResources$$Original = $VanillaPackResources;}
 declare module "net.minecraft.server.packs.PackType" {
 import {$Keyable} from "com.mojang.serialization.Keyable"
-import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Codec} from "com.mojang.serialization.Codec"
+import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Enum, $Enum$$Type} from "java.lang.Enum"
-import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Function, $Function$$Type} from "java.util.function.Function"
+import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$StringRepresentable, $StringRepresentable$$Type, $StringRepresentable$$Interface} from "net.minecraft.util.StringRepresentable"
 
 export class $PackType extends $Enum<($PackType)> implements $StringRepresentable$$Interface {
@@ -440,11 +715,11 @@ public static "values"(): ($PackType)[]
 public static "valueOf"(arg0: StringJS): $PackType
 public "getSerializedName"(): StringJS
 public "getDirectory"(): StringJS
-public static "keys"(arg0: ($StringRepresentable$$Type)[]): $Keyable
 public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
-public static "fromValues"<T extends $StringRepresentable>(arg0: $Supplier$$Type<((T)[])>): $Codec<(T)>
-public static "fromEnum"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
+public static "keys"(arg0: ($StringRepresentable$$Type)[]): $Keyable
 public "getRemappedEnumConstantName"(): StringJS
+public static "fromEnum"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
+public static "fromValues"<T extends $StringRepresentable>(arg0: $Supplier$$Type<((T)[])>): $Codec<(T)>
 public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 get "serializedName"(): StringJS
 get "directory"(): StringJS
@@ -459,100 +734,6 @@ export type $PackType$$Type = (("client_resources") | ("server_data"));
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $PackType$$Original = $PackType;}
-declare module "net.minecraft.server.packs.PackSelectionConfig" {
-import {$Pack$Position, $Pack$Position$$Type} from "net.minecraft.server.packs.repository.Pack$Position"
-import {$Record} from "java.lang.Record"
-
-export class $PackSelectionConfig extends $Record {
-constructor(arg0: boolean, arg1: $Pack$Position$$Type, arg2: boolean)
-
-public "equals"(arg0: any): boolean
-public "toString"(): StringJS
-public "hashCode"(): integer
-public "required"(): boolean
-public "defaultPosition"(): $Pack$Position
-public "fixedPosition"(): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $PackSelectionConfig$$Type = ({"required"?: boolean, "defaultPosition"?: $Pack$Position$$Type, "fixedPosition"?: boolean}) | ([required?: boolean, defaultPosition?: $Pack$Position$$Type, fixedPosition?: boolean]);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $PackSelectionConfig$$Original = $PackSelectionConfig;}
-declare module "net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener" {
-import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
-import {$Map, $Map$$Type} from "java.util.Map"
-import {$JsonElement, $JsonElement$$Type} from "com.google.gson.JsonElement"
-import {$Gson$$Type} from "com.google.gson.Gson"
-import {$SimplePreparableReloadListener} from "net.minecraft.server.packs.resources.SimplePreparableReloadListener"
-import {$ResourceManager$$Type} from "net.minecraft.server.packs.resources.ResourceManager"
-
-export class $SimpleJsonResourceReloadListener extends $SimplePreparableReloadListener<($Map<($ResourceLocation), ($JsonElement)>)> {
-constructor(arg0: $Gson$$Type, arg1: StringJS)
-
-public static "scanDirectory"(arg0: $ResourceManager$$Type, arg1: StringJS, arg2: $Gson$$Type, arg3: $Map$$Type<($ResourceLocation$$Type), ($JsonElement$$Type)>): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $SimpleJsonResourceReloadListener$$Type = ($SimpleJsonResourceReloadListener);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $SimpleJsonResourceReloadListener$$Original = $SimpleJsonResourceReloadListener;}
-declare module "net.minecraft.server.packs.metadata.MetadataSectionType" {
-import {$Codec$$Type} from "com.mojang.serialization.Codec"
-import {$MetadataSectionSerializer$$Interface} from "net.minecraft.server.packs.metadata.MetadataSectionSerializer"
-import {$JsonObject, $JsonObject$$Type} from "com.google.gson.JsonObject"
-
-export interface $MetadataSectionType$$Interface<T> extends $MetadataSectionSerializer$$Interface<(T)> {
-get "metadataSectionName"(): StringJS
-}
-
-export class $MetadataSectionType<T> implements $MetadataSectionType$$Interface {
- "toJson"(arg0: T): $JsonObject
-static "fromCodec"<T>(arg0: StringJS, arg1: $Codec$$Type<(T)>): $MetadataSectionType<(T)>
- "getMetadataSectionName"(): StringJS
- "fromJson"(arg0: $JsonObject$$Type): T
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $MetadataSectionType$$Type<T> = ($MetadataSectionType<(T)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $MetadataSectionType$$Original<T> = $MetadataSectionType<(T)>;}
-declare module "net.minecraft.server.packs.resources.IoSupplier" {
-import {$Path$$Type} from "java.nio.file.Path"
-import {$InputStream} from "java.io.InputStream"
-import {$ZipFile$$Type} from "java.util.zip.ZipFile"
-import {$ZipEntry$$Type} from "java.util.zip.ZipEntry"
-
-export interface $IoSupplier$$Interface<T> {
-
-(): T
-}
-
-export class $IoSupplier<T> implements $IoSupplier$$Interface {
- "get"(): T
-static "create"(arg0: $Path$$Type): $IoSupplier<($InputStream)>
-static "create"(arg0: $ZipFile$$Type, arg1: $ZipEntry$$Type): $IoSupplier<($InputStream)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $IoSupplier$$Type<T> = (() => T);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $IoSupplier$$Original<T> = $IoSupplier<(T)>;}
 declare module "net.minecraft.server.packs.repository.PackCompatibility" {
 import {$InclusiveRange$$Type} from "net.minecraft.util.InclusiveRange"
 import {$Enum} from "java.lang.Enum"
@@ -600,28 +781,28 @@ constructor(...arg0: ($RepositorySource$$Type)[])
 
 public "reload"(): void
 public "getRequestedFeatureFlags"(): $FeatureFlagSet
-public "removePack"(arg0: StringJS): boolean
-public "addPack"(arg0: StringJS): boolean
-public "getPack"(arg0: StringJS): $Pack
-public "getSources"(): $Set
-public "setSources"(arg0: $Set$$Type): void
-public "handler$dik000$fabric_resource_loader_v0$construct"(arg0: ($RepositorySource$$Type)[], arg1: $CallbackInfo$$Type): void
-public "isAvailable"(arg0: StringJS): boolean
-public "setSelected"(arg0: $Collection$$Type<(StringJS)>): void
-public "openAllSelected"(): $List<($PackResources)>
-public "getSelectedPacks"(): $Collection<($Pack)>
 public static "displayPackList"(arg0: $Collection$$Type<($Pack$$Type)>): StringJS
-public "getSelectedIds"(): $Collection<(StringJS)>
-public "rebuildSelected"(arg0: $Collection$$Type<(StringJS)>): $List<($Pack)>
-public "getAvailableIds"(): $Collection<(StringJS)>
 public "getAvailablePacks"(): $Collection<($Pack)>
+public "rebuildSelected"(arg0: $Collection$$Type<(StringJS)>): $List<($Pack)>
 public "addPackFinder"(arg0: $RepositorySource$$Type): void
+public "getAvailableIds"(): $Collection<(StringJS)>
+public "isAvailable"(arg0: StringJS): boolean
+public "getSelectedPacks"(): $Collection<($Pack)>
+public "openAllSelected"(): $List<($PackResources)>
+public "setSelected"(arg0: $Collection$$Type<(StringJS)>): void
+public "addPack"(arg0: StringJS): boolean
+public "removePack"(arg0: StringJS): boolean
+public "setSources"(arg0: $Set$$Type): void
+public "getSources"(): $Set
+public "getPack"(arg0: StringJS): $Pack
+public "getSelectedIds"(): $Collection<(StringJS)>
+public "handler$fbe000$fabric_resource_loader_v0$construct"(arg0: ($RepositorySource$$Type)[], arg1: $CallbackInfo$$Type): void
 get "requestedFeatureFlags"(): $FeatureFlagSet
-set "selected"(value: $Collection$$Type<(StringJS)>)
-get "selectedPacks"(): $Collection<($Pack)>
-get "selectedIds"(): $Collection<(StringJS)>
-get "availableIds"(): $Collection<(StringJS)>
 get "availablePacks"(): $Collection<($Pack)>
+get "availableIds"(): $Collection<(StringJS)>
+get "selectedPacks"(): $Collection<($Pack)>
+set "selected"(value: $Collection$$Type<(StringJS)>)
+get "selectedIds"(): $Collection<(StringJS)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -632,59 +813,6 @@ export type $PackRepository$$Type = ($PackRepository);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $PackRepository$$Original = $PackRepository;}
-declare module "net.minecraft.server.packs.repository.Pack$Position" {
-import {$Enum} from "java.lang.Enum"
-import {$Function$$Type} from "java.util.function.Function"
-import {$List$$Type} from "java.util.List"
-import {$PackSelectionConfig$$Type} from "net.minecraft.server.packs.PackSelectionConfig"
-
-export class $Pack$Position extends $Enum<($Pack$Position)> {
-static readonly "TOP": $Pack$Position
-static readonly "BOTTOM": $Pack$Position
-
-public static "values"(): ($Pack$Position)[]
-public "insert"<T>(arg0: $List$$Type<(T)>, arg1: T, arg2: $Function$$Type<(T), ($PackSelectionConfig$$Type)>, arg3: boolean): integer
-public static "valueOf"(arg0: StringJS): $Pack$Position
-public "opposite"(): $Pack$Position
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Pack$Position$$Type = (("top") | ("bottom"));
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Pack$Position$$Original = $Pack$Position;}
-declare module "net.minecraft.server.packs.resources.ResourceMetadata" {
-import {$Collection$$Type} from "java.util.Collection"
-import {$MetadataSectionSerializer, $MetadataSectionSerializer$$Type} from "net.minecraft.server.packs.metadata.MetadataSectionSerializer"
-import {$Optional, $Optional$$Type} from "java.util.Optional"
-import {$IoSupplier} from "net.minecraft.server.packs.resources.IoSupplier"
-import {$InputStream$$Type} from "java.io.InputStream"
-
-export interface $ResourceMetadata$$Interface {
-
-(arg0: $MetadataSectionSerializer<(T)>): (T)?
-}
-
-export class $ResourceMetadata implements $ResourceMetadata$$Interface {
-static readonly "EMPTY_SUPPLIER": $IoSupplier<($ResourceMetadata)>
-static readonly "EMPTY": $ResourceMetadata
-
- "getSection"<T>(arg0: $MetadataSectionSerializer$$Type<(T)>): $Optional<(T)>
-static "fromJsonStream"(arg0: $InputStream$$Type): $ResourceMetadata
- "copySections"(arg0: $Collection$$Type<($MetadataSectionSerializer$$Type<(never)>)>): $ResourceMetadata
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ResourceMetadata$$Type = ((arg0: $MetadataSectionSerializer<(T)>) => (T)?);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ResourceMetadata$$Original = $ResourceMetadata;}
 declare module "net.minecraft.server.packs.resources.PreparableReloadListener" {
 import {$CompletableFuture, $CompletableFuture$$Type} from "java.util.concurrent.CompletableFuture"
 import {$Executor, $Executor$$Type} from "java.util.concurrent.Executor"
@@ -727,14 +855,14 @@ public "hashCode"(): integer
 public "id"(): StringJS
 public "source"(): $PackSource
 public "title"(): $Component
-public "knownPackInfo"(): $Optional<($KnownPack)>
 public "createChatLink"(arg0: boolean, arg1: $Component$$Type): $Component
+public "knownPackInfo"(): $Optional<($KnownPack)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $PackLocationInfo$$Type = ({"title"?: $Component$$Type, "knownPackInfo"?: ($KnownPack$$Type)?, "id"?: StringJS, "source"?: $PackSource$$Type}) | ([title?: $Component$$Type, knownPackInfo?: ($KnownPack$$Type)?, id?: StringJS, source?: $PackSource$$Type]);
+export type $PackLocationInfo$$Type = ({"id"?: StringJS, "knownPackInfo"?: ($KnownPack$$Type)?, "title"?: $Component$$Type, "source"?: $PackSource$$Type}) | ([id?: StringJS, knownPackInfo?: ($KnownPack$$Type)?, title?: $Component$$Type, source?: $PackSource$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -750,20 +878,20 @@ static readonly "STREAM_CODEC": $StreamCodec<($ByteBuf), ($KnownPack)>
 
 constructor(arg0: StringJS, arg1: StringJS, arg2: StringJS)
 
-public static "vanilla"(arg0: StringJS): $KnownPack
-public "isVanilla"(): boolean
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "version"(): StringJS
 public "hashCode"(): integer
 public "id"(): StringJS
+public static "vanilla"(arg0: StringJS): $KnownPack
 public "namespace"(): StringJS
+public "isVanilla"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $KnownPack$$Type = ({"namespace"?: StringJS, "id"?: StringJS, "version"?: StringJS}) | ([namespace?: StringJS, id?: StringJS, version?: StringJS]);
+export type $KnownPack$$Type = ({"version"?: StringJS, "id"?: StringJS, "namespace"?: StringJS}) | ([version?: StringJS, id?: StringJS, namespace?: StringJS]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -774,8 +902,8 @@ import {$Optional} from "java.util.Optional"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$List} from "java.util.List"
 import {$PackResources} from "net.minecraft.server.packs.PackResources"
-import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
 import {$ResourceProvider, $ResourceProvider$$Interface} from "net.minecraft.server.packs.resources.ResourceProvider"
+import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
 import {$BufferedReader} from "java.io.BufferedReader"
 import {$Set} from "java.util.Set"
 import {$InputStream} from "java.io.InputStream"
@@ -787,9 +915,9 @@ get "namespaces"(): $Set<(StringJS)>
 }
 
 export class $ResourceManager implements $ResourceManager$$Interface {
- "getNamespaces"(): $Set<(StringJS)>
- "listResources"(arg0: StringJS, arg1: $Predicate$$Type<($ResourceLocation)>): $Map<($ResourceLocation), ($Resource)>
  "listPacks"(): $Stream<($PackResources)>
+ "listResources"(arg0: StringJS, arg1: $Predicate$$Type<($ResourceLocation)>): $Map<($ResourceLocation), ($Resource)>
+ "getNamespaces"(): $Set<(StringJS)>
  "getResourceStack"(arg0: $ResourceLocation$$Type): $List<($Resource)>
  "listResourceStacks"(arg0: StringJS, arg1: $Predicate$$Type<($ResourceLocation)>): $Map<($ResourceLocation), ($List<($Resource)>)>
  "getResource"(arg0: $ResourceLocation$$Type): $Optional<($Resource)>
@@ -827,8 +955,8 @@ public "toString"(): StringJS
 public "hashCode"(): integer
 public "isHidden"(): boolean
 public "description"(): $Component
-public "overlays"(): $List<(StringJS)>
 public "compatibility"(): $PackCompatibility
+public "overlays"(): $List<(StringJS)>
 public "requestedFeatures"(): $FeatureFlagSet
 get "hidden"(): boolean
 }
@@ -836,17 +964,18 @@ get "hidden"(): boolean
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $Pack$Metadata$$Type = ({"overlays"?: $List$$Type<(StringJS)>, "compatibility"?: $PackCompatibility$$Type, "isHidden"?: boolean, "requestedFeatures"?: $FeatureFlagSet$$Type, "description"?: $Component$$Type}) | ([overlays?: $List$$Type<(StringJS)>, compatibility?: $PackCompatibility$$Type, isHidden?: boolean, requestedFeatures?: $FeatureFlagSet$$Type, description?: $Component$$Type]);
+export type $Pack$Metadata$$Type = ({"compatibility"?: $PackCompatibility$$Type, "overlays"?: $List$$Type<(StringJS)>, "description"?: $Component$$Type, "requestedFeatures"?: $FeatureFlagSet$$Type, "isHidden"?: boolean}) | ([compatibility?: $PackCompatibility$$Type, overlays?: $List$$Type<(StringJS)>, description?: $Component$$Type, requestedFeatures?: $FeatureFlagSet$$Type, isHidden?: boolean]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $Pack$Metadata$$Original = $Pack$Metadata;}
 declare module "net.minecraft.server.packs.resources.ReloadableResourceManager" {
+import {$ReloadableResourceManagerImplAccessor$$Interface} from "me.pepperbell.continuity.client.mixin.ReloadableResourceManagerImplAccessor"
 import {$Map, $Map$$Type} from "java.util.Map"
 import {$Optional} from "java.util.Optional"
 import {$AutoCloseable$$Interface} from "java.lang.AutoCloseable"
-import {$List, $List$$Type} from "java.util.List"
 import {$Predicate$$Type} from "java.util.function.Predicate"
+import {$List, $List$$Type} from "java.util.List"
 import {$PackResources, $PackResources$$Type} from "net.minecraft.server.packs.PackResources"
 import {$PreparableReloadListener$$Type} from "net.minecraft.server.packs.resources.PreparableReloadListener"
 import {$CloseableResourceManager} from "net.minecraft.server.packs.resources.CloseableResourceManager"
@@ -855,35 +984,37 @@ import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resource
 import {$ResourceProvider} from "net.minecraft.server.packs.resources.ResourceProvider"
 import {$CompletableFuture$$Type} from "java.util.concurrent.CompletableFuture"
 import {$PackType$$Type} from "net.minecraft.server.packs.PackType"
-import {$BufferedReader} from "java.io.BufferedReader"
 import {$Executor$$Type} from "java.util.concurrent.Executor"
+import {$BufferedReader} from "java.io.BufferedReader"
 import {$Set} from "java.util.Set"
 import {$InputStream} from "java.io.InputStream"
 import {$Stream} from "java.util.stream.Stream"
+import {$Unit$$Type} from "net.minecraft.util.Unit"
 import {$ResourceManager$$Interface} from "net.minecraft.server.packs.resources.ResourceManager"
 import {$Resource, $Resource$$Type} from "net.minecraft.server.packs.resources.Resource"
-import {$Unit$$Type} from "net.minecraft.util.Unit"
 
-export class $ReloadableResourceManager implements $ResourceManager$$Interface, $AutoCloseable$$Interface {
+export class $ReloadableResourceManager implements $ResourceManager$$Interface, $AutoCloseable$$Interface, $ReloadableResourceManagerImplAccessor$$Interface {
  "resources": $CloseableResourceManager
 
 constructor(arg0: $PackType$$Type)
 
-public "registerReloadListenerIfNotPresent"(arg0: $PreparableReloadListener$$Type): void
 public "getResource"(arg0: $ResourceLocation$$Type): $Optional<($Resource)>
 public "close"(): void
-public "getNamespaces"(): $Set<(StringJS)>
-public "listResources"(arg0: StringJS, arg1: $Predicate$$Type<($ResourceLocation)>): $Map<($ResourceLocation), ($Resource)>
-public "createReload"(arg0: $Executor$$Type, arg1: $Executor$$Type, arg2: $CompletableFuture$$Type<($Unit$$Type)>, arg3: $List$$Type<($PackResources$$Type)>): $ReloadInstance
 public "listPacks"(): $Stream<($PackResources)>
+public "registerReloadListenerIfNotPresent"(arg0: $PreparableReloadListener$$Type): void
+public "listResources"(arg0: StringJS, arg1: $Predicate$$Type<($ResourceLocation)>): $Map<($ResourceLocation), ($Resource)>
+public "getNamespaces"(): $Set<(StringJS)>
+public "createReload"(arg0: $Executor$$Type, arg1: $Executor$$Type, arg2: $CompletableFuture$$Type<($Unit$$Type)>, arg3: $List$$Type<($PackResources$$Type)>): $ReloadInstance
 public "getResourceStack"(arg0: $ResourceLocation$$Type): $List<($Resource)>
-public "listResourceStacks"(arg0: StringJS, arg1: $Predicate$$Type<($ResourceLocation)>): $Map<($ResourceLocation), ($List<($Resource)>)>
 public "registerReloadListener"(arg0: $PreparableReloadListener$$Type): void
+public "listResourceStacks"(arg0: StringJS, arg1: $Predicate$$Type<($ResourceLocation)>): $Map<($ResourceLocation), ($List<($Resource)>)>
+public "getActiveManager"(): $CloseableResourceManager
 public "open"(arg0: $ResourceLocation$$Type): $InputStream
 public static "fromMap"(arg0: $Map$$Type<($ResourceLocation$$Type), ($Resource$$Type)>): $ResourceProvider
 public "openAsReader"(arg0: $ResourceLocation$$Type): $BufferedReader
 public "getResourceOrThrow"(arg0: $ResourceLocation$$Type): $Resource
 get "namespaces"(): $Set<(StringJS)>
+get "activeManager"(): $CloseableResourceManager
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -919,12 +1050,12 @@ static readonly "METADATA_EXTENSION": StringJS
  "getResource"(arg0: $PackType$$Type, arg1: $ResourceLocation$$Type): $IoSupplier<($InputStream)>
  "location"(): $PackLocationInfo
  "close"(): void
- "getNamespaces"(arg0: $PackType$$Type): $Set<(StringJS)>
  "listResources"(arg0: $PackType$$Type, arg1: StringJS, arg2: StringJS, arg3: $PackResources$ResourceOutput$$Type): void
- "packId"(): StringJS
+ "getNamespaces"(arg0: $PackType$$Type): $Set<(StringJS)>
  "getMetadataSection"<T>(arg0: $MetadataSectionSerializer$$Type<(T)>): T
- "getRootResource"(...arg0: (StringJS)[]): $IoSupplier<($InputStream)>
  "knownPackInfo"(): $Optional<($KnownPack)>
+ "getRootResource"(...arg0: (StringJS)[]): $IoSupplier<($InputStream)>
+ "packId"(): StringJS
  "isHidden"(): boolean
 }
 /**
@@ -936,47 +1067,6 @@ export type $PackResources$$Type = ($PackResources);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $PackResources$$Original = $PackResources;}
-declare module "net.minecraft.server.packs.resources.PreparableReloadListener$PreparationBarrier" {
-import {$CompletableFuture, $CompletableFuture$$Type} from "java.util.concurrent.CompletableFuture"
-
-export interface $PreparableReloadListener$PreparationBarrier$$Interface {
-
-(arg0: T): $CompletableFuture$$Type<(T)>
-}
-
-export class $PreparableReloadListener$PreparationBarrier implements $PreparableReloadListener$PreparationBarrier$$Interface {
- "wait"<T>(arg0: T): $CompletableFuture<(T)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $PreparableReloadListener$PreparationBarrier$$Type = ((arg0: T) => $CompletableFuture$$Type<(T)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $PreparableReloadListener$PreparationBarrier$$Original = $PreparableReloadListener$PreparationBarrier;}
-declare module "net.minecraft.server.packs.repository.RepositorySource" {
-import {$Pack, $Pack$$Type} from "net.minecraft.server.packs.repository.Pack"
-import {$Consumer, $Consumer$$Type} from "java.util.function.Consumer"
-
-export interface $RepositorySource$$Interface {
-
-(arg0: $Consumer<($Pack)>): void
-}
-
-export class $RepositorySource implements $RepositorySource$$Interface {
- "loadPacks"(arg0: $Consumer$$Type<($Pack)>): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $RepositorySource$$Type = ((arg0: $Consumer<($Pack)>) => void);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $RepositorySource$$Original = $RepositorySource;}
 declare module "net.minecraft.server.packs.repository.PackSource" {
 import {$UnaryOperator, $UnaryOperator$$Type} from "java.util.function.UnaryOperator"
 import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component"
@@ -993,8 +1083,8 @@ static readonly "WORLD": $PackSource
 static readonly "DEFAULT": $PackSource
 
 static "create"(arg0: $UnaryOperator$$Type<($Component)>, arg1: boolean): $PackSource
- "shouldAddAutomatically"(): boolean
  "decorate"(arg0: $Component$$Type): $Component
+ "shouldAddAutomatically"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

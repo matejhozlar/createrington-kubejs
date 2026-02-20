@@ -21,27 +21,62 @@ public "serializer"(): $EntityDataSerializer<(T)>
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $SynchedEntityData$DataValue$$Type<T> = ({"serializer"?: $EntityDataSerializer$$Type<(T)>, "id"?: integer, "value"?: T}) | ([serializer?: $EntityDataSerializer$$Type<(T)>, id?: integer, value?: T]);
+export type $SynchedEntityData$DataValue$$Type<T> = ({"value"?: T, "id"?: integer, "serializer"?: $EntityDataSerializer$$Type<(T)>}) | ([value?: T, id?: integer, serializer?: $EntityDataSerializer$$Type<(T)>]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $SynchedEntityData$DataValue$$Original<T> = $SynchedEntityData$DataValue<(T)>;}
+declare module "net.minecraft.network.syncher.SynchedEntityData$DataItem" {
+import {$SynchedEntityData$DataValue} from "net.minecraft.network.syncher.SynchedEntityData$DataValue"
+import {$EntityDataAccessor, $EntityDataAccessor$$Type} from "net.minecraft.network.syncher.EntityDataAccessor"
+
+export class $SynchedEntityData$DataItem<T> {
+readonly "accessor": $EntityDataAccessor<(T)>
+
+constructor(arg0: $EntityDataAccessor$$Type<(T)>, arg1: T)
+
+public "isSetToDefault"(): boolean
+public "value"(): $SynchedEntityData$DataValue<(T)>
+public "getValue"(): T
+public "setValue"(arg0: T): void
+public "getAccessor"(): $EntityDataAccessor<(T)>
+public "isDirty"(): boolean
+public "setDirty"(arg0: boolean): void
+get "setToDefault"(): boolean
+get "dirty"(): boolean
+set "dirty"(value: boolean)
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $SynchedEntityData$DataItem$$Type<T> = ($SynchedEntityData$DataItem<(T)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $SynchedEntityData$DataItem$$Original<T> = $SynchedEntityData$DataItem<(T)>;}
 declare module "net.minecraft.network.syncher.SynchedEntityData" {
-import {$SynchedEntityData$DataValue, $SynchedEntityData$DataValue$$Type} from "net.minecraft.network.syncher.SynchedEntityData$DataValue"
 import {$EntityDataSerializer$$Type} from "net.minecraft.network.syncher.EntityDataSerializer"
+import {$SynchedEntityData$DataValue, $SynchedEntityData$DataValue$$Type} from "net.minecraft.network.syncher.SynchedEntityData$DataValue"
+import {$ClassTreeIdRegistry} from "net.minecraft.util.ClassTreeIdRegistry"
 import {$List, $List$$Type} from "java.util.List"
 import {$EntityDataAccessor, $EntityDataAccessor$$Type} from "net.minecraft.network.syncher.EntityDataAccessor"
 import {$SyncedDataHolder$$Type} from "net.minecraft.network.syncher.SyncedDataHolder"
 import {$Class$$Type} from "java.lang.Class"
+import {$SynchedEntityData$DataItem$$Type} from "net.minecraft.network.syncher.SynchedEntityData$DataItem"
 
 export class $SynchedEntityData {
-public static "defineId"<T>(arg0: $Class$$Type<($SyncedDataHolder$$Type)>, arg1: $EntityDataSerializer$$Type<(T)>): $EntityDataAccessor<(T)>
+static readonly "ID_REGISTRY": $ClassTreeIdRegistry
+
+constructor(arg0: $SyncedDataHolder$$Type, arg1: ($SynchedEntityData$DataItem$$Type<(never)>)[])
+
+public "assignValues"(arg0: $List$$Type<($SynchedEntityData$DataValue$$Type<(never)>)>): void
 public "get"<T>(arg0: $EntityDataAccessor$$Type<(T)>): T
-public "set"<T>(arg0: $EntityDataAccessor$$Type<(T)>, arg1: T, arg2: boolean): void
 public "set"<T>(arg0: $EntityDataAccessor$$Type<(T)>, arg1: T): void
+public "set"<T>(arg0: $EntityDataAccessor$$Type<(T)>, arg1: T, arg2: boolean): void
 public "isDirty"(): boolean
 public "getNonDefaultValues"(): $List<($SynchedEntityData$DataValue<(never)>)>
-public "assignValues"(arg0: $List$$Type<($SynchedEntityData$DataValue$$Type<(never)>)>): void
+public static "defineId"<T>(arg0: $Class$$Type<($SyncedDataHolder$$Type)>, arg1: $EntityDataSerializer$$Type<(T)>): $EntityDataAccessor<(T)>
 public "packDirty"(): $List<($SynchedEntityData$DataValue<(never)>)>
 get "dirty"(): boolean
 get "nonDefaultValues"(): $List<($SynchedEntityData$DataValue<(never)>)>
@@ -93,11 +128,31 @@ public "serializer"(): $EntityDataSerializer<(T)>
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $EntityDataAccessor$$Type<T> = ({"serializer"?: $EntityDataSerializer$$Type<(T)>, "id"?: integer}) | ([serializer?: $EntityDataSerializer$$Type<(T)>, id?: integer]);
+export type $EntityDataAccessor$$Type<T> = ({"id"?: integer, "serializer"?: $EntityDataSerializer$$Type<(T)>}) | ([id?: integer, serializer?: $EntityDataSerializer$$Type<(T)>]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $EntityDataAccessor$$Original<T> = $EntityDataAccessor<(T)>;}
+declare module "net.minecraft.network.syncher.SynchedEntityData$Builder" {
+import {$EntityDataAccessor$$Type} from "net.minecraft.network.syncher.EntityDataAccessor"
+import {$SyncedDataHolder$$Type} from "net.minecraft.network.syncher.SyncedDataHolder"
+import {$SynchedEntityData} from "net.minecraft.network.syncher.SynchedEntityData"
+
+export class $SynchedEntityData$Builder {
+constructor(arg0: $SyncedDataHolder$$Type)
+
+public "build"(): $SynchedEntityData
+public "define"<T>(arg0: $EntityDataAccessor$$Type<(T)>, arg1: T): $SynchedEntityData$Builder
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $SynchedEntityData$Builder$$Type = ($SynchedEntityData$Builder);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $SynchedEntityData$Builder$$Original = $SynchedEntityData$Builder;}
 declare module "net.minecraft.network.syncher.EntityDataSerializer" {
 import {$StreamCodec, $StreamCodec$$Type} from "net.minecraft.network.codec.StreamCodec"
 import {$RegistryFriendlyByteBuf, $RegistryFriendlyByteBuf$$Type} from "net.minecraft.network.RegistryFriendlyByteBuf"
@@ -116,9 +171,9 @@ export interface $EntityDataSerializer$$Interface<T> {
 
 export class $EntityDataSerializer<T> implements $EntityDataSerializer$$Interface {
  "copy"(arg0: T): T
- "codec"(): $StreamCodec<($RegistryFriendlyByteBuf), (T)>
-static "forValueType"<T>(arg0: $StreamCodec$$Type<($RegistryFriendlyByteBuf$$Type), (T)>): $EntityDataSerializer<(T)>
  "createAccessor"(arg0: integer): $EntityDataAccessor<(T)>
+static "forValueType"<T>(arg0: $StreamCodec$$Type<($RegistryFriendlyByteBuf$$Type), (T)>): $EntityDataSerializer<(T)>
+ "codec"(): $StreamCodec<($RegistryFriendlyByteBuf), (T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

@@ -1,30 +1,3 @@
-declare module "com.jesz.createdieselgenerators.mixins.ModelPartAccessor" {
-import {$ModelPart$Cube, $ModelPart$Cube$$Type} from "net.minecraft.client.model.geom.ModelPart$Cube"
-import {$List, $List$$Type} from "java.util.List"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export interface $ModelPartAccessor$$Interface {
-
-(): $List$$Type<($ModelPart$Cube$$Type)>
-get "cubes"(): $List<($ModelPart$Cube)>
-}
-
-export class $ModelPartAccessor implements $ModelPartAccessor$$Interface {
- "getCubes"(): $List<($ModelPart$Cube)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ModelPartAccessor$$Type = (() => $List$$Type<($ModelPart$Cube$$Type)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ModelPartAccessor$$Original = $ModelPartAccessor;}
 declare module "com.jesz.createdieselgenerators.mixins.AgeableListModelAccessor" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /**
@@ -33,17 +6,17 @@ export {} // Mark the file as a module, do not remove unless there are other imp
  * Loading the class using require() will not throw an error, but the class will be undefined.
  */
 export interface $AgeableListModelAccessor$$Interface {
-get "babyHeadScale"(): float
-get "scaleHead"(): boolean
-get "babyZHeadOffset"(): float
 get "babyYHeadOffset"(): float
+get "babyHeadScale"(): float
+get "babyZHeadOffset"(): float
+get "scaleHead"(): boolean
 }
 
 export class $AgeableListModelAccessor implements $AgeableListModelAccessor$$Interface {
- "getBabyHeadScale"(): float
- "getScaleHead"(): boolean
- "getBabyZHeadOffset"(): float
  "getBabyYHeadOffset"(): float
+ "getBabyHeadScale"(): float
+ "getBabyZHeadOffset"(): float
+ "getScaleHead"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -106,6 +79,33 @@ export type $UseOnContextInvoker$$Type = (() => $BlockHitResult$$Type);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $UseOnContextInvoker$$Original = $UseOnContextInvoker;}
+declare module "com.jesz.createdieselgenerators.mixins.ModelPartAccessor" {
+import {$ModelPart$Cube, $ModelPart$Cube$$Type} from "net.minecraft.client.model.geom.ModelPart$Cube"
+import {$List, $List$$Type} from "java.util.List"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export interface $ModelPartAccessor$$Interface {
+
+(): $List$$Type<($ModelPart$Cube$$Type)>
+get "cubes"(): $List<($ModelPart$Cube)>
+}
+
+export class $ModelPartAccessor implements $ModelPartAccessor$$Interface {
+ "getCubes"(): $List<($ModelPart$Cube)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ModelPartAccessor$$Type = (() => $List$$Type<($ModelPart$Cube$$Type)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ModelPartAccessor$$Original = $ModelPartAccessor;}
 declare module "com.jesz.createdieselgenerators.mixins.LootPoolAccessor" {
 import {$LootPoolEntryContainer, $LootPoolEntryContainer$$Type} from "net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer"
 import {$List, $List$$Type} from "java.util.List"

@@ -16,10 +16,10 @@ public static "load"(arg: $CompoundTag$$Type, provider: $HolderLookup$Provider$$
 public static "factory"(serverLevel: $ServerLevel$$Type): $SavedData$Factory<($StrongholdLocationCache)>
 public "save"(compoundTag: $CompoundTag$$Type, provider: $HolderLookup$Provider$$Type): $CompoundTag
 public static "getFileId"(dimensionType: $Holder$$Type<($DimensionType)>): StringJS
-public "getChunkPosList"(): $List<($ChunkPos)>
 public "setChunkPosList"(positions: $List$$Type<($ChunkPos$$Type)>): void
-get "chunkPosList"(): $List<($ChunkPos)>
+public "getChunkPosList"(): $List<($ChunkPos)>
 set "chunkPosList"(value: $List$$Type<($ChunkPos$$Type)>)
+get "chunkPosList"(): $List<($ChunkPos)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

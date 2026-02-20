@@ -1,8 +1,8 @@
 declare module "com.lightning.northstar.compat.kubejs.event.NorthstarKubeDataEvent" {
 import {$KubeEvent$$Interface} from "dev.latvian.mods.kubejs.event.KubeEvent"
 import {$FuelType$Builder, $FuelType$Builder$$Type} from "com.lightning.northstar.contraption.FuelType$Builder"
-import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
 import {$KubeDataGenerator$$Type} from "dev.latvian.mods.kubejs.generator.KubeDataGenerator"
+import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
 import {$FuelType$$Type} from "com.lightning.northstar.contraption.FuelType"
 
 export class $NorthstarKubeDataEvent implements $KubeEvent$$Interface {
@@ -15,6 +15,15 @@ constructor(generator: $KubeDataGenerator$$Type)
  * @param path - The name of the fuel type
  */
 public "fuel"(fuel: $FuelType$$Type, path: $ResourceLocation$$Type): void
+public "fuel"(fuel: $FuelType$$Type): void
+public "fuel"(): $FuelType$Builder
+/**
+ * Defines a fuel type
+ * 
+ * @param path - The name of the fuel type
+ */
+public "fuel"(path: $ResourceLocation$$Type): $FuelType$Builder
+public "fuel"(fuel: $FuelType$Builder$$Type): void
 /**
  * Defines a fuel type
  * 
@@ -22,21 +31,6 @@ public "fuel"(fuel: $FuelType$$Type, path: $ResourceLocation$$Type): void
  * @param path - The name of the fuel type
  */
 public "fuel"(fuel: $FuelType$Builder$$Type, path: $ResourceLocation$$Type): void
-public "fuel"(fuel: $FuelType$Builder$$Type): void
-/**
- * Defines a fuel type
- * 
- * @param path - The name of the fuel type
- */
-public "fuel"(path: $ResourceLocation$$Type): $FuelType$Builder
-public "fuel"(): $FuelType$Builder
-public "fuel"(fuel: $FuelType$$Type): void
-/**
- * Stops the event with the given exit value. Execution will be stopped **immediately**.
- * 
- * `exit` denotes a `default` outcome.
- */
-public "exit"(value: any): any
 /**
  * Stops the event with default exit value. Execution will be stopped **immediately**.
  * 
@@ -44,17 +38,23 @@ public "exit"(value: any): any
  */
 public "exit"(): any
 /**
- * Cancels the event with the given exit value. Execution will be stopped **immediately**.
+ * Stops the event with the given exit value. Execution will be stopped **immediately**.
  * 
- * `cancel` denotes a `false` outcome.
+ * `exit` denotes a `default` outcome.
  */
-public "cancel"(value: any): any
+public "exit"(value: any): any
 /**
  * Cancels the event with default exit value. Execution will be stopped **immediately**.
  * 
  * `cancel` denotes a `false` outcome.
  */
 public "cancel"(): any
+/**
+ * Cancels the event with the given exit value. Execution will be stopped **immediately**.
+ * 
+ * `cancel` denotes a `false` outcome.
+ */
+public "cancel"(value: any): any
 /**
  * Stops the event with default exit value. Execution will be stopped **immediately**.
  * 

@@ -1,3 +1,44 @@
+declare module "net.neoforged.neoforge.server.permission.nodes.PermissionNode$PermissionResolver" {
+import {$UUID, $UUID$$Type} from "java.util.UUID"
+import {$PermissionDynamicContext, $PermissionDynamicContext$$Type} from "net.neoforged.neoforge.server.permission.nodes.PermissionDynamicContext"
+import {$ServerPlayer, $ServerPlayer$$Type} from "net.minecraft.server.level.ServerPlayer"
+
+export interface $PermissionNode$PermissionResolver$$Interface<T> {
+
+(arg0: $ServerPlayer, arg1: $UUID, ...arg2: ($PermissionDynamicContext<(never)>)[]): T
+}
+
+export class $PermissionNode$PermissionResolver<T> implements $PermissionNode$PermissionResolver$$Interface {
+ "resolve"(arg0: $ServerPlayer$$Type, arg1: $UUID$$Type, ...arg2: ($PermissionDynamicContext$$Type<(never)>)[]): T
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $PermissionNode$PermissionResolver$$Type<T> = ((arg0: $ServerPlayer, arg1: $UUID, arg2: ($PermissionDynamicContext<(never)>)[]) => T);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $PermissionNode$PermissionResolver$$Original<T> = $PermissionNode$PermissionResolver<(T)>;}
+declare module "net.neoforged.neoforge.server.permission.nodes.PermissionType" {
+import {$Class} from "java.lang.Class"
+
+export class $PermissionType<T> {
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "typeName"(): StringJS
+public "typeToken"(): $Class<(T)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $PermissionType$$Type<T> = ($PermissionType<(T)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $PermissionType$$Original<T> = $PermissionType<(T)>;}
 declare module "net.neoforged.neoforge.server.permission.handler.IPermissionHandler" {
 import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
 import {$UUID$$Type} from "java.util.UUID"
@@ -7,15 +48,15 @@ import {$PermissionDynamicContext$$Type} from "net.neoforged.neoforge.server.per
 import {$ServerPlayer$$Type} from "net.minecraft.server.level.ServerPlayer"
 
 export interface $IPermissionHandler$$Interface {
-get "registeredNodes"(): $Set<($PermissionNode<(never)>)>
 get "identifier"(): $ResourceLocation
+get "registeredNodes"(): $Set<($PermissionNode<(never)>)>
 }
 
 export class $IPermissionHandler implements $IPermissionHandler$$Interface {
+ "getIdentifier"(): $ResourceLocation
  "getPermission"<T>(arg0: $ServerPlayer$$Type, arg1: $PermissionNode$$Type<(T)>, ...arg2: ($PermissionDynamicContext$$Type<(never)>)[]): T
  "getOfflinePermission"<T>(arg0: $UUID$$Type, arg1: $PermissionNode$$Type<(T)>, ...arg2: ($PermissionDynamicContext$$Type<(never)>)[]): T
  "getRegisteredNodes"(): $Set<($PermissionNode<(never)>)>
- "getIdentifier"(): $ResourceLocation
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -42,28 +83,6 @@ export type $PermissionGatherEvent$$Type = ($PermissionGatherEvent);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $PermissionGatherEvent$$Original = $PermissionGatherEvent;}
-declare module "net.neoforged.neoforge.server.permission.nodes.PermissionNode$PermissionResolver" {
-import {$UUID, $UUID$$Type} from "java.util.UUID"
-import {$PermissionDynamicContext, $PermissionDynamicContext$$Type} from "net.neoforged.neoforge.server.permission.nodes.PermissionDynamicContext"
-import {$ServerPlayer, $ServerPlayer$$Type} from "net.minecraft.server.level.ServerPlayer"
-
-export interface $PermissionNode$PermissionResolver$$Interface<T> {
-
-(arg0: $ServerPlayer, arg1: $UUID, ...arg2: ($PermissionDynamicContext<(never)>)[]): T
-}
-
-export class $PermissionNode$PermissionResolver<T> implements $PermissionNode$PermissionResolver$$Interface {
- "resolve"(arg0: $ServerPlayer$$Type, arg1: $UUID$$Type, ...arg2: ($PermissionDynamicContext$$Type<(never)>)[]): T
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $PermissionNode$PermissionResolver$$Type<T> = ((arg0: $ServerPlayer, arg1: $UUID, arg2: ($PermissionDynamicContext<(never)>)[]) => T);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $PermissionNode$PermissionResolver$$Original<T> = $PermissionNode$PermissionResolver<(T)>;}
 declare module "net.neoforged.neoforge.server.permission.nodes.PermissionDynamicContextKey" {
 import {$Function, $Function$$Type} from "java.util.function.Function"
 import {$Class, $Class$$Type} from "java.lang.Class"
@@ -77,15 +96,15 @@ public "name"(): StringJS
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
+public "serializer"(): $Function<(T), (StringJS)>
 public "typeToken"(): $Class<(T)>
 public "createContext"(arg0: T): $PermissionDynamicContext<(T)>
-public "serializer"(): $Function<(T), (StringJS)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $PermissionDynamicContextKey$$Type<T> = ({"serializer"?: $Function$$Type<(T), (StringJS)>, "typeToken"?: $Class$$Type<(T)>, "name"?: StringJS}) | ([serializer?: $Function$$Type<(T), (StringJS)>, typeToken?: $Class$$Type<(T)>, name?: StringJS]);
+export type $PermissionDynamicContextKey$$Type<T> = ({"typeToken"?: $Class$$Type<(T)>, "serializer"?: $Function$$Type<(T), (StringJS)>, "name"?: StringJS}) | ([typeToken?: $Class$$Type<(T)>, serializer?: $Function$$Type<(T), (StringJS)>, name?: StringJS]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -94,13 +113,13 @@ declare module "net.neoforged.neoforge.server.permission.nodes.PermissionDynamic
 import {$PermissionDynamicContextKey} from "net.neoforged.neoforge.server.permission.nodes.PermissionDynamicContextKey"
 
 export class $PermissionDynamicContext<T> {
-public "getSerializedValue"(): StringJS
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public "getValue"(): T
+public "getSerializedValue"(): StringJS
 public "getDynamic"(): $PermissionDynamicContextKey<(T)>
-get "serializedValue"(): StringJS
 get "value"(): T
+get "serializedValue"(): StringJS
 get "dynamic"(): $PermissionDynamicContextKey<(T)>
 }
 /**
@@ -112,28 +131,9 @@ export type $PermissionDynamicContext$$Type<T> = ($PermissionDynamicContext<(T)>
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $PermissionDynamicContext$$Original<T> = $PermissionDynamicContext<(T)>;}
-declare module "net.neoforged.neoforge.server.permission.nodes.PermissionType" {
-import {$Class} from "java.lang.Class"
-
-export class $PermissionType<T> {
-public "equals"(arg0: any): boolean
-public "toString"(): StringJS
-public "hashCode"(): integer
-public "typeName"(): StringJS
-public "typeToken"(): $Class<(T)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $PermissionType$$Type<T> = ($PermissionType<(T)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $PermissionType$$Original<T> = $PermissionType<(T)>;}
 declare module "net.neoforged.neoforge.server.permission.events.PermissionGatherEvent$Handler" {
-import {$Map} from "java.util.Map"
 import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
+import {$Map} from "java.util.Map"
 import {$IPermissionHandlerFactory, $IPermissionHandlerFactory$$Type} from "net.neoforged.neoforge.server.permission.handler.IPermissionHandlerFactory"
 import {$PermissionGatherEvent} from "net.neoforged.neoforge.server.permission.events.PermissionGatherEvent"
 
@@ -170,14 +170,14 @@ public "hashCode"(): integer
 public "getType"(): $PermissionType<(T)>
 public "getNodeName"(): StringJS
 public "setInformation"(arg0: $Component$$Type, arg1: $Component$$Type): $PermissionNode
-public "getDefaultResolver"(): $PermissionNode$PermissionResolver<(T)>
 public "getDynamics"(): ($PermissionDynamicContextKey<(never)>)[]
+public "getDefaultResolver"(): $PermissionNode$PermissionResolver<(T)>
 public "getReadableName"(): $Component
 get "description"(): $Component
 get "type"(): $PermissionType<(T)>
 get "nodeName"(): StringJS
-get "defaultResolver"(): $PermissionNode$PermissionResolver<(T)>
 get "dynamics"(): ($PermissionDynamicContextKey<(never)>)[]
+get "defaultResolver"(): $PermissionNode$PermissionResolver<(T)>
 get "readableName"(): $Component
 }
 /**

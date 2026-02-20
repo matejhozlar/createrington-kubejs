@@ -92,6 +92,79 @@ export type $ModuleDescriptor$Requires$$Type = ($ModuleDescriptor$Requires);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ModuleDescriptor$Requires$$Original = $ModuleDescriptor$Requires;}
+declare module "java.lang.module.ModuleDescriptor$Version" {
+import {$Comparable$$Interface} from "java.lang.Comparable"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $ModuleDescriptor$Version implements $Comparable$$Interface<($ModuleDescriptor$Version)> {
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "compareTo"(arg0: $ModuleDescriptor$Version$$Type): integer
+public "compareTo"(arg0: any): integer
+public static "parse"(arg0: StringJS): $ModuleDescriptor$Version
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ModuleDescriptor$Version$$Type = ($ModuleDescriptor$Version);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ModuleDescriptor$Version$$Original = $ModuleDescriptor$Version;}
+declare module "java.lang.module.ModuleDescriptor$Opens$Modifier" {
+import {$Enum} from "java.lang.Enum"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $ModuleDescriptor$Opens$Modifier extends $Enum<($ModuleDescriptor$Opens$Modifier)> {
+static readonly "SYNTHETIC": $ModuleDescriptor$Opens$Modifier
+static readonly "MANDATED": $ModuleDescriptor$Opens$Modifier
+
+public static "values"(): ($ModuleDescriptor$Opens$Modifier)[]
+public static "valueOf"(arg0: StringJS): $ModuleDescriptor$Opens$Modifier
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ModuleDescriptor$Opens$Modifier$$Type = (("synthetic") | ("mandated"));
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ModuleDescriptor$Opens$Modifier$$Original = $ModuleDescriptor$Opens$Modifier;}
+declare module "java.lang.module.ModuleDescriptor$Exports$Modifier" {
+import {$Enum} from "java.lang.Enum"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $ModuleDescriptor$Exports$Modifier extends $Enum<($ModuleDescriptor$Exports$Modifier)> {
+static readonly "SYNTHETIC": $ModuleDescriptor$Exports$Modifier
+static readonly "MANDATED": $ModuleDescriptor$Exports$Modifier
+
+public static "values"(): ($ModuleDescriptor$Exports$Modifier)[]
+public static "valueOf"(arg0: StringJS): $ModuleDescriptor$Exports$Modifier
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ModuleDescriptor$Exports$Modifier$$Type = (("synthetic") | ("mandated"));
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ModuleDescriptor$Exports$Modifier$$Original = $ModuleDescriptor$Exports$Modifier;}
 declare module "java.lang.module.ModuleDescriptor$Modifier" {
 import {$Enum} from "java.lang.Enum"
 
@@ -207,84 +280,11 @@ export type $ModuleFinder$$Type = ($ModuleFinder);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ModuleFinder$$Original = $ModuleFinder;}
-declare module "java.lang.module.ModuleDescriptor$Version" {
-import {$Comparable$$Interface} from "java.lang.Comparable"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $ModuleDescriptor$Version implements $Comparable$$Interface<($ModuleDescriptor$Version)> {
-public "equals"(arg0: any): boolean
-public "toString"(): StringJS
-public "hashCode"(): integer
-public "compareTo"(arg0: $ModuleDescriptor$Version$$Type): integer
-public "compareTo"(arg0: any): integer
-public static "parse"(arg0: StringJS): $ModuleDescriptor$Version
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ModuleDescriptor$Version$$Type = ($ModuleDescriptor$Version);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ModuleDescriptor$Version$$Original = $ModuleDescriptor$Version;}
-declare module "java.lang.module.ModuleDescriptor$Opens$Modifier" {
-import {$Enum} from "java.lang.Enum"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $ModuleDescriptor$Opens$Modifier extends $Enum<($ModuleDescriptor$Opens$Modifier)> {
-static readonly "SYNTHETIC": $ModuleDescriptor$Opens$Modifier
-static readonly "MANDATED": $ModuleDescriptor$Opens$Modifier
-
-public static "values"(): ($ModuleDescriptor$Opens$Modifier)[]
-public static "valueOf"(arg0: StringJS): $ModuleDescriptor$Opens$Modifier
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ModuleDescriptor$Opens$Modifier$$Type = (("synthetic") | ("mandated"));
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ModuleDescriptor$Opens$Modifier$$Original = $ModuleDescriptor$Opens$Modifier;}
-declare module "java.lang.module.ModuleDescriptor$Exports$Modifier" {
-import {$Enum} from "java.lang.Enum"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $ModuleDescriptor$Exports$Modifier extends $Enum<($ModuleDescriptor$Exports$Modifier)> {
-static readonly "SYNTHETIC": $ModuleDescriptor$Exports$Modifier
-static readonly "MANDATED": $ModuleDescriptor$Exports$Modifier
-
-public static "values"(): ($ModuleDescriptor$Exports$Modifier)[]
-public static "valueOf"(arg0: StringJS): $ModuleDescriptor$Exports$Modifier
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ModuleDescriptor$Exports$Modifier$$Type = (("synthetic") | ("mandated"));
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ModuleDescriptor$Exports$Modifier$$Original = $ModuleDescriptor$Exports$Modifier;}
 declare module "java.lang.module.ModuleDescriptor" {
 import {$Optional} from "java.util.Optional"
 import {$Comparable$$Interface} from "java.lang.Comparable"
-import {$ModuleDescriptor$Version} from "java.lang.module.ModuleDescriptor$Version"
 import {$ModuleDescriptor$Exports} from "java.lang.module.ModuleDescriptor$Exports"
+import {$ModuleDescriptor$Version} from "java.lang.module.ModuleDescriptor$Version"
 import {$ModuleDescriptor$Requires} from "java.lang.module.ModuleDescriptor$Requires"
 import {$AccessFlag} from "java.lang.reflect.AccessFlag"
 import {$ModuleDescriptor$Opens} from "java.lang.module.ModuleDescriptor$Opens"
@@ -292,8 +292,8 @@ import {$ModuleDescriptor$Provides} from "java.lang.module.ModuleDescriptor$Prov
 import {$ModuleDescriptor$Modifier, $ModuleDescriptor$Modifier$$Type} from "java.lang.module.ModuleDescriptor$Modifier"
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Set, $Set$$Type} from "java.util.Set"
-import {$InputStream$$Type} from "java.io.InputStream"
 import {$ModuleDescriptor$Builder} from "java.lang.module.ModuleDescriptor$Builder"
+import {$InputStream$$Type} from "java.io.InputStream"
 import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
 
 /**
@@ -381,12 +381,12 @@ import {$ModuleDescriptor$Opens$$Type} from "java.lang.module.ModuleDescriptor$O
 import {$ModuleDescriptor$Requires$Modifier$$Type} from "java.lang.module.ModuleDescriptor$Requires$Modifier"
 import {$ModuleDescriptor$Provides$$Type} from "java.lang.module.ModuleDescriptor$Provides"
 import {$List$$Type} from "java.util.List"
-import {$Set$$Type} from "java.util.Set"
-import {$ModuleDescriptor$Opens$Modifier$$Type} from "java.lang.module.ModuleDescriptor$Opens$Modifier"
 import {$ModuleDescriptor$Version$$Type} from "java.lang.module.ModuleDescriptor$Version"
 import {$ModuleDescriptor$Exports$$Type} from "java.lang.module.ModuleDescriptor$Exports"
-import {$ModuleDescriptor$Requires$$Type} from "java.lang.module.ModuleDescriptor$Requires"
+import {$ModuleDescriptor$Opens$Modifier$$Type} from "java.lang.module.ModuleDescriptor$Opens$Modifier"
+import {$Set$$Type} from "java.util.Set"
 import {$ModuleDescriptor$Exports$Modifier$$Type} from "java.lang.module.ModuleDescriptor$Exports$Modifier"
+import {$ModuleDescriptor$Requires$$Type} from "java.lang.module.ModuleDescriptor$Requires"
 
 /**
  * This class is not allowed By KubeJS!

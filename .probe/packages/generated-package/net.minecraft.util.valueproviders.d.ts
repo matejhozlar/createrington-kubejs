@@ -1,35 +1,3 @@
-declare module "net.minecraft.util.valueproviders.ClampedNormalInt" {
-import {$RandomSource$$Type} from "net.minecraft.util.RandomSource"
-import {$Codec} from "com.mojang.serialization.Codec"
-import {$IntProvider} from "net.minecraft.util.valueproviders.IntProvider"
-import {$IntProviderType} from "net.minecraft.util.valueproviders.IntProviderType"
-import {$MapCodec} from "com.mojang.serialization.MapCodec"
-
-export class $ClampedNormalInt extends $IntProvider {
-static readonly "CODEC": $MapCodec<($ClampedNormalInt)>
-static readonly "NON_NEGATIVE_CODEC": $Codec<($IntProvider)>
-static readonly "POSITIVE_CODEC": $Codec<($IntProvider)>
-
-public "sample"(arg0: $RandomSource$$Type): integer
-public static "sample"(arg0: $RandomSource$$Type, arg1: float, arg2: float, arg3: float, arg4: float): integer
-public "toString"(): StringJS
-public static "of"(arg0: float, arg1: float, arg2: integer, arg3: integer): $ClampedNormalInt
-public "getType"(): $IntProviderType<(never)>
-public "getMinValue"(): integer
-public "getMaxValue"(): integer
-get "type"(): $IntProviderType<(never)>
-get "minValue"(): integer
-get "maxValue"(): integer
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ClampedNormalInt$$Type = ($ClampedNormalInt);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ClampedNormalInt$$Original = $ClampedNormalInt;}
 declare module "net.minecraft.util.valueproviders.IntProvider" {
 import {$RandomSource$$Type} from "net.minecraft.util.RandomSource"
 import {$Codec, $Codec$$Type} from "com.mojang.serialization.Codec"
@@ -42,12 +10,12 @@ static readonly "POSITIVE_CODEC": $Codec<($IntProvider)>
 
 constructor()
 
-public "sample"(arg0: $RandomSource$$Type): integer
 public "getType"(): $IntProviderType<(never)>
 public "getMinValue"(): integer
 public "getMaxValue"(): integer
-public static "validateCodec"<T extends $IntProvider>(arg0: integer, arg1: integer, arg2: $Codec$$Type<(T)>): $Codec<(T)>
 public static "codec"(arg0: integer, arg1: integer): $Codec<($IntProvider)>
+public "sample"(arg0: $RandomSource$$Type): integer
+public static "validateCodec"<T extends $IntProvider>(arg0: integer, arg1: integer, arg2: $Codec$$Type<(T)>): $Codec<(T)>
 get "type"(): $IntProviderType<(never)>
 get "minValue"(): integer
 get "maxValue"(): integer
@@ -76,10 +44,10 @@ static readonly "POSITIVE_CODEC": $Codec<($IntProvider)>
 
 constructor(arg0: $SimpleWeightedRandomList$$Type<($IntProvider$$Type)>)
 
-public "sample"(arg0: $RandomSource$$Type): integer
 public "getType"(): $IntProviderType<(never)>
 public "getMinValue"(): integer
 public "getMaxValue"(): integer
+public "sample"(arg0: $RandomSource$$Type): integer
 get "type"(): $IntProviderType<(never)>
 get "minValue"(): integer
 get "maxValue"(): integer
@@ -136,11 +104,11 @@ static readonly "POSITIVE_CODEC": $Codec<($IntProvider)>
 
 constructor(arg0: $IntProvider$$Type, arg1: integer, arg2: integer)
 
-public "sample"(arg0: $RandomSource$$Type): integer
 public static "of"(arg0: $IntProvider$$Type, arg1: integer, arg2: integer): $ClampedInt
 public "getType"(): $IntProviderType<(never)>
 public "getMinValue"(): integer
 public "getMaxValue"(): integer
+public "sample"(arg0: $RandomSource$$Type): integer
 get "type"(): $IntProviderType<(never)>
 get "minValue"(): integer
 get "maxValue"(): integer
@@ -193,14 +161,80 @@ export type $FloatProviderType$$Type<P> = (Special.FloatProviderType) | (() => $
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $FloatProviderType$$Original<P> = $FloatProviderType<(P)>;}
+declare module "net.minecraft.util.valueproviders.ConstantInt" {
+import {$RandomSource$$Type} from "net.minecraft.util.RandomSource"
+import {$Codec} from "com.mojang.serialization.Codec"
+import {$IntProvider} from "net.minecraft.util.valueproviders.IntProvider"
+import {$IntProviderType} from "net.minecraft.util.valueproviders.IntProviderType"
+import {$MapCodec} from "com.mojang.serialization.MapCodec"
+
+export class $ConstantInt extends $IntProvider {
+static readonly "ZERO": $ConstantInt
+static readonly "CODEC": $MapCodec<($ConstantInt)>
+static readonly "NON_NEGATIVE_CODEC": $Codec<($IntProvider)>
+static readonly "POSITIVE_CODEC": $Codec<($IntProvider)>
+
+public "toString"(): StringJS
+public "getValue"(): integer
+public static "of"(arg0: integer): $ConstantInt
+public "getType"(): $IntProviderType<(never)>
+public "getMinValue"(): integer
+public "getMaxValue"(): integer
+public "sample"(arg0: $RandomSource$$Type): integer
+get "value"(): integer
+get "type"(): $IntProviderType<(never)>
+get "minValue"(): integer
+get "maxValue"(): integer
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ConstantInt$$Type = ($ConstantInt);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ConstantInt$$Original = $ConstantInt;}
+declare module "net.minecraft.util.valueproviders.ClampedNormalInt" {
+import {$RandomSource$$Type} from "net.minecraft.util.RandomSource"
+import {$Codec} from "com.mojang.serialization.Codec"
+import {$IntProvider} from "net.minecraft.util.valueproviders.IntProvider"
+import {$IntProviderType} from "net.minecraft.util.valueproviders.IntProviderType"
+import {$MapCodec} from "com.mojang.serialization.MapCodec"
+
+export class $ClampedNormalInt extends $IntProvider {
+static readonly "CODEC": $MapCodec<($ClampedNormalInt)>
+static readonly "NON_NEGATIVE_CODEC": $Codec<($IntProvider)>
+static readonly "POSITIVE_CODEC": $Codec<($IntProvider)>
+
+public "toString"(): StringJS
+public static "of"(arg0: float, arg1: float, arg2: integer, arg3: integer): $ClampedNormalInt
+public "getType"(): $IntProviderType<(never)>
+public "getMinValue"(): integer
+public "getMaxValue"(): integer
+public "sample"(arg0: $RandomSource$$Type): integer
+public static "sample"(arg0: $RandomSource$$Type, arg1: float, arg2: float, arg3: float, arg4: float): integer
+get "type"(): $IntProviderType<(never)>
+get "minValue"(): integer
+get "maxValue"(): integer
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ClampedNormalInt$$Type = ($ClampedNormalInt);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ClampedNormalInt$$Original = $ClampedNormalInt;}
 declare module "net.minecraft.util.valueproviders.IntProviderType" {
 import {$UniformInt} from "net.minecraft.util.valueproviders.UniformInt"
 import {$ClampedInt} from "net.minecraft.util.valueproviders.ClampedInt"
 import {$WeightedListInt} from "net.minecraft.util.valueproviders.WeightedListInt"
 import {$ConstantInt} from "net.minecraft.util.valueproviders.ConstantInt"
 import {$ClampedNormalInt} from "net.minecraft.util.valueproviders.ClampedNormalInt"
-import {$IntProvider} from "net.minecraft.util.valueproviders.IntProvider"
 import {$BiasedToBottomInt} from "net.minecraft.util.valueproviders.BiasedToBottomInt"
+import {$IntProvider} from "net.minecraft.util.valueproviders.IntProvider"
 import {$MapCodec, $MapCodec$$Type} from "com.mojang.serialization.MapCodec"
 
 export interface $IntProviderType$$Interface<P extends $IntProvider> {
@@ -248,12 +282,12 @@ static readonly "CODEC": $MapCodec<($UniformInt)>
 static readonly "NON_NEGATIVE_CODEC": $Codec<($IntProvider)>
 static readonly "POSITIVE_CODEC": $Codec<($IntProvider)>
 
-public "sample"(arg0: $RandomSource$$Type): integer
 public "toString"(): StringJS
 public static "of"(arg0: integer, arg1: integer): $UniformInt
 public "getType"(): $IntProviderType<(never)>
 public "getMinValue"(): integer
 public "getMaxValue"(): integer
+public "sample"(arg0: $RandomSource$$Type): integer
 get "type"(): $IntProviderType<(never)>
 get "minValue"(): integer
 get "maxValue"(): integer
@@ -267,40 +301,6 @@ export type $UniformInt$$Type = ($UniformInt);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $UniformInt$$Original = $UniformInt;}
-declare module "net.minecraft.util.valueproviders.ConstantInt" {
-import {$RandomSource$$Type} from "net.minecraft.util.RandomSource"
-import {$Codec} from "com.mojang.serialization.Codec"
-import {$IntProvider} from "net.minecraft.util.valueproviders.IntProvider"
-import {$IntProviderType} from "net.minecraft.util.valueproviders.IntProviderType"
-import {$MapCodec} from "com.mojang.serialization.MapCodec"
-
-export class $ConstantInt extends $IntProvider {
-static readonly "ZERO": $ConstantInt
-static readonly "CODEC": $MapCodec<($ConstantInt)>
-static readonly "NON_NEGATIVE_CODEC": $Codec<($IntProvider)>
-static readonly "POSITIVE_CODEC": $Codec<($IntProvider)>
-
-public "sample"(arg0: $RandomSource$$Type): integer
-public "toString"(): StringJS
-public "getValue"(): integer
-public static "of"(arg0: integer): $ConstantInt
-public "getType"(): $IntProviderType<(never)>
-public "getMinValue"(): integer
-public "getMaxValue"(): integer
-get "value"(): integer
-get "type"(): $IntProviderType<(never)>
-get "minValue"(): integer
-get "maxValue"(): integer
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ConstantInt$$Type = ($ConstantInt);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ConstantInt$$Original = $ConstantInt;}
 declare module "net.minecraft.util.valueproviders.BiasedToBottomInt" {
 import {$RandomSource$$Type} from "net.minecraft.util.RandomSource"
 import {$Codec} from "com.mojang.serialization.Codec"
@@ -313,12 +313,12 @@ static readonly "CODEC": $MapCodec<($BiasedToBottomInt)>
 static readonly "NON_NEGATIVE_CODEC": $Codec<($IntProvider)>
 static readonly "POSITIVE_CODEC": $Codec<($IntProvider)>
 
-public "sample"(arg0: $RandomSource$$Type): integer
 public "toString"(): StringJS
 public static "of"(arg0: integer, arg1: integer): $BiasedToBottomInt
 public "getType"(): $IntProviderType<(never)>
 public "getMinValue"(): integer
 public "getMaxValue"(): integer
+public "sample"(arg0: $RandomSource$$Type): integer
 get "type"(): $IntProviderType<(never)>
 get "minValue"(): integer
 get "maxValue"(): integer

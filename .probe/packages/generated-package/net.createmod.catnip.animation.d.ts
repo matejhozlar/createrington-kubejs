@@ -6,29 +6,29 @@ import {$LerpedFloat$Interpolator$$Type} from "net.createmod.catnip.animation.Le
 export class $LerpedFloat {
 constructor(arg0: $LerpedFloat$Interpolator$$Type)
 
-public "getValue"(): float
-public "getValue"(arg0: float): float
-public "setValue"(arg0: double): void
-public "readNBT"(arg0: $CompoundTag$$Type, arg1: boolean): void
+public "startWithValue"(arg0: double): $LerpedFloat
 public "writeNBT"(): $CompoundTag
-public "tickChaser"(): void
-public "chase"(arg0: double, arg1: double, arg2: $LerpedFloat$Chaser$$Type): $LerpedFloat
-public "updateChaseSpeed"(arg0: double): boolean
-public "forceNextSync"(): void
+public "readNBT"(arg0: $CompoundTag$$Type, arg1: boolean): void
+public "getValue"(arg0: float): float
+public "getValue"(): float
+public "setValue"(arg0: double): void
 public "getChaseTarget"(): float
 public "chaseTimed"(arg0: double, arg1: integer): $LerpedFloat
-public static "linear"(): $LerpedFloat
-public static "angular"(): $LerpedFloat
-public "settled"(): boolean
-public "updateChaseTarget"(arg0: float): void
-public "startWithValue"(arg0: double): $LerpedFloat
-public "disableSmartAngleChasing"(): $LerpedFloat
 public "setValueNoUpdate"(arg0: double): void
+public static "linear"(): $LerpedFloat
+public "disableSmartAngleChasing"(): $LerpedFloat
+public "settled"(): boolean
+public "tickChaser"(): void
+public "chase"(arg0: double, arg1: double, arg2: $LerpedFloat$Chaser$$Type): $LerpedFloat
+public "updateChaseTarget"(arg0: float): void
+public "forceNextSync"(): void
+public "updateChaseSpeed"(arg0: double): boolean
+public static "angular"(): $LerpedFloat
 get "value"(): float
 set "value"(value: double)
 get "chaseTarget"(): float
-get "tled"(): boolean
 set "valueNoUpdate"(value: double)
+get "tled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

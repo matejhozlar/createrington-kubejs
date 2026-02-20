@@ -6,18 +6,18 @@ import {$Record} from "java.lang.Record"
 export class $Keyframe extends $Record {
 constructor(arg0: float, arg1: $Vector3f$$Type, arg2: $AnimationChannel$Interpolation$$Type)
 
-public "interpolation"(): $AnimationChannel$Interpolation
 public "equals"(arg0: any): boolean
 public "target"(): $Vector3f
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "timestamp"(): float
+public "interpolation"(): $AnimationChannel$Interpolation
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $Keyframe$$Type = ({"interpolation"?: $AnimationChannel$Interpolation$$Type, "target"?: $Vector3f$$Type, "timestamp"?: float}) | ([interpolation?: $AnimationChannel$Interpolation$$Type, target?: $Vector3f$$Type, timestamp?: float]);
+export type $Keyframe$$Type = ({"target"?: $Vector3f$$Type, "interpolation"?: $AnimationChannel$Interpolation$$Type, "timestamp"?: float}) | ([target?: $Vector3f$$Type, interpolation?: $AnimationChannel$Interpolation$$Type, timestamp?: float]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */

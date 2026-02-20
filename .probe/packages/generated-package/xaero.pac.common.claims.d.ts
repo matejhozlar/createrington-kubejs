@@ -45,8 +45,8 @@ export type $IPlayerDimensionClaimsAPI$$Type = (() => $Stream$$Type<($IPlayerCla
 export type $IPlayerDimensionClaimsAPI$$Original = $IPlayerDimensionClaimsAPI;}
 declare module "xaero.pac.common.claims.api.IClaimsManagerAPI" {
 import {$IDimensionClaimsManagerAPI} from "xaero.pac.common.claims.api.IDimensionClaimsManagerAPI"
-import {$IPlayerChunkClaimAPI} from "xaero.pac.common.claims.player.api.IPlayerChunkClaimAPI"
 import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
+import {$IPlayerChunkClaimAPI} from "xaero.pac.common.claims.player.api.IPlayerChunkClaimAPI"
 import {$IPlayerClaimInfoAPI} from "xaero.pac.common.claims.player.api.IPlayerClaimInfoAPI"
 import {$UUID$$Type} from "java.util.UUID"
 import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
@@ -75,6 +75,83 @@ export type $IClaimsManagerAPI$$Type = ($IClaimsManagerAPI);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $IClaimsManagerAPI$$Original = $IClaimsManagerAPI;}
+declare module "xaero.pac.common.claims.api.IRegionClaimsAPI" {
+import {$IPlayerChunkClaimAPI} from "xaero.pac.common.claims.player.api.IPlayerChunkClaimAPI"
+
+export interface $IRegionClaimsAPI$$Interface {
+get "x"(): integer
+get "z"(): integer
+}
+
+export class $IRegionClaimsAPI implements $IRegionClaimsAPI$$Interface {
+ "get"(arg0: integer, arg1: integer): $IPlayerChunkClaimAPI
+ "getX"(): integer
+ "getZ"(): integer
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $IRegionClaimsAPI$$Type = ($IRegionClaimsAPI);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $IRegionClaimsAPI$$Original = $IRegionClaimsAPI;}
+declare module "xaero.pac.common.claims.player.api.IPlayerClaimInfoAPI" {
+import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
+import {$UUID} from "java.util.UUID"
+import {$IPlayerDimensionClaimsAPI} from "xaero.pac.common.claims.player.api.IPlayerDimensionClaimsAPI"
+
+export interface $IPlayerClaimInfoAPI$$Interface {
+get "playerId"(): $UUID
+get "claimCount"(): integer
+get "claimsColor"(): integer
+get "playerUsername"(): StringJS
+get "forceloadCount"(): integer
+get "claimsName"(): StringJS
+}
+
+export class $IPlayerClaimInfoAPI implements $IPlayerClaimInfoAPI$$Interface {
+ "getDimension"(arg0: $ResourceLocation$$Type): $IPlayerDimensionClaimsAPI
+ "getPlayerId"(): $UUID
+ "getClaimCount"(): integer
+ "getClaimsColor"(arg0: integer): integer
+ "getClaimsColor"(): integer
+ "getPlayerUsername"(): StringJS
+ "getForceloadCount"(): integer
+ "getClaimsName"(): StringJS
+ "getClaimsName"(arg0: integer): StringJS
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $IPlayerClaimInfoAPI$$Type = ($IPlayerClaimInfoAPI);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $IPlayerClaimInfoAPI$$Original = $IPlayerClaimInfoAPI;}
+declare module "xaero.pac.common.claims.result.api.ClaimResult" {
+import {$ClaimResult$Type, $ClaimResult$Type$$Type} from "xaero.pac.common.claims.result.api.ClaimResult$Type"
+import {$IPlayerChunkClaimAPI, $IPlayerChunkClaimAPI$$Type} from "xaero.pac.common.claims.player.api.IPlayerChunkClaimAPI"
+
+export class $ClaimResult<C extends $IPlayerChunkClaimAPI> {
+constructor(arg0: C, arg1: $ClaimResult$Type$$Type)
+
+public "getResultType"(): $ClaimResult$Type
+public "getClaimResult"(): C
+get "resultType"(): $ClaimResult$Type
+get "claimResult"(): C
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ClaimResult$$Type<C> = ($ClaimResult<(C)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ClaimResult$$Original<C> = $ClaimResult<(C)>;}
 declare module "xaero.pac.common.claims.tracker.api.IClaimsManagerTrackerAPI" {
 import {$IClaimsManagerListenerAPI, $IClaimsManagerListenerAPI$$Type} from "xaero.pac.common.claims.tracker.api.IClaimsManagerListenerAPI"
 import {$IClaimsManagerTrackerRegisterAPI$$Interface} from "xaero.pac.common.claims.tracker.api.IClaimsManagerTrackerRegisterAPI"
@@ -96,62 +173,6 @@ export type $IClaimsManagerTrackerAPI$$Type = ((arg0: $IClaimsManagerListenerAPI
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $IClaimsManagerTrackerAPI$$Original = $IClaimsManagerTrackerAPI;}
-declare module "xaero.pac.common.claims.api.IRegionClaimsAPI" {
-import {$IPlayerChunkClaimAPI} from "xaero.pac.common.claims.player.api.IPlayerChunkClaimAPI"
-
-export interface $IRegionClaimsAPI$$Interface {
-get "x"(): integer
-get "z"(): integer
-}
-
-export class $IRegionClaimsAPI implements $IRegionClaimsAPI$$Interface {
- "getX"(): integer
- "getZ"(): integer
- "get"(arg0: integer, arg1: integer): $IPlayerChunkClaimAPI
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $IRegionClaimsAPI$$Type = ($IRegionClaimsAPI);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $IRegionClaimsAPI$$Original = $IRegionClaimsAPI;}
-declare module "xaero.pac.common.claims.player.api.IPlayerClaimInfoAPI" {
-import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
-import {$UUID} from "java.util.UUID"
-import {$IPlayerDimensionClaimsAPI} from "xaero.pac.common.claims.player.api.IPlayerDimensionClaimsAPI"
-
-export interface $IPlayerClaimInfoAPI$$Interface {
-get "playerId"(): $UUID
-get "claimCount"(): integer
-get "forceloadCount"(): integer
-get "claimsColor"(): integer
-get "claimsName"(): StringJS
-get "playerUsername"(): StringJS
-}
-
-export class $IPlayerClaimInfoAPI implements $IPlayerClaimInfoAPI$$Interface {
- "getDimension"(arg0: $ResourceLocation$$Type): $IPlayerDimensionClaimsAPI
- "getPlayerId"(): $UUID
- "getClaimCount"(): integer
- "getForceloadCount"(): integer
- "getClaimsColor"(): integer
- "getClaimsColor"(arg0: integer): integer
- "getClaimsName"(): StringJS
- "getClaimsName"(arg0: integer): StringJS
- "getPlayerUsername"(): StringJS
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $IPlayerClaimInfoAPI$$Type = ($IPlayerClaimInfoAPI);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $IPlayerClaimInfoAPI$$Original = $IPlayerClaimInfoAPI;}
 declare module "xaero.pac.common.claims.tracker.api.IClaimsManagerTrackerRegisterAPI" {
 import {$IClaimsManagerListenerAPI, $IClaimsManagerListenerAPI$$Type} from "xaero.pac.common.claims.tracker.api.IClaimsManagerListenerAPI"
 
@@ -244,18 +265,18 @@ export class $AreaClaimResult {
 constructor(arg0: $Set$$Type<($ClaimResult$Type$$Type)>, arg1: integer, arg2: integer, arg3: integer, arg4: integer)
 
 public "getSize"(): integer
-public "getLeft"(): integer
 public "getRight"(): integer
+public "getLeft"(): integer
 public "getBottom"(): integer
-public "getTop"(): integer
 public "getResultTypesIterable"(): $Iterable<($ClaimResult$Type)>
+public "getTop"(): integer
 public "getResultTypesStream"(): $Stream<($ClaimResult$Type)>
 get "size"(): integer
-get "left"(): integer
 get "right"(): integer
+get "left"(): integer
 get "bottom"(): integer
-get "top"(): integer
 get "resultTypesIterable"(): $Iterable<($ClaimResult$Type)>
+get "top"(): integer
 get "resultTypesStream"(): $Stream<($ClaimResult$Type)>
 }
 /**
@@ -267,27 +288,6 @@ export type $AreaClaimResult$$Type = ($AreaClaimResult);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $AreaClaimResult$$Original = $AreaClaimResult;}
-declare module "xaero.pac.common.claims.result.api.ClaimResult" {
-import {$ClaimResult$Type, $ClaimResult$Type$$Type} from "xaero.pac.common.claims.result.api.ClaimResult$Type"
-import {$IPlayerChunkClaimAPI, $IPlayerChunkClaimAPI$$Type} from "xaero.pac.common.claims.player.api.IPlayerChunkClaimAPI"
-
-export class $ClaimResult<C extends $IPlayerChunkClaimAPI> {
-constructor(arg0: C, arg1: $ClaimResult$Type$$Type)
-
-public "getResultType"(): $ClaimResult$Type
-public "getClaimResult"(): C
-get "resultType"(): $ClaimResult$Type
-get "claimResult"(): C
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ClaimResult$$Type<C> = ($ClaimResult<(C)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ClaimResult$$Original<C> = $ClaimResult<(C)>;}
 declare module "xaero.pac.common.claims.tracker.api.IClaimsManagerListenerAPI" {
 import {$IPlayerChunkClaimAPI$$Type} from "xaero.pac.common.claims.player.api.IPlayerChunkClaimAPI"
 import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
@@ -296,8 +296,8 @@ export interface $IClaimsManagerListenerAPI$$Interface {
 }
 
 export class $IClaimsManagerListenerAPI implements $IClaimsManagerListenerAPI$$Interface {
- "onWholeRegionChange"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer): void
  "onChunkChange"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: $IPlayerChunkClaimAPI$$Type): void
+ "onWholeRegionChange"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer): void
  "onDimensionChange"(arg0: $ResourceLocation$$Type): void
 }
 /**

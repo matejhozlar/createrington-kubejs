@@ -179,65 +179,6 @@ export type $DecimalFormatSymbols$$Type = ($DecimalFormatSymbols);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $DecimalFormatSymbols$$Original = $DecimalFormatSymbols;}
-declare module "java.text.DateFormatSymbols" {
-import {$Serializable$$Interface} from "java.io.Serializable"
-import {$Cloneable$$Interface} from "java.lang.Cloneable"
-import {$Locale, $Locale$$Type} from "java.util.Locale"
-
-export class $DateFormatSymbols implements $Serializable$$Interface, $Cloneable$$Interface {
-constructor(arg0: $Locale$$Type)
-constructor()
-
-public "equals"(arg0: any): boolean
-public "hashCode"(): integer
-public "clone"(): any
-public static "getInstance"(): $DateFormatSymbols
-public static "getInstance"(arg0: $Locale$$Type): $DateFormatSymbols
-public static "getAvailableLocales"(): ($Locale)[]
-public "getZoneStrings"(): ((StringJS)[])[]
-public "getEras"(): (StringJS)[]
-public "setEras"(arg0: (StringJS)[]): void
-public "getMonths"(): (StringJS)[]
-public "setMonths"(arg0: (StringJS)[]): void
-public "getShortMonths"(): (StringJS)[]
-public "setShortMonths"(arg0: (StringJS)[]): void
-public "getWeekdays"(): (StringJS)[]
-public "setWeekdays"(arg0: (StringJS)[]): void
-public "getShortWeekdays"(): (StringJS)[]
-public "setShortWeekdays"(arg0: (StringJS)[]): void
-public "getAmPmStrings"(): (StringJS)[]
-public "setAmPmStrings"(arg0: (StringJS)[]): void
-public "setZoneStrings"(arg0: ((StringJS)[])[]): void
-public "getLocalPatternChars"(): StringJS
-public "setLocalPatternChars"(arg0: StringJS): void
-get "instance"(): $DateFormatSymbols
-get "availableLocales"(): ($Locale)[]
-get "zoneStrings"(): ((StringJS)[])[]
-get "eras"(): (StringJS)[]
-set "eras"(value: (StringJS)[])
-get "months"(): (StringJS)[]
-set "months"(value: (StringJS)[])
-get "shortMonths"(): (StringJS)[]
-set "shortMonths"(value: (StringJS)[])
-get "weekdays"(): (StringJS)[]
-set "weekdays"(value: (StringJS)[])
-get "shortWeekdays"(): (StringJS)[]
-set "shortWeekdays"(value: (StringJS)[])
-get "amPmStrings"(): (StringJS)[]
-set "amPmStrings"(value: (StringJS)[])
-set "zoneStrings"(value: ((StringJS)[])[])
-get "localPatternChars"(): StringJS
-set "localPatternChars"(value: StringJS)
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $DateFormatSymbols$$Type = ($DateFormatSymbols);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $DateFormatSymbols$$Original = $DateFormatSymbols;}
 declare module "java.text.CharacterIterator" {
 import {$Cloneable$$Interface} from "java.lang.Cloneable"
 
@@ -297,98 +238,11 @@ export type $ParsePosition$$Type = ($ParsePosition);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ParsePosition$$Original = $ParsePosition;}
-declare module "java.text.DateFormat" {
-import {$FieldPosition$$Type} from "java.text.FieldPosition"
-import {$NumberFormat, $NumberFormat$$Type} from "java.text.NumberFormat"
-import {$ParsePosition$$Type} from "java.text.ParsePosition"
-import {$StringBuffer, $StringBuffer$$Type} from "java.lang.StringBuffer"
-import {$Date, $Date$$Type} from "java.util.Date"
-import {$TimeZone, $TimeZone$$Type} from "java.util.TimeZone"
-import {$Locale, $Locale$$Type} from "java.util.Locale"
-import {$Format} from "java.text.Format"
-import {$Calendar, $Calendar$$Type} from "java.util.Calendar"
-
-export class $DateFormat extends $Format {
-static readonly "DAY_OF_YEAR_FIELD": integer
-static readonly "DATE_FIELD": integer
-static readonly "MILLISECOND_FIELD": integer
-static readonly "MEDIUM": integer
-static readonly "YEAR_FIELD": integer
-static readonly "DAY_OF_WEEK_IN_MONTH_FIELD": integer
-static readonly "MINUTE_FIELD": integer
-static readonly "FULL": integer
-static readonly "ERA_FIELD": integer
-static readonly "AM_PM_FIELD": integer
-static readonly "SHORT": integer
-static readonly "HOUR_OF_DAY1_FIELD": integer
-static readonly "MONTH_FIELD": integer
-static readonly "DAY_OF_WEEK_FIELD": integer
-static readonly "WEEK_OF_YEAR_FIELD": integer
-static readonly "HOUR1_FIELD": integer
-static readonly "HOUR_OF_DAY0_FIELD": integer
-static readonly "WEEK_OF_MONTH_FIELD": integer
-static readonly "TIMEZONE_FIELD": integer
-static readonly "HOUR0_FIELD": integer
-static readonly "DEFAULT": integer
-static readonly "SECOND_FIELD": integer
-static readonly "LONG": integer
-
-public "equals"(arg0: any): boolean
-public "hashCode"(): integer
-public "clone"(): any
-public "format"(arg0: any, arg1: $StringBuffer$$Type, arg2: $FieldPosition$$Type): $StringBuffer
-public "format"(arg0: $Date$$Type): StringJS
-public "format"(arg0: $Date$$Type, arg1: $StringBuffer$$Type, arg2: $FieldPosition$$Type): $StringBuffer
-public static "getInstance"(): $DateFormat
-public "parse"(arg0: StringJS): $Date
-public "parse"(arg0: StringJS, arg1: $ParsePosition$$Type): $Date
-public static "getDateTimeInstance"(arg0: integer, arg1: integer): $DateFormat
-public static "getDateTimeInstance"(arg0: integer, arg1: integer, arg2: $Locale$$Type): $DateFormat
-public static "getDateTimeInstance"(): $DateFormat
-public static "getAvailableLocales"(): ($Locale)[]
-public "setTimeZone"(arg0: $TimeZone$$Type): void
-public "getTimeZone"(): $TimeZone
-public "setLenient"(arg0: boolean): void
-public "isLenient"(): boolean
-public static "getDateInstance"(arg0: integer): $DateFormat
-public static "getDateInstance"(arg0: integer, arg1: $Locale$$Type): $DateFormat
-public static "getDateInstance"(): $DateFormat
-public static "getTimeInstance"(arg0: integer, arg1: $Locale$$Type): $DateFormat
-public static "getTimeInstance"(arg0: integer): $DateFormat
-public static "getTimeInstance"(): $DateFormat
-public "parseObject"(arg0: StringJS, arg1: $ParsePosition$$Type): any
-public "setCalendar"(arg0: $Calendar$$Type): void
-public "getCalendar"(): $Calendar
-public "setNumberFormat"(arg0: $NumberFormat$$Type): void
-public "getNumberFormat"(): $NumberFormat
-get "instance"(): $DateFormat
-get "dateTimeInstance"(): $DateFormat
-get "availableLocales"(): ($Locale)[]
-set "timeZone"(value: $TimeZone$$Type)
-get "timeZone"(): $TimeZone
-set "lenient"(value: boolean)
-get "lenient"(): boolean
-get "dateInstance"(): $DateFormat
-get "timeInstance"(): $DateFormat
-set "calendar"(value: $Calendar$$Type)
-get "calendar"(): $Calendar
-set "numberFormat"(value: $NumberFormat$$Type)
-get "numberFormat"(): $NumberFormat
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $DateFormat$$Type = ($DateFormat);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $DateFormat$$Original = $DateFormat;}
 declare module "java.text.DecimalFormat" {
 import {$AttributedCharacterIterator} from "java.text.AttributedCharacterIterator"
 import {$NumberFormat} from "java.text.NumberFormat"
-import {$ParsePosition$$Type} from "java.text.ParsePosition"
 import {$FieldPosition$$Type} from "java.text.FieldPosition"
+import {$ParsePosition$$Type} from "java.text.ParsePosition"
 import {$StringBuffer, $StringBuffer$$Type} from "java.lang.StringBuffer"
 import {$Currency, $Currency$$Type} from "java.util.Currency"
 import {$DecimalFormatSymbols, $DecimalFormatSymbols$$Type} from "java.text.DecimalFormatSymbols"
@@ -486,11 +340,229 @@ export type $DecimalFormat$$Type = ($DecimalFormat);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $DecimalFormat$$Original = $DecimalFormat;}
+declare module "java.text.Format" {
+import {$AttributedCharacterIterator} from "java.text.AttributedCharacterIterator"
+import {$Serializable$$Interface} from "java.io.Serializable"
+import {$FieldPosition$$Type} from "java.text.FieldPosition"
+import {$ParsePosition$$Type} from "java.text.ParsePosition"
+import {$StringBuffer, $StringBuffer$$Type} from "java.lang.StringBuffer"
+import {$Cloneable$$Interface} from "java.lang.Cloneable"
+
+export class $Format implements $Serializable$$Interface, $Cloneable$$Interface {
+public "clone"(): any
+public "format"(arg0: any, arg1: $StringBuffer$$Type, arg2: $FieldPosition$$Type): $StringBuffer
+public "format"(arg0: any): StringJS
+public "parseObject"(arg0: StringJS): any
+public "parseObject"(arg0: StringJS, arg1: $ParsePosition$$Type): any
+public "formatToCharacterIterator"(arg0: any): $AttributedCharacterIterator
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Format$$Type = ($Format);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Format$$Original = $Format;}
+declare module "java.text.AttributedCharacterIterator" {
+import {$Map} from "java.util.Map"
+import {$CharacterIterator$$Interface} from "java.text.CharacterIterator"
+import {$Set, $Set$$Type} from "java.util.Set"
+import {$AttributedCharacterIterator$Attribute, $AttributedCharacterIterator$Attribute$$Type} from "java.text.AttributedCharacterIterator$Attribute"
+
+export interface $AttributedCharacterIterator$$Interface extends $CharacterIterator$$Interface {
+get "attributes"(): $Map<($AttributedCharacterIterator$Attribute), (any)>
+get "allAttributeKeys"(): $Set<($AttributedCharacterIterator$Attribute)>
+get "runStart"(): integer
+get "runLimit"(): integer
+get "index"(): integer
+get "beginIndex"(): integer
+get "endIndex"(): integer
+set "index"(value: integer)
+}
+
+export class $AttributedCharacterIterator implements $AttributedCharacterIterator$$Interface {
+ "getAttributes"(): $Map<($AttributedCharacterIterator$Attribute), (any)>
+ "getAttribute"(arg0: $AttributedCharacterIterator$Attribute$$Type): any
+ "getAllAttributeKeys"(): $Set<($AttributedCharacterIterator$Attribute)>
+ "getRunStart"(): integer
+ "getRunStart"(arg0: $Set$$Type<($AttributedCharacterIterator$Attribute$$Type)>): integer
+ "getRunStart"(arg0: $AttributedCharacterIterator$Attribute$$Type): integer
+ "getRunLimit"(arg0: $AttributedCharacterIterator$Attribute$$Type): integer
+ "getRunLimit"(): integer
+ "getRunLimit"(arg0: $Set$$Type<($AttributedCharacterIterator$Attribute$$Type)>): integer
+ "clone"(): any
+ "next"(): character
+ "last"(): character
+ "first"(): character
+ "current"(): character
+ "previous"(): character
+ "getIndex"(): integer
+ "getBeginIndex"(): integer
+ "getEndIndex"(): integer
+ "setIndex"(arg0: integer): character
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $AttributedCharacterIterator$$Type = ($AttributedCharacterIterator);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $AttributedCharacterIterator$$Original = $AttributedCharacterIterator;}
+declare module "java.text.DateFormatSymbols" {
+import {$Serializable$$Interface} from "java.io.Serializable"
+import {$Cloneable$$Interface} from "java.lang.Cloneable"
+import {$Locale, $Locale$$Type} from "java.util.Locale"
+
+export class $DateFormatSymbols implements $Serializable$$Interface, $Cloneable$$Interface {
+constructor(arg0: $Locale$$Type)
+constructor()
+
+public "equals"(arg0: any): boolean
+public "hashCode"(): integer
+public "clone"(): any
+public static "getInstance"(): $DateFormatSymbols
+public static "getInstance"(arg0: $Locale$$Type): $DateFormatSymbols
+public static "getAvailableLocales"(): ($Locale)[]
+public "getZoneStrings"(): ((StringJS)[])[]
+public "getEras"(): (StringJS)[]
+public "setEras"(arg0: (StringJS)[]): void
+public "getMonths"(): (StringJS)[]
+public "setMonths"(arg0: (StringJS)[]): void
+public "getShortMonths"(): (StringJS)[]
+public "setShortMonths"(arg0: (StringJS)[]): void
+public "getWeekdays"(): (StringJS)[]
+public "setWeekdays"(arg0: (StringJS)[]): void
+public "getShortWeekdays"(): (StringJS)[]
+public "setShortWeekdays"(arg0: (StringJS)[]): void
+public "getAmPmStrings"(): (StringJS)[]
+public "setAmPmStrings"(arg0: (StringJS)[]): void
+public "setZoneStrings"(arg0: ((StringJS)[])[]): void
+public "getLocalPatternChars"(): StringJS
+public "setLocalPatternChars"(arg0: StringJS): void
+get "instance"(): $DateFormatSymbols
+get "availableLocales"(): ($Locale)[]
+get "zoneStrings"(): ((StringJS)[])[]
+get "eras"(): (StringJS)[]
+set "eras"(value: (StringJS)[])
+get "months"(): (StringJS)[]
+set "months"(value: (StringJS)[])
+get "shortMonths"(): (StringJS)[]
+set "shortMonths"(value: (StringJS)[])
+get "weekdays"(): (StringJS)[]
+set "weekdays"(value: (StringJS)[])
+get "shortWeekdays"(): (StringJS)[]
+set "shortWeekdays"(value: (StringJS)[])
+get "amPmStrings"(): (StringJS)[]
+set "amPmStrings"(value: (StringJS)[])
+set "zoneStrings"(value: ((StringJS)[])[])
+get "localPatternChars"(): StringJS
+set "localPatternChars"(value: StringJS)
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $DateFormatSymbols$$Type = ($DateFormatSymbols);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $DateFormatSymbols$$Original = $DateFormatSymbols;}
+declare module "java.text.DateFormat" {
+import {$FieldPosition$$Type} from "java.text.FieldPosition"
+import {$ParsePosition$$Type} from "java.text.ParsePosition"
+import {$NumberFormat, $NumberFormat$$Type} from "java.text.NumberFormat"
+import {$StringBuffer, $StringBuffer$$Type} from "java.lang.StringBuffer"
+import {$TimeZone, $TimeZone$$Type} from "java.util.TimeZone"
+import {$Date, $Date$$Type} from "java.util.Date"
+import {$Locale, $Locale$$Type} from "java.util.Locale"
+import {$Format} from "java.text.Format"
+import {$Calendar, $Calendar$$Type} from "java.util.Calendar"
+
+export class $DateFormat extends $Format {
+static readonly "DAY_OF_YEAR_FIELD": integer
+static readonly "DATE_FIELD": integer
+static readonly "MILLISECOND_FIELD": integer
+static readonly "MEDIUM": integer
+static readonly "YEAR_FIELD": integer
+static readonly "DAY_OF_WEEK_IN_MONTH_FIELD": integer
+static readonly "MINUTE_FIELD": integer
+static readonly "FULL": integer
+static readonly "ERA_FIELD": integer
+static readonly "AM_PM_FIELD": integer
+static readonly "SHORT": integer
+static readonly "HOUR_OF_DAY1_FIELD": integer
+static readonly "MONTH_FIELD": integer
+static readonly "DAY_OF_WEEK_FIELD": integer
+static readonly "WEEK_OF_YEAR_FIELD": integer
+static readonly "HOUR1_FIELD": integer
+static readonly "HOUR_OF_DAY0_FIELD": integer
+static readonly "WEEK_OF_MONTH_FIELD": integer
+static readonly "TIMEZONE_FIELD": integer
+static readonly "HOUR0_FIELD": integer
+static readonly "DEFAULT": integer
+static readonly "SECOND_FIELD": integer
+static readonly "LONG": integer
+
+public "equals"(arg0: any): boolean
+public "hashCode"(): integer
+public "clone"(): any
+public "format"(arg0: any, arg1: $StringBuffer$$Type, arg2: $FieldPosition$$Type): $StringBuffer
+public "format"(arg0: $Date$$Type): StringJS
+public "format"(arg0: $Date$$Type, arg1: $StringBuffer$$Type, arg2: $FieldPosition$$Type): $StringBuffer
+public static "getInstance"(): $DateFormat
+public "parse"(arg0: StringJS): $Date
+public "parse"(arg0: StringJS, arg1: $ParsePosition$$Type): $Date
+public static "getDateTimeInstance"(arg0: integer, arg1: integer): $DateFormat
+public static "getDateTimeInstance"(arg0: integer, arg1: integer, arg2: $Locale$$Type): $DateFormat
+public static "getDateTimeInstance"(): $DateFormat
+public static "getAvailableLocales"(): ($Locale)[]
+public "setTimeZone"(arg0: $TimeZone$$Type): void
+public "getTimeZone"(): $TimeZone
+public "setLenient"(arg0: boolean): void
+public "isLenient"(): boolean
+public static "getDateInstance"(arg0: integer): $DateFormat
+public static "getDateInstance"(arg0: integer, arg1: $Locale$$Type): $DateFormat
+public static "getDateInstance"(): $DateFormat
+public static "getTimeInstance"(arg0: integer, arg1: $Locale$$Type): $DateFormat
+public static "getTimeInstance"(arg0: integer): $DateFormat
+public static "getTimeInstance"(): $DateFormat
+public "parseObject"(arg0: StringJS, arg1: $ParsePosition$$Type): any
+public "setCalendar"(arg0: $Calendar$$Type): void
+public "getCalendar"(): $Calendar
+public "setNumberFormat"(arg0: $NumberFormat$$Type): void
+public "getNumberFormat"(): $NumberFormat
+get "instance"(): $DateFormat
+get "dateTimeInstance"(): $DateFormat
+get "availableLocales"(): ($Locale)[]
+set "timeZone"(value: $TimeZone$$Type)
+get "timeZone"(): $TimeZone
+set "lenient"(value: boolean)
+get "lenient"(): boolean
+get "dateInstance"(): $DateFormat
+get "timeInstance"(): $DateFormat
+set "calendar"(value: $Calendar$$Type)
+get "calendar"(): $Calendar
+set "numberFormat"(value: $NumberFormat$$Type)
+get "numberFormat"(): $NumberFormat
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $DateFormat$$Type = ($DateFormat);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $DateFormat$$Original = $DateFormat;}
 declare module "java.text.SimpleDateFormat" {
 import {$AttributedCharacterIterator} from "java.text.AttributedCharacterIterator"
 import {$DateFormatSymbols, $DateFormatSymbols$$Type} from "java.text.DateFormatSymbols"
-import {$ParsePosition$$Type} from "java.text.ParsePosition"
 import {$FieldPosition$$Type} from "java.text.FieldPosition"
+import {$ParsePosition$$Type} from "java.text.ParsePosition"
 import {$StringBuffer, $StringBuffer$$Type} from "java.lang.StringBuffer"
 import {$Date, $Date$$Type} from "java.util.Date"
 import {$Locale$$Type} from "java.util.Locale"
@@ -624,31 +696,6 @@ export type $FieldPosition$$Type = ($FieldPosition);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $FieldPosition$$Original = $FieldPosition;}
-declare module "java.text.Format" {
-import {$AttributedCharacterIterator} from "java.text.AttributedCharacterIterator"
-import {$Serializable$$Interface} from "java.io.Serializable"
-import {$ParsePosition$$Type} from "java.text.ParsePosition"
-import {$FieldPosition$$Type} from "java.text.FieldPosition"
-import {$StringBuffer, $StringBuffer$$Type} from "java.lang.StringBuffer"
-import {$Cloneable$$Interface} from "java.lang.Cloneable"
-
-export class $Format implements $Serializable$$Interface, $Cloneable$$Interface {
-public "clone"(): any
-public "format"(arg0: any, arg1: $StringBuffer$$Type, arg2: $FieldPosition$$Type): $StringBuffer
-public "format"(arg0: any): StringJS
-public "parseObject"(arg0: StringJS): any
-public "parseObject"(arg0: StringJS, arg1: $ParsePosition$$Type): any
-public "formatToCharacterIterator"(arg0: any): $AttributedCharacterIterator
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Format$$Type = ($Format);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Format$$Original = $Format;}
 declare module "java.text.AttributedCharacterIterator$Attribute" {
 import {$Serializable$$Interface} from "java.io.Serializable"
 
@@ -670,50 +717,3 @@ export type $AttributedCharacterIterator$Attribute$$Type = ($AttributedCharacter
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $AttributedCharacterIterator$Attribute$$Original = $AttributedCharacterIterator$Attribute;}
-declare module "java.text.AttributedCharacterIterator" {
-import {$Map} from "java.util.Map"
-import {$CharacterIterator$$Interface} from "java.text.CharacterIterator"
-import {$Set, $Set$$Type} from "java.util.Set"
-import {$AttributedCharacterIterator$Attribute, $AttributedCharacterIterator$Attribute$$Type} from "java.text.AttributedCharacterIterator$Attribute"
-
-export interface $AttributedCharacterIterator$$Interface extends $CharacterIterator$$Interface {
-get "attributes"(): $Map<($AttributedCharacterIterator$Attribute), (any)>
-get "runStart"(): integer
-get "runLimit"(): integer
-get "allAttributeKeys"(): $Set<($AttributedCharacterIterator$Attribute)>
-get "index"(): integer
-get "beginIndex"(): integer
-get "endIndex"(): integer
-set "index"(value: integer)
-}
-
-export class $AttributedCharacterIterator implements $AttributedCharacterIterator$$Interface {
- "getAttributes"(): $Map<($AttributedCharacterIterator$Attribute), (any)>
- "getAttribute"(arg0: $AttributedCharacterIterator$Attribute$$Type): any
- "getRunStart"(): integer
- "getRunStart"(arg0: $Set$$Type<($AttributedCharacterIterator$Attribute$$Type)>): integer
- "getRunStart"(arg0: $AttributedCharacterIterator$Attribute$$Type): integer
- "getRunLimit"(arg0: $Set$$Type<($AttributedCharacterIterator$Attribute$$Type)>): integer
- "getRunLimit"(arg0: $AttributedCharacterIterator$Attribute$$Type): integer
- "getRunLimit"(): integer
- "getAllAttributeKeys"(): $Set<($AttributedCharacterIterator$Attribute)>
- "clone"(): any
- "next"(): character
- "last"(): character
- "first"(): character
- "current"(): character
- "previous"(): character
- "getIndex"(): integer
- "getBeginIndex"(): integer
- "getEndIndex"(): integer
- "setIndex"(arg0: integer): character
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $AttributedCharacterIterator$$Type = ($AttributedCharacterIterator);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $AttributedCharacterIterator$$Original = $AttributedCharacterIterator;}

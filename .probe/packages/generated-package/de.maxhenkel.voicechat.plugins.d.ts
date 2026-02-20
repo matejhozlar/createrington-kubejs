@@ -37,8 +37,8 @@ import {$VolumeCategoryImpl, $VolumeCategoryImpl$$Type} from "de.maxhenkel.voice
 export class $CategoryManager {
 constructor()
 
-public "getCategories"(): $Collection<($VolumeCategoryImpl)>
 public "addCategory"(arg0: $VolumeCategoryImpl$$Type): void
+public "getCategories"(): $Collection<($VolumeCategoryImpl)>
 public "removeCategory"(arg0: StringJS): $VolumeCategoryImpl
 get "categories"(): $Collection<($VolumeCategoryImpl)>
 }

@@ -14,22 +14,22 @@ static readonly "DIRECT_STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), 
 
 constructor(nutrition: integer, saturation: float, canAlwaysEat: boolean, eatSeconds: float, usingConvertsTo: ($ItemStack$$Type)?, effects: $List$$Type<($FoodProperties$PossibleEffect$$Type)>)
 
-public "nutrition"(): integer
+public "eatSeconds"(): float
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public "saturation"(): float
 public "usingConvertsTo"(): $Optional<($ItemStack)>
+public "nutrition"(): integer
+public "saturation"(): float
 public "eatDurationTicks"(): integer
 public "canAlwaysEat"(): boolean
 public "effects"(): $List<($FoodProperties$PossibleEffect)>
-public "eatSeconds"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $FoodProperties$$Type = ({"eatSeconds"?: float, "usingConvertsTo"?: ($ItemStack$$Type)?, "canAlwaysEat"?: boolean, "nutrition"?: integer, "saturation"?: float, "effects"?: $List$$Type<($FoodProperties$PossibleEffect$$Type)>}) | ([eatSeconds?: float, usingConvertsTo?: ($ItemStack$$Type)?, canAlwaysEat?: boolean, nutrition?: integer, saturation?: float, effects?: $List$$Type<($FoodProperties$PossibleEffect$$Type)>]);
+export type $FoodProperties$$Type = ({"nutrition"?: integer, "canAlwaysEat"?: boolean, "usingConvertsTo"?: ($ItemStack$$Type)?, "eatSeconds"?: float, "effects"?: $List$$Type<($FoodProperties$PossibleEffect$$Type)>, "saturation"?: float}) | ([nutrition?: integer, canAlwaysEat?: boolean, usingConvertsTo?: ($ItemStack$$Type)?, eatSeconds?: float, effects?: $List$$Type<($FoodProperties$PossibleEffect$$Type)>, saturation?: float]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -42,24 +42,24 @@ import {$FoodProperties$$Type} from "net.minecraft.world.food.FoodProperties"
 export class $FoodData {
 constructor()
 
-public "eat"(arg0: integer, arg1: float): void
-public "eat"(arg0: $FoodProperties$$Type): void
 public "tick"(arg0: $Player$$Type): void
+public "setSaturation"(arg0: float): void
+public "getFoodLevel"(): integer
+public "getSaturationLevel"(): float
+public "setFoodLevel"(arg0: integer): void
+public "addExhaustion"(arg0: float): void
 public "addAdditionalSaveData"(arg0: $CompoundTag$$Type): void
 public "readAdditionalSaveData"(arg0: $CompoundTag$$Type): void
-public "getSaturationLevel"(): float
-public "getFoodLevel"(): integer
-public "setFoodLevel"(arg0: integer): void
-public "setSaturation"(arg0: float): void
-public "addExhaustion"(arg0: float): void
-public "getExhaustionLevel"(): float
+public "eat"(arg0: $FoodProperties$$Type): void
+public "eat"(arg0: integer, arg1: float): void
 public "needsFood"(): boolean
+public "getExhaustionLevel"(): float
 public "setExhaustion"(arg0: float): void
 public "getLastFoodLevel"(): integer
-get "saturationLevel"(): float
-get "foodLevel"(): integer
-set "foodLevel"(value: integer)
 set "saturation"(value: float)
+get "foodLevel"(): integer
+get "saturationLevel"(): float
+set "foodLevel"(value: integer)
 get "exhaustionLevel"(): float
 set "exhaustion"(value: float)
 get "lastFoodLevel"(): integer
@@ -87,11 +87,11 @@ static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($FoodP
 
 constructor(effectSupplier: $Supplier$$Type<($MobEffectInstance$$Type)>, probability: float)
 
-public "effect"(): $MobEffectInstance
-public "effectSupplier"(): $Supplier<($MobEffectInstance)>
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
+public "effectSupplier"(): $Supplier<($MobEffectInstance)>
+public "effect"(): $MobEffectInstance
 public "probability"(): float
 }
 /**

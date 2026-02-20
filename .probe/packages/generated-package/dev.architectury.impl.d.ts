@@ -6,8 +6,8 @@ export interface $ItemPropertiesExtensionImpl$$Interface {
 }
 
 export class $ItemPropertiesExtensionImpl implements $ItemPropertiesExtensionImpl$$Interface {
- "arch$getTab"(): $CreativeModeTab
  "arch$getTabSupplier"(): $DeferredSupplier<($CreativeModeTab)>
+ "arch$getTab"(): $CreativeModeTab
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

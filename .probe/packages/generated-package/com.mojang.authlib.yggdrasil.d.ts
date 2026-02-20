@@ -11,9 +11,9 @@ export class $YggdrasilAuthenticationService extends $HttpAuthenticationService 
 constructor(arg0: $Proxy$$Type)
 constructor(arg0: $Proxy$$Type, arg1: $Environment$$Type)
 
+public "getServicesKeySet"(): $ServicesKeySet
 public "createProfileRepository"(): $GameProfileRepository
 public "createMinecraftSessionService"(): $MinecraftSessionService
-public "getServicesKeySet"(): $ServicesKeySet
 public "createUserApiService"(arg0: StringJS): $UserApiService
 get "servicesKeySet"(): $ServicesKeySet
 }
@@ -45,48 +45,17 @@ export type $ServicesKeyType$$Type = (("profile_property") | ("profile_key"));
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ServicesKeyType$$Original = $ServicesKeyType;}
-declare module "com.mojang.authlib.yggdrasil.request.AbuseReportRequest" {
-import {$AbuseReport, $AbuseReport$$Type} from "com.mojang.authlib.minecraft.report.AbuseReport"
-import {$UUID, $UUID$$Type} from "java.util.UUID"
-import {$AbuseReportRequest$ClientInfo, $AbuseReportRequest$ClientInfo$$Type} from "com.mojang.authlib.yggdrasil.request.AbuseReportRequest$ClientInfo"
-import {$AbuseReportRequest$RealmInfo, $AbuseReportRequest$RealmInfo$$Type} from "com.mojang.authlib.yggdrasil.request.AbuseReportRequest$RealmInfo"
-import {$AbuseReportRequest$ThirdPartyServerInfo, $AbuseReportRequest$ThirdPartyServerInfo$$Type} from "com.mojang.authlib.yggdrasil.request.AbuseReportRequest$ThirdPartyServerInfo"
-import {$Record} from "java.lang.Record"
-
-export class $AbuseReportRequest extends $Record {
-constructor(version: integer, id: $UUID$$Type, report: $AbuseReport$$Type, clientInfo: $AbuseReportRequest$ClientInfo$$Type, thirdPartyServerInfo: $AbuseReportRequest$ThirdPartyServerInfo$$Type, realmInfo: $AbuseReportRequest$RealmInfo$$Type, reportType: StringJS)
-
-public "equals"(arg0: any): boolean
-public "toString"(): StringJS
-public "version"(): integer
-public "hashCode"(): integer
-public "id"(): $UUID
-public "report"(): $AbuseReport
-public "clientInfo"(): $AbuseReportRequest$ClientInfo
-public "realmInfo"(): $AbuseReportRequest$RealmInfo
-public "reportType"(): StringJS
-public "thirdPartyServerInfo"(): $AbuseReportRequest$ThirdPartyServerInfo
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $AbuseReportRequest$$Type = ({"report"?: $AbuseReport$$Type, "version"?: integer, "reportType"?: StringJS, "clientInfo"?: $AbuseReportRequest$ClientInfo$$Type, "thirdPartyServerInfo"?: $AbuseReportRequest$ThirdPartyServerInfo$$Type, "realmInfo"?: $AbuseReportRequest$RealmInfo$$Type, "id"?: $UUID$$Type}) | ([report?: $AbuseReport$$Type, version?: integer, reportType?: StringJS, clientInfo?: $AbuseReportRequest$ClientInfo$$Type, thirdPartyServerInfo?: $AbuseReportRequest$ThirdPartyServerInfo$$Type, realmInfo?: $AbuseReportRequest$RealmInfo$$Type, id?: $UUID$$Type]);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $AbuseReportRequest$$Original = $AbuseReportRequest;}
 declare module "com.mojang.authlib.yggdrasil.response.KeyPairResponse$KeyPair" {
 import {$Record} from "java.lang.Record"
 
 export class $KeyPairResponse$KeyPair extends $Record {
 constructor(privateKey: StringJS, publicKey: StringJS)
 
+public "publicKey"(): StringJS
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "privateKey"(): StringJS
-public "publicKey"(): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -164,53 +133,6 @@ export type $AbuseReportRequest$ClientInfo$$Type = ({"clientVersion"?: StringJS,
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $AbuseReportRequest$ClientInfo$$Original = $AbuseReportRequest$ClientInfo;}
-declare module "com.mojang.authlib.yggdrasil.response.KeyPairResponse" {
-import {$KeyPairResponse$KeyPair, $KeyPairResponse$KeyPair$$Type} from "com.mojang.authlib.yggdrasil.response.KeyPairResponse$KeyPair"
-import {$ByteBuffer, $ByteBuffer$$Type} from "java.nio.ByteBuffer"
-import {$Record} from "java.lang.Record"
-
-export class $KeyPairResponse extends $Record {
-constructor(keyPair: $KeyPairResponse$KeyPair$$Type, publicKeySignature: $ByteBuffer$$Type, expiresAt: StringJS, refreshedAfter: StringJS)
-
-public "publicKeySignature"(): $ByteBuffer
-public "refreshedAfter"(): StringJS
-public "equals"(arg0: any): boolean
-public "toString"(): StringJS
-public "hashCode"(): integer
-public "expiresAt"(): StringJS
-public "keyPair"(): $KeyPairResponse$KeyPair
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $KeyPairResponse$$Type = ({"expiresAt"?: StringJS, "keyPair"?: $KeyPairResponse$KeyPair$$Type, "refreshedAfter"?: StringJS, "publicKeySignature"?: $ByteBuffer$$Type}) | ([expiresAt?: StringJS, keyPair?: $KeyPairResponse$KeyPair$$Type, refreshedAfter?: StringJS, publicKeySignature?: $ByteBuffer$$Type]);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $KeyPairResponse$$Original = $KeyPairResponse;}
-declare module "com.mojang.authlib.yggdrasil.ServicesKeyInfo" {
-import {$Signature} from "java.security.Signature"
-import {$Property$$Type} from "com.mojang.authlib.properties.Property"
-
-export interface $ServicesKeyInfo$$Interface {
-}
-
-export class $ServicesKeyInfo implements $ServicesKeyInfo$$Interface {
- "signature"(): $Signature
- "validateProperty"(arg0: $Property$$Type): boolean
- "signatureBitCount"(): integer
- "keyBitCount"(): integer
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ServicesKeyInfo$$Type = ($ServicesKeyInfo);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ServicesKeyInfo$$Original = $ServicesKeyInfo;}
 declare module "com.mojang.authlib.yggdrasil.request.AbuseReportRequest$ThirdPartyServerInfo" {
 import {$Record} from "java.lang.Record"
 
@@ -231,6 +153,103 @@ export type $AbuseReportRequest$ThirdPartyServerInfo$$Type = ({"address"?: Strin
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $AbuseReportRequest$ThirdPartyServerInfo$$Original = $AbuseReportRequest$ThirdPartyServerInfo;}
+declare module "com.mojang.authlib.yggdrasil.ProfileActionType" {
+import {$Enum} from "java.lang.Enum"
+
+export class $ProfileActionType extends $Enum<($ProfileActionType)> {
+static readonly "USING_BANNED_SKIN": $ProfileActionType
+static readonly "FORCED_NAME_CHANGE": $ProfileActionType
+
+public static "values"(): ($ProfileActionType)[]
+public static "valueOf"(arg0: StringJS): $ProfileActionType
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ProfileActionType$$Type = (("forced_name_change") | ("using_banned_skin"));
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ProfileActionType$$Original = $ProfileActionType;}
+declare module "com.mojang.authlib.yggdrasil.request.AbuseReportRequest" {
+import {$AbuseReport, $AbuseReport$$Type} from "com.mojang.authlib.minecraft.report.AbuseReport"
+import {$UUID, $UUID$$Type} from "java.util.UUID"
+import {$AbuseReportRequest$ClientInfo, $AbuseReportRequest$ClientInfo$$Type} from "com.mojang.authlib.yggdrasil.request.AbuseReportRequest$ClientInfo"
+import {$AbuseReportRequest$RealmInfo, $AbuseReportRequest$RealmInfo$$Type} from "com.mojang.authlib.yggdrasil.request.AbuseReportRequest$RealmInfo"
+import {$AbuseReportRequest$ThirdPartyServerInfo, $AbuseReportRequest$ThirdPartyServerInfo$$Type} from "com.mojang.authlib.yggdrasil.request.AbuseReportRequest$ThirdPartyServerInfo"
+import {$Record} from "java.lang.Record"
+
+export class $AbuseReportRequest extends $Record {
+constructor(version: integer, id: $UUID$$Type, report: $AbuseReport$$Type, clientInfo: $AbuseReportRequest$ClientInfo$$Type, thirdPartyServerInfo: $AbuseReportRequest$ThirdPartyServerInfo$$Type, realmInfo: $AbuseReportRequest$RealmInfo$$Type, reportType: StringJS)
+
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "version"(): integer
+public "hashCode"(): integer
+public "id"(): $UUID
+public "realmInfo"(): $AbuseReportRequest$RealmInfo
+public "report"(): $AbuseReport
+public "reportType"(): StringJS
+public "thirdPartyServerInfo"(): $AbuseReportRequest$ThirdPartyServerInfo
+public "clientInfo"(): $AbuseReportRequest$ClientInfo
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $AbuseReportRequest$$Type = ({"thirdPartyServerInfo"?: $AbuseReportRequest$ThirdPartyServerInfo$$Type, "clientInfo"?: $AbuseReportRequest$ClientInfo$$Type, "reportType"?: StringJS, "version"?: integer, "report"?: $AbuseReport$$Type, "id"?: $UUID$$Type, "realmInfo"?: $AbuseReportRequest$RealmInfo$$Type}) | ([thirdPartyServerInfo?: $AbuseReportRequest$ThirdPartyServerInfo$$Type, clientInfo?: $AbuseReportRequest$ClientInfo$$Type, reportType?: StringJS, version?: integer, report?: $AbuseReport$$Type, id?: $UUID$$Type, realmInfo?: $AbuseReportRequest$RealmInfo$$Type]);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $AbuseReportRequest$$Original = $AbuseReportRequest;}
+declare module "com.mojang.authlib.yggdrasil.response.KeyPairResponse" {
+import {$KeyPairResponse$KeyPair, $KeyPairResponse$KeyPair$$Type} from "com.mojang.authlib.yggdrasil.response.KeyPairResponse$KeyPair"
+import {$ByteBuffer, $ByteBuffer$$Type} from "java.nio.ByteBuffer"
+import {$Record} from "java.lang.Record"
+
+export class $KeyPairResponse extends $Record {
+constructor(keyPair: $KeyPairResponse$KeyPair$$Type, publicKeySignature: $ByteBuffer$$Type, expiresAt: StringJS, refreshedAfter: StringJS)
+
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "expiresAt"(): StringJS
+public "keyPair"(): $KeyPairResponse$KeyPair
+public "refreshedAfter"(): StringJS
+public "publicKeySignature"(): $ByteBuffer
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $KeyPairResponse$$Type = ({"publicKeySignature"?: $ByteBuffer$$Type, "refreshedAfter"?: StringJS, "keyPair"?: $KeyPairResponse$KeyPair$$Type, "expiresAt"?: StringJS}) | ([publicKeySignature?: $ByteBuffer$$Type, refreshedAfter?: StringJS, keyPair?: $KeyPairResponse$KeyPair$$Type, expiresAt?: StringJS]);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $KeyPairResponse$$Original = $KeyPairResponse;}
+declare module "com.mojang.authlib.yggdrasil.ServicesKeyInfo" {
+import {$Signature} from "java.security.Signature"
+import {$Property$$Type} from "com.mojang.authlib.properties.Property"
+
+export interface $ServicesKeyInfo$$Interface {
+}
+
+export class $ServicesKeyInfo implements $ServicesKeyInfo$$Interface {
+ "signature"(): $Signature
+ "validateProperty"(arg0: $Property$$Type): boolean
+ "keyBitCount"(): integer
+ "signatureBitCount"(): integer
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ServicesKeyInfo$$Type = ($ServicesKeyInfo);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ServicesKeyInfo$$Original = $ServicesKeyInfo;}
 declare module "com.mojang.authlib.yggdrasil.ServicesKeySet" {
 import {$Collection, $Collection$$Type} from "java.util.Collection"
 import {$ServicesKeyType, $ServicesKeyType$$Type} from "com.mojang.authlib.yggdrasil.ServicesKeyType"
@@ -257,22 +276,3 @@ export type $ServicesKeySet$$Type = ((arg0: $ServicesKeyType) => $Collection$$Ty
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ServicesKeySet$$Original = $ServicesKeySet;}
-declare module "com.mojang.authlib.yggdrasil.ProfileActionType" {
-import {$Enum} from "java.lang.Enum"
-
-export class $ProfileActionType extends $Enum<($ProfileActionType)> {
-static readonly "USING_BANNED_SKIN": $ProfileActionType
-static readonly "FORCED_NAME_CHANGE": $ProfileActionType
-
-public static "values"(): ($ProfileActionType)[]
-public static "valueOf"(arg0: StringJS): $ProfileActionType
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ProfileActionType$$Type = (("forced_name_change") | ("using_banned_skin"));
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ProfileActionType$$Original = $ProfileActionType;}

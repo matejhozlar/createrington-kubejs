@@ -1,28 +1,3 @@
-declare module "java.net.Proxy$Type" {
-import {$Enum} from "java.lang.Enum"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $Proxy$Type extends $Enum<($Proxy$Type)> {
-static readonly "SOCKS": $Proxy$Type
-static readonly "HTTP": $Proxy$Type
-static readonly "DIRECT": $Proxy$Type
-
-public static "values"(): ($Proxy$Type)[]
-public static "valueOf"(arg0: StringJS): $Proxy$Type
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Proxy$Type$$Type = (("direct") | ("http") | ("socks"));
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Proxy$Type$$Original = $Proxy$Type;}
 declare module "java.net.FileNameMap" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /**
@@ -172,8 +147,8 @@ import {$SocketAddress, $SocketAddress$$Type} from "java.net.SocketAddress"
 import {$InetAddress, $InetAddress$$Type} from "java.net.InetAddress"
 import {$DatagramSocketImplFactory$$Type} from "java.net.DatagramSocketImplFactory"
 import {$Set} from "java.util.Set"
-import {$NetworkInterface$$Type} from "java.net.NetworkInterface"
 import {$Closeable$$Interface} from "java.io.Closeable"
+import {$NetworkInterface$$Type} from "java.net.NetworkInterface"
 import {$DatagramChannel} from "java.nio.channels.DatagramChannel"
 import {$DatagramPacket$$Type} from "java.net.DatagramPacket"
 
@@ -183,73 +158,73 @@ import {$DatagramPacket$$Type} from "java.net.DatagramPacket"
  * Loading the class using require() will not throw an error, but the class will be undefined.
  */
 export class $DatagramSocket implements $Closeable$$Interface {
-constructor(arg0: $SocketAddress$$Type)
 constructor()
 constructor(arg0: integer)
 constructor(arg0: integer, arg1: $InetAddress$$Type)
+constructor(arg0: $SocketAddress$$Type)
 
-public "disconnect"(): void
 public "supportedOptions"(): $Set<($SocketOption<(never)>)>
 public "isConnected"(): boolean
 public "setOption"<T>(arg0: $SocketOption$$Type<(T)>, arg1: T): $DatagramSocket
 public "getLocalAddress"(): $InetAddress
 public "getOption"<T>(arg0: $SocketOption$$Type<(T)>): T
-public "connect"(arg0: $InetAddress$$Type, arg1: integer): void
 public "connect"(arg0: $SocketAddress$$Type): void
+public "connect"(arg0: $InetAddress$$Type, arg1: integer): void
 public "close"(): void
 public "getPort"(): integer
 public "getChannel"(): $DatagramChannel
 public "bind"(arg0: $SocketAddress$$Type): void
 public "getBroadcast"(): boolean
 public "isClosed"(): boolean
-public "receive"(arg0: $DatagramPacket$$Type): void
-public "getReceiveBufferSize"(): integer
-public "setReceiveBufferSize"(arg0: integer): void
-public "getSendBufferSize"(): integer
-public "getSoTimeout"(): integer
-public "getTrafficClass"(): integer
 public "setReuseAddress"(arg0: boolean): void
-public "setTrafficClass"(arg0: integer): void
-public "setSoTimeout"(arg0: integer): void
-public "setSendBufferSize"(arg0: integer): void
-public "getInetAddress"(): $InetAddress
-public "getRemoteSocketAddress"(): $SocketAddress
-public "getLocalSocketAddress"(): $SocketAddress
-public "getLocalPort"(): integer
-public "getReuseAddress"(): boolean
-public "send"(arg0: $DatagramPacket$$Type): void
-public "isBound"(): boolean
-public "leaveGroup"(arg0: $SocketAddress$$Type, arg1: $NetworkInterface$$Type): void
-public "joinGroup"(arg0: $SocketAddress$$Type, arg1: $NetworkInterface$$Type): void
+public "disconnect"(): void
 public "setBroadcast"(arg0: boolean): void
 /**
  * 
  * @deprecated
  */
 public static "setDatagramSocketImplFactory"(arg0: $DatagramSocketImplFactory$$Type): void
+public "getTrafficClass"(): integer
+public "setTrafficClass"(arg0: integer): void
+public "setSendBufferSize"(arg0: integer): void
+public "setSoTimeout"(arg0: integer): void
+public "getSendBufferSize"(): integer
+public "getSoTimeout"(): integer
+public "getReceiveBufferSize"(): integer
+public "setReceiveBufferSize"(arg0: integer): void
+public "send"(arg0: $DatagramPacket$$Type): void
+public "getInetAddress"(): $InetAddress
+public "getRemoteSocketAddress"(): $SocketAddress
+public "getLocalSocketAddress"(): $SocketAddress
+public "getLocalPort"(): integer
+public "getReuseAddress"(): boolean
+public "receive"(arg0: $DatagramPacket$$Type): void
+public "isBound"(): boolean
+public "leaveGroup"(arg0: $SocketAddress$$Type, arg1: $NetworkInterface$$Type): void
+public "joinGroup"(arg0: $SocketAddress$$Type, arg1: $NetworkInterface$$Type): void
 get "connected"(): boolean
 get "localAddress"(): $InetAddress
 get "port"(): integer
 get "channel"(): $DatagramChannel
 get "broadcast"(): boolean
 get "closed"(): boolean
-get "receiveBufferSize"(): integer
-set "receiveBufferSize"(value: integer)
+set "reuseAddress"(value: boolean)
+set "broadcast"(value: boolean)
+set "datagramSocketImplFactory"(value: $DatagramSocketImplFactory$$Type)
+get "trafficClass"(): integer
+set "trafficClass"(value: integer)
+set "sendBufferSize"(value: integer)
+set "soTimeout"(value: integer)
 get "sendBufferSize"(): integer
 get "soTimeout"(): integer
-get "trafficClass"(): integer
-set "reuseAddress"(value: boolean)
-set "trafficClass"(value: integer)
-set "soTimeout"(value: integer)
-set "sendBufferSize"(value: integer)
+get "receiveBufferSize"(): integer
+set "receiveBufferSize"(value: integer)
 get "inetAddress"(): $InetAddress
 get "remoteSocketAddress"(): $SocketAddress
 get "localSocketAddress"(): $SocketAddress
 get "localPort"(): integer
 get "reuseAddress"(): boolean
 get "bound"(): boolean
-set "broadcast"(value: boolean)
-set "datagramSocketImplFactory"(value: $DatagramSocketImplFactory$$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -260,129 +235,6 @@ export type $DatagramSocket$$Type = ($DatagramSocket);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $DatagramSocket$$Original = $DatagramSocket;}
-declare module "java.net.URLConnection" {
-import {$ContentHandlerFactory$$Type} from "java.net.ContentHandlerFactory"
-import {$Map} from "java.util.Map"
-import {$Permission} from "java.security.Permission"
-import {$FileNameMap, $FileNameMap$$Type} from "java.net.FileNameMap"
-import {$List} from "java.util.List"
-import {$URL} from "java.net.URL"
-import {$Class$$Type} from "java.lang.Class"
-import {$InputStream, $InputStream$$Type} from "java.io.InputStream"
-import {$OutputStream} from "java.io.OutputStream"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $URLConnection {
-public "getContentLengthLong"(): long
-public "getHeaderFields"(): $Map<(StringJS), ($List<(StringJS)>)>
-public "getHeaderField"(arg0: integer): StringJS
-public "getHeaderField"(arg0: StringJS): StringJS
-public static "guessContentTypeFromStream"(arg0: $InputStream$$Type): StringJS
-public static "guessContentTypeFromName"(arg0: StringJS): StringJS
-public "addRequestProperty"(arg0: StringJS, arg1: StringJS): void
-public "getRequestProperty"(arg0: StringJS): StringJS
-public "getRequestProperties"(): $Map<(StringJS), ($List<(StringJS)>)>
-public "getHeaderFieldKey"(arg0: integer): StringJS
-public "getContentType"(): StringJS
-public "getDefaultUseCaches"(): boolean
-public static "getDefaultUseCaches"(arg0: StringJS): boolean
-public "getHeaderFieldLong"(arg0: StringJS, arg1: long): long
-public "getHeaderFieldDate"(arg0: StringJS, arg1: long): long
-public static "getFileNameMap"(): $FileNameMap
-public static "setFileNameMap"(arg0: $FileNameMap$$Type): void
-public "setConnectTimeout"(arg0: integer): void
-public "getConnectTimeout"(): integer
-public "setReadTimeout"(arg0: integer): void
-public "getReadTimeout"(): integer
-public "getContentEncoding"(): StringJS
-public "getExpiration"(): long
-public "getHeaderFieldInt"(arg0: StringJS, arg1: integer): integer
-public "setDoInput"(arg0: boolean): void
-public "getDoInput"(): boolean
-public "setDoOutput"(arg0: boolean): void
-public "getDoOutput"(): boolean
-public "setAllowUserInteraction"(arg0: boolean): void
-public "getAllowUserInteraction"(): boolean
-public static "setDefaultAllowUserInteraction"(arg0: boolean): void
-public static "getDefaultAllowUserInteraction"(): boolean
-public "getUseCaches"(): boolean
-public "setIfModifiedSince"(arg0: long): void
-public "getIfModifiedSince"(): long
-public "setDefaultUseCaches"(arg0: boolean): void
-public static "setDefaultUseCaches"(arg0: StringJS, arg1: boolean): void
-/**
- * 
- * @deprecated
- */
-public static "setDefaultRequestProperty"(arg0: StringJS, arg1: StringJS): void
-/**
- * 
- * @deprecated
- */
-public static "getDefaultRequestProperty"(arg0: StringJS): StringJS
-public static "setContentHandlerFactory"(arg0: $ContentHandlerFactory$$Type): void
-public "toString"(): StringJS
-public "connect"(): void
-public "getInputStream"(): $InputStream
-public "getContent"(arg0: ($Class$$Type<(never)>)[]): any
-public "getContent"(): any
-public "getPermission"(): $Permission
-public "getDate"(): long
-public "setUseCaches"(arg0: boolean): void
-public "getLastModified"(): long
-public "getContentLength"(): integer
-public "getURL"(): $URL
-public "setRequestProperty"(arg0: StringJS, arg1: StringJS): void
-public "getOutputStream"(): $OutputStream
-get "contentLengthLong"(): long
-get "headerFields"(): $Map<(StringJS), ($List<(StringJS)>)>
-get "requestProperties"(): $Map<(StringJS), ($List<(StringJS)>)>
-get "contentType"(): StringJS
-get "defaultUseCaches"(): boolean
-get "fileNameMap"(): $FileNameMap
-set "fileNameMap"(value: $FileNameMap$$Type)
-set "connectTimeout"(value: integer)
-get "connectTimeout"(): integer
-set "readTimeout"(value: integer)
-get "readTimeout"(): integer
-get "contentEncoding"(): StringJS
-get "expiration"(): long
-set "doInput"(value: boolean)
-get "doInput"(): boolean
-set "doOutput"(value: boolean)
-get "doOutput"(): boolean
-set "allowUserInteraction"(value: boolean)
-get "allowUserInteraction"(): boolean
-set "defaultAllowUserInteraction"(value: boolean)
-get "defaultAllowUserInteraction"(): boolean
-get "useCaches"(): boolean
-set "ifModifiedSince"(value: long)
-get "ifModifiedSince"(): long
-set "defaultUseCaches"(value: boolean)
-set "contentHandlerFactory"(value: $ContentHandlerFactory$$Type)
-get "inputStream"(): $InputStream
-get "content"(): any
-get "permission"(): $Permission
-get "date"(): long
-set "useCaches"(value: boolean)
-get "lastModified"(): long
-get "contentLength"(): integer
-get "URL"(): $URL
-get "outputStream"(): $OutputStream
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $URLConnection$$Type = ($URLConnection);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $URLConnection$$Original = $URLConnection;}
 declare module "java.net.URI" {
 import {$Comparable$$Interface} from "java.lang.Comparable"
 import {$Serializable$$Interface} from "java.io.Serializable"
@@ -608,12 +460,12 @@ public "getChannel"(): $ServerSocketChannel
 public "bind"(arg0: $SocketAddress$$Type): void
 public "bind"(arg0: $SocketAddress$$Type, arg1: integer): void
 public "isClosed"(): boolean
-public "getReceiveBufferSize"(): integer
-public "setReceiveBufferSize"(arg0: integer): void
-public "setPerformancePreferences"(arg0: integer, arg1: integer, arg2: integer): void
-public "getSoTimeout"(): integer
 public "setReuseAddress"(arg0: boolean): void
 public "setSoTimeout"(arg0: integer): void
+public "getSoTimeout"(): integer
+public "setPerformancePreferences"(arg0: integer, arg1: integer, arg2: integer): void
+public "getReceiveBufferSize"(): integer
+public "setReceiveBufferSize"(arg0: integer): void
 public "getInetAddress"(): $InetAddress
 public "getLocalSocketAddress"(): $SocketAddress
 public "getLocalPort"(): integer
@@ -626,11 +478,11 @@ public "isBound"(): boolean
 public static "setSocketFactory"(arg0: $SocketImplFactory$$Type): void
 get "channel"(): $ServerSocketChannel
 get "closed"(): boolean
-get "receiveBufferSize"(): integer
-set "receiveBufferSize"(value: integer)
-get "soTimeout"(): integer
 set "reuseAddress"(value: boolean)
 set "soTimeout"(value: integer)
+get "soTimeout"(): integer
+get "receiveBufferSize"(): integer
+set "receiveBufferSize"(value: integer)
 get "inetAddress"(): $InetAddress
 get "localSocketAddress"(): $SocketAddress
 get "localPort"(): integer
@@ -672,27 +524,6 @@ export type $URLStreamHandlerFactory$$Type = ((arg0: StringJS) => $URLStreamHand
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $URLStreamHandlerFactory$$Original = $URLStreamHandlerFactory;}
-declare module "java.net.SocketAddress" {
-import {$Serializable$$Interface} from "java.io.Serializable"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $SocketAddress implements $Serializable$$Interface {
-constructor()
-
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $SocketAddress$$Type = ($SocketAddress);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $SocketAddress$$Original = $SocketAddress;}
 declare module "java.net.ContentHandlerFactory" {
 import {$ContentHandler, $ContentHandler$$Type} from "java.net.ContentHandler"
 
@@ -790,6 +621,213 @@ export type $ContentHandler$$Type = ($ContentHandler);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ContentHandler$$Original = $ContentHandler;}
+declare module "java.net.InetSocketAddress" {
+import {$SocketAddress} from "java.net.SocketAddress"
+import {$InetAddress, $InetAddress$$Type} from "java.net.InetAddress"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $InetSocketAddress extends $SocketAddress {
+constructor(arg0: $InetAddress$$Type, arg1: integer)
+constructor(arg0: integer)
+constructor(arg0: StringJS, arg1: integer)
+
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "getAddress"(): $InetAddress
+public "getPort"(): integer
+public "isUnresolved"(): boolean
+public "getHostName"(): StringJS
+public "getHostString"(): StringJS
+public static "createUnresolved"(arg0: StringJS, arg1: integer): $InetSocketAddress
+get "address"(): $InetAddress
+get "port"(): integer
+get "unresolved"(): boolean
+get "hostName"(): StringJS
+get "hostString"(): StringJS
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $InetSocketAddress$$Type = ($InetSocketAddress);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $InetSocketAddress$$Original = $InetSocketAddress;}
+declare module "java.net.Proxy$Type" {
+import {$Enum} from "java.lang.Enum"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $Proxy$Type extends $Enum<($Proxy$Type)> {
+static readonly "SOCKS": $Proxy$Type
+static readonly "HTTP": $Proxy$Type
+static readonly "DIRECT": $Proxy$Type
+
+public static "values"(): ($Proxy$Type)[]
+public static "valueOf"(arg0: StringJS): $Proxy$Type
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Proxy$Type$$Type = (("direct") | ("http") | ("socks"));
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Proxy$Type$$Original = $Proxy$Type;}
+declare module "java.net.URLConnection" {
+import {$ContentHandlerFactory$$Type} from "java.net.ContentHandlerFactory"
+import {$Map} from "java.util.Map"
+import {$Permission} from "java.security.Permission"
+import {$FileNameMap, $FileNameMap$$Type} from "java.net.FileNameMap"
+import {$List} from "java.util.List"
+import {$URL} from "java.net.URL"
+import {$Class$$Type} from "java.lang.Class"
+import {$InputStream, $InputStream$$Type} from "java.io.InputStream"
+import {$OutputStream} from "java.io.OutputStream"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $URLConnection {
+public "getContentLengthLong"(): long
+public "getHeaderFields"(): $Map<(StringJS), ($List<(StringJS)>)>
+public "getHeaderField"(arg0: integer): StringJS
+public "getHeaderField"(arg0: StringJS): StringJS
+public static "guessContentTypeFromStream"(arg0: $InputStream$$Type): StringJS
+public static "guessContentTypeFromName"(arg0: StringJS): StringJS
+public "addRequestProperty"(arg0: StringJS, arg1: StringJS): void
+public "getRequestProperty"(arg0: StringJS): StringJS
+public "getRequestProperties"(): $Map<(StringJS), ($List<(StringJS)>)>
+public "getHeaderFieldKey"(arg0: integer): StringJS
+public "getContentType"(): StringJS
+public "getDefaultUseCaches"(): boolean
+public static "getDefaultUseCaches"(arg0: StringJS): boolean
+public "getHeaderFieldLong"(arg0: StringJS, arg1: long): long
+public "getHeaderFieldDate"(arg0: StringJS, arg1: long): long
+public static "getFileNameMap"(): $FileNameMap
+public static "setFileNameMap"(arg0: $FileNameMap$$Type): void
+public "setConnectTimeout"(arg0: integer): void
+public "getConnectTimeout"(): integer
+public "setReadTimeout"(arg0: integer): void
+public "getReadTimeout"(): integer
+public "getContentEncoding"(): StringJS
+public "getExpiration"(): long
+public "getHeaderFieldInt"(arg0: StringJS, arg1: integer): integer
+public "setDoInput"(arg0: boolean): void
+public "getDoInput"(): boolean
+public "setDoOutput"(arg0: boolean): void
+public "getDoOutput"(): boolean
+public "setAllowUserInteraction"(arg0: boolean): void
+public "getAllowUserInteraction"(): boolean
+public static "setDefaultAllowUserInteraction"(arg0: boolean): void
+public static "getDefaultAllowUserInteraction"(): boolean
+public "getUseCaches"(): boolean
+public "setIfModifiedSince"(arg0: long): void
+public "getIfModifiedSince"(): long
+public "setDefaultUseCaches"(arg0: boolean): void
+public static "setDefaultUseCaches"(arg0: StringJS, arg1: boolean): void
+/**
+ * 
+ * @deprecated
+ */
+public static "setDefaultRequestProperty"(arg0: StringJS, arg1: StringJS): void
+/**
+ * 
+ * @deprecated
+ */
+public static "getDefaultRequestProperty"(arg0: StringJS): StringJS
+public static "setContentHandlerFactory"(arg0: $ContentHandlerFactory$$Type): void
+public "getOutputStream"(): $OutputStream
+public "toString"(): StringJS
+public "connect"(): void
+public "getInputStream"(): $InputStream
+public "getContent"(): any
+public "getContent"(arg0: ($Class$$Type<(never)>)[]): any
+public "getPermission"(): $Permission
+public "getDate"(): long
+public "setUseCaches"(arg0: boolean): void
+public "getLastModified"(): long
+public "getContentLength"(): integer
+public "getURL"(): $URL
+public "setRequestProperty"(arg0: StringJS, arg1: StringJS): void
+get "contentLengthLong"(): long
+get "headerFields"(): $Map<(StringJS), ($List<(StringJS)>)>
+get "requestProperties"(): $Map<(StringJS), ($List<(StringJS)>)>
+get "contentType"(): StringJS
+get "defaultUseCaches"(): boolean
+get "fileNameMap"(): $FileNameMap
+set "fileNameMap"(value: $FileNameMap$$Type)
+set "connectTimeout"(value: integer)
+get "connectTimeout"(): integer
+set "readTimeout"(value: integer)
+get "readTimeout"(): integer
+get "contentEncoding"(): StringJS
+get "expiration"(): long
+set "doInput"(value: boolean)
+get "doInput"(): boolean
+set "doOutput"(value: boolean)
+get "doOutput"(): boolean
+set "allowUserInteraction"(value: boolean)
+get "allowUserInteraction"(): boolean
+set "defaultAllowUserInteraction"(value: boolean)
+get "defaultAllowUserInteraction"(): boolean
+get "useCaches"(): boolean
+set "ifModifiedSince"(value: long)
+get "ifModifiedSince"(): long
+set "defaultUseCaches"(value: boolean)
+set "contentHandlerFactory"(value: $ContentHandlerFactory$$Type)
+get "outputStream"(): $OutputStream
+get "inputStream"(): $InputStream
+get "content"(): any
+get "permission"(): $Permission
+get "date"(): long
+set "useCaches"(value: boolean)
+get "lastModified"(): long
+get "contentLength"(): integer
+get "URL"(): $URL
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $URLConnection$$Type = ($URLConnection);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $URLConnection$$Original = $URLConnection;}
+declare module "java.net.SocketAddress" {
+import {$Serializable$$Interface} from "java.io.Serializable"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $SocketAddress implements $Serializable$$Interface {
+constructor()
+
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $SocketAddress$$Type = ($SocketAddress);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $SocketAddress$$Original = $SocketAddress;}
 declare module "java.net.Socket" {
 import {$Proxy$$Type} from "java.net.Proxy"
 import {$SocketOption, $SocketOption$$Type} from "java.net.SocketOption"
@@ -808,22 +846,22 @@ import {$OutputStream} from "java.io.OutputStream"
  * Loading the class using require() will not throw an error, but the class will be undefined.
  */
 export class $Socket implements $Closeable$$Interface {
-constructor(arg0: $InetAddress$$Type, arg1: integer, arg2: $InetAddress$$Type, arg3: integer)
 /**
  * 
  * @deprecated
  */
 constructor(arg0: StringJS, arg1: integer, arg2: boolean)
-constructor()
 /**
  * 
  * @deprecated
  */
 constructor(arg0: $InetAddress$$Type, arg1: integer, arg2: boolean)
-constructor(arg0: $Proxy$$Type)
+constructor()
 constructor(arg0: StringJS, arg1: integer)
+constructor(arg0: $Proxy$$Type)
 constructor(arg0: $InetAddress$$Type, arg1: integer)
 constructor(arg0: StringJS, arg1: integer, arg2: $InetAddress$$Type, arg3: integer)
+constructor(arg0: $InetAddress$$Type, arg1: integer, arg2: $InetAddress$$Type, arg3: integer)
 
 public "supportedOptions"(): $Set<($SocketOption<(never)>)>
 public "isConnected"(): boolean
@@ -832,6 +870,7 @@ public "getLocalAddress"(): $InetAddress
 public "getOption"<T>(arg0: $SocketOption$$Type<(T)>): T
 public "shutdownInput"(): void
 public "shutdownOutput"(): void
+public "getOutputStream"(): $OutputStream
 public "toString"(): StringJS
 public "connect"(arg0: $SocketAddress$$Type, arg1: integer): void
 public "connect"(arg0: $SocketAddress$$Type): void
@@ -840,25 +879,24 @@ public "getPort"(): integer
 public "getInputStream"(): $InputStream
 public "getChannel"(): $SocketChannel
 public "bind"(arg0: $SocketAddress$$Type): void
-public "getOutputStream"(): $OutputStream
 public "isClosed"(): boolean
-public "getReceiveBufferSize"(): integer
-public "setReceiveBufferSize"(arg0: integer): void
-public "setPerformancePreferences"(arg0: integer, arg1: integer, arg2: integer): void
-public "getSendBufferSize"(): integer
-public "getSoLinger"(): integer
-public "setSoLinger"(arg0: boolean, arg1: integer): void
-public "getSoTimeout"(): integer
-public "getTrafficClass"(): integer
-public "setReuseAddress"(arg0: boolean): void
-public "setOOBInline"(arg0: boolean): void
-public "setTcpNoDelay"(arg0: boolean): void
-public "setKeepAlive"(arg0: boolean): void
-public "setTrafficClass"(arg0: integer): void
-public "setSoTimeout"(arg0: integer): void
-public "setSendBufferSize"(arg0: integer): void
 public "isOutputShutdown"(): boolean
 public "isInputShutdown"(): boolean
+public "setReuseAddress"(arg0: boolean): void
+public "setSoLinger"(arg0: boolean, arg1: integer): void
+public "setKeepAlive"(arg0: boolean): void
+public "setOOBInline"(arg0: boolean): void
+public "getTrafficClass"(): integer
+public "setTrafficClass"(arg0: integer): void
+public "getSoLinger"(): integer
+public "setTcpNoDelay"(arg0: boolean): void
+public "setSendBufferSize"(arg0: integer): void
+public "setSoTimeout"(arg0: integer): void
+public "getSendBufferSize"(): integer
+public "getSoTimeout"(): integer
+public "setPerformancePreferences"(arg0: integer, arg1: integer, arg2: integer): void
+public "getReceiveBufferSize"(): integer
+public "setReceiveBufferSize"(arg0: integer): void
 public "getInetAddress"(): $InetAddress
 public "getRemoteSocketAddress"(): $SocketAddress
 public "getLocalSocketAddress"(): $SocketAddress
@@ -868,34 +906,34 @@ public "getKeepAlive"(): boolean
 public "getReuseAddress"(): boolean
 public "sendUrgentData"(arg0: integer): void
 public "getOOBInline"(): boolean
-public "isBound"(): boolean
 /**
  * 
  * @deprecated
  */
 public static "setSocketImplFactory"(arg0: $SocketImplFactory$$Type): void
+public "isBound"(): boolean
 get "connected"(): boolean
 get "localAddress"(): $InetAddress
+get "outputStream"(): $OutputStream
 get "port"(): integer
 get "inputStream"(): $InputStream
 get "channel"(): $SocketChannel
-get "outputStream"(): $OutputStream
 get "closed"(): boolean
-get "receiveBufferSize"(): integer
-set "receiveBufferSize"(value: integer)
-get "sendBufferSize"(): integer
-get "soLinger"(): integer
-get "soTimeout"(): integer
-get "trafficClass"(): integer
-set "reuseAddress"(value: boolean)
-set "OOBInline"(value: boolean)
-set "tcpNoDelay"(value: boolean)
-set "keepAlive"(value: boolean)
-set "trafficClass"(value: integer)
-set "soTimeout"(value: integer)
-set "sendBufferSize"(value: integer)
 get "outputShutdown"(): boolean
 get "inputShutdown"(): boolean
+set "reuseAddress"(value: boolean)
+set "keepAlive"(value: boolean)
+set "OOBInline"(value: boolean)
+get "trafficClass"(): integer
+set "trafficClass"(value: integer)
+get "soLinger"(): integer
+set "tcpNoDelay"(value: boolean)
+set "sendBufferSize"(value: integer)
+set "soTimeout"(value: integer)
+get "sendBufferSize"(): integer
+get "soTimeout"(): integer
+get "receiveBufferSize"(): integer
+set "receiveBufferSize"(value: integer)
 get "inetAddress"(): $InetAddress
 get "remoteSocketAddress"(): $SocketAddress
 get "localSocketAddress"(): $SocketAddress
@@ -904,8 +942,8 @@ get "tcpNoDelay"(): boolean
 get "keepAlive"(): boolean
 get "reuseAddress"(): boolean
 get "OOBInline"(): boolean
-get "bound"(): boolean
 set "socketImplFactory"(value: $SocketImplFactory$$Type)
+get "bound"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -965,41 +1003,3 @@ export type $URLStreamHandler$$Type = ($URLStreamHandler);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $URLStreamHandler$$Original = $URLStreamHandler;}
-declare module "java.net.InetSocketAddress" {
-import {$SocketAddress} from "java.net.SocketAddress"
-import {$InetAddress, $InetAddress$$Type} from "java.net.InetAddress"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $InetSocketAddress extends $SocketAddress {
-constructor(arg0: $InetAddress$$Type, arg1: integer)
-constructor(arg0: integer)
-constructor(arg0: StringJS, arg1: integer)
-
-public "equals"(arg0: any): boolean
-public "toString"(): StringJS
-public "hashCode"(): integer
-public "getAddress"(): $InetAddress
-public "getPort"(): integer
-public "isUnresolved"(): boolean
-public "getHostName"(): StringJS
-public "getHostString"(): StringJS
-public static "createUnresolved"(arg0: StringJS, arg1: integer): $InetSocketAddress
-get "address"(): $InetAddress
-get "port"(): integer
-get "unresolved"(): boolean
-get "hostName"(): StringJS
-get "hostString"(): StringJS
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $InetSocketAddress$$Type = ($InetSocketAddress);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $InetSocketAddress$$Original = $InetSocketAddress;}

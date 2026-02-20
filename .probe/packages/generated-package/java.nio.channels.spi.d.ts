@@ -1,27 +1,3 @@
-declare module "java.nio.channels.spi.AbstractSelector" {
-import {$Selector} from "java.nio.channels.Selector"
-import {$SelectorProvider} from "java.nio.channels.spi.SelectorProvider"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $AbstractSelector extends $Selector {
-public "isOpen"(): boolean
-public "provider"(): $SelectorProvider
-public "close"(): void
-get "open"(): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $AbstractSelector$$Type = ($AbstractSelector);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $AbstractSelector$$Original = $AbstractSelector;}
 declare module "java.nio.channels.spi.AbstractSelectableChannel" {
 import {$Selector$$Type} from "java.nio.channels.Selector"
 import {$SelectionKey} from "java.nio.channels.SelectionKey"
@@ -83,8 +59,8 @@ declare module "java.nio.channels.spi.SelectorProvider" {
 import {$Channel} from "java.nio.channels.Channel"
 import {$ProtocolFamily$$Type} from "java.net.ProtocolFamily"
 import {$ServerSocketChannel} from "java.nio.channels.ServerSocketChannel"
-import {$AbstractSelector} from "java.nio.channels.spi.AbstractSelector"
 import {$SocketChannel} from "java.nio.channels.SocketChannel"
+import {$AbstractSelector} from "java.nio.channels.spi.AbstractSelector"
 import {$Pipe} from "java.nio.channels.Pipe"
 import {$DatagramChannel} from "java.nio.channels.DatagramChannel"
 
@@ -114,3 +90,27 @@ export type $SelectorProvider$$Type = ($SelectorProvider);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $SelectorProvider$$Original = $SelectorProvider;}
+declare module "java.nio.channels.spi.AbstractSelector" {
+import {$Selector} from "java.nio.channels.Selector"
+import {$SelectorProvider} from "java.nio.channels.spi.SelectorProvider"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $AbstractSelector extends $Selector {
+public "isOpen"(): boolean
+public "provider"(): $SelectorProvider
+public "close"(): void
+get "open"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $AbstractSelector$$Type = ($AbstractSelector);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $AbstractSelector$$Original = $AbstractSelector;}

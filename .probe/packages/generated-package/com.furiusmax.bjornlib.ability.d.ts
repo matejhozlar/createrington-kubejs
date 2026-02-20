@@ -1,48 +1,9 @@
-declare module "com.furiusmax.bjornlib.ability.Ability" {
-import {$Player, $Player$$Type} from "net.minecraft.world.entity.player.Player"
-import {$CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
-import {$AbilityType, $AbilityType$$Type} from "com.furiusmax.bjornlib.ability.AbilityType"
-import {$IPlayerAbilities$$Type} from "com.furiusmax.bjornlib.capability.IPlayerAbilities"
-
-export class $Ability {
- "maxLevel": integer
- "cost": float
- "level": integer
- "cooldown": float
- "cooldownTimer": float
-readonly "type": $AbilityType
-
-constructor(arg0: $AbilityType$$Type, arg1: $Player$$Type, arg2: integer)
-
-public "tick"(): void
-public "getLevel"(): integer
-public "setLevel"(arg0: integer): $Ability
-public "readTag"(arg0: $CompoundTag$$Type): void
-public "writeTag"(arg0: $CompoundTag$$Type): void
-public "getMaxLevel"(): integer
-public "getCost"(): float
-public "getPlayer"(): $Player
-public "setPlayer"(arg0: $Player$$Type): void
-public "levelUp"(arg0: $IPlayerAbilities$$Type, arg1: boolean): void
-public "canCastAbility"(): boolean
-get "player"(): $Player
-set "player"(value: $Player$$Type)
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Ability$$Type = ($Ability);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Ability$$Original = $Ability;}
 declare module "com.furiusmax.bjornlib.ability.AbilityType" {
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$Ability, $Ability$$Type} from "com.furiusmax.bjornlib.ability.Ability"
 import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
-import {$IPlayerAbilities$$Type} from "com.furiusmax.bjornlib.capability.IPlayerAbilities"
 import {$AbilityType$AbilityCastType, $AbilityType$AbilityCastType$$Type} from "com.furiusmax.bjornlib.ability.AbilityType$AbilityCastType"
+import {$IPlayerAbilities$$Type} from "com.furiusmax.bjornlib.capability.IPlayerAbilities"
 import {$Component} from "net.minecraft.network.chat.Component"
 
 export class $AbilityType {
@@ -58,8 +19,8 @@ public "getId"(): $ResourceLocation
 public "getMaxLevel"(): integer
 public "getCost"(): float
 public "getCastType"(): $AbilityType$AbilityCastType
-public "createAbility"(arg0: $Player$$Type, arg1: integer): $Ability
 public "onLevelUp"(arg0: $IPlayerAbilities$$Type, arg1: $Ability$$Type): boolean
+public "createAbility"(arg0: $Player$$Type, arg1: integer): $Ability
 get "name"(): $Component
 get "parent"(): $AbilityType
 get "id"(): $ResourceLocation
@@ -106,3 +67,42 @@ export type $AbilityType$AbilityCastType$$Type = (("passive") | ("self") | ("vie
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $AbilityType$AbilityCastType$$Original = $AbilityType$AbilityCastType;}
+declare module "com.furiusmax.bjornlib.ability.Ability" {
+import {$Player, $Player$$Type} from "net.minecraft.world.entity.player.Player"
+import {$CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
+import {$AbilityType, $AbilityType$$Type} from "com.furiusmax.bjornlib.ability.AbilityType"
+import {$IPlayerAbilities$$Type} from "com.furiusmax.bjornlib.capability.IPlayerAbilities"
+
+export class $Ability {
+ "maxLevel": integer
+ "cost": float
+ "level": integer
+ "cooldown": float
+ "cooldownTimer": float
+readonly "type": $AbilityType
+
+constructor(arg0: $AbilityType$$Type, arg1: $Player$$Type, arg2: integer)
+
+public "tick"(): void
+public "getLevel"(): integer
+public "setLevel"(arg0: integer): $Ability
+public "getMaxLevel"(): integer
+public "writeTag"(arg0: $CompoundTag$$Type): void
+public "readTag"(arg0: $CompoundTag$$Type): void
+public "getCost"(): float
+public "getPlayer"(): $Player
+public "setPlayer"(arg0: $Player$$Type): void
+public "levelUp"(arg0: $IPlayerAbilities$$Type, arg1: boolean): void
+public "canCastAbility"(): boolean
+get "player"(): $Player
+set "player"(value: $Player$$Type)
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Ability$$Type = ($Ability);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Ability$$Original = $Ability;}

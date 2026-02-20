@@ -5,9 +5,9 @@ export interface $IClumpedOrb$$Interface {
 }
 
 export class $IClumpedOrb implements $IClumpedOrb$$Interface {
- "clumps$resolve"(): boolean
  "clumps$setClumpedMap"(arg0: $Map$$Type<(integer), (integer)>): void
  "clumps$getClumpedMap"(): $Map<(integer), (integer)>
+ "clumps$resolve"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

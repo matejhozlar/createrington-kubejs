@@ -111,6 +111,69 @@ export type $MethodTypeDesc$$Type = ($MethodTypeDesc);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $MethodTypeDesc$$Original = $MethodTypeDesc;}
+declare module "java.lang.constant.Constable" {
+import {$ConstantDesc, $ConstantDesc$$Type} from "java.lang.constant.ConstantDesc"
+import {$Optional, $Optional$$Type} from "java.util.Optional"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export interface $Constable$$Interface {
+
+(): ($ConstantDesc$$Type)?
+}
+
+export class $Constable implements $Constable$$Interface {
+ "describeConstable"(): $Optional<($ConstantDesc)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Constable$$Type = (() => ($ConstantDesc$$Type)?);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Constable$$Original = $Constable;}
+declare module "java.lang.constant.DirectMethodHandleDesc$Kind" {
+import {$Enum} from "java.lang.Enum"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $DirectMethodHandleDesc$Kind extends $Enum<($DirectMethodHandleDesc$Kind)> {
+static readonly "INTERFACE_SPECIAL": $DirectMethodHandleDesc$Kind
+readonly "refKind": integer
+static readonly "SETTER": $DirectMethodHandleDesc$Kind
+static readonly "SPECIAL": $DirectMethodHandleDesc$Kind
+static readonly "STATIC": $DirectMethodHandleDesc$Kind
+static readonly "GETTER": $DirectMethodHandleDesc$Kind
+static readonly "STATIC_GETTER": $DirectMethodHandleDesc$Kind
+static readonly "INTERFACE_VIRTUAL": $DirectMethodHandleDesc$Kind
+static readonly "STATIC_SETTER": $DirectMethodHandleDesc$Kind
+static readonly "CONSTRUCTOR": $DirectMethodHandleDesc$Kind
+readonly "isInterface": boolean
+static readonly "INTERFACE_STATIC": $DirectMethodHandleDesc$Kind
+static readonly "VIRTUAL": $DirectMethodHandleDesc$Kind
+
+public static "values"(): ($DirectMethodHandleDesc$Kind)[]
+public static "valueOf"(arg0: integer, arg1: boolean): $DirectMethodHandleDesc$Kind
+public static "valueOf"(arg0: StringJS): $DirectMethodHandleDesc$Kind
+public static "valueOf"(arg0: integer): $DirectMethodHandleDesc$Kind
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $DirectMethodHandleDesc$Kind$$Type = (("static") | ("interface_static") | ("virtual") | ("interface_virtual") | ("special") | ("interface_special") | ("constructor") | ("getter") | ("setter") | ("static_getter") | ("static_setter"));
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $DirectMethodHandleDesc$Kind$$Original = $DirectMethodHandleDesc$Kind;}
 declare module "java.lang.constant.ClassDesc" {
 import {$ConstantDesc$$Interface} from "java.lang.constant.ConstantDesc"
 import {$MethodHandles$Lookup$$Type} from "java.lang.invoke.MethodHandles$Lookup"
@@ -158,8 +221,8 @@ export type $ClassDesc$$Original = $ClassDesc;}
 declare module "java.lang.constant.DynamicConstantDesc" {
 import {$ConstantDesc, $ConstantDesc$$Type, $ConstantDesc$$Interface} from "java.lang.constant.ConstantDesc"
 import {$MethodHandles$Lookup$$Type} from "java.lang.invoke.MethodHandles$Lookup"
-import {$List} from "java.util.List"
 import {$ClassDesc, $ClassDesc$$Type} from "java.lang.constant.ClassDesc"
+import {$List} from "java.util.List"
 import {$DirectMethodHandleDesc, $DirectMethodHandleDesc$$Type} from "java.lang.constant.DirectMethodHandleDesc"
 
 /**
@@ -176,11 +239,11 @@ public static "of"<T>(arg0: $DirectMethodHandleDesc$$Type): $DynamicConstantDesc
 public "resolveConstantDesc"(arg0: $MethodHandles$Lookup$$Type): T
 public "bootstrapMethod"(): $DirectMethodHandleDesc
 public static "ofNamed"<T>(arg0: $DirectMethodHandleDesc$$Type, arg1: StringJS, arg2: $ClassDesc$$Type, ...arg3: ($ConstantDesc$$Type)[]): $DynamicConstantDesc<(T)>
+public "constantName"(): StringJS
+public "constantType"(): $ClassDesc
+public "bootstrapArgs"(): ($ConstantDesc)[]
 public static "ofCanonical"<T>(arg0: $DirectMethodHandleDesc$$Type, arg1: StringJS, arg2: $ClassDesc$$Type, arg3: ($ConstantDesc$$Type)[]): $ConstantDesc
 public "bootstrapArgsList"(): $List<($ConstantDesc)>
-public "constantType"(): $ClassDesc
-public "constantName"(): StringJS
-public "bootstrapArgs"(): ($ConstantDesc)[]
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -191,32 +254,6 @@ export type $DynamicConstantDesc$$Type<T> = ($DynamicConstantDesc<(T)>);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $DynamicConstantDesc$$Original<T> = $DynamicConstantDesc<(T)>;}
-declare module "java.lang.constant.Constable" {
-import {$ConstantDesc, $ConstantDesc$$Type} from "java.lang.constant.ConstantDesc"
-import {$Optional, $Optional$$Type} from "java.util.Optional"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export interface $Constable$$Interface {
-
-(): ($ConstantDesc$$Type)?
-}
-
-export class $Constable implements $Constable$$Interface {
- "describeConstable"(): $Optional<($ConstantDesc)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Constable$$Type = (() => ($ConstantDesc$$Type)?);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Constable$$Original = $Constable;}
 declare module "java.lang.constant.MethodHandleDesc" {
 import {$ConstantDesc$$Interface} from "java.lang.constant.ConstantDesc"
 import {$MethodHandles$Lookup$$Type} from "java.lang.invoke.MethodHandles$Lookup"
@@ -252,40 +289,3 @@ export type $MethodHandleDesc$$Type = ($MethodHandleDesc);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $MethodHandleDesc$$Original = $MethodHandleDesc;}
-declare module "java.lang.constant.DirectMethodHandleDesc$Kind" {
-import {$Enum} from "java.lang.Enum"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $DirectMethodHandleDesc$Kind extends $Enum<($DirectMethodHandleDesc$Kind)> {
-static readonly "INTERFACE_SPECIAL": $DirectMethodHandleDesc$Kind
-readonly "refKind": integer
-static readonly "SETTER": $DirectMethodHandleDesc$Kind
-static readonly "SPECIAL": $DirectMethodHandleDesc$Kind
-static readonly "STATIC": $DirectMethodHandleDesc$Kind
-static readonly "GETTER": $DirectMethodHandleDesc$Kind
-static readonly "STATIC_GETTER": $DirectMethodHandleDesc$Kind
-static readonly "INTERFACE_VIRTUAL": $DirectMethodHandleDesc$Kind
-static readonly "STATIC_SETTER": $DirectMethodHandleDesc$Kind
-static readonly "CONSTRUCTOR": $DirectMethodHandleDesc$Kind
-readonly "isInterface": boolean
-static readonly "INTERFACE_STATIC": $DirectMethodHandleDesc$Kind
-static readonly "VIRTUAL": $DirectMethodHandleDesc$Kind
-
-public static "values"(): ($DirectMethodHandleDesc$Kind)[]
-public static "valueOf"(arg0: integer, arg1: boolean): $DirectMethodHandleDesc$Kind
-public static "valueOf"(arg0: StringJS): $DirectMethodHandleDesc$Kind
-public static "valueOf"(arg0: integer): $DirectMethodHandleDesc$Kind
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $DirectMethodHandleDesc$Kind$$Type = (("static") | ("interface_static") | ("virtual") | ("interface_virtual") | ("special") | ("interface_special") | ("constructor") | ("getter") | ("setter") | ("static_getter") | ("static_setter"));
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $DirectMethodHandleDesc$Kind$$Original = $DirectMethodHandleDesc$Kind;}

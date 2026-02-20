@@ -8,17 +8,17 @@ export interface $PlayerEntityAccessor$$Interface {
 }
 
 export class $PlayerEntityAccessor implements $PlayerEntityAccessor$$Interface {
+ "ahp_getLastGoldMessageIndex"(): integer
+ "ahp_setLastGoldMessageIndex"(arg0: integer): void
+ "hasAnyShoulderHamster"(): boolean
+ "setShoulderHamster"(arg0: $ShoulderLocation$$Type, arg1: $CompoundTag$$Type): void
+ "getShoulderHamster"(arg0: $ShoulderLocation$$Type): $CompoundTag
  "adorablehamsterpets$getMountOrderQueue"(): $ArrayDeque<($ShoulderLocation)>
- "adorablehamsterpets$setRawShoulderData"(arg0: $CompoundTag$$Type): void
  "adorablehamsterpets$syncShoulderData"(): void
  "adorablehamsterpets$getClientShoulderData"(): $ClientShoulderHamsterData
- "hasAnyShoulderHamster"(): boolean
- "getShoulderHamster"(arg0: $ShoulderLocation$$Type): $CompoundTag
- "setShoulderHamster"(arg0: $ShoulderLocation$$Type, arg1: $CompoundTag$$Type): void
- "adorablehamsterpets$dismountShoulderHamster"(arg0: boolean): void
+ "adorablehamsterpets$setRawShoulderData"(arg0: $CompoundTag$$Type): void
  "adorablehamsterpets$dismountShoulderHamster"(): void
- "ahp_setLastGoldMessageIndex"(arg0: integer): void
- "ahp_getLastGoldMessageIndex"(): integer
+ "adorablehamsterpets$dismountShoulderHamster"(arg0: boolean): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

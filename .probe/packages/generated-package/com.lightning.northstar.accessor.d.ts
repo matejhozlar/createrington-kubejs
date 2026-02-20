@@ -24,6 +24,24 @@ export type $NorthstarFluidState$$Type = ((arg0: $Level, arg1: $BlockPos, arg2: 
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $NorthstarFluidState$$Original = $NorthstarFluidState;}
+declare module "com.lightning.northstar.accessor.NorthstarServerPlayer" {
+import {$Entity$$Type} from "net.minecraft.world.entity.Entity"
+
+export interface $NorthstarServerPlayer$$Interface {
+}
+
+export class $NorthstarServerPlayer implements $NorthstarServerPlayer$$Interface {
+ "northstar$setPositionRelativeTo"(other: $Entity$$Type): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $NorthstarServerPlayer$$Type = ($NorthstarServerPlayer);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $NorthstarServerPlayer$$Original = $NorthstarServerPlayer;}
 declare module "com.lightning.northstar.accessor.NorthstarLevel" {
 import {$NorthstarTemperature} from "com.lightning.northstar.world.temperature.NorthstarTemperature"
 import {$LongCollection$$Type} from "it.unimi.dsi.fastutil.longs.LongCollection"
@@ -53,8 +71,8 @@ export interface $NorthstarPlayer$$Interface {
 }
 
 export class $NorthstarPlayer implements $NorthstarPlayer$$Interface {
- "northstar$getRelativeEntity"(): $Entity
  "northstar$setRelativeEntity"(entity: $Entity$$Type, ticks: integer): void
+ "northstar$getRelativeEntity"(): $Entity
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -83,24 +101,6 @@ export type $NorthstarDamageSources$$Type = ($NorthstarDamageSources);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $NorthstarDamageSources$$Original = $NorthstarDamageSources;}
-declare module "com.lightning.northstar.accessor.NorthstarServerPlayer" {
-import {$Entity$$Type} from "net.minecraft.world.entity.Entity"
-
-export interface $NorthstarServerPlayer$$Interface {
-}
-
-export class $NorthstarServerPlayer implements $NorthstarServerPlayer$$Interface {
- "northstar$setPositionRelativeTo"(other: $Entity$$Type): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $NorthstarServerPlayer$$Type = ($NorthstarServerPlayer);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $NorthstarServerPlayer$$Original = $NorthstarServerPlayer;}
 declare module "com.lightning.northstar.accessor.NorthstarGuiGraphics" {
 import {$TextureAtlasSprite$$Type} from "net.minecraft.client.renderer.texture.TextureAtlasSprite"
 import {$TilingAnchor$$Type} from "com.lightning.northstar.client.TilingAnchor"

@@ -108,8 +108,8 @@ declare module "java.lang.reflect.Field" {
 import {$Member$$Interface} from "java.lang.reflect.Member"
 import {$Annotation} from "java.lang.annotation.Annotation"
 import {$AnnotatedType} from "java.lang.reflect.AnnotatedType"
-import {$Type} from "java.lang.reflect.Type"
 import {$AccessibleObject} from "java.lang.reflect.AccessibleObject"
+import {$Type} from "java.lang.reflect.Type"
 import {$Set} from "java.util.Set"
 import {$Class, $Class$$Type} from "java.lang.Class"
 import {$AccessFlag} from "java.lang.reflect.AccessFlag"
@@ -175,6 +175,196 @@ export type $Field$$Type = ($Field);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $Field$$Original = $Field;}
+declare module "java.lang.reflect.Type" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export interface $Type$$Interface {
+get "typeName"(): StringJS
+}
+
+export class $Type implements $Type$$Interface {
+ "getTypeName"(): StringJS
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Type$$Type = ($Type);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Type$$Original = $Type;}
+declare module "java.lang.reflect.TypeVariable" {
+import {$GenericDeclaration} from "java.lang.reflect.GenericDeclaration"
+import {$AnnotatedElement$$Interface} from "java.lang.reflect.AnnotatedElement"
+import {$Annotation, $Annotation$$Type} from "java.lang.annotation.Annotation"
+import {$AnnotatedType} from "java.lang.reflect.AnnotatedType"
+import {$Type, $Type$$Interface} from "java.lang.reflect.Type"
+import {$Class$$Type} from "java.lang.Class"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export interface $TypeVariable$$Interface<D extends $GenericDeclaration> extends $Type$$Interface, $AnnotatedElement$$Interface {
+get "name"(): StringJS
+get "bounds"(): ($Type)[]
+get "genericDeclaration"(): D
+get "annotatedBounds"(): ($AnnotatedType)[]
+get "typeName"(): StringJS
+get "annotations"(): ($Annotation)[]
+get "declaredAnnotations"(): ($Annotation)[]
+}
+
+export class $TypeVariable<D extends $GenericDeclaration> implements $TypeVariable$$Interface {
+ "getName"(): StringJS
+ "getBounds"(): ($Type)[]
+ "getGenericDeclaration"(): D
+ "getAnnotatedBounds"(): ($AnnotatedType)[]
+ "getTypeName"(): StringJS
+ "isAnnotationPresent"(arg0: $Class$$Type<($Annotation$$Type)>): boolean
+ "getAnnotation"<T extends $Annotation>(arg0: $Class$$Type<(T)>): T
+ "getAnnotationsByType"<T extends $Annotation>(arg0: $Class$$Type<(T)>): (T)[]
+ "getAnnotations"(): ($Annotation)[]
+ "getDeclaredAnnotation"<T extends $Annotation>(arg0: $Class$$Type<(T)>): T
+ "getDeclaredAnnotationsByType"<T extends $Annotation>(arg0: $Class$$Type<(T)>): (T)[]
+ "getDeclaredAnnotations"(): ($Annotation)[]
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $TypeVariable$$Type<D> = ($TypeVariable<(D)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $TypeVariable$$Original<D> = $TypeVariable<(D)>;}
+declare module "java.lang.reflect.Parameter" {
+import {$Executable} from "java.lang.reflect.Executable"
+import {$AnnotatedElement$$Interface} from "java.lang.reflect.AnnotatedElement"
+import {$Annotation, $Annotation$$Type} from "java.lang.annotation.Annotation"
+import {$AnnotatedType} from "java.lang.reflect.AnnotatedType"
+import {$Type} from "java.lang.reflect.Type"
+import {$Set} from "java.util.Set"
+import {$Class, $Class$$Type} from "java.lang.Class"
+import {$AccessFlag} from "java.lang.reflect.AccessFlag"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $Parameter implements $AnnotatedElement$$Interface {
+public "getName"(): StringJS
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "getModifiers"(): integer
+public "isSynthetic"(): boolean
+public "accessFlags"(): $Set<($AccessFlag)>
+public "getAnnotation"<T extends $Annotation>(arg0: $Class$$Type<(T)>): T
+public "getAnnotationsByType"<T extends $Annotation>(arg0: $Class$$Type<(T)>): (T)[]
+public "getAnnotations"(): ($Annotation)[]
+public "getDeclaredAnnotation"<T extends $Annotation>(arg0: $Class$$Type<(T)>): T
+public "getDeclaredAnnotationsByType"<T extends $Annotation>(arg0: $Class$$Type<(T)>): (T)[]
+public "getDeclaredAnnotations"(): ($Annotation)[]
+public "getType"(): $Class<(never)>
+public "getAnnotatedType"(): $AnnotatedType
+public "getParameterizedType"(): $Type
+public "isVarArgs"(): boolean
+public "isNamePresent"(): boolean
+public "getDeclaringExecutable"(): $Executable
+public "isImplicit"(): boolean
+public "isAnnotationPresent"(arg0: $Class$$Type<($Annotation$$Type)>): boolean
+get "name"(): StringJS
+get "modifiers"(): integer
+get "synthetic"(): boolean
+get "annotations"(): ($Annotation)[]
+get "declaredAnnotations"(): ($Annotation)[]
+get "type"(): $Class<(never)>
+get "annotatedType"(): $AnnotatedType
+get "parameterizedType"(): $Type
+get "varArgs"(): boolean
+get "namePresent"(): boolean
+get "declaringExecutable"(): $Executable
+get "implicit"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Parameter$$Type = ($Parameter);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Parameter$$Original = $Parameter;}
+declare module "java.lang.reflect.Constructor" {
+import {$Executable} from "java.lang.reflect.Executable"
+import {$TypeVariable} from "java.lang.reflect.TypeVariable"
+import {$Annotation} from "java.lang.annotation.Annotation"
+import {$AnnotatedType} from "java.lang.reflect.AnnotatedType"
+import {$Type} from "java.lang.reflect.Type"
+import {$Class, $Class$$Type} from "java.lang.Class"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $Constructor<T> extends $Executable {
+public "getName"(): StringJS
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "getModifiers"(): integer
+public "getTypeParameters"(): ($TypeVariable<($Constructor<(T)>)>)[]
+public "newInstance"(...arg0: (any)[]): T
+public "getParameterTypes"(): ($Class<(never)>)[]
+public "isSynthetic"(): boolean
+public "toGenericString"(): StringJS
+public "getDeclaringClass"(): $Class<(T)>
+public "getAnnotation"<T extends $Annotation>(arg0: $Class$$Type<(T)>): T
+public "getDeclaredAnnotations"(): ($Annotation)[]
+public "setAccessible"(arg0: boolean): void
+public "isVarArgs"(): boolean
+public "getParameterCount"(): integer
+public "getParameterAnnotations"(): (($Annotation)[])[]
+public "getGenericParameterTypes"(): ($Type)[]
+public "getGenericExceptionTypes"(): ($Type)[]
+public "getExceptionTypes"(): ($Class<(never)>)[]
+public "getAnnotatedReturnType"(): $AnnotatedType
+public "getAnnotatedReceiverType"(): $AnnotatedType
+get "name"(): StringJS
+get "modifiers"(): integer
+get "typeParameters"(): ($TypeVariable<($Constructor<(T)>)>)[]
+get "parameterTypes"(): ($Class<(never)>)[]
+get "synthetic"(): boolean
+get "declaringClass"(): $Class<(T)>
+get "declaredAnnotations"(): ($Annotation)[]
+set "accessible"(value: boolean)
+get "varArgs"(): boolean
+get "parameterCount"(): integer
+get "parameterAnnotations"(): (($Annotation)[])[]
+get "genericParameterTypes"(): ($Type)[]
+get "genericExceptionTypes"(): ($Type)[]
+get "exceptionTypes"(): ($Class<(never)>)[]
+get "annotatedReturnType"(): $AnnotatedType
+get "annotatedReceiverType"(): $AnnotatedType
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Constructor$$Type<T> = ($Constructor<(T)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Constructor$$Original<T> = $Constructor<(T)>;}
 declare module "java.lang.reflect.AccessibleObject" {
 import {$AnnotatedElement$$Interface} from "java.lang.reflect.AnnotatedElement"
 import {$Annotation, $Annotation$$Type} from "java.lang.annotation.Annotation"
@@ -217,13 +407,13 @@ export type $AccessibleObject$$Type = ($AccessibleObject);
  */
 export type $AccessibleObject$$Original = $AccessibleObject;}
 declare module "java.lang.reflect.Executable" {
-import {$Member$$Interface} from "java.lang.reflect.Member"
 import {$GenericDeclaration$$Interface} from "java.lang.reflect.GenericDeclaration"
 import {$TypeVariable} from "java.lang.reflect.TypeVariable"
+import {$Member$$Interface} from "java.lang.reflect.Member"
 import {$Annotation} from "java.lang.annotation.Annotation"
 import {$AnnotatedType} from "java.lang.reflect.AnnotatedType"
-import {$Type} from "java.lang.reflect.Type"
 import {$AccessibleObject} from "java.lang.reflect.AccessibleObject"
+import {$Type} from "java.lang.reflect.Type"
 import {$Set} from "java.util.Set"
 import {$Class, $Class$$Type} from "java.lang.Class"
 import {$Parameter} from "java.lang.reflect.Parameter"
@@ -440,29 +630,6 @@ export type $AccessFlag$Location$$Type = (("class") | ("field") | ("method") | (
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $AccessFlag$Location$$Original = $AccessFlag$Location;}
-declare module "java.lang.reflect.Type" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export interface $Type$$Interface {
-get "typeName"(): StringJS
-}
-
-export class $Type implements $Type$$Interface {
- "getTypeName"(): StringJS
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Type$$Type = ($Type);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Type$$Original = $Type;}
 declare module "java.lang.reflect.AnnotatedElement" {
 import {$Annotation, $Annotation$$Type} from "java.lang.annotation.Annotation"
 import {$Class$$Type} from "java.lang.Class"
@@ -495,111 +662,6 @@ export type $AnnotatedElement$$Type = ($AnnotatedElement);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $AnnotatedElement$$Original = $AnnotatedElement;}
-declare module "java.lang.reflect.TypeVariable" {
-import {$GenericDeclaration} from "java.lang.reflect.GenericDeclaration"
-import {$AnnotatedElement$$Interface} from "java.lang.reflect.AnnotatedElement"
-import {$Annotation, $Annotation$$Type} from "java.lang.annotation.Annotation"
-import {$AnnotatedType} from "java.lang.reflect.AnnotatedType"
-import {$Type, $Type$$Interface} from "java.lang.reflect.Type"
-import {$Class$$Type} from "java.lang.Class"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export interface $TypeVariable$$Interface<D extends $GenericDeclaration> extends $Type$$Interface, $AnnotatedElement$$Interface {
-get "name"(): StringJS
-get "bounds"(): ($Type)[]
-get "genericDeclaration"(): D
-get "annotatedBounds"(): ($AnnotatedType)[]
-get "typeName"(): StringJS
-get "annotations"(): ($Annotation)[]
-get "declaredAnnotations"(): ($Annotation)[]
-}
-
-export class $TypeVariable<D extends $GenericDeclaration> implements $TypeVariable$$Interface {
- "getName"(): StringJS
- "getBounds"(): ($Type)[]
- "getGenericDeclaration"(): D
- "getAnnotatedBounds"(): ($AnnotatedType)[]
- "getTypeName"(): StringJS
- "isAnnotationPresent"(arg0: $Class$$Type<($Annotation$$Type)>): boolean
- "getAnnotation"<T extends $Annotation>(arg0: $Class$$Type<(T)>): T
- "getAnnotationsByType"<T extends $Annotation>(arg0: $Class$$Type<(T)>): (T)[]
- "getAnnotations"(): ($Annotation)[]
- "getDeclaredAnnotation"<T extends $Annotation>(arg0: $Class$$Type<(T)>): T
- "getDeclaredAnnotationsByType"<T extends $Annotation>(arg0: $Class$$Type<(T)>): (T)[]
- "getDeclaredAnnotations"(): ($Annotation)[]
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $TypeVariable$$Type<D> = ($TypeVariable<(D)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $TypeVariable$$Original<D> = $TypeVariable<(D)>;}
-declare module "java.lang.reflect.Parameter" {
-import {$Executable} from "java.lang.reflect.Executable"
-import {$AnnotatedElement$$Interface} from "java.lang.reflect.AnnotatedElement"
-import {$Annotation, $Annotation$$Type} from "java.lang.annotation.Annotation"
-import {$AnnotatedType} from "java.lang.reflect.AnnotatedType"
-import {$Type} from "java.lang.reflect.Type"
-import {$Set} from "java.util.Set"
-import {$Class, $Class$$Type} from "java.lang.Class"
-import {$AccessFlag} from "java.lang.reflect.AccessFlag"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $Parameter implements $AnnotatedElement$$Interface {
-public "getName"(): StringJS
-public "equals"(arg0: any): boolean
-public "toString"(): StringJS
-public "hashCode"(): integer
-public "getModifiers"(): integer
-public "isSynthetic"(): boolean
-public "accessFlags"(): $Set<($AccessFlag)>
-public "getAnnotation"<T extends $Annotation>(arg0: $Class$$Type<(T)>): T
-public "getAnnotationsByType"<T extends $Annotation>(arg0: $Class$$Type<(T)>): (T)[]
-public "getAnnotations"(): ($Annotation)[]
-public "getDeclaredAnnotation"<T extends $Annotation>(arg0: $Class$$Type<(T)>): T
-public "getDeclaredAnnotationsByType"<T extends $Annotation>(arg0: $Class$$Type<(T)>): (T)[]
-public "getDeclaredAnnotations"(): ($Annotation)[]
-public "getType"(): $Class<(never)>
-public "getAnnotatedType"(): $AnnotatedType
-public "getParameterizedType"(): $Type
-public "isVarArgs"(): boolean
-public "isNamePresent"(): boolean
-public "getDeclaringExecutable"(): $Executable
-public "isImplicit"(): boolean
-public "isAnnotationPresent"(arg0: $Class$$Type<($Annotation$$Type)>): boolean
-get "name"(): StringJS
-get "modifiers"(): integer
-get "synthetic"(): boolean
-get "annotations"(): ($Annotation)[]
-get "declaredAnnotations"(): ($Annotation)[]
-get "type"(): $Class<(never)>
-get "annotatedType"(): $AnnotatedType
-get "parameterizedType"(): $Type
-get "varArgs"(): boolean
-get "namePresent"(): boolean
-get "declaringExecutable"(): $Executable
-get "implicit"(): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Parameter$$Type = ($Parameter);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Parameter$$Original = $Parameter;}
 declare module "java.lang.reflect.RecordComponent" {
 import {$AnnotatedElement$$Interface} from "java.lang.reflect.AnnotatedElement"
 import {$Annotation, $Annotation$$Type} from "java.lang.annotation.Annotation"
@@ -648,68 +710,6 @@ export type $RecordComponent$$Type = ($RecordComponent);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $RecordComponent$$Original = $RecordComponent;}
-declare module "java.lang.reflect.Constructor" {
-import {$Executable} from "java.lang.reflect.Executable"
-import {$TypeVariable} from "java.lang.reflect.TypeVariable"
-import {$Annotation} from "java.lang.annotation.Annotation"
-import {$AnnotatedType} from "java.lang.reflect.AnnotatedType"
-import {$Type} from "java.lang.reflect.Type"
-import {$Class, $Class$$Type} from "java.lang.Class"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $Constructor<T> extends $Executable {
-public "getName"(): StringJS
-public "equals"(arg0: any): boolean
-public "toString"(): StringJS
-public "hashCode"(): integer
-public "getModifiers"(): integer
-public "getTypeParameters"(): ($TypeVariable<($Constructor<(T)>)>)[]
-public "newInstance"(...arg0: (any)[]): T
-public "getParameterTypes"(): ($Class<(never)>)[]
-public "isSynthetic"(): boolean
-public "toGenericString"(): StringJS
-public "getDeclaringClass"(): $Class<(T)>
-public "getAnnotation"<T extends $Annotation>(arg0: $Class$$Type<(T)>): T
-public "getDeclaredAnnotations"(): ($Annotation)[]
-public "setAccessible"(arg0: boolean): void
-public "isVarArgs"(): boolean
-public "getParameterCount"(): integer
-public "getParameterAnnotations"(): (($Annotation)[])[]
-public "getGenericParameterTypes"(): ($Type)[]
-public "getGenericExceptionTypes"(): ($Type)[]
-public "getExceptionTypes"(): ($Class<(never)>)[]
-public "getAnnotatedReturnType"(): $AnnotatedType
-public "getAnnotatedReceiverType"(): $AnnotatedType
-get "name"(): StringJS
-get "modifiers"(): integer
-get "typeParameters"(): ($TypeVariable<($Constructor<(T)>)>)[]
-get "parameterTypes"(): ($Class<(never)>)[]
-get "synthetic"(): boolean
-get "declaringClass"(): $Class<(T)>
-get "declaredAnnotations"(): ($Annotation)[]
-set "accessible"(value: boolean)
-get "varArgs"(): boolean
-get "parameterCount"(): integer
-get "parameterAnnotations"(): (($Annotation)[])[]
-get "genericParameterTypes"(): ($Type)[]
-get "genericExceptionTypes"(): ($Type)[]
-get "exceptionTypes"(): ($Class<(never)>)[]
-get "annotatedReturnType"(): $AnnotatedType
-get "annotatedReceiverType"(): $AnnotatedType
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Constructor$$Type<T> = ($Constructor<(T)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Constructor$$Original<T> = $Constructor<(T)>;}
 declare module "java.lang.reflect.AccessFlag" {
 import {$Enum} from "java.lang.Enum"
 import {$Set} from "java.util.Set"

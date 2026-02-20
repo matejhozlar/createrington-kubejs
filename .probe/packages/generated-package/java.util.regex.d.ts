@@ -43,8 +43,8 @@ export type $Pattern$$Type = ($Pattern);
 export type $Pattern$$Original = $Pattern;}
 declare module "java.util.regex.Matcher" {
 import {$Pattern, $Pattern$$Type} from "java.util.regex.Pattern"
-import {$Map} from "java.util.Map"
 import {$StringBuilder, $StringBuilder$$Type} from "java.lang.StringBuilder"
+import {$Map} from "java.util.Map"
 import {$Function$$Type} from "java.util.function.Function"
 import {$StringBuffer, $StringBuffer$$Type} from "java.lang.StringBuffer"
 import {$MatchResult, $MatchResult$$Type, $MatchResult$$Interface} from "java.util.regex.MatchResult"

@@ -14,8 +14,6 @@ constructor(arg0: boolean, arg1: float, arg2: float, arg3: $Rectangle2D$$Type, a
 public "isWhitespace"(): boolean
 public "getType"(): integer
 public "isStandard"(): boolean
-public "getBounds2D"(): $Rectangle2D
-public "getAdvance"(): float
 public "getAdvanceX"(): float
 public "getAdvanceY"(): float
 public "getLSB"(): float
@@ -23,11 +21,11 @@ public "getRSB"(): float
 public "isLigature"(): boolean
 public "isCombining"(): boolean
 public "isComponent"(): boolean
+public "getBounds2D"(): $Rectangle2D
+public "getAdvance"(): float
 get "whitespace"(): boolean
 get "type"(): integer
 get "standard"(): boolean
-get "bounds2D"(): $Rectangle2D
-get "advance"(): float
 get "advanceX"(): float
 get "advanceY"(): float
 get "LSB"(): float
@@ -35,6 +33,8 @@ get "RSB"(): float
 get "ligature"(): boolean
 get "combining"(): boolean
 get "component"(): boolean
+get "bounds2D"(): $Rectangle2D
+get "advance"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -45,35 +45,6 @@ export type $GlyphMetrics$$Type = ($GlyphMetrics);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $GlyphMetrics$$Original = $GlyphMetrics;}
-declare module "java.awt.font.GlyphJustificationInfo" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-export class $GlyphJustificationInfo {
-readonly "growRightLimit": float
-static readonly "PRIORITY_WHITESPACE": integer
-readonly "shrinkLeftLimit": float
-readonly "weight": float
-readonly "shrinkRightLimit": float
-readonly "shrinkAbsorb": boolean
-readonly "growPriority": integer
-static readonly "PRIORITY_KASHIDA": integer
-readonly "growAbsorb": boolean
-static readonly "PRIORITY_NONE": integer
-readonly "growLeftLimit": float
-static readonly "PRIORITY_INTERCHAR": integer
-readonly "shrinkPriority": integer
-
-constructor(arg0: float, arg1: boolean, arg2: integer, arg3: float, arg4: float, arg5: boolean, arg6: integer, arg7: float, arg8: float)
-
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $GlyphJustificationInfo$$Type = ($GlyphJustificationInfo);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $GlyphJustificationInfo$$Original = $GlyphJustificationInfo;}
 declare module "java.awt.font.FontRenderContext" {
 import {$AffineTransform, $AffineTransform$$Type} from "java.awt.geom.AffineTransform"
 
@@ -84,15 +55,15 @@ constructor(arg0: $AffineTransform$$Type, arg1: boolean, arg2: boolean)
 public "equals"(arg0: any): boolean
 public "equals"(arg0: $FontRenderContext$$Type): boolean
 public "hashCode"(): integer
-public "getTransform"(): $AffineTransform
 public "isTransformed"(): boolean
+public "getTransform"(): $AffineTransform
 public "isAntiAliased"(): boolean
 public "usesFractionalMetrics"(): boolean
 public "getAntiAliasingHint"(): any
 public "getFractionalMetricsHint"(): any
 public "getTransformType"(): integer
-get "transform"(): $AffineTransform
 get "transformed"(): boolean
+get "transform"(): $AffineTransform
 get "antiAliased"(): boolean
 get "antiAliasingHint"(): any
 get "fractionalMetricsHint"(): any
@@ -115,8 +86,8 @@ import {$Point2D, $Point2D$$Type} from "java.awt.geom.Point2D"
 import {$Rectangle} from "java.awt.Rectangle"
 import {$Cloneable$$Interface} from "java.lang.Cloneable"
 import {$AffineTransform, $AffineTransform$$Type} from "java.awt.geom.AffineTransform"
-import {$FontRenderContext, $FontRenderContext$$Type} from "java.awt.font.FontRenderContext"
 import {$Font} from "java.awt.Font"
+import {$FontRenderContext, $FontRenderContext$$Type} from "java.awt.font.FontRenderContext"
 import {$GlyphJustificationInfo} from "java.awt.font.GlyphJustificationInfo"
 
 export class $GlyphVector implements $Cloneable$$Interface {
@@ -126,10 +97,8 @@ static readonly "FLAG_MASK": integer
 static readonly "FLAG_COMPLEX_GLYPHS": integer
 static readonly "FLAG_RUN_RTL": integer
 
-public "getFont"(): $Font
 public "equals"(arg0: $GlyphVector$$Type): boolean
-public "getOutline"(): $Shape
-public "getOutline"(arg0: float, arg1: float): $Shape
+public "getFont"(): $Font
 public "getGlyphCharIndex"(arg0: integer): integer
 public "getVisualBounds"(): $Rectangle2D
 public "getGlyphOutline"(arg0: integer): $Shape
@@ -152,13 +121,15 @@ public "getGlyphLogicalBounds"(arg0: integer): $Shape
 public "getGlyphPixelBounds"(arg0: integer, arg1: $FontRenderContext$$Type, arg2: float, arg3: float): $Rectangle
 public "getGlyphMetrics"(arg0: integer): $GlyphMetrics
 public "getGlyphJustificationInfo"(arg0: integer): $GlyphJustificationInfo
+public "getOutline"(): $Shape
+public "getOutline"(arg0: float, arg1: float): $Shape
 public "getFontRenderContext"(): $FontRenderContext
 get "font"(): $Font
-get "outline"(): $Shape
 get "visualBounds"(): $Rectangle2D
 get "numGlyphs"(): integer
 get "logicalBounds"(): $Rectangle2D
 get "layoutFlags"(): integer
+get "outline"(): $Shape
 get "fontRenderContext"(): $FontRenderContext
 }
 /**
@@ -251,6 +222,8 @@ declare module "java.awt.font.LineMetrics" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export class $LineMetrics {
 public "getHeight"(): float
+public "getDescent"(): float
+public "getLeading"(): float
 public "getNumChars"(): integer
 public "getBaselineIndex"(): integer
 public "getBaselineOffsets"(): (float)[]
@@ -259,9 +232,9 @@ public "getStrikethroughThickness"(): float
 public "getUnderlineOffset"(): float
 public "getUnderlineThickness"(): float
 public "getAscent"(): float
-public "getDescent"(): float
-public "getLeading"(): float
 get "height"(): float
+get "descent"(): float
+get "leading"(): float
 get "numChars"(): integer
 get "baselineIndex"(): integer
 get "baselineOffsets"(): (float)[]
@@ -270,8 +243,6 @@ get "strikethroughThickness"(): float
 get "underlineOffset"(): float
 get "underlineThickness"(): float
 get "ascent"(): float
-get "descent"(): float
-get "leading"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -282,3 +253,32 @@ export type $LineMetrics$$Type = ($LineMetrics);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $LineMetrics$$Original = $LineMetrics;}
+declare module "java.awt.font.GlyphJustificationInfo" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export class $GlyphJustificationInfo {
+readonly "growRightLimit": float
+static readonly "PRIORITY_WHITESPACE": integer
+readonly "shrinkLeftLimit": float
+readonly "weight": float
+readonly "shrinkRightLimit": float
+readonly "shrinkAbsorb": boolean
+readonly "growPriority": integer
+static readonly "PRIORITY_KASHIDA": integer
+readonly "growAbsorb": boolean
+static readonly "PRIORITY_NONE": integer
+readonly "growLeftLimit": float
+static readonly "PRIORITY_INTERCHAR": integer
+readonly "shrinkPriority": integer
+
+constructor(arg0: float, arg1: boolean, arg2: integer, arg3: float, arg4: float, arg5: boolean, arg6: integer, arg7: float, arg8: float)
+
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $GlyphJustificationInfo$$Type = ($GlyphJustificationInfo);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $GlyphJustificationInfo$$Original = $GlyphJustificationInfo;}

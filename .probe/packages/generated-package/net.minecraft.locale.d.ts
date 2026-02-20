@@ -4,8 +4,8 @@ import {$Map} from "java.util.Map"
 import {$FormattedText$$Type} from "net.minecraft.network.chat.FormattedText"
 import {$List, $List$$Type} from "java.util.List"
 import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
-import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component"
 import {$InputStream$$Type} from "java.io.InputStream"
+import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component"
 
 export class $Language {
 static readonly "DEFAULT": StringJS
@@ -16,14 +16,14 @@ public static "getInstance"(): $Language
 public "getOrDefault"(arg0: StringJS): StringJS
 public "getOrDefault"(arg0: StringJS, arg1: StringJS): StringJS
 public "has"(arg0: StringJS): boolean
+public "getVisualOrder"(arg0: $List$$Type<($FormattedText$$Type)>): $List<($FormattedCharSequence)>
+public "getVisualOrder"(arg0: $FormattedText$$Type): $FormattedCharSequence
+public "isDefaultRightToLeft"(): boolean
 public static "inject"(arg0: $Language$$Type): void
 public "getComponent"(arg0: StringJS): $Component
-public "isDefaultRightToLeft"(): boolean
-public "getLanguageData"(): $Map<(StringJS), (StringJS)>
 public static "loadFromJson"(arg0: $InputStream$$Type, arg1: $BiConsumer$$Type<(StringJS), (StringJS)>, arg2: $BiConsumer$$Type<(StringJS), ($Component)>): void
 public static "loadFromJson"(arg0: $InputStream$$Type, arg1: $BiConsumer$$Type<(StringJS), (StringJS)>): void
-public "getVisualOrder"(arg0: $FormattedText$$Type): $FormattedCharSequence
-public "getVisualOrder"(arg0: $List$$Type<($FormattedText$$Type)>): $List<($FormattedCharSequence)>
+public "getLanguageData"(): $Map<(StringJS), (StringJS)>
 get "instance"(): $Language
 get "defaultRightToLeft"(): boolean
 get "languageData"(): $Map<(StringJS), (StringJS)>

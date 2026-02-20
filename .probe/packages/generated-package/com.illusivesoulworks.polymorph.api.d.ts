@@ -4,8 +4,8 @@ export interface $IRecipeContext$$Interface {
 }
 
 export class $IRecipeContext implements $IRecipeContext$$Interface {
- "polymorph$getContext"(): any
  "polymorph$setContext"(arg0: any): void
+ "polymorph$getContext"(): any
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

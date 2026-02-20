@@ -1,7 +1,7 @@
 declare module "io.netty.channel.epoll.EpollEventLoopGroup" {
 import {$SelectStrategyFactory$$Type} from "io.netty.channel.SelectStrategyFactory"
-import {$Future} from "io.netty.util.concurrent.Future"
 import {$Callable$$Type} from "java.util.concurrent.Callable"
+import {$Future} from "io.netty.util.concurrent.Future"
 import {$List} from "java.util.List"
 import {$ThreadFactory$$Type} from "java.util.concurrent.ThreadFactory"
 import {$ScheduledFuture} from "io.netty.util.concurrent.ScheduledFuture"
@@ -45,19 +45,19 @@ constructor(arg0: integer, arg1: $ThreadFactory$$Type)
 
 public "setIoRatio"(arg0: integer): void
 public "next"(): $EventExecutor
-public "schedule"(arg0: $Runnable$$Type, arg1: long, arg2: $TimeUnit$$Type): $ScheduledFuture<(never)>
 public "schedule"<V>(arg0: $Callable$$Type<(V)>, arg1: long, arg2: $TimeUnit$$Type): $ScheduledFuture<(V)>
+public "schedule"(arg0: $Runnable$$Type, arg1: long, arg2: $TimeUnit$$Type): $ScheduledFuture<(never)>
+public "submit"<T>(arg0: $Runnable$$Type, arg1: T): $Future<(T)>
 public "submit"(arg0: $Runnable$$Type): $Future<(never)>
 public "submit"<T>(arg0: $Callable$$Type<(T)>): $Future<(T)>
-public "submit"<T>(arg0: $Runnable$$Type, arg1: T): $Future<(T)>
 /**
  * 
  * @deprecated
  */
 public "shutdownNow"(): $List<($Runnable)>
-public "scheduleAtFixedRate"(arg0: $Runnable$$Type, arg1: long, arg2: long, arg3: $TimeUnit$$Type): $ScheduledFuture<(never)>
-public "scheduleWithFixedDelay"(arg0: $Runnable$$Type, arg1: long, arg2: long, arg3: $TimeUnit$$Type): $ScheduledFuture<(never)>
 public "shutdownGracefully"(): $Future<(never)>
+public "scheduleWithFixedDelay"(arg0: $Runnable$$Type, arg1: long, arg2: long, arg3: $TimeUnit$$Type): $ScheduledFuture<(never)>
+public "scheduleAtFixedRate"(arg0: $Runnable$$Type, arg1: long, arg2: long, arg3: $TimeUnit$$Type): $ScheduledFuture<(never)>
 set "ioRatio"(value: integer)
 }
 /**

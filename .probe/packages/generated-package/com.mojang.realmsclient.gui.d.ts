@@ -9,8 +9,8 @@ constructor(arg0: $List$$Type<($RealmsServer$$Type)>, arg1: $List$$Type<($Realms
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public "availableSnapshotServers"(): $List<($RealmsServer)>
 public "serverList"(): $List<($RealmsServer)>
+public "availableSnapshotServers"(): $List<($RealmsServer)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -22,8 +22,8 @@ export type $RealmsDataFetcher$ServerListData$$Type = ({"serverList"?: $List$$Ty
  */
 export type $RealmsDataFetcher$ServerListData$$Original = $RealmsDataFetcher$ServerListData;}
 declare module "com.mojang.realmsclient.gui.RealmsDataFetcher" {
-import {$RealmsClient$$Type} from "com.mojang.realmsclient.client.RealmsClient"
 import {$DataFetcher$Task} from "com.mojang.realmsclient.gui.task.DataFetcher$Task"
+import {$RealmsClient$$Type} from "com.mojang.realmsclient.client.RealmsClient"
 import {$RealmsServerPlayerLists} from "com.mojang.realmsclient.dto.RealmsServerPlayerLists"
 import {$List} from "java.util.List"
 import {$RealmsNewsManager} from "com.mojang.realmsclient.gui.RealmsNewsManager"
@@ -56,20 +56,6 @@ export type $RealmsDataFetcher$$Type = ($RealmsDataFetcher);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $RealmsDataFetcher$$Original = $RealmsDataFetcher;}
-declare module "com.mojang.realmsclient.gui.task.DataFetcher$Task" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-export class $DataFetcher$Task<T> {
-public "reset"(): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $DataFetcher$Task$$Type<T> = ($DataFetcher$Task<(T)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $DataFetcher$Task$$Original<T> = $DataFetcher$Task<(T)>;}
 declare module "com.mojang.realmsclient.gui.task.RepeatedDelayStrategy" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $RepeatedDelayStrategy$$Interface {
@@ -91,6 +77,20 @@ export type $RepeatedDelayStrategy$$Type = ($RepeatedDelayStrategy);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $RepeatedDelayStrategy$$Original = $RepeatedDelayStrategy;}
+declare module "com.mojang.realmsclient.gui.task.DataFetcher$Task" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export class $DataFetcher$Task<T> {
+public "reset"(): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $DataFetcher$Task$$Type<T> = ($DataFetcher$Task<(T)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $DataFetcher$Task$$Original<T> = $DataFetcher$Task<(T)>;}
 declare module "com.mojang.realmsclient.gui.task.DataFetcher$Subscription" {
 import {$DataFetcher$Task$$Type} from "com.mojang.realmsclient.gui.task.DataFetcher$Task"
 import {$DataFetcher$$Type} from "com.mojang.realmsclient.gui.task.DataFetcher"

@@ -2,13 +2,13 @@ declare module "com.jesz.createdieselgenerators.mixin_interfaces.IEntity" {
 import {$BlockPos, $BlockPos$$Type} from "net.minecraft.core.BlockPos"
 
 export interface $IEntity$$Interface {
-set "turretPos"(value: $BlockPos$$Type)
 get "turretPos"(): $BlockPos
+set "turretPos"(value: $BlockPos$$Type)
 }
 
 export class $IEntity implements $IEntity$$Interface {
- "setTurretPos"(arg0: $BlockPos$$Type): void
  "getTurretPos"(): $BlockPos
+ "setTurretPos"(arg0: $BlockPos$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

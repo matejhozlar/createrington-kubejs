@@ -17,29 +17,29 @@ public "remove"(arg0: StringJS, arg1: StringJS): void
  */
 public "create"(arg0: StringJS, arg1: StringJS): void
 /**
- * Stops the event with the given exit value. Execution will be stopped **immediately**.
- * 
- * `exit` denotes a `default` outcome.
- */
-public "exit"(value: any): any
-/**
  * Stops the event with default exit value. Execution will be stopped **immediately**.
  * 
  * `exit` denotes a `default` outcome.
  */
 public "exit"(): any
 /**
- * Cancels the event with the given exit value. Execution will be stopped **immediately**.
+ * Stops the event with the given exit value. Execution will be stopped **immediately**.
  * 
- * `cancel` denotes a `false` outcome.
+ * `exit` denotes a `default` outcome.
  */
-public "cancel"(value: any): any
+public "exit"(value: any): any
 /**
  * Cancels the event with default exit value. Execution will be stopped **immediately**.
  * 
  * `cancel` denotes a `false` outcome.
  */
 public "cancel"(): any
+/**
+ * Cancels the event with the given exit value. Execution will be stopped **immediately**.
+ * 
+ * `cancel` denotes a `false` outcome.
+ */
+public "cancel"(value: any): any
 /**
  * Stops the event with default exit value. Execution will be stopped **immediately**.
  * 
@@ -77,29 +77,29 @@ constructor()
  */
 public "create"(arg0: StringJS, arg1: StringJS): void
 /**
- * Stops the event with the given exit value. Execution will be stopped **immediately**.
- * 
- * `exit` denotes a `default` outcome.
- */
-public "exit"(value: any): any
-/**
  * Stops the event with default exit value. Execution will be stopped **immediately**.
  * 
  * `exit` denotes a `default` outcome.
  */
 public "exit"(): any
 /**
- * Cancels the event with the given exit value. Execution will be stopped **immediately**.
+ * Stops the event with the given exit value. Execution will be stopped **immediately**.
  * 
- * `cancel` denotes a `false` outcome.
+ * `exit` denotes a `default` outcome.
  */
-public "cancel"(value: any): any
+public "exit"(value: any): any
 /**
  * Cancels the event with default exit value. Execution will be stopped **immediately**.
  * 
  * `cancel` denotes a `false` outcome.
  */
 public "cancel"(): any
+/**
+ * Cancels the event with the given exit value. Execution will be stopped **immediately**.
+ * 
+ * `cancel` denotes a `false` outcome.
+ */
+public "cancel"(value: any): any
 /**
  * Stops the event with default exit value. Execution will be stopped **immediately**.
  * 
@@ -134,29 +134,29 @@ export class $GetChunkOilAmountEventJS implements $KubeEvent$$Interface {
 constructor()
 
 /**
- * Stops the event with the given exit value. Execution will be stopped **immediately**.
- * 
- * `exit` denotes a `default` outcome.
- */
-public "exit"(value: any): any
-/**
  * Stops the event with default exit value. Execution will be stopped **immediately**.
  * 
  * `exit` denotes a `default` outcome.
  */
 public "exit"(): any
 /**
- * Cancels the event with the given exit value. Execution will be stopped **immediately**.
+ * Stops the event with the given exit value. Execution will be stopped **immediately**.
  * 
- * `cancel` denotes a `false` outcome.
+ * `exit` denotes a `default` outcome.
  */
-public "cancel"(value: any): any
+public "exit"(value: any): any
 /**
  * Cancels the event with default exit value. Execution will be stopped **immediately**.
  * 
  * `cancel` denotes a `false` outcome.
  */
 public "cancel"(): any
+/**
+ * Cancels the event with the given exit value. Execution will be stopped **immediately**.
+ * 
+ * `cancel` denotes a `false` outcome.
+ */
+public "cancel"(value: any): any
 /**
  * Stops the event with default exit value. Execution will be stopped **immediately**.
  * 

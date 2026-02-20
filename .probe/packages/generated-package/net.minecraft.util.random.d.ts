@@ -89,34 +89,6 @@ export type $WeightedEntry$$Type = (() => $Weight$$Type);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $WeightedEntry$$Original = $WeightedEntry;}
-declare module "net.minecraft.util.random.WeightedRandomList" {
-import {$RandomSource$$Type} from "net.minecraft.util.RandomSource"
-import {$WeightedEntry, $WeightedEntry$$Type} from "net.minecraft.util.random.WeightedEntry"
-import {$Optional} from "java.util.Optional"
-import {$Codec, $Codec$$Type} from "com.mojang.serialization.Codec"
-import {$List, $List$$Type} from "java.util.List"
-
-export class $WeightedRandomList<E extends $WeightedEntry> {
-public "getRandom"(arg0: $RandomSource$$Type): $Optional<(E)>
-public "equals"(arg0: any): boolean
-public "hashCode"(): integer
-public "isEmpty"(): boolean
-public static "create"<E extends $WeightedEntry>(...arg0: (E)[]): $WeightedRandomList<(E)>
-public static "create"<E extends $WeightedEntry>(): $WeightedRandomList<(E)>
-public static "create"<E extends $WeightedEntry>(arg0: $List$$Type<(E)>): $WeightedRandomList<(E)>
-public "unwrap"(): $List
-public static "codec"<E extends $WeightedEntry>(arg0: $Codec$$Type<(E)>): $Codec<($WeightedRandomList<(E)>)>
-get "empty"(): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $WeightedRandomList$$Type<E> = ($WeightedRandomList<(E)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $WeightedRandomList$$Original<E> = $WeightedRandomList<(E)>;}
 declare module "net.minecraft.util.random.Weight" {
 import {$Codec} from "com.mojang.serialization.Codec"
 
@@ -142,17 +114,20 @@ declare module "net.minecraft.util.random.SimpleWeightedRandomList" {
 import {$RandomSource$$Type} from "net.minecraft.util.RandomSource"
 import {$Optional} from "java.util.Optional"
 import {$Codec, $Codec$$Type} from "com.mojang.serialization.Codec"
-import {$WeightedEntry$Wrapper} from "net.minecraft.util.random.WeightedEntry$Wrapper"
+import {$WeightedEntry$Wrapper, $WeightedEntry$Wrapper$$Type} from "net.minecraft.util.random.WeightedEntry$Wrapper"
+import {$List$$Type} from "java.util.List"
 import {$WeightedRandomList} from "net.minecraft.util.random.WeightedRandomList"
 import {$SimpleWeightedRandomList$Builder} from "net.minecraft.util.random.SimpleWeightedRandomList$Builder"
 
 export class $SimpleWeightedRandomList<E> extends $WeightedRandomList<($WeightedEntry$Wrapper<(E)>)> {
+constructor(arg0: $List$$Type<($WeightedEntry$Wrapper$$Type<(E)>)>)
+
 public static "builder"<E>(): $SimpleWeightedRandomList$Builder<(E)>
 public static "single"<E>(arg0: E): $SimpleWeightedRandomList<(E)>
 public static "empty"<E>(): $SimpleWeightedRandomList<(E)>
-public static "wrappedCodecAllowingEmpty"<E>(arg0: $Codec$$Type<(E)>): $Codec<($SimpleWeightedRandomList<(E)>)>
 public static "wrappedCodec"<E>(arg0: $Codec$$Type<(E)>): $Codec<($SimpleWeightedRandomList<(E)>)>
 public "getRandomValue"(arg0: $RandomSource$$Type): $Optional<(E)>
+public static "wrappedCodecAllowingEmpty"<E>(arg0: $Codec$$Type<(E)>): $Codec<($SimpleWeightedRandomList<(E)>)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -163,3 +138,33 @@ export type $SimpleWeightedRandomList$$Type<E> = ($SimpleWeightedRandomList<(E)>
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $SimpleWeightedRandomList$$Original<E> = $SimpleWeightedRandomList<(E)>;}
+declare module "net.minecraft.util.random.WeightedRandomList" {
+import {$RandomSource$$Type} from "net.minecraft.util.RandomSource"
+import {$WeightedEntry, $WeightedEntry$$Type} from "net.minecraft.util.random.WeightedEntry"
+import {$Optional} from "java.util.Optional"
+import {$Codec, $Codec$$Type} from "com.mojang.serialization.Codec"
+import {$List, $List$$Type} from "java.util.List"
+
+export class $WeightedRandomList<E extends $WeightedEntry> {
+constructor(arg0: $List$$Type<(E)>)
+
+public "equals"(arg0: any): boolean
+public "hashCode"(): integer
+public "isEmpty"(): boolean
+public static "create"<E extends $WeightedEntry>(arg0: $List$$Type<(E)>): $WeightedRandomList<(E)>
+public static "create"<E extends $WeightedEntry>(...arg0: (E)[]): $WeightedRandomList<(E)>
+public static "create"<E extends $WeightedEntry>(): $WeightedRandomList<(E)>
+public "unwrap"(): $List
+public "getRandom"(arg0: $RandomSource$$Type): $Optional<(E)>
+public static "codec"<E extends $WeightedEntry>(arg0: $Codec$$Type<(E)>): $Codec<($WeightedRandomList<(E)>)>
+get "empty"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $WeightedRandomList$$Type<E> = ($WeightedRandomList<(E)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $WeightedRandomList$$Original<E> = $WeightedRandomList<(E)>;}

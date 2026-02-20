@@ -1,6 +1,6 @@
 declare module "net.neoforged.neoforge.network.handling.IPayloadHandler" {
-import {$IPayloadContext, $IPayloadContext$$Type} from "net.neoforged.neoforge.network.handling.IPayloadContext"
 import {$CustomPacketPayload, $CustomPacketPayload$$Type} from "net.minecraft.network.protocol.common.custom.CustomPacketPayload"
+import {$IPayloadContext, $IPayloadContext$$Type} from "net.neoforged.neoforge.network.handling.IPayloadContext"
 
 export interface $IPayloadHandler$$Interface<T extends $CustomPacketPayload> {
 
@@ -19,6 +19,82 @@ export type $IPayloadHandler$$Type<T> = ((arg0: T, arg1: $IPayloadContext) => vo
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $IPayloadHandler$$Original<T> = $IPayloadHandler<(T)>;}
+declare module "net.neoforged.neoforge.network.connection.ConnectionType" {
+import {$Enum} from "java.lang.Enum"
+
+export class $ConnectionType extends $Enum<($ConnectionType)> {
+static readonly "OTHER": $ConnectionType
+static readonly "NEOFORGE": $ConnectionType
+
+public static "values"(): ($ConnectionType)[]
+public static "valueOf"(arg0: StringJS): $ConnectionType
+public "isOther"(): boolean
+public "isNeoForge"(): boolean
+get "other"(): boolean
+get "neoForge"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ConnectionType$$Type = (("neoforge") | ("other"));
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ConnectionType$$Original = $ConnectionType;}
+declare module "net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent" {
+import {$Event} from "net.neoforged.bus.api.Event"
+import {$IModBusEvent$$Interface} from "net.neoforged.fml.event.IModBusEvent"
+import {$PayloadRegistrar} from "net.neoforged.neoforge.network.registration.PayloadRegistrar"
+
+export class $RegisterPayloadHandlersEvent extends $Event implements $IModBusEvent$$Interface {
+constructor()
+
+public "registrar"(arg0: StringJS): $PayloadRegistrar
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $RegisterPayloadHandlersEvent$$Type = ($RegisterPayloadHandlersEvent);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $RegisterPayloadHandlersEvent$$Original = $RegisterPayloadHandlersEvent;}
+declare module "net.neoforged.neoforge.network.registration.PayloadRegistrar" {
+import {$StreamCodec$$Type} from "net.minecraft.network.codec.StreamCodec"
+import {$HandlerThread$$Type} from "net.neoforged.neoforge.network.registration.HandlerThread"
+import {$FriendlyByteBuf$$Type} from "net.minecraft.network.FriendlyByteBuf"
+import {$RegistryFriendlyByteBuf$$Type} from "net.minecraft.network.RegistryFriendlyByteBuf"
+import {$CustomPacketPayload$Type$$Type} from "net.minecraft.network.protocol.common.custom.CustomPacketPayload$Type"
+import {$CustomPacketPayload} from "net.minecraft.network.protocol.common.custom.CustomPacketPayload"
+import {$IPayloadHandler$$Type} from "net.neoforged.neoforge.network.handling.IPayloadHandler"
+
+export class $PayloadRegistrar {
+constructor(arg0: StringJS)
+
+public "optional"(): $PayloadRegistrar
+public "commonBidirectional"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($FriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
+public "executesOn"(arg0: $HandlerThread$$Type): $PayloadRegistrar
+public "versioned"(arg0: StringJS): $PayloadRegistrar
+public "playToClient"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($RegistryFriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
+public "playToServer"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($RegistryFriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
+public "playBidirectional"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($RegistryFriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
+public "configurationToClient"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($FriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
+public "configurationBidirectional"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($FriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
+public "configurationToServer"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($FriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
+public "commonToServer"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($FriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
+public "commonToClient"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($FriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $PayloadRegistrar$$Type = ($PayloadRegistrar);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $PayloadRegistrar$$Original = $PayloadRegistrar;}
 declare module "net.neoforged.neoforge.network.IContainerFactory" {
 import {$MenuType$MenuSupplier$$Interface} from "net.minecraft.world.inventory.MenuType$MenuSupplier"
 import {$AbstractContainerMenu, $AbstractContainerMenu$$Type} from "net.minecraft.world.inventory.AbstractContainerMenu"
@@ -87,48 +163,6 @@ export type $RegisterConfigurationTasksEvent$$Type = ($RegisterConfigurationTask
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $RegisterConfigurationTasksEvent$$Original = $RegisterConfigurationTasksEvent;}
-declare module "net.neoforged.neoforge.network.connection.ConnectionType" {
-import {$Enum} from "java.lang.Enum"
-
-export class $ConnectionType extends $Enum<($ConnectionType)> {
-static readonly "OTHER": $ConnectionType
-static readonly "NEOFORGE": $ConnectionType
-
-public static "values"(): ($ConnectionType)[]
-public static "valueOf"(arg0: StringJS): $ConnectionType
-public "isOther"(): boolean
-public "isNeoForge"(): boolean
-get "other"(): boolean
-get "neoForge"(): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ConnectionType$$Type = (("neoforge") | ("other"));
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ConnectionType$$Original = $ConnectionType;}
-declare module "net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent" {
-import {$Event} from "net.neoforged.bus.api.Event"
-import {$IModBusEvent$$Interface} from "net.neoforged.fml.event.IModBusEvent"
-import {$PayloadRegistrar} from "net.neoforged.neoforge.network.registration.PayloadRegistrar"
-
-export class $RegisterPayloadHandlersEvent extends $Event implements $IModBusEvent$$Interface {
-constructor()
-
-public "registrar"(arg0: StringJS): $PayloadRegistrar
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $RegisterPayloadHandlersEvent$$Type = ($RegisterPayloadHandlersEvent);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $RegisterPayloadHandlersEvent$$Original = $RegisterPayloadHandlersEvent;}
 declare module "net.neoforged.neoforge.network.bundle.PacketAndPayloadAcceptor" {
 import {$ClientCommonPacketListener} from "net.minecraft.network.protocol.common.ClientCommonPacketListener"
 import {$Packet$$Type} from "net.minecraft.network.protocol.Packet"
@@ -150,43 +184,9 @@ export type $PacketAndPayloadAcceptor$$Type<L> = ($PacketAndPayloadAcceptor<(L)>
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $PacketAndPayloadAcceptor$$Original<L> = $PacketAndPayloadAcceptor<(L)>;}
-declare module "net.neoforged.neoforge.network.registration.PayloadRegistrar" {
-import {$StreamCodec$$Type} from "net.minecraft.network.codec.StreamCodec"
-import {$HandlerThread$$Type} from "net.neoforged.neoforge.network.registration.HandlerThread"
-import {$FriendlyByteBuf$$Type} from "net.minecraft.network.FriendlyByteBuf"
-import {$RegistryFriendlyByteBuf$$Type} from "net.minecraft.network.RegistryFriendlyByteBuf"
-import {$CustomPacketPayload$Type$$Type} from "net.minecraft.network.protocol.common.custom.CustomPacketPayload$Type"
-import {$CustomPacketPayload} from "net.minecraft.network.protocol.common.custom.CustomPacketPayload"
-import {$IPayloadHandler$$Type} from "net.neoforged.neoforge.network.handling.IPayloadHandler"
-
-export class $PayloadRegistrar {
-constructor(arg0: StringJS)
-
-public "commonBidirectional"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($FriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
-public "optional"(): $PayloadRegistrar
-public "commonToClient"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($FriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
-public "commonToServer"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($FriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
-public "configurationToClient"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($FriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
-public "playToClient"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($RegistryFriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
-public "playBidirectional"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($RegistryFriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
-public "playToServer"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($RegistryFriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
-public "versioned"(arg0: StringJS): $PayloadRegistrar
-public "executesOn"(arg0: $HandlerThread$$Type): $PayloadRegistrar
-public "configurationBidirectional"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($FriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
-public "configurationToServer"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($FriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $PayloadRegistrar$$Type = ($PayloadRegistrar);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $PayloadRegistrar$$Original = $PayloadRegistrar;}
 declare module "net.neoforged.neoforge.network.handling.IPayloadContext" {
-import {$PacketFlow} from "net.minecraft.network.protocol.PacketFlow"
 import {$ConfigurationTask$Type$$Type} from "net.minecraft.server.network.ConfigurationTask$Type"
+import {$PacketFlow} from "net.minecraft.network.protocol.PacketFlow"
 import {$Runnable$$Type} from "java.lang.Runnable"
 import {$Component$$Type} from "net.minecraft.network.chat.Component"
 import {$CustomPacketPayload$$Type} from "net.minecraft.network.protocol.common.custom.CustomPacketPayload"
@@ -203,18 +203,18 @@ export interface $IPayloadContext$$Interface {
 }
 
 export class $IPayloadContext implements $IPayloadContext$$Interface {
- "disconnect"(arg0: $Component$$Type): void
- "channelHandlerContext"(): $ChannelHandlerContext
  "handle"(arg0: $Packet$$Type<(never)>): void
  "handle"(arg0: $CustomPacketPayload$$Type): void
  "protocol"(): $ConnectionProtocol
  "connection"(): $Connection
  "listener"(): $ICommonPacketListener
- "finishCurrentTask"(arg0: $ConfigurationTask$Type$$Type): void
  "reply"(arg0: $CustomPacketPayload$$Type): void
- "enqueueWork"(arg0: $Runnable$$Type): $CompletableFuture<(void)>
- "enqueueWork"<T>(arg0: $Supplier$$Type<(T)>): $CompletableFuture<(T)>
+ "channelHandlerContext"(): $ChannelHandlerContext
+ "disconnect"(arg0: $Component$$Type): void
  "player"(): $Player
+ "enqueueWork"<T>(arg0: $Supplier$$Type<(T)>): $CompletableFuture<(T)>
+ "enqueueWork"(arg0: $Runnable$$Type): $CompletableFuture<(void)>
+ "finishCurrentTask"(arg0: $ConfigurationTask$Type$$Type): void
  "flow"(): $PacketFlow
 }
 /**

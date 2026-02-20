@@ -1,6 +1,8 @@
 declare module "com.mojang.blaze3d.pipeline.RenderTarget" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-export class $RenderTarget {
+import {$Blaze3dRenderTargetExt$$Interface} from "net.irisshaders.iris.targets.Blaze3dRenderTargetExt"
+import {$CallbackInfo$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfo"
+
+export class $RenderTarget implements $Blaze3dRenderTargetExt$$Interface {
 readonly "useDepth": boolean
  "filterMode": integer
  "viewWidth": integer
@@ -11,27 +13,31 @@ readonly "useDepth": boolean
 
 constructor(arg0: boolean)
 
-public "bindWrite"(arg0: boolean): void
+public "finalize"(): void
 public "clear"(arg0: boolean): void
 public "resize"(arg0: integer, arg1: integer, arg2: boolean): void
-public "setClearColor"(arg0: float, arg1: float, arg2: float, arg3: float): void
+public "handler$cfk000$sodium$blitToScreen"(arg0: integer, arg1: integer, arg2: boolean, arg3: $CallbackInfo$$Type): void
+public "bindWrite"(arg0: boolean): void
+public "destroyBuffers"(): void
+public "isStencilEnabled"(): boolean
+public "enableStencil"(): void
+public "bindRead"(): void
+public "unbindRead"(): void
 public "checkStatus"(): void
 public "blitToScreen"(arg0: integer, arg1: integer, arg2: boolean): void
 public "blitToScreen"(arg0: integer, arg1: integer): void
 public "unbindWrite"(): void
-public "bindRead"(): void
-public "unbindRead"(): void
-public "destroyBuffers"(): void
+public "setClearColor"(arg0: float, arg1: float, arg2: float, arg3: float): void
+public "setFilterMode"(arg0: integer): void
 public "createBuffers"(arg0: integer, arg1: integer, arg2: boolean): void
 public "copyDepthFrom"(arg0: $RenderTarget$$Type): void
-public "setFilterMode"(arg0: integer): void
 public "getColorTextureId"(): integer
 public "getDepthTextureId"(): integer
-public "enableStencil"(): void
-public "isStencilEnabled"(): boolean
+public "iris$getColorBufferVersion"(): integer
+public "iris$getDepthBufferVersion"(): integer
+get "stencilEnabled"(): boolean
 get "colorTextureId"(): integer
 get "depthTextureId"(): integer
-get "stencilEnabled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

@@ -1,3 +1,66 @@
+declare module "com.blackgear.platform.core.mixin.access.ScreenAccessor" {
+import {$GuiEventListener, $GuiEventListener$$Type} from "net.minecraft.client.gui.components.events.GuiEventListener"
+import {$NarratableEntry} from "net.minecraft.client.gui.narration.NarratableEntry"
+import {$List} from "java.util.List"
+import {$Renderable, $Renderable$$Type} from "net.minecraft.client.gui.components.Renderable"
+
+export interface $ScreenAccessor$$Interface {
+get "renderables"(): $List<($Renderable)>
+get "narratables"(): $List<($NarratableEntry)>
+}
+
+export class $ScreenAccessor implements $ScreenAccessor$$Interface {
+ "callAddRenderableWidget"<T extends $GuiEventListener>(arg0: T): T
+ "callAddRenderableOnly"<T extends $Renderable>(arg0: T): T
+ "getRenderables"(): $List<($Renderable)>
+ "getNarratables"(): $List<($NarratableEntry)>
+ "callAddWidget"<T extends $GuiEventListener>(arg0: T): T
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ScreenAccessor$$Type = ($ScreenAccessor);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ScreenAccessor$$Original = $ScreenAccessor;}
+declare module "com.blackgear.platform.core.mixin.access.LevelResourceAccessor" {
+import {$LevelResource} from "net.minecraft.world.level.storage.LevelResource"
+
+export interface $LevelResourceAccessor$$Interface {
+}
+
+export class $LevelResourceAccessor implements $LevelResourceAccessor$$Interface {
+static "createLevelResource"(string: StringJS): $LevelResource
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $LevelResourceAccessor$$Type = ($LevelResourceAccessor);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $LevelResourceAccessor$$Original = $LevelResourceAccessor;}
+declare module "com.blackgear.platform.core.mixin.access.SimpleParticleTypeAccessor" {
+import {$SimpleParticleType} from "net.minecraft.core.particles.SimpleParticleType"
+
+export interface $SimpleParticleTypeAccessor$$Interface {
+}
+
+export class $SimpleParticleTypeAccessor implements $SimpleParticleTypeAccessor$$Interface {
+static "createSimpleParticleType"(overrideLimiter: boolean): $SimpleParticleType
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $SimpleParticleTypeAccessor$$Type = ($SimpleParticleTypeAccessor);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $SimpleParticleTypeAccessor$$Original = $SimpleParticleTypeAccessor;}
 declare module "com.blackgear.platform.core.mixin.access.NearPlaneAccessor" {
 import {$Vec3, $Vec3$$Type} from "net.minecraft.world.phys.Vec3"
 
@@ -44,13 +107,13 @@ import {$Set, $Set$$Type} from "java.util.Set"
 import {$RepositorySource, $RepositorySource$$Type} from "net.minecraft.server.packs.repository.RepositorySource"
 
 export interface $PackRepositoryAccessor$$Interface {
-get "sources"(): $Set<($RepositorySource)>
 set "sources"(value: $Set$$Type<($RepositorySource$$Type)>)
+get "sources"(): $Set<($RepositorySource)>
 }
 
 export class $PackRepositoryAccessor implements $PackRepositoryAccessor$$Interface {
- "getSources"(): $Set<($RepositorySource)>
  "setSources"(arg0: $Set$$Type<($RepositorySource$$Type)>): void
+ "getSources"(): $Set<($RepositorySource)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -61,33 +124,6 @@ export type $PackRepositoryAccessor$$Type = ($PackRepositoryAccessor);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $PackRepositoryAccessor$$Original = $PackRepositoryAccessor;}
-declare module "com.blackgear.platform.core.mixin.access.ScreenAccessor" {
-import {$GuiEventListener, $GuiEventListener$$Type} from "net.minecraft.client.gui.components.events.GuiEventListener"
-import {$List} from "java.util.List"
-import {$NarratableEntry} from "net.minecraft.client.gui.narration.NarratableEntry"
-import {$Renderable, $Renderable$$Type} from "net.minecraft.client.gui.components.Renderable"
-
-export interface $ScreenAccessor$$Interface {
-get "renderables"(): $List<($Renderable)>
-get "narratables"(): $List<($NarratableEntry)>
-}
-
-export class $ScreenAccessor implements $ScreenAccessor$$Interface {
- "getRenderables"(): $List<($Renderable)>
- "getNarratables"(): $List<($NarratableEntry)>
- "callAddWidget"<T extends $GuiEventListener>(arg0: T): T
- "callAddRenderableOnly"<T extends $Renderable>(arg0: T): T
- "callAddRenderableWidget"<T extends $GuiEventListener>(arg0: T): T
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ScreenAccessor$$Type = ($ScreenAccessor);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ScreenAccessor$$Original = $ScreenAccessor;}
 declare module "com.blackgear.platform.core.mixin.neoforge.access.LootTableAccessor" {
 import {$List, $List$$Type} from "java.util.List"
 import {$LootPool, $LootPool$$Type} from "net.minecraft.world.level.storage.loot.LootPool"
@@ -110,42 +146,6 @@ export type $LootTableAccessor$$Type = (() => $List$$Type<($LootPool$$Type)>);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $LootTableAccessor$$Original = $LootTableAccessor;}
-declare module "com.blackgear.platform.core.mixin.access.LevelResourceAccessor" {
-import {$LevelResource} from "net.minecraft.world.level.storage.LevelResource"
-
-export interface $LevelResourceAccessor$$Interface {
-}
-
-export class $LevelResourceAccessor implements $LevelResourceAccessor$$Interface {
-static "createLevelResource"(string: StringJS): $LevelResource
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $LevelResourceAccessor$$Type = ($LevelResourceAccessor);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $LevelResourceAccessor$$Original = $LevelResourceAccessor;}
-declare module "com.blackgear.platform.core.mixin.access.SimpleParticleTypeAccessor" {
-import {$SimpleParticleType} from "net.minecraft.core.particles.SimpleParticleType"
-
-export interface $SimpleParticleTypeAccessor$$Interface {
-}
-
-export class $SimpleParticleTypeAccessor implements $SimpleParticleTypeAccessor$$Interface {
-static "createSimpleParticleType"(overrideLimiter: boolean): $SimpleParticleType
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $SimpleParticleTypeAccessor$$Type = ($SimpleParticleTypeAccessor);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $SimpleParticleTypeAccessor$$Original = $SimpleParticleTypeAccessor;}
 declare module "com.blackgear.platform.core.mixin.access.CameraAccessor" {
 import {$BlockGetter, $BlockGetter$$Type} from "net.minecraft.world.level.BlockGetter"
 
@@ -187,8 +187,8 @@ export type $ActivityAccessor$$Type = ($ActivityAccessor);
 export type $ActivityAccessor$$Original = $ActivityAccessor;}
 declare module "com.blackgear.platform.core.mixin.access.ItemRendererAccessor" {
 import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
-import {$BakedModel, $BakedModel$$Type} from "net.minecraft.client.resources.model.BakedModel"
 import {$PoseStack, $PoseStack$$Type} from "com.mojang.blaze3d.vertex.PoseStack"
+import {$BakedModel, $BakedModel$$Type} from "net.minecraft.client.resources.model.BakedModel"
 import {$VertexConsumer, $VertexConsumer$$Type} from "com.mojang.blaze3d.vertex.VertexConsumer"
 
 export interface $ItemRendererAccessor$$Interface {

@@ -60,68 +60,6 @@ export type $DoubleBuffer$$Type = ($DoubleBuffer);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $DoubleBuffer$$Original = $DoubleBuffer;}
-declare module "java.nio.LongBuffer" {
-import {$ByteOrder} from "java.nio.ByteOrder"
-import {$Comparable$$Interface} from "java.lang.Comparable"
-import {$Buffer} from "java.nio.Buffer"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $LongBuffer extends $Buffer implements $Comparable$$Interface<($LongBuffer)> {
-public "reset"(): $Buffer
-public "get"(arg0: integer, arg1: (long)[]): $LongBuffer
-public "get"(arg0: integer): long
-public "get"(arg0: (long)[], arg1: integer, arg2: integer): $LongBuffer
-public "get"(arg0: (long)[]): $LongBuffer
-public "get"(arg0: integer, arg1: (long)[], arg2: integer, arg3: integer): $LongBuffer
-public "get"(): long
-public "put"(arg0: integer, arg1: (long)[], arg2: integer, arg3: integer): $LongBuffer
-public "put"(arg0: integer, arg1: (long)[]): $LongBuffer
-public "put"(arg0: integer, arg1: $LongBuffer$$Type, arg2: integer, arg3: integer): $LongBuffer
-public "put"(arg0: (long)[]): $LongBuffer
-public "put"(arg0: $LongBuffer$$Type): $LongBuffer
-public "put"(arg0: (long)[], arg1: integer, arg2: integer): $LongBuffer
-public "put"(arg0: long): $LongBuffer
-public "put"(arg0: integer, arg1: long): $LongBuffer
-public "equals"(arg0: any): boolean
-public "toString"(): StringJS
-public "hashCode"(): integer
-public "compareTo"(arg0: any): integer
-public "compareTo"(arg0: $LongBuffer$$Type): integer
-public "clear"(): $LongBuffer
-public static "wrap"(arg0: (long)[], arg1: integer, arg2: integer): $LongBuffer
-public static "wrap"(arg0: (long)[]): $LongBuffer
-public "position"(arg0: integer): $LongBuffer
-public "mismatch"(arg0: $LongBuffer$$Type): integer
-public "limit"(arg0: integer): $Buffer
-public "isDirect"(): boolean
-public "hasArray"(): boolean
-public "array"(): (long)[]
-public "arrayOffset"(): integer
-public "mark"(): $LongBuffer
-public "flip"(): $Buffer
-public "rewind"(): $LongBuffer
-public "slice"(): $LongBuffer
-public "slice"(arg0: integer, arg1: integer): $Buffer
-public "duplicate"(): $LongBuffer
-public static "allocate"(arg0: integer): $LongBuffer
-public "asReadOnlyBuffer"(): $LongBuffer
-public "compact"(): $LongBuffer
-public "order"(): $ByteOrder
-get "direct"(): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $LongBuffer$$Type = ($LongBuffer);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $LongBuffer$$Original = $LongBuffer;}
 declare module "java.nio.Buffer" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /**
@@ -182,9 +120,9 @@ export type $ByteOrder$$Type = ($ByteOrder);
 export type $ByteOrder$$Original = $ByteOrder;}
 declare module "java.nio.CharBuffer" {
 import {$ByteOrder} from "java.nio.ByteOrder"
+import {$IntStream} from "java.util.stream.IntStream"
 import {$Comparable$$Interface} from "java.lang.Comparable"
 import {$Appendable$$Interface} from "java.lang.Appendable"
-import {$IntStream} from "java.util.stream.IntStream"
 import {$Buffer} from "java.nio.Buffer"
 import {$Readable$$Interface} from "java.lang.Readable"
 
@@ -261,6 +199,167 @@ export type $CharBuffer$$Type = ($CharBuffer);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $CharBuffer$$Original = $CharBuffer;}
+declare module "java.nio.FloatBuffer" {
+import {$ByteOrder} from "java.nio.ByteOrder"
+import {$Comparable$$Interface} from "java.lang.Comparable"
+import {$Buffer} from "java.nio.Buffer"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $FloatBuffer extends $Buffer implements $Comparable$$Interface<($FloatBuffer)> {
+public "reset"(): $Buffer
+public "get"(arg0: integer, arg1: (float)[]): $FloatBuffer
+public "get"(arg0: integer): float
+public "get"(arg0: (float)[], arg1: integer, arg2: integer): $FloatBuffer
+public "get"(arg0: (float)[]): $FloatBuffer
+public "get"(arg0: integer, arg1: (float)[], arg2: integer, arg3: integer): $FloatBuffer
+public "get"(): float
+public "put"(arg0: integer, arg1: (float)[], arg2: integer, arg3: integer): $FloatBuffer
+public "put"(arg0: integer, arg1: (float)[]): $FloatBuffer
+public "put"(arg0: integer, arg1: $FloatBuffer$$Type, arg2: integer, arg3: integer): $FloatBuffer
+public "put"(arg0: (float)[]): $FloatBuffer
+public "put"(arg0: $FloatBuffer$$Type): $FloatBuffer
+public "put"(arg0: (float)[], arg1: integer, arg2: integer): $FloatBuffer
+public "put"(arg0: float): $FloatBuffer
+public "put"(arg0: integer, arg1: float): $FloatBuffer
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "compareTo"(arg0: any): integer
+public "compareTo"(arg0: $FloatBuffer$$Type): integer
+public "clear"(): $FloatBuffer
+public static "wrap"(arg0: (float)[], arg1: integer, arg2: integer): $FloatBuffer
+public static "wrap"(arg0: (float)[]): $FloatBuffer
+public "position"(arg0: integer): $FloatBuffer
+public "mismatch"(arg0: $FloatBuffer$$Type): integer
+public "limit"(arg0: integer): $Buffer
+public "isDirect"(): boolean
+public "hasArray"(): boolean
+public "array"(): (float)[]
+public "arrayOffset"(): integer
+public "mark"(): $FloatBuffer
+public "flip"(): $Buffer
+public "rewind"(): $FloatBuffer
+public "slice"(): $FloatBuffer
+public "slice"(arg0: integer, arg1: integer): $Buffer
+public "duplicate"(): $FloatBuffer
+public static "allocate"(arg0: integer): $FloatBuffer
+public "asReadOnlyBuffer"(): $FloatBuffer
+public "compact"(): $FloatBuffer
+public "order"(): $ByteOrder
+get "direct"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $FloatBuffer$$Type = ($FloatBuffer);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $FloatBuffer$$Original = $FloatBuffer;}
+declare module "java.nio.MappedByteBuffer" {
+import {$Buffer} from "java.nio.Buffer"
+import {$ByteBuffer} from "java.nio.ByteBuffer"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $MappedByteBuffer extends $ByteBuffer {
+public "reset"(): $ByteBuffer
+public "load"(): $MappedByteBuffer
+public "clear"(): $MappedByteBuffer
+public "position"(arg0: integer): $ByteBuffer
+public "limit"(arg0: integer): $ByteBuffer
+public "mark"(): $MappedByteBuffer
+public "flip"(): $Buffer
+public "rewind"(): $MappedByteBuffer
+public "slice"(arg0: integer, arg1: integer): $ByteBuffer
+public "slice"(): $ByteBuffer
+public "duplicate"(): $MappedByteBuffer
+public "compact"(): $MappedByteBuffer
+public "isLoaded"(): boolean
+public "force"(): $MappedByteBuffer
+public "force"(arg0: integer, arg1: integer): $MappedByteBuffer
+public "array"(): any
+get "loaded"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $MappedByteBuffer$$Type = ($MappedByteBuffer);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $MappedByteBuffer$$Original = $MappedByteBuffer;}
+declare module "java.nio.LongBuffer" {
+import {$ByteOrder} from "java.nio.ByteOrder"
+import {$Comparable$$Interface} from "java.lang.Comparable"
+import {$Buffer} from "java.nio.Buffer"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $LongBuffer extends $Buffer implements $Comparable$$Interface<($LongBuffer)> {
+public "reset"(): $Buffer
+public "get"(arg0: integer, arg1: (long)[]): $LongBuffer
+public "get"(arg0: integer): long
+public "get"(arg0: (long)[], arg1: integer, arg2: integer): $LongBuffer
+public "get"(arg0: (long)[]): $LongBuffer
+public "get"(arg0: integer, arg1: (long)[], arg2: integer, arg3: integer): $LongBuffer
+public "get"(): long
+public "put"(arg0: integer, arg1: (long)[], arg2: integer, arg3: integer): $LongBuffer
+public "put"(arg0: integer, arg1: (long)[]): $LongBuffer
+public "put"(arg0: integer, arg1: $LongBuffer$$Type, arg2: integer, arg3: integer): $LongBuffer
+public "put"(arg0: (long)[]): $LongBuffer
+public "put"(arg0: $LongBuffer$$Type): $LongBuffer
+public "put"(arg0: (long)[], arg1: integer, arg2: integer): $LongBuffer
+public "put"(arg0: long): $LongBuffer
+public "put"(arg0: integer, arg1: long): $LongBuffer
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "compareTo"(arg0: any): integer
+public "compareTo"(arg0: $LongBuffer$$Type): integer
+public "clear"(): $LongBuffer
+public static "wrap"(arg0: (long)[], arg1: integer, arg2: integer): $LongBuffer
+public static "wrap"(arg0: (long)[]): $LongBuffer
+public "position"(arg0: integer): $LongBuffer
+public "mismatch"(arg0: $LongBuffer$$Type): integer
+public "limit"(arg0: integer): $Buffer
+public "isDirect"(): boolean
+public "hasArray"(): boolean
+public "array"(): (long)[]
+public "arrayOffset"(): integer
+public "mark"(): $LongBuffer
+public "flip"(): $Buffer
+public "rewind"(): $LongBuffer
+public "slice"(): $LongBuffer
+public "slice"(arg0: integer, arg1: integer): $Buffer
+public "duplicate"(): $LongBuffer
+public static "allocate"(arg0: integer): $LongBuffer
+public "asReadOnlyBuffer"(): $LongBuffer
+public "compact"(): $LongBuffer
+public "order"(): $ByteOrder
+get "direct"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $LongBuffer$$Type = ($LongBuffer);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $LongBuffer$$Original = $LongBuffer;}
 declare module "java.nio.IntBuffer" {
 import {$ByteOrder} from "java.nio.ByteOrder"
 import {$Comparable$$Interface} from "java.lang.Comparable"
@@ -385,105 +484,6 @@ export type $ShortBuffer$$Type = ($ShortBuffer);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ShortBuffer$$Original = $ShortBuffer;}
-declare module "java.nio.FloatBuffer" {
-import {$ByteOrder} from "java.nio.ByteOrder"
-import {$Comparable$$Interface} from "java.lang.Comparable"
-import {$Buffer} from "java.nio.Buffer"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $FloatBuffer extends $Buffer implements $Comparable$$Interface<($FloatBuffer)> {
-public "reset"(): $Buffer
-public "get"(arg0: integer, arg1: (float)[]): $FloatBuffer
-public "get"(arg0: integer): float
-public "get"(arg0: (float)[], arg1: integer, arg2: integer): $FloatBuffer
-public "get"(arg0: (float)[]): $FloatBuffer
-public "get"(arg0: integer, arg1: (float)[], arg2: integer, arg3: integer): $FloatBuffer
-public "get"(): float
-public "put"(arg0: integer, arg1: (float)[], arg2: integer, arg3: integer): $FloatBuffer
-public "put"(arg0: integer, arg1: (float)[]): $FloatBuffer
-public "put"(arg0: integer, arg1: $FloatBuffer$$Type, arg2: integer, arg3: integer): $FloatBuffer
-public "put"(arg0: (float)[]): $FloatBuffer
-public "put"(arg0: $FloatBuffer$$Type): $FloatBuffer
-public "put"(arg0: (float)[], arg1: integer, arg2: integer): $FloatBuffer
-public "put"(arg0: float): $FloatBuffer
-public "put"(arg0: integer, arg1: float): $FloatBuffer
-public "equals"(arg0: any): boolean
-public "toString"(): StringJS
-public "hashCode"(): integer
-public "compareTo"(arg0: any): integer
-public "compareTo"(arg0: $FloatBuffer$$Type): integer
-public "clear"(): $FloatBuffer
-public static "wrap"(arg0: (float)[], arg1: integer, arg2: integer): $FloatBuffer
-public static "wrap"(arg0: (float)[]): $FloatBuffer
-public "position"(arg0: integer): $FloatBuffer
-public "mismatch"(arg0: $FloatBuffer$$Type): integer
-public "limit"(arg0: integer): $Buffer
-public "isDirect"(): boolean
-public "hasArray"(): boolean
-public "array"(): (float)[]
-public "arrayOffset"(): integer
-public "mark"(): $FloatBuffer
-public "flip"(): $Buffer
-public "rewind"(): $FloatBuffer
-public "slice"(): $FloatBuffer
-public "slice"(arg0: integer, arg1: integer): $Buffer
-public "duplicate"(): $FloatBuffer
-public static "allocate"(arg0: integer): $FloatBuffer
-public "asReadOnlyBuffer"(): $FloatBuffer
-public "compact"(): $FloatBuffer
-public "order"(): $ByteOrder
-get "direct"(): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $FloatBuffer$$Type = ($FloatBuffer);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $FloatBuffer$$Original = $FloatBuffer;}
-declare module "java.nio.MappedByteBuffer" {
-import {$Buffer} from "java.nio.Buffer"
-import {$ByteBuffer} from "java.nio.ByteBuffer"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $MappedByteBuffer extends $ByteBuffer {
-public "reset"(): $ByteBuffer
-public "load"(): $MappedByteBuffer
-public "clear"(): $MappedByteBuffer
-public "position"(arg0: integer): $ByteBuffer
-public "limit"(arg0: integer): $ByteBuffer
-public "mark"(): $MappedByteBuffer
-public "flip"(): $Buffer
-public "rewind"(): $MappedByteBuffer
-public "slice"(arg0: integer, arg1: integer): $ByteBuffer
-public "slice"(): $ByteBuffer
-public "duplicate"(): $MappedByteBuffer
-public "compact"(): $MappedByteBuffer
-public "isLoaded"(): boolean
-public "force"(): $MappedByteBuffer
-public "force"(arg0: integer, arg1: integer): $MappedByteBuffer
-public "array"(): any
-get "loaded"(): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $MappedByteBuffer$$Type = ($MappedByteBuffer);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $MappedByteBuffer$$Original = $MappedByteBuffer;}
 declare module "java.nio.ByteBuffer" {
 import {$FloatBuffer} from "java.nio.FloatBuffer"
 import {$CharBuffer} from "java.nio.CharBuffer"

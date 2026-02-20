@@ -8,20 +8,18 @@ import {$AnimationProcessor} from "software.bernie.geckolib.animation.AnimationP
 import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
 import {$GeoAnimatable, $GeoAnimatable$$Type} from "software.bernie.geckolib.animatable.GeoAnimatable"
 import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
-import {$AnimationState$$Type} from "software.bernie.geckolib.animation.AnimationState"
 import {$DataTicket$$Type} from "software.bernie.geckolib.constant.dataticket.DataTicket"
+import {$AnimationState$$Type} from "software.bernie.geckolib.animation.AnimationState"
 import {$RenderType} from "net.minecraft.client.renderer.RenderType"
 
 export class $GeoModel<T extends $GeoAnimatable> {
 constructor()
 
 public "getAnimationResourceFallbacks"(arg0: T): ($ResourceLocation)[]
-/**
- * 
- * @deprecated
- */
-public "getModelResource"(arg0: T): $ResourceLocation
-public "getModelResource"(arg0: T, arg1: $GeoRenderer$$Type<(T)>): $ResourceLocation
+public "getAnimation"(arg0: T, arg1: StringJS): $Animation
+public "getRenderType"(arg0: T, arg1: $ResourceLocation$$Type): $RenderType
+public "getBakedModel"(arg0: $ResourceLocation$$Type): $BakedGeoModel
+public "getBone"(arg0: StringJS): $Optional<($GeoBone)>
 /**
  * 
  * @deprecated
@@ -29,16 +27,18 @@ public "getModelResource"(arg0: T, arg1: $GeoRenderer$$Type<(T)>): $ResourceLoca
 public "getTextureResource"(arg0: T): $ResourceLocation
 public "getTextureResource"(arg0: T, arg1: $GeoRenderer$$Type<(T)>): $ResourceLocation
 public "crashIfBoneMissing"(): boolean
-public "applyMolangQueries"(arg0: $AnimationState$$Type<(T)>, arg1: double): void
 public "handleAnimations"(arg0: T, arg1: long, arg2: $AnimationState$$Type<(T)>, arg3: float): void
-public "getAnimation"(arg0: T, arg1: StringJS): $Animation
-public "getBone"(arg0: StringJS): $Optional<($GeoBone)>
-public "getRenderType"(arg0: T, arg1: $ResourceLocation$$Type): $RenderType
-public "getBakedModel"(arg0: $ResourceLocation$$Type): $BakedGeoModel
-public "setCustomAnimations"(arg0: T, arg1: long, arg2: $AnimationState$$Type<(T)>): void
+public "applyMolangQueries"(arg0: $AnimationState$$Type<(T)>, arg1: double): void
+/**
+ * 
+ * @deprecated
+ */
+public "getModelResource"(arg0: T): $ResourceLocation
+public "getModelResource"(arg0: T, arg1: $GeoRenderer$$Type<(T)>): $ResourceLocation
 public "getAnimationResource"(arg0: T): $ResourceLocation
 public "addAdditionalStateData"(arg0: T, arg1: long, arg2: $BiConsumer$$Type<($DataTicket<(T)>), (T)>): void
 public "getAnimationProcessor"(): $AnimationProcessor<(T)>
+public "setCustomAnimations"(arg0: T, arg1: long, arg2: $AnimationState$$Type<(T)>): void
 get "animationProcessor"(): $AnimationProcessor<(T)>
 }
 /**

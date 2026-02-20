@@ -11,27 +11,27 @@ static readonly "DEFAULT_SPACE_WIDTH": float
 
 constructor(arg0: StringJS)
 
-public "forGoggles"(arg0: $List$$Type<($MutableComponent$$Type)>): void
-public "forGoggles"(arg0: $List$$Type<($MutableComponent$$Type)>, arg1: integer): void
+public "add"(arg0: $LangBuilder$$Type): $LangBuilder
 public "add"(arg0: $MutableComponent$$Type): $LangBuilder
 public "add"(arg0: $Component$$Type): $LangBuilder
-public "add"(arg0: $LangBuilder$$Type): $LangBuilder
 public "component"(): $MutableComponent
 public "newLine"(): $LangBuilder
 public "color"(arg0: integer): $LangBuilder
 public "color"(arg0: $Color$$Type): $LangBuilder
 public "string"(): StringJS
-public "text"(arg0: StringJS): $LangBuilder
 public "text"(arg0: $ChatFormatting$$Type, arg1: StringJS): $LangBuilder
+public "text"(arg0: StringJS): $LangBuilder
 public "text"(arg0: integer, arg1: StringJS): $LangBuilder
 public "space"(): $LangBuilder
 public "style"(arg0: $ChatFormatting$$Type): $LangBuilder
 public "addTo"(arg0: $List$$Type<($MutableComponent$$Type)>): void
+public static "resolveBuilders"(arg0: (any)[]): (any)[]
+public "forGoggles"(arg0: $List$$Type<($MutableComponent$$Type)>, arg1: integer): void
+public "forGoggles"(arg0: $List$$Type<($MutableComponent$$Type)>): void
+public "sendStatus"(arg0: $Player$$Type): void
 public "json"(): StringJS
 public "sendChat"(arg0: $Player$$Type): void
-public static "resolveBuilders"(arg0: (any)[]): (any)[]
 public "translate"(arg0: StringJS, ...arg1: (any)[]): $LangBuilder
-public "sendStatus"(arg0: $Player$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

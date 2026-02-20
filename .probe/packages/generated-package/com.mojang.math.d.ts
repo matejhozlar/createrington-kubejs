@@ -1,33 +1,3 @@
-declare module "com.mojang.math.Axis" {
-import {$Vector3f$$Type} from "org.joml.Vector3f"
-import {$Quaternionf, $Quaternionf$$Type} from "org.joml.Quaternionf"
-
-export interface $Axis$$Interface {
-
-(arg0: float): $Quaternionf$$Type
-}
-
-export class $Axis implements $Axis$$Interface {
-static readonly "ZN": $Axis
-static readonly "YN": $Axis
-static readonly "XN": $Axis
-static readonly "ZP": $Axis
-static readonly "YP": $Axis
-static readonly "XP": $Axis
-
-static "of"(arg0: $Vector3f$$Type): $Axis
- "rotation"(arg0: float): $Quaternionf
- "rotationDegrees"(arg0: float): $Quaternionf
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Axis$$Type = ((arg0: float) => $Quaternionf$$Type);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Axis$$Original = $Axis;}
 declare module "com.mojang.math.Transformation" {
 import {$Codec} from "com.mojang.serialization.Codec"
 import {$ITransformationExtension$$Interface} from "net.neoforged.neoforge.common.extensions.ITransformationExtension"
@@ -49,21 +19,21 @@ public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public static "identity"(): $Transformation
 public "compose"(arg0: $Transformation$$Type): $Transformation
-public "inverse"(): $Transformation
 public "getScale"(): $Vector3f
+public "inverse"(): $Transformation
+public "slerp"(arg0: $Transformation$$Type, arg1: float): $Transformation
 public "getRightRotation"(): $Quaternionf
 public "getLeftRotation"(): $Quaternionf
-public "slerp"(arg0: $Transformation$$Type, arg1: float): $Transformation
 public "getTranslation"(): $Vector3f
 public "getNormalMatrix"(): $Matrix3f
 public "getMatrix"(): $Matrix4f
-public "rotateTransform"(arg0: $Direction$$Type): $Direction
 public "isIdentity"(): boolean
-public "transformPosition"(arg0: $Vector4f$$Type): void
 public "transformNormal"(arg0: $Vector3f$$Type): void
+public "transformPosition"(arg0: $Vector4f$$Type): void
+public "applyOrigin"(arg0: $Vector3f$$Type): $Transformation
 public "blockCenterToCorner"(): $Transformation
 public "blockCornerToCenter"(): $Transformation
-public "applyOrigin"(arg0: $Vector3f$$Type): $Transformation
+public "rotateTransform"(arg0: $Direction$$Type): $Direction
 get "scale"(): $Vector3f
 get "rightRotation"(): $Quaternionf
 get "leftRotation"(): $Quaternionf
@@ -85,8 +55,8 @@ import {$Keyable} from "com.mojang.serialization.Keyable"
 import {$Direction$Axis$$Type} from "net.minecraft.core.Direction$Axis"
 import {$FrontAndTop, $FrontAndTop$$Type} from "net.minecraft.core.FrontAndTop"
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$Enum, $Enum$$Type} from "java.lang.Enum"
 import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
+import {$Enum, $Enum$$Type} from "java.lang.Enum"
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Function, $Function$$Type} from "java.util.function.Function"
 import {$Direction, $Direction$$Type} from "net.minecraft.core.Direction"
@@ -149,15 +119,15 @@ public static "valueOf"(arg0: StringJS): $OctahedralGroup
 public "compose"(arg0: $OctahedralGroup$$Type): $OctahedralGroup
 public "rotate"(arg0: $Direction$$Type): $Direction
 public "rotate"(arg0: $FrontAndTop$$Type): $FrontAndTop
-public "inverts"(arg0: $Direction$Axis$$Type): boolean
-public "inverse"(): $OctahedralGroup
-public "transformation"(): $Matrix3f
 public "getSerializedName"(): StringJS
-public static "keys"(arg0: ($StringRepresentable$$Type)[]): $Keyable
+public "inverse"(): $OctahedralGroup
+public "inverts"(arg0: $Direction$Axis$$Type): boolean
+public "transformation"(): $Matrix3f
 public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
-public static "fromValues"<T extends $StringRepresentable>(arg0: $Supplier$$Type<((T)[])>): $Codec<(T)>
-public static "fromEnum"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
+public static "keys"(arg0: ($StringRepresentable$$Type)[]): $Keyable
 public "getRemappedEnumConstantName"(): StringJS
+public static "fromEnum"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
+public static "fromValues"<T extends $StringRepresentable>(arg0: $Supplier$$Type<((T)[])>): $Codec<(T)>
 public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 get "serializedName"(): StringJS
 get "remappedEnumConstantName"(): StringJS
@@ -171,3 +141,33 @@ export type $OctahedralGroup$$Type = (("identity") | ("rot_180_face_xy") | ("rot
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $OctahedralGroup$$Original = $OctahedralGroup;}
+declare module "com.mojang.math.Axis" {
+import {$Vector3f$$Type} from "org.joml.Vector3f"
+import {$Quaternionf, $Quaternionf$$Type} from "org.joml.Quaternionf"
+
+export interface $Axis$$Interface {
+
+(arg0: float): $Quaternionf$$Type
+}
+
+export class $Axis implements $Axis$$Interface {
+static readonly "ZN": $Axis
+static readonly "YN": $Axis
+static readonly "XN": $Axis
+static readonly "ZP": $Axis
+static readonly "YP": $Axis
+static readonly "XP": $Axis
+
+static "of"(arg0: $Vector3f$$Type): $Axis
+ "rotation"(arg0: float): $Quaternionf
+ "rotationDegrees"(arg0: float): $Quaternionf
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Axis$$Type = ((arg0: float) => $Quaternionf$$Type);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Axis$$Original = $Axis;}

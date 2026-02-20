@@ -16,11 +16,11 @@ public "compareTo"(arg0: $Suggestion$$Type): integer
 public "apply"(arg0: StringJS): StringJS
 public "compareToIgnoreCase"(arg0: $Suggestion$$Type): integer
 public "getText"(): StringJS
-public "getTooltip"(): $Message
 public "getRange"(): $StringRange
+public "getTooltip"(): $Message
 get "text"(): StringJS
-get "tooltip"(): $Message
 get "range"(): $StringRange
+get "tooltip"(): $Message
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -40,23 +40,23 @@ export class $SuggestionsBuilder {
 constructor(arg0: StringJS, arg1: StringJS, arg2: integer)
 constructor(arg0: StringJS, arg1: integer)
 
-public "getRemainingLowerCase"(): StringJS
 public "getInput"(): StringJS
 public "add"(arg0: $SuggestionsBuilder$$Type): $SuggestionsBuilder
 public "build"(): $Suggestions
 public "getRemaining"(): StringJS
-public "suggest"(arg0: StringJS, arg1: $Message$$Type): $SuggestionsBuilder
-public "suggest"(arg0: integer): $SuggestionsBuilder
-public "suggest"(arg0: integer, arg1: $Message$$Type): $SuggestionsBuilder
-public "suggest"(arg0: StringJS): $SuggestionsBuilder
-public "getStart"(): integer
 public "buildFuture"(): $CompletableFuture<($Suggestions)>
 public "createOffset"(arg0: integer): $SuggestionsBuilder
+public "getStart"(): integer
 public "restart"(): $SuggestionsBuilder
-get "remainingLowerCase"(): StringJS
+public "suggest"(arg0: integer, arg1: $Message$$Type): $SuggestionsBuilder
+public "suggest"(arg0: StringJS): $SuggestionsBuilder
+public "suggest"(arg0: StringJS, arg1: $Message$$Type): $SuggestionsBuilder
+public "suggest"(arg0: integer): $SuggestionsBuilder
+public "getRemainingLowerCase"(): StringJS
 get "input"(): StringJS
 get "remaining"(): StringJS
 get "start"(): integer
+get "remainingLowerCase"(): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

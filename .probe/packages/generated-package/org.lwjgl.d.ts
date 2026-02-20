@@ -46,28 +46,28 @@ public "getByteBuffer"(arg0: integer, arg1: integer): $ByteBuffer
 public "getByteBuffer"(arg0: integer): $ByteBuffer
 public static "allocateDirect"(arg0: integer): $PointerBuffer
 public "sizeof"(): integer
-public "getPointerBuffer"(arg0: integer, arg1: integer): $PointerBuffer
-public "getPointerBuffer"(arg0: integer): $PointerBuffer
-public "getStringUTF16"(): StringJS
-public "getStringUTF16"(arg0: integer): StringJS
+public "getShortBuffer"(arg0: integer): $ShortBuffer
+public "getShortBuffer"(arg0: integer, arg1: integer): $ShortBuffer
 public "getIntBuffer"(arg0: integer, arg1: integer): $IntBuffer
 public "getIntBuffer"(arg0: integer): $IntBuffer
+public "getPointerBuffer"(arg0: integer, arg1: integer): $PointerBuffer
+public "getPointerBuffer"(arg0: integer): $PointerBuffer
+public "getStringUTF8"(): StringJS
+public "getStringUTF8"(arg0: integer): StringJS
+public "getFloatBuffer"(arg0: integer): $FloatBuffer
+public "getFloatBuffer"(arg0: integer, arg1: integer): $FloatBuffer
 public "getLongBuffer"(arg0: integer): $LongBuffer
 public "getLongBuffer"(arg0: integer, arg1: integer): $LongBuffer
 public "getDoubleBuffer"(arg0: integer, arg1: integer): $DoubleBuffer
 public "getDoubleBuffer"(arg0: integer): $DoubleBuffer
-public "getFloatBuffer"(arg0: integer, arg1: integer): $FloatBuffer
-public "getFloatBuffer"(arg0: integer): $FloatBuffer
-public "getStringUTF8"(arg0: integer): StringJS
-public "getStringUTF8"(): StringJS
+public "putAddressOf"(arg0: integer, arg1: $CustomBuffer$$Type<(never)>): $PointerBuffer
+public "putAddressOf"(arg0: $CustomBuffer$$Type<(never)>): $PointerBuffer
+public "getStringUTF16"(arg0: integer): StringJS
+public "getStringUTF16"(): StringJS
 public "getStringASCII"(arg0: integer): StringJS
 public "getStringASCII"(): StringJS
-public "putAddressOf"(arg0: $CustomBuffer$$Type<(never)>): $PointerBuffer
-public "putAddressOf"(arg0: integer, arg1: $CustomBuffer$$Type<(never)>): $PointerBuffer
-public "getShortBuffer"(arg0: integer): $ShortBuffer
-public "getShortBuffer"(arg0: integer, arg1: integer): $ShortBuffer
-get "stringUTF16"(): StringJS
 get "stringUTF8"(): StringJS
+get "stringUTF16"(): StringJS
 get "stringASCII"(): StringJS
 }
 /**

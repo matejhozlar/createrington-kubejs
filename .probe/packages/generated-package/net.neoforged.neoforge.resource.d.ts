@@ -1,12 +1,12 @@
 declare module "net.neoforged.neoforge.resource.ContextAwareReloadListener" {
 import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
-import {$ICondition$IContext$$Type} from "net.neoforged.neoforge.common.conditions.ICondition$IContext"
 import {$Executor$$Type} from "java.util.concurrent.Executor"
+import {$ICondition$IContext$$Type} from "net.neoforged.neoforge.common.conditions.ICondition$IContext"
 import {$PreparableReloadListener$$Interface} from "net.minecraft.server.packs.resources.PreparableReloadListener"
 import {$PreparableReloadListener$PreparationBarrier$$Type} from "net.minecraft.server.packs.resources.PreparableReloadListener$PreparationBarrier"
 import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
-import {$ProfilerFiller$$Type} from "net.minecraft.util.profiling.ProfilerFiller"
 import {$ResourceManager$$Type} from "net.minecraft.server.packs.resources.ResourceManager"
+import {$ProfilerFiller$$Type} from "net.minecraft.util.profiling.ProfilerFiller"
 
 export class $ContextAwareReloadListener implements $PreparableReloadListener$$Interface {
 constructor()

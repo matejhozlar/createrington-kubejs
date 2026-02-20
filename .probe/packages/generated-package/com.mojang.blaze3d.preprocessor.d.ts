@@ -4,8 +4,8 @@ import {$List} from "java.util.List"
 export class $GlslPreprocessor {
 constructor()
 
-public "applyImport"(arg0: boolean, arg1: StringJS): StringJS
 public "process"(arg0: StringJS): $List<(StringJS)>
+public "applyImport"(arg0: boolean, arg1: StringJS): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

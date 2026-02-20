@@ -54,8 +54,8 @@ export type $UserPrincipal$$Type = ($UserPrincipal);
 export type $UserPrincipal$$Original = $UserPrincipal;}
 declare module "java.nio.file.attribute.FileTime" {
 import {$Comparable$$Interface} from "java.lang.Comparable"
-import {$TimeUnit$$Type} from "java.util.concurrent.TimeUnit"
 import {$Instant, $Instant$$Type} from "java.time.Instant"
+import {$TimeUnit$$Type} from "java.util.concurrent.TimeUnit"
 
 /**
  * This class is not allowed By KubeJS!
@@ -94,8 +94,8 @@ import {$GroupPrincipal} from "java.nio.file.attribute.GroupPrincipal"
  * Loading the class using require() will not throw an error, but the class will be undefined.
  */
 export class $UserPrincipalLookupService {
-public "lookupPrincipalByGroupName"(arg0: StringJS): $GroupPrincipal
 public "lookupPrincipalByName"(arg0: StringJS): $UserPrincipal
+public "lookupPrincipalByGroupName"(arg0: StringJS): $GroupPrincipal
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -106,31 +106,6 @@ export type $UserPrincipalLookupService$$Type = ($UserPrincipalLookupService);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $UserPrincipalLookupService$$Original = $UserPrincipalLookupService;}
-declare module "java.nio.file.attribute.FileAttributeView" {
-import {$AttributeView$$Interface} from "java.nio.file.attribute.AttributeView"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export interface $FileAttributeView$$Interface extends $AttributeView$$Interface {
-
-(): StringJS
-}
-
-export class $FileAttributeView implements $FileAttributeView$$Interface {
- "name"(): StringJS
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $FileAttributeView$$Type = (() => StringJS);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $FileAttributeView$$Original = $FileAttributeView;}
 declare module "java.nio.file.attribute.GroupPrincipal" {
 import {$UserPrincipal$$Interface} from "java.nio.file.attribute.UserPrincipal"
 import {$Subject$$Type} from "javax.security.auth.Subject"
@@ -242,3 +217,28 @@ export type $AttributeView$$Type = (() => StringJS);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $AttributeView$$Original = $AttributeView;}
+declare module "java.nio.file.attribute.FileAttributeView" {
+import {$AttributeView$$Interface} from "java.nio.file.attribute.AttributeView"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export interface $FileAttributeView$$Interface extends $AttributeView$$Interface {
+
+(): StringJS
+}
+
+export class $FileAttributeView implements $FileAttributeView$$Interface {
+ "name"(): StringJS
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $FileAttributeView$$Type = (() => StringJS);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $FileAttributeView$$Original = $FileAttributeView;}

@@ -14,8 +14,8 @@ export interface $Optic$$Interface<Proof extends $K1, S, T, A, B> {
 }
 
 export class $Optic<Proof extends $K1, S, T, A, B> implements $Optic$$Interface {
- "upCast"<Proof2 extends $K1>(arg0: $Set$$Type<($TypeToken$$Type<($K1$$Type)>)>, arg1: $TypeToken$$Type<(Proof2)>): $Optional<($Optic<(Proof2), (S), (T), (A), (B)>)>
  "eval"<P extends $K2>(arg0: $App$$Type<(Proof), (P)>): $Function<($App2<(P), (A), (B)>), ($App2<(P), (S), (T)>)>
+ "upCast"<Proof2 extends $K1>(arg0: $Set$$Type<($TypeToken$$Type<($K1$$Type)>)>, arg1: $TypeToken$$Type<(Proof2)>): $Optional<($Optic<(Proof2), (S), (T), (A), (B)>)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

@@ -9,12 +9,12 @@ export class $OPACServerAddonRegisterEvent extends $Event {
 constructor(arg0: $MinecraftServer$$Type, arg1: $IPlayerPermissionSystemRegisterAPI$$Type, arg2: $IPlayerPartySystemRegisterAPI$$Type, arg3: $IClaimsManagerTrackerRegisterAPI$$Type)
 
 public "getServer"(): $MinecraftServer
-public "getPermissionSystemManager"(): $IPlayerPermissionSystemRegisterAPI
 public "getClaimsManagerTrackerAPI"(): $IClaimsManagerTrackerRegisterAPI
+public "getPermissionSystemManager"(): $IPlayerPermissionSystemRegisterAPI
 public "getPartySystemManagerAPI"(): $IPlayerPartySystemRegisterAPI
 get "server"(): $MinecraftServer
-get "permissionSystemManager"(): $IPlayerPermissionSystemRegisterAPI
 get "claimsManagerTrackerAPI"(): $IClaimsManagerTrackerRegisterAPI
+get "permissionSystemManager"(): $IPlayerPermissionSystemRegisterAPI
 get "partySystemManagerAPI"(): $IPlayerPartySystemRegisterAPI
 }
 /**

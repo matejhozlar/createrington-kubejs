@@ -1,28 +1,3 @@
-declare module "java.io.FilenameFilter" {
-import {$File, $File$$Type} from "java.io.File"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export interface $FilenameFilter$$Interface {
-
-(arg0: $File, arg1: StringJS): boolean
-}
-
-export class $FilenameFilter implements $FilenameFilter$$Interface {
- "accept"(arg0: $File$$Type, arg1: StringJS): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $FilenameFilter$$Type = ((arg0: $File, arg1: StringJS) => boolean);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $FilenameFilter$$Original = $FilenameFilter;}
 declare module "java.io.ObjectInput" {
 import {$AutoCloseable$$Interface} from "java.lang.AutoCloseable"
 import {$DataInput$$Interface} from "java.io.DataInput"
@@ -68,6 +43,333 @@ export type $ObjectInput$$Type = ($ObjectInput);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ObjectInput$$Original = $ObjectInput;}
+declare module "java.io.Externalizable" {
+import {$ObjectInput$$Type} from "java.io.ObjectInput"
+import {$Serializable$$Interface} from "java.io.Serializable"
+import {$ObjectOutput$$Type} from "java.io.ObjectOutput"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export interface $Externalizable$$Interface extends $Serializable$$Interface {
+}
+
+export class $Externalizable implements $Externalizable$$Interface {
+ "writeExternal"(arg0: $ObjectOutput$$Type): void
+ "readExternal"(arg0: $ObjectInput$$Type): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Externalizable$$Type = ($Externalizable);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Externalizable$$Original = $Externalizable;}
+declare module "java.io.Flushable" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export interface $Flushable$$Interface {
+
+(): void
+}
+
+export class $Flushable implements $Flushable$$Interface {
+ "flush"(): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Flushable$$Type = (() => void);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Flushable$$Original = $Flushable;}
+declare module "java.io.BufferedReader" {
+import {$Reader, $Reader$$Type} from "java.io.Reader"
+import {$Stream} from "java.util.stream.Stream"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $BufferedReader extends $Reader {
+constructor(arg0: $Reader$$Type, arg1: integer)
+constructor(arg0: $Reader$$Type)
+
+public "ready"(): boolean
+public "reset"(): void
+public "lines"(): $Stream<(StringJS)>
+public "read"(arg0: (character)[], arg1: integer, arg2: integer): integer
+public "read"(): integer
+public "readLine"(): StringJS
+public "close"(): void
+public "mark"(arg0: integer): void
+public "skip"(arg0: long): long
+public "markSupported"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $BufferedReader$$Type = ($BufferedReader);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $BufferedReader$$Original = $BufferedReader;}
+declare module "java.io.Writer" {
+import {$Appendable$$Interface} from "java.lang.Appendable"
+import {$Closeable$$Interface} from "java.io.Closeable"
+import {$Flushable$$Interface} from "java.io.Flushable"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $Writer implements $Appendable$$Interface, $Closeable$$Interface, $Flushable$$Interface {
+public "append"(arg0: character): $Writer
+public "append"(arg0: charseq, arg1: integer, arg2: integer): $Writer
+public "append"(arg0: charseq): $Writer
+public "flush"(): void
+public "write"(arg0: integer): void
+public "write"(arg0: (character)[], arg1: integer, arg2: integer): void
+public "write"(arg0: StringJS): void
+public "write"(arg0: StringJS, arg1: integer, arg2: integer): void
+public "write"(arg0: (character)[]): void
+public "close"(): void
+public static "nullWriter"(): $Writer
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Writer$$Type = ($Writer);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Writer$$Original = $Writer;}
+declare module "java.io.Serializable" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export interface $Serializable$$Interface {
+}
+
+export class $Serializable implements $Serializable$$Interface {
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Serializable$$Type = ($Serializable);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Serializable$$Original = $Serializable;}
+declare module "java.io.DataInputStream" {
+import {$DataInput$$Type, $DataInput$$Interface} from "java.io.DataInput"
+import {$InputStream$$Type} from "java.io.InputStream"
+import {$FilterInputStream} from "java.io.FilterInputStream"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $DataInputStream extends $FilterInputStream implements $DataInput$$Interface {
+constructor(arg0: $InputStream$$Type)
+
+public "read"(arg0: (byte)[]): integer
+public "read"(arg0: (byte)[], arg1: integer, arg2: integer): integer
+/**
+ * 
+ * @deprecated
+ */
+public "readLine"(): StringJS
+public "readInt"(): integer
+public "readUTF"(): StringJS
+public static "readUTF"(arg0: $DataInput$$Type): StringJS
+public "readChar"(): character
+public "readFloat"(): float
+public "readFully"(arg0: (byte)[]): void
+public "readFully"(arg0: (byte)[], arg1: integer, arg2: integer): void
+public "skipBytes"(arg0: integer): integer
+public "readBoolean"(): boolean
+public "readByte"(): byte
+public "readUnsignedByte"(): integer
+public "readShort"(): short
+public "readUnsignedShort"(): integer
+public "readLong"(): long
+public "readDouble"(): double
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $DataInputStream$$Type = ($DataInputStream);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $DataInputStream$$Original = $DataInputStream;}
+declare module "java.io.Closeable" {
+import {$AutoCloseable$$Interface} from "java.lang.AutoCloseable"
+
+export interface $Closeable$$Interface extends $AutoCloseable$$Interface {
+
+(): void
+}
+
+export class $Closeable implements $Closeable$$Interface {
+ "close"(): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Closeable$$Type = (() => void);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Closeable$$Original = $Closeable;}
+declare module "java.io.DataInput" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export interface $DataInput$$Interface {
+}
+
+export class $DataInput implements $DataInput$$Interface {
+ "readLine"(): StringJS
+ "readInt"(): integer
+ "readUTF"(): StringJS
+ "readChar"(): character
+ "readFloat"(): float
+ "readFully"(arg0: (byte)[]): void
+ "readFully"(arg0: (byte)[], arg1: integer, arg2: integer): void
+ "skipBytes"(arg0: integer): integer
+ "readBoolean"(): boolean
+ "readByte"(): byte
+ "readUnsignedByte"(): integer
+ "readShort"(): short
+ "readUnsignedShort"(): integer
+ "readLong"(): long
+ "readDouble"(): double
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $DataInput$$Type = ($DataInput);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $DataInput$$Original = $DataInput;}
+declare module "java.io.PrintStream" {
+import {$FilterOutputStream} from "java.io.FilterOutputStream"
+import {$Charset, $Charset$$Type} from "java.nio.charset.Charset"
+import {$File$$Type} from "java.io.File"
+import {$Appendable, $Appendable$$Interface} from "java.lang.Appendable"
+import {$Closeable$$Interface} from "java.io.Closeable"
+import {$OutputStream$$Type} from "java.io.OutputStream"
+import {$Locale$$Type} from "java.util.Locale"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $PrintStream extends $FilterOutputStream implements $Appendable$$Interface, $Closeable$$Interface {
+constructor(arg0: $OutputStream$$Type, arg1: boolean, arg2: StringJS)
+constructor(arg0: $OutputStream$$Type, arg1: boolean, arg2: $Charset$$Type)
+constructor(arg0: StringJS)
+constructor(arg0: StringJS, arg1: StringJS)
+constructor(arg0: StringJS, arg1: $Charset$$Type)
+constructor(arg0: $File$$Type, arg1: StringJS)
+constructor(arg0: $File$$Type)
+constructor(arg0: $File$$Type, arg1: $Charset$$Type)
+constructor(arg0: $OutputStream$$Type)
+constructor(arg0: $OutputStream$$Type, arg1: boolean)
+
+public "println"(arg0: StringJS): void
+public "println"(arg0: any): void
+public "println"(arg0: float): void
+public "println"(arg0: (character)[]): void
+public "println"(arg0: double): void
+public "println"(): void
+public "println"(arg0: boolean): void
+public "println"(arg0: character): void
+public "println"(arg0: integer): void
+public "println"(arg0: long): void
+public "append"(arg0: charseq): $Appendable
+public "append"(arg0: charseq, arg1: integer, arg2: integer): $Appendable
+public "append"(arg0: character): $Appendable
+public "flush"(): void
+public "format"(arg0: $Locale$$Type, arg1: StringJS, ...arg2: (any)[]): $PrintStream
+public "format"(arg0: StringJS, ...arg1: (any)[]): $PrintStream
+public "charset"(): $Charset
+public "printf"(arg0: $Locale$$Type, arg1: StringJS, ...arg2: (any)[]): $PrintStream
+public "printf"(arg0: StringJS, ...arg1: (any)[]): $PrintStream
+public "write"(arg0: (byte)[]): void
+public "write"(arg0: (byte)[], arg1: integer, arg2: integer): void
+public "write"(arg0: integer): void
+public "print"(arg0: StringJS): void
+public "print"(arg0: (character)[]): void
+public "print"(arg0: any): void
+public "print"(arg0: boolean): void
+public "print"(arg0: character): void
+public "print"(arg0: integer): void
+public "print"(arg0: double): void
+public "print"(arg0: float): void
+public "print"(arg0: long): void
+public "close"(): void
+public "writeBytes"(arg0: (byte)[]): void
+public "checkError"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $PrintStream$$Type = ($PrintStream);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $PrintStream$$Original = $PrintStream;}
+declare module "java.io.FilenameFilter" {
+import {$File, $File$$Type} from "java.io.File"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export interface $FilenameFilter$$Interface {
+
+(arg0: $File, arg1: StringJS): boolean
+}
+
+export class $FilenameFilter implements $FilenameFilter$$Interface {
+ "accept"(arg0: $File$$Type, arg1: StringJS): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $FilenameFilter$$Type = ((arg0: $File, arg1: StringJS) => boolean);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $FilenameFilter$$Original = $FilenameFilter;}
 declare module "java.io.IOException" {
 import {$Exception} from "java.lang.Exception"
 import {$Throwable$$Type} from "java.lang.Throwable"
@@ -96,8 +398,8 @@ export type $IOException$$Original = $IOException;}
 declare module "java.io.File" {
 import {$URI, $URI$$Type} from "java.net.URI"
 import {$Comparable$$Interface} from "java.lang.Comparable"
-import {$Serializable$$Interface} from "java.io.Serializable"
 import {$FileFilter$$Type} from "java.io.FileFilter"
+import {$Serializable$$Interface} from "java.io.Serializable"
 import {$URL} from "java.net.URL"
 import {$FilenameFilter$$Type} from "java.io.FilenameFilter"
 import {$Path, $Path$$Type} from "java.nio.file.Path"
@@ -291,121 +593,6 @@ export type $DataOutput$$Type = ($DataOutput);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $DataOutput$$Original = $DataOutput;}
-declare module "java.io.Externalizable" {
-import {$ObjectInput$$Type} from "java.io.ObjectInput"
-import {$Serializable$$Interface} from "java.io.Serializable"
-import {$ObjectOutput$$Type} from "java.io.ObjectOutput"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export interface $Externalizable$$Interface extends $Serializable$$Interface {
-}
-
-export class $Externalizable implements $Externalizable$$Interface {
- "writeExternal"(arg0: $ObjectOutput$$Type): void
- "readExternal"(arg0: $ObjectInput$$Type): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Externalizable$$Type = ($Externalizable);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Externalizable$$Original = $Externalizable;}
-declare module "java.io.Flushable" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export interface $Flushable$$Interface {
-
-(): void
-}
-
-export class $Flushable implements $Flushable$$Interface {
- "flush"(): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Flushable$$Type = (() => void);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Flushable$$Original = $Flushable;}
-declare module "java.io.BufferedReader" {
-import {$Reader, $Reader$$Type} from "java.io.Reader"
-import {$Stream} from "java.util.stream.Stream"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $BufferedReader extends $Reader {
-constructor(arg0: $Reader$$Type, arg1: integer)
-constructor(arg0: $Reader$$Type)
-
-public "ready"(): boolean
-public "reset"(): void
-public "lines"(): $Stream<(StringJS)>
-public "read"(arg0: (character)[], arg1: integer, arg2: integer): integer
-public "read"(): integer
-public "readLine"(): StringJS
-public "close"(): void
-public "mark"(arg0: integer): void
-public "skip"(arg0: long): long
-public "markSupported"(): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $BufferedReader$$Type = ($BufferedReader);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $BufferedReader$$Original = $BufferedReader;}
-declare module "java.io.Writer" {
-import {$Appendable$$Interface} from "java.lang.Appendable"
-import {$Closeable$$Interface} from "java.io.Closeable"
-import {$Flushable$$Interface} from "java.io.Flushable"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $Writer implements $Appendable$$Interface, $Closeable$$Interface, $Flushable$$Interface {
-public "append"(arg0: character): $Writer
-public "append"(arg0: charseq, arg1: integer, arg2: integer): $Writer
-public "append"(arg0: charseq): $Writer
-public "flush"(): void
-public "write"(arg0: integer): void
-public "write"(arg0: (character)[], arg1: integer, arg2: integer): void
-public "write"(arg0: StringJS): void
-public "write"(arg0: StringJS, arg1: integer, arg2: integer): void
-public "write"(arg0: (character)[]): void
-public "close"(): void
-public static "nullWriter"(): $Writer
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Writer$$Type = ($Writer);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Writer$$Original = $Writer;}
 declare module "java.io.FileFilter" {
 import {$File, $File$$Type} from "java.io.File"
 
@@ -470,25 +657,9 @@ export type $DataOutputStream$$Type = ($DataOutputStream);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $DataOutputStream$$Original = $DataOutputStream;}
-declare module "java.io.Serializable" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-export interface $Serializable$$Interface {
-}
-
-export class $Serializable implements $Serializable$$Interface {
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Serializable$$Type = ($Serializable);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Serializable$$Original = $Serializable;}
 declare module "java.io.Reader" {
-import {$Writer$$Type} from "java.io.Writer"
 import {$CharBuffer$$Type} from "java.nio.CharBuffer"
+import {$Writer$$Type} from "java.io.Writer"
 import {$Readable$$Interface} from "java.lang.Readable"
 import {$Closeable$$Interface} from "java.io.Closeable"
 
@@ -560,33 +731,13 @@ export type $ObjectOutput$$Type = ($ObjectOutput);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ObjectOutput$$Original = $ObjectOutput;}
-declare module "java.io.Closeable" {
-import {$AutoCloseable$$Interface} from "java.lang.AutoCloseable"
-
-export interface $Closeable$$Interface extends $AutoCloseable$$Interface {
-
-(): void
-}
-
-export class $Closeable implements $Closeable$$Interface {
- "close"(): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Closeable$$Type = (() => void);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Closeable$$Original = $Closeable;}
 declare module "java.io.PrintWriter" {
 import {$Writer, $Writer$$Type} from "java.io.Writer"
-import {$File$$Type} from "java.io.File"
 import {$Charset$$Type} from "java.nio.charset.Charset"
+import {$File$$Type} from "java.io.File"
 import {$Appendable} from "java.lang.Appendable"
-import {$Locale$$Type} from "java.util.Locale"
 import {$OutputStream$$Type} from "java.io.OutputStream"
+import {$Locale$$Type} from "java.util.Locale"
 
 /**
  * This class is not allowed By KubeJS!
@@ -715,109 +866,3 @@ export type $BufferedWriter$$Type = ($BufferedWriter);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $BufferedWriter$$Original = $BufferedWriter;}
-declare module "java.io.DataInput" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export interface $DataInput$$Interface {
-}
-
-export class $DataInput implements $DataInput$$Interface {
- "readLine"(): StringJS
- "readInt"(): integer
- "readUTF"(): StringJS
- "readChar"(): character
- "readFloat"(): float
- "readFully"(arg0: (byte)[]): void
- "readFully"(arg0: (byte)[], arg1: integer, arg2: integer): void
- "skipBytes"(arg0: integer): integer
- "readBoolean"(): boolean
- "readByte"(): byte
- "readUnsignedByte"(): integer
- "readShort"(): short
- "readUnsignedShort"(): integer
- "readLong"(): long
- "readDouble"(): double
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $DataInput$$Type = ($DataInput);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $DataInput$$Original = $DataInput;}
-declare module "java.io.PrintStream" {
-import {$FilterOutputStream} from "java.io.FilterOutputStream"
-import {$File$$Type} from "java.io.File"
-import {$Charset, $Charset$$Type} from "java.nio.charset.Charset"
-import {$Appendable, $Appendable$$Interface} from "java.lang.Appendable"
-import {$Closeable$$Interface} from "java.io.Closeable"
-import {$Locale$$Type} from "java.util.Locale"
-import {$OutputStream$$Type} from "java.io.OutputStream"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $PrintStream extends $FilterOutputStream implements $Appendable$$Interface, $Closeable$$Interface {
-constructor(arg0: $OutputStream$$Type, arg1: boolean, arg2: StringJS)
-constructor(arg0: $OutputStream$$Type, arg1: boolean, arg2: $Charset$$Type)
-constructor(arg0: StringJS)
-constructor(arg0: StringJS, arg1: StringJS)
-constructor(arg0: StringJS, arg1: $Charset$$Type)
-constructor(arg0: $File$$Type, arg1: StringJS)
-constructor(arg0: $File$$Type)
-constructor(arg0: $File$$Type, arg1: $Charset$$Type)
-constructor(arg0: $OutputStream$$Type)
-constructor(arg0: $OutputStream$$Type, arg1: boolean)
-
-public "println"(arg0: StringJS): void
-public "println"(arg0: any): void
-public "println"(arg0: float): void
-public "println"(arg0: (character)[]): void
-public "println"(arg0: double): void
-public "println"(): void
-public "println"(arg0: boolean): void
-public "println"(arg0: character): void
-public "println"(arg0: integer): void
-public "println"(arg0: long): void
-public "append"(arg0: charseq): $Appendable
-public "append"(arg0: charseq, arg1: integer, arg2: integer): $Appendable
-public "append"(arg0: character): $Appendable
-public "flush"(): void
-public "format"(arg0: $Locale$$Type, arg1: StringJS, ...arg2: (any)[]): $PrintStream
-public "format"(arg0: StringJS, ...arg1: (any)[]): $PrintStream
-public "charset"(): $Charset
-public "printf"(arg0: $Locale$$Type, arg1: StringJS, ...arg2: (any)[]): $PrintStream
-public "printf"(arg0: StringJS, ...arg1: (any)[]): $PrintStream
-public "write"(arg0: (byte)[]): void
-public "write"(arg0: (byte)[], arg1: integer, arg2: integer): void
-public "write"(arg0: integer): void
-public "print"(arg0: StringJS): void
-public "print"(arg0: (character)[]): void
-public "print"(arg0: any): void
-public "print"(arg0: boolean): void
-public "print"(arg0: character): void
-public "print"(arg0: integer): void
-public "print"(arg0: double): void
-public "print"(arg0: float): void
-public "print"(arg0: long): void
-public "close"(): void
-public "writeBytes"(arg0: (byte)[]): void
-public "checkError"(): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $PrintStream$$Type = ($PrintStream);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $PrintStream$$Original = $PrintStream;}

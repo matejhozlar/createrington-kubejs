@@ -46,26 +46,6 @@ export type $FormatStyle$$Type = (("full") | ("long") | ("medium") | ("short"));
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $FormatStyle$$Original = $FormatStyle;}
-declare module "java.time.format.ResolverStyle" {
-import {$Enum} from "java.lang.Enum"
-
-export class $ResolverStyle extends $Enum<($ResolverStyle)> {
-static readonly "STRICT": $ResolverStyle
-static readonly "LENIENT": $ResolverStyle
-static readonly "SMART": $ResolverStyle
-
-public static "values"(): ($ResolverStyle)[]
-public static "valueOf"(arg0: StringJS): $ResolverStyle
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ResolverStyle$$Type = (("strict") | ("smart") | ("lenient"));
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ResolverStyle$$Original = $ResolverStyle;}
 declare module "java.time.format.DecimalStyle" {
 import {$Set} from "java.util.Set"
 import {$Locale, $Locale$$Type} from "java.util.Locale"
@@ -102,6 +82,26 @@ export type $DecimalStyle$$Type = ($DecimalStyle);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $DecimalStyle$$Original = $DecimalStyle;}
+declare module "java.time.format.ResolverStyle" {
+import {$Enum} from "java.lang.Enum"
+
+export class $ResolverStyle extends $Enum<($ResolverStyle)> {
+static readonly "STRICT": $ResolverStyle
+static readonly "LENIENT": $ResolverStyle
+static readonly "SMART": $ResolverStyle
+
+public static "values"(): ($ResolverStyle)[]
+public static "valueOf"(arg0: StringJS): $ResolverStyle
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ResolverStyle$$Type = (("strict") | ("smart") | ("lenient"));
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ResolverStyle$$Original = $ResolverStyle;}
 declare module "java.time.format.DateTimeFormatter" {
 import {$Appendable$$Type} from "java.lang.Appendable"
 import {$DecimalStyle, $DecimalStyle$$Type} from "java.time.format.DecimalStyle"
@@ -112,8 +112,8 @@ import {$TemporalField, $TemporalField$$Type} from "java.time.temporal.TemporalF
 import {$ResolverStyle, $ResolverStyle$$Type} from "java.time.format.ResolverStyle"
 import {$ZoneId, $ZoneId$$Type} from "java.time.ZoneId"
 import {$ParsePosition$$Type} from "java.text.ParsePosition"
-import {$Set, $Set$$Type} from "java.util.Set"
 import {$Period} from "java.time.Period"
+import {$Set, $Set$$Type} from "java.util.Set"
 import {$TemporalQuery, $TemporalQuery$$Type} from "java.time.temporal.TemporalQuery"
 import {$Chronology, $Chronology$$Type} from "java.time.chrono.Chronology"
 import {$FormatStyle$$Type} from "java.time.format.FormatStyle"

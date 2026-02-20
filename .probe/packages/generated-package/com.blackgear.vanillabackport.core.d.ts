@@ -17,27 +17,6 @@ export type $BundleContentsAccessor$$Type = ($BundleContentsAccessor);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $BundleContentsAccessor$$Original = $BundleContentsAccessor;}
-declare module "com.blackgear.vanillabackport.core.mixin.access.EntityRendererAccessor" {
-import {$BlockPos, $BlockPos$$Type} from "net.minecraft.core.BlockPos"
-import {$Entity, $Entity$$Type} from "net.minecraft.world.entity.Entity"
-
-export interface $EntityRendererAccessor$$Interface {
-
-(arg0: T, arg1: $BlockPos): integer
-}
-
-export class $EntityRendererAccessor implements $EntityRendererAccessor$$Interface {
- "callGetBlockLightLevel"<T extends $Entity>(arg0: T, arg1: $BlockPos$$Type): integer
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $EntityRendererAccessor$$Type = ((arg0: T, arg1: $BlockPos) => integer);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $EntityRendererAccessor$$Original = $EntityRendererAccessor;}
 declare module "com.blackgear.vanillabackport.core.mixin.access.BiomeAccessor" {
 import {$Biome$ClimateSettings, $Biome$ClimateSettings$$Type} from "net.minecraft.world.level.biome.Biome$ClimateSettings"
 
@@ -59,6 +38,48 @@ export type $BiomeAccessor$$Type = (() => $Biome$ClimateSettings$$Type);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $BiomeAccessor$$Original = $BiomeAccessor;}
+declare module "com.blackgear.vanillabackport.core.mixin.access.EntityAccessor" {
+import {$EntityDimensions} from "net.minecraft.world.entity.EntityDimensions"
+
+export interface $EntityAccessor$$Interface {
+get "dimensions"(): $EntityDimensions
+}
+
+export class $EntityAccessor implements $EntityAccessor$$Interface {
+ "getDimensions"(): $EntityDimensions
+ "callReapplyPosition"(): void
+ "callSetRot"(arg0: float, arg1: float): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $EntityAccessor$$Type = ($EntityAccessor);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $EntityAccessor$$Original = $EntityAccessor;}
+declare module "com.blackgear.vanillabackport.core.mixin.access.EntityRendererAccessor" {
+import {$Entity, $Entity$$Type} from "net.minecraft.world.entity.Entity"
+import {$BlockPos, $BlockPos$$Type} from "net.minecraft.core.BlockPos"
+
+export interface $EntityRendererAccessor$$Interface {
+
+(arg0: T, arg1: $BlockPos): integer
+}
+
+export class $EntityRendererAccessor implements $EntityRendererAccessor$$Interface {
+ "callGetBlockLightLevel"<T extends $Entity>(arg0: T, arg1: $BlockPos$$Type): integer
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $EntityRendererAccessor$$Type = ((arg0: T, arg1: $BlockPos) => integer);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $EntityRendererAccessor$$Original = $EntityRendererAccessor;}
 declare module "com.blackgear.vanillabackport.core.mixin.access.SoundEngineAccessor" {
 import {$Map} from "java.util.Map"
 import {$SoundInstance, $SoundInstance$$Type} from "net.minecraft.client.resources.sounds.SoundInstance"
@@ -124,6 +145,26 @@ export type $SoundManagerAccessor$$Type = (() => $SoundEngine$$Type);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $SoundManagerAccessor$$Original = $SoundManagerAccessor;}
+declare module "com.blackgear.vanillabackport.core.mixin.access.TreeDecoratorTypeAccessor" {
+import {$TreeDecorator} from "net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator"
+import {$TreeDecoratorType} from "net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType"
+import {$MapCodec$$Type} from "com.mojang.serialization.MapCodec"
+
+export interface $TreeDecoratorTypeAccessor$$Interface {
+}
+
+export class $TreeDecoratorTypeAccessor implements $TreeDecoratorTypeAccessor$$Interface {
+static "createTreeDecorator"<T extends $TreeDecorator>(codec: $MapCodec$$Type<(T)>): $TreeDecoratorType<(T)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $TreeDecoratorTypeAccessor$$Type = ($TreeDecoratorTypeAccessor);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $TreeDecoratorTypeAccessor$$Original = $TreeDecoratorTypeAccessor;}
 declare module "com.blackgear.vanillabackport.core.mixin.access.NoiseGeneratorSettingsAccessor" {
 import {$SurfaceRules$RuleSource, $SurfaceRules$RuleSource$$Type} from "net.minecraft.world.level.levelgen.SurfaceRules$RuleSource"
 
@@ -145,27 +186,6 @@ export type $NoiseGeneratorSettingsAccessor$$Type = ((arg0: $SurfaceRules$RuleSo
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $NoiseGeneratorSettingsAccessor$$Original = $NoiseGeneratorSettingsAccessor;}
-declare module "com.blackgear.vanillabackport.core.mixin.access.EntityAccessor" {
-import {$EntityDimensions} from "net.minecraft.world.entity.EntityDimensions"
-
-export interface $EntityAccessor$$Interface {
-get "dimensions"(): $EntityDimensions
-}
-
-export class $EntityAccessor implements $EntityAccessor$$Interface {
- "callSetRot"(arg0: float, arg1: float): void
- "getDimensions"(): $EntityDimensions
- "callReapplyPosition"(): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $EntityAccessor$$Type = ($EntityAccessor);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $EntityAccessor$$Original = $EntityAccessor;}
 declare module "com.blackgear.vanillabackport.core.mixin.access.WolfAccessor" {
 import {$DyeColor, $DyeColor$$Type} from "net.minecraft.world.item.DyeColor"
 

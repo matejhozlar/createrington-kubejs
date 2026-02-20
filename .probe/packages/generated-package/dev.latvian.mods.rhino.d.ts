@@ -5,9 +5,9 @@ export interface $ConstProperties$$Interface {
 }
 
 export class $ConstProperties implements $ConstProperties$$Interface {
- "isConst"(arg0: StringJS): boolean
  "putConst"(arg1: StringJS, arg2: $Scriptable$$Type, arg3: any): void
  "defineConst"(arg1: StringJS, arg2: $Scriptable$$Type): void
+ "isConst"(arg0: StringJS): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -18,65 +18,6 @@ export type $ConstProperties$$Type = ($ConstProperties);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ConstProperties$$Original = $ConstProperties;}
-declare module "dev.latvian.mods.rhino.util.DefaultValueTypeHint" {
-import {$Enum} from "java.lang.Enum"
-
-export class $DefaultValueTypeHint extends $Enum<($DefaultValueTypeHint)> {
-static readonly "NUMBER": $DefaultValueTypeHint
-static readonly "STRING": $DefaultValueTypeHint
-static readonly "CLASS": $DefaultValueTypeHint
-static readonly "FUNCTION": $DefaultValueTypeHint
-static readonly "BOOLEAN": $DefaultValueTypeHint
-
-public "toString"(): StringJS
-public static "values"(): ($DefaultValueTypeHint)[]
-public static "valueOf"(arg0: StringJS): $DefaultValueTypeHint
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $DefaultValueTypeHint$$Type = (("string") | ("number") | ("boolean") | ("function") | ("class"));
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $DefaultValueTypeHint$$Original = $DefaultValueTypeHint;}
-declare module "dev.latvian.mods.rhino.RhinoException" {
-import {$PrintStream$$Type} from "java.io.PrintStream"
-import {$ScriptStackElement} from "dev.latvian.mods.rhino.ScriptStackElement"
-import {$PrintWriter$$Type} from "java.io.PrintWriter"
-import {$RuntimeException} from "java.lang.RuntimeException"
-
-export class $RhinoException extends $RuntimeException {
-public "lineSource"(): StringJS
-public "printStackTrace"(arg0: $PrintWriter$$Type): void
-public "printStackTrace"(arg0: $PrintStream$$Type): void
-public "lineNumber"(): integer
-public "getMessage"(): StringJS
-public "details"(): StringJS
-public "initSourceName"(arg0: StringJS): void
-public "initColumnNumber"(arg0: integer): void
-public "initLineNumber"(arg0: integer): void
-public "initLineSource"(arg0: StringJS): void
-public "getScriptStack"(arg0: integer, arg1: StringJS): ($ScriptStackElement)[]
-public "getScriptStack"(): ($ScriptStackElement)[]
-public "sourceName"(): StringJS
-public "columnNumber"(): integer
-public "getScriptStackTrace"(): StringJS
-public "getScriptStackTrace"(arg0: integer, arg1: StringJS): StringJS
-get "message"(): StringJS
-get "scriptStack"(): ($ScriptStackElement)[]
-get "scriptStackTrace"(): StringJS
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $RhinoException$$Type = ($RhinoException);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $RhinoException$$Original = $RhinoException;}
 declare module "dev.latvian.mods.rhino.CachedMethodInfo" {
 import {$TypeInfo} from "dev.latvian.mods.rhino.type.TypeInfo"
 import {$CachedClassInfo, $CachedClassInfo$$Type} from "dev.latvian.mods.rhino.CachedClassInfo"
@@ -110,57 +51,6 @@ export type $CachedMethodInfo$$Type = ($CachedMethodInfo);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $CachedMethodInfo$$Original = $CachedMethodInfo;}
-declare module "dev.latvian.mods.rhino.IdScriptableObject" {
-import {$Context$$Type} from "dev.latvian.mods.rhino.Context"
-import {$ScriptableObject, $ScriptableObject$$Type} from "dev.latvian.mods.rhino.ScriptableObject"
-import {$Symbol$$Type} from "dev.latvian.mods.rhino.Symbol"
-import {$Scriptable$$Type} from "dev.latvian.mods.rhino.Scriptable"
-import {$IdFunctionCall$$Interface} from "dev.latvian.mods.rhino.IdFunctionCall"
-import {$IdFunctionObject, $IdFunctionObject$$Type} from "dev.latvian.mods.rhino.IdFunctionObject"
-
-export class $IdScriptableObject extends $ScriptableObject implements $IdFunctionCall$$Interface {
-static readonly "DONTENUM": integer
-static readonly "CONST": integer
-static readonly "UNINITIALIZED_CONST": integer
-static readonly "EMPTY": integer
-static readonly "READONLY": integer
-static readonly "PERMANENT": integer
-
-constructor(arg0: $Scriptable$$Type, arg1: $Scriptable$$Type)
-constructor()
-
-public "initPrototypeConstructor"(arg0: $IdFunctionObject$$Type, arg1: $Context$$Type): void
-public "activatePrototypeMap"(arg0: integer): void
-public "initPrototypeMethod"(arg0: any, arg1: integer, arg2: StringJS, arg3: integer, arg4: $Context$$Type): $IdFunctionObject
-public "initPrototypeMethod"(arg0: any, arg1: integer, arg2: $Symbol$$Type, arg3: StringJS, arg4: integer, arg5: $Context$$Type): $IdFunctionObject
-public "initPrototypeMethod"(arg0: any, arg1: integer, arg2: StringJS, arg3: StringJS, arg4: integer, arg5: $Context$$Type): $IdFunctionObject
-public "setAttributes"(arg1: StringJS, arg2: integer): void
-public "get"(arg1: $Symbol$$Type, arg2: $Scriptable$$Type): any
-public "get"(arg1: StringJS, arg2: $Scriptable$$Type): any
-public "put"(arg1: StringJS, arg2: $Scriptable$$Type, arg3: any): void
-public "put"(arg1: $Symbol$$Type, arg2: $Scriptable$$Type, arg3: any): void
-public "delete"(arg1: $Symbol$$Type): void
-public "delete"(arg1: StringJS): void
-public "getAttributes"(arg1: StringJS): integer
-public "getAttributes"(arg1: $Symbol$$Type): integer
-public "has"(arg1: $Symbol$$Type, arg2: $Scriptable$$Type): boolean
-public "has"(arg1: StringJS, arg2: $Scriptable$$Type): boolean
-public "execIdCall"(arg0: $IdFunctionObject$$Type, arg1: $Context$$Type, arg2: $Scriptable$$Type, arg3: $Scriptable$$Type, arg4: (any)[]): any
-public "defineOwnProperty"(arg1: any, arg2: $ScriptableObject$$Type): void
-public "exportAsJSClass"(arg0: integer, arg1: $Scriptable$$Type, arg2: boolean, arg3: $Context$$Type): $IdFunctionObject
-public "initPrototypeValue"(arg0: integer, arg1: StringJS, arg2: any, arg3: integer): void
-public "initPrototypeValue"(arg0: integer, arg1: $Symbol$$Type, arg2: any, arg3: integer): void
-public "hasPrototypeMap"(): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $IdScriptableObject$$Type = ($IdScriptableObject);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $IdScriptableObject$$Original = $IdScriptableObject;}
 declare module "dev.latvian.mods.rhino.Callable" {
 import {$Scriptable, $Scriptable$$Type} from "dev.latvian.mods.rhino.Scriptable"
 
@@ -181,38 +71,14 @@ export type $Callable$$Type = ((arg1: $Scriptable, arg2: $Scriptable, arg3: (any
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $Callable$$Original = $Callable;}
-declare module "dev.latvian.mods.rhino.type.RecordTypeInfo$Data" {
-import {$Map, $Map$$Type} from "java.util.Map"
-import {$RecordTypeInfo$Component, $RecordTypeInfo$Component$$Type} from "dev.latvian.mods.rhino.type.RecordTypeInfo$Component"
-import {$Record} from "java.lang.Record"
-
-export class $RecordTypeInfo$Data extends $Record {
-constructor(components: ($RecordTypeInfo$Component$$Type)[], componentMap: $Map$$Type<(StringJS), ($RecordTypeInfo$Component$$Type)>, defaultArguments: (any)[])
-
-public "equals"(arg0: any): boolean
-public "toString"(): StringJS
-public "hashCode"(): integer
-public "components"(): ($RecordTypeInfo$Component)[]
-public "defaultArguments"(): (any)[]
-public "componentMap"(): $Map<(StringJS), ($RecordTypeInfo$Component)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $RecordTypeInfo$Data$$Type = ({"components"?: ($RecordTypeInfo$Component$$Type)[], "componentMap"?: $Map$$Type<(StringJS), ($RecordTypeInfo$Component$$Type)>, "defaultArguments"?: (any)[]}) | ([components?: ($RecordTypeInfo$Component$$Type)[], componentMap?: $Map$$Type<(StringJS), ($RecordTypeInfo$Component$$Type)>, defaultArguments?: (any)[]]);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $RecordTypeInfo$Data$$Original = $RecordTypeInfo$Data;}
 declare module "dev.latvian.mods.rhino.CachedExecutableInfo" {
-import {$TypeInfo} from "dev.latvian.mods.rhino.type.TypeInfo"
 import {$Executable$$Type} from "java.lang.reflect.Executable"
+import {$TypeInfo} from "dev.latvian.mods.rhino.type.TypeInfo"
 import {$StringBuilder$$Type} from "java.lang.StringBuilder"
 import {$CachedClassInfo, $CachedClassInfo$$Type} from "dev.latvian.mods.rhino.CachedClassInfo"
-import {$CachedMemberInfo} from "dev.latvian.mods.rhino.CachedMemberInfo"
-import {$AccessibleObject} from "java.lang.reflect.AccessibleObject"
 import {$CachedParameters, $CachedParameters$$Type} from "dev.latvian.mods.rhino.CachedParameters"
+import {$AccessibleObject} from "java.lang.reflect.AccessibleObject"
+import {$CachedMemberInfo} from "dev.latvian.mods.rhino.CachedMemberInfo"
 import {$Scriptable$$Type} from "dev.latvian.mods.rhino.Scriptable"
 import {$MethodSignature} from "dev.latvian.mods.rhino.MethodSignature"
 
@@ -232,8 +98,8 @@ public "getReturnType"(): $TypeInfo
 public "getParameters"(): $CachedParameters
 public "getSignature"(): $MethodSignature
 public "getCached"(): $AccessibleObject
-public "transformArgs"(arg1: any, arg2: $CachedParameters$$Type, arg3: (any)[]): (any)[]
 public "appendDebugParams"(arg0: $StringBuilder$$Type): void
+public "transformArgs"(arg1: any, arg2: $CachedParameters$$Type, arg3: (any)[]): (any)[]
 get "returnType"(): $TypeInfo
 get "parameters"(): $CachedParameters
 get "signature"(): $MethodSignature
@@ -249,15 +115,15 @@ export type $CachedExecutableInfo$$Type = ($CachedExecutableInfo);
  */
 export type $CachedExecutableInfo$$Original = $CachedExecutableInfo;}
 declare module "dev.latvian.mods.rhino.type.TypeInfo" {
-import {$StringBuilder$$Type} from "java.lang.StringBuilder"
 import {$Collection$$Type} from "java.util.Collection"
+import {$StringBuilder$$Type} from "java.lang.StringBuilder"
 import {$Map, $Map$$Type} from "java.util.Map"
 import {$List} from "java.util.List"
 import {$TypeStringContext$$Type} from "dev.latvian.mods.rhino.type.TypeStringContext"
 import {$TypeVariable$$Type} from "java.lang.reflect.TypeVariable"
 import {$VariableTypeInfo, $VariableTypeInfo$$Type} from "dev.latvian.mods.rhino.type.VariableTypeInfo"
-import {$Type$$Type} from "java.lang.reflect.Type"
 import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$Type$$Type} from "java.lang.reflect.Type"
 import {$Set} from "java.util.Set"
 import {$Class, $Class$$Type} from "java.lang.Class"
 import {$RecordTypeInfo$Component} from "dev.latvian.mods.rhino.type.RecordTypeInfo$Component"
@@ -265,18 +131,18 @@ import {$RecordTypeInfo$Component} from "dev.latvian.mods.rhino.type.RecordTypeI
 export interface $TypeInfo$$Interface {
 
 (): $Class$$Type<(never)>
-get "double"(): boolean
-get "byte"(): boolean
-get "int"(): boolean
 get "primitive"(): boolean
 get "void"(): boolean
 get "character"(): boolean
 get "float"(): boolean
-get "boolean"(): boolean
-get "functionalInterface"(): boolean
-get "long"(): boolean
-get "short"(): boolean
 get "containedComponentClasses"(): $Set<($Class<(never)>)>
+get "long"(): boolean
+get "functionalInterface"(): boolean
+get "double"(): boolean
+get "byte"(): boolean
+get "int"(): boolean
+get "boolean"(): boolean
+get "short"(): boolean
 }
 
 export class $TypeInfo implements $TypeInfo$$Interface {
@@ -328,20 +194,15 @@ static readonly "OBJECT_ARRAY": $TypeInfo
 static readonly "VOID": $TypeInfo
 static readonly "PRIMITIVE_LONG": $TypeInfo
 
- "asClass"(): $Class<(never)>
- "isDouble"(): boolean
- "isByte"(): boolean
- "isInt"(): boolean
-static "safeOf"(arg0: $Supplier$$Type<($Type$$Type)>): $TypeInfo
 static "ofArray"(arg0: ($Type$$Type)[]): ($TypeInfo)[]
  "signature"(): StringJS
  "append"(arg0: $TypeStringContext$$Type, arg1: $StringBuilder$$Type): void
  "isPrimitive"(): boolean
  "newArray"(arg0: integer): any
  "componentType"(): $TypeInfo
-static "of"(arg0: $Type$$Type): $TypeInfo
 static "of"(arg0: $Class$$Type<(never)>): $TypeInfo
 static "of"(arg0: $TypeVariable$$Type<(never)>): $VariableTypeInfo
+static "of"(arg0: $Type$$Type): $TypeInfo
  "enumConstants"(): $List<(any)>
  "param"(arg0: integer): $TypeInfo
  "isVoid"(): boolean
@@ -350,18 +211,23 @@ static "of"(arg0: $TypeVariable$$Type<(never)>): $VariableTypeInfo
  "isCharacter"(): boolean
  "isFloat"(): boolean
  "asArray"(): $TypeInfo
- "isBoolean"(): boolean
- "withParams"(...arg0: ($TypeInfo$$Type)[]): $TypeInfo
- "recordComponents"(): $Map<(StringJS), ($RecordTypeInfo$Component)>
- "isFunctionalInterface"(): boolean
- "isLong"(): boolean
- "isShort"(): boolean
- "getContainedComponentClasses"(): $Set<($Class<(never)>)>
- "collectContainedComponentClasses"(arg0: $Collection$$Type<($Class$$Type<(never)>)>): void
- "shouldConvert"(): boolean
+static "safeOfArray"(arg0: $Supplier$$Type<(($Type$$Type)[])>): ($TypeInfo)[]
  "createDefaultValue"(): any
  "consolidate"(arg0: $Map$$Type<($VariableTypeInfo$$Type), ($TypeInfo$$Type)>): $TypeInfo
-static "safeOfArray"(arg0: $Supplier$$Type<(($Type$$Type)[])>): ($TypeInfo)[]
+ "shouldConvert"(): boolean
+ "getContainedComponentClasses"(): $Set<($Class<(never)>)>
+ "collectContainedComponentClasses"(arg0: $Collection$$Type<($Class$$Type<(never)>)>): void
+ "isLong"(): boolean
+ "recordComponents"(): $Map<(StringJS), ($RecordTypeInfo$Component)>
+ "isFunctionalInterface"(): boolean
+ "isDouble"(): boolean
+ "asClass"(): $Class<(never)>
+static "safeOf"(arg0: $Supplier$$Type<($Type$$Type)>): $TypeInfo
+ "isByte"(): boolean
+ "isInt"(): boolean
+ "isBoolean"(): boolean
+ "isShort"(): boolean
+ "withParams"(...arg0: ($TypeInfo$$Type)[]): $TypeInfo
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -372,95 +238,6 @@ export type $TypeInfo$$Type = (() => $Class$$Type<(never)>);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $TypeInfo$$Original = $TypeInfo;}
-declare module "dev.latvian.mods.rhino.SymbolScriptable" {
-import {$Symbol$$Type} from "dev.latvian.mods.rhino.Symbol"
-import {$Scriptable$$Type} from "dev.latvian.mods.rhino.Scriptable"
-
-export interface $SymbolScriptable$$Interface {
-}
-
-export class $SymbolScriptable implements $SymbolScriptable$$Interface {
- "get"(arg1: $Symbol$$Type, arg2: $Scriptable$$Type): any
- "put"(arg1: $Symbol$$Type, arg2: $Scriptable$$Type, arg3: any): void
- "delete"(arg1: $Symbol$$Type): void
- "has"(arg1: $Symbol$$Type, arg2: $Scriptable$$Type): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $SymbolScriptable$$Type = ($SymbolScriptable);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $SymbolScriptable$$Original = $SymbolScriptable;}
-declare module "dev.latvian.mods.rhino.EvaluatorException" {
-import {$RhinoException} from "dev.latvian.mods.rhino.RhinoException"
-
-export class $EvaluatorException extends $RhinoException {
-constructor(arg1: StringJS)
-constructor(arg1: StringJS, arg2: StringJS, arg3: integer)
-constructor(arg1: StringJS, arg2: StringJS, arg3: integer, arg4: StringJS, arg5: integer)
-
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $EvaluatorException$$Type = ($EvaluatorException);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $EvaluatorException$$Original = $EvaluatorException;}
-declare module "dev.latvian.mods.rhino.CachedMemberInfo" {
-import {$CachedClassInfo, $CachedClassInfo$$Type} from "dev.latvian.mods.rhino.CachedClassInfo"
-import {$AccessibleObject, $AccessibleObject$$Type} from "java.lang.reflect.AccessibleObject"
-
-export class $CachedMemberInfo {
-readonly "originalName": StringJS
-readonly "parent": $CachedClassInfo
-readonly "isStatic": boolean
-readonly "isFinal": boolean
-readonly "modifiers": integer
-readonly "isNative": boolean
-
-constructor(arg0: $CachedClassInfo$$Type, arg1: $AccessibleObject$$Type, arg2: StringJS, arg3: integer)
-
-public "getName"(): StringJS
-public "toString"(): StringJS
-public "getDeclaringClass"(): $CachedClassInfo
-public "getCached"(): $AccessibleObject
-get "name"(): StringJS
-get "declaringClass"(): $CachedClassInfo
-get "cached"(): $AccessibleObject
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $CachedMemberInfo$$Type = ($CachedMemberInfo);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $CachedMemberInfo$$Original = $CachedMemberInfo;}
-declare module "dev.latvian.mods.rhino.util.SpecialEquality" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-export interface $SpecialEquality$$Interface {
-}
-
-export class $SpecialEquality implements $SpecialEquality$$Interface {
-static "checkSpecialEquality"(arg1: any, arg2: any, arg3: boolean): boolean
- "specialEquals"(arg1: any, arg2: boolean): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $SpecialEquality$$Type = ($SpecialEquality);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $SpecialEquality$$Original = $SpecialEquality;}
 declare module "dev.latvian.mods.rhino.util.wrap.TypeWrapperFactory" {
 import {$TypeInfo, $TypeInfo$$Type} from "dev.latvian.mods.rhino.type.TypeInfo"
 
@@ -481,28 +258,6 @@ export type $TypeWrapperFactory$$Type<T> = ((arg1: any, arg2: $TypeInfo) => T);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $TypeWrapperFactory$$Original<T> = $TypeWrapperFactory<(T)>;}
-declare module "dev.latvian.mods.rhino.IdFunctionCall" {
-import {$Context, $Context$$Type} from "dev.latvian.mods.rhino.Context"
-import {$Scriptable, $Scriptable$$Type} from "dev.latvian.mods.rhino.Scriptable"
-import {$IdFunctionObject, $IdFunctionObject$$Type} from "dev.latvian.mods.rhino.IdFunctionObject"
-
-export interface $IdFunctionCall$$Interface {
-
-(arg0: $IdFunctionObject, arg1: $Context, arg2: $Scriptable, arg3: $Scriptable, arg4: (any)[]): any
-}
-
-export class $IdFunctionCall implements $IdFunctionCall$$Interface {
- "execIdCall"(arg0: $IdFunctionObject$$Type, arg1: $Context$$Type, arg2: $Scriptable$$Type, arg3: $Scriptable$$Type, arg4: (any)[]): any
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $IdFunctionCall$$Type = ((arg0: $IdFunctionObject, arg1: $Context, arg2: $Scriptable, arg3: $Scriptable, arg4: (any)[]) => any);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $IdFunctionCall$$Original = $IdFunctionCall;}
 declare module "dev.latvian.mods.rhino.ErrorReporter" {
 import {$EvaluatorException} from "dev.latvian.mods.rhino.EvaluatorException"
 
@@ -544,63 +299,6 @@ export type $CustomJavaToJsWrapper$$Type = ((arg1: $Scriptable, arg2: $TypeInfo)
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $CustomJavaToJsWrapper$$Original = $CustomJavaToJsWrapper;}
-declare module "dev.latvian.mods.rhino.CachedFieldInfo" {
-import {$TypeInfo} from "dev.latvian.mods.rhino.type.TypeInfo"
-import {$CachedClassInfo, $CachedClassInfo$$Type} from "dev.latvian.mods.rhino.CachedClassInfo"
-import {$CachedMemberInfo} from "dev.latvian.mods.rhino.CachedMemberInfo"
-import {$Field, $Field$$Type} from "java.lang.reflect.Field"
-
-export class $CachedFieldInfo extends $CachedMemberInfo {
-readonly "originalName": StringJS
-readonly "parent": $CachedClassInfo
-readonly "isStatic": boolean
-readonly "isFinal": boolean
-readonly "modifiers": integer
-readonly "isNative": boolean
-
-constructor(arg0: $CachedClassInfo$$Type, arg1: $Field$$Type)
-
-public "get"(arg1: any): any
-public "set"(arg1: any, arg2: any): void
-public "getType"(): $TypeInfo
-public "getCached"(): $Field
-get "type"(): $TypeInfo
-get "cached"(): $Field
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $CachedFieldInfo$$Type = ($CachedFieldInfo);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $CachedFieldInfo$$Original = $CachedFieldInfo;}
-declare module "dev.latvian.mods.rhino.type.TypeStringContext" {
-import {$TypeInfo$$Type} from "dev.latvian.mods.rhino.type.TypeInfo"
-import {$StringBuilder$$Type} from "java.lang.StringBuilder"
-import {$ClassTypeInfo$$Type} from "dev.latvian.mods.rhino.type.ClassTypeInfo"
-
-export interface $TypeStringContext$$Interface {
-}
-
-export class $TypeStringContext implements $TypeStringContext$$Interface {
-static readonly "DEFAULT": $TypeStringContext
-
- "toString"(arg0: $TypeInfo$$Type): StringJS
- "append"(arg0: $StringBuilder$$Type, arg1: $TypeInfo$$Type): void
- "appendSpace"(arg0: $StringBuilder$$Type): void
- "appendClassName"(arg0: $StringBuilder$$Type, arg1: $ClassTypeInfo$$Type): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $TypeStringContext$$Type = ($TypeStringContext);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $TypeStringContext$$Original = $TypeStringContext;}
 declare module "dev.latvian.mods.rhino.type.ClassTypeInfo" {
 import {$TypeInfo} from "dev.latvian.mods.rhino.type.TypeInfo"
 import {$TypeVariable$$Type} from "java.lang.reflect.TypeVariable"
@@ -614,10 +312,6 @@ import {$Class, $Class$$Type} from "java.lang.Class"
 import {$TypeStringContext$$Type} from "dev.latvian.mods.rhino.type.TypeStringContext"
 
 export class $ClassTypeInfo extends $TypeInfoBase {
-public "asClass"(): $Class<(never)>
-public "isDouble"(): boolean
-public "isByte"(): boolean
-public "isInt"(): boolean
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "append"(arg0: $TypeStringContext$$Type, arg1: $StringBuilder$$Type): void
@@ -625,27 +319,31 @@ public "hashCode"(): integer
 public "isVoid"(): boolean
 public "isCharacter"(): boolean
 public "isFloat"(): boolean
-public "isBoolean"(): boolean
-public "isLong"(): boolean
-public "isShort"(): boolean
-public "getContainedComponentClasses"(): $Set<($Class<(never)>)>
 public "shouldConvert"(): boolean
-public static "safeOf"(arg0: $Supplier$$Type<($Type$$Type)>): $TypeInfo
+public "getContainedComponentClasses"(): $Set<($Class<(never)>)>
+public "isLong"(): boolean
+public "isDouble"(): boolean
+public "asClass"(): $Class<(never)>
+public "isByte"(): boolean
+public "isInt"(): boolean
+public "isBoolean"(): boolean
+public "isShort"(): boolean
 public static "ofArray"(arg0: ($Type$$Type)[]): ($TypeInfo)[]
-public static "of"(arg0: $Type$$Type): $TypeInfo
 public static "of"(arg0: $Class$$Type<(never)>): $TypeInfo
 public static "of"(arg0: $TypeVariable$$Type<(never)>): $VariableTypeInfo
+public static "of"(arg0: $Type$$Type): $TypeInfo
 public static "safeOfArray"(arg0: $Supplier$$Type<(($Type$$Type)[])>): ($TypeInfo)[]
-get "double"(): boolean
-get "byte"(): boolean
-get "int"(): boolean
+public static "safeOf"(arg0: $Supplier$$Type<($Type$$Type)>): $TypeInfo
 get "void"(): boolean
 get "character"(): boolean
 get "float"(): boolean
-get "boolean"(): boolean
-get "long"(): boolean
-get "short"(): boolean
 get "containedComponentClasses"(): $Set<($Class<(never)>)>
+get "long"(): boolean
+get "double"(): boolean
+get "byte"(): boolean
+get "int"(): boolean
+get "boolean"(): boolean
+get "short"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -656,39 +354,6 @@ export type $ClassTypeInfo$$Type = ($ClassTypeInfo);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ClassTypeInfo$$Original = $ClassTypeInfo;}
-declare module "dev.latvian.mods.rhino.util.ArrayValueProvider" {
-import {$NativeArray$$Type} from "dev.latvian.mods.rhino.NativeArray"
-import {$Iterable$$Type} from "java.lang.Iterable"
-import {$TypeInfo$$Type} from "dev.latvian.mods.rhino.type.TypeInfo"
-import {$List$$Type} from "java.util.List"
-
-export interface $ArrayValueProvider$$Interface {
-get "length"(): integer
-get "errorSource"(): any
-}
-
-export class $ArrayValueProvider implements $ArrayValueProvider$$Interface {
-static readonly "EMPTY": $ArrayValueProvider
-
- "getLength"(): integer
- "createList"(arg1: $TypeInfo$$Type): any
-static "fromIterable"(arg0: $Iterable$$Type<(never)>): $ArrayValueProvider
- "getArrayValue"(arg1: integer): any
- "getErrorSource"(): any
- "createSet"(arg1: $TypeInfo$$Type): any
-static "fromNativeArray"(arg0: $NativeArray$$Type): $ArrayValueProvider
- "createArray"(arg1: $TypeInfo$$Type): any
-static "fromJavaList"(arg0: $List$$Type<(never)>, arg1: any): $ArrayValueProvider
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ArrayValueProvider$$Type = ($ArrayValueProvider);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ArrayValueProvider$$Original = $ArrayValueProvider;}
 declare module "dev.latvian.mods.rhino.CachedClassStorage" {
 import {$Member$$Type} from "java.lang.reflect.Member"
 import {$CachedClassInfo} from "dev.latvian.mods.rhino.CachedClassInfo"
@@ -702,9 +367,9 @@ readonly "objectClass": $CachedClassInfo
 
 constructor(arg0: boolean)
 
-public "isVisible"(arg0: integer): boolean
 public "include"(arg0: $Class$$Type<(never)>, arg1: $Member$$Type): boolean
 public "get"(arg0: $Class$$Type<(never)>): $CachedClassInfo
+public "isVisible"(arg0: integer): boolean
 public "getDebugClassName"(arg0: $Class$$Type<(never)>): StringJS
 }
 /**
@@ -759,137 +424,6 @@ export type $CachedFieldInfo$Accessible$$Type = ($CachedFieldInfo$Accessible);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $CachedFieldInfo$Accessible$$Original = $CachedFieldInfo$Accessible;}
-declare module "dev.latvian.mods.rhino.type.JSFixedArrayTypeInfo" {
-import {$StringBuilder$$Type} from "java.lang.StringBuilder"
-import {$Collection$$Type} from "java.util.Collection"
-import {$Map, $Map$$Type} from "java.util.Map"
-import {$List, $List$$Type} from "java.util.List"
-import {$TypeStringContext$$Type} from "dev.latvian.mods.rhino.type.TypeStringContext"
-import {$TypeInfo, $TypeInfo$$Type, $TypeInfo$$Interface} from "dev.latvian.mods.rhino.type.TypeInfo"
-import {$TypeVariable$$Type} from "java.lang.reflect.TypeVariable"
-import {$VariableTypeInfo, $VariableTypeInfo$$Type} from "dev.latvian.mods.rhino.type.VariableTypeInfo"
-import {$Type$$Type} from "java.lang.reflect.Type"
-import {$Supplier$$Type} from "java.util.function.Supplier"
-import {$JSOptionalParam, $JSOptionalParam$$Type} from "dev.latvian.mods.rhino.type.JSOptionalParam"
-import {$Set} from "java.util.Set"
-import {$Class, $Class$$Type} from "java.lang.Class"
-import {$RecordTypeInfo$Component} from "dev.latvian.mods.rhino.type.RecordTypeInfo$Component"
-import {$Record} from "java.lang.Record"
-
-export class $JSFixedArrayTypeInfo extends $Record implements $TypeInfo$$Interface {
-constructor(types: $List$$Type<($JSOptionalParam$$Type)>)
-
-public "asClass"(): $Class<(never)>
-public "equals"(arg0: any): boolean
-public "toString"(): StringJS
-public "append"(arg0: $TypeStringContext$$Type, arg1: $StringBuilder$$Type): void
-public "hashCode"(): integer
-public "types"(): $List<($JSOptionalParam)>
-public "collectContainedComponentClasses"(arg0: $Collection$$Type<($Class$$Type<(never)>)>): void
-public "isDouble"(): boolean
-public "isByte"(): boolean
-public "isInt"(): boolean
-public static "safeOf"(arg0: $Supplier$$Type<($Type$$Type)>): $TypeInfo
-public static "ofArray"(arg0: ($Type$$Type)[]): ($TypeInfo)[]
-public "signature"(): StringJS
-public "isPrimitive"(): boolean
-public "newArray"(arg0: integer): any
-public "componentType"(): $TypeInfo
-public static "of"(arg0: $Type$$Type): $TypeInfo
-public static "of"(arg0: $Class$$Type<(never)>): $TypeInfo
-public static "of"(arg0: $TypeVariable$$Type<(never)>): $VariableTypeInfo
-public "enumConstants"(): $List<(any)>
-public "param"(arg0: integer): $TypeInfo
-public "isVoid"(): boolean
-public "is"(arg0: $TypeInfo$$Type): boolean
-public "or"(arg0: $TypeInfo$$Type): $TypeInfo
-public "isCharacter"(): boolean
-public "isFloat"(): boolean
-public "asArray"(): $TypeInfo
-public "isBoolean"(): boolean
-public "withParams"(...arg0: ($TypeInfo$$Type)[]): $TypeInfo
-public "recordComponents"(): $Map<(StringJS), ($RecordTypeInfo$Component)>
-public "isFunctionalInterface"(): boolean
-public "isLong"(): boolean
-public "isShort"(): boolean
-public "getContainedComponentClasses"(): $Set<($Class<(never)>)>
-public "shouldConvert"(): boolean
-public "createDefaultValue"(): any
-public "consolidate"(arg0: $Map$$Type<($VariableTypeInfo$$Type), ($TypeInfo$$Type)>): $TypeInfo
-public static "safeOfArray"(arg0: $Supplier$$Type<(($Type$$Type)[])>): ($TypeInfo)[]
-get "double"(): boolean
-get "byte"(): boolean
-get "int"(): boolean
-get "primitive"(): boolean
-get "void"(): boolean
-get "character"(): boolean
-get "float"(): boolean
-get "boolean"(): boolean
-get "functionalInterface"(): boolean
-get "long"(): boolean
-get "short"(): boolean
-get "containedComponentClasses"(): $Set<($Class<(never)>)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $JSFixedArrayTypeInfo$$Type = ({"types"?: $List$$Type<($JSOptionalParam$$Type)>}) | ([types?: $List$$Type<($JSOptionalParam$$Type)>]);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $JSFixedArrayTypeInfo$$Original = $JSFixedArrayTypeInfo;}
-declare module "dev.latvian.mods.rhino.Function" {
-import {$Callable$$Interface} from "dev.latvian.mods.rhino.Callable"
-import {$MemberType} from "dev.latvian.mods.rhino.MemberType"
-import {$DefaultValueTypeHint$$Type} from "dev.latvian.mods.rhino.util.DefaultValueTypeHint"
-import {$Scriptable, $Scriptable$$Type, $Scriptable$$Interface} from "dev.latvian.mods.rhino.Scriptable"
-import {$Consumer$$Type} from "java.util.function.Consumer"
-
-export interface $Function$$Interface extends $Scriptable$$Interface, $Callable$$Interface {
-get "typeOf"(): $MemberType
-get "ids"(): (any)[]
-get "allIds"(): (any)[]
-get "className"(): StringJS
-set "prototype"(value: $Scriptable$$Type)
-get "prototype"(): $Scriptable
-get "parentScope"(): $Scriptable
-set "parentScope"(value: $Scriptable$$Type)
-}
-
-export class $Function implements $Function$$Interface {
- "call"(arg1: $Scriptable$$Type, arg2: $Scriptable$$Type, arg3: (any)[]): any
- "construct"(arg1: $Scriptable$$Type, arg2: (any)[]): $Scriptable
- "getTypeOf"(): $MemberType
- "getIds"(): (any)[]
- "getAllIds"(): (any)[]
- "get"(arg1: StringJS, arg2: $Scriptable$$Type): any
- "get"(arg1: integer, arg2: $Scriptable$$Type): any
- "put"(arg1: integer, arg2: $Scriptable$$Type, arg3: any): void
- "put"(arg1: StringJS, arg2: $Scriptable$$Type, arg3: any): void
- "delete"(arg1: integer): void
- "delete"(arg1: StringJS): void
- "getDefaultValue"(arg1: $DefaultValueTypeHint$$Type): any
- "getClassName"(): StringJS
- "has"(arg1: integer, arg2: $Scriptable$$Type): boolean
- "has"(arg1: StringJS, arg2: $Scriptable$$Type): boolean
- "enumerationIteratorHasNext"(arg1: $Consumer$$Type<(any)>): boolean
- "enumerationIteratorNext"(arg1: $Consumer$$Type<(any)>): boolean
- "setPrototype"(arg0: $Scriptable$$Type): void
- "hasInstance"(arg1: $Scriptable$$Type): boolean
- "getPrototype"(): $Scriptable
- "getParentScope"(): $Scriptable
- "setParentScope"(arg0: $Scriptable$$Type): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Function$$Type = ($Function);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Function$$Original = $Function;}
 declare module "dev.latvian.mods.rhino.BaseFunction" {
 import {$MemberType} from "dev.latvian.mods.rhino.MemberType"
 import {$Context$$Type} from "dev.latvian.mods.rhino.Context"
@@ -911,41 +445,41 @@ constructor()
 constructor(arg0: boolean)
 constructor(arg0: $Scriptable$$Type, arg1: $Scriptable$$Type)
 
-public "setImmunePrototypeProperty"(arg0: any): void
-public "getTypeOf"(): $MemberType
 public "toString"(): StringJS
 public "getLength"(): integer
 public "call"(arg1: $Scriptable$$Type, arg2: $Scriptable$$Type, arg3: (any)[]): any
 public "getClassName"(): StringJS
 public "createObject"(arg1: $Scriptable$$Type): $Scriptable
 public "execIdCall"(arg0: $IdFunctionObject$$Type, arg1: $Context$$Type, arg2: $Scriptable$$Type, arg3: $Scriptable$$Type, arg4: (any)[]): any
-public "construct"(arg1: $Scriptable$$Type, arg2: (any)[]): $Scriptable
-public "hasInstance"(arg1: $Scriptable$$Type): boolean
 public "getArity"(): integer
+public "construct"(arg1: $Scriptable$$Type, arg2: (any)[]): $Scriptable
+public "getTypeOf"(): $MemberType
+public "hasInstance"(arg1: $Scriptable$$Type): boolean
 public "getFunctionName"(): StringJS
-public "getIds"(): (any)[]
-public "getAllIds"(): (any)[]
+public "setImmunePrototypeProperty"(arg0: any): void
 public "get"(arg1: integer, arg2: $Scriptable$$Type): any
 public "put"(arg1: integer, arg2: $Scriptable$$Type, arg3: any): void
 public "delete"(arg1: integer): void
 public "getDefaultValue"(arg1: $DefaultValueTypeHint$$Type): any
 public "has"(arg1: integer, arg2: $Scriptable$$Type): boolean
-public "setPrototype"(arg0: $Scriptable$$Type): void
-public "getPrototype"(): $Scriptable
-public "getParentScope"(): $Scriptable
 public "setParentScope"(arg0: $Scriptable$$Type): void
-set "immunePrototypeProperty"(value: any)
-get "typeOf"(): $MemberType
+public "getParentScope"(): $Scriptable
+public "getAllIds"(): (any)[]
+public "getPrototype"(): $Scriptable
+public "setPrototype"(arg0: $Scriptable$$Type): void
+public "getIds"(): (any)[]
 get "length"(): integer
 get "className"(): StringJS
 get "arity"(): integer
+get "typeOf"(): $MemberType
 get "functionName"(): StringJS
-get "ids"(): (any)[]
-get "allIds"(): (any)[]
-set "prototype"(value: $Scriptable$$Type)
-get "prototype"(): $Scriptable
-get "parentScope"(): $Scriptable
+set "immunePrototypeProperty"(value: any)
 set "parentScope"(value: $Scriptable$$Type)
+get "parentScope"(): $Scriptable
+get "allIds"(): (any)[]
+get "prototype"(): $Scriptable
+set "prototype"(value: $Scriptable$$Type)
+get "ids"(): (any)[]
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -956,261 +490,46 @@ export type $BaseFunction$$Type = ($BaseFunction);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $BaseFunction$$Original = $BaseFunction;}
-declare module "dev.latvian.mods.rhino.type.RecordTypeInfo" {
-import {$JSObjectTypeInfo} from "dev.latvian.mods.rhino.type.JSObjectTypeInfo"
-import {$Map, $Map$$Type} from "java.util.Map"
-import {$TypeWrapperFactory$$Interface} from "dev.latvian.mods.rhino.util.wrap.TypeWrapperFactory"
-import {$JSFixedArrayTypeInfo} from "dev.latvian.mods.rhino.type.JSFixedArrayTypeInfo"
-import {$TypeInfo, $TypeInfo$$Type} from "dev.latvian.mods.rhino.type.TypeInfo"
-import {$TypeVariable$$Type} from "java.lang.reflect.TypeVariable"
-import {$VariableTypeInfo} from "dev.latvian.mods.rhino.type.VariableTypeInfo"
-import {$Type$$Type} from "java.lang.reflect.Type"
-import {$Supplier$$Type} from "java.util.function.Supplier"
-import {$ClassTypeInfo} from "dev.latvian.mods.rhino.type.ClassTypeInfo"
-import {$Class$$Type} from "java.lang.Class"
-import {$RecordTypeInfo$Component} from "dev.latvian.mods.rhino.type.RecordTypeInfo$Component"
-import {$RecordTypeInfo$Data} from "dev.latvian.mods.rhino.type.RecordTypeInfo$Data"
-
-export class $RecordTypeInfo extends $ClassTypeInfo implements $TypeWrapperFactory$$Interface<(any)> {
-public "wrap"(arg1: any, arg2: $TypeInfo$$Type): any
-public "getData"(): $RecordTypeInfo$Data
-public "createInstance"(...arg1: (any)[]): any
-public "createInstance"(arg1: $Map$$Type<(never), (never)>): any
-public "getObjectTypeInfo"(): $JSObjectTypeInfo
-public "createCombinedType"(...arg0: ($TypeInfo$$Type)[]): $TypeInfo
-public "getArrayTypeInfo"(): $JSFixedArrayTypeInfo
-public "recordComponents"(): $Map<(StringJS), ($RecordTypeInfo$Component)>
-public static "setGlobalDefaultValue"<T>(arg0: $Class$$Type<(T)>, arg1: T): void
-public static "safeOf"(arg0: $Supplier$$Type<($Type$$Type)>): $TypeInfo
-public static "ofArray"(arg0: ($Type$$Type)[]): ($TypeInfo)[]
-public static "of"(arg0: $Type$$Type): $TypeInfo
-public static "of"(arg0: $Class$$Type<(never)>): $TypeInfo
-public static "of"(arg0: $TypeVariable$$Type<(never)>): $VariableTypeInfo
-public static "safeOfArray"(arg0: $Supplier$$Type<(($Type$$Type)[])>): ($TypeInfo)[]
-get "data"(): $RecordTypeInfo$Data
-get "objectTypeInfo"(): $JSObjectTypeInfo
-get "arrayTypeInfo"(): $JSFixedArrayTypeInfo
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $RecordTypeInfo$$Type = ($RecordTypeInfo);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $RecordTypeInfo$$Original = $RecordTypeInfo;}
-declare module "dev.latvian.mods.rhino.util.ToStringJS" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-export interface $ToStringJS$$Interface {
-}
-
-export class $ToStringJS implements $ToStringJS$$Interface {
-static "toStringJS"(arg1: any): StringJS
- "toStringJS"(): StringJS
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ToStringJS$$Type = ($ToStringJS);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ToStringJS$$Original = $ToStringJS;}
-declare module "dev.latvian.mods.rhino.Context" {
-import {$ContextFactory, $ContextFactory$$Type} from "dev.latvian.mods.rhino.ContextFactory"
-import {$Map} from "java.util.Map"
-import {$EvaluatorException} from "dev.latvian.mods.rhino.EvaluatorException"
-import {$Reader$$Type} from "java.io.Reader"
-import {$ErrorReporter} from "dev.latvian.mods.rhino.ErrorReporter"
-import {$List} from "java.util.List"
-import {$TypeInfo$$Type} from "dev.latvian.mods.rhino.type.TypeInfo"
-import {$Script} from "dev.latvian.mods.rhino.Script"
-import {$Callable$$Type} from "dev.latvian.mods.rhino.Callable"
-import {$CachedClassStorage} from "dev.latvian.mods.rhino.CachedClassStorage"
-import {$ScriptableObject, $ScriptableObject$$Type} from "dev.latvian.mods.rhino.ScriptableObject"
-import {$ArrayValueProvider} from "dev.latvian.mods.rhino.util.ArrayValueProvider"
-import {$Class$$Type} from "java.lang.Class"
-import {$Throwable$$Type} from "java.lang.Throwable"
-import {$Scriptable, $Scriptable$$Type} from "dev.latvian.mods.rhino.Scriptable"
-import {$ClassLoader, $ClassLoader$$Type} from "java.lang.ClassLoader"
-import {$ClassVisibilityContext$$Type} from "dev.latvian.mods.rhino.util.ClassVisibilityContext"
-import {$RegExp} from "dev.latvian.mods.rhino.regexp.RegExp"
-import {$RuntimeException} from "java.lang.RuntimeException"
-import {$GeneratedClassLoader} from "dev.latvian.mods.rhino.GeneratedClassLoader"
-
-export class $Context {
-static readonly "JSTYPE_JAVA_CLASS": integer
-readonly "factory": $ContextFactory
-static readonly "JSTYPE_JAVA_ARRAY": integer
-static readonly "CONVERSION_TRIVIAL": integer
-static readonly "CONVERSION_NONE": integer
- "generateObserverCount": boolean
-static readonly "CONVERSION_EXACT": integer
-static readonly "JSTYPE_BOOLEAN": integer
-static readonly "JSTYPE_UNDEFINED": integer
-static readonly "JSTYPE_OBJECT": integer
-readonly "lock": any
-static readonly "JSTYPE_STRING": integer
-static readonly "JSTYPE_NULL": integer
-static readonly "JSTYPE_JAVA_OBJECT": integer
-static readonly "JSTYPE_NUMBER": integer
-
-constructor(arg0: $ContextFactory$$Type)
-
-public "callSync"(arg0: $Callable$$Type, arg1: $Scriptable$$Type, arg2: $Scriptable$$Type, arg3: (any)[]): any
-public "isListLike"(arg0: any): boolean
-public "mapOf"(arg0: any, arg1: $TypeInfo$$Type, arg2: $TypeInfo$$Type): any
-public "javaToJS"(arg0: any, arg1: $Scriptable$$Type, arg2: $TypeInfo$$Type): any
-public "javaToJS"(arg0: any, arg1: $Scriptable$$Type): any
-public "jsToJava"(arg0: any, arg1: $TypeInfo$$Type): any
-public "setOf"(arg0: any, arg1: $TypeInfo$$Type): any
-public "setTopCall"(arg0: $Scriptable$$Type): void
-public "isMapLike"(arg0: any): boolean
-public "classOf"(arg0: any): any
-public "doTopCall"(arg0: $Scriptable$$Type, arg1: $Callable$$Type, arg2: $Scriptable$$Type, arg3: (any)[], arg4: boolean): any
-public "wrapAny"(arg0: $Scriptable$$Type, arg1: any): any
-public "addToScope"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: any): void
-public "toString"(arg0: any): StringJS
-public "newArray"(arg0: $Scriptable$$Type, arg1: (any)[]): $Scriptable
-public "newArray"(arg0: $Scriptable$$Type, arg1: integer): $Scriptable
-public "wrap"(arg0: $Scriptable$$Type, arg1: any): any
-public "wrap"(arg0: $Scriptable$$Type, arg1: any, arg2: $TypeInfo$$Type): any
-public "canConvert"(arg0: any, arg1: $TypeInfo$$Type): boolean
-public "getImplementationVersion"(): StringJS
-public static "reportError"(arg1: StringJS): void
-public static "reportError"(arg1: StringJS, arg2: integer, arg3: StringJS, arg4: integer, arg5: StringJS): void
-public "toBoolean"(arg0: any): boolean
-public "arrayOf"(arg0: any, arg1: $TypeInfo$$Type): any
-public "createClassLoader"(arg0: $ClassLoader$$Type): $GeneratedClassLoader
-public static "getSourcePositionFromStack"(arg1: (integer)[]): StringJS
-public "initStandardObjects"(): $ScriptableObject
-public "initStandardObjects"(arg0: $ScriptableObject$$Type): $Scriptable
-public "initStandardObjects"(arg0: $ScriptableObject$$Type, arg1: boolean): $ScriptableObject
-public "initSafeStandardObjects"(arg0: $ScriptableObject$$Type, arg1: boolean): $ScriptableObject
-public "initSafeStandardObjects"(arg0: $ScriptableObject$$Type): $Scriptable
-public "initSafeStandardObjects"(): $ScriptableObject
-public "setGenerateObserverCount"(arg0: boolean): void
-public "internalConversionWeight"(arg0: any, arg1: $TypeInfo$$Type): integer
-public static "reportRuntimeError4"(arg0: StringJS, arg1: any, arg2: any, arg3: any, arg4: any, arg5: $Context$$Type): $EvaluatorException
-public "lastStoredScriptable"(): $Scriptable
-public "reportConversionError"(arg0: any, arg1: $TypeInfo$$Type): any
-public static "reportRuntimeError2"(arg0: StringJS, arg1: any, arg2: any, arg3: $Context$$Type): $EvaluatorException
-public static "throwAsScriptRuntimeEx"(arg0: $Throwable$$Type, arg1: $Context$$Type): $RuntimeException
-public "arrayValueProviderOf"(arg0: any): $ArrayValueProvider
-public static "reportRuntimeError1"(arg0: StringJS, arg1: any, arg2: $Context$$Type): $EvaluatorException
-public "getApplicationClassLoader"(): $ClassLoader
-public "getConversionWeight"(arg0: any, arg1: $TypeInfo$$Type): integer
-public "setApplicationClassLoader"(arg0: $ClassLoader$$Type): void
-public "defaultObjectToSource"(arg0: $Scriptable$$Type, arg1: $Scriptable$$Type, arg2: (any)[]): StringJS
-public "getCachedClassStorage"(arg0: boolean): $CachedClassStorage
-public static "reportRuntimeError0"(arg0: StringJS, arg1: $Context$$Type): $EvaluatorException
-public "createInterfaceAdapter"(arg0: $TypeInfo$$Type, arg1: $ScriptableObject$$Type): any
-public static "reportRuntimeError3"(arg0: StringJS, arg1: any, arg2: any, arg3: any, arg4: $Context$$Type): $EvaluatorException
-public "newClassSerialNumber"(): integer
-public "toNumber"(arg0: any): double
-public "toObject"(arg0: any, arg1: $Scriptable$$Type): $Scriptable
-public "newObject"(arg0: $Scriptable$$Type, arg1: StringJS): $Scriptable
-public "newObject"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: (any)[]): $Scriptable
-public "newObject"(arg0: $Scriptable$$Type): $Scriptable
-public "getRegExp"(): $RegExp
-public "getMaximumInterpreterStackDepth"(): integer
-public "internalConversionWeightLast"(arg0: any, arg1: $TypeInfo$$Type): integer
-public "getInstructionObserverThreshold"(): integer
-public "setInstructionObserverThreshold"(arg0: integer): void
-public "initJSON"(arg0: $ScriptableObject$$Type, arg1: boolean): void
-public "isStrictMode"(): boolean
-public "compileString"(arg0: StringJS, arg1: StringJS, arg2: integer, arg3: any): $Script
-public "hasTopCallScope"(): boolean
-public "optionalMapOf"<K, V>(arg0: any, arg1: $TypeInfo$$Type, arg2: $TypeInfo$$Type): $Map<(K), (V)>
-public "optionalMapOf"(arg0: any): $Map<(StringJS), (any)>
-public "getErrorReporter"(): $ErrorReporter
-public static "getSizeRank"(arg0: $TypeInfo$$Type): integer
-public "optionalListOf"<K>(arg0: any, arg1: $TypeInfo$$Type): $List<(K)>
-public "optionalListOf"(arg0: any): $List<(any)>
-public "compileReader"(arg0: $Reader$$Type, arg1: StringJS, arg2: integer, arg3: any): $Script
-public static "reportRuntimeError"(arg0: StringJS, arg1: $Context$$Type): $EvaluatorException
-public static "reportRuntimeError"(arg1: StringJS, arg2: StringJS, arg3: integer, arg4: StringJS, arg5: integer): $EvaluatorException
-public "visibleToScripts"(arg0: StringJS, arg1: $ClassVisibilityContext$$Type): boolean
-public static "reportWarning"(arg0: StringJS, arg1: $Context$$Type): void
-public static "reportWarning"(arg1: StringJS, arg2: StringJS, arg3: integer, arg4: StringJS, arg5: integer): void
-public "wrapAsJavaObject"(arg0: $Scriptable$$Type, arg1: any, arg2: $TypeInfo$$Type): $Scriptable
-public "wrapNewObject"(arg0: $Scriptable$$Type, arg1: any, arg2: $TypeInfo$$Type): $Scriptable
-public "getTopCallOrThrow"(): $Scriptable
-public "removeThreadLocal"(arg0: any): void
-public "wrapJavaClass"(arg0: $Scriptable$$Type, arg1: $Class$$Type<(never)>): $Scriptable
-public "evaluateString"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: StringJS, arg3: integer, arg4: any): any
-public "putThreadLocal"(arg0: any, arg1: any): void
-public "getThreadLocal"(arg0: any): any
-public "storeScriptable"(arg0: $Scriptable$$Type): void
-public static "getUndefinedValue"(): any
-public "getTopCallScope"(): $Scriptable
-public "evaluateReader"(arg0: $Scriptable$$Type, arg1: $Reader$$Type, arg2: StringJS, arg3: integer, arg4: any): any
-public "listOf"(arg0: any, arg1: $TypeInfo$$Type): any
-set "topCall"(value: $Scriptable$$Type)
-get "implementationVersion"(): StringJS
-get "applicationClassLoader"(): $ClassLoader
-set "applicationClassLoader"(value: $ClassLoader$$Type)
-get "regExp"(): $RegExp
-get "maximumInterpreterStackDepth"(): integer
-get "instructionObserverThreshold"(): integer
-set "instructionObserverThreshold"(value: integer)
-get "strictMode"(): boolean
-get "errorReporter"(): $ErrorReporter
-get "topCallOrThrow"(): $Scriptable
-get "undefinedValue"(): any
-get "topCallScope"(): $Scriptable
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Context$$Type = ($Context);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Context$$Original = $Context;}
 declare module "dev.latvian.mods.rhino.Scriptable" {
-import {$IdEnumerationIterator$$Interface} from "dev.latvian.mods.rhino.IdEnumerationIterator"
 import {$MemberType} from "dev.latvian.mods.rhino.MemberType"
+import {$IdEnumerationIterator$$Interface} from "dev.latvian.mods.rhino.IdEnumerationIterator"
 import {$DefaultValueTypeHint$$Type} from "dev.latvian.mods.rhino.util.DefaultValueTypeHint"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 
 export interface $Scriptable$$Interface extends $IdEnumerationIterator$$Interface {
-get "typeOf"(): $MemberType
-get "ids"(): (any)[]
-get "allIds"(): (any)[]
 get "className"(): StringJS
-set "prototype"(value: $Scriptable$$Type)
-get "prototype"(): $Scriptable
-get "parentScope"(): $Scriptable
 set "parentScope"(value: $Scriptable$$Type)
+get "parentScope"(): $Scriptable
+get "typeOf"(): $MemberType
+get "allIds"(): (any)[]
+get "prototype"(): $Scriptable
+set "prototype"(value: $Scriptable$$Type)
+get "ids"(): (any)[]
 }
 
 export class $Scriptable implements $Scriptable$$Interface {
 static readonly "NOT_FOUND": any
 
- "getTypeOf"(): $MemberType
- "getIds"(): (any)[]
- "getAllIds"(): (any)[]
- "get"(arg1: StringJS, arg2: $Scriptable$$Type): any
  "get"(arg1: integer, arg2: $Scriptable$$Type): any
+ "get"(arg1: StringJS, arg2: $Scriptable$$Type): any
  "put"(arg1: integer, arg2: $Scriptable$$Type, arg3: any): void
  "put"(arg1: StringJS, arg2: $Scriptable$$Type, arg3: any): void
- "delete"(arg1: integer): void
  "delete"(arg1: StringJS): void
+ "delete"(arg1: integer): void
  "getDefaultValue"(arg1: $DefaultValueTypeHint$$Type): any
  "getClassName"(): StringJS
- "has"(arg1: integer, arg2: $Scriptable$$Type): boolean
  "has"(arg1: StringJS, arg2: $Scriptable$$Type): boolean
- "enumerationIteratorHasNext"(arg1: $Consumer$$Type<(any)>): boolean
+ "has"(arg1: integer, arg2: $Scriptable$$Type): boolean
+ "setParentScope"(arg0: $Scriptable$$Type): void
+ "getParentScope"(): $Scriptable
  "enumerationIteratorNext"(arg1: $Consumer$$Type<(any)>): boolean
- "setPrototype"(arg0: $Scriptable$$Type): void
+ "enumerationIteratorHasNext"(arg1: $Consumer$$Type<(any)>): boolean
+ "getTypeOf"(): $MemberType
+ "getAllIds"(): (any)[]
  "hasInstance"(arg1: $Scriptable$$Type): boolean
  "getPrototype"(): $Scriptable
- "getParentScope"(): $Scriptable
- "setParentScope"(arg0: $Scriptable$$Type): void
+ "setPrototype"(arg0: $Scriptable$$Type): void
+ "getIds"(): (any)[]
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1221,174 +540,6 @@ export type $Scriptable$$Type = ($Scriptable);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $Scriptable$$Original = $Scriptable;}
-declare module "dev.latvian.mods.rhino.IdEnumerationIterator" {
-import {$Consumer$$Type} from "java.util.function.Consumer"
-
-export interface $IdEnumerationIterator$$Interface {
-}
-
-export class $IdEnumerationIterator implements $IdEnumerationIterator$$Interface {
- "enumerationIteratorHasNext"(arg1: $Consumer$$Type<(any)>): boolean
- "enumerationIteratorNext"(arg1: $Consumer$$Type<(any)>): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $IdEnumerationIterator$$Type = ($IdEnumerationIterator);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $IdEnumerationIterator$$Original = $IdEnumerationIterator;}
-declare module "dev.latvian.mods.rhino.util.ClassVisibilityContext" {
-import {$Enum} from "java.lang.Enum"
-
-export class $ClassVisibilityContext extends $Enum<($ClassVisibilityContext)> {
-static readonly "ARGUMENT": $ClassVisibilityContext
-static readonly "EXCEPTION": $ClassVisibilityContext
-static readonly "UNKNOWN": $ClassVisibilityContext
-static readonly "CLASS_IN_PACKAGE": $ClassVisibilityContext
-static readonly "MEMBER": $ClassVisibilityContext
-
-public static "values"(): ($ClassVisibilityContext)[]
-public static "valueOf"(arg0: StringJS): $ClassVisibilityContext
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ClassVisibilityContext$$Type = (("unknown") | ("member") | ("class_in_package") | ("argument") | ("exception"));
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ClassVisibilityContext$$Original = $ClassVisibilityContext;}
-declare module "dev.latvian.mods.rhino.Symbol" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-export interface $Symbol$$Interface {
-}
-
-export class $Symbol implements $Symbol$$Interface {
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Symbol$$Type = ($Symbol);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Symbol$$Original = $Symbol;}
-declare module "dev.latvian.mods.rhino.IdFunctionObject" {
-import {$Context$$Type} from "dev.latvian.mods.rhino.Context"
-import {$BaseFunction} from "dev.latvian.mods.rhino.BaseFunction"
-import {$DefaultValueTypeHint$$Type} from "dev.latvian.mods.rhino.util.DefaultValueTypeHint"
-import {$Scriptable, $Scriptable$$Type} from "dev.latvian.mods.rhino.Scriptable"
-import {$RuntimeException} from "java.lang.RuntimeException"
-import {$IdFunctionCall$$Type} from "dev.latvian.mods.rhino.IdFunctionCall"
-
-export class $IdFunctionObject extends $BaseFunction {
-static readonly "DONTENUM": integer
-static readonly "CONST": integer
-static readonly "UNINITIALIZED_CONST": integer
-static readonly "EMPTY": integer
-static readonly "READONLY": integer
-static readonly "PERMANENT": integer
-
-constructor(arg0: $IdFunctionCall$$Type, arg1: any, arg2: integer, arg3: StringJS, arg4: integer, arg5: $Scriptable$$Type)
-constructor(arg0: $IdFunctionCall$$Type, arg1: any, arg2: integer, arg3: integer)
-
-public "exportAsScopeProperty"(): void
-public "getLength"(): integer
-public "call"(arg1: $Scriptable$$Type, arg2: $Scriptable$$Type, arg3: (any)[]): any
-public "createObject"(arg1: $Scriptable$$Type): $Scriptable
-public "getTag"(): any
-public "hasTag"(arg0: any): boolean
-public "unknown"(): $RuntimeException
-public "getPrototype"(): $Scriptable
-public "getArity"(): integer
-public "addAsProperty"(arg0: $Scriptable$$Type, arg1: $Context$$Type): void
-public "getFunctionName"(): StringJS
-public "methodId"(): integer
-public "markAsConstructor"(arg0: $Scriptable$$Type): void
-public "initFunction"(arg0: StringJS, arg1: $Scriptable$$Type): void
-public "getIds"(): (any)[]
-public "getAllIds"(): (any)[]
-public "get"(arg1: integer, arg2: $Scriptable$$Type): any
-public "put"(arg1: integer, arg2: $Scriptable$$Type, arg3: any): void
-public "delete"(arg1: integer): void
-public "getDefaultValue"(arg1: $DefaultValueTypeHint$$Type): any
-public "has"(arg1: integer, arg2: $Scriptable$$Type): boolean
-public "setPrototype"(arg0: $Scriptable$$Type): void
-public "getParentScope"(): $Scriptable
-public "setParentScope"(arg0: $Scriptable$$Type): void
-get "length"(): integer
-get "tag"(): any
-get "prototype"(): $Scriptable
-get "arity"(): integer
-get "functionName"(): StringJS
-get "ids"(): (any)[]
-get "allIds"(): (any)[]
-set "prototype"(value: $Scriptable$$Type)
-get "parentScope"(): $Scriptable
-set "parentScope"(value: $Scriptable$$Type)
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $IdFunctionObject$$Type = ($IdFunctionObject);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $IdFunctionObject$$Original = $IdFunctionObject;}
-declare module "dev.latvian.mods.rhino.regexp.RegExp" {
-import {$Scriptable, $Scriptable$$Type} from "dev.latvian.mods.rhino.Scriptable"
-
-export class $RegExp {
-static readonly "RA_MATCH": integer
-static readonly "RA_REPLACE": integer
-static readonly "RA_SEARCH": integer
-
-constructor()
-
-public "action"(arg1: $Scriptable$$Type, arg2: $Scriptable$$Type, arg3: (any)[], arg4: integer): any
-public "compileRegExp"(arg1: StringJS, arg2: StringJS): any
-public "wrapRegExp"(arg1: $Scriptable$$Type, arg2: any): $Scriptable
-public "js_split"(arg1: $Scriptable$$Type, arg2: StringJS, arg3: (any)[]): any
-public "isRegExp"(arg0: $Scriptable$$Type): boolean
-public "find_split"(arg1: $Scriptable$$Type, arg2: StringJS, arg3: StringJS, arg4: $Scriptable$$Type, arg5: (integer)[], arg6: (integer)[], arg7: (boolean)[], arg8: ((StringJS)[])[]): integer
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $RegExp$$Type = ($RegExp);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $RegExp$$Original = $RegExp;}
-declare module "dev.latvian.mods.rhino.util.wrap.DirectTypeWrapperFactory" {
-import {$TypeInfo$$Type} from "dev.latvian.mods.rhino.type.TypeInfo"
-import {$TypeWrapperFactory$$Interface} from "dev.latvian.mods.rhino.util.wrap.TypeWrapperFactory"
-
-export interface $DirectTypeWrapperFactory$$Interface<T> extends $TypeWrapperFactory$$Interface<(T)> {
-
-(arg0: any): T
-}
-
-export class $DirectTypeWrapperFactory<T> implements $DirectTypeWrapperFactory$$Interface {
- "wrap"(arg0: any): T
- "wrap"(arg1: any, arg2: $TypeInfo$$Type): T
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $DirectTypeWrapperFactory$$Type<T> = ((arg0: any) => T);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $DirectTypeWrapperFactory$$Original<T> = $DirectTypeWrapperFactory<(T)>;}
 declare module "dev.latvian.mods.rhino.util.DataObject" {
 import {$Context$$Type} from "dev.latvian.mods.rhino.Context"
 import {$Supplier$$Type} from "java.util.function.Supplier"
@@ -1399,9 +550,9 @@ get "dataObjectList"(): boolean
 }
 
 export class $DataObject implements $DataObject$$Interface {
- "isDataObjectList"(): boolean
- "createDataObject"<T>(arg0: $Supplier$$Type<(T)>, arg1: $Context$$Type): T
  "createDataObjectList"<T>(arg0: $Supplier$$Type<(T)>, arg1: $Context$$Type): $List<(T)>
+ "createDataObject"<T>(arg0: $Supplier$$Type<(T)>, arg1: $Context$$Type): T
+ "isDataObjectList"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1412,35 +563,6 @@ export type $DataObject$$Type = ($DataObject);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $DataObject$$Original = $DataObject;}
-declare module "dev.latvian.mods.rhino.CachedConstructorInfo" {
-import {$CachedClassInfo, $CachedClassInfo$$Type} from "dev.latvian.mods.rhino.CachedClassInfo"
-import {$CachedExecutableInfo} from "dev.latvian.mods.rhino.CachedExecutableInfo"
-import {$Constructor, $Constructor$$Type} from "java.lang.reflect.Constructor"
-import {$Scriptable$$Type} from "dev.latvian.mods.rhino.Scriptable"
-
-export class $CachedConstructorInfo extends $CachedExecutableInfo {
-readonly "originalName": StringJS
-readonly "parent": $CachedClassInfo
-readonly "isStatic": boolean
-readonly "isFinal": boolean
-readonly "modifiers": integer
-readonly "isNative": boolean
-
-constructor(arg0: $CachedClassInfo$$Type, arg1: $Constructor$$Type<(never)>)
-
-public "invoke"(arg1: $Scriptable$$Type, arg2: any, ...arg3: (any)[]): any
-public "getCached"(): $Constructor<(never)>
-get "cached"(): $Constructor<(never)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $CachedConstructorInfo$$Type = ($CachedConstructorInfo);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $CachedConstructorInfo$$Original = $CachedConstructorInfo;}
 declare module "dev.latvian.mods.rhino.ContextFactory" {
 import {$MethodHandles$Lookup} from "java.lang.invoke.MethodHandles$Lookup"
 import {$TypeWrappers} from "dev.latvian.mods.rhino.util.wrap.TypeWrappers"
@@ -1455,15 +577,15 @@ constructor()
 
 public "enter"(): $Context
 public "registerDefaultRecordProperties"(arg0: $Record$$Type): void
-public "getCachedClassStorage"(): $CachedClassStorage
 public "getTypeWrappers"(): $TypeWrappers
+public "getCachedClassStorage"(): $CachedClassStorage
 public "getMethodHandlesLookup"(): $MethodHandles$Lookup
-public "getRecordConstructor"(arg0: $Class$$Type<(never)>): $MethodHandle
 public "getDefaultRecordProperties"(arg0: $Class$$Type<(never)>): (any)[]
+public "getRecordConstructor"(arg0: $Class$$Type<(never)>): $MethodHandle
 public "getInstanceStaticFallback"(): boolean
 public "setInstanceStaticFallback"(arg0: boolean): void
-get "cachedClassStorage"(): $CachedClassStorage
 get "typeWrappers"(): $TypeWrappers
+get "cachedClassStorage"(): $CachedClassStorage
 get "methodHandlesLookup"(): $MethodHandles$Lookup
 get "instanceStaticFallback"(): boolean
 set "instanceStaticFallback"(value: boolean)
@@ -1497,155 +619,18 @@ export type $Script$$Type = ((arg1: $Scriptable) => any);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $Script$$Original = $Script;}
-declare module "dev.latvian.mods.rhino.type.JSOptionalParam" {
-import {$TypeInfo, $TypeInfo$$Type} from "dev.latvian.mods.rhino.type.TypeInfo"
-import {$StringBuilder$$Type} from "java.lang.StringBuilder"
-import {$TypeStringContext$$Type} from "dev.latvian.mods.rhino.type.TypeStringContext"
-import {$Record} from "java.lang.Record"
-
-export class $JSOptionalParam extends $Record {
-constructor(arg0: StringJS, arg1: $TypeInfo$$Type)
-constructor(name: StringJS, type: $TypeInfo$$Type, optional: boolean)
-
-public "name"(): StringJS
-public "type"(): $TypeInfo
-public "equals"(arg0: any): boolean
-public "toString"(): StringJS
-public "append"(arg0: $TypeStringContext$$Type, arg1: $StringBuilder$$Type): void
-public "hashCode"(): integer
-public "optional"(): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $JSOptionalParam$$Type = ({"optional"?: boolean, "type"?: $TypeInfo$$Type, "name"?: StringJS}) | ([optional?: boolean, type?: $TypeInfo$$Type, name?: StringJS]);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $JSOptionalParam$$Original = $JSOptionalParam;}
-declare module "dev.latvian.mods.rhino.type.VariableTypeInfo" {
-import {$TypeInfo, $TypeInfo$$Type} from "dev.latvian.mods.rhino.type.TypeInfo"
-import {$TypeVariable$$Type} from "java.lang.reflect.TypeVariable"
-import {$Map$$Type} from "java.util.Map"
-import {$TypeInfoBase} from "dev.latvian.mods.rhino.type.TypeInfoBase"
-import {$Type$$Type} from "java.lang.reflect.Type"
-import {$Supplier$$Type} from "java.util.function.Supplier"
-import {$Class, $Class$$Type} from "java.lang.Class"
-
-export class $VariableTypeInfo extends $TypeInfoBase {
-public "asClass"(): $Class<(never)>
-public "getName"(): StringJS
-public "toString"(): StringJS
-public "getBounds"(): ($TypeInfo)[]
-public "shouldConvert"(): boolean
-public "consolidate"(arg0: $Map$$Type<($VariableTypeInfo$$Type), ($TypeInfo$$Type)>): $TypeInfo
-public "getMainBound"(): $TypeInfo
-public static "safeOf"(arg0: $Supplier$$Type<($Type$$Type)>): $TypeInfo
-public static "ofArray"(arg0: ($Type$$Type)[]): ($TypeInfo)[]
-public static "of"(arg0: $Type$$Type): $TypeInfo
-public static "of"(arg0: $Class$$Type<(never)>): $TypeInfo
-public static "of"(arg0: $TypeVariable$$Type<(never)>): $VariableTypeInfo
-public static "safeOfArray"(arg0: $Supplier$$Type<(($Type$$Type)[])>): ($TypeInfo)[]
-get "name"(): StringJS
-get "bounds"(): ($TypeInfo)[]
-get "mainBound"(): $TypeInfo
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $VariableTypeInfo$$Type = ($VariableTypeInfo);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $VariableTypeInfo$$Original = $VariableTypeInfo;}
-declare module "dev.latvian.mods.rhino.type.TypeInfoBase" {
-import {$StringBuilder$$Type} from "java.lang.StringBuilder"
-import {$Collection$$Type} from "java.util.Collection"
-import {$Map, $Map$$Type} from "java.util.Map"
-import {$List} from "java.util.List"
-import {$TypeStringContext$$Type} from "dev.latvian.mods.rhino.type.TypeStringContext"
-import {$TypeInfo, $TypeInfo$$Type, $TypeInfo$$Interface} from "dev.latvian.mods.rhino.type.TypeInfo"
-import {$TypeVariable$$Type} from "java.lang.reflect.TypeVariable"
-import {$VariableTypeInfo, $VariableTypeInfo$$Type} from "dev.latvian.mods.rhino.type.VariableTypeInfo"
-import {$Type$$Type} from "java.lang.reflect.Type"
-import {$Supplier$$Type} from "java.util.function.Supplier"
-import {$Set} from "java.util.Set"
-import {$Class, $Class$$Type} from "java.lang.Class"
-import {$RecordTypeInfo$Component} from "dev.latvian.mods.rhino.type.RecordTypeInfo$Component"
-
-export class $TypeInfoBase implements $TypeInfo$$Interface {
-constructor()
-
-public "newArray"(arg0: integer): any
-public "asArray"(): $TypeInfo
-public "asClass"(): $Class<(never)>
-public "isDouble"(): boolean
-public "isByte"(): boolean
-public "isInt"(): boolean
-public static "safeOf"(arg0: $Supplier$$Type<($Type$$Type)>): $TypeInfo
-public static "ofArray"(arg0: ($Type$$Type)[]): ($TypeInfo)[]
-public "signature"(): StringJS
-public "append"(arg0: $TypeStringContext$$Type, arg1: $StringBuilder$$Type): void
-public "isPrimitive"(): boolean
-public "componentType"(): $TypeInfo
-public static "of"(arg0: $Type$$Type): $TypeInfo
-public static "of"(arg0: $Class$$Type<(never)>): $TypeInfo
-public static "of"(arg0: $TypeVariable$$Type<(never)>): $VariableTypeInfo
-public "enumConstants"(): $List<(any)>
-public "param"(arg0: integer): $TypeInfo
-public "isVoid"(): boolean
-public "is"(arg0: $TypeInfo$$Type): boolean
-public "or"(arg0: $TypeInfo$$Type): $TypeInfo
-public "isCharacter"(): boolean
-public "isFloat"(): boolean
-public "isBoolean"(): boolean
-public "withParams"(...arg0: ($TypeInfo$$Type)[]): $TypeInfo
-public "recordComponents"(): $Map<(StringJS), ($RecordTypeInfo$Component)>
-public "isFunctionalInterface"(): boolean
-public "isLong"(): boolean
-public "isShort"(): boolean
-public "getContainedComponentClasses"(): $Set<($Class<(never)>)>
-public "collectContainedComponentClasses"(arg0: $Collection$$Type<($Class$$Type<(never)>)>): void
-public "shouldConvert"(): boolean
-public "createDefaultValue"(): any
-public "consolidate"(arg0: $Map$$Type<($VariableTypeInfo$$Type), ($TypeInfo$$Type)>): $TypeInfo
-public static "safeOfArray"(arg0: $Supplier$$Type<(($Type$$Type)[])>): ($TypeInfo)[]
-get "double"(): boolean
-get "byte"(): boolean
-get "int"(): boolean
-get "primitive"(): boolean
-get "void"(): boolean
-get "character"(): boolean
-get "float"(): boolean
-get "boolean"(): boolean
-get "functionalInterface"(): boolean
-get "long"(): boolean
-get "short"(): boolean
-get "containedComponentClasses"(): $Set<($Class<(never)>)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $TypeInfoBase$$Type = ($TypeInfoBase);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $TypeInfoBase$$Original = $TypeInfoBase;}
 declare module "dev.latvian.mods.rhino.type.JSObjectTypeInfo" {
-import {$StringBuilder$$Type} from "java.lang.StringBuilder"
 import {$Collection$$Type} from "java.util.Collection"
+import {$StringBuilder$$Type} from "java.lang.StringBuilder"
 import {$Map, $Map$$Type} from "java.util.Map"
 import {$List, $List$$Type} from "java.util.List"
 import {$TypeStringContext$$Type} from "dev.latvian.mods.rhino.type.TypeStringContext"
 import {$TypeInfo, $TypeInfo$$Type, $TypeInfo$$Interface} from "dev.latvian.mods.rhino.type.TypeInfo"
 import {$TypeVariable$$Type} from "java.lang.reflect.TypeVariable"
 import {$VariableTypeInfo, $VariableTypeInfo$$Type} from "dev.latvian.mods.rhino.type.VariableTypeInfo"
-import {$Type$$Type} from "java.lang.reflect.Type"
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$JSOptionalParam, $JSOptionalParam$$Type} from "dev.latvian.mods.rhino.type.JSOptionalParam"
+import {$Type$$Type} from "java.lang.reflect.Type"
 import {$Set} from "java.util.Set"
 import {$Class, $Class$$Type} from "java.lang.Class"
 import {$RecordTypeInfo$Component} from "dev.latvian.mods.rhino.type.RecordTypeInfo$Component"
@@ -1654,28 +639,24 @@ import {$Record} from "java.lang.Record"
 export class $JSObjectTypeInfo extends $Record implements $TypeInfo$$Interface {
 constructor(fields: $List$$Type<($JSOptionalParam$$Type)>)
 
-public "asClass"(): $Class<(never)>
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "append"(arg0: $TypeStringContext$$Type, arg1: $StringBuilder$$Type): void
 public "hashCode"(): integer
+public static "of"(...arg0: ($JSOptionalParam$$Type)[]): $JSObjectTypeInfo
 public static "of"(arg0: $JSOptionalParam$$Type, arg1: $JSOptionalParam$$Type): $JSObjectTypeInfo
 public static "of"(arg0: $JSOptionalParam$$Type): $JSObjectTypeInfo
-public static "of"(...arg0: ($JSOptionalParam$$Type)[]): $JSObjectTypeInfo
 public "fields"(): $List<($JSOptionalParam)>
 public "collectContainedComponentClasses"(arg0: $Collection$$Type<($Class$$Type<(never)>)>): void
-public "isDouble"(): boolean
-public "isByte"(): boolean
-public "isInt"(): boolean
-public static "safeOf"(arg0: $Supplier$$Type<($Type$$Type)>): $TypeInfo
+public "asClass"(): $Class<(never)>
 public static "ofArray"(arg0: ($Type$$Type)[]): ($TypeInfo)[]
 public "signature"(): StringJS
 public "isPrimitive"(): boolean
 public "newArray"(arg0: integer): any
 public "componentType"(): $TypeInfo
-public static "of"(arg0: $Type$$Type): $TypeInfo
 public static "of"(arg0: $Class$$Type<(never)>): $TypeInfo
 public static "of"(arg0: $TypeVariable$$Type<(never)>): $VariableTypeInfo
+public static "of"(arg0: $Type$$Type): $TypeInfo
 public "enumConstants"(): $List<(any)>
 public "param"(arg0: integer): $TypeInfo
 public "isVoid"(): boolean
@@ -1684,29 +665,33 @@ public "or"(arg0: $TypeInfo$$Type): $TypeInfo
 public "isCharacter"(): boolean
 public "isFloat"(): boolean
 public "asArray"(): $TypeInfo
-public "isBoolean"(): boolean
-public "withParams"(...arg0: ($TypeInfo$$Type)[]): $TypeInfo
-public "recordComponents"(): $Map<(StringJS), ($RecordTypeInfo$Component)>
-public "isFunctionalInterface"(): boolean
-public "isLong"(): boolean
-public "isShort"(): boolean
-public "getContainedComponentClasses"(): $Set<($Class<(never)>)>
-public "shouldConvert"(): boolean
+public static "safeOfArray"(arg0: $Supplier$$Type<(($Type$$Type)[])>): ($TypeInfo)[]
 public "createDefaultValue"(): any
 public "consolidate"(arg0: $Map$$Type<($VariableTypeInfo$$Type), ($TypeInfo$$Type)>): $TypeInfo
-public static "safeOfArray"(arg0: $Supplier$$Type<(($Type$$Type)[])>): ($TypeInfo)[]
-get "double"(): boolean
-get "byte"(): boolean
-get "int"(): boolean
+public "shouldConvert"(): boolean
+public "getContainedComponentClasses"(): $Set<($Class<(never)>)>
+public "isLong"(): boolean
+public "recordComponents"(): $Map<(StringJS), ($RecordTypeInfo$Component)>
+public "isFunctionalInterface"(): boolean
+public "isDouble"(): boolean
+public static "safeOf"(arg0: $Supplier$$Type<($Type$$Type)>): $TypeInfo
+public "isByte"(): boolean
+public "isInt"(): boolean
+public "isBoolean"(): boolean
+public "isShort"(): boolean
+public "withParams"(...arg0: ($TypeInfo$$Type)[]): $TypeInfo
 get "primitive"(): boolean
 get "void"(): boolean
 get "character"(): boolean
 get "float"(): boolean
-get "boolean"(): boolean
-get "functionalInterface"(): boolean
-get "long"(): boolean
-get "short"(): boolean
 get "containedComponentClasses"(): $Set<($Class<(never)>)>
+get "long"(): boolean
+get "functionalInterface"(): boolean
+get "double"(): boolean
+get "byte"(): boolean
+get "int"(): boolean
+get "boolean"(): boolean
+get "short"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1735,45 +720,18 @@ public "hashCode"(): integer
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $RecordTypeInfo$Component$$Type = ({"type"?: $TypeInfo$$Type, "index"?: integer, "name"?: StringJS}) | ([type?: $TypeInfo$$Type, index?: integer, name?: StringJS]);
+export type $RecordTypeInfo$Component$$Type = ({"index"?: integer, "type"?: $TypeInfo$$Type, "name"?: StringJS}) | ([index?: integer, type?: $TypeInfo$$Type, name?: StringJS]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $RecordTypeInfo$Component$$Original = $RecordTypeInfo$Component;}
-declare module "dev.latvian.mods.rhino.MemberType" {
-import {$Context$$Type} from "dev.latvian.mods.rhino.Context"
-import {$Enum} from "java.lang.Enum"
-
-export class $MemberType extends $Enum<($MemberType)> {
-static readonly "NUMBER": $MemberType
-static readonly "SYMBOL": $MemberType
-static readonly "UNDEFINED": $MemberType
-static readonly "STRING": $MemberType
-static readonly "OBJECT": $MemberType
-static readonly "FUNCTION": $MemberType
-static readonly "BOOLEAN": $MemberType
-
-public static "get"(arg0: any, arg1: $Context$$Type): $MemberType
-public "toString"(): StringJS
-public static "values"(): ($MemberType)[]
-public static "valueOf"(arg0: StringJS): $MemberType
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $MemberType$$Type = (("undefined") | ("object") | ("function") | ("symbol") | ("string") | ("number") | ("boolean"));
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $MemberType$$Original = $MemberType;}
 declare module "dev.latvian.mods.rhino.NativeArray" {
 import {$Iterator} from "java.util.Iterator"
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
 import {$Collection$$Type} from "java.util.Collection"
-import {$Spliterator} from "java.util.Spliterator"
 import {$SequencedCollection} from "java.util.SequencedCollection"
 import {$Comparator$$Type} from "java.util.Comparator"
+import {$Spliterator} from "java.util.Spliterator"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$List, $List$$Interface} from "java.util.List"
 import {$IdScriptableObject} from "dev.latvian.mods.rhino.IdScriptableObject"
@@ -1798,13 +756,12 @@ static readonly "PERMANENT": integer
 constructor(arg1: long)
 constructor(arg1: (any)[])
 
-public "getIds"(arg1: boolean, arg2: boolean): (any)[]
-public "remove"(arg0: integer): any
 public "remove"(arg0: any): boolean
+public "remove"(arg0: integer): any
 public "size"(): integer
+public "get"(arg0: long, arg1: $Context$$Type): any
 public "get"(arg0: integer): any
 public "get"(arg1: integer, arg2: $Scriptable$$Type): any
-public "get"(arg0: long, arg1: $Context$$Type): any
 public "put"(arg1: integer, arg2: $Scriptable$$Type, arg3: any): void
 public "put"(arg1: StringJS, arg2: $Scriptable$$Type, arg3: any): void
 public "toString"(): StringJS
@@ -1813,15 +770,15 @@ public "indexOf"(arg0: any): integer
 public "clear"(): void
 public "lastIndexOf"(arg0: any): integer
 public "isEmpty"(): boolean
-public "add"(arg0: integer, arg1: any): void
 public "add"(arg0: any): boolean
+public "add"(arg0: integer, arg1: any): void
 public "subList"(arg0: integer, arg1: integer): $List
 public "toArray"(): (any)[]
 public "toArray"(arg0: (any)[]): (any)[]
 public "iterator"(): $Iterator
 public "contains"(arg0: any): boolean
-public "addAll"(arg0: $Collection$$Type): boolean
 public "addAll"(arg0: integer, arg1: $Collection$$Type): boolean
+public "addAll"(arg0: $Collection$$Type): boolean
 public "set"(arg0: integer, arg1: any): any
 public "delete"(arg1: integer): void
 public "getClassName"(): StringJS
@@ -1832,11 +789,12 @@ public "listIterator"(): $ListIterator
 public "listIterator"(arg0: integer): $ListIterator
 public "containsAll"(arg0: $Collection$$Type): boolean
 public "has"(arg1: integer, arg2: $Scriptable$$Type): boolean
-public "getIndexIds"(): $List<(integer)>
 public "execIdCall"(arg0: $IdFunctionObject$$Type, arg1: $Context$$Type, arg2: $Scriptable$$Type, arg3: $Scriptable$$Type, arg4: (any)[]): any
-public "isDataObjectList"(): boolean
-public "createDataObject"<T>(arg0: $Supplier$$Type<(T)>, arg1: $Context$$Type): T
 public "createDataObjectList"<T>(arg0: $Supplier$$Type<(T)>, arg1: $Context$$Type): $List<(T)>
+public "getIds"(arg1: boolean, arg2: boolean): (any)[]
+public "getIndexIds"(): $List<(integer)>
+public "createDataObject"<T>(arg0: $Supplier$$Type<(T)>, arg1: $Context$$Type): T
+public "isDataObjectList"(): boolean
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public static "copyOf"<E>(arg0: $Collection$$Type<(any)>): $List<(any)>
@@ -1926,31 +884,11 @@ public "validator"(): $TypeWrapperValidator
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $TypeWrapper$$Type<T> = ({"factory"?: $TypeWrapperFactory$$Type<(T)>, "target"?: $Class$$Type<(T)>, "validator"?: $TypeWrapperValidator$$Type}) | ([factory?: $TypeWrapperFactory$$Type<(T)>, target?: $Class$$Type<(T)>, validator?: $TypeWrapperValidator$$Type]);
+export type $TypeWrapper$$Type<T> = ({"target"?: $Class$$Type<(T)>, "factory"?: $TypeWrapperFactory$$Type<(T)>, "validator"?: $TypeWrapperValidator$$Type}) | ([target?: $Class$$Type<(T)>, factory?: $TypeWrapperFactory$$Type<(T)>, validator?: $TypeWrapperValidator$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $TypeWrapper$$Original<T> = $TypeWrapper<(T)>;}
-declare module "dev.latvian.mods.rhino.ExternalArrayData" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-export interface $ExternalArrayData$$Interface {
-get "arrayLength"(): integer
-}
-
-export class $ExternalArrayData implements $ExternalArrayData$$Interface {
- "setArrayElement"(arg0: integer, arg1: any): void
- "getArrayLength"(): integer
- "getArrayElement"(arg0: integer): any
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ExternalArrayData$$Type = ($ExternalArrayData);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ExternalArrayData$$Original = $ExternalArrayData;}
 declare module "dev.latvian.mods.rhino.MethodSignature" {
 import {$Executable$$Type} from "java.lang.reflect.Executable"
 import {$Class, $Class$$Type} from "java.lang.Class"
@@ -2022,6 +960,1140 @@ export type $WrappedExecutable$$Type = ((arg1: $Scriptable, arg2: any, arg3: (an
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $WrappedExecutable$$Original = $WrappedExecutable;}
+declare module "dev.latvian.mods.rhino.CachedClassInfo" {
+import {$CachedMethodInfo} from "dev.latvian.mods.rhino.CachedMethodInfo"
+import {$TypeInfo} from "dev.latvian.mods.rhino.type.TypeInfo"
+import {$CachedFieldInfo$Accessible} from "dev.latvian.mods.rhino.CachedFieldInfo$Accessible"
+import {$CachedClassStorage, $CachedClassStorage$$Type} from "dev.latvian.mods.rhino.CachedClassStorage"
+import {$CachedConstructorInfo} from "dev.latvian.mods.rhino.CachedConstructorInfo"
+import {$StringBuilder$$Type} from "java.lang.StringBuilder"
+import {$List} from "java.util.List"
+import {$CachedFieldInfo} from "dev.latvian.mods.rhino.CachedFieldInfo"
+import {$Set} from "java.util.Set"
+import {$Class, $Class$$Type} from "java.lang.Class"
+import {$CachedMethodInfo$Accessible} from "dev.latvian.mods.rhino.CachedMethodInfo$Accessible"
+
+export class $CachedClassInfo {
+readonly "storage": $CachedClassStorage
+readonly "type": $Class<(never)>
+readonly "modifiers": integer
+readonly "isInterface": boolean
+
+constructor(arg0: $CachedClassStorage$$Type, arg1: $Class$$Type<(never)>)
+
+public "toString"(): StringJS
+public "getSuperclass"(): $CachedClassInfo
+public "getInterfaces"(): $List<($CachedClassInfo)>
+public "getMethod"(arg0: StringJS, arg1: ($Class$$Type<(never)>)[]): $CachedMethodInfo
+public "getConstructors"(): $List<($CachedConstructorInfo)>
+public "getDeclaredFields"(): $List<($CachedFieldInfo)>
+public "getDeclaredMethods"(): $List<($CachedMethodInfo)>
+public "getTypeInfo"(): $TypeInfo
+public "getDebugInfo"(): $List<(StringJS)>
+public "getAccessibleMethods"(arg0: boolean): $List<($CachedMethodInfo$Accessible)>
+public "getAccessibleFields"(arg0: boolean): $List<($CachedFieldInfo$Accessible)>
+public "getRemapPrefixes"(): $Set<(StringJS)>
+public "appendDebugType"(arg0: $StringBuilder$$Type): void
+get "superclass"(): $CachedClassInfo
+get "interfaces"(): $List<($CachedClassInfo)>
+get "constructors"(): $List<($CachedConstructorInfo)>
+get "declaredFields"(): $List<($CachedFieldInfo)>
+get "declaredMethods"(): $List<($CachedMethodInfo)>
+get "typeInfo"(): $TypeInfo
+get "debugInfo"(): $List<(StringJS)>
+get "remapPrefixes"(): $Set<(StringJS)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $CachedClassInfo$$Type = ($CachedClassInfo);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $CachedClassInfo$$Original = $CachedClassInfo;}
+declare module "dev.latvian.mods.rhino.util.RemappedEnumConstant" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export interface $RemappedEnumConstant$$Interface {
+
+(): StringJS
+get "remappedEnumConstantName"(): StringJS
+}
+
+export class $RemappedEnumConstant implements $RemappedEnumConstant$$Interface {
+ "getRemappedEnumConstantName"(): StringJS
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $RemappedEnumConstant$$Type = (() => StringJS);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $RemappedEnumConstant$$Original = $RemappedEnumConstant;}
+declare module "dev.latvian.mods.rhino.util.DefaultValueTypeHint" {
+import {$Enum} from "java.lang.Enum"
+
+export class $DefaultValueTypeHint extends $Enum<($DefaultValueTypeHint)> {
+static readonly "NUMBER": $DefaultValueTypeHint
+static readonly "STRING": $DefaultValueTypeHint
+static readonly "CLASS": $DefaultValueTypeHint
+static readonly "FUNCTION": $DefaultValueTypeHint
+static readonly "BOOLEAN": $DefaultValueTypeHint
+
+public "toString"(): StringJS
+public static "values"(): ($DefaultValueTypeHint)[]
+public static "valueOf"(arg0: StringJS): $DefaultValueTypeHint
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $DefaultValueTypeHint$$Type = (("string") | ("number") | ("boolean") | ("function") | ("class"));
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $DefaultValueTypeHint$$Original = $DefaultValueTypeHint;}
+declare module "dev.latvian.mods.rhino.RhinoException" {
+import {$PrintStream$$Type} from "java.io.PrintStream"
+import {$ScriptStackElement} from "dev.latvian.mods.rhino.ScriptStackElement"
+import {$PrintWriter$$Type} from "java.io.PrintWriter"
+import {$RuntimeException} from "java.lang.RuntimeException"
+
+export class $RhinoException extends $RuntimeException {
+public "printStackTrace"(arg0: $PrintWriter$$Type): void
+public "printStackTrace"(arg0: $PrintStream$$Type): void
+public "lineNumber"(): integer
+public "getMessage"(): StringJS
+public "columnNumber"(): integer
+public "details"(): StringJS
+public "lineSource"(): StringJS
+public "sourceName"(): StringJS
+public "getScriptStackTrace"(arg0: integer, arg1: StringJS): StringJS
+public "getScriptStackTrace"(): StringJS
+public "getScriptStack"(arg0: integer, arg1: StringJS): ($ScriptStackElement)[]
+public "getScriptStack"(): ($ScriptStackElement)[]
+public "initSourceName"(arg0: StringJS): void
+public "initLineNumber"(arg0: integer): void
+public "initLineSource"(arg0: StringJS): void
+public "initColumnNumber"(arg0: integer): void
+get "message"(): StringJS
+get "scriptStackTrace"(): StringJS
+get "scriptStack"(): ($ScriptStackElement)[]
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $RhinoException$$Type = ($RhinoException);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $RhinoException$$Original = $RhinoException;}
+declare module "dev.latvian.mods.rhino.IdScriptableObject" {
+import {$Context$$Type} from "dev.latvian.mods.rhino.Context"
+import {$ScriptableObject, $ScriptableObject$$Type} from "dev.latvian.mods.rhino.ScriptableObject"
+import {$Symbol$$Type} from "dev.latvian.mods.rhino.Symbol"
+import {$Scriptable$$Type} from "dev.latvian.mods.rhino.Scriptable"
+import {$IdFunctionCall$$Interface} from "dev.latvian.mods.rhino.IdFunctionCall"
+import {$IdFunctionObject, $IdFunctionObject$$Type} from "dev.latvian.mods.rhino.IdFunctionObject"
+
+export class $IdScriptableObject extends $ScriptableObject implements $IdFunctionCall$$Interface {
+static readonly "DONTENUM": integer
+static readonly "CONST": integer
+static readonly "UNINITIALIZED_CONST": integer
+static readonly "EMPTY": integer
+static readonly "READONLY": integer
+static readonly "PERMANENT": integer
+
+constructor(arg0: $Scriptable$$Type, arg1: $Scriptable$$Type)
+constructor()
+
+public "setAttributes"(arg1: StringJS, arg2: integer): void
+public "get"(arg1: $Symbol$$Type, arg2: $Scriptable$$Type): any
+public "get"(arg1: StringJS, arg2: $Scriptable$$Type): any
+public "put"(arg1: $Symbol$$Type, arg2: $Scriptable$$Type, arg3: any): void
+public "put"(arg1: StringJS, arg2: $Scriptable$$Type, arg3: any): void
+public "delete"(arg1: $Symbol$$Type): void
+public "delete"(arg1: StringJS): void
+public "getAttributes"(arg1: $Symbol$$Type): integer
+public "getAttributes"(arg1: StringJS): integer
+public "has"(arg1: StringJS, arg2: $Scriptable$$Type): boolean
+public "has"(arg1: $Symbol$$Type, arg2: $Scriptable$$Type): boolean
+public "execIdCall"(arg0: $IdFunctionObject$$Type, arg1: $Context$$Type, arg2: $Scriptable$$Type, arg3: $Scriptable$$Type, arg4: (any)[]): any
+public "exportAsJSClass"(arg0: integer, arg1: $Scriptable$$Type, arg2: boolean, arg3: $Context$$Type): $IdFunctionObject
+public "initPrototypeValue"(arg0: integer, arg1: StringJS, arg2: any, arg3: integer): void
+public "initPrototypeValue"(arg0: integer, arg1: $Symbol$$Type, arg2: any, arg3: integer): void
+public "hasPrototypeMap"(): boolean
+public "defineOwnProperty"(arg1: any, arg2: $ScriptableObject$$Type): void
+public "initPrototypeMethod"(arg0: any, arg1: integer, arg2: StringJS, arg3: StringJS, arg4: integer, arg5: $Context$$Type): $IdFunctionObject
+public "initPrototypeMethod"(arg0: any, arg1: integer, arg2: StringJS, arg3: integer, arg4: $Context$$Type): $IdFunctionObject
+public "initPrototypeMethod"(arg0: any, arg1: integer, arg2: $Symbol$$Type, arg3: StringJS, arg4: integer, arg5: $Context$$Type): $IdFunctionObject
+public "activatePrototypeMap"(arg0: integer): void
+public "initPrototypeConstructor"(arg0: $IdFunctionObject$$Type, arg1: $Context$$Type): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $IdScriptableObject$$Type = ($IdScriptableObject);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $IdScriptableObject$$Original = $IdScriptableObject;}
+declare module "dev.latvian.mods.rhino.type.RecordTypeInfo$Data" {
+import {$Map, $Map$$Type} from "java.util.Map"
+import {$RecordTypeInfo$Component, $RecordTypeInfo$Component$$Type} from "dev.latvian.mods.rhino.type.RecordTypeInfo$Component"
+import {$Record} from "java.lang.Record"
+
+export class $RecordTypeInfo$Data extends $Record {
+constructor(components: ($RecordTypeInfo$Component$$Type)[], componentMap: $Map$$Type<(StringJS), ($RecordTypeInfo$Component$$Type)>, defaultArguments: (any)[])
+
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "components"(): ($RecordTypeInfo$Component)[]
+public "componentMap"(): $Map<(StringJS), ($RecordTypeInfo$Component)>
+public "defaultArguments"(): (any)[]
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $RecordTypeInfo$Data$$Type = ({"componentMap"?: $Map$$Type<(StringJS), ($RecordTypeInfo$Component$$Type)>, "components"?: ($RecordTypeInfo$Component$$Type)[], "defaultArguments"?: (any)[]}) | ([componentMap?: $Map$$Type<(StringJS), ($RecordTypeInfo$Component$$Type)>, components?: ($RecordTypeInfo$Component$$Type)[], defaultArguments?: (any)[]]);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $RecordTypeInfo$Data$$Original = $RecordTypeInfo$Data;}
+declare module "dev.latvian.mods.rhino.SymbolScriptable" {
+import {$Symbol$$Type} from "dev.latvian.mods.rhino.Symbol"
+import {$Scriptable$$Type} from "dev.latvian.mods.rhino.Scriptable"
+
+export interface $SymbolScriptable$$Interface {
+}
+
+export class $SymbolScriptable implements $SymbolScriptable$$Interface {
+ "get"(arg1: $Symbol$$Type, arg2: $Scriptable$$Type): any
+ "put"(arg1: $Symbol$$Type, arg2: $Scriptable$$Type, arg3: any): void
+ "delete"(arg1: $Symbol$$Type): void
+ "has"(arg1: $Symbol$$Type, arg2: $Scriptable$$Type): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $SymbolScriptable$$Type = ($SymbolScriptable);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $SymbolScriptable$$Original = $SymbolScriptable;}
+declare module "dev.latvian.mods.rhino.EvaluatorException" {
+import {$RhinoException} from "dev.latvian.mods.rhino.RhinoException"
+
+export class $EvaluatorException extends $RhinoException {
+constructor(arg1: StringJS)
+constructor(arg1: StringJS, arg2: StringJS, arg3: integer)
+constructor(arg1: StringJS, arg2: StringJS, arg3: integer, arg4: StringJS, arg5: integer)
+
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $EvaluatorException$$Type = ($EvaluatorException);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $EvaluatorException$$Original = $EvaluatorException;}
+declare module "dev.latvian.mods.rhino.CachedMemberInfo" {
+import {$CachedClassInfo, $CachedClassInfo$$Type} from "dev.latvian.mods.rhino.CachedClassInfo"
+import {$AccessibleObject, $AccessibleObject$$Type} from "java.lang.reflect.AccessibleObject"
+
+export class $CachedMemberInfo {
+readonly "originalName": StringJS
+readonly "parent": $CachedClassInfo
+readonly "isStatic": boolean
+readonly "isFinal": boolean
+readonly "modifiers": integer
+readonly "isNative": boolean
+
+constructor(arg0: $CachedClassInfo$$Type, arg1: $AccessibleObject$$Type, arg2: StringJS, arg3: integer)
+
+public "getName"(): StringJS
+public "toString"(): StringJS
+public "getDeclaringClass"(): $CachedClassInfo
+public "getCached"(): $AccessibleObject
+get "name"(): StringJS
+get "declaringClass"(): $CachedClassInfo
+get "cached"(): $AccessibleObject
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $CachedMemberInfo$$Type = ($CachedMemberInfo);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $CachedMemberInfo$$Original = $CachedMemberInfo;}
+declare module "dev.latvian.mods.rhino.util.SpecialEquality" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export interface $SpecialEquality$$Interface {
+}
+
+export class $SpecialEquality implements $SpecialEquality$$Interface {
+ "specialEquals"(arg1: any, arg2: boolean): boolean
+static "checkSpecialEquality"(arg1: any, arg2: any, arg3: boolean): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $SpecialEquality$$Type = ($SpecialEquality);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $SpecialEquality$$Original = $SpecialEquality;}
+declare module "dev.latvian.mods.rhino.IdFunctionCall" {
+import {$Context, $Context$$Type} from "dev.latvian.mods.rhino.Context"
+import {$Scriptable, $Scriptable$$Type} from "dev.latvian.mods.rhino.Scriptable"
+import {$IdFunctionObject, $IdFunctionObject$$Type} from "dev.latvian.mods.rhino.IdFunctionObject"
+
+export interface $IdFunctionCall$$Interface {
+
+(arg0: $IdFunctionObject, arg1: $Context, arg2: $Scriptable, arg3: $Scriptable, arg4: (any)[]): any
+}
+
+export class $IdFunctionCall implements $IdFunctionCall$$Interface {
+ "execIdCall"(arg0: $IdFunctionObject$$Type, arg1: $Context$$Type, arg2: $Scriptable$$Type, arg3: $Scriptable$$Type, arg4: (any)[]): any
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $IdFunctionCall$$Type = ((arg0: $IdFunctionObject, arg1: $Context, arg2: $Scriptable, arg3: $Scriptable, arg4: (any)[]) => any);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $IdFunctionCall$$Original = $IdFunctionCall;}
+declare module "dev.latvian.mods.rhino.CachedFieldInfo" {
+import {$TypeInfo} from "dev.latvian.mods.rhino.type.TypeInfo"
+import {$CachedClassInfo, $CachedClassInfo$$Type} from "dev.latvian.mods.rhino.CachedClassInfo"
+import {$CachedMemberInfo} from "dev.latvian.mods.rhino.CachedMemberInfo"
+import {$Field, $Field$$Type} from "java.lang.reflect.Field"
+
+export class $CachedFieldInfo extends $CachedMemberInfo {
+readonly "originalName": StringJS
+readonly "parent": $CachedClassInfo
+readonly "isStatic": boolean
+readonly "isFinal": boolean
+readonly "modifiers": integer
+readonly "isNative": boolean
+
+constructor(arg0: $CachedClassInfo$$Type, arg1: $Field$$Type)
+
+public "get"(arg1: any): any
+public "set"(arg1: any, arg2: any): void
+public "getType"(): $TypeInfo
+public "getCached"(): $Field
+get "type"(): $TypeInfo
+get "cached"(): $Field
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $CachedFieldInfo$$Type = ($CachedFieldInfo);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $CachedFieldInfo$$Original = $CachedFieldInfo;}
+declare module "dev.latvian.mods.rhino.type.TypeStringContext" {
+import {$TypeInfo$$Type} from "dev.latvian.mods.rhino.type.TypeInfo"
+import {$StringBuilder$$Type} from "java.lang.StringBuilder"
+import {$ClassTypeInfo$$Type} from "dev.latvian.mods.rhino.type.ClassTypeInfo"
+
+export interface $TypeStringContext$$Interface {
+}
+
+export class $TypeStringContext implements $TypeStringContext$$Interface {
+static readonly "DEFAULT": $TypeStringContext
+
+ "toString"(arg0: $TypeInfo$$Type): StringJS
+ "append"(arg0: $StringBuilder$$Type, arg1: $TypeInfo$$Type): void
+ "appendClassName"(arg0: $StringBuilder$$Type, arg1: $ClassTypeInfo$$Type): void
+ "appendSpace"(arg0: $StringBuilder$$Type): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $TypeStringContext$$Type = ($TypeStringContext);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $TypeStringContext$$Original = $TypeStringContext;}
+declare module "dev.latvian.mods.rhino.util.ArrayValueProvider" {
+import {$NativeArray$$Type} from "dev.latvian.mods.rhino.NativeArray"
+import {$Iterable$$Type} from "java.lang.Iterable"
+import {$TypeInfo$$Type} from "dev.latvian.mods.rhino.type.TypeInfo"
+import {$List$$Type} from "java.util.List"
+
+export interface $ArrayValueProvider$$Interface {
+get "length"(): integer
+get "errorSource"(): any
+}
+
+export class $ArrayValueProvider implements $ArrayValueProvider$$Interface {
+static readonly "EMPTY": $ArrayValueProvider
+
+ "getLength"(): integer
+ "createList"(arg1: $TypeInfo$$Type): any
+ "createArray"(arg1: $TypeInfo$$Type): any
+static "fromJavaList"(arg0: $List$$Type<(never)>, arg1: any): $ArrayValueProvider
+static "fromNativeArray"(arg0: $NativeArray$$Type): $ArrayValueProvider
+ "createSet"(arg1: $TypeInfo$$Type): any
+static "fromIterable"(arg0: $Iterable$$Type<(never)>): $ArrayValueProvider
+ "getArrayValue"(arg1: integer): any
+ "getErrorSource"(): any
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ArrayValueProvider$$Type = ($ArrayValueProvider);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ArrayValueProvider$$Original = $ArrayValueProvider;}
+declare module "dev.latvian.mods.rhino.type.JSFixedArrayTypeInfo" {
+import {$Collection$$Type} from "java.util.Collection"
+import {$StringBuilder$$Type} from "java.lang.StringBuilder"
+import {$Map, $Map$$Type} from "java.util.Map"
+import {$List, $List$$Type} from "java.util.List"
+import {$TypeStringContext$$Type} from "dev.latvian.mods.rhino.type.TypeStringContext"
+import {$TypeInfo, $TypeInfo$$Type, $TypeInfo$$Interface} from "dev.latvian.mods.rhino.type.TypeInfo"
+import {$TypeVariable$$Type} from "java.lang.reflect.TypeVariable"
+import {$VariableTypeInfo, $VariableTypeInfo$$Type} from "dev.latvian.mods.rhino.type.VariableTypeInfo"
+import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$JSOptionalParam, $JSOptionalParam$$Type} from "dev.latvian.mods.rhino.type.JSOptionalParam"
+import {$Type$$Type} from "java.lang.reflect.Type"
+import {$Set} from "java.util.Set"
+import {$Class, $Class$$Type} from "java.lang.Class"
+import {$RecordTypeInfo$Component} from "dev.latvian.mods.rhino.type.RecordTypeInfo$Component"
+import {$Record} from "java.lang.Record"
+
+export class $JSFixedArrayTypeInfo extends $Record implements $TypeInfo$$Interface {
+constructor(types: $List$$Type<($JSOptionalParam$$Type)>)
+
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "append"(arg0: $TypeStringContext$$Type, arg1: $StringBuilder$$Type): void
+public "hashCode"(): integer
+public "types"(): $List<($JSOptionalParam)>
+public "collectContainedComponentClasses"(arg0: $Collection$$Type<($Class$$Type<(never)>)>): void
+public "asClass"(): $Class<(never)>
+public static "ofArray"(arg0: ($Type$$Type)[]): ($TypeInfo)[]
+public "signature"(): StringJS
+public "isPrimitive"(): boolean
+public "newArray"(arg0: integer): any
+public "componentType"(): $TypeInfo
+public static "of"(arg0: $Class$$Type<(never)>): $TypeInfo
+public static "of"(arg0: $TypeVariable$$Type<(never)>): $VariableTypeInfo
+public static "of"(arg0: $Type$$Type): $TypeInfo
+public "enumConstants"(): $List<(any)>
+public "param"(arg0: integer): $TypeInfo
+public "isVoid"(): boolean
+public "is"(arg0: $TypeInfo$$Type): boolean
+public "or"(arg0: $TypeInfo$$Type): $TypeInfo
+public "isCharacter"(): boolean
+public "isFloat"(): boolean
+public "asArray"(): $TypeInfo
+public static "safeOfArray"(arg0: $Supplier$$Type<(($Type$$Type)[])>): ($TypeInfo)[]
+public "createDefaultValue"(): any
+public "consolidate"(arg0: $Map$$Type<($VariableTypeInfo$$Type), ($TypeInfo$$Type)>): $TypeInfo
+public "shouldConvert"(): boolean
+public "getContainedComponentClasses"(): $Set<($Class<(never)>)>
+public "isLong"(): boolean
+public "recordComponents"(): $Map<(StringJS), ($RecordTypeInfo$Component)>
+public "isFunctionalInterface"(): boolean
+public "isDouble"(): boolean
+public static "safeOf"(arg0: $Supplier$$Type<($Type$$Type)>): $TypeInfo
+public "isByte"(): boolean
+public "isInt"(): boolean
+public "isBoolean"(): boolean
+public "isShort"(): boolean
+public "withParams"(...arg0: ($TypeInfo$$Type)[]): $TypeInfo
+get "primitive"(): boolean
+get "void"(): boolean
+get "character"(): boolean
+get "float"(): boolean
+get "containedComponentClasses"(): $Set<($Class<(never)>)>
+get "long"(): boolean
+get "functionalInterface"(): boolean
+get "double"(): boolean
+get "byte"(): boolean
+get "int"(): boolean
+get "boolean"(): boolean
+get "short"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $JSFixedArrayTypeInfo$$Type = ({"types"?: $List$$Type<($JSOptionalParam$$Type)>}) | ([types?: $List$$Type<($JSOptionalParam$$Type)>]);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $JSFixedArrayTypeInfo$$Original = $JSFixedArrayTypeInfo;}
+declare module "dev.latvian.mods.rhino.Function" {
+import {$Callable$$Interface} from "dev.latvian.mods.rhino.Callable"
+import {$MemberType} from "dev.latvian.mods.rhino.MemberType"
+import {$DefaultValueTypeHint$$Type} from "dev.latvian.mods.rhino.util.DefaultValueTypeHint"
+import {$Scriptable, $Scriptable$$Type, $Scriptable$$Interface} from "dev.latvian.mods.rhino.Scriptable"
+import {$Consumer$$Type} from "java.util.function.Consumer"
+
+export interface $Function$$Interface extends $Scriptable$$Interface, $Callable$$Interface {
+get "className"(): StringJS
+set "parentScope"(value: $Scriptable$$Type)
+get "parentScope"(): $Scriptable
+get "typeOf"(): $MemberType
+get "allIds"(): (any)[]
+get "prototype"(): $Scriptable
+set "prototype"(value: $Scriptable$$Type)
+get "ids"(): (any)[]
+}
+
+export class $Function implements $Function$$Interface {
+ "call"(arg1: $Scriptable$$Type, arg2: $Scriptable$$Type, arg3: (any)[]): any
+ "construct"(arg1: $Scriptable$$Type, arg2: (any)[]): $Scriptable
+ "get"(arg1: integer, arg2: $Scriptable$$Type): any
+ "get"(arg1: StringJS, arg2: $Scriptable$$Type): any
+ "put"(arg1: integer, arg2: $Scriptable$$Type, arg3: any): void
+ "put"(arg1: StringJS, arg2: $Scriptable$$Type, arg3: any): void
+ "delete"(arg1: StringJS): void
+ "delete"(arg1: integer): void
+ "getDefaultValue"(arg1: $DefaultValueTypeHint$$Type): any
+ "getClassName"(): StringJS
+ "has"(arg1: StringJS, arg2: $Scriptable$$Type): boolean
+ "has"(arg1: integer, arg2: $Scriptable$$Type): boolean
+ "setParentScope"(arg0: $Scriptable$$Type): void
+ "getParentScope"(): $Scriptable
+ "enumerationIteratorNext"(arg1: $Consumer$$Type<(any)>): boolean
+ "enumerationIteratorHasNext"(arg1: $Consumer$$Type<(any)>): boolean
+ "getTypeOf"(): $MemberType
+ "getAllIds"(): (any)[]
+ "hasInstance"(arg1: $Scriptable$$Type): boolean
+ "getPrototype"(): $Scriptable
+ "setPrototype"(arg0: $Scriptable$$Type): void
+ "getIds"(): (any)[]
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Function$$Type = ($Function);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Function$$Original = $Function;}
+declare module "dev.latvian.mods.rhino.type.RecordTypeInfo" {
+import {$JSObjectTypeInfo} from "dev.latvian.mods.rhino.type.JSObjectTypeInfo"
+import {$Map, $Map$$Type} from "java.util.Map"
+import {$TypeWrapperFactory$$Interface} from "dev.latvian.mods.rhino.util.wrap.TypeWrapperFactory"
+import {$JSFixedArrayTypeInfo} from "dev.latvian.mods.rhino.type.JSFixedArrayTypeInfo"
+import {$TypeInfo, $TypeInfo$$Type} from "dev.latvian.mods.rhino.type.TypeInfo"
+import {$TypeVariable$$Type} from "java.lang.reflect.TypeVariable"
+import {$VariableTypeInfo} from "dev.latvian.mods.rhino.type.VariableTypeInfo"
+import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$Type$$Type} from "java.lang.reflect.Type"
+import {$ClassTypeInfo} from "dev.latvian.mods.rhino.type.ClassTypeInfo"
+import {$Class$$Type} from "java.lang.Class"
+import {$RecordTypeInfo$Component} from "dev.latvian.mods.rhino.type.RecordTypeInfo$Component"
+import {$RecordTypeInfo$Data} from "dev.latvian.mods.rhino.type.RecordTypeInfo$Data"
+
+export class $RecordTypeInfo extends $ClassTypeInfo implements $TypeWrapperFactory$$Interface<(any)> {
+public "wrap"(arg1: any, arg2: $TypeInfo$$Type): any
+public "getData"(): $RecordTypeInfo$Data
+public "createInstance"(arg1: $Map$$Type<(never), (never)>): any
+public "createInstance"(...arg1: (any)[]): any
+public "recordComponents"(): $Map<(StringJS), ($RecordTypeInfo$Component)>
+public static "setGlobalDefaultValue"<T>(arg0: $Class$$Type<(T)>, arg1: T): void
+public "getObjectTypeInfo"(): $JSObjectTypeInfo
+public "getArrayTypeInfo"(): $JSFixedArrayTypeInfo
+public "createCombinedType"(...arg0: ($TypeInfo$$Type)[]): $TypeInfo
+public static "ofArray"(arg0: ($Type$$Type)[]): ($TypeInfo)[]
+public static "of"(arg0: $Class$$Type<(never)>): $TypeInfo
+public static "of"(arg0: $TypeVariable$$Type<(never)>): $VariableTypeInfo
+public static "of"(arg0: $Type$$Type): $TypeInfo
+public static "safeOfArray"(arg0: $Supplier$$Type<(($Type$$Type)[])>): ($TypeInfo)[]
+public static "safeOf"(arg0: $Supplier$$Type<($Type$$Type)>): $TypeInfo
+get "data"(): $RecordTypeInfo$Data
+get "objectTypeInfo"(): $JSObjectTypeInfo
+get "arrayTypeInfo"(): $JSFixedArrayTypeInfo
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $RecordTypeInfo$$Type = ($RecordTypeInfo);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $RecordTypeInfo$$Original = $RecordTypeInfo;}
+declare module "dev.latvian.mods.rhino.util.ToStringJS" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export interface $ToStringJS$$Interface {
+}
+
+export class $ToStringJS implements $ToStringJS$$Interface {
+static "toStringJS"(arg1: any): StringJS
+ "toStringJS"(): StringJS
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ToStringJS$$Type = ($ToStringJS);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ToStringJS$$Original = $ToStringJS;}
+declare module "dev.latvian.mods.rhino.Context" {
+import {$ContextFactory, $ContextFactory$$Type} from "dev.latvian.mods.rhino.ContextFactory"
+import {$Map} from "java.util.Map"
+import {$EvaluatorException} from "dev.latvian.mods.rhino.EvaluatorException"
+import {$ErrorReporter} from "dev.latvian.mods.rhino.ErrorReporter"
+import {$Reader$$Type} from "java.io.Reader"
+import {$List} from "java.util.List"
+import {$Script} from "dev.latvian.mods.rhino.Script"
+import {$TypeInfo$$Type} from "dev.latvian.mods.rhino.type.TypeInfo"
+import {$Callable$$Type} from "dev.latvian.mods.rhino.Callable"
+import {$CachedClassStorage} from "dev.latvian.mods.rhino.CachedClassStorage"
+import {$ScriptableObject, $ScriptableObject$$Type} from "dev.latvian.mods.rhino.ScriptableObject"
+import {$Class$$Type} from "java.lang.Class"
+import {$ArrayValueProvider} from "dev.latvian.mods.rhino.util.ArrayValueProvider"
+import {$Throwable$$Type} from "java.lang.Throwable"
+import {$Scriptable, $Scriptable$$Type} from "dev.latvian.mods.rhino.Scriptable"
+import {$ClassLoader, $ClassLoader$$Type} from "java.lang.ClassLoader"
+import {$ClassVisibilityContext$$Type} from "dev.latvian.mods.rhino.util.ClassVisibilityContext"
+import {$RegExp} from "dev.latvian.mods.rhino.regexp.RegExp"
+import {$RuntimeException} from "java.lang.RuntimeException"
+import {$GeneratedClassLoader} from "dev.latvian.mods.rhino.GeneratedClassLoader"
+
+export class $Context {
+static readonly "JSTYPE_JAVA_CLASS": integer
+readonly "factory": $ContextFactory
+static readonly "JSTYPE_JAVA_ARRAY": integer
+static readonly "CONVERSION_TRIVIAL": integer
+static readonly "CONVERSION_NONE": integer
+ "generateObserverCount": boolean
+static readonly "CONVERSION_EXACT": integer
+static readonly "JSTYPE_BOOLEAN": integer
+static readonly "JSTYPE_UNDEFINED": integer
+static readonly "JSTYPE_OBJECT": integer
+readonly "lock": any
+static readonly "JSTYPE_STRING": integer
+static readonly "JSTYPE_NULL": integer
+static readonly "JSTYPE_JAVA_OBJECT": integer
+static readonly "JSTYPE_NUMBER": integer
+
+constructor(arg0: $ContextFactory$$Type)
+
+public "toString"(arg0: any): StringJS
+public "newArray"(arg0: $Scriptable$$Type, arg1: (any)[]): $Scriptable
+public "newArray"(arg0: $Scriptable$$Type, arg1: integer): $Scriptable
+public "wrap"(arg0: $Scriptable$$Type, arg1: any): any
+public "wrap"(arg0: $Scriptable$$Type, arg1: any, arg2: $TypeInfo$$Type): any
+public "canConvert"(arg0: any, arg1: $TypeInfo$$Type): boolean
+public "getImplementationVersion"(): StringJS
+public static "reportError"(arg1: StringJS, arg2: integer, arg3: StringJS, arg4: integer, arg5: StringJS): void
+public static "reportError"(arg1: StringJS): void
+public "toBoolean"(arg0: any): boolean
+public "isStrictMode"(): boolean
+public "compileString"(arg0: StringJS, arg1: StringJS, arg2: integer, arg3: any): $Script
+public "getErrorReporter"(): $ErrorReporter
+public "optionalMapOf"<K, V>(arg0: any, arg1: $TypeInfo$$Type, arg2: $TypeInfo$$Type): $Map<(K), (V)>
+public "optionalMapOf"(arg0: any): $Map<(StringJS), (any)>
+public "visibleToScripts"(arg0: StringJS, arg1: $ClassVisibilityContext$$Type): boolean
+public "wrapAsJavaObject"(arg0: $Scriptable$$Type, arg1: any, arg2: $TypeInfo$$Type): $Scriptable
+public "optionalListOf"<K>(arg0: any, arg1: $TypeInfo$$Type): $List<(K)>
+public "optionalListOf"(arg0: any): $List<(any)>
+public static "getSizeRank"(arg0: $TypeInfo$$Type): integer
+public "hasTopCallScope"(): boolean
+public "compileReader"(arg0: $Reader$$Type, arg1: StringJS, arg2: integer, arg3: any): $Script
+public static "reportRuntimeError"(arg0: StringJS, arg1: $Context$$Type): $EvaluatorException
+public static "reportRuntimeError"(arg1: StringJS, arg2: StringJS, arg3: integer, arg4: StringJS, arg5: integer): $EvaluatorException
+public static "reportWarning"(arg0: StringJS, arg1: $Context$$Type): void
+public static "reportWarning"(arg1: StringJS, arg2: StringJS, arg3: integer, arg4: StringJS, arg5: integer): void
+public "setInstructionObserverThreshold"(arg0: integer): void
+public "getInstructionObserverThreshold"(): integer
+public "getMaximumInterpreterStackDepth"(): integer
+public "internalConversionWeightLast"(arg0: any, arg1: $TypeInfo$$Type): integer
+public "createClassLoader"(arg0: $ClassLoader$$Type): $GeneratedClassLoader
+public "getCachedClassStorage"(arg0: boolean): $CachedClassStorage
+public "initStandardObjects"(): $ScriptableObject
+public "initStandardObjects"(arg0: $ScriptableObject$$Type): $Scriptable
+public "initStandardObjects"(arg0: $ScriptableObject$$Type, arg1: boolean): $ScriptableObject
+public static "getSourcePositionFromStack"(arg1: (integer)[]): StringJS
+public "internalConversionWeight"(arg0: any, arg1: $TypeInfo$$Type): integer
+public static "reportRuntimeError2"(arg0: StringJS, arg1: any, arg2: any, arg3: $Context$$Type): $EvaluatorException
+public static "reportRuntimeError0"(arg0: StringJS, arg1: $Context$$Type): $EvaluatorException
+public "arrayValueProviderOf"(arg0: any): $ArrayValueProvider
+public static "throwAsScriptRuntimeEx"(arg0: $Throwable$$Type, arg1: $Context$$Type): $RuntimeException
+public "initSafeStandardObjects"(arg0: $ScriptableObject$$Type, arg1: boolean): $ScriptableObject
+public "initSafeStandardObjects"(arg0: $ScriptableObject$$Type): $Scriptable
+public "initSafeStandardObjects"(): $ScriptableObject
+public "reportConversionError"(arg0: any, arg1: $TypeInfo$$Type): any
+public static "reportRuntimeError3"(arg0: StringJS, arg1: any, arg2: any, arg3: any, arg4: $Context$$Type): $EvaluatorException
+public "getApplicationClassLoader"(): $ClassLoader
+public "setApplicationClassLoader"(arg0: $ClassLoader$$Type): void
+public "setGenerateObserverCount"(arg0: boolean): void
+public "createInterfaceAdapter"(arg0: $TypeInfo$$Type, arg1: $ScriptableObject$$Type): any
+public "getConversionWeight"(arg0: any, arg1: $TypeInfo$$Type): integer
+public static "reportRuntimeError1"(arg0: StringJS, arg1: any, arg2: $Context$$Type): $EvaluatorException
+public static "reportRuntimeError4"(arg0: StringJS, arg1: any, arg2: any, arg3: any, arg4: any, arg5: $Context$$Type): $EvaluatorException
+public "lastStoredScriptable"(): $Scriptable
+public "newClassSerialNumber"(): integer
+public "defaultObjectToSource"(arg0: $Scriptable$$Type, arg1: $Scriptable$$Type, arg2: (any)[]): StringJS
+public "putThreadLocal"(arg0: any, arg1: any): void
+public "removeThreadLocal"(arg0: any): void
+public "wrapNewObject"(arg0: $Scriptable$$Type, arg1: any, arg2: $TypeInfo$$Type): $Scriptable
+public "evaluateReader"(arg0: $Scriptable$$Type, arg1: $Reader$$Type, arg2: StringJS, arg3: integer, arg4: any): any
+public "wrapJavaClass"(arg0: $Scriptable$$Type, arg1: $Class$$Type<(never)>): $Scriptable
+public "getThreadLocal"(arg0: any): any
+public "getTopCallScope"(): $Scriptable
+public "getTopCallOrThrow"(): $Scriptable
+public "storeScriptable"(arg0: $Scriptable$$Type): void
+public "evaluateString"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: StringJS, arg3: integer, arg4: any): any
+public static "getUndefinedValue"(): any
+public "javaToJS"(arg0: any, arg1: $Scriptable$$Type): any
+public "javaToJS"(arg0: any, arg1: $Scriptable$$Type, arg2: $TypeInfo$$Type): any
+public "jsToJava"(arg0: any, arg1: $TypeInfo$$Type): any
+public "wrapAny"(arg0: $Scriptable$$Type, arg1: any): any
+public "setOf"(arg0: any, arg1: $TypeInfo$$Type): any
+public "isMapLike"(arg0: any): boolean
+public "setTopCall"(arg0: $Scriptable$$Type): void
+public "initJSON"(arg0: $ScriptableObject$$Type, arg1: boolean): void
+public "isListLike"(arg0: any): boolean
+public "mapOf"(arg0: any, arg1: $TypeInfo$$Type, arg2: $TypeInfo$$Type): any
+public "classOf"(arg0: any): any
+public "callSync"(arg0: $Callable$$Type, arg1: $Scriptable$$Type, arg2: $Scriptable$$Type, arg3: (any)[]): any
+public "doTopCall"(arg0: $Scriptable$$Type, arg1: $Callable$$Type, arg2: $Scriptable$$Type, arg3: (any)[], arg4: boolean): any
+public "addToScope"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: any): void
+public "toNumber"(arg0: any): double
+public "toObject"(arg0: any, arg1: $Scriptable$$Type): $Scriptable
+public "newObject"(arg0: $Scriptable$$Type, arg1: StringJS): $Scriptable
+public "newObject"(arg0: $Scriptable$$Type): $Scriptable
+public "newObject"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: (any)[]): $Scriptable
+public "getRegExp"(): $RegExp
+public "arrayOf"(arg0: any, arg1: $TypeInfo$$Type): any
+public "listOf"(arg0: any, arg1: $TypeInfo$$Type): any
+get "implementationVersion"(): StringJS
+get "strictMode"(): boolean
+get "errorReporter"(): $ErrorReporter
+set "instructionObserverThreshold"(value: integer)
+get "instructionObserverThreshold"(): integer
+get "maximumInterpreterStackDepth"(): integer
+get "applicationClassLoader"(): $ClassLoader
+set "applicationClassLoader"(value: $ClassLoader$$Type)
+get "topCallScope"(): $Scriptable
+get "topCallOrThrow"(): $Scriptable
+get "undefinedValue"(): any
+set "topCall"(value: $Scriptable$$Type)
+get "regExp"(): $RegExp
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Context$$Type = ($Context);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Context$$Original = $Context;}
+declare module "dev.latvian.mods.rhino.IdEnumerationIterator" {
+import {$Consumer$$Type} from "java.util.function.Consumer"
+
+export interface $IdEnumerationIterator$$Interface {
+}
+
+export class $IdEnumerationIterator implements $IdEnumerationIterator$$Interface {
+ "enumerationIteratorNext"(arg1: $Consumer$$Type<(any)>): boolean
+ "enumerationIteratorHasNext"(arg1: $Consumer$$Type<(any)>): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $IdEnumerationIterator$$Type = ($IdEnumerationIterator);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $IdEnumerationIterator$$Original = $IdEnumerationIterator;}
+declare module "dev.latvian.mods.rhino.util.ClassVisibilityContext" {
+import {$Enum} from "java.lang.Enum"
+
+export class $ClassVisibilityContext extends $Enum<($ClassVisibilityContext)> {
+static readonly "ARGUMENT": $ClassVisibilityContext
+static readonly "EXCEPTION": $ClassVisibilityContext
+static readonly "UNKNOWN": $ClassVisibilityContext
+static readonly "CLASS_IN_PACKAGE": $ClassVisibilityContext
+static readonly "MEMBER": $ClassVisibilityContext
+
+public static "values"(): ($ClassVisibilityContext)[]
+public static "valueOf"(arg0: StringJS): $ClassVisibilityContext
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ClassVisibilityContext$$Type = (("unknown") | ("member") | ("class_in_package") | ("argument") | ("exception"));
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ClassVisibilityContext$$Original = $ClassVisibilityContext;}
+declare module "dev.latvian.mods.rhino.Symbol" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export interface $Symbol$$Interface {
+}
+
+export class $Symbol implements $Symbol$$Interface {
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Symbol$$Type = ($Symbol);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Symbol$$Original = $Symbol;}
+declare module "dev.latvian.mods.rhino.IdFunctionObject" {
+import {$Context$$Type} from "dev.latvian.mods.rhino.Context"
+import {$BaseFunction} from "dev.latvian.mods.rhino.BaseFunction"
+import {$DefaultValueTypeHint$$Type} from "dev.latvian.mods.rhino.util.DefaultValueTypeHint"
+import {$Scriptable, $Scriptable$$Type} from "dev.latvian.mods.rhino.Scriptable"
+import {$RuntimeException} from "java.lang.RuntimeException"
+import {$IdFunctionCall$$Type} from "dev.latvian.mods.rhino.IdFunctionCall"
+
+export class $IdFunctionObject extends $BaseFunction {
+static readonly "DONTENUM": integer
+static readonly "CONST": integer
+static readonly "UNINITIALIZED_CONST": integer
+static readonly "EMPTY": integer
+static readonly "READONLY": integer
+static readonly "PERMANENT": integer
+
+constructor(arg0: $IdFunctionCall$$Type, arg1: any, arg2: integer, arg3: StringJS, arg4: integer, arg5: $Scriptable$$Type)
+constructor(arg0: $IdFunctionCall$$Type, arg1: any, arg2: integer, arg3: integer)
+
+public "getLength"(): integer
+public "call"(arg1: $Scriptable$$Type, arg2: $Scriptable$$Type, arg3: (any)[]): any
+public "createObject"(arg1: $Scriptable$$Type): $Scriptable
+public "getTag"(): any
+public "unknown"(): $RuntimeException
+public "getArity"(): integer
+public "addAsProperty"(arg0: $Scriptable$$Type, arg1: $Context$$Type): void
+public "getPrototype"(): $Scriptable
+public "hasTag"(arg0: any): boolean
+public "getFunctionName"(): StringJS
+public "methodId"(): integer
+public "exportAsScopeProperty"(): void
+public "initFunction"(arg0: StringJS, arg1: $Scriptable$$Type): void
+public "markAsConstructor"(arg0: $Scriptable$$Type): void
+public "get"(arg1: integer, arg2: $Scriptable$$Type): any
+public "put"(arg1: integer, arg2: $Scriptable$$Type, arg3: any): void
+public "delete"(arg1: integer): void
+public "getDefaultValue"(arg1: $DefaultValueTypeHint$$Type): any
+public "has"(arg1: integer, arg2: $Scriptable$$Type): boolean
+public "setParentScope"(arg0: $Scriptable$$Type): void
+public "getParentScope"(): $Scriptable
+public "getAllIds"(): (any)[]
+public "setPrototype"(arg0: $Scriptable$$Type): void
+public "getIds"(): (any)[]
+get "length"(): integer
+get "tag"(): any
+get "arity"(): integer
+get "prototype"(): $Scriptable
+get "functionName"(): StringJS
+set "parentScope"(value: $Scriptable$$Type)
+get "parentScope"(): $Scriptable
+get "allIds"(): (any)[]
+set "prototype"(value: $Scriptable$$Type)
+get "ids"(): (any)[]
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $IdFunctionObject$$Type = ($IdFunctionObject);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $IdFunctionObject$$Original = $IdFunctionObject;}
+declare module "dev.latvian.mods.rhino.regexp.RegExp" {
+import {$Scriptable, $Scriptable$$Type} from "dev.latvian.mods.rhino.Scriptable"
+
+export class $RegExp {
+static readonly "RA_MATCH": integer
+static readonly "RA_REPLACE": integer
+static readonly "RA_SEARCH": integer
+
+constructor()
+
+public "action"(arg1: $Scriptable$$Type, arg2: $Scriptable$$Type, arg3: (any)[], arg4: integer): any
+public "find_split"(arg1: $Scriptable$$Type, arg2: StringJS, arg3: StringJS, arg4: $Scriptable$$Type, arg5: (integer)[], arg6: (integer)[], arg7: (boolean)[], arg8: ((StringJS)[])[]): integer
+public "js_split"(arg1: $Scriptable$$Type, arg2: StringJS, arg3: (any)[]): any
+public "compileRegExp"(arg1: StringJS, arg2: StringJS): any
+public "wrapRegExp"(arg1: $Scriptable$$Type, arg2: any): $Scriptable
+public "isRegExp"(arg0: $Scriptable$$Type): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $RegExp$$Type = ($RegExp);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $RegExp$$Original = $RegExp;}
+declare module "dev.latvian.mods.rhino.util.wrap.DirectTypeWrapperFactory" {
+import {$TypeInfo$$Type} from "dev.latvian.mods.rhino.type.TypeInfo"
+import {$TypeWrapperFactory$$Interface} from "dev.latvian.mods.rhino.util.wrap.TypeWrapperFactory"
+
+export interface $DirectTypeWrapperFactory$$Interface<T> extends $TypeWrapperFactory$$Interface<(T)> {
+
+(arg0: any): T
+}
+
+export class $DirectTypeWrapperFactory<T> implements $DirectTypeWrapperFactory$$Interface {
+ "wrap"(arg0: any): T
+ "wrap"(arg1: any, arg2: $TypeInfo$$Type): T
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $DirectTypeWrapperFactory$$Type<T> = ((arg0: any) => T);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $DirectTypeWrapperFactory$$Original<T> = $DirectTypeWrapperFactory<(T)>;}
+declare module "dev.latvian.mods.rhino.CachedConstructorInfo" {
+import {$CachedClassInfo, $CachedClassInfo$$Type} from "dev.latvian.mods.rhino.CachedClassInfo"
+import {$CachedExecutableInfo} from "dev.latvian.mods.rhino.CachedExecutableInfo"
+import {$Constructor, $Constructor$$Type} from "java.lang.reflect.Constructor"
+import {$Scriptable$$Type} from "dev.latvian.mods.rhino.Scriptable"
+
+export class $CachedConstructorInfo extends $CachedExecutableInfo {
+readonly "originalName": StringJS
+readonly "parent": $CachedClassInfo
+readonly "isStatic": boolean
+readonly "isFinal": boolean
+readonly "modifiers": integer
+readonly "isNative": boolean
+
+constructor(arg0: $CachedClassInfo$$Type, arg1: $Constructor$$Type<(never)>)
+
+public "invoke"(arg1: $Scriptable$$Type, arg2: any, ...arg3: (any)[]): any
+public "getCached"(): $Constructor<(never)>
+get "cached"(): $Constructor<(never)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $CachedConstructorInfo$$Type = ($CachedConstructorInfo);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $CachedConstructorInfo$$Original = $CachedConstructorInfo;}
+declare module "dev.latvian.mods.rhino.type.JSOptionalParam" {
+import {$TypeInfo, $TypeInfo$$Type} from "dev.latvian.mods.rhino.type.TypeInfo"
+import {$StringBuilder$$Type} from "java.lang.StringBuilder"
+import {$TypeStringContext$$Type} from "dev.latvian.mods.rhino.type.TypeStringContext"
+import {$Record} from "java.lang.Record"
+
+export class $JSOptionalParam extends $Record {
+constructor(arg0: StringJS, arg1: $TypeInfo$$Type)
+constructor(name: StringJS, type: $TypeInfo$$Type, optional: boolean)
+
+public "name"(): StringJS
+public "type"(): $TypeInfo
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "append"(arg0: $TypeStringContext$$Type, arg1: $StringBuilder$$Type): void
+public "hashCode"(): integer
+public "optional"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $JSOptionalParam$$Type = ({"type"?: $TypeInfo$$Type, "optional"?: boolean, "name"?: StringJS}) | ([type?: $TypeInfo$$Type, optional?: boolean, name?: StringJS]);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $JSOptionalParam$$Original = $JSOptionalParam;}
+declare module "dev.latvian.mods.rhino.type.VariableTypeInfo" {
+import {$TypeInfo, $TypeInfo$$Type} from "dev.latvian.mods.rhino.type.TypeInfo"
+import {$TypeVariable$$Type} from "java.lang.reflect.TypeVariable"
+import {$Map$$Type} from "java.util.Map"
+import {$TypeInfoBase} from "dev.latvian.mods.rhino.type.TypeInfoBase"
+import {$Type$$Type} from "java.lang.reflect.Type"
+import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$Class, $Class$$Type} from "java.lang.Class"
+
+export class $VariableTypeInfo extends $TypeInfoBase {
+public "getName"(): StringJS
+public "toString"(): StringJS
+public "getBounds"(): ($TypeInfo)[]
+public "consolidate"(arg0: $Map$$Type<($VariableTypeInfo$$Type), ($TypeInfo$$Type)>): $TypeInfo
+public "shouldConvert"(): boolean
+public "asClass"(): $Class<(never)>
+public "getMainBound"(): $TypeInfo
+public static "ofArray"(arg0: ($Type$$Type)[]): ($TypeInfo)[]
+public static "of"(arg0: $Class$$Type<(never)>): $TypeInfo
+public static "of"(arg0: $TypeVariable$$Type<(never)>): $VariableTypeInfo
+public static "of"(arg0: $Type$$Type): $TypeInfo
+public static "safeOfArray"(arg0: $Supplier$$Type<(($Type$$Type)[])>): ($TypeInfo)[]
+public static "safeOf"(arg0: $Supplier$$Type<($Type$$Type)>): $TypeInfo
+get "name"(): StringJS
+get "bounds"(): ($TypeInfo)[]
+get "mainBound"(): $TypeInfo
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $VariableTypeInfo$$Type = ($VariableTypeInfo);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $VariableTypeInfo$$Original = $VariableTypeInfo;}
+declare module "dev.latvian.mods.rhino.type.TypeInfoBase" {
+import {$Collection$$Type} from "java.util.Collection"
+import {$StringBuilder$$Type} from "java.lang.StringBuilder"
+import {$Map, $Map$$Type} from "java.util.Map"
+import {$List} from "java.util.List"
+import {$TypeStringContext$$Type} from "dev.latvian.mods.rhino.type.TypeStringContext"
+import {$TypeInfo, $TypeInfo$$Type, $TypeInfo$$Interface} from "dev.latvian.mods.rhino.type.TypeInfo"
+import {$TypeVariable$$Type} from "java.lang.reflect.TypeVariable"
+import {$VariableTypeInfo, $VariableTypeInfo$$Type} from "dev.latvian.mods.rhino.type.VariableTypeInfo"
+import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$Type$$Type} from "java.lang.reflect.Type"
+import {$Set} from "java.util.Set"
+import {$Class, $Class$$Type} from "java.lang.Class"
+import {$RecordTypeInfo$Component} from "dev.latvian.mods.rhino.type.RecordTypeInfo$Component"
+
+export class $TypeInfoBase implements $TypeInfo$$Interface {
+constructor()
+
+public "newArray"(arg0: integer): any
+public "asArray"(): $TypeInfo
+public static "ofArray"(arg0: ($Type$$Type)[]): ($TypeInfo)[]
+public "signature"(): StringJS
+public "append"(arg0: $TypeStringContext$$Type, arg1: $StringBuilder$$Type): void
+public "isPrimitive"(): boolean
+public "componentType"(): $TypeInfo
+public static "of"(arg0: $Class$$Type<(never)>): $TypeInfo
+public static "of"(arg0: $TypeVariable$$Type<(never)>): $VariableTypeInfo
+public static "of"(arg0: $Type$$Type): $TypeInfo
+public "enumConstants"(): $List<(any)>
+public "param"(arg0: integer): $TypeInfo
+public "isVoid"(): boolean
+public "is"(arg0: $TypeInfo$$Type): boolean
+public "or"(arg0: $TypeInfo$$Type): $TypeInfo
+public "isCharacter"(): boolean
+public "isFloat"(): boolean
+public static "safeOfArray"(arg0: $Supplier$$Type<(($Type$$Type)[])>): ($TypeInfo)[]
+public "createDefaultValue"(): any
+public "consolidate"(arg0: $Map$$Type<($VariableTypeInfo$$Type), ($TypeInfo$$Type)>): $TypeInfo
+public "shouldConvert"(): boolean
+public "getContainedComponentClasses"(): $Set<($Class<(never)>)>
+public "collectContainedComponentClasses"(arg0: $Collection$$Type<($Class$$Type<(never)>)>): void
+public "isLong"(): boolean
+public "recordComponents"(): $Map<(StringJS), ($RecordTypeInfo$Component)>
+public "isFunctionalInterface"(): boolean
+public "isDouble"(): boolean
+public "asClass"(): $Class<(never)>
+public static "safeOf"(arg0: $Supplier$$Type<($Type$$Type)>): $TypeInfo
+public "isByte"(): boolean
+public "isInt"(): boolean
+public "isBoolean"(): boolean
+public "isShort"(): boolean
+public "withParams"(...arg0: ($TypeInfo$$Type)[]): $TypeInfo
+get "primitive"(): boolean
+get "void"(): boolean
+get "character"(): boolean
+get "float"(): boolean
+get "containedComponentClasses"(): $Set<($Class<(never)>)>
+get "long"(): boolean
+get "functionalInterface"(): boolean
+get "double"(): boolean
+get "byte"(): boolean
+get "int"(): boolean
+get "boolean"(): boolean
+get "short"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $TypeInfoBase$$Type = ($TypeInfoBase);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $TypeInfoBase$$Original = $TypeInfoBase;}
+declare module "dev.latvian.mods.rhino.MemberType" {
+import {$Context$$Type} from "dev.latvian.mods.rhino.Context"
+import {$Enum} from "java.lang.Enum"
+
+export class $MemberType extends $Enum<($MemberType)> {
+static readonly "NUMBER": $MemberType
+static readonly "SYMBOL": $MemberType
+static readonly "UNDEFINED": $MemberType
+static readonly "STRING": $MemberType
+static readonly "OBJECT": $MemberType
+static readonly "FUNCTION": $MemberType
+static readonly "BOOLEAN": $MemberType
+
+public static "get"(arg0: any, arg1: $Context$$Type): $MemberType
+public "toString"(): StringJS
+public static "values"(): ($MemberType)[]
+public static "valueOf"(arg0: StringJS): $MemberType
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $MemberType$$Type = (("undefined") | ("object") | ("function") | ("symbol") | ("string") | ("number") | ("boolean"));
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $MemberType$$Original = $MemberType;}
+declare module "dev.latvian.mods.rhino.ExternalArrayData" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export interface $ExternalArrayData$$Interface {
+get "arrayLength"(): integer
+}
+
+export class $ExternalArrayData implements $ExternalArrayData$$Interface {
+ "getArrayElement"(arg0: integer): any
+ "setArrayElement"(arg0: integer, arg1: any): void
+ "getArrayLength"(): integer
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ExternalArrayData$$Type = ($ExternalArrayData);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ExternalArrayData$$Original = $ExternalArrayData;}
 declare module "dev.latvian.mods.rhino.CachedParameters" {
 import {$TypeInfo, $TypeInfo$$Type} from "dev.latvian.mods.rhino.type.TypeInfo"
 import {$List, $List$$Type} from "java.util.List"
@@ -2042,15 +2114,15 @@ public "types"(): $List<($Class<(never)>)>
 public "typesMatch"(arg0: ($Class$$Type<(never)>)[]): boolean
 public "isVarArg"(): boolean
 public "varArgType"(): $TypeInfo
-public "firstArgContext"(): boolean
 public "typeInfos"(): $List<($TypeInfo)>
+public "firstArgContext"(): boolean
 get "varArg"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $CachedParameters$$Type = ({"firstArgContext"?: boolean, "count"?: integer, "types"?: $List$$Type<($Class$$Type<(never)>)>, "varArgType"?: $TypeInfo$$Type, "typeInfos"?: $List$$Type<($TypeInfo$$Type)>}) | ([firstArgContext?: boolean, count?: integer, types?: $List$$Type<($Class$$Type<(never)>)>, varArgType?: $TypeInfo$$Type, typeInfos?: $List$$Type<($TypeInfo$$Type)>]);
+export type $CachedParameters$$Type = ({"count"?: integer, "firstArgContext"?: boolean, "typeInfos"?: $List$$Type<($TypeInfo$$Type)>, "varArgType"?: $TypeInfo$$Type, "types"?: $List$$Type<($Class$$Type<(never)>)>}) | ([count?: integer, firstArgContext?: boolean, typeInfos?: $List$$Type<($TypeInfo$$Type)>, varArgType?: $TypeInfo$$Type, types?: $List$$Type<($Class$$Type<(never)>)>]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -2062,8 +2134,8 @@ import {$SymbolScriptable$$Interface} from "dev.latvian.mods.rhino.SymbolScripta
 import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$ExternalArrayData, $ExternalArrayData$$Type} from "dev.latvian.mods.rhino.ExternalArrayData"
 import {$Callable$$Type} from "dev.latvian.mods.rhino.Callable"
-import {$WrappedExecutable$$Type} from "dev.latvian.mods.rhino.WrappedExecutable"
 import {$Context$$Type} from "dev.latvian.mods.rhino.Context"
+import {$WrappedExecutable$$Type} from "dev.latvian.mods.rhino.WrappedExecutable"
 import {$DefaultValueTypeHint$$Type} from "dev.latvian.mods.rhino.util.DefaultValueTypeHint"
 import {$Class$$Type} from "java.lang.Class"
 import {$Scriptable, $Scriptable$$Type, $Scriptable$$Interface} from "dev.latvian.mods.rhino.Scriptable"
@@ -2077,102 +2149,102 @@ static readonly "EMPTY": integer
 static readonly "READONLY": integer
 static readonly "PERMANENT": integer
 
-constructor(arg0: $Scriptable$$Type, arg1: $Scriptable$$Type)
 constructor()
+constructor(arg0: $Scriptable$$Type, arg1: $Scriptable$$Type)
 
-public static "defineConstProperty"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: $Context$$Type): void
-public "getExternalArrayLength"(): any
-public "getExternalArrayData"(): $ExternalArrayData
-public "avoidObjectDetection"(): boolean
-public "defineFunctionProperties"(arg1: (StringJS)[], arg2: $Class$$Type<(never)>, arg3: integer): void
-public "defineOwnProperties"(arg1: $ScriptableObject$$Type): void
-public "setExternalArrayData"(arg1: $ExternalArrayData$$Type): void
-public "isConst"(arg0: StringJS): boolean
-public "getTypeOf"(): $MemberType
-public "getIds"(): (any)[]
-public "getAllIds"(): (any)[]
-public "setAttributes"(arg1: $Symbol$$Type, arg2: integer): void
 public "setAttributes"(arg1: integer, arg2: integer): void
+public "setAttributes"(arg1: $Symbol$$Type, arg2: integer): void
 public "setAttributes"(arg1: StringJS, arg2: integer): void
 public "size"(): integer
-public "get"(arg1: StringJS, arg2: $Scriptable$$Type): any
 public "get"(arg1: integer, arg2: $Scriptable$$Type): any
 public "get"(arg1: $Symbol$$Type, arg2: $Scriptable$$Type): any
+public "get"(arg1: StringJS, arg2: $Scriptable$$Type): any
 public "get"(arg1: any): any
-public "put"(arg1: $Symbol$$Type, arg2: $Scriptable$$Type, arg3: any): void
-public "put"(arg1: integer, arg2: $Scriptable$$Type, arg3: any): void
 public "put"(arg1: StringJS, arg2: $Scriptable$$Type, arg3: any): void
-public static "getProperty"(arg0: $Scriptable$$Type, arg1: integer, arg2: $Context$$Type): any
-public static "getProperty"(arg0: $Scriptable$$Type, arg1: $Symbol$$Type, arg2: $Context$$Type): any
+public "put"(arg1: integer, arg2: $Scriptable$$Type, arg3: any): void
+public "put"(arg1: $Symbol$$Type, arg2: $Scriptable$$Type, arg3: any): void
 public static "getProperty"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: $Context$$Type): any
+public static "getProperty"(arg0: $Scriptable$$Type, arg1: $Symbol$$Type, arg2: $Context$$Type): any
+public static "getProperty"(arg0: $Scriptable$$Type, arg1: integer, arg2: $Context$$Type): any
 public "isEmpty"(): boolean
 public "isSealed"(): boolean
-public "delete"(arg1: StringJS): void
 public "delete"(arg1: $Symbol$$Type): void
 public "delete"(arg1: integer): void
+public "delete"(arg1: StringJS): void
 public static "getDefaultValue"(arg0: $Scriptable$$Type, arg1: $DefaultValueTypeHint$$Type, arg2: $Context$$Type): any
 public "getDefaultValue"(arg1: $DefaultValueTypeHint$$Type): any
 public "getClassName"(): StringJS
+public "getAttributes"(arg1: $Symbol$$Type): integer
 public "getAttributes"(arg1: StringJS): integer
 public "getAttributes"(arg1: integer): integer
-public "getAttributes"(arg1: $Symbol$$Type): integer
+public "has"(arg1: integer, arg2: $Scriptable$$Type): boolean
 public "has"(arg1: $Symbol$$Type, arg2: $Scriptable$$Type): boolean
 public "has"(arg1: StringJS, arg2: $Scriptable$$Type): boolean
-public "has"(arg1: integer, arg2: $Scriptable$$Type): boolean
 public static "getGeneratorFunctionPrototype"(arg0: $Scriptable$$Type, arg1: $Context$$Type): $Scriptable
-public static "getFunctionPrototype"(arg0: $Scriptable$$Type, arg1: $Context$$Type): $Scriptable
 public "putConst"(arg1: StringJS, arg2: $Scriptable$$Type, arg3: any): void
 public "sealObject"(): void
-public "setPrototype"(arg0: $Scriptable$$Type): void
-public "defineOwnProperty"(arg1: any, arg2: $ScriptableObject$$Type): void
-public "isExtensible"(): boolean
-public "preventExtensions"(): void
-public static "deleteProperty"(arg0: $Scriptable$$Type, arg1: integer, arg2: $Context$$Type): boolean
-public static "deleteProperty"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: $Context$$Type): boolean
-public "hasInstance"(arg1: $Scriptable$$Type): boolean
-public static "getObjectPrototype"(arg0: $Scriptable$$Type, arg1: $Context$$Type): $Scriptable
-public "getPrototype"(): $Scriptable
-public static "getArrayPrototype"(arg0: $Scriptable$$Type, arg1: $Context$$Type): $Scriptable
-public static "hasProperty"(arg0: $Scriptable$$Type, arg1: integer, arg2: $Context$$Type): boolean
-public static "hasProperty"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: $Context$$Type): boolean
-public static "hasProperty"(arg0: $Scriptable$$Type, arg1: $Symbol$$Type, arg2: $Context$$Type): boolean
-public "defineConst"(arg1: StringJS, arg2: $Scriptable$$Type): void
-public "setGetterOrSetter"(arg1: StringJS, arg2: integer, arg3: $Callable$$Type, arg4: boolean): void
-public "getGetterOrSetter"(arg0: StringJS, arg1: integer, arg2: boolean): any
-public static "getClassPrototype"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: $Context$$Type): $Scriptable
-public static "getTopScopeValue"(arg0: $Scriptable$$Type, arg1: any, arg2: $Context$$Type): any
-public static "getPropertyIds"(arg1: $Scriptable$$Type): (any)[]
-public static "putConstProperty"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: any, arg3: $Context$$Type): void
-public static "redefineProperty"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: boolean, arg3: $Context$$Type): void
-public "defineProperty"(arg1: StringJS, arg2: any, arg3: $WrappedExecutable$$Type, arg4: $WrappedExecutable$$Type, arg5: integer): void
-public "defineProperty"(arg1: $Symbol$$Type, arg2: any, arg3: integer): void
-public "defineProperty"(arg1: StringJS, arg2: any, arg3: integer): void
-public "defineProperty"(arg1: StringJS, arg2: $Class$$Type<(never)>, arg3: integer): void
-public static "defineProperty"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: any, arg3: integer, arg4: $Context$$Type): void
-public "getParentScope"(): $Scriptable
 public "setParentScope"(arg0: $Scriptable$$Type): void
+public "getParentScope"(): $Scriptable
+public static "putProperty"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: any, arg3: $Context$$Type): void
+public static "putProperty"(arg0: $Scriptable$$Type, arg1: integer, arg2: any, arg3: $Context$$Type): void
+public static "putProperty"(arg0: $Scriptable$$Type, arg1: $Symbol$$Type, arg2: any, arg3: $Context$$Type): void
 public "associateValue"(arg0: any, arg1: any): any
 public static "getTopLevelScope"(arg0: $Scriptable$$Type): $Scriptable
 public "getAssociatedValue"(arg0: any): any
-public static "putProperty"(arg0: $Scriptable$$Type, arg1: integer, arg2: any, arg3: $Context$$Type): void
-public static "putProperty"(arg0: $Scriptable$$Type, arg1: $Symbol$$Type, arg2: any, arg3: $Context$$Type): void
-public static "putProperty"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: any, arg3: $Context$$Type): void
-public "enumerationIteratorHasNext"(arg1: $Consumer$$Type<(any)>): boolean
+public "defineProperty"(arg1: StringJS, arg2: any, arg3: $WrappedExecutable$$Type, arg4: $WrappedExecutable$$Type, arg5: integer): void
+public "defineProperty"(arg1: StringJS, arg2: any, arg3: integer): void
+public static "defineProperty"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: any, arg3: integer, arg4: $Context$$Type): void
+public "defineProperty"(arg1: StringJS, arg2: $Class$$Type<(never)>, arg3: integer): void
+public "defineProperty"(arg1: $Symbol$$Type, arg2: any, arg3: integer): void
+public "getTypeOf"(): $MemberType
+public "getAllIds"(): (any)[]
+public static "getTopScopeValue"(arg0: $Scriptable$$Type, arg1: any, arg2: $Context$$Type): any
+public "setGetterOrSetter"(arg1: StringJS, arg2: integer, arg3: $Callable$$Type, arg4: boolean): void
+public "getGetterOrSetter"(arg0: StringJS, arg1: integer, arg2: boolean): any
+public "defineConst"(arg1: StringJS, arg2: $Scriptable$$Type): void
+public static "redefineProperty"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: boolean, arg3: $Context$$Type): void
+public static "getPropertyIds"(arg1: $Scriptable$$Type): (any)[]
+public static "getClassPrototype"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: $Context$$Type): $Scriptable
+public static "putConstProperty"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: any, arg3: $Context$$Type): void
+public "isConst"(arg0: StringJS): boolean
+public static "getFunctionPrototype"(arg0: $Scriptable$$Type, arg1: $Context$$Type): $Scriptable
+public static "hasProperty"(arg0: $Scriptable$$Type, arg1: $Symbol$$Type, arg2: $Context$$Type): boolean
+public static "hasProperty"(arg0: $Scriptable$$Type, arg1: integer, arg2: $Context$$Type): boolean
+public static "hasProperty"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: $Context$$Type): boolean
+public "defineOwnProperty"(arg1: any, arg2: $ScriptableObject$$Type): void
+public "preventExtensions"(): void
+public "isExtensible"(): boolean
+public static "deleteProperty"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: $Context$$Type): boolean
+public static "deleteProperty"(arg0: $Scriptable$$Type, arg1: integer, arg2: $Context$$Type): boolean
+public static "getObjectPrototype"(arg0: $Scriptable$$Type, arg1: $Context$$Type): $Scriptable
+public "hasInstance"(arg1: $Scriptable$$Type): boolean
+public "getPrototype"(): $Scriptable
+public static "getArrayPrototype"(arg0: $Scriptable$$Type, arg1: $Context$$Type): $Scriptable
+public "setPrototype"(arg0: $Scriptable$$Type): void
+public "getIds"(): (any)[]
+public "setExternalArrayData"(arg1: $ExternalArrayData$$Type): void
+public "getExternalArrayLength"(): any
+public static "defineConstProperty"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: $Context$$Type): void
+public "avoidObjectDetection"(): boolean
+public "getExternalArrayData"(): $ExternalArrayData
+public "defineOwnProperties"(arg1: $ScriptableObject$$Type): void
+public "defineFunctionProperties"(arg1: (StringJS)[], arg2: $Class$$Type<(never)>, arg3: integer): void
 public "enumerationIteratorNext"(arg1: $Consumer$$Type<(any)>): boolean
-get "externalArrayLength"(): any
-get "externalArrayData"(): $ExternalArrayData
-set "externalArrayData"(value: $ExternalArrayData$$Type)
-get "typeOf"(): $MemberType
-get "ids"(): (any)[]
-get "allIds"(): (any)[]
+public "enumerationIteratorHasNext"(arg1: $Consumer$$Type<(any)>): boolean
 get "empty"(): boolean
 get "sealed"(): boolean
 get "className"(): StringJS
-set "prototype"(value: $Scriptable$$Type)
+set "parentScope"(value: $Scriptable$$Type)
+get "parentScope"(): $Scriptable
+get "typeOf"(): $MemberType
+get "allIds"(): (any)[]
 get "extensible"(): boolean
 get "prototype"(): $Scriptable
-get "parentScope"(): $Scriptable
-set "parentScope"(value: $Scriptable$$Type)
+set "prototype"(value: $Scriptable$$Type)
+get "ids"(): (any)[]
+set "externalArrayData"(value: $ExternalArrayData$$Type)
+get "externalArrayLength"(): any
+get "externalArrayData"(): $ExternalArrayData
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2206,78 +2278,6 @@ export type $ScriptStackElement$$Type = ($ScriptStackElement);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ScriptStackElement$$Original = $ScriptStackElement;}
-declare module "dev.latvian.mods.rhino.CachedClassInfo" {
-import {$TypeInfo} from "dev.latvian.mods.rhino.type.TypeInfo"
-import {$CachedMethodInfo} from "dev.latvian.mods.rhino.CachedMethodInfo"
-import {$CachedFieldInfo$Accessible} from "dev.latvian.mods.rhino.CachedFieldInfo$Accessible"
-import {$StringBuilder$$Type} from "java.lang.StringBuilder"
-import {$CachedClassStorage, $CachedClassStorage$$Type} from "dev.latvian.mods.rhino.CachedClassStorage"
-import {$CachedConstructorInfo} from "dev.latvian.mods.rhino.CachedConstructorInfo"
-import {$List} from "java.util.List"
-import {$CachedFieldInfo} from "dev.latvian.mods.rhino.CachedFieldInfo"
-import {$Set} from "java.util.Set"
-import {$Class, $Class$$Type} from "java.lang.Class"
-import {$CachedMethodInfo$Accessible} from "dev.latvian.mods.rhino.CachedMethodInfo$Accessible"
-
-export class $CachedClassInfo {
-readonly "storage": $CachedClassStorage
-readonly "type": $Class<(never)>
-readonly "modifiers": integer
-readonly "isInterface": boolean
-
-constructor(arg0: $CachedClassStorage$$Type, arg1: $Class$$Type<(never)>)
-
-public "toString"(): StringJS
-public "getSuperclass"(): $CachedClassInfo
-public "getInterfaces"(): $List<($CachedClassInfo)>
-public "getMethod"(arg0: StringJS, arg1: ($Class$$Type<(never)>)[]): $CachedMethodInfo
-public "getConstructors"(): $List<($CachedConstructorInfo)>
-public "getDeclaredFields"(): $List<($CachedFieldInfo)>
-public "getDeclaredMethods"(): $List<($CachedMethodInfo)>
-public "getTypeInfo"(): $TypeInfo
-public "appendDebugType"(arg0: $StringBuilder$$Type): void
-public "getRemapPrefixes"(): $Set<(StringJS)>
-public "getDebugInfo"(): $List<(StringJS)>
-public "getAccessibleFields"(arg0: boolean): $List<($CachedFieldInfo$Accessible)>
-public "getAccessibleMethods"(arg0: boolean): $List<($CachedMethodInfo$Accessible)>
-get "superclass"(): $CachedClassInfo
-get "interfaces"(): $List<($CachedClassInfo)>
-get "constructors"(): $List<($CachedConstructorInfo)>
-get "declaredFields"(): $List<($CachedFieldInfo)>
-get "declaredMethods"(): $List<($CachedMethodInfo)>
-get "typeInfo"(): $TypeInfo
-get "remapPrefixes"(): $Set<(StringJS)>
-get "debugInfo"(): $List<(StringJS)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $CachedClassInfo$$Type = ($CachedClassInfo);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $CachedClassInfo$$Original = $CachedClassInfo;}
-declare module "dev.latvian.mods.rhino.util.RemappedEnumConstant" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-export interface $RemappedEnumConstant$$Interface {
-
-(): StringJS
-get "remappedEnumConstantName"(): StringJS
-}
-
-export class $RemappedEnumConstant implements $RemappedEnumConstant$$Interface {
- "getRemappedEnumConstantName"(): StringJS
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $RemappedEnumConstant$$Type = (() => StringJS);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $RemappedEnumConstant$$Original = $RemappedEnumConstant;}
 declare module "dev.latvian.mods.rhino.util.wrap.TypeWrappers" {
 import {$TypeInfo$$Type} from "dev.latvian.mods.rhino.type.TypeInfo"
 import {$TypeWrapperValidator$$Type} from "dev.latvian.mods.rhino.util.wrap.TypeWrapperValidator"
@@ -2292,12 +2292,12 @@ readonly "wrappers": $Map<($Class<(never)>), ($TypeWrapper<(never)>)>
 
 constructor()
 
-public "hasWrapper"(arg0: any, arg1: $TypeInfo$$Type): boolean
 public "register"<T>(arg0: $Class$$Type<(T)>, arg1: $TypeWrapperFactory$$Type<(T)>): void
 public "register"<T>(arg0: $Class$$Type<(T)>, arg1: $TypeWrapperValidator$$Type, arg2: $TypeWrapperFactory$$Type<(T)>): void
+public "getWrapperFactory"(arg0: any, arg1: $TypeInfo$$Type): $TypeWrapperFactory<(never)>
+public "hasWrapper"(arg0: any, arg1: $TypeInfo$$Type): boolean
 public "registerDirect"<T>(arg0: $Class$$Type<(T)>, arg1: $DirectTypeWrapperFactory$$Type<(T)>): void
 public "registerDirect"<T>(arg0: $Class$$Type<(T)>, arg1: $TypeWrapperValidator$$Type, arg2: $DirectTypeWrapperFactory$$Type<(T)>): void
-public "getWrapperFactory"(arg0: any, arg1: $TypeInfo$$Type): $TypeWrapperFactory<(never)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

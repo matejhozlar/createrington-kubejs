@@ -1,11 +1,11 @@
 declare module "dev.architectury.registry.registries.DeferredSupplier" {
-import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
 import {$OptionalSupplier$$Interface} from "dev.architectury.utils.OptionalSupplier"
-import {$Registry} from "net.minecraft.core.Registry"
+import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
 import {$Optional} from "java.util.Optional"
+import {$Registry} from "net.minecraft.core.Registry"
 import {$Supplier$$Type} from "java.util.function.Supplier"
-import {$Runnable$$Type} from "java.lang.Runnable"
 import {$ResourceKey} from "net.minecraft.resources.ResourceKey"
+import {$Runnable$$Type} from "java.lang.Runnable"
 import {$Stream} from "java.util.stream.Stream"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 
@@ -29,8 +29,8 @@ export class $DeferredSupplier<T> implements $DeferredSupplier$$Interface {
  "ifPresent"(action: $Consumer$$Type<(T)>): void
  "ifPresentOrElse"(action: $Consumer$$Type<(T)>, emptyAction: $Runnable$$Type): void
  "orElseGet"(supplier: $Supplier$$Type<(T)>): T
- "toOptional"(): $Optional<(T)>
  "getOrNull"(): T
+ "toOptional"(): $Optional<(T)>
  "get"(): T
 }
 /**

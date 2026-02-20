@@ -20,28 +20,6 @@ export type $LootPoolEntryAccessor$$Type = (() => $List$$Type<($LootItemConditio
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $LootPoolEntryAccessor$$Original = $LootPoolEntryAccessor;}
-declare module "fzzyhmstrs.emi_loot.mixins.LootTableAccessor" {
-import {$List, $List$$Type} from "java.util.List"
-import {$LootPool, $LootPool$$Type} from "net.minecraft.world.level.storage.loot.LootPool"
-
-export interface $LootTableAccessor$$Interface {
-
-(): $List$$Type<($LootPool$$Type)>
-get "pools"(): $List<($LootPool)>
-}
-
-export class $LootTableAccessor implements $LootTableAccessor$$Interface {
- "getPools"(): $List<($LootPool)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $LootTableAccessor$$Type = (() => $List$$Type<($LootPool$$Type)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $LootTableAccessor$$Original = $LootTableAccessor;}
 declare module "fzzyhmstrs.emi_loot.mixins.LootPoolAccessor" {
 import {$LootItemFunction} from "net.minecraft.world.level.storage.loot.functions.LootItemFunction"
 import {$LootPoolEntryContainer} from "net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer"
@@ -71,3 +49,25 @@ export type $LootPoolAccessor$$Type = ($LootPoolAccessor);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $LootPoolAccessor$$Original = $LootPoolAccessor;}
+declare module "fzzyhmstrs.emi_loot.mixins.LootTableAccessor" {
+import {$List, $List$$Type} from "java.util.List"
+import {$LootPool, $LootPool$$Type} from "net.minecraft.world.level.storage.loot.LootPool"
+
+export interface $LootTableAccessor$$Interface {
+
+(): $List$$Type<($LootPool$$Type)>
+get "pools"(): $List<($LootPool)>
+}
+
+export class $LootTableAccessor implements $LootTableAccessor$$Interface {
+ "getPools"(): $List<($LootPool)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $LootTableAccessor$$Type = (() => $List$$Type<($LootPool$$Type)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $LootTableAccessor$$Original = $LootTableAccessor;}

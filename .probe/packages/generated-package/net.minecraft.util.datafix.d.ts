@@ -10,15 +10,15 @@ public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "fallback"(): StringJS
+public static "trivial"(arg0: StringJS): $StructuresBecomeConfiguredFix$Conversion
 public "biomeMapping"(): $Map<(StringJS), (StringJS)>
 public static "biomeMapped"(arg0: $Map$$Type<($List$$Type<(StringJS)>), (StringJS)>, arg1: StringJS): $StructuresBecomeConfiguredFix$Conversion
-public static "trivial"(arg0: StringJS): $StructuresBecomeConfiguredFix$Conversion
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $StructuresBecomeConfiguredFix$Conversion$$Type = ({"biomeMapping"?: $Map$$Type<(StringJS), (StringJS)>, "fallback"?: StringJS}) | ([biomeMapping?: $Map$$Type<(StringJS), (StringJS)>, fallback?: StringJS]);
+export type $StructuresBecomeConfiguredFix$Conversion$$Type = ({"fallback"?: StringJS, "biomeMapping"?: $Map$$Type<(StringJS), (StringJS)>}) | ([fallback?: StringJS, biomeMapping?: $Map$$Type<(StringJS), (StringJS)>]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -61,6 +61,7 @@ public static "valueOf"(arg0: StringJS): $DataFixTypes
 public "wrapCodec"<A>(arg0: $Codec$$Type<(A)>, arg1: $DataFixer$$Type, arg2: integer): $Codec<(A)>
 public "updateToCurrentVersion"(arg0: $DataFixer$$Type, arg1: $CompoundTag$$Type, arg2: integer): $CompoundTag
 public "updateToCurrentVersion"<T>(arg0: $DataFixer$$Type, arg1: $Dynamic$$Type<(T)>, arg2: integer): $Dynamic<(T)>
+public static "currentVersion"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

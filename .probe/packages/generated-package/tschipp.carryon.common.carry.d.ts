@@ -1,11 +1,11 @@
 declare module "tschipp.carryon.common.carry.CarryOnData" {
-import {$CompoundTag, $CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
 import {$CarryOnScript, $CarryOnScript$$Type} from "tschipp.carryon.common.scripting.CarryOnScript"
+import {$CompoundTag, $CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
 import {$Optional} from "java.util.Optional"
 import {$CarryOnData$CarryType$$Type} from "tschipp.carryon.common.carry.CarryOnData$CarryType"
 import {$Level$$Type} from "net.minecraft.world.level.Level"
-import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
 import {$Entity, $Entity$$Type} from "net.minecraft.world.entity.Entity"
+import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
 import {$BlockEntity, $BlockEntity$$Type} from "net.minecraft.world.level.block.entity.BlockEntity"
 import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$BlockState, $BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
@@ -13,37 +13,37 @@ import {$BlockState, $BlockState$$Type} from "net.minecraft.world.level.block.st
 export class $CarryOnData {
 constructor(arg0: $CompoundTag$$Type)
 
-public "setBlock"(arg0: $BlockState$$Type, arg1: $BlockEntity$$Type): void
 public "clone"(): $CarryOnData
 public "clear"(): void
-public "getTick"(): integer
+public "getBlockEntity"(arg0: $BlockPos$$Type, arg1: $HolderLookup$Provider$$Type): $BlockEntity
 public "getSelected"(): integer
 public "getBlock"(): $BlockState
 public "getEntity"(arg0: $Level$$Type): $Entity
-public "getBlockEntity"(arg0: $BlockPos$$Type, arg1: $HolderLookup$Provider$$Type): $BlockEntity
 public "setSelected"(arg0: integer): void
+public "setBlock"(arg0: $BlockState$$Type, arg1: $BlockEntity$$Type): void
+public "getNbt"(): $CompoundTag
 public "isCarrying"(): boolean
 public "isCarrying"(arg0: $CarryOnData$CarryType$$Type): boolean
+public "getTick"(): integer
 public "getActiveScript"(): $Optional<($CarryOnScript)>
-public "getNbt"(): $CompoundTag
+public "getContentNbt"(): $CompoundTag
+public "setActiveScript"(arg0: $CarryOnScript$$Type): void
+public "setCarryingPlayer"(): void
 public "isKeyPressed"(): boolean
 public "setKeyPressed"(arg0: boolean): void
-public "getContentNbt"(): $CompoundTag
-public "setCarryingPlayer"(): void
-public "setActiveScript"(arg0: $CarryOnScript$$Type): void
 public "setEntity"(arg0: $Entity$$Type): void
-get "tick"(): integer
 get "selected"(): integer
 get "block"(): $BlockState
 set "selected"(value: integer)
-get "carrying"(): boolean
-get "activeScript"(): $Optional<($CarryOnScript)>
 get "nbt"(): $CompoundTag
+get "carrying"(): boolean
+get "tick"(): integer
+get "activeScript"(): $Optional<($CarryOnScript)>
+get "contentNbt"(): $CompoundTag
+set "activeScript"(value: $CarryOnScript$$Type)
+get "carryingPlayer"(): void
 get "keyPressed"(): boolean
 set "keyPressed"(value: boolean)
-get "contentNbt"(): $CompoundTag
-get "carryingPlayer"(): void
-set "activeScript"(value: $CarryOnScript$$Type)
 set "entity"(value: $Entity$$Type)
 }
 /**

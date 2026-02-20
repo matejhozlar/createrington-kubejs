@@ -1,3 +1,28 @@
+declare module "net.dawson.adorablehamsterpets.mixin.accessor.LookAtEntityGoalAccessor" {
+import {$Entity} from "net.minecraft.world.entity.Entity"
+
+export interface $LookAtEntityGoalAccessor$$Interface {
+get "target"(): $Entity
+get "lookForward"(): boolean
+get "lookTime"(): integer
+set "lookTime"(value: integer)
+}
+
+export class $LookAtEntityGoalAccessor implements $LookAtEntityGoalAccessor$$Interface {
+ "getTarget"(): $Entity
+ "getLookForward"(): boolean
+ "getLookTime"(): integer
+ "setLookTime"(arg0: integer): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $LookAtEntityGoalAccessor$$Type = ($LookAtEntityGoalAccessor);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $LookAtEntityGoalAccessor$$Original = $LookAtEntityGoalAccessor;}
 declare module "net.dawson.adorablehamsterpets.mixin.accessor.SlotAccessor" {
 import {$Container, $Container$$Type} from "net.minecraft.world.Container"
 

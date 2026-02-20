@@ -20,32 +20,32 @@ declare module "com.mojang.brigadier.builder.ArgumentBuilder" {
 import {$Collection} from "java.util.Collection"
 import {$SingleRedirectModifier$$Type} from "com.mojang.brigadier.SingleRedirectModifier"
 import {$Predicate, $Predicate$$Type} from "java.util.function.Predicate"
-import {$RedirectModifier, $RedirectModifier$$Type} from "com.mojang.brigadier.RedirectModifier"
 import {$CommandNode, $CommandNode$$Type} from "com.mojang.brigadier.tree.CommandNode"
+import {$RedirectModifier, $RedirectModifier$$Type} from "com.mojang.brigadier.RedirectModifier"
 import {$Command, $Command$$Type} from "com.mojang.brigadier.Command"
 
 export class $ArgumentBuilder<S, T extends $ArgumentBuilder<(object), (object)>> {
 constructor()
 
-public "isFork"(): boolean
-public "getRedirect"(): $CommandNode<(S)>
 public "build"(): $CommandNode<(S)>
 public "requires"(arg0: $Predicate$$Type<(S)>): T
 public "fork"(arg0: $CommandNode$$Type<(S)>, arg1: $RedirectModifier$$Type<(S)>): T
-public "redirect"(arg0: $CommandNode$$Type<(S)>, arg1: $SingleRedirectModifier$$Type<(S)>): T
 public "redirect"(arg0: $CommandNode$$Type<(S)>): T
+public "redirect"(arg0: $CommandNode$$Type<(S)>, arg1: $SingleRedirectModifier$$Type<(S)>): T
+public "getArguments"(): $Collection<($CommandNode<(S)>)>
+public "getRedirectModifier"(): $RedirectModifier<(S)>
 public "then"(arg0: $CommandNode$$Type<(S)>): T
 public "then"(arg0: $ArgumentBuilder$$Type<(S), (never)>): T
-public "getCommand"(): $Command<(S)>
-public "getArguments"(): $Collection<($CommandNode<(S)>)>
-public "getRequirement"(): $Predicate<(S)>
-public "getRedirectModifier"(): $RedirectModifier<(S)>
-public "executes"(arg0: $Command$$Type<(S)>): T
 public "forward"(arg0: $CommandNode$$Type<(S)>, arg1: $RedirectModifier$$Type<(S)>, arg2: boolean): T
-get "command"(): $Command<(S)>
+public "getCommand"(): $Command<(S)>
+public "isFork"(): boolean
+public "executes"(arg0: $Command$$Type<(S)>): T
+public "getRedirect"(): $CommandNode<(S)>
+public "getRequirement"(): $Predicate<(S)>
 get "arguments"(): $Collection<($CommandNode<(S)>)>
-get "requirement"(): $Predicate<(S)>
 get "redirectModifier"(): $RedirectModifier<(S)>
+get "command"(): $Command<(S)>
+get "requirement"(): $Predicate<(S)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

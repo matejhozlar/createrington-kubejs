@@ -1,35 +1,35 @@
 declare module "xaero.pac.client.player.config.api.IPlayerConfigClientStorageAPI" {
 import {$IPlayerConfigOptionSpecAPI$$Type} from "xaero.pac.common.server.player.config.api.IPlayerConfigOptionSpecAPI"
-import {$Comparable} from "java.lang.Comparable"
 import {$UUID} from "java.util.UUID"
+import {$Comparable} from "java.lang.Comparable"
 import {$List} from "java.util.List"
 import {$IPlayerConfigStringableOptionClientStorageAPI} from "xaero.pac.client.player.config.api.IPlayerConfigStringableOptionClientStorageAPI"
 import {$Stream} from "java.util.stream.Stream"
 import {$PlayerConfigType} from "xaero.pac.common.server.player.config.api.PlayerConfigType"
 
 export interface $IPlayerConfigClientStorageAPI$$Interface {
-get "subCount"(): integer
-get "subConfigLimit"(): integer
 get "type"(): $PlayerConfigType
 get "owner"(): $UUID
-get "subConfigAPIStream"(): $Stream<($IPlayerConfigClientStorageAPI)>
+get "subConfigLimit"(): integer
+get "subCount"(): integer
 get "beingDeleted"(): boolean
 get "subConfigIds"(): $List<(StringJS)>
+get "subConfigAPIStream"(): $Stream<($IPlayerConfigClientStorageAPI)>
 }
 
 export class $IPlayerConfigClientStorageAPI implements $IPlayerConfigClientStorageAPI$$Interface {
- "getSubCount"(): integer
- "getSubConfigLimit"(): integer
- "getSubConfig"(arg0: StringJS): $IPlayerConfigClientStorageAPI
  "getType"(): $PlayerConfigType
  "getOwner"(): $UUID
- "getEffectiveSubConfig"(arg0: StringJS): $IPlayerConfigClientStorageAPI
- "getSubConfigAPIStream"(): $Stream<($IPlayerConfigClientStorageAPI)>
- "getOptionStorage"<T extends $Comparable<(object)>>(arg0: $IPlayerConfigOptionSpecAPI$$Type<(T)>): $IPlayerConfigStringableOptionClientStorageAPI<(never)>
  "subConfigExists"(arg0: StringJS): boolean
+ "getEffectiveSubConfig"(arg0: StringJS): $IPlayerConfigClientStorageAPI
+ "getSubConfigLimit"(): integer
+ "getSubCount"(): integer
+ "getSubConfig"(arg0: StringJS): $IPlayerConfigClientStorageAPI
+ "getOptionStorage"<T extends $Comparable<(object)>>(arg0: $IPlayerConfigOptionSpecAPI$$Type<(T)>): $IPlayerConfigStringableOptionClientStorageAPI<(never)>
+ "optionStream"(): $Stream<($IPlayerConfigStringableOptionClientStorageAPI<(never)>)>
  "isBeingDeleted"(): boolean
  "getSubConfigIds"(): $List<(StringJS)>
- "optionStream"(): $Stream<($IPlayerConfigStringableOptionClientStorageAPI<(never)>)>
+ "getSubConfigAPIStream"(): $Stream<($IPlayerConfigClientStorageAPI)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

@@ -1,7 +1,7 @@
 declare module "net.silentchaos512.gear.api.traits.TraitConditionSerializer" {
 import {$StreamCodec, $StreamCodec$$Type} from "net.minecraft.network.codec.StreamCodec"
-import {$ITraitCondition} from "net.silentchaos512.gear.api.traits.ITraitCondition"
 import {$Serializer} from "net.silentchaos512.gear.util.Serializer"
+import {$ITraitCondition} from "net.silentchaos512.gear.api.traits.ITraitCondition"
 import {$RegistryFriendlyByteBuf, $RegistryFriendlyByteBuf$$Type} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$MapCodec$$Type} from "com.mojang.serialization.MapCodec"
 
@@ -34,12 +34,12 @@ import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
 import {$FriendlyByteBuf} from "net.minecraft.network.FriendlyByteBuf"
 import {$Optional} from "java.util.Optional"
 import {$Consumer$$Type} from "java.util.function.Consumer"
-import {$MaterialInstance$$Type} from "net.silentchaos512.gear.gear.material.MaterialInstance"
 import {$GearPart} from "net.silentchaos512.gear.api.part.GearPart"
+import {$MaterialInstance$$Type} from "net.silentchaos512.gear.gear.material.MaterialInstance"
 import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$Supplier$$Interface} from "java.util.function.Supplier"
 import {$Function$$Type} from "java.util.function.Function"
+import {$Supplier$$Interface} from "java.util.function.Supplier"
 import {$Material, $Material$$Type} from "net.silentchaos512.gear.api.material.Material"
 import {$Trait} from "net.silentchaos512.gear.gear.trait.Trait"
 import {$Stream} from "java.util.stream.Stream"
@@ -54,7 +54,6 @@ static readonly "PART_CODEC": $Codec<($DataResource<($GearPart)>)>
 
 constructor(arg0: $ResourceLocation$$Type, arg1: $Function$$Type<($ResourceLocation), (T)>)
 
-public "getNullable"(): T
 public "get"(): T
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
@@ -65,18 +64,19 @@ public static "empty"<T>(): $DataResource<(T)>
 public "isPresent"(): boolean
 public "getId"(): $ResourceLocation
 public "ifPresent"(arg0: $Consumer$$Type<(T)>): void
-public static "part"(arg0: StringJS): $DataResource<($GearPart)>
 public static "part"(arg0: $ResourceLocation$$Type): $DataResource<($GearPart)>
-public static "trait"(arg0: StringJS): $DataResource<($Trait)>
-public static "trait"(arg0: $ResourceLocation$$Type): $DataResource<($Trait)>
-public "toOptional"(): $Optional<($DataResource<(T)>)>
-public static "material"(arg0: $MaterialInstance$$Type): $DataResource<($Material)>
+public static "part"(arg0: StringJS): $DataResource<($GearPart)>
 public static "material"(arg0: $Material$$Type): $DataResource<($Material)>
-public static "material"(arg0: StringJS): $DataResource<($Material)>
 public static "material"(arg0: $ResourceLocation$$Type): $DataResource<($Material)>
-get "nullable"(): T
+public static "material"(arg0: StringJS): $DataResource<($Material)>
+public static "material"(arg0: $MaterialInstance$$Type): $DataResource<($Material)>
+public static "trait"(arg0: $ResourceLocation$$Type): $DataResource<($Trait)>
+public static "trait"(arg0: StringJS): $DataResource<($Trait)>
+public "toOptional"(): $Optional<($DataResource<(T)>)>
+public "getNullable"(): T
 get "present"(): boolean
 get "id"(): $ResourceLocation
+get "nullable"(): T
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -90,12 +90,12 @@ export type $DataResource$$Original<T> = $DataResource<(T)>;}
 declare module "net.silentchaos512.gear.api.util.GearComponent" {
 import {$CraftingInput$$Type} from "net.minecraft.world.item.crafting.CraftingInput"
 import {$GearType$$Type} from "net.silentchaos512.gear.api.item.GearType"
-import {$PropertyKey$$Type} from "net.silentchaos512.gear.api.util.PropertyKey"
 import {$Collection} from "java.util.Collection"
+import {$PropertyKey$$Type} from "net.silentchaos512.gear.api.util.PropertyKey"
 import {$Ingredient} from "net.minecraft.world.item.crafting.Ingredient"
 import {$Supplier$$Type} from "java.util.function.Supplier"
-import {$Component} from "net.minecraft.network.chat.Component"
 import {$GearPropertyValue} from "net.silentchaos512.gear.api.property.GearPropertyValue"
+import {$Component} from "net.minecraft.network.chat.Component"
 import {$PartType$$Type} from "net.silentchaos512.gear.api.part.PartType"
 import {$PropertyProvider$$Interface} from "net.silentchaos512.gear.api.util.PropertyProvider"
 
@@ -105,15 +105,15 @@ get "ingredient"(): $Ingredient
 
 export class $GearComponent<D> implements $GearComponent$$Interface {
  "getDisplayName"(arg0: D, arg1: $PartType$$Type): $Component
- "getIngredient"(): $Ingredient
- "isCraftingAllowed"(arg0: D, arg1: $PartType$$Type, arg2: $GearType$$Type, arg3: $CraftingInput$$Type): boolean
  "isCraftingAllowed"(arg0: D, arg1: $PartType$$Type, arg2: $GearType$$Type): boolean
- "getProperty"<T, V extends $GearPropertyValue<(object)>>(arg0: D, arg1: $PartType$$Type, arg2: $PropertyKey$$Type<(T), (V)>): T
+ "isCraftingAllowed"(arg0: D, arg1: $PartType$$Type, arg2: $GearType$$Type, arg3: $CraftingInput$$Type): boolean
+ "getIngredient"(): $Ingredient
  "getProperty"<T, V extends $GearPropertyValue<(object)>>(arg0: D, arg1: $Supplier$$Type<($PartType$$Type)>, arg2: $PropertyKey$$Type<(T), (V)>): T
+ "getProperty"<T, V extends $GearPropertyValue<(object)>>(arg0: D, arg1: $PartType$$Type, arg2: $PropertyKey$$Type<(T), (V)>): T
+ "getPropertyModifiers"<T, V extends $GearPropertyValue<(object)>>(arg0: D, arg1: $PartType$$Type, arg2: $PropertyKey$$Type<(T), (V)>): $Collection<(V)>
+ "getPropertyModifiers"<T, V extends $GearPropertyValue<(object)>>(arg0: D, arg1: $Supplier$$Type<($PartType$$Type)>, arg2: $PropertyKey$$Type<(T), (V)>): $Collection<(V)>
  "getPropertyUnclamped"<T, V extends $GearPropertyValue<(object)>>(arg0: D, arg1: $PartType$$Type, arg2: $PropertyKey$$Type<(T), (V)>): T
  "getPropertyUnclamped"<T, V extends $GearPropertyValue<(object)>>(arg0: D, arg1: $Supplier$$Type<($PartType$$Type)>, arg2: $PropertyKey$$Type<(T), (V)>): T
- "getPropertyModifiers"<T, V extends $GearPropertyValue<(object)>>(arg0: D, arg1: $Supplier$$Type<($PartType$$Type)>, arg2: $PropertyKey$$Type<(T), (V)>): $Collection<(V)>
- "getPropertyModifiers"<T, V extends $GearPropertyValue<(object)>>(arg0: D, arg1: $PartType$$Type, arg2: $PropertyKey$$Type<(T), (V)>): $Collection<(V)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -124,71 +124,9 @@ export type $GearComponent$$Type<D> = ($GearComponent<(D)>);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $GearComponent$$Original<D> = $GearComponent<(D)>;}
-declare module "net.silentchaos512.gear.api.property.NumberProperty" {
-import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
-import {$GearProperty} from "net.silentchaos512.gear.api.property.GearProperty"
-import {$Collection$$Type} from "java.util.Collection"
-import {$FriendlyByteBuf} from "net.minecraft.network.FriendlyByteBuf"
-import {$List, $List$$Type} from "java.util.List"
-import {$NumberPropertyValue, $NumberPropertyValue$$Type} from "net.silentchaos512.gear.api.property.NumberPropertyValue"
-import {$GearPropertyValue, $GearPropertyValue$$Type} from "net.silentchaos512.gear.api.property.GearPropertyValue"
-import {$Component} from "net.minecraft.network.chat.Component"
-import {$PartGearKey$$Type} from "net.silentchaos512.gear.api.util.PartGearKey"
-import {$GearType$$Type} from "net.silentchaos512.gear.api.item.GearType"
-import {$NumberProperty$DisplayFormat, $NumberProperty$DisplayFormat$$Type} from "net.silentchaos512.gear.api.property.NumberProperty$DisplayFormat"
-import {$Codec} from "com.mojang.serialization.Codec"
-import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
-import {$GearProperty$Builder$$Type} from "net.silentchaos512.gear.api.property.GearProperty$Builder"
-import {$MutableComponent} from "net.minecraft.network.chat.MutableComponent"
-import {$GearComponentInstance$$Type} from "net.silentchaos512.gear.api.util.GearComponentInstance"
-import {$NumberProperty$Operation$$Type} from "net.silentchaos512.gear.api.property.NumberProperty$Operation"
-import {$GearProperty$FormatContext$$Type} from "net.silentchaos512.gear.api.property.GearProperty$FormatContext"
-
-export class $NumberProperty extends $GearProperty<(float), ($NumberPropertyValue)> {
-static readonly "CODEC": $Codec<($NumberPropertyValue)>
-static readonly "STREAM_CODEC": $StreamCodec<($FriendlyByteBuf), ($NumberPropertyValue)>
-
-constructor(arg0: $NumberProperty$Operation$$Type, arg1: $NumberProperty$DisplayFormat$$Type, arg2: boolean, arg3: $GearProperty$Builder$$Type<(float)>)
-
-public "formatValueWithColor"(arg0: $NumberPropertyValue$$Type, arg1: boolean, arg2: $GearProperty$FormatContext$$Type): $MutableComponent
-public "formatValueWithColor"(arg0: $GearPropertyValue$$Type, arg1: boolean, arg2: $GearProperty$FormatContext$$Type): $MutableComponent
-public "getPreferredDecimalPlaces"(arg0: $NumberPropertyValue$$Type): integer
-public "getPreferredDecimalPlaces"(arg0: $GearPropertyValue$$Type): integer
-public "valueOf"(arg0: float): $NumberPropertyValue
-public "valueOf"(arg0: any): $GearPropertyValue
-public "compute"(arg0: float, arg1: boolean, arg2: $GearType$$Type, arg3: $GearType$$Type, arg4: $Collection$$Type<($NumberPropertyValue$$Type)>): float
-public "compute"(arg0: any, arg1: boolean, arg2: $GearType$$Type, arg3: $GearType$$Type, arg4: $Collection$$Type): any
-public "isZero"(arg0: float): boolean
-public "isZero"(arg0: any): boolean
-public "formatValue"(arg0: $GearPropertyValue$$Type, arg1: $GearProperty$FormatContext$$Type): $Component
-public "formatValue"(arg0: $NumberPropertyValue$$Type, arg1: $GearProperty$FormatContext$$Type): $Component
-public "clampValue"(arg0: float): float
-public "getDisplayFormat"(): $NumberProperty$DisplayFormat
-public "codec"(): $Codec<($NumberPropertyValue)>
-public "streamCodec"(): $StreamCodec<($RegistryFriendlyByteBuf), ($NumberPropertyValue)>
-public static "getWeightedAverage"(arg0: $Collection$$Type<($NumberPropertyValue$$Type)>, arg1: $NumberProperty$Operation$$Type): float
-public "applySynergy"(arg0: $GearPropertyValue$$Type, arg1: float): $GearPropertyValue
-public "applySynergy"(arg0: $NumberPropertyValue$$Type, arg1: float): $NumberPropertyValue
-public "sortForDisplay"(arg0: $Collection$$Type<($NumberPropertyValue$$Type)>): $List<($NumberPropertyValue)>
-public "isDisplayAsInt"(): boolean
-public "getZeroValue"(): float
-public "compressModifiers"(arg0: $Collection$$Type<($NumberPropertyValue$$Type)>, arg1: $PartGearKey$$Type, arg2: $List$$Type<($GearComponentInstance$$Type<(never)>)>): $List<($NumberPropertyValue)>
-get "displayFormat"(): $NumberProperty$DisplayFormat
-get "displayAsInt"(): boolean
-get "zeroValue"(): float
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $NumberProperty$$Type = ($NumberProperty);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $NumberProperty$$Original = $NumberProperty;}
 declare module "net.silentchaos512.gear.api.property.GearProperty$Builder" {
-import {$Color$$Type} from "net.silentchaos512.lib.util.Color"
 import {$GearPropertyGroup$$Type} from "net.silentchaos512.gear.api.property.GearPropertyGroup"
+import {$Color$$Type} from "net.silentchaos512.lib.util.Color"
 
 export class $GearProperty$Builder<T> {
 constructor(arg0: T, arg1: T, arg2: T, arg3: T)
@@ -198,10 +136,10 @@ constructor(arg0: T)
 public "group"(arg0: $GearPropertyGroup$$Type): $GearProperty$Builder<(T)>
 public "validate"(): void
 public "visible"(arg0: boolean): $GearProperty$Builder<(T)>
-public "nameColor"(arg0: $Color$$Type): $GearProperty$Builder<(T)>
 public "affectedBySynergy"(arg0: boolean): $GearProperty$Builder<(T)>
 public "forMaterialsOnly"(arg0: boolean): $GearProperty$Builder<(T)>
 public "affectedByGrades"(arg0: boolean): $GearProperty$Builder<(T)>
+public "nameColor"(arg0: $Color$$Type): $GearProperty$Builder<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -216,8 +154,8 @@ declare module "net.silentchaos512.gear.api.part.GearPart" {
 import {$CraftingInput$$Type} from "net.minecraft.world.item.crafting.CraftingInput"
 import {$PartInstance, $PartInstance$$Type} from "net.silentchaos512.gear.gear.part.PartInstance"
 import {$Collection} from "java.util.Collection"
-import {$PropertyKey$$Type} from "net.silentchaos512.gear.api.util.PropertyKey"
 import {$ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
+import {$PropertyKey$$Type} from "net.silentchaos512.gear.api.util.PropertyKey"
 import {$Ingredient} from "net.minecraft.world.item.crafting.Ingredient"
 import {$List, $List$$Type} from "java.util.List"
 import {$GearPropertyValue} from "net.silentchaos512.gear.api.property.GearPropertyValue"
@@ -225,54 +163,54 @@ import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component
 import {$TooltipFlag$$Type} from "net.minecraft.world.item.TooltipFlag"
 import {$MaterialInstance} from "net.silentchaos512.gear.gear.material.MaterialInstance"
 import {$PartSerializer} from "net.silentchaos512.gear.api.part.PartSerializer"
-import {$GearType, $GearType$$Type} from "net.silentchaos512.gear.api.item.GearType"
 import {$GearComponent$$Interface} from "net.silentchaos512.gear.api.util.GearComponent"
+import {$GearType, $GearType$$Type} from "net.silentchaos512.gear.api.item.GearType"
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$PartType, $PartType$$Type} from "net.silentchaos512.gear.api.part.PartType"
 
 export interface $GearPart$$Interface extends $GearComponent$$Interface<($PartInstance)> {
-get "packName"(): StringJS
-get "visible"(): boolean
-get "serializer"(): $PartSerializer<(never)>
 get "type"(): $PartType
 get "gearType"(): $GearType
+get "packName"(): StringJS
+get "serializer"(): $PartSerializer<(never)>
+get "visible"(): boolean
 get "ingredient"(): $Ingredient
 }
 
 export class $GearPart implements $GearPart$$Interface {
- "getPackName"(): StringJS
- "getColor"(arg0: $PartInstance$$Type, arg1: $GearType$$Type, arg2: integer, arg3: integer): integer
- "isVisible"(): boolean
- "getSerializer"(): $PartSerializer<(never)>
  "getType"(): $PartType
  "getDisplayName"(arg0: $PartInstance$$Type): $Component
- "getDisplayNamePrefix"(arg0: $PartInstance$$Type, arg1: $ItemStack$$Type): $Component
- "randomizeData"(arg0: $GearType$$Type, arg1: integer): $PartInstance
- "getMaterials"(arg0: $PartInstance$$Type): $List<($MaterialInstance)>
+ "isCraftingAllowed"(arg0: $PartInstance$$Type, arg1: $PartType$$Type, arg2: $GearType$$Type, arg3: $CraftingInput$$Type): boolean
+ "isCraftingAllowed"(arg0: $PartInstance$$Type, arg1: $GearType$$Type): boolean
+ "isCraftingAllowed"(arg0: any, arg1: $PartType$$Type, arg2: $GearType$$Type, arg3: $CraftingInput$$Type): boolean
+ "getModelKey"(arg0: $PartInstance$$Type): StringJS
  "onRemoveFromGear"(arg0: $ItemStack$$Type, arg1: $PartInstance$$Type): void
  "getMaterialName"(arg0: $PartInstance$$Type, arg1: $ItemStack$$Type): $Component
- "getPrimaryMaterial"(arg0: $PartInstance$$Type): $MaterialInstance
- "canAddToGear"(arg0: $ItemStack$$Type, arg1: $PartInstance$$Type): boolean
- "getSalvageLossRate"(arg0: $PartInstance$$Type, arg1: $ItemStack$$Type, arg2: double): double
  "onGearDamaged"(arg0: $PartInstance$$Type, arg1: $ItemStack$$Type, arg2: integer): void
+ "canAddToGear"(arg0: $ItemStack$$Type, arg1: $PartInstance$$Type): boolean
  "onAddToGear"(arg0: $ItemStack$$Type, arg1: $PartInstance$$Type): void
  "getGearType"(): $GearType
- "retainData"(arg0: $GearPart$$Type): void
- "replacesExistingInPosition"(arg0: $PartInstance$$Type): boolean
- "isCraftingAllowed"(arg0: $PartInstance$$Type, arg1: $PartType$$Type, arg2: $GearType$$Type, arg3: $CraftingInput$$Type): boolean
- "isCraftingAllowed"(arg0: any, arg1: $PartType$$Type, arg2: $GearType$$Type, arg3: $CraftingInput$$Type): boolean
- "isCraftingAllowed"(arg0: $PartInstance$$Type, arg1: $GearType$$Type): boolean
- "getModelKey"(arg0: $PartInstance$$Type): StringJS
+ "getPrimaryMaterial"(arg0: $PartInstance$$Type): $MaterialInstance
+ "getSalvageLossRate"(arg0: $PartInstance$$Type, arg1: $ItemStack$$Type, arg2: double): double
+ "randomizeData"(arg0: $GearType$$Type, arg1: integer): $PartInstance
+ "getPackName"(): StringJS
+ "getColor"(arg0: $PartInstance$$Type, arg1: $GearType$$Type, arg2: integer, arg3: integer): integer
  "addInformation"(arg0: $PartInstance$$Type, arg1: $ItemStack$$Type, arg2: $List$$Type<($Component$$Type)>, arg3: $TooltipFlag$$Type): void
+ "getDisplayNamePrefix"(arg0: $PartInstance$$Type, arg1: $ItemStack$$Type): $Component
+ "getSerializer"(): $PartSerializer<(never)>
+ "retainData"(arg0: $GearPart$$Type): void
+ "isVisible"(): boolean
+ "replacesExistingInPosition"(arg0: $PartInstance$$Type): boolean
+ "getMaterials"(arg0: $PartInstance$$Type): $List<($MaterialInstance)>
  "getDisplayName"(arg0: $PartInstance$$Type, arg1: $PartType$$Type): $Component
- "getIngredient"(): $Ingredient
  "isCraftingAllowed"(arg0: $PartInstance$$Type, arg1: $PartType$$Type, arg2: $GearType$$Type): boolean
- "getProperty"<T, V extends $GearPropertyValue<(object)>>(arg0: $PartInstance$$Type, arg1: $PartType$$Type, arg2: $PropertyKey$$Type<(T), (V)>): T
+ "getIngredient"(): $Ingredient
  "getProperty"<T, V extends $GearPropertyValue<(object)>>(arg0: $PartInstance$$Type, arg1: $Supplier$$Type<($PartType$$Type)>, arg2: $PropertyKey$$Type<(T), (V)>): T
+ "getProperty"<T, V extends $GearPropertyValue<(object)>>(arg0: $PartInstance$$Type, arg1: $PartType$$Type, arg2: $PropertyKey$$Type<(T), (V)>): T
+ "getPropertyModifiers"<T, V extends $GearPropertyValue<(object)>>(arg0: $PartInstance$$Type, arg1: $PartType$$Type, arg2: $PropertyKey$$Type<(T), (V)>): $Collection<(V)>
+ "getPropertyModifiers"<T, V extends $GearPropertyValue<(object)>>(arg0: $PartInstance$$Type, arg1: $Supplier$$Type<($PartType$$Type)>, arg2: $PropertyKey$$Type<(T), (V)>): $Collection<(V)>
  "getPropertyUnclamped"<T, V extends $GearPropertyValue<(object)>>(arg0: $PartInstance$$Type, arg1: $PartType$$Type, arg2: $PropertyKey$$Type<(T), (V)>): T
  "getPropertyUnclamped"<T, V extends $GearPropertyValue<(object)>>(arg0: $PartInstance$$Type, arg1: $Supplier$$Type<($PartType$$Type)>, arg2: $PropertyKey$$Type<(T), (V)>): T
- "getPropertyModifiers"<T, V extends $GearPropertyValue<(object)>>(arg0: $PartInstance$$Type, arg1: $Supplier$$Type<($PartType$$Type)>, arg2: $PropertyKey$$Type<(T), (V)>): $Collection<(V)>
- "getPropertyModifiers"<T, V extends $GearPropertyValue<(object)>>(arg0: $PartInstance$$Type, arg1: $PartType$$Type, arg2: $PropertyKey$$Type<(T), (V)>): $Collection<(V)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -294,19 +232,19 @@ export class $TraitActionContext extends $Record {
 constructor(arg0: $Player$$Type, arg1: $TraitInstance$$Type, arg2: $ItemStack$$Type)
 constructor(player: $Player$$Type, trait: $Trait$$Type, traitLevel: integer, gear: $ItemStack$$Type)
 
-public "traitLevel"(): integer
-public "gear"(): $ItemStack
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public "trait"(): $Trait
 public "player"(): $Player
+public "gear"(): $ItemStack
+public "traitLevel"(): integer
+public "trait"(): $Trait
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $TraitActionContext$$Type = ({"trait"?: $Trait$$Type, "gear"?: $ItemStack$$Type, "player"?: $Player$$Type, "traitLevel"?: integer}) | ([trait?: $Trait$$Type, gear?: $ItemStack$$Type, player?: $Player$$Type, traitLevel?: integer]);
+export type $TraitActionContext$$Type = ({"player"?: $Player$$Type, "gear"?: $ItemStack$$Type, "trait"?: $Trait$$Type, "traitLevel"?: integer}) | ([player?: $Player$$Type, gear?: $ItemStack$$Type, trait?: $Trait$$Type, traitLevel?: integer]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -332,8 +270,8 @@ static readonly "REGISTRY_STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf)
 static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($ITraitCondition)>
 
  "matches"(arg0: $Trait$$Type, arg1: $PartGearKey$$Type, arg2: $List$$Type<($GearComponentInstance$$Type<(never)>)>): boolean
- "getDisplayText"(): $MutableComponent
  "serializer"(): $TraitConditionSerializer<(never)>
+ "getDisplayText"(): $MutableComponent
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -350,15 +288,15 @@ import {$Set} from "java.util.Set"
 import {$Color} from "net.silentchaos512.lib.util.Color"
 
 export interface $GearPropertyGroup$$Interface {
-get "color"(): $Color
 get "name"(): StringJS
 get "properties"(): $Set<($GearProperty<(never), (never)>)>
+get "color"(): $Color
 }
 
 export class $GearPropertyGroup implements $GearPropertyGroup$$Interface {
- "getColor"(): $Color
  "getName"(): StringJS
  "getProperties"(): $Set<($GearProperty<(never), (never)>)>
+ "getColor"(): $Color
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -369,74 +307,6 @@ export type $GearPropertyGroup$$Type = ($GearPropertyGroup);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $GearPropertyGroup$$Original = $GearPropertyGroup;}
-declare module "net.silentchaos512.gear.api.part.PartType$Builder" {
-import {$GearType$$Type} from "net.silentchaos512.gear.api.item.GearType"
-import {$Optional$$Type} from "java.util.Optional"
-import {$CompoundPartItem$$Type} from "net.silentchaos512.gear.item.CompoundPartItem"
-import {$Supplier$$Type} from "java.util.function.Supplier"
-import {$Function$$Type} from "java.util.function.Function"
-
-export class $PartType$Builder {
-public static "builder"(): $PartType$Builder
-public "maxPerItem"(arg0: integer): $PartType$Builder
-public "isUpgrade"(arg0: boolean): $PartType$Builder
-public "isRemovable"(arg0: boolean): $PartType$Builder
-public "compoundPartItem"(arg0: $Function$$Type<($GearType), (($CompoundPartItem$$Type)?)>): $PartType$Builder
-public "compoundPartItem"(arg0: $Supplier$$Type<($CompoundPartItem$$Type)>): $PartType$Builder
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $PartType$Builder$$Type = ($PartType$Builder);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $PartType$Builder$$Original = $PartType$Builder;}
-declare module "net.silentchaos512.gear.api.item.GearItem" {
-import {$GearType, $GearType$$Type} from "net.silentchaos512.gear.api.item.GearType"
-import {$PartInstance$$Type} from "net.silentchaos512.gear.gear.part.PartInstance"
-import {$Collection, $Collection$$Type} from "java.util.Collection"
-import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
-import {$ItemLike$$Interface} from "net.minecraft.world.level.ItemLike"
-import {$Supplier} from "java.util.function.Supplier"
-import {$NumberProperty} from "net.silentchaos512.gear.api.property.NumberProperty"
-import {$Item} from "net.minecraft.world.item.Item"
-import {$ItemColor} from "net.minecraft.client.color.item.ItemColor"
-import {$PartType, $PartType$$Type} from "net.silentchaos512.gear.api.part.PartType"
-
-export interface $GearItem$$Interface extends $ItemLike$$Interface {
-
-(): $GearType$$Type
-get "gearType"(): $GearType
-get "itemColors"(): $ItemColor
-get "durabilityStat"(): $Supplier<($NumberProperty)>
-get "requiredParts"(): $Collection<($PartType)>
-}
-
-export class $GearItem implements $GearItem$$Interface {
-static readonly "REQUIRED_PARTS": $Supplier<($Collection<($PartType)>)>
-
- "getGearType"(): $GearType
- "construct"(arg0: $Collection$$Type<($PartInstance$$Type)>): $ItemStack
- "asItem"(): $Item
- "getItemColors"(): $ItemColor
- "supportsPart"(arg0: $ItemStack$$Type, arg1: $PartInstance$$Type): boolean
- "getRepairModifier"(arg0: $ItemStack$$Type): float
- "isValidSlot"(arg0: StringJS): boolean
- "requiresPartOfType"(arg0: $PartType$$Type): boolean
- "getDurabilityStat"(): $Supplier<($NumberProperty)>
- "getRequiredParts"(): $Collection<($PartType)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $GearItem$$Type = (() => $GearType$$Type);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $GearItem$$Original = $GearItem;}
 declare module "net.silentchaos512.gear.api.property.NumberPropertyValue" {
 import {$GearPropertyValue} from "net.silentchaos512.gear.api.property.GearPropertyValue"
 import {$NumberProperty$Operation, $NumberProperty$Operation$$Type} from "net.silentchaos512.gear.api.property.NumberProperty$Operation"
@@ -445,10 +315,10 @@ export class $NumberPropertyValue extends $GearPropertyValue<(float)> {
 constructor(arg0: float, arg1: $NumberProperty$Operation$$Type)
 
 public static "average"(arg0: float): $NumberPropertyValue
+public "operation"(): $NumberProperty$Operation
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public "operation"(): $NumberProperty$Operation
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -459,57 +329,6 @@ export type $NumberPropertyValue$$Type = ($NumberPropertyValue);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $NumberPropertyValue$$Original = $NumberPropertyValue;}
-declare module "net.silentchaos512.gear.api.traits.TraitEffect" {
-import {$GearProperty$$Type} from "net.silentchaos512.gear.api.property.GearProperty"
-import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
-import {$Collection} from "java.util.Collection"
-import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
-import {$TraitActionContext$$Type} from "net.silentchaos512.gear.api.traits.TraitActionContext"
-import {$TraitEffectType} from "net.silentchaos512.gear.api.traits.TraitEffectType"
-import {$GearPropertyValue, $GearPropertyValue$$Type} from "net.silentchaos512.gear.api.property.GearPropertyValue"
-import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
-import {$InteractionResult} from "net.minecraft.world.InteractionResult"
-import {$ItemAttributeModifiers$Builder$$Type} from "net.minecraft.world.item.component.ItemAttributeModifiers$Builder"
-import {$DamageSource$$Type} from "net.minecraft.world.damagesource.DamageSource"
-import {$Codec} from "com.mojang.serialization.Codec"
-import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
-import {$UseOnContext$$Type} from "net.minecraft.world.item.context.UseOnContext"
-import {$LivingEntity$$Type} from "net.minecraft.world.entity.LivingEntity"
-import {$BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
-
-export class $TraitEffect {
-static readonly "DISPATCH_CODEC": $Codec<($TraitEffect)>
-static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($TraitEffect)>
-
-constructor()
-
-public "onUpdate"(arg0: $TraitActionContext$$Type, arg1: boolean): void
-public "onItemUse"(arg0: $UseOnContext$$Type, arg1: integer): $InteractionResult
-public "type"(): $TraitEffectType<(never)>
-public "onEntityIncomingDamage"(arg0: $ItemStack$$Type, arg1: integer, arg2: $LivingEntity$$Type, arg3: $DamageSource$$Type, arg4: float, arg5: float): float
-public "onGetAttributeModifiers"(arg0: $TraitActionContext$$Type, arg1: $ItemAttributeModifiers$Builder$$Type): void
-public "getMiningSpeedModifier"(arg0: integer, arg1: $BlockState$$Type): float
-public "onRecalculatePost"(arg0: $ItemStack$$Type, arg1: integer): void
-public "onItemSwing"(arg0: $ItemStack$$Type, arg1: $LivingEntity$$Type, arg2: integer): void
-public "onAttackEntity"(arg0: $TraitActionContext$$Type, arg1: $LivingEntity$$Type, arg2: float): float
-public "onDurabilityDamage"(arg0: $TraitActionContext$$Type, arg1: integer): integer
-public "onGearCrafted"(arg0: $TraitActionContext$$Type): void
-public "getBonusProperties"(arg0: integer, arg1: $Player$$Type, arg2: $GearProperty$$Type<(never), (never)>, arg3: $GearPropertyValue$$Type<(never)>, arg4: float): $Collection<($GearPropertyValue<(never)>)>
-public "onCalculateSynergy"(arg0: double, arg1: integer): double
-public "onRecalculatePre"(arg0: $ItemStack$$Type, arg1: integer): void
-public "addLootDrops"(arg0: $TraitActionContext$$Type, arg1: $ItemStack$$Type): $ItemStack
-public "getExtraWikiLines"(): $Collection<(StringJS)>
-get "extraWikiLines"(): $Collection<(StringJS)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $TraitEffect$$Type = ($TraitEffect);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $TraitEffect$$Original = $TraitEffect;}
 declare module "net.silentchaos512.gear.api.traits.TraitEffectType" {
 import {$StreamCodec, $StreamCodec$$Type} from "net.minecraft.network.codec.StreamCodec"
 import {$Serializer} from "net.silentchaos512.gear.util.Serializer"
@@ -539,6 +358,594 @@ export type $TraitEffectType$$Type<T> = (Special.SilentgearTraitEffectType);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $TraitEffectType$$Original<T> = $TraitEffectType<(T)>;}
+declare module "net.silentchaos512.gear.api.event.GearNamePrefixesEvent" {
+import {$PartInstance$$Type} from "net.silentchaos512.gear.gear.part.PartInstance"
+import {$ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
+import {$Collection, $Collection$$Type} from "java.util.Collection"
+import {$GearItemEvent} from "net.silentchaos512.gear.api.event.GearItemEvent"
+import {$Component} from "net.minecraft.network.chat.Component"
+
+export class $GearNamePrefixesEvent extends $GearItemEvent {
+constructor(arg0: $ItemStack$$Type, arg1: $Collection$$Type<($PartInstance$$Type)>)
+
+public "getPrefixes"(): $Collection<($Component)>
+get "prefixes"(): $Collection<($Component)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $GearNamePrefixesEvent$$Type = ($GearNamePrefixesEvent);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $GearNamePrefixesEvent$$Original = $GearNamePrefixesEvent;}
+declare module "net.silentchaos512.gear.api.property.GearPropertyMap$Immutable" {
+import {$Iterable$$Type} from "java.lang.Iterable"
+import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
+import {$GearProperty$$Type} from "net.silentchaos512.gear.api.property.GearProperty"
+import {$GearType$$Type} from "net.silentchaos512.gear.api.item.GearType"
+import {$Collection} from "java.util.Collection"
+import {$PropertyKey$$Type} from "net.silentchaos512.gear.api.util.PropertyKey"
+import {$Codec} from "com.mojang.serialization.Codec"
+import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
+import {$Multimap$$Type} from "com.google.common.collect.Multimap"
+import {$GearPropertyMap, $GearPropertyMap$$Type} from "net.silentchaos512.gear.api.property.GearPropertyMap"
+import {$GearPropertyValue, $GearPropertyValue$$Type} from "net.silentchaos512.gear.api.property.GearPropertyValue"
+
+export class $GearPropertyMap$Immutable extends $GearPropertyMap {
+static readonly "CODEC": $Codec<($GearPropertyMap$Immutable)>
+static readonly "EMPTY": $GearPropertyMap
+static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($GearPropertyMap)>
+
+constructor(arg0: $GearPropertyMap$$Type)
+
+public "remove"(arg0: any, arg1: any): boolean
+public "get"(arg0: any): $Collection
+public "put"(arg0: any, arg1: any): boolean
+public "put"<V, I extends $GearPropertyValue<(object)>>(arg0: $GearProperty$$Type<(V), (I)>, arg1: $GearType$$Type, arg2: I): boolean
+public "put"(arg0: $PropertyKey$$Type<(never), (never)>, arg1: $GearPropertyValue$$Type<(never)>): boolean
+public "clear"(): void
+public "putAll"(arg0: $Multimap$$Type<($PropertyKey$$Type<(never), (never)>), ($GearPropertyValue$$Type<(never)>)>): boolean
+public "putAll"(arg0: any, arg1: $Iterable$$Type): boolean
+public "putAll"(arg0: $PropertyKey$$Type<(never), (never)>, arg1: $Iterable$$Type<($GearPropertyValue$$Type<(never)>)>): boolean
+public "removeAll"(arg0: any): $Collection<($GearPropertyValue<(never)>)>
+public "replaceValues"(arg0: $PropertyKey$$Type<(never), (never)>, arg1: $Iterable$$Type<($GearPropertyValue$$Type<(never)>)>): $Collection<($GearPropertyValue<(never)>)>
+public "replaceValues"(arg0: any, arg1: $Iterable$$Type): $Collection
+public "toMutable"(): $GearPropertyMap
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $GearPropertyMap$Immutable$$Type = ($GearPropertyMap$Immutable);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $GearPropertyMap$Immutable$$Original = $GearPropertyMap$Immutable;}
+declare module "net.silentchaos512.gear.api.traits.TraitInstance" {
+import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
+import {$Collection} from "java.util.Collection"
+import {$List$$Type} from "java.util.List"
+import {$ImmutableList, $ImmutableList$$Type} from "com.google.common.collect.ImmutableList"
+import {$Component$$Type} from "net.minecraft.network.chat.Component"
+import {$TooltipFlag$$Type} from "net.minecraft.world.item.TooltipFlag"
+import {$PartGearKey$$Type} from "net.silentchaos512.gear.api.util.PartGearKey"
+import {$DataResource, $DataResource$$Type} from "net.silentchaos512.gear.api.util.DataResource"
+import {$ITraitCondition, $ITraitCondition$$Type} from "net.silentchaos512.gear.api.traits.ITraitCondition"
+import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
+import {$Codec} from "com.mojang.serialization.Codec"
+import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
+import {$MutableComponent} from "net.minecraft.network.chat.MutableComponent"
+import {$GearComponentInstance$$Type} from "net.silentchaos512.gear.api.util.GearComponentInstance"
+import {$Trait, $Trait$$Type} from "net.silentchaos512.gear.gear.trait.Trait"
+import {$GearProperty$FormatContext$$Type} from "net.silentchaos512.gear.api.property.GearProperty$FormatContext"
+import {$Record} from "java.lang.Record"
+
+export class $TraitInstance extends $Record {
+static readonly "CODEC": $Codec<($TraitInstance)>
+static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($TraitInstance)>
+
+constructor(trait: $DataResource$$Type<($Trait$$Type)>, level: integer, conditions: $ImmutableList$$Type<($ITraitCondition$$Type)>)
+
+public "getDescription"(): $MutableComponent
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public static "of"(arg0: $Trait$$Type, arg1: integer, ...arg2: ($ITraitCondition$$Type)[]): $TraitInstance
+public static "of"(arg0: $DataResource$$Type<($Trait$$Type)>, arg1: integer, ...arg2: ($ITraitCondition$$Type)[]): $TraitInstance
+public "level"(): integer
+public "getDisplayName"(): $MutableComponent
+public "getDisplayName"(arg0: $GearProperty$FormatContext$$Type): $MutableComponent
+public "isValid"(): boolean
+public "getLevel"(): integer
+public "conditionsMatch"(arg0: $PartGearKey$$Type, arg1: $List$$Type<($GearComponentInstance$$Type<(never)>)>): boolean
+public "getTraitId"(): $ResourceLocation
+public "getConditions"(): $Collection<($ITraitCondition)>
+public "trait"(): $DataResource<($Trait)>
+public "conditions"(): $ImmutableList<($ITraitCondition)>
+public "addInformation"(arg0: $List$$Type<($Component$$Type)>, arg1: $TooltipFlag$$Type): void
+public "getConditionsText"(): $MutableComponent
+public "getTrait"(): $Trait
+get "description"(): $MutableComponent
+get "displayName"(): $MutableComponent
+get "valid"(): boolean
+get "traitId"(): $ResourceLocation
+get "conditionsText"(): $MutableComponent
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $TraitInstance$$Type = ({"level"?: integer, "conditions"?: $ImmutableList$$Type<($ITraitCondition$$Type)>, "trait"?: $DataResource$$Type<($Trait$$Type)>}) | ([level?: integer, conditions?: $ImmutableList$$Type<($ITraitCondition$$Type)>, trait?: $DataResource$$Type<($Trait$$Type)>]);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $TraitInstance$$Original = $TraitInstance;}
+declare module "net.silentchaos512.gear.api.event.GetTraitsEvent" {
+import {$PartList$$Type} from "net.silentchaos512.gear.api.part.PartList"
+import {$ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
+import {$Map, $Map$$Type} from "java.util.Map"
+import {$GearItemEvent} from "net.silentchaos512.gear.api.event.GearItemEvent"
+import {$Trait, $Trait$$Type} from "net.silentchaos512.gear.gear.trait.Trait"
+
+export class $GetTraitsEvent extends $GearItemEvent {
+constructor(arg0: $ItemStack$$Type, arg1: $PartList$$Type, arg2: $Map$$Type<($Trait$$Type), (integer)>)
+
+public "getTraits"(): $Map<($Trait), (integer)>
+get "traits"(): $Map<($Trait), (integer)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $GetTraitsEvent$$Type = ($GetTraitsEvent);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $GetTraitsEvent$$Original = $GetTraitsEvent;}
+declare module "net.silentchaos512.gear.api.material.modifier.IMaterialModifier" {
+import {$MaterialInstance$$Type} from "net.silentchaos512.gear.gear.material.MaterialInstance"
+import {$Collection, $Collection$$Type} from "java.util.Collection"
+import {$PropertyKey$$Type} from "net.silentchaos512.gear.api.util.PropertyKey"
+import {$IMaterialModifierType} from "net.silentchaos512.gear.api.material.modifier.IMaterialModifierType"
+import {$List$$Type} from "java.util.List"
+import {$MutableComponent, $MutableComponent$$Type} from "net.minecraft.network.chat.MutableComponent"
+import {$GearPropertyValue} from "net.silentchaos512.gear.api.property.GearPropertyValue"
+import {$Component$$Type} from "net.minecraft.network.chat.Component"
+import {$PartType$$Type} from "net.silentchaos512.gear.api.part.PartType"
+
+export interface $IMaterialModifier$$Interface {
+get "type"(): $IMaterialModifierType<(never)>
+}
+
+export class $IMaterialModifier implements $IMaterialModifier$$Interface {
+ "getType"(): $IMaterialModifierType<(never)>
+ "modifyMaterialName"(arg0: $MutableComponent$$Type): $MutableComponent
+ "modifyStats"<T, V extends $GearPropertyValue<(object)>>(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type, arg2: $PropertyKey$$Type<(T), (V)>, arg3: $Collection$$Type<(V)>): $Collection<(V)>
+ "appendTooltip"(arg0: $List$$Type<($Component$$Type)>): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $IMaterialModifier$$Type = ($IMaterialModifier);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $IMaterialModifier$$Original = $IMaterialModifier;}
+declare module "net.silentchaos512.gear.api.part.PartType" {
+import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
+import {$PartInstance} from "net.silentchaos512.gear.gear.part.PartInstance"
+import {$Optional, $Optional$$Type} from "java.util.Optional"
+import {$PartType$Builder$$Type} from "net.silentchaos512.gear.api.part.PartType$Builder"
+import {$DataResource$$Type} from "net.silentchaos512.gear.api.util.DataResource"
+import {$MaterialInstance$$Type} from "net.silentchaos512.gear.gear.material.MaterialInstance"
+import {$GearType, $GearType$$Type} from "net.silentchaos512.gear.api.item.GearType"
+import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
+import {$Codec} from "com.mojang.serialization.Codec"
+import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
+import {$CompoundPartItem, $CompoundPartItem$$Type} from "net.silentchaos512.gear.item.CompoundPartItem"
+import {$Function, $Function$$Type} from "java.util.function.Function"
+import {$MutableComponent} from "net.minecraft.network.chat.MutableComponent"
+import {$Material$$Type} from "net.silentchaos512.gear.api.material.Material"
+import {$Record} from "java.lang.Record"
+
+export class $PartType extends $Record {
+static "CODEC": $Codec<($PartType)>
+static "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($PartType)>
+
+constructor(arg0: $PartType$Builder$$Type)
+constructor(isRemovable: boolean, isUpgrade: boolean, maxPerItem: integer, compoundParts: $Function$$Type<($GearType), (($CompoundPartItem$$Type)?)>)
+
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "getDisplayName"(): $MutableComponent
+public "maxPerItem"(): integer
+public "isUpgrade"(): boolean
+public "getCompoundPartItem"(arg0: $GearType$$Type): $Optional<($CompoundPartItem)>
+public static "getToolHeadItem"(arg0: $GearType$$Type): $Optional<($CompoundPartItem)>
+public "isRemovable"(): boolean
+public "makeCompoundPart"(arg0: $GearType$$Type, arg1: $MaterialInstance$$Type): $Optional<($PartInstance)>
+public "makeCompoundPart"(arg0: $GearType$$Type, arg1: $DataResource$$Type<($Material$$Type)>): $Optional<($PartInstance)>
+public "compoundParts"(): $Function<($GearType), ($Optional<($CompoundPartItem)>)>
+public "getCompoundPartId"(arg0: $GearType$$Type): $ResourceLocation
+get "displayName"(): $MutableComponent
+get "upgrade"(): boolean
+get "removable"(): boolean
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Literal": Special.SilentgearPartType
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Tag": Special.SilentgearPartTypeTag
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $PartType$$Type = (Special.SilentgearPartType) | ({"isUpgrade"?: boolean, "isRemovable"?: boolean, "compoundParts"?: $Function$$Type<($GearType$$Type), (($CompoundPartItem$$Type)?)>, "maxPerItem"?: integer}) | ([isUpgrade?: boolean, isRemovable?: boolean, compoundParts?: $Function$$Type<($GearType$$Type), (($CompoundPartItem$$Type)?)>, maxPerItem?: integer]);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $PartType$$Original = $PartType;}
+declare module "net.silentchaos512.gear.api.property.GearPropertyMap" {
+import {$Iterable$$Type} from "java.lang.Iterable"
+import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
+import {$GearProperty, $GearProperty$$Type} from "net.silentchaos512.gear.api.property.GearProperty"
+import {$Collection, $Collection$$Type} from "java.util.Collection"
+import {$PropertyKey, $PropertyKey$$Type} from "net.silentchaos512.gear.api.util.PropertyKey"
+import {$Map} from "java.util.Map"
+import {$Multimap$$Type, $Multimap$$Interface} from "com.google.common.collect.Multimap"
+import {$Component} from "net.minecraft.network.chat.Component"
+import {$GearPropertyValue, $GearPropertyValue$$Type} from "net.silentchaos512.gear.api.property.GearPropertyValue"
+import {$GearPropertyMap$Immutable} from "net.silentchaos512.gear.api.property.GearPropertyMap$Immutable"
+import {$Map$Entry} from "java.util.Map$Entry"
+import {$GearType$$Type} from "net.silentchaos512.gear.api.item.GearType"
+import {$Codec} from "com.mojang.serialization.Codec"
+import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
+import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
+import {$MutableComponent} from "net.minecraft.network.chat.MutableComponent"
+import {$Set} from "java.util.Set"
+import {$Multiset} from "com.google.common.collect.Multiset"
+
+export class $GearPropertyMap implements $Multimap$$Interface<($PropertyKey<(never), (never)>), ($GearPropertyValue<(never)>)> {
+static readonly "CODEC": $Codec<($GearPropertyMap)>
+static readonly "EMPTY": $GearPropertyMap
+static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($GearPropertyMap)>
+
+constructor()
+constructor(arg0: $GearPropertyMap$$Type)
+
+public "remove"(arg0: any, arg1: any): boolean
+public "size"(): integer
+public "get"(arg0: any): $Collection
+public "get"(arg0: $PropertyKey$$Type<(never), (never)>): $Collection<($GearPropertyValue<(never)>)>
+public "put"(arg0: $PropertyKey$$Type<(never), (never)>, arg1: $GearPropertyValue$$Type<(never)>): boolean
+public "put"<V, I extends $GearPropertyValue<(object)>>(arg0: $GearProperty$$Type<(V), (I)>, arg1: $GearType$$Type, arg2: I): boolean
+public "put"(arg0: any, arg1: any): boolean
+public "equals"(arg0: any): boolean
+public "values"(): $Collection<($GearPropertyValue<(never)>)>
+public "hashCode"(): integer
+public "clear"(): void
+public "isEmpty"(): boolean
+public "putAll"(arg0: $Multimap$$Type<($PropertyKey$$Type<(never), (never)>), ($GearPropertyValue$$Type<(never)>)>): boolean
+public "putAll"(arg0: $PropertyKey$$Type<(never), (never)>, arg1: $Iterable$$Type<($GearPropertyValue$$Type<(never)>)>): boolean
+public "putAll"(arg0: any, arg1: $Iterable$$Type): boolean
+public "containsKey"(arg0: any): boolean
+public "keys"(): $Multiset<($PropertyKey<(never), (never)>)>
+public "keySet"(): $Set<($PropertyKey<(never), (never)>)>
+public "containsValue"(arg0: any): boolean
+public "entries"(): $Collection<($Map$Entry<($PropertyKey<(never), (never)>), ($GearPropertyValue<(never)>)>)>
+public "removeAll"(arg0: any): $Collection<($GearPropertyValue<(never)>)>
+public "getValues"<T, V extends $GearPropertyValue<(object)>>(arg0: $GearProperty$$Type<(T), (V)>, arg1: $GearType$$Type): $Collection<(V)>
+public "getValues"<T, V extends $GearPropertyValue<(object)>>(arg0: $PropertyKey$$Type<(T), (V)>): $Collection<(V)>
+public "toImmutable"(): $GearPropertyMap$Immutable
+public static "formatText"<T, V extends $GearPropertyValue<(object)>, P extends $GearProperty<(object), (object)>>(arg0: $Collection$$Type<(V)>, arg1: P, arg2: integer, arg3: boolean): $MutableComponent
+public static "formatText"<T, V extends $GearPropertyValue<(object)>, P extends $GearProperty<(object), (object)>>(arg0: $Collection$$Type<(V)>, arg1: P, arg2: integer): $MutableComponent
+public "containsEntry"(arg0: any, arg1: any): boolean
+public "replaceValues"(arg0: $PropertyKey$$Type<(never), (never)>, arg1: $Iterable$$Type<($GearPropertyValue$$Type<(never)>)>): $Collection<($GearPropertyValue<(never)>)>
+public "replaceValues"(arg0: any, arg1: $Iterable$$Type): $Collection
+public static "formatTextUnchecked"(arg0: $Collection$$Type<($GearPropertyValue$$Type<(never)>)>, arg1: $GearProperty$$Type<(never), (never)>, arg2: boolean): $Component
+public "asMap"(): $Map<($PropertyKey<(never), (never)>), ($Collection<($GearPropertyValue<(never)>)>)>
+public "toMutable"(): $GearPropertyMap
+public "getPropertyTypes"(): $Set<($GearProperty<(never), (never)>)>
+public "getMostSpecificKey"(arg0: $PropertyKey$$Type<(never), (never)>): $PropertyKey<(never), (never)>
+public "forEach"(action: $BiConsumer$$Type<($PropertyKey<(never), (never)>), ($GearPropertyValue<(never)>)>): void
+get "empty"(): boolean
+get "propertyTypes"(): $Set<($GearProperty<(never), (never)>)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $GearPropertyMap$$Type = ($GearPropertyMap);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $GearPropertyMap$$Original = $GearPropertyMap;}
+declare module "net.silentchaos512.gear.api.property.NumberProperty$DisplayFormat" {
+import {$Enum} from "java.lang.Enum"
+
+export class $NumberProperty$DisplayFormat extends $Enum<($NumberProperty$DisplayFormat)> {
+static readonly "MULTIPLIER": $NumberProperty$DisplayFormat
+static readonly "UNIT": $NumberProperty$DisplayFormat
+static readonly "PERCENTAGE": $NumberProperty$DisplayFormat
+
+public static "values"(): ($NumberProperty$DisplayFormat)[]
+public static "valueOf"(arg0: StringJS): $NumberProperty$DisplayFormat
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $NumberProperty$DisplayFormat$$Type = (("unit") | ("multiplier") | ("percentage"));
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $NumberProperty$DisplayFormat$$Original = $NumberProperty$DisplayFormat;}
+declare module "net.silentchaos512.gear.api.material.Material" {
+import {$CraftingInput$$Type} from "net.minecraft.world.item.crafting.CraftingInput"
+import {$Collection} from "java.util.Collection"
+import {$PropertyKey, $PropertyKey$$Type} from "net.silentchaos512.gear.api.util.PropertyKey"
+import {$ItemStack} from "net.minecraft.world.item.ItemStack"
+import {$Optional} from "java.util.Optional"
+import {$Ingredient} from "net.minecraft.world.item.crafting.Ingredient"
+import {$GearPropertyValue} from "net.silentchaos512.gear.api.property.GearPropertyValue"
+import {$Component} from "net.minecraft.network.chat.Component"
+import {$MaterialSerializer} from "net.silentchaos512.gear.api.material.MaterialSerializer"
+import {$MaterialInstance, $MaterialInstance$$Type} from "net.silentchaos512.gear.gear.material.MaterialInstance"
+import {$TextureType} from "net.silentchaos512.gear.api.material.TextureType"
+import {$GearComponent$$Interface} from "net.silentchaos512.gear.api.util.GearComponent"
+import {$GearType$$Type} from "net.silentchaos512.gear.api.item.GearType"
+import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$Set} from "java.util.Set"
+import {$IMaterialCategory, $IMaterialCategory$$Type} from "net.silentchaos512.gear.api.material.IMaterialCategory"
+import {$PartType, $PartType$$Type} from "net.silentchaos512.gear.api.part.PartType"
+
+export interface $Material$$Interface extends $GearComponent$$Interface<($MaterialInstance)> {
+get "parent"(): $Material
+get "valid"(): boolean
+get "simple"(): boolean
+get "parentOptional"(): $Optional<($Material)>
+get "serializer"(): $MaterialSerializer<(never)>
+get "categories"(): $Collection<($IMaterialCategory)>
+get "ingredient"(): $Ingredient
+}
+
+export class $Material implements $Material$$Interface {
+ "getParent"(): $Material
+ "isValid"(): boolean
+ "isSimple"(): boolean
+ "canRepair"(arg0: $MaterialInstance$$Type): boolean
+ "getDisplayItem"(arg0: $PartType$$Type, arg1: integer): $ItemStack
+ "onSalvage"(arg0: $MaterialInstance$$Type): $MaterialInstance
+ "getMainTextureType"(arg0: $MaterialInstance$$Type): $TextureType
+ "getNameColor"(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type, arg2: $GearType$$Type): integer
+ "isAllowedInPart"(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type): boolean
+ "getPartTypes"(arg0: $MaterialInstance$$Type): $Set<($PartType)>
+ "getParentOptional"(): $Optional<($Material)>
+ "getPartSubstitute"(arg0: $PartType$$Type): $Optional<($Ingredient)>
+ "hasPartSubstitutes"(): boolean
+ "getPropertyKeys"(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type): $Collection<($PropertyKey<(never), (never)>)>
+ "getModelKey"(arg0: $MaterialInstance$$Type): StringJS
+ "isInCategory"(arg0: $IMaterialCategory$$Type): boolean
+ "getColor"(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type, arg2: $GearType$$Type): integer
+ "getBaseMaterialName"(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type): $Component
+ "getDisplayNamePrefix"(arg0: $PartType$$Type): $Component
+ "getSerializer"(): $MaterialSerializer<(never)>
+ "retainData"(arg0: $Material$$Type): void
+ "canSalvage"(): boolean
+ "getCategories"(arg0: $MaterialInstance$$Type): $Collection<($IMaterialCategory)>
+/**
+ * 
+ * @deprecated
+ */
+ "getCategories"(): $Collection<($IMaterialCategory)>
+ "getDisplayName"(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type): $Component
+ "isCraftingAllowed"(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type, arg2: $GearType$$Type): boolean
+ "isCraftingAllowed"(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type, arg2: $GearType$$Type, arg3: $CraftingInput$$Type): boolean
+ "getIngredient"(): $Ingredient
+ "getProperty"<T, V extends $GearPropertyValue<(object)>>(arg0: $MaterialInstance$$Type, arg1: $Supplier$$Type<($PartType$$Type)>, arg2: $PropertyKey$$Type<(T), (V)>): T
+ "getProperty"<T, V extends $GearPropertyValue<(object)>>(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type, arg2: $PropertyKey$$Type<(T), (V)>): T
+ "getPropertyModifiers"<T, V extends $GearPropertyValue<(object)>>(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type, arg2: $PropertyKey$$Type<(T), (V)>): $Collection<(V)>
+ "getPropertyModifiers"<T, V extends $GearPropertyValue<(object)>>(arg0: $MaterialInstance$$Type, arg1: $Supplier$$Type<($PartType$$Type)>, arg2: $PropertyKey$$Type<(T), (V)>): $Collection<(V)>
+ "getPropertyUnclamped"<T, V extends $GearPropertyValue<(object)>>(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type, arg2: $PropertyKey$$Type<(T), (V)>): T
+ "getPropertyUnclamped"<T, V extends $GearPropertyValue<(object)>>(arg0: $MaterialInstance$$Type, arg1: $Supplier$$Type<($PartType$$Type)>, arg2: $PropertyKey$$Type<(T), (V)>): T
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Material$$Type = ($Material);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Material$$Original = $Material;}
+declare module "net.silentchaos512.gear.api.property.NumberProperty" {
+import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
+import {$GearProperty} from "net.silentchaos512.gear.api.property.GearProperty"
+import {$Collection$$Type} from "java.util.Collection"
+import {$FriendlyByteBuf} from "net.minecraft.network.FriendlyByteBuf"
+import {$NumberPropertyValue, $NumberPropertyValue$$Type} from "net.silentchaos512.gear.api.property.NumberPropertyValue"
+import {$List, $List$$Type} from "java.util.List"
+import {$Component} from "net.minecraft.network.chat.Component"
+import {$GearPropertyValue, $GearPropertyValue$$Type} from "net.silentchaos512.gear.api.property.GearPropertyValue"
+import {$PartGearKey$$Type} from "net.silentchaos512.gear.api.util.PartGearKey"
+import {$GearType$$Type} from "net.silentchaos512.gear.api.item.GearType"
+import {$NumberProperty$DisplayFormat, $NumberProperty$DisplayFormat$$Type} from "net.silentchaos512.gear.api.property.NumberProperty$DisplayFormat"
+import {$Codec} from "com.mojang.serialization.Codec"
+import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
+import {$GearProperty$Builder$$Type} from "net.silentchaos512.gear.api.property.GearProperty$Builder"
+import {$MutableComponent} from "net.minecraft.network.chat.MutableComponent"
+import {$GearComponentInstance$$Type} from "net.silentchaos512.gear.api.util.GearComponentInstance"
+import {$NumberProperty$Operation$$Type} from "net.silentchaos512.gear.api.property.NumberProperty$Operation"
+import {$GearProperty$FormatContext$$Type} from "net.silentchaos512.gear.api.property.GearProperty$FormatContext"
+
+export class $NumberProperty extends $GearProperty<(float), ($NumberPropertyValue)> {
+static readonly "CODEC": $Codec<($NumberPropertyValue)>
+static readonly "STREAM_CODEC": $StreamCodec<($FriendlyByteBuf), ($NumberPropertyValue)>
+
+constructor(arg0: $NumberProperty$Operation$$Type, arg1: $NumberProperty$DisplayFormat$$Type, arg2: boolean, arg3: $GearProperty$Builder$$Type<(float)>)
+
+public "valueOf"(arg0: float): $NumberPropertyValue
+public "valueOf"(arg0: any): $GearPropertyValue
+public "compute"(arg0: any, arg1: boolean, arg2: $GearType$$Type, arg3: $GearType$$Type, arg4: $Collection$$Type): any
+public "compute"(arg0: float, arg1: boolean, arg2: $GearType$$Type, arg3: $GearType$$Type, arg4: $Collection$$Type<($NumberPropertyValue$$Type)>): float
+public "isZero"(arg0: float): boolean
+public "isZero"(arg0: any): boolean
+public "getDisplayFormat"(): $NumberProperty$DisplayFormat
+public "compressModifiers"(arg0: $Collection$$Type<($NumberPropertyValue$$Type)>, arg1: $PartGearKey$$Type, arg2: $List$$Type<($GearComponentInstance$$Type<(never)>)>): $List<($NumberPropertyValue)>
+public "getZeroValue"(): float
+public "isDisplayAsInt"(): boolean
+public static "getWeightedAverage"(arg0: $Collection$$Type<($NumberPropertyValue$$Type)>, arg1: $NumberProperty$Operation$$Type): float
+public "sortForDisplay"(arg0: $Collection$$Type<($NumberPropertyValue$$Type)>): $List<($NumberPropertyValue)>
+public "applySynergy"(arg0: $GearPropertyValue$$Type, arg1: float): $GearPropertyValue
+public "applySynergy"(arg0: $NumberPropertyValue$$Type, arg1: float): $NumberPropertyValue
+public "clampValue"(arg0: float): float
+public "formatValueWithColor"(arg0: $NumberPropertyValue$$Type, arg1: boolean, arg2: $GearProperty$FormatContext$$Type): $MutableComponent
+public "formatValueWithColor"(arg0: $GearPropertyValue$$Type, arg1: boolean, arg2: $GearProperty$FormatContext$$Type): $MutableComponent
+public "getPreferredDecimalPlaces"(arg0: $GearPropertyValue$$Type): integer
+public "getPreferredDecimalPlaces"(arg0: $NumberPropertyValue$$Type): integer
+public "formatValue"(arg0: $GearPropertyValue$$Type, arg1: $GearProperty$FormatContext$$Type): $Component
+public "formatValue"(arg0: $NumberPropertyValue$$Type, arg1: $GearProperty$FormatContext$$Type): $Component
+public "codec"(): $Codec<($NumberPropertyValue)>
+public "streamCodec"(): $StreamCodec<($RegistryFriendlyByteBuf), ($NumberPropertyValue)>
+get "displayFormat"(): $NumberProperty$DisplayFormat
+get "zeroValue"(): float
+get "displayAsInt"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $NumberProperty$$Type = ($NumberProperty);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $NumberProperty$$Original = $NumberProperty;}
+declare module "net.silentchaos512.gear.api.part.PartType$Builder" {
+import {$GearType$$Type} from "net.silentchaos512.gear.api.item.GearType"
+import {$Optional$$Type} from "java.util.Optional"
+import {$CompoundPartItem$$Type} from "net.silentchaos512.gear.item.CompoundPartItem"
+import {$Function$$Type} from "java.util.function.Function"
+import {$Supplier$$Type} from "java.util.function.Supplier"
+
+export class $PartType$Builder {
+public static "builder"(): $PartType$Builder
+public "maxPerItem"(arg0: integer): $PartType$Builder
+public "isUpgrade"(arg0: boolean): $PartType$Builder
+public "isRemovable"(arg0: boolean): $PartType$Builder
+public "compoundPartItem"(arg0: $Function$$Type<($GearType), (($CompoundPartItem$$Type)?)>): $PartType$Builder
+public "compoundPartItem"(arg0: $Supplier$$Type<($CompoundPartItem$$Type)>): $PartType$Builder
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $PartType$Builder$$Type = ($PartType$Builder);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $PartType$Builder$$Original = $PartType$Builder;}
+declare module "net.silentchaos512.gear.api.item.GearItem" {
+import {$GearType, $GearType$$Type} from "net.silentchaos512.gear.api.item.GearType"
+import {$PartInstance$$Type} from "net.silentchaos512.gear.gear.part.PartInstance"
+import {$Collection, $Collection$$Type} from "java.util.Collection"
+import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
+import {$Supplier} from "java.util.function.Supplier"
+import {$ItemLike$$Interface} from "net.minecraft.world.level.ItemLike"
+import {$NumberProperty} from "net.silentchaos512.gear.api.property.NumberProperty"
+import {$Item} from "net.minecraft.world.item.Item"
+import {$ItemColor} from "net.minecraft.client.color.item.ItemColor"
+import {$PartType, $PartType$$Type} from "net.silentchaos512.gear.api.part.PartType"
+
+export interface $GearItem$$Interface extends $ItemLike$$Interface {
+
+(): $GearType$$Type
+get "itemColors"(): $ItemColor
+get "gearType"(): $GearType
+get "requiredParts"(): $Collection<($PartType)>
+get "durabilityStat"(): $Supplier<($NumberProperty)>
+}
+
+export class $GearItem implements $GearItem$$Interface {
+static readonly "REQUIRED_PARTS": $Supplier<($Collection<($PartType)>)>
+
+ "getItemColors"(): $ItemColor
+ "construct"(arg0: $Collection$$Type<($PartInstance$$Type)>): $ItemStack
+ "asItem"(): $Item
+ "getGearType"(): $GearType
+ "getRequiredParts"(): $Collection<($PartType)>
+ "requiresPartOfType"(arg0: $PartType$$Type): boolean
+ "getDurabilityStat"(): $Supplier<($NumberProperty)>
+ "supportsPart"(arg0: $ItemStack$$Type, arg1: $PartInstance$$Type): boolean
+ "getRepairModifier"(arg0: $ItemStack$$Type): float
+ "isValidSlot"(arg0: StringJS): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $GearItem$$Type = (() => $GearType$$Type);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $GearItem$$Original = $GearItem;}
+declare module "net.silentchaos512.gear.api.traits.TraitEffect" {
+import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
+import {$GearProperty$$Type} from "net.silentchaos512.gear.api.property.GearProperty"
+import {$Collection} from "java.util.Collection"
+import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
+import {$TraitActionContext$$Type} from "net.silentchaos512.gear.api.traits.TraitActionContext"
+import {$TraitEffectType} from "net.silentchaos512.gear.api.traits.TraitEffectType"
+import {$GearPropertyValue, $GearPropertyValue$$Type} from "net.silentchaos512.gear.api.property.GearPropertyValue"
+import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
+import {$InteractionResult} from "net.minecraft.world.InteractionResult"
+import {$ItemAttributeModifiers$Builder$$Type} from "net.minecraft.world.item.component.ItemAttributeModifiers$Builder"
+import {$Codec} from "com.mojang.serialization.Codec"
+import {$DamageSource$$Type} from "net.minecraft.world.damagesource.DamageSource"
+import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
+import {$UseOnContext$$Type} from "net.minecraft.world.item.context.UseOnContext"
+import {$LivingEntity$$Type} from "net.minecraft.world.entity.LivingEntity"
+import {$BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
+
+export class $TraitEffect {
+static readonly "DISPATCH_CODEC": $Codec<($TraitEffect)>
+static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($TraitEffect)>
+
+constructor()
+
+public "type"(): $TraitEffectType<(never)>
+public "onEntityIncomingDamage"(arg0: $ItemStack$$Type, arg1: integer, arg2: $LivingEntity$$Type, arg3: $DamageSource$$Type, arg4: float, arg5: float): float
+public "onItemUse"(arg0: $UseOnContext$$Type, arg1: integer): $InteractionResult
+public "onUpdate"(arg0: $TraitActionContext$$Type, arg1: boolean): void
+public "onGetAttributeModifiers"(arg0: $TraitActionContext$$Type, arg1: $ItemAttributeModifiers$Builder$$Type): void
+public "getMiningSpeedModifier"(arg0: integer, arg1: $BlockState$$Type): float
+public "onCalculateSynergy"(arg0: double, arg1: integer): double
+public "onDurabilityDamage"(arg0: $TraitActionContext$$Type, arg1: integer): integer
+public "onGearCrafted"(arg0: $TraitActionContext$$Type): void
+public "onAttackEntity"(arg0: $TraitActionContext$$Type, arg1: $LivingEntity$$Type, arg2: float): float
+public "onRecalculatePre"(arg0: $ItemStack$$Type, arg1: integer): void
+public "onRecalculatePost"(arg0: $ItemStack$$Type, arg1: integer): void
+public "getBonusProperties"(arg0: integer, arg1: $Player$$Type, arg2: $GearProperty$$Type<(never), (never)>, arg3: $GearPropertyValue$$Type<(never)>, arg4: float): $Collection<($GearPropertyValue<(never)>)>
+public "onItemSwing"(arg0: $ItemStack$$Type, arg1: $LivingEntity$$Type, arg2: integer): void
+public "addLootDrops"(arg0: $TraitActionContext$$Type, arg1: $ItemStack$$Type): $ItemStack
+public "getExtraWikiLines"(): $Collection<(StringJS)>
+get "extraWikiLines"(): $Collection<(StringJS)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $TraitEffect$$Type = ($TraitEffect);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $TraitEffect$$Original = $TraitEffect;}
 declare module "net.silentchaos512.gear.api.part.PartSerializer" {
 import {$StreamCodec$$Type} from "net.minecraft.network.codec.StreamCodec"
 import {$GearPart} from "net.silentchaos512.gear.api.part.GearPart"
@@ -579,8 +986,8 @@ constructor(arg0: T)
 public "value"(): T
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
-public static "createSimpleValueCodec"<T, V extends $GearPropertyValue<(object)>>(arg0: $Codec$$Type<(T)>, arg1: $Function$$Type<(T), (V)>): $Codec<(V)>
 public static "createSimpleStreamCodec"<T, V extends $GearPropertyValue<(object)>, B extends $FriendlyByteBuf>(arg0: $StreamCodec$$Type<(B), (T)>, arg1: $Function$$Type<(T), (V)>): $StreamCodec<(B), (V)>
+public static "createSimpleValueCodec"<T, V extends $GearPropertyValue<(object)>>(arg0: $Codec$$Type<(T)>, arg1: $Function$$Type<(T), (V)>): $Codec<(V)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -591,77 +998,12 @@ export type $GearPropertyValue$$Type<T> = ($GearPropertyValue<(T)>);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $GearPropertyValue$$Original<T> = $GearPropertyValue<(T)>;}
-declare module "net.silentchaos512.gear.api.event.GearNamePrefixesEvent" {
-import {$PartInstance$$Type} from "net.silentchaos512.gear.gear.part.PartInstance"
-import {$Collection, $Collection$$Type} from "java.util.Collection"
-import {$ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
-import {$GearItemEvent} from "net.silentchaos512.gear.api.event.GearItemEvent"
-import {$Component} from "net.minecraft.network.chat.Component"
-
-export class $GearNamePrefixesEvent extends $GearItemEvent {
-constructor(arg0: $ItemStack$$Type, arg1: $Collection$$Type<($PartInstance$$Type)>)
-
-public "getPrefixes"(): $Collection<($Component)>
-get "prefixes"(): $Collection<($Component)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $GearNamePrefixesEvent$$Type = ($GearNamePrefixesEvent);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $GearNamePrefixesEvent$$Original = $GearNamePrefixesEvent;}
-declare module "net.silentchaos512.gear.api.property.GearPropertyMap$Immutable" {
-import {$GearProperty$$Type} from "net.silentchaos512.gear.api.property.GearProperty"
-import {$Iterable$$Type} from "java.lang.Iterable"
-import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
-import {$GearType$$Type} from "net.silentchaos512.gear.api.item.GearType"
-import {$Collection} from "java.util.Collection"
-import {$PropertyKey$$Type} from "net.silentchaos512.gear.api.util.PropertyKey"
-import {$Codec} from "com.mojang.serialization.Codec"
-import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
-import {$Multimap$$Type} from "com.google.common.collect.Multimap"
-import {$GearPropertyMap, $GearPropertyMap$$Type} from "net.silentchaos512.gear.api.property.GearPropertyMap"
-import {$GearPropertyValue, $GearPropertyValue$$Type} from "net.silentchaos512.gear.api.property.GearPropertyValue"
-
-export class $GearPropertyMap$Immutable extends $GearPropertyMap {
-static readonly "CODEC": $Codec<($GearPropertyMap$Immutable)>
-static readonly "EMPTY": $GearPropertyMap
-static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($GearPropertyMap)>
-
-constructor(arg0: $GearPropertyMap$$Type)
-
-public "remove"(arg0: any, arg1: any): boolean
-public "get"(arg0: any): $Collection
-public "put"(arg0: any, arg1: any): boolean
-public "put"<V, I extends $GearPropertyValue<(object)>>(arg0: $GearProperty$$Type<(V), (I)>, arg1: $GearType$$Type, arg2: I): boolean
-public "put"(arg0: $PropertyKey$$Type<(never), (never)>, arg1: $GearPropertyValue$$Type<(never)>): boolean
-public "clear"(): void
-public "putAll"(arg0: $Multimap$$Type<($PropertyKey$$Type<(never), (never)>), ($GearPropertyValue$$Type<(never)>)>): boolean
-public "putAll"(arg0: any, arg1: $Iterable$$Type): boolean
-public "putAll"(arg0: $PropertyKey$$Type<(never), (never)>, arg1: $Iterable$$Type<($GearPropertyValue$$Type<(never)>)>): boolean
-public "removeAll"(arg0: any): $Collection<($GearPropertyValue<(never)>)>
-public "replaceValues"(arg0: $PropertyKey$$Type<(never), (never)>, arg1: $Iterable$$Type<($GearPropertyValue$$Type<(never)>)>): $Collection<($GearPropertyValue<(never)>)>
-public "replaceValues"(arg0: any, arg1: $Iterable$$Type): $Collection
-public "toMutable"(): $GearPropertyMap
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $GearPropertyMap$Immutable$$Type = ($GearPropertyMap$Immutable);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $GearPropertyMap$Immutable$$Original = $GearPropertyMap$Immutable;}
 declare module "net.silentchaos512.gear.api.material.modifier.IMaterialModifierType" {
 import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
-import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
 import {$ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
-import {$Optional} from "java.util.Optional"
+import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
 import {$IMaterialModifier, $IMaterialModifier$$Type} from "net.silentchaos512.gear.api.material.modifier.IMaterialModifier"
+import {$Optional} from "java.util.Optional"
 import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$MapCodec} from "com.mojang.serialization.MapCodec"
 
@@ -678,12 +1020,12 @@ get "id"(): $ResourceLocation
 }
 
 export class $IMaterialModifierType<T extends $IMaterialModifier> implements $IMaterialModifierType$$Interface {
- "addModifier"(arg0: T, arg1: $ItemStack$$Type): void
  "getId"(): $ResourceLocation
- "readModifier"(arg0: $ItemStack$$Type): $Optional<(T)>
+ "removeModifier"(arg0: $ItemStack$$Type): void
  "codec"(): $MapCodec<(T)>
  "streamCodec"(): $StreamCodec<($RegistryFriendlyByteBuf), (T)>
- "removeModifier"(arg0: $ItemStack$$Type): void
+ "addModifier"(arg0: T, arg1: $ItemStack$$Type): void
+ "readModifier"(arg0: $ItemStack$$Type): $Optional<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -722,11 +1064,11 @@ export type $GetPropertyModifiersEvent$$Type<T, V> = ($GetPropertyModifiersEvent
 export type $GetPropertyModifiersEvent$$Original<T, V> = $GetPropertyModifiersEvent<(T), (V)>;}
 declare module "net.silentchaos512.gear.api.property.NumberProperty$Operation" {
 import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
-import {$Enum} from "java.lang.Enum"
-import {$FriendlyByteBuf} from "net.minecraft.network.FriendlyByteBuf"
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$NumberProperty$$Type} from "net.silentchaos512.gear.api.property.NumberProperty"
+import {$FriendlyByteBuf} from "net.minecraft.network.FriendlyByteBuf"
+import {$Enum} from "java.lang.Enum"
 import {$MutableComponent} from "net.minecraft.network.chat.MutableComponent"
+import {$NumberProperty$$Type} from "net.silentchaos512.gear.api.property.NumberProperty"
 
 export class $NumberProperty$Operation extends $Enum<($NumberProperty$Operation)> {
 static readonly "ADD": $NumberProperty$Operation
@@ -771,21 +1113,42 @@ import {$GearComponentInstance$$Type} from "net.silentchaos512.gear.api.util.Gea
 import {$GearProperty$FormatContext$$Type} from "net.silentchaos512.gear.api.property.GearProperty$FormatContext"
 
 export class $GearProperty<T, V extends $GearPropertyValue<(object)>> {
-public "formatValueWithColor"(arg0: V, arg1: boolean, arg2: $GearProperty$FormatContext$$Type): $MutableComponent
-public "getPreferredDecimalPlaces"(arg0: V): integer
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public "isHidden"(arg0: V, arg1: $GearTooltipFlag$$Type): boolean
 public "valueOf"(arg0: T): V
-public "compute"(arg0: $Collection$$Type<(V)>): T
 public "compute"(arg0: T, arg1: $Collection$$Type<(V)>): T
-public "compute"(arg0: T, arg1: boolean, arg2: $GearType$$Type, arg3: $Collection$$Type<(V)>): T
 public "compute"(arg0: T, arg1: boolean, arg2: $GearType$$Type, arg3: $GearType$$Type, arg4: $Collection$$Type<(V)>): T
+public "compute"(arg0: T, arg1: boolean, arg2: $GearType$$Type, arg3: $Collection$$Type<(V)>): T
+public "compute"(arg0: $Collection$$Type<(V)>): T
 public "getDefaultValue"(): T
 public "isZero"(arg0: T): boolean
 public "getDisplayName"(): $MutableComponent
+public "formatModifiersWithColorUnchecked"(arg0: $Collection$$Type<($GearPropertyValue$$Type<(never)>)>, arg1: boolean, arg2: $GearProperty$FormatContext$$Type): $MutableComponent
+/**
+ * 
+ * @deprecated
+ */
+public "getTooltipLines"(arg0: V, arg1: $GearTooltipFlag$$Type): $List<($Component)>
+public "buildTooltip"(arg0: $TextListBuilder$$Type, arg1: V, arg2: $ItemStack$$Type, arg3: $GearTooltipFlag$$Type): void
+public "compressModifiers"(arg0: $Collection$$Type<(V)>, arg1: $PartGearKey$$Type, arg2: $List$$Type<($GearComponentInstance$$Type<(never)>)>): $List<(V)>
+public "isForMaterialsOnly"(): boolean
+public "computeForGear"(arg0: T, arg1: boolean, arg2: $GearType$$Type, arg3: $GearType$$Type, arg4: $Collection$$Type<(V)>, arg5: $List$$Type<($PartInstance$$Type)>): T
+public "rawStreamCodec"(): $StreamCodec<($FriendlyByteBuf), ($GearPropertyValue<(never)>)>
+public "isHiddenUnchecked"(arg0: $GearPropertyValue$$Type<(never)>, arg1: $GearTooltipFlag$$Type): boolean
+public "isAffectedByGrades"(): boolean
+public "computeUnchecked"(arg0: boolean, arg1: $GearType$$Type, arg2: $GearType$$Type, arg3: $Collection$$Type<($GearPropertyValue$$Type<(never)>)>): V
+public "formatModifiers"(arg0: $Collection$$Type<(V)>, arg1: boolean, arg2: $GearProperty$FormatContext$$Type): $Component
+public "getZeroValue"(): T
+public "getMinimumValue"(): T
+public "sortForDisplay"(arg0: $Collection$$Type<(V)>): $List<(V)>
+public "getMaximumValue"(): T
+public "applySynergy"(arg0: V, arg1: float): V
 public "formatText"(arg0: V, arg1: $GearTooltipFlag$$Type): $Component
 public "formatText"(arg0: $Component$$Type): $Component
+public "formatValueWithColor"(arg0: V, arg1: boolean, arg2: $GearProperty$FormatContext$$Type): $MutableComponent
+public "getPreferredDecimalPlaces"(arg0: V): integer
+public "isAffectedBySynergy"(): boolean
 public "formatModifiersUnchecked"(arg0: $Collection$$Type<($GearPropertyValue$$Type<(never)>)>, arg1: boolean, arg2: $GearProperty$FormatContext$$Type): $Component
 /**
  * 
@@ -793,44 +1156,23 @@ public "formatModifiersUnchecked"(arg0: $Collection$$Type<($GearPropertyValue$$T
  */
 public "getTooltipLinesUnchecked"(arg0: $GearPropertyValue$$Type<(never)>, arg1: $GearTooltipFlag$$Type): $List<($Component)>
 public "computeUncheckedForGear"(arg0: $GearType$$Type, arg1: $GearType$$Type, arg2: $Collection$$Type<($GearPropertyValue$$Type<(never)>)>, arg3: $List$$Type<($PartInstance$$Type)>): V
-public "isAffectedBySynergy"(): boolean
 public "formatTextUnchecked"(arg0: $GearPropertyValue$$Type<(never)>, arg1: $GearTooltipFlag$$Type): $Component
 public "buildTooltipUnchecked"(arg0: $TextListBuilder$$Type, arg1: $GearPropertyValue$$Type<(never)>, arg2: $ItemStack$$Type, arg3: $GearTooltipFlag$$Type): void
-public "formatModifiersWithColorUnchecked"(arg0: $Collection$$Type<($GearPropertyValue$$Type<(never)>)>, arg1: boolean, arg2: $GearProperty$FormatContext$$Type): $MutableComponent
 public "formatValue"(arg0: V, arg1: $GearProperty$FormatContext$$Type): $Component
-public "getBaseValue"(): T
-/**
- * 
- * @deprecated
- */
-public "getTooltipLines"(arg0: V, arg1: $GearTooltipFlag$$Type): $List<($Component)>
-public "codec"(): $Codec<(V)>
 public "getGroup"(): $GearPropertyGroup
+public "codec"(): $Codec<(V)>
 public "streamCodec"(): $StreamCodec<($RegistryFriendlyByteBuf), (V)>
-public "computeUnchecked"(arg0: boolean, arg1: $GearType$$Type, arg2: $GearType$$Type, arg3: $Collection$$Type<($GearPropertyValue$$Type<(never)>)>): V
-public "formatModifiers"(arg0: $Collection$$Type<(V)>, arg1: boolean, arg2: $GearProperty$FormatContext$$Type): $Component
-public "computeForGear"(arg0: T, arg1: boolean, arg2: $GearType$$Type, arg3: $GearType$$Type, arg4: $Collection$$Type<(V)>, arg5: $List$$Type<($PartInstance$$Type)>): T
-public "getMinimumValue"(): T
-public "getMaximumValue"(): T
-public "isAffectedByGrades"(): boolean
-public "buildTooltip"(arg0: $TextListBuilder$$Type, arg1: V, arg2: $ItemStack$$Type, arg3: $GearTooltipFlag$$Type): void
-public "isForMaterialsOnly"(): boolean
-public "isHiddenUnchecked"(arg0: $GearPropertyValue$$Type<(never)>, arg1: $GearTooltipFlag$$Type): boolean
-public "rawStreamCodec"(): $StreamCodec<($FriendlyByteBuf), ($GearPropertyValue<(never)>)>
-public "applySynergy"(arg0: V, arg1: float): V
-public "sortForDisplay"(arg0: $Collection$$Type<(V)>): $List<(V)>
-public "getZeroValue"(): T
-public "compressModifiers"(arg0: $Collection$$Type<(V)>, arg1: $PartGearKey$$Type, arg2: $List$$Type<($GearComponentInstance$$Type<(never)>)>): $List<(V)>
+public "getBaseValue"(): T
 get "defaultValue"(): T
 get "displayName"(): $MutableComponent
-get "affectedBySynergy"(): boolean
-get "baseValue"(): T
-get "group"(): $GearPropertyGroup
+get "forMaterialsOnly"(): boolean
+get "affectedByGrades"(): boolean
+get "zeroValue"(): T
 get "minimumValue"(): T
 get "maximumValue"(): T
-get "affectedByGrades"(): boolean
-get "forMaterialsOnly"(): boolean
-get "zeroValue"(): T
+get "affectedBySynergy"(): boolean
+get "group"(): $GearPropertyGroup
+get "baseValue"(): T
 /**
  * This field is a type stub generated by ProbeJS and shall not be used in any sense.
  */
@@ -850,8 +1192,8 @@ export type $GearProperty$$Type<T, V> = (Special.SilentgearProperty);
  */
 export type $GearProperty$$Original<T, V> = $GearProperty<(T), (V)>;}
 declare module "net.silentchaos512.gear.api.part.PartList$Immutable" {
-import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
 import {$PartList} from "net.silentchaos512.gear.api.part.PartList"
+import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
 import {$PartInstance, $PartInstance$$Type} from "net.silentchaos512.gear.gear.part.PartInstance"
 import {$Collection$$Type} from "java.util.Collection"
 import {$Codec} from "com.mojang.serialization.Codec"
@@ -917,12 +1259,12 @@ constructor(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type, arg2: $GearPro
 
 public "getProperty"(): $GearProperty<(never), (never)>
 public "getModifiers"(): $List<($GearPropertyValue<(never)>)>
-public "getPartType"(): $PartType
 public "getMaterial"(): $MaterialInstance
+public "getPartType"(): $PartType
 get "property"(): $GearProperty<(never), (never)>
 get "modifiers"(): $List<($GearPropertyValue<(never)>)>
-get "partType"(): $PartType
 get "material"(): $MaterialInstance
+get "partType"(): $PartType
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -983,13 +1325,13 @@ export class $GearComponentInstance<A extends $GearComponent<(object)>> implemen
  "getProperty"<T, V extends $GearPropertyValue<(object)>>(arg0: $PartType$$Type, arg1: $GearProperty$$Type<(T), (V)>): T
  "getProperty"<T, V extends $GearPropertyValue<(object)>>(arg0: $Supplier$$Type<($PartType$$Type)>, arg1: $PropertyKey$$Type<(T), (V)>): T
  "getId"(): $ResourceLocation
- "getDisplayName"(arg0: $PartType$$Type, arg1: $ItemStack$$Type): $Component
  "getDisplayName"(arg0: $PartType$$Type): $Component
+ "getDisplayName"(arg0: $PartType$$Type, arg1: $ItemStack$$Type): $Component
  "getItem"(): $ItemStack
- "getTraits"(arg0: $PartGearKey$$Type): $Collection<($TraitInstance)>
  "getNameColor"(arg0: $PartType$$Type, arg1: $GearType$$Type): integer
- "getPropertyModifiers"<T, V extends $GearPropertyValue<(object)>>(arg0: $Supplier$$Type<($PartType$$Type)>, arg1: $PropertyKey$$Type<(T), (V)>): $Collection<(V)>
  "getPropertyModifiers"<T, V extends $GearPropertyValue<(object)>>(arg0: $PartType$$Type, arg1: $PropertyKey$$Type<(T), (V)>): $Collection<(V)>
+ "getPropertyModifiers"<T, V extends $GearPropertyValue<(object)>>(arg0: $Supplier$$Type<($PartType$$Type)>, arg1: $PropertyKey$$Type<(T), (V)>): $Collection<(V)>
+ "getTraits"(arg0: $PartGearKey$$Type): $Collection<($TraitInstance)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1000,87 +1342,6 @@ export type $GearComponentInstance$$Type<A> = ($GearComponentInstance<(A)>);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $GearComponentInstance$$Original<A> = $GearComponentInstance<(A)>;}
-declare module "net.silentchaos512.gear.api.traits.TraitInstance" {
-import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
-import {$Collection} from "java.util.Collection"
-import {$List$$Type} from "java.util.List"
-import {$ImmutableList, $ImmutableList$$Type} from "com.google.common.collect.ImmutableList"
-import {$Component$$Type} from "net.minecraft.network.chat.Component"
-import {$TooltipFlag$$Type} from "net.minecraft.world.item.TooltipFlag"
-import {$PartGearKey$$Type} from "net.silentchaos512.gear.api.util.PartGearKey"
-import {$DataResource, $DataResource$$Type} from "net.silentchaos512.gear.api.util.DataResource"
-import {$ITraitCondition, $ITraitCondition$$Type} from "net.silentchaos512.gear.api.traits.ITraitCondition"
-import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
-import {$Codec} from "com.mojang.serialization.Codec"
-import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
-import {$MutableComponent} from "net.minecraft.network.chat.MutableComponent"
-import {$Trait, $Trait$$Type} from "net.silentchaos512.gear.gear.trait.Trait"
-import {$GearComponentInstance$$Type} from "net.silentchaos512.gear.api.util.GearComponentInstance"
-import {$Record} from "java.lang.Record"
-import {$GearProperty$FormatContext$$Type} from "net.silentchaos512.gear.api.property.GearProperty$FormatContext"
-
-export class $TraitInstance extends $Record {
-static readonly "CODEC": $Codec<($TraitInstance)>
-static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($TraitInstance)>
-
-constructor(trait: $DataResource$$Type<($Trait$$Type)>, level: integer, conditions: $ImmutableList$$Type<($ITraitCondition$$Type)>)
-
-public "conditionsMatch"(arg0: $PartGearKey$$Type, arg1: $List$$Type<($GearComponentInstance$$Type<(never)>)>): boolean
-public "getDescription"(): $MutableComponent
-public "equals"(arg0: any): boolean
-public "toString"(): StringJS
-public "hashCode"(): integer
-public static "of"(arg0: $Trait$$Type, arg1: integer, ...arg2: ($ITraitCondition$$Type)[]): $TraitInstance
-public static "of"(arg0: $DataResource$$Type<($Trait$$Type)>, arg1: integer, ...arg2: ($ITraitCondition$$Type)[]): $TraitInstance
-public "level"(): integer
-public "getDisplayName"(arg0: $GearProperty$FormatContext$$Type): $MutableComponent
-public "getDisplayName"(): $MutableComponent
-public "isValid"(): boolean
-public "getLevel"(): integer
-public "trait"(): $DataResource<($Trait)>
-public "getConditions"(): $Collection<($ITraitCondition)>
-public "getTrait"(): $Trait
-public "conditions"(): $ImmutableList<($ITraitCondition)>
-public "getTraitId"(): $ResourceLocation
-public "addInformation"(arg0: $List$$Type<($Component$$Type)>, arg1: $TooltipFlag$$Type): void
-public "getConditionsText"(): $MutableComponent
-get "description"(): $MutableComponent
-get "displayName"(): $MutableComponent
-get "valid"(): boolean
-get "traitId"(): $ResourceLocation
-get "conditionsText"(): $MutableComponent
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $TraitInstance$$Type = ({"level"?: integer, "trait"?: $DataResource$$Type<($Trait$$Type)>, "conditions"?: $ImmutableList$$Type<($ITraitCondition$$Type)>}) | ([level?: integer, trait?: $DataResource$$Type<($Trait$$Type)>, conditions?: $ImmutableList$$Type<($ITraitCondition$$Type)>]);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $TraitInstance$$Original = $TraitInstance;}
-declare module "net.silentchaos512.gear.api.event.GetTraitsEvent" {
-import {$PartList$$Type} from "net.silentchaos512.gear.api.part.PartList"
-import {$ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
-import {$Map, $Map$$Type} from "java.util.Map"
-import {$GearItemEvent} from "net.silentchaos512.gear.api.event.GearItemEvent"
-import {$Trait, $Trait$$Type} from "net.silentchaos512.gear.gear.trait.Trait"
-
-export class $GetTraitsEvent extends $GearItemEvent {
-constructor(arg0: $ItemStack$$Type, arg1: $PartList$$Type, arg2: $Map$$Type<($Trait$$Type), (integer)>)
-
-public "getTraits"(): $Map<($Trait), (integer)>
-get "traits"(): $Map<($Trait), (integer)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $GetTraitsEvent$$Type = ($GetTraitsEvent);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $GetTraitsEvent$$Original = $GetTraitsEvent;}
 declare module "net.silentchaos512.gear.api.util.PropertyKey" {
 import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
 import {$GearProperty, $GearProperty$$Type} from "net.silentchaos512.gear.api.property.GearProperty"
@@ -1115,8 +1376,8 @@ export type $PropertyKey$$Type<T, V> = ($PropertyKey<(T), (V)>);
  */
 export type $PropertyKey$$Original<T, V> = $PropertyKey<(T), (V)>;}
 declare module "net.silentchaos512.gear.api.util.PropertyProvider" {
-import {$PropertyKey, $PropertyKey$$Type} from "net.silentchaos512.gear.api.util.PropertyKey"
 import {$Collection, $Collection$$Type} from "java.util.Collection"
+import {$PropertyKey, $PropertyKey$$Type} from "net.silentchaos512.gear.api.util.PropertyKey"
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$GearPropertyValue} from "net.silentchaos512.gear.api.property.GearPropertyValue"
 import {$PartType, $PartType$$Type} from "net.silentchaos512.gear.api.part.PartType"
@@ -1127,12 +1388,12 @@ export interface $PropertyProvider$$Interface<D> {
 }
 
 export class $PropertyProvider<D> implements $PropertyProvider$$Interface {
- "getProperty"<T, V extends $GearPropertyValue<(object)>>(arg0: D, arg1: $PartType$$Type, arg2: $PropertyKey$$Type<(T), (V)>): T
  "getProperty"<T, V extends $GearPropertyValue<(object)>>(arg0: D, arg1: $Supplier$$Type<($PartType$$Type)>, arg2: $PropertyKey$$Type<(T), (V)>): T
+ "getProperty"<T, V extends $GearPropertyValue<(object)>>(arg0: D, arg1: $PartType$$Type, arg2: $PropertyKey$$Type<(T), (V)>): T
+ "getPropertyModifiers"<T, V extends $GearPropertyValue<(object)>>(arg0: D, arg1: $PartType$$Type, arg2: $PropertyKey$$Type<(T), (V)>): $Collection<(V)>
+ "getPropertyModifiers"<T, V extends $GearPropertyValue<(object)>>(arg0: D, arg1: $Supplier$$Type<($PartType$$Type)>, arg2: $PropertyKey$$Type<(T), (V)>): $Collection<(V)>
  "getPropertyUnclamped"<T, V extends $GearPropertyValue<(object)>>(arg0: D, arg1: $PartType$$Type, arg2: $PropertyKey$$Type<(T), (V)>): T
  "getPropertyUnclamped"<T, V extends $GearPropertyValue<(object)>>(arg0: D, arg1: $Supplier$$Type<($PartType$$Type)>, arg2: $PropertyKey$$Type<(T), (V)>): T
- "getPropertyModifiers"<T, V extends $GearPropertyValue<(object)>>(arg0: D, arg1: $Supplier$$Type<($PartType$$Type)>, arg2: $PropertyKey$$Type<(T), (V)>): $Collection<(V)>
- "getPropertyModifiers"<T, V extends $GearPropertyValue<(object)>>(arg0: D, arg1: $PartType$$Type, arg2: $PropertyKey$$Type<(T), (V)>): $Collection<(V)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1143,102 +1404,14 @@ export type $PropertyProvider$$Type<D> = ((arg0: D, arg1: $PartType, arg2: $Prop
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $PropertyProvider$$Original<D> = $PropertyProvider<(D)>;}
-declare module "net.silentchaos512.gear.api.material.modifier.IMaterialModifier" {
-import {$MaterialInstance$$Type} from "net.silentchaos512.gear.gear.material.MaterialInstance"
-import {$PropertyKey$$Type} from "net.silentchaos512.gear.api.util.PropertyKey"
-import {$Collection, $Collection$$Type} from "java.util.Collection"
-import {$IMaterialModifierType} from "net.silentchaos512.gear.api.material.modifier.IMaterialModifierType"
-import {$List$$Type} from "java.util.List"
-import {$MutableComponent, $MutableComponent$$Type} from "net.minecraft.network.chat.MutableComponent"
-import {$Component$$Type} from "net.minecraft.network.chat.Component"
-import {$GearPropertyValue} from "net.silentchaos512.gear.api.property.GearPropertyValue"
-import {$PartType$$Type} from "net.silentchaos512.gear.api.part.PartType"
-
-export interface $IMaterialModifier$$Interface {
-get "type"(): $IMaterialModifierType<(never)>
-}
-
-export class $IMaterialModifier implements $IMaterialModifier$$Interface {
- "getType"(): $IMaterialModifierType<(never)>
- "appendTooltip"(arg0: $List$$Type<($Component$$Type)>): void
- "modifyStats"<T, V extends $GearPropertyValue<(object)>>(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type, arg2: $PropertyKey$$Type<(T), (V)>, arg3: $Collection$$Type<(V)>): $Collection<(V)>
- "modifyMaterialName"(arg0: $MutableComponent$$Type): $MutableComponent
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $IMaterialModifier$$Type = ($IMaterialModifier);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $IMaterialModifier$$Original = $IMaterialModifier;}
-declare module "net.silentchaos512.gear.api.part.PartType" {
-import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
-import {$PartInstance} from "net.silentchaos512.gear.gear.part.PartInstance"
-import {$Optional, $Optional$$Type} from "java.util.Optional"
-import {$PartType$Builder$$Type} from "net.silentchaos512.gear.api.part.PartType$Builder"
-import {$DataResource$$Type} from "net.silentchaos512.gear.api.util.DataResource"
-import {$MaterialInstance$$Type} from "net.silentchaos512.gear.gear.material.MaterialInstance"
-import {$GearType, $GearType$$Type} from "net.silentchaos512.gear.api.item.GearType"
-import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
-import {$Codec} from "com.mojang.serialization.Codec"
-import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
-import {$CompoundPartItem, $CompoundPartItem$$Type} from "net.silentchaos512.gear.item.CompoundPartItem"
-import {$Function, $Function$$Type} from "java.util.function.Function"
-import {$Material$$Type} from "net.silentchaos512.gear.api.material.Material"
-import {$MutableComponent} from "net.minecraft.network.chat.MutableComponent"
-import {$Record} from "java.lang.Record"
-
-export class $PartType extends $Record {
-static "CODEC": $Codec<($PartType)>
-static "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($PartType)>
-
-constructor(arg0: $PartType$Builder$$Type)
-constructor(isRemovable: boolean, isUpgrade: boolean, maxPerItem: integer, compoundParts: $Function$$Type<($GearType), (($CompoundPartItem$$Type)?)>)
-
-public "equals"(arg0: any): boolean
-public "toString"(): StringJS
-public "hashCode"(): integer
-public "getDisplayName"(): $MutableComponent
-public "getCompoundPartItem"(arg0: $GearType$$Type): $Optional<($CompoundPartItem)>
-public "maxPerItem"(): integer
-public "isUpgrade"(): boolean
-public "isRemovable"(): boolean
-public static "getToolHeadItem"(arg0: $GearType$$Type): $Optional<($CompoundPartItem)>
-public "makeCompoundPart"(arg0: $GearType$$Type, arg1: $DataResource$$Type<($Material$$Type)>): $Optional<($PartInstance)>
-public "makeCompoundPart"(arg0: $GearType$$Type, arg1: $MaterialInstance$$Type): $Optional<($PartInstance)>
-public "getCompoundPartId"(arg0: $GearType$$Type): $ResourceLocation
-public "compoundParts"(): $Function<($GearType), ($Optional<($CompoundPartItem)>)>
-get "displayName"(): $MutableComponent
-get "upgrade"(): boolean
-get "removable"(): boolean
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Literal": Special.SilentgearPartType
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Tag": Special.SilentgearPartTypeTag
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $PartType$$Type = (Special.SilentgearPartType) | ({"isRemovable"?: boolean, "isUpgrade"?: boolean, "maxPerItem"?: integer, "compoundParts"?: $Function$$Type<($GearType$$Type), (($CompoundPartItem$$Type)?)>}) | ([isRemovable?: boolean, isUpgrade?: boolean, maxPerItem?: integer, compoundParts?: $Function$$Type<($GearType$$Type), (($CompoundPartItem$$Type)?)>]);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $PartType$$Original = $PartType;}
 declare module "net.silentchaos512.gear.api.util.PartGearKey" {
 import {$GearType, $GearType$$Type} from "net.silentchaos512.gear.api.item.GearType"
 import {$PartInstance$$Type} from "net.silentchaos512.gear.gear.part.PartInstance"
 import {$Codec} from "com.mojang.serialization.Codec"
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Component} from "net.minecraft.network.chat.Component"
-import {$Record} from "java.lang.Record"
 import {$PartType, $PartType$$Type} from "net.silentchaos512.gear.api.part.PartType"
+import {$Record} from "java.lang.Record"
 
 export class $PartGearKey extends $Record {
 static readonly "ALL_MAIN": $PartGearKey
@@ -1246,22 +1419,22 @@ static readonly "CODEC": $Codec<($PartGearKey)>
 
 constructor(gearType: $GearType$$Type, partType: $PartType$$Type)
 
-public static "ofAll"(arg0: $Supplier$$Type<($PartType$$Type)>): $PartGearKey
-public static "ofAll"(arg0: $PartType$$Type): $PartGearKey
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public static "of"(arg0: $Supplier$$Type<($GearType$$Type)>, arg1: $Supplier$$Type<($PartType$$Type)>): $PartGearKey
 public static "of"(arg0: $GearType$$Type, arg1: $PartInstance$$Type): $PartGearKey
 public static "of"(arg0: $GearType$$Type, arg1: $PartType$$Type): $PartGearKey
+public static "of"(arg0: $Supplier$$Type<($GearType$$Type)>, arg1: $Supplier$$Type<($PartType$$Type)>): $PartGearKey
 public "getParent"(): $PartGearKey
 public "getDisplayName"(): $Component
 public "gearType"(): $GearType
 public "getGearType"(): $GearType
-public static "ofMain"(arg0: $Supplier$$Type<($GearType$$Type)>): $PartGearKey
-public static "ofMain"(arg0: $GearType$$Type): $PartGearKey
 public "getPartType"(): $PartType
 public "partType"(): $PartType
+public static "ofAll"(arg0: $Supplier$$Type<($PartType$$Type)>): $PartGearKey
+public static "ofAll"(arg0: $PartType$$Type): $PartGearKey
+public static "ofMain"(arg0: $Supplier$$Type<($GearType$$Type)>): $PartGearKey
+public static "ofMain"(arg0: $GearType$$Type): $PartGearKey
 get "parent"(): $PartGearKey
 get "displayName"(): $Component
 }
@@ -1355,9 +1528,9 @@ export type $GearProperty$FormatContext$$Original = $GearProperty$FormatContext;
 declare module "net.silentchaos512.gear.api.material.TextureType" {
 import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
 import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
-import {$Enum} from "java.lang.Enum"
-import {$FriendlyByteBuf} from "net.minecraft.network.FriendlyByteBuf"
 import {$Codec} from "com.mojang.serialization.Codec"
+import {$FriendlyByteBuf} from "net.minecraft.network.FriendlyByteBuf"
+import {$Enum} from "java.lang.Enum"
 
 export class $TextureType extends $Enum<($TextureType)> {
 static readonly "CODEC": $Codec<($TextureType)>
@@ -1379,90 +1552,15 @@ export type $TextureType$$Type = (("high_contrast") | ("low_contrast"));
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $TextureType$$Original = $TextureType;}
-declare module "net.silentchaos512.gear.api.property.GearPropertyMap" {
-import {$Iterable$$Type} from "java.lang.Iterable"
-import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
-import {$GearProperty, $GearProperty$$Type} from "net.silentchaos512.gear.api.property.GearProperty"
-import {$Map} from "java.util.Map"
-import {$Collection, $Collection$$Type} from "java.util.Collection"
-import {$PropertyKey, $PropertyKey$$Type} from "net.silentchaos512.gear.api.util.PropertyKey"
-import {$Multimap$$Type, $Multimap$$Interface} from "com.google.common.collect.Multimap"
-import {$GearPropertyValue, $GearPropertyValue$$Type} from "net.silentchaos512.gear.api.property.GearPropertyValue"
-import {$Component} from "net.minecraft.network.chat.Component"
-import {$GearPropertyMap$Immutable} from "net.silentchaos512.gear.api.property.GearPropertyMap$Immutable"
-import {$Map$Entry} from "java.util.Map$Entry"
-import {$GearType$$Type} from "net.silentchaos512.gear.api.item.GearType"
-import {$Codec} from "com.mojang.serialization.Codec"
-import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
-import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
-import {$MutableComponent} from "net.minecraft.network.chat.MutableComponent"
-import {$Set} from "java.util.Set"
-import {$Multiset} from "com.google.common.collect.Multiset"
-
-export class $GearPropertyMap implements $Multimap$$Interface<($PropertyKey<(never), (never)>), ($GearPropertyValue<(never)>)> {
-static readonly "CODEC": $Codec<($GearPropertyMap)>
-static readonly "EMPTY": $GearPropertyMap
-static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($GearPropertyMap)>
-
-constructor()
-constructor(arg0: $GearPropertyMap$$Type)
-
-public "remove"(arg0: any, arg1: any): boolean
-public "size"(): integer
-public "get"(arg0: $PropertyKey$$Type<(never), (never)>): $Collection<($GearPropertyValue<(never)>)>
-public "get"(arg0: any): $Collection
-public "put"(arg0: $PropertyKey$$Type<(never), (never)>, arg1: $GearPropertyValue$$Type<(never)>): boolean
-public "put"(arg0: any, arg1: any): boolean
-public "put"<V, I extends $GearPropertyValue<(object)>>(arg0: $GearProperty$$Type<(V), (I)>, arg1: $GearType$$Type, arg2: I): boolean
-public "equals"(arg0: any): boolean
-public "values"(): $Collection<($GearPropertyValue<(never)>)>
-public "hashCode"(): integer
-public "clear"(): void
-public "isEmpty"(): boolean
-public "putAll"(arg0: any, arg1: $Iterable$$Type): boolean
-public "putAll"(arg0: $Multimap$$Type<($PropertyKey$$Type<(never), (never)>), ($GearPropertyValue$$Type<(never)>)>): boolean
-public "putAll"(arg0: $PropertyKey$$Type<(never), (never)>, arg1: $Iterable$$Type<($GearPropertyValue$$Type<(never)>)>): boolean
-public "containsKey"(arg0: any): boolean
-public "keys"(): $Multiset<($PropertyKey<(never), (never)>)>
-public "keySet"(): $Set<($PropertyKey<(never), (never)>)>
-public "containsValue"(arg0: any): boolean
-public "entries"(): $Collection<($Map$Entry<($PropertyKey<(never), (never)>), ($GearPropertyValue<(never)>)>)>
-public "removeAll"(arg0: any): $Collection<($GearPropertyValue<(never)>)>
-public static "formatText"<T, V extends $GearPropertyValue<(object)>, P extends $GearProperty<(object), (object)>>(arg0: $Collection$$Type<(V)>, arg1: P, arg2: integer, arg3: boolean): $MutableComponent
-public static "formatText"<T, V extends $GearPropertyValue<(object)>, P extends $GearProperty<(object), (object)>>(arg0: $Collection$$Type<(V)>, arg1: P, arg2: integer): $MutableComponent
-public static "formatTextUnchecked"(arg0: $Collection$$Type<($GearPropertyValue$$Type<(never)>)>, arg1: $GearProperty$$Type<(never), (never)>, arg2: boolean): $Component
-public "getValues"<T, V extends $GearPropertyValue<(object)>>(arg0: $PropertyKey$$Type<(T), (V)>): $Collection<(V)>
-public "getValues"<T, V extends $GearPropertyValue<(object)>>(arg0: $GearProperty$$Type<(T), (V)>, arg1: $GearType$$Type): $Collection<(V)>
-public "toImmutable"(): $GearPropertyMap$Immutable
-public "asMap"(): $Map<($PropertyKey<(never), (never)>), ($Collection<($GearPropertyValue<(never)>)>)>
-public "containsEntry"(arg0: any, arg1: any): boolean
-public "replaceValues"(arg0: $PropertyKey$$Type<(never), (never)>, arg1: $Iterable$$Type<($GearPropertyValue$$Type<(never)>)>): $Collection<($GearPropertyValue<(never)>)>
-public "replaceValues"(arg0: any, arg1: $Iterable$$Type): $Collection
-public "toMutable"(): $GearPropertyMap
-public "getMostSpecificKey"(arg0: $PropertyKey$$Type<(never), (never)>): $PropertyKey<(never), (never)>
-public "getPropertyTypes"(): $Set<($GearProperty<(never), (never)>)>
-public "forEach"(action: $BiConsumer$$Type<($PropertyKey<(never), (never)>), ($GearPropertyValue<(never)>)>): void
-get "empty"(): boolean
-get "propertyTypes"(): $Set<($GearProperty<(never), (never)>)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $GearPropertyMap$$Type = ($GearPropertyMap);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $GearPropertyMap$$Original = $GearPropertyMap;}
 declare module "net.silentchaos512.gear.api.item.GearType" {
-import {$GearProperty$$Type} from "net.silentchaos512.gear.api.property.GearProperty"
 import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
+import {$GearProperty$$Type} from "net.silentchaos512.gear.api.property.GearProperty"
 import {$Component} from "net.minecraft.network.chat.Component"
 import {$ItemAbility, $ItemAbility$$Type} from "net.neoforged.neoforge.common.ItemAbility"
 import {$GearPropertyGroup, $GearPropertyGroup$$Type} from "net.silentchaos512.gear.api.property.GearPropertyGroup"
 import {$GearTypeMatcher} from "net.silentchaos512.gear.api.item.GearTypeMatcher"
-import {$GearPropertiesData$$Type} from "net.silentchaos512.gear.core.component.GearPropertiesData"
 import {$Codec} from "com.mojang.serialization.Codec"
+import {$GearPropertiesData$$Type} from "net.silentchaos512.gear.core.component.GearPropertiesData"
 import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$GearItem} from "net.silentchaos512.gear.api.item.GearItem"
 import {$Supplier, $Supplier$$Type} from "java.util.function.Supplier"
@@ -1480,24 +1578,24 @@ public "parent"(): $Supplier<($GearType)>
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public "matches"(arg0: $GearType$$Type, arg1: boolean): boolean
 public "matches"(arg0: $GearType$$Type): boolean
+public "matches"(arg0: $GearType$$Type, arg1: boolean): boolean
 public "getDisplayName"(): $Component
 public static "getItem"(arg0: $GearType$$Type): $GearItem
+public "isArmor"(): boolean
+public "armorDurabilityMultiplier"(): float
 public "durabilityStat"(): $Supplier<($NumberProperty)>
 public "isGear"(): boolean
-public "getMatcher"(arg0: boolean): $GearTypeMatcher
-public "isArmor"(): boolean
-public "canPerformAction"(arg0: $ItemAbility$$Type): boolean
-public "armorDurabilityMultiplier"(): float
+public "isPropertyRelevant"(arg0: $GearProperty$$Type<(never), (never)>): boolean
+public "getBaseDurability"(arg0: $GearPropertiesData$$Type): integer
+public "animationFrames"(): integer
 public "relevantPropertyGroups"(): $Set<($GearPropertyGroup)>
 public "itemAbilities"(): $Set<($ItemAbility)>
-public "animationFrames"(): integer
-public "getBaseDurability"(arg0: $GearPropertiesData$$Type): integer
-public "isPropertyRelevant"(arg0: $GearProperty$$Type<(never), (never)>): boolean
+public "canPerformAction"(arg0: $ItemAbility$$Type): boolean
+public "getMatcher"(arg0: boolean): $GearTypeMatcher
 get "displayName"(): $Component
-get "gear"(): boolean
 get "armor"(): boolean
+get "gear"(): boolean
 /**
  * This field is a type stub generated by ProbeJS and shall not be used in any sense.
  */
@@ -1511,7 +1609,7 @@ get "armor"(): boolean
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $GearType$$Type = (Special.SilentgearGearType) | ({"parent"?: $Supplier$$Type<($GearType$$Type)>, "durabilityStat"?: $Supplier$$Type<($NumberProperty$$Type)>, "itemAbilities"?: $Set$$Type<($ItemAbility$$Type)>, "relevantPropertyGroups"?: $Set$$Type<($GearPropertyGroup$$Type)>, "animationFrames"?: integer, "armorDurabilityMultiplier"?: float}) | ([parent?: $Supplier$$Type<($GearType$$Type)>, durabilityStat?: $Supplier$$Type<($NumberProperty$$Type)>, itemAbilities?: $Set$$Type<($ItemAbility$$Type)>, relevantPropertyGroups?: $Set$$Type<($GearPropertyGroup$$Type)>, animationFrames?: integer, armorDurabilityMultiplier?: float]);
+export type $GearType$$Type = (Special.SilentgearGearType) | ({"itemAbilities"?: $Set$$Type<($ItemAbility$$Type)>, "durabilityStat"?: $Supplier$$Type<($NumberProperty$$Type)>, "parent"?: $Supplier$$Type<($GearType$$Type)>, "armorDurabilityMultiplier"?: float, "animationFrames"?: integer, "relevantPropertyGroups"?: $Set$$Type<($GearPropertyGroup$$Type)>}) | ([itemAbilities?: $Set$$Type<($ItemAbility$$Type)>, durabilityStat?: $Supplier$$Type<($NumberProperty$$Type)>, parent?: $Supplier$$Type<($GearType$$Type)>, armorDurabilityMultiplier?: float, animationFrames?: integer, relevantPropertyGroups?: $Set$$Type<($GearPropertyGroup$$Type)>]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -1545,14 +1643,14 @@ export type $MaterialSerializer$$Type<T> = (Special.SilentgearMaterialSerializer
  */
 export type $MaterialSerializer$$Original<T> = $MaterialSerializer<(T)>;}
 declare module "net.silentchaos512.gear.api.part.PartList" {
+import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
 import {$Iterator} from "java.util.Iterator"
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
-import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
 import {$PartInstance, $PartInstance$$Type} from "net.silentchaos512.gear.gear.part.PartInstance"
 import {$Collection$$Type} from "java.util.Collection"
-import {$Spliterator} from "java.util.Spliterator"
 import {$SequencedCollection} from "java.util.SequencedCollection"
 import {$Comparator$$Type} from "java.util.Comparator"
+import {$Spliterator} from "java.util.Spliterator"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$List, $List$$Interface} from "java.util.List"
 import {$Consumer$$Type} from "java.util.function.Consumer"
@@ -1570,11 +1668,10 @@ export class $PartList implements $List$$Interface<($PartInstance)> {
 static readonly "CODEC": $Codec<($PartList)>
 static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($PartList)>
 
-public "getParts"(arg0: $Predicate$$Type<($PartInstance)>): $List<($PartInstance)>
 public "remove"(arg0: integer): any
 public "remove"(arg0: any): boolean
 public "size"(): integer
-public "get"(arg0: integer): any
+public "get"(arg0: integer): $PartInstance
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
@@ -1582,19 +1679,19 @@ public "indexOf"(arg0: any): integer
 public "clear"(): void
 public "lastIndexOf"(arg0: any): integer
 public "isEmpty"(): boolean
-public "add"(arg0: any): boolean
-public "add"(arg0: integer, arg1: any): void
-public "add"(arg0: integer, arg1: $PartInstance$$Type): void
 public "add"(arg0: $PartInstance$$Type): boolean
+public "add"(arg0: integer, arg1: any): void
+public "add"(arg0: any): boolean
+public "add"(arg0: integer, arg1: $PartInstance$$Type): void
 public "subList"(arg0: integer, arg1: integer): $List<($PartInstance)>
 public "toArray"<T>(arg0: (T)[]): (T)[]
 public "toArray"(): (any)[]
 public "iterator"(): $Iterator<($PartInstance)>
-public static "of"(...arg0: ($PartInstance$$Type)[]): $PartList
 public static "of"(arg0: $Collection$$Type<($PartInstance$$Type)>): $PartList
+public static "of"(...arg0: ($PartInstance$$Type)[]): $PartList
 public "contains"(arg0: any): boolean
-public "addAll"(arg0: integer, arg1: $Collection$$Type<($PartInstance$$Type)>): boolean
 public "addAll"(arg0: $Collection$$Type<($PartInstance$$Type)>): boolean
+public "addAll"(arg0: integer, arg1: $Collection$$Type<($PartInstance$$Type)>): boolean
 public static "empty"(): $PartList
 public "set"(arg0: integer, arg1: $PartInstance$$Type): $PartInstance
 public "set"(arg0: integer, arg1: any): any
@@ -1603,14 +1700,15 @@ public "retainAll"(arg0: $Collection$$Type<(never)>): boolean
 public "listIterator"(): $ListIterator<($PartInstance)>
 public "listIterator"(arg0: integer): $ListIterator<($PartInstance)>
 public "containsAll"(arg0: $Collection$$Type<(never)>): boolean
-public static "immutable"(arg0: $Collection$$Type<($PartInstance$$Type)>): $PartList$Immutable
+public "getParts"(arg0: $Predicate$$Type<($PartInstance)>): $List<($PartInstance)>
+public "toSortedList"(): $List<($PartInstance)>
 public static "immutable"(...arg0: ($PartInstance$$Type)[]): $PartList$Immutable
-public "getPropertyModifiersFromParts"(arg0: $GearType$$Type): $GearPropertyMap
+public static "immutable"(arg0: $Collection$$Type<($PartInstance$$Type)>): $PartList$Immutable
 public "getPartsOfType"(arg0: $PartType$$Type): $List<($PartInstance)>
+public "getMains"(): $List<($PartInstance)>
 public "getTips"(): $List<($PartInstance)>
 public "getRods"(): $List<($PartInstance)>
-public "getMains"(): $List<($PartInstance)>
-public "toSortedList"(): $List<($PartInstance)>
+public "getPropertyModifiersFromParts"(arg0: $GearType$$Type): $GearPropertyMap
 public static "copyOf"<E>(arg0: $Collection$$Type<($PartInstance$$Type)>): $List<($PartInstance)>
 public "replaceAll"(arg0: $UnaryOperator$$Type<($PartInstance)>): void
 public static "of"<E>(arg0: $PartInstance$$Type, arg1: $PartInstance$$Type, arg2: $PartInstance$$Type): $List<($PartInstance)>
@@ -1641,9 +1739,9 @@ public "parallelStream"(): $Stream<($PartInstance)>
 public "forEach"(arg0: $Consumer$$Type<($PartInstance)>): void
 [Symbol.iterator](): IterableIterator<$PartInstance>;
 [index: number]: $PartInstance
+get "mains"(): $List<($PartInstance)>
 get "tips"(): $List<($PartInstance)>
 get "rods"(): $List<($PartInstance)>
-get "mains"(): $List<($PartInstance)>
 get "first"(): $PartInstance
 get "last"(): $PartInstance
 }
@@ -1656,101 +1754,3 @@ export type $PartList$$Type = ($PartList);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $PartList$$Original = $PartList;}
-declare module "net.silentchaos512.gear.api.property.NumberProperty$DisplayFormat" {
-import {$Enum} from "java.lang.Enum"
-
-export class $NumberProperty$DisplayFormat extends $Enum<($NumberProperty$DisplayFormat)> {
-static readonly "MULTIPLIER": $NumberProperty$DisplayFormat
-static readonly "UNIT": $NumberProperty$DisplayFormat
-static readonly "PERCENTAGE": $NumberProperty$DisplayFormat
-
-public static "values"(): ($NumberProperty$DisplayFormat)[]
-public static "valueOf"(arg0: StringJS): $NumberProperty$DisplayFormat
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $NumberProperty$DisplayFormat$$Type = (("unit") | ("multiplier") | ("percentage"));
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $NumberProperty$DisplayFormat$$Original = $NumberProperty$DisplayFormat;}
-declare module "net.silentchaos512.gear.api.material.Material" {
-import {$CraftingInput$$Type} from "net.minecraft.world.item.crafting.CraftingInput"
-import {$ItemStack} from "net.minecraft.world.item.ItemStack"
-import {$Collection} from "java.util.Collection"
-import {$PropertyKey, $PropertyKey$$Type} from "net.silentchaos512.gear.api.util.PropertyKey"
-import {$Optional} from "java.util.Optional"
-import {$Ingredient} from "net.minecraft.world.item.crafting.Ingredient"
-import {$GearPropertyValue} from "net.silentchaos512.gear.api.property.GearPropertyValue"
-import {$Component} from "net.minecraft.network.chat.Component"
-import {$MaterialSerializer} from "net.silentchaos512.gear.api.material.MaterialSerializer"
-import {$TextureType} from "net.silentchaos512.gear.api.material.TextureType"
-import {$MaterialInstance, $MaterialInstance$$Type} from "net.silentchaos512.gear.gear.material.MaterialInstance"
-import {$GearType$$Type} from "net.silentchaos512.gear.api.item.GearType"
-import {$GearComponent$$Interface} from "net.silentchaos512.gear.api.util.GearComponent"
-import {$Supplier$$Type} from "java.util.function.Supplier"
-import {$Set} from "java.util.Set"
-import {$IMaterialCategory, $IMaterialCategory$$Type} from "net.silentchaos512.gear.api.material.IMaterialCategory"
-import {$PartType, $PartType$$Type} from "net.silentchaos512.gear.api.part.PartType"
-
-export interface $Material$$Interface extends $GearComponent$$Interface<($MaterialInstance)> {
-get "categories"(): $Collection<($IMaterialCategory)>
-get "serializer"(): $MaterialSerializer<(never)>
-get "parent"(): $Material
-get "valid"(): boolean
-get "simple"(): boolean
-get "parentOptional"(): $Optional<($Material)>
-get "ingredient"(): $Ingredient
-}
-
-export class $Material implements $Material$$Interface {
-/**
- * 
- * @deprecated
- */
- "getCategories"(): $Collection<($IMaterialCategory)>
- "getCategories"(arg0: $MaterialInstance$$Type): $Collection<($IMaterialCategory)>
- "getColor"(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type, arg2: $GearType$$Type): integer
- "getSerializer"(): $MaterialSerializer<(never)>
- "getParent"(): $Material
- "isValid"(): boolean
- "isSimple"(): boolean
- "getDisplayNamePrefix"(arg0: $PartType$$Type): $Component
- "getBaseMaterialName"(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type): $Component
- "isInCategory"(arg0: $IMaterialCategory$$Type): boolean
- "canSalvage"(): boolean
- "retainData"(arg0: $Material$$Type): void
- "onSalvage"(arg0: $MaterialInstance$$Type): $MaterialInstance
- "canRepair"(arg0: $MaterialInstance$$Type): boolean
- "getDisplayItem"(arg0: $PartType$$Type, arg1: integer): $ItemStack
- "getNameColor"(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type, arg2: $GearType$$Type): integer
- "getPartTypes"(arg0: $MaterialInstance$$Type): $Set<($PartType)>
- "hasPartSubstitutes"(): boolean
- "getModelKey"(arg0: $MaterialInstance$$Type): StringJS
- "getParentOptional"(): $Optional<($Material)>
- "getPropertyKeys"(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type): $Collection<($PropertyKey<(never), (never)>)>
- "getMainTextureType"(arg0: $MaterialInstance$$Type): $TextureType
- "getPartSubstitute"(arg0: $PartType$$Type): $Optional<($Ingredient)>
- "isAllowedInPart"(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type): boolean
- "getDisplayName"(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type): $Component
- "getIngredient"(): $Ingredient
- "isCraftingAllowed"(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type, arg2: $GearType$$Type, arg3: $CraftingInput$$Type): boolean
- "isCraftingAllowed"(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type, arg2: $GearType$$Type): boolean
- "getProperty"<T, V extends $GearPropertyValue<(object)>>(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type, arg2: $PropertyKey$$Type<(T), (V)>): T
- "getProperty"<T, V extends $GearPropertyValue<(object)>>(arg0: $MaterialInstance$$Type, arg1: $Supplier$$Type<($PartType$$Type)>, arg2: $PropertyKey$$Type<(T), (V)>): T
- "getPropertyUnclamped"<T, V extends $GearPropertyValue<(object)>>(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type, arg2: $PropertyKey$$Type<(T), (V)>): T
- "getPropertyUnclamped"<T, V extends $GearPropertyValue<(object)>>(arg0: $MaterialInstance$$Type, arg1: $Supplier$$Type<($PartType$$Type)>, arg2: $PropertyKey$$Type<(T), (V)>): T
- "getPropertyModifiers"<T, V extends $GearPropertyValue<(object)>>(arg0: $MaterialInstance$$Type, arg1: $Supplier$$Type<($PartType$$Type)>, arg2: $PropertyKey$$Type<(T), (V)>): $Collection<(V)>
- "getPropertyModifiers"<T, V extends $GearPropertyValue<(object)>>(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type, arg2: $PropertyKey$$Type<(T), (V)>): $Collection<(V)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Material$$Type = ($Material);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Material$$Original = $Material;}

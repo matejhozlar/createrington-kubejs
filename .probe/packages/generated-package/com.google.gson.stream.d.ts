@@ -18,14 +18,14 @@ public "isLenient"(): boolean
 public "nextLong"(): long
 public "nextBoolean"(): boolean
 public "skipValue"(): void
-public "nextNull"(): void
+public "beginObject"(): void
+public "getPreviousPath"(): StringJS
 public "nextName"(): StringJS
+public "endObject"(): void
 public "beginArray"(): void
 public "nextString"(): StringJS
-public "endObject"(): void
+public "nextNull"(): void
 public "endArray"(): void
-public "getPreviousPath"(): StringJS
-public "beginObject"(): void
 get "path"(): StringJS
 set "lenient"(value: boolean)
 get "lenient"(): boolean
@@ -60,24 +60,24 @@ public "flush"(): void
 public "close"(): void
 public "setLenient"(arg0: boolean): void
 public "isLenient"(): boolean
-public "isHtmlSafe"(): boolean
-public "beginArray"(): $JsonWriter
-public "jsonValue"(arg0: StringJS): $JsonWriter
-public "endObject"(): $JsonWriter
-public "endArray"(): $JsonWriter
 public "setIndent"(arg0: StringJS): void
+public "nullValue"(): $JsonWriter
+public "beginObject"(): $JsonWriter
+public "jsonValue"(arg0: StringJS): $JsonWriter
+public "setSerializeNulls"(arg0: boolean): void
 public "getSerializeNulls"(): boolean
 public "setHtmlSafe"(arg0: boolean): void
-public "setSerializeNulls"(arg0: boolean): void
-public "beginObject"(): $JsonWriter
-public "nullValue"(): $JsonWriter
+public "endObject"(): $JsonWriter
+public "beginArray"(): $JsonWriter
+public "isHtmlSafe"(): boolean
+public "endArray"(): $JsonWriter
 set "lenient"(value: boolean)
 get "lenient"(): boolean
-get "htmlSafe"(): boolean
 set "indent"(value: StringJS)
+set "serializeNulls"(value: boolean)
 get "serializeNulls"(): boolean
 set "htmlSafe"(value: boolean)
-set "serializeNulls"(value: boolean)
+get "htmlSafe"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

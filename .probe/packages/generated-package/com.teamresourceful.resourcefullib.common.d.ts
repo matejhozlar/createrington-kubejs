@@ -28,8 +28,8 @@ export type $MutableColor$$Type = ($MutableColor);
 export type $MutableColor$$Original = $MutableColor;}
 declare module "com.teamresourceful.resourcefullib.common.color.Color" {
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$DataResult} from "com.mojang.serialization.DataResult"
 import {$Style} from "net.minecraft.network.chat.Style"
+import {$DataResult} from "com.mojang.serialization.DataResult"
 import {$Dynamic$$Type} from "com.mojang.serialization.Dynamic"
 import {$ByteCodec} from "com.teamresourceful.bytecodecs.base.ByteCodec"
 import {$MutableColor$$Type} from "com.teamresourceful.resourcefullib.common.color.MutableColor"
@@ -46,54 +46,54 @@ static readonly "RGB_CODEC": $Codec<($Color)>
 constructor(value: integer)
 constructor(r: integer, g: integer, b: integer, a: integer)
 
-public static "createNamedColor"(name: StringJS, value: integer): $Color
-public "getIntAlpha"(): integer
-public "getRGBComponents"(compArray: (float)[]): (float)[]
-public "getFloatAlpha"(): float
-public "getFloatRed"(): float
-public "getFloatBlue"(): float
-public "getFloatGreen"(): float
-public "getIntGreen"(): integer
-public static "createPulsingColor"(name: StringJS, startingValue: integer, editorConsumer: $Consumer$$Type<($MutableColor)>): $Color
-public static "decodeColor"(dynamic: $Dynamic$$Type<(never)>): $DataResult<($Color)>
-/**
- * 
- * @deprecated
- */
-public static "initRainbow"(): void
 public "equals"(obj: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "getValue"(): integer
 public static "parse"(color: StringJS): $Color
 public "isDefault"(): boolean
-public "getTextColor"(): $TextColor
 public static "parseColor"(color: StringJS): integer
-public "isSpecial"(): boolean
-public "withAlpha"(alpha: integer): $Color
-public static "tryParse"(color: StringJS): $Color
-public "getIntBlue"(): integer
+public "getIntRed"(): integer
 /**
  * 
  * @deprecated
  */
 public "isRainbow"(): boolean
 public "getAsStyle"(): $Style
-public "getIntRed"(): integer
-get "intAlpha"(): integer
+public "getIntBlue"(): integer
+public static "tryParse"(color: StringJS): $Color
+public "getFloatAlpha"(): float
+public "getFloatRed"(): float
+public "getFloatBlue"(): float
+public "getIntAlpha"(): integer
+/**
+ * 
+ * @deprecated
+ */
+public static "initRainbow"(): void
+public "getIntGreen"(): integer
+public static "createPulsingColor"(name: StringJS, startingValue: integer, editorConsumer: $Consumer$$Type<($MutableColor)>): $Color
+public static "decodeColor"(dynamic: $Dynamic$$Type<(never)>): $DataResult<($Color)>
+public "getFloatGreen"(): float
+public static "createNamedColor"(name: StringJS, value: integer): $Color
+public "getRGBComponents"(compArray: (float)[]): (float)[]
+public "isSpecial"(): boolean
+public "withAlpha"(alpha: integer): $Color
+public "getTextColor"(): $TextColor
+get "value"(): integer
+get "default"(): boolean
+get "intRed"(): integer
+get "rainbow"(): boolean
+get "asStyle"(): $Style
+get "intBlue"(): integer
 get "floatAlpha"(): float
 get "floatRed"(): float
 get "floatBlue"(): float
-get "floatGreen"(): float
+get "intAlpha"(): integer
 get "intGreen"(): integer
-get "value"(): integer
-get "default"(): boolean
-get "textColor"(): $TextColor
+get "floatGreen"(): float
 get "special"(): boolean
-get "intBlue"(): integer
-get "rainbow"(): boolean
-get "asStyle"(): $Style
-get "intRed"(): integer
+get "textColor"(): $TextColor
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

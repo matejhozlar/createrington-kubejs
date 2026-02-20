@@ -5,10 +5,10 @@ import {$Class, $Class$$Type} from "java.lang.Class"
 export class $DataTicket<D> {
 constructor(arg0: StringJS, arg1: $Class$$Type<(D)>)
 
-public "objectType"(): $Class<(D)>
 public "hashCode"(): integer
 public "id"(): StringJS
 public "getData"<D>(arg0: $Map$$Type<($DataTicket$$Type<(never)>), (never)>): D
+public "objectType"(): $Class<(D)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

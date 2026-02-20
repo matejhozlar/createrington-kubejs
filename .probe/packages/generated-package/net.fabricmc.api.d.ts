@@ -6,7 +6,7 @@ static readonly "SERVER": $EnvType
 static readonly "CLIENT": $EnvType
 
 public static "values"(): ($EnvType)[]
-public static "valueOf"(arg0: StringJS): $EnvType
+public static "valueOf"(name: StringJS): $EnvType
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

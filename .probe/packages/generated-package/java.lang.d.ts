@@ -247,111 +247,25 @@ export type $Long$$Type = ($Long);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $Long$$Original = $Long;}
-declare module "java.lang.Thread$Builder" {
-import {$ThreadFactory} from "java.util.concurrent.ThreadFactory"
-import {$Thread} from "java.lang.Thread"
-import {$Runnable$$Type} from "java.lang.Runnable"
-import {$Thread$UncaughtExceptionHandler$$Type} from "java.lang.Thread$UncaughtExceptionHandler"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export interface $Thread$Builder$$Interface {
-}
-
-export class $Thread$Builder implements $Thread$Builder$$Interface {
- "name"(arg0: StringJS): $Thread$Builder
- "name"(arg0: StringJS, arg1: long): $Thread$Builder
- "factory"(): $ThreadFactory
- "start"(arg0: $Runnable$$Type): $Thread
- "uncaughtExceptionHandler"(arg0: $Thread$UncaughtExceptionHandler$$Type): $Thread$Builder
- "inheritInheritableThreadLocals"(arg0: boolean): $Thread$Builder
- "unstarted"(arg0: $Runnable$$Type): $Thread
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Thread$Builder$$Type = ($Thread$Builder);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Thread$Builder$$Original = $Thread$Builder;}
-declare module "java.lang.Package" {
-import {$NamedPackage} from "java.lang.NamedPackage"
-import {$AnnotatedElement$$Interface} from "java.lang.reflect.AnnotatedElement"
-import {$Annotation, $Annotation$$Type} from "java.lang.annotation.Annotation"
-import {$URL$$Type} from "java.net.URL"
-import {$Class$$Type} from "java.lang.Class"
-
-export class $Package extends $NamedPackage implements $AnnotatedElement$$Interface {
-public "getName"(): StringJS
-public "toString"(): StringJS
-public "hashCode"(): integer
-public "isAnnotationPresent"(arg0: $Class$$Type<($Annotation$$Type)>): boolean
-/**
- * 
- * @deprecated
- */
-public static "getPackage"(arg0: StringJS): $Package
-public "getAnnotation"<A extends $Annotation>(arg0: $Class$$Type<(A)>): A
-public "getAnnotationsByType"<A extends $Annotation>(arg0: $Class$$Type<(A)>): (A)[]
-public "getAnnotations"(): ($Annotation)[]
-public "getDeclaredAnnotation"<A extends $Annotation>(arg0: $Class$$Type<(A)>): A
-public "getDeclaredAnnotationsByType"<A extends $Annotation>(arg0: $Class$$Type<(A)>): (A)[]
-public "getDeclaredAnnotations"(): ($Annotation)[]
-public "isSealed"(arg0: $URL$$Type): boolean
-public "isSealed"(): boolean
-public static "getPackages"(): ($Package)[]
-public "getSpecificationTitle"(): StringJS
-public "getSpecificationVersion"(): StringJS
-public "getSpecificationVendor"(): StringJS
-public "getImplementationTitle"(): StringJS
-public "getImplementationVersion"(): StringJS
-public "getImplementationVendor"(): StringJS
-public "isCompatibleWith"(arg0: StringJS): boolean
-get "name"(): StringJS
-get "annotations"(): ($Annotation)[]
-get "declaredAnnotations"(): ($Annotation)[]
-get "sealed"(): boolean
-get "packages"(): ($Package)[]
-get "specificationTitle"(): StringJS
-get "specificationVersion"(): StringJS
-get "specificationVendor"(): StringJS
-get "implementationTitle"(): StringJS
-get "implementationVersion"(): StringJS
-get "implementationVendor"(): StringJS
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Package$$Type = ($Package);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Package$$Original = $Package;}
 declare module "java.lang.Class" {
 import {$Constable$$Interface} from "java.lang.constant.Constable"
-import {$RecordComponent} from "java.lang.reflect.RecordComponent"
 import {$Optional} from "java.util.Optional"
+import {$RecordComponent} from "java.lang.reflect.RecordComponent"
 import {$ClassDesc} from "java.lang.constant.ClassDesc"
 import {$TypeDescriptor$OfField, $TypeDescriptor$OfField$$Interface} from "java.lang.invoke.TypeDescriptor$OfField"
 import {$Field} from "java.lang.reflect.Field"
 import {$Method} from "java.lang.reflect.Method"
 import {$AccessFlag} from "java.lang.reflect.AccessFlag"
-import {$TypeVariable} from "java.lang.reflect.TypeVariable"
 import {$GenericDeclaration$$Interface} from "java.lang.reflect.GenericDeclaration"
-import {$AnnotatedElement$$Interface} from "java.lang.reflect.AnnotatedElement"
+import {$TypeVariable} from "java.lang.reflect.TypeVariable"
 import {$Package} from "java.lang.Package"
-import {$Annotation, $Annotation$$Type} from "java.lang.annotation.Annotation"
+import {$AnnotatedElement$$Interface} from "java.lang.reflect.AnnotatedElement"
 import {$Serializable$$Interface} from "java.io.Serializable"
+import {$Annotation, $Annotation$$Type} from "java.lang.annotation.Annotation"
 import {$AnnotatedType} from "java.lang.reflect.AnnotatedType"
 import {$Type, $Type$$Interface} from "java.lang.reflect.Type"
-import {$ProtectionDomain} from "java.security.ProtectionDomain"
 import {$URL} from "java.net.URL"
+import {$ProtectionDomain} from "java.security.ProtectionDomain"
 import {$Set} from "java.util.Set"
 import {$Constructor} from "java.lang.reflect.Constructor"
 import {$InputStream} from "java.io.InputStream"
@@ -549,31 +463,6 @@ export type $ModuleLayer$$Type = ($ModuleLayer);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ModuleLayer$$Original = $ModuleLayer;}
-declare module "java.lang.IllegalStateException" {
-import {$Throwable$$Type} from "java.lang.Throwable"
-import {$RuntimeException} from "java.lang.RuntimeException"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $IllegalStateException extends $RuntimeException {
-constructor(arg0: $Throwable$$Type)
-constructor(arg0: StringJS, arg1: $Throwable$$Type)
-constructor(arg0: StringJS)
-constructor()
-
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $IllegalStateException$$Type = ($IllegalStateException);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $IllegalStateException$$Original = $IllegalStateException;}
 declare module "java.lang.ModuleLayer$Controller" {
 import {$ModuleLayer} from "java.lang.ModuleLayer"
 import {$Module$$Type} from "java.lang.Module"
@@ -599,81 +488,6 @@ export type $ModuleLayer$Controller$$Type = ($ModuleLayer$Controller);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ModuleLayer$Controller$$Original = $ModuleLayer$Controller;}
-declare module "java.lang.Exception" {
-import {$Throwable, $Throwable$$Type} from "java.lang.Throwable"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $Exception extends $Throwable {
-constructor(arg0: $Throwable$$Type)
-constructor(arg0: StringJS, arg1: $Throwable$$Type)
-constructor(arg0: StringJS)
-constructor()
-
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Exception$$Type = ($Exception);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Exception$$Original = $Exception;}
-declare module "java.lang.Boolean" {
-import {$Constable$$Interface} from "java.lang.constant.Constable"
-import {$Optional} from "java.util.Optional"
-import {$Comparable$$Interface} from "java.lang.Comparable"
-import {$Serializable$$Interface} from "java.io.Serializable"
-import {$Class} from "java.lang.Class"
-import {$DynamicConstantDesc} from "java.lang.constant.DynamicConstantDesc"
-
-export class $Boolean implements $Serializable$$Interface, $Comparable$$Interface<(boolean)>, $Constable$$Interface {
-static readonly "TRUE": boolean
-static readonly "FALSE": boolean
-static readonly "TYPE": $Class<(boolean)>
-
-/**
- * 
- * @deprecated
- */
-constructor(arg0: boolean)
-/**
- * 
- * @deprecated
- */
-constructor(arg0: StringJS)
-
-public "equals"(arg0: any): boolean
-public "toString"(): StringJS
-public static "toString"(arg0: boolean): StringJS
-public "hashCode"(): integer
-public static "hashCode"(arg0: boolean): integer
-public "compareTo"(arg0: boolean): integer
-public "compareTo"(arg0: any): integer
-public static "getBoolean"(arg0: StringJS): boolean
-public static "compare"(arg0: boolean, arg1: boolean): integer
-public "booleanValue"(): boolean
-public static "valueOf"(arg0: StringJS): boolean
-public static "valueOf"(arg0: boolean): boolean
-public "describeConstable"(): $Optional<($DynamicConstantDesc<(boolean)>)>
-public static "parseBoolean"(arg0: StringJS): boolean
-public static "logicalAnd"(arg0: boolean, arg1: boolean): boolean
-public static "logicalOr"(arg0: boolean, arg1: boolean): boolean
-public static "logicalXor"(arg0: boolean, arg1: boolean): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Boolean$$Type = ($Boolean);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Boolean$$Original = $Boolean;}
 declare module "java.lang.Double" {
 import {$ConstantDesc$$Interface} from "java.lang.constant.ConstantDesc"
 import {$MethodHandles$Lookup$$Type} from "java.lang.invoke.MethodHandles$Lookup"
@@ -750,25 +564,6 @@ export type $Double$$Type = ($Double);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $Double$$Original = $Double;}
-declare module "java.lang.Comparable" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-export interface $Comparable$$Interface<T> {
-
-(arg0: T): integer
-}
-
-export class $Comparable<T> implements $Comparable$$Interface {
- "compareTo"(arg0: T): integer
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Comparable$$Type<T> = ((arg0: T) => integer);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Comparable$$Original<T> = $Comparable<(T)>;}
 declare module "java.lang.Thread$UncaughtExceptionHandler" {
 import {$Thread, $Thread$$Type} from "java.lang.Thread"
 import {$Throwable, $Throwable$$Type} from "java.lang.Throwable"
@@ -795,123 +590,6 @@ export type $Thread$UncaughtExceptionHandler$$Type = ((arg0: $Thread, arg1: $Thr
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $Thread$UncaughtExceptionHandler$$Original = $Thread$UncaughtExceptionHandler;}
-declare module "java.lang.Throwable" {
-import {$StackTraceElement, $StackTraceElement$$Type} from "java.lang.StackTraceElement"
-import {$Serializable$$Interface} from "java.io.Serializable"
-import {$PrintStream$$Type} from "java.io.PrintStream"
-import {$PrintWriter$$Type} from "java.io.PrintWriter"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $Throwable implements $Serializable$$Interface {
-constructor(arg0: $Throwable$$Type)
-constructor(arg0: StringJS, arg1: $Throwable$$Type)
-constructor(arg0: StringJS)
-constructor()
-
-public "printStackTrace"(arg0: $PrintWriter$$Type): void
-public "printStackTrace"(): void
-public "printStackTrace"(arg0: $PrintStream$$Type): void
-public "getStackTrace"(): ($StackTraceElement)[]
-public "fillInStackTrace"(): $Throwable
-public "getCause"(): $Throwable
-public "initCause"(arg0: $Throwable$$Type): $Throwable
-public "toString"(): StringJS
-public "getMessage"(): StringJS
-public "getSuppressed"(): ($Throwable)[]
-public "getLocalizedMessage"(): StringJS
-public "setStackTrace"(arg0: ($StackTraceElement$$Type)[]): void
-public "addSuppressed"(arg0: $Throwable$$Type): void
-get "stackTrace"(): ($StackTraceElement)[]
-get "cause"(): $Throwable
-get "message"(): StringJS
-get "suppressed"(): ($Throwable)[]
-get "localizedMessage"(): StringJS
-set "stackTrace"(value: ($StackTraceElement$$Type)[])
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Throwable$$Type = ($Throwable);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Throwable$$Original = $Throwable;}
-declare module "java.lang.RuntimeException" {
-import {$Exception} from "java.lang.Exception"
-import {$Throwable$$Type} from "java.lang.Throwable"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $RuntimeException extends $Exception {
-constructor(arg0: $Throwable$$Type)
-constructor(arg0: StringJS, arg1: $Throwable$$Type)
-constructor(arg0: StringJS)
-constructor()
-
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $RuntimeException$$Type = ($RuntimeException);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $RuntimeException$$Original = $RuntimeException;}
-declare module "java.lang.Record" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $Record {
-public "equals"(arg0: any): boolean
-public "toString"(): StringJS
-public "hashCode"(): integer
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Record$$Type = ($Record);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Record$$Original = $Record;}
-declare module "java.lang.Readable" {
-import {$CharBuffer, $CharBuffer$$Type} from "java.nio.CharBuffer"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export interface $Readable$$Interface {
-
-(arg0: $CharBuffer): integer
-}
-
-export class $Readable implements $Readable$$Interface {
- "read"(arg0: $CharBuffer$$Type): integer
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Readable$$Type = ((arg0: $CharBuffer) => integer);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Readable$$Original = $Readable;}
 declare module "java.lang.Enum" {
 import {$Constable$$Interface} from "java.lang.constant.Constable"
 import {$Optional} from "java.util.Optional"
@@ -975,111 +653,6 @@ export type $Thread$State$$Type = (("new") | ("runnable") | ("blocked") | ("wait
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $Thread$State$$Original = $Thread$State;}
-declare module "java.lang.Runnable" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-export interface $Runnable$$Interface {
-
-(): void
-}
-
-export class $Runnable implements $Runnable$$Interface {
- "run"(): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Runnable$$Type = (() => void);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Runnable$$Original = $Runnable;}
-declare module "java.lang.ThreadGroup" {
-import {$Thread$$Type} from "java.lang.Thread"
-import {$Throwable$$Type} from "java.lang.Throwable"
-import {$Thread$UncaughtExceptionHandler$$Interface} from "java.lang.Thread$UncaughtExceptionHandler"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $ThreadGroup implements $Thread$UncaughtExceptionHandler$$Interface {
-constructor(arg0: StringJS)
-constructor(arg0: $ThreadGroup$$Type, arg1: StringJS)
-
-public "getName"(): StringJS
-public "interrupt"(): void
-public "toString"(): StringJS
-public "list"(): void
-public "getParent"(): $ThreadGroup
-/**
- * 
- * @deprecated
- */
-public "checkAccess"(): void
-/**
- * 
- * @deprecated
- */
-public "setDaemon"(arg0: boolean): void
-public "getMaxPriority"(): integer
-/**
- * 
- * @deprecated
- */
-public "isDaemon"(): boolean
-public "activeCount"(): integer
-public "enumerate"(arg0: ($ThreadGroup$$Type)[]): integer
-public "enumerate"(arg0: ($ThreadGroup$$Type)[], arg1: boolean): integer
-public "enumerate"(arg0: ($Thread$$Type)[]): integer
-public "enumerate"(arg0: ($Thread$$Type)[], arg1: boolean): integer
-public "uncaughtException"(arg0: $Thread$$Type, arg1: $Throwable$$Type): void
-/**
- * 
- * @deprecated
- */
-public "stop"(): void
-/**
- * 
- * @deprecated
- */
-public "suspend"(): void
-/**
- * 
- * @deprecated
- */
-public "resume"(): void
-public "parentOf"(arg0: $ThreadGroup$$Type): boolean
-public "activeGroupCount"(): integer
-public "setMaxPriority"(arg0: integer): void
-/**
- * 
- * @deprecated
- */
-public "isDestroyed"(): boolean
-/**
- * 
- * @deprecated
- */
-public "destroy"(): void
-get "name"(): StringJS
-get "parent"(): $ThreadGroup
-set "daemon"(value: boolean)
-get "maxPriority"(): integer
-get "daemon"(): boolean
-set "maxPriority"(value: integer)
-get "destroyed"(): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ThreadGroup$$Type = ($ThreadGroup);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ThreadGroup$$Original = $ThreadGroup;}
 declare module "java.lang.Module" {
 import {$ModuleDescriptor} from "java.lang.module.ModuleDescriptor"
 import {$AnnotatedElement$$Interface} from "java.lang.reflect.AnnotatedElement"
@@ -1143,8 +716,8 @@ export type $Module$$Type = ($Module);
 export type $Module$$Original = $Module;}
 declare module "java.lang.Thread" {
 import {$Map} from "java.util.Map"
-import {$StackTraceElement} from "java.lang.StackTraceElement"
 import {$Thread$Builder$OfVirtual} from "java.lang.Thread$Builder$OfVirtual"
+import {$StackTraceElement} from "java.lang.StackTraceElement"
 import {$Thread$State} from "java.lang.Thread$State"
 import {$ThreadGroup, $ThreadGroup$$Type} from "java.lang.ThreadGroup"
 import {$Thread$Builder$OfPlatform} from "java.lang.Thread$Builder$OfPlatform"
@@ -1306,27 +879,6 @@ export type $AbstractStringBuilder$$Type = ($AbstractStringBuilder);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $AbstractStringBuilder$$Original = $AbstractStringBuilder;}
-declare module "java.lang.Cloneable" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export interface $Cloneable$$Interface {
-}
-
-export class $Cloneable implements $Cloneable$$Interface {
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Cloneable$$Type = ($Cloneable);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Cloneable$$Original = $Cloneable;}
 declare module "java.lang.ClassLoader" {
 import {$Package} from "java.lang.Package"
 import {$URL} from "java.net.URL"
@@ -1380,36 +932,11 @@ export type $ClassLoader$$Type = ($ClassLoader);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ClassLoader$$Original = $ClassLoader;}
-declare module "java.lang.Iterable" {
-import {$Iterator, $Iterator$$Type} from "java.util.Iterator"
-import {$Spliterator} from "java.util.Spliterator"
-import {$Consumer$$Type} from "java.util.function.Consumer"
-
-export interface $Iterable$$Interface<T> {
-
-(): $Iterator$$Type<(T)>
-[Symbol.iterator](): IterableIterator<T>;
-}
-
-export class $Iterable<T> implements $Iterable$$Interface {
- "iterator"(): $Iterator<(T)>
- "spliterator"(): $Spliterator<(T)>
- "forEach"(arg0: $Consumer$$Type<(T)>): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Iterable$$Type<T> = ((T)[]) | (() => $Iterator$$Type<(T)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Iterable$$Original<T> = $Iterable<(T)>;}
 declare module "java.lang.StringBuilder" {
-import {$Comparable$$Interface} from "java.lang.Comparable"
-import {$Serializable$$Interface} from "java.io.Serializable"
 import {$IntStream} from "java.util.stream.IntStream"
+import {$Comparable$$Interface} from "java.lang.Comparable"
 import {$Appendable, $Appendable$$Interface} from "java.lang.Appendable"
+import {$Serializable$$Interface} from "java.io.Serializable"
 import {$StringBuffer$$Type} from "java.lang.StringBuffer"
 import {$AbstractStringBuilder} from "java.lang.AbstractStringBuilder"
 
@@ -1486,141 +1013,6 @@ export type $StringBuilder$$Type = ($StringBuilder);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $StringBuilder$$Original = $StringBuilder;}
-declare module "java.lang.Float" {
-import {$ConstantDesc$$Interface} from "java.lang.constant.ConstantDesc"
-import {$MethodHandles$Lookup$$Type} from "java.lang.invoke.MethodHandles$Lookup"
-import {$Constable$$Interface} from "java.lang.constant.Constable"
-import {$Optional} from "java.util.Optional"
-import {$Comparable$$Interface} from "java.lang.Comparable"
-import {$Class} from "java.lang.Class"
-
-export class $Float extends number implements $Comparable$$Interface<(float)>, $Constable$$Interface, $ConstantDesc$$Interface {
-static readonly "POSITIVE_INFINITY": float
-static readonly "BYTES": integer
-static readonly "MAX_EXPONENT": integer
-static readonly "NEGATIVE_INFINITY": float
-static readonly "MIN_NORMAL": float
-static readonly "SIZE": integer
-static readonly "NaN": float
-static readonly "MAX_VALUE": float
-static readonly "MIN_VALUE": float
-static readonly "TYPE": $Class<(float)>
-static readonly "MIN_EXPONENT": integer
-static readonly "PRECISION": integer
-
-/**
- * 
- * @deprecated
- */
-constructor(arg0: StringJS)
-/**
- * 
- * @deprecated
- */
-constructor(arg0: double)
-/**
- * 
- * @deprecated
- */
-constructor(arg0: float)
-
-public "equals"(arg0: any): boolean
-public static "toString"(arg0: float): StringJS
-public "toString"(): StringJS
-public static "hashCode"(arg0: float): integer
-public "hashCode"(): integer
-public static "min"(arg0: float, arg1: float): float
-public static "max"(arg0: float, arg1: float): float
-public static "isInfinite"(arg0: float): boolean
-public "isInfinite"(): boolean
-public static "isFinite"(arg0: float): boolean
-public static "floatToRawIntBits"(arg0: float): integer
-public static "floatToIntBits"(arg0: float): integer
-public static "intBitsToFloat"(arg0: integer): float
-public static "float16ToFloat"(arg0: short): float
-public static "floatToFloat16"(arg0: float): short
-public "compareTo"(arg0: any): integer
-public "compareTo"(arg0: float): integer
-public static "compare"(arg0: float, arg1: float): integer
-public "byteValue"(): byte
-public "shortValue"(): short
-public "intValue"(): integer
-public "longValue"(): long
-public "floatValue"(): float
-public "doubleValue"(): double
-public static "valueOf"(arg0: float): float
-public static "valueOf"(arg0: StringJS): float
-public static "toHexString"(arg0: float): StringJS
-public "resolveConstantDesc"(arg0: $MethodHandles$Lookup$$Type): float
-public "describeConstable"(): $Optional<(float)>
-public static "isNaN"(arg0: float): boolean
-public "isNaN"(): boolean
-public static "sum"(arg0: float, arg1: float): float
-public static "parseFloat"(arg0: StringJS): float
-get "infinite"(): boolean
-get "naN"(): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Float$$Type = ($Float);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Float$$Original = $Float;}
-declare module "java.lang.Thread$Builder$OfVirtual" {
-import {$ThreadFactory} from "java.util.concurrent.ThreadFactory"
-import {$Thread} from "java.lang.Thread"
-import {$Thread$Builder, $Thread$Builder$$Interface} from "java.lang.Thread$Builder"
-import {$Runnable$$Type} from "java.lang.Runnable"
-import {$Thread$UncaughtExceptionHandler$$Type} from "java.lang.Thread$UncaughtExceptionHandler"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export interface $Thread$Builder$OfVirtual$$Interface extends $Thread$Builder$$Interface {
-}
-
-export class $Thread$Builder$OfVirtual implements $Thread$Builder$OfVirtual$$Interface {
- "name"(arg0: StringJS, arg1: long): $Thread$Builder
- "name"(arg0: StringJS): $Thread$Builder
- "uncaughtExceptionHandler"(arg0: $Thread$UncaughtExceptionHandler$$Type): $Thread$Builder
- "inheritInheritableThreadLocals"(arg0: boolean): $Thread$Builder$OfVirtual
- "factory"(): $ThreadFactory
- "start"(arg0: $Runnable$$Type): $Thread
- "unstarted"(arg0: $Runnable$$Type): $Thread
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Thread$Builder$OfVirtual$$Type = ($Thread$Builder$OfVirtual);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Thread$Builder$OfVirtual$$Original = $Thread$Builder$OfVirtual;}
-declare module "java.lang.AutoCloseable" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-export interface $AutoCloseable$$Interface {
-
-(): void
-}
-
-export class $AutoCloseable implements $AutoCloseable$$Interface {
- "close"(): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $AutoCloseable$$Type = (() => void);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $AutoCloseable$$Original = $AutoCloseable;}
 declare module "java.lang.Appendable" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $Appendable$$Interface {
@@ -1640,96 +1032,6 @@ export type $Appendable$$Type = ($Appendable);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $Appendable$$Original = $Appendable;}
-declare module "java.lang.Integer" {
-import {$ConstantDesc$$Interface} from "java.lang.constant.ConstantDesc"
-import {$MethodHandles$Lookup$$Type} from "java.lang.invoke.MethodHandles$Lookup"
-import {$Constable$$Interface} from "java.lang.constant.Constable"
-import {$Optional} from "java.util.Optional"
-import {$Comparable$$Interface} from "java.lang.Comparable"
-import {$Class} from "java.lang.Class"
-
-export class $Integer extends number implements $Comparable$$Interface<(integer)>, $Constable$$Interface, $ConstantDesc$$Interface {
-static readonly "BYTES": integer
-static readonly "SIZE": integer
-static readonly "MAX_VALUE": integer
-static readonly "MIN_VALUE": integer
-static readonly "TYPE": $Class<(integer)>
-
-/**
- * 
- * @deprecated
- */
-constructor(arg0: StringJS)
-/**
- * 
- * @deprecated
- */
-constructor(arg0: integer)
-
-public static "numberOfLeadingZeros"(arg0: integer): integer
-public static "numberOfTrailingZeros"(arg0: integer): integer
-public static "bitCount"(arg0: integer): integer
-public "equals"(arg0: any): boolean
-public static "toString"(arg0: integer): StringJS
-public "toString"(): StringJS
-public static "toString"(arg0: integer, arg1: integer): StringJS
-public "hashCode"(): integer
-public static "hashCode"(arg0: integer): integer
-public static "min"(arg0: integer, arg1: integer): integer
-public static "max"(arg0: integer, arg1: integer): integer
-public static "signum"(arg0: integer): integer
-public static "expand"(arg0: integer, arg1: integer): integer
-public static "compareUnsigned"(arg0: integer, arg1: integer): integer
-public static "divideUnsigned"(arg0: integer, arg1: integer): integer
-public static "remainderUnsigned"(arg0: integer, arg1: integer): integer
-public static "reverse"(arg0: integer): integer
-public static "reverseBytes"(arg0: integer): integer
-public static "compress"(arg0: integer, arg1: integer): integer
-public "compareTo"(arg0: integer): integer
-public "compareTo"(arg0: any): integer
-public static "compare"(arg0: integer, arg1: integer): integer
-public "byteValue"(): byte
-public "shortValue"(): short
-public "intValue"(): integer
-public "longValue"(): long
-public "floatValue"(): float
-public "doubleValue"(): double
-public static "valueOf"(arg0: StringJS): integer
-public static "valueOf"(arg0: integer): integer
-public static "valueOf"(arg0: StringJS, arg1: integer): integer
-public static "toHexString"(arg0: integer): StringJS
-public static "decode"(arg0: StringJS): integer
-public "resolveConstantDesc"(arg0: $MethodHandles$Lookup$$Type): integer
-public "describeConstable"(): $Optional<(integer)>
-public static "parseInt"(arg0: charseq, arg1: integer, arg2: integer, arg3: integer): integer
-public static "parseInt"(arg0: StringJS): integer
-public static "parseInt"(arg0: StringJS, arg1: integer): integer
-public static "toUnsignedLong"(arg0: integer): long
-public static "sum"(arg0: integer, arg1: integer): integer
-public static "toUnsignedString"(arg0: integer, arg1: integer): StringJS
-public static "toUnsignedString"(arg0: integer): StringJS
-public static "parseUnsignedInt"(arg0: StringJS, arg1: integer): integer
-public static "parseUnsignedInt"(arg0: charseq, arg1: integer, arg2: integer, arg3: integer): integer
-public static "parseUnsignedInt"(arg0: StringJS): integer
-public static "getInteger"(arg0: StringJS, arg1: integer): integer
-public static "getInteger"(arg0: StringJS): integer
-public static "getInteger"(arg0: StringJS, arg1: integer): integer
-public static "toOctalString"(arg0: integer): StringJS
-public static "toBinaryString"(arg0: integer): StringJS
-public static "highestOneBit"(arg0: integer): integer
-public static "lowestOneBit"(arg0: integer): integer
-public static "rotateLeft"(arg0: integer, arg1: integer): integer
-public static "rotateRight"(arg0: integer, arg1: integer): integer
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Integer$$Type = ($Integer);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Integer$$Original = $Integer;}
 declare module "java.lang.Short" {
 import {$Constable$$Interface} from "java.lang.constant.Constable"
 import {$Optional} from "java.util.Optional"
@@ -1790,91 +1092,6 @@ export type $Short$$Type = ($Short);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $Short$$Original = $Short;}
-declare module "java.lang.StackTraceElement" {
-import {$Serializable$$Interface} from "java.io.Serializable"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $StackTraceElement implements $Serializable$$Interface {
-constructor(arg0: StringJS, arg1: StringJS, arg2: StringJS, arg3: StringJS, arg4: StringJS, arg5: StringJS, arg6: integer)
-constructor(arg0: StringJS, arg1: StringJS, arg2: StringJS, arg3: integer)
-
-public "equals"(arg0: any): boolean
-public "toString"(): StringJS
-public "hashCode"(): integer
-public "getClassName"(): StringJS
-public "isNativeMethod"(): boolean
-public "getFileName"(): StringJS
-public "getLineNumber"(): integer
-public "getModuleName"(): StringJS
-public "getModuleVersion"(): StringJS
-public "getClassLoaderName"(): StringJS
-public "getMethodName"(): StringJS
-get "className"(): StringJS
-get "nativeMethod"(): boolean
-get "fileName"(): StringJS
-get "lineNumber"(): integer
-get "moduleName"(): StringJS
-get "moduleVersion"(): StringJS
-get "classLoaderName"(): StringJS
-get "methodName"(): StringJS
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $StackTraceElement$$Type = ($StackTraceElement);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $StackTraceElement$$Original = $StackTraceElement;}
-declare module "java.lang.NamedPackage" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $NamedPackage {
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $NamedPackage$$Type = ($NamedPackage);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $NamedPackage$$Original = $NamedPackage;}
-declare module "java.lang.CharSequence" {
-import {$IntStream} from "java.util.stream.IntStream"
-
-export interface $CharSequence$$Interface {
-get "empty"(): boolean
-}
-
-export class $CharSequence implements $CharSequence$$Interface {
- "length"(): integer
- "toString"(): StringJS
-static "compare"(arg0: charseq, arg1: charseq): integer
- "charAt"(arg0: integer): character
- "isEmpty"(): boolean
- "codePoints"(): $IntStream
- "subSequence"(arg0: integer, arg1: integer): charseq
- "chars"(): $IntStream
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $CharSequence$$Type = ($CharSequence);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $CharSequence$$Original = $CharSequence;}
 declare module "java.lang.Number" {
 import {$Serializable$$Interface} from "java.io.Serializable"
 
@@ -2059,10 +1276,10 @@ export type $Enum$EnumDesc$$Type<E> = ($Enum$EnumDesc<(E)>);
  */
 export type $Enum$EnumDesc$$Original<E> = $Enum$EnumDesc<(E)>;}
 declare module "java.lang.StringBuffer" {
-import {$Comparable$$Interface} from "java.lang.Comparable"
-import {$Serializable$$Interface} from "java.io.Serializable"
 import {$IntStream} from "java.util.stream.IntStream"
+import {$Comparable$$Interface} from "java.lang.Comparable"
 import {$Appendable, $Appendable$$Interface} from "java.lang.Appendable"
+import {$Serializable$$Interface} from "java.io.Serializable"
 import {$AbstractStringBuilder} from "java.lang.AbstractStringBuilder"
 
 /**
@@ -2143,3 +1360,786 @@ export type $StringBuffer$$Type = ($StringBuffer);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $StringBuffer$$Original = $StringBuffer;}
+declare module "java.lang.Thread$Builder" {
+import {$ThreadFactory} from "java.util.concurrent.ThreadFactory"
+import {$Thread} from "java.lang.Thread"
+import {$Runnable$$Type} from "java.lang.Runnable"
+import {$Thread$UncaughtExceptionHandler$$Type} from "java.lang.Thread$UncaughtExceptionHandler"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export interface $Thread$Builder$$Interface {
+}
+
+export class $Thread$Builder implements $Thread$Builder$$Interface {
+ "name"(arg0: StringJS): $Thread$Builder
+ "name"(arg0: StringJS, arg1: long): $Thread$Builder
+ "factory"(): $ThreadFactory
+ "start"(arg0: $Runnable$$Type): $Thread
+ "uncaughtExceptionHandler"(arg0: $Thread$UncaughtExceptionHandler$$Type): $Thread$Builder
+ "inheritInheritableThreadLocals"(arg0: boolean): $Thread$Builder
+ "unstarted"(arg0: $Runnable$$Type): $Thread
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Thread$Builder$$Type = ($Thread$Builder);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Thread$Builder$$Original = $Thread$Builder;}
+declare module "java.lang.Package" {
+import {$NamedPackage} from "java.lang.NamedPackage"
+import {$AnnotatedElement$$Interface} from "java.lang.reflect.AnnotatedElement"
+import {$Annotation, $Annotation$$Type} from "java.lang.annotation.Annotation"
+import {$URL$$Type} from "java.net.URL"
+import {$Class$$Type} from "java.lang.Class"
+
+export class $Package extends $NamedPackage implements $AnnotatedElement$$Interface {
+public "getName"(): StringJS
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "isAnnotationPresent"(arg0: $Class$$Type<($Annotation$$Type)>): boolean
+/**
+ * 
+ * @deprecated
+ */
+public static "getPackage"(arg0: StringJS): $Package
+public "getAnnotation"<A extends $Annotation>(arg0: $Class$$Type<(A)>): A
+public "getAnnotationsByType"<A extends $Annotation>(arg0: $Class$$Type<(A)>): (A)[]
+public "getAnnotations"(): ($Annotation)[]
+public "getDeclaredAnnotation"<A extends $Annotation>(arg0: $Class$$Type<(A)>): A
+public "getDeclaredAnnotationsByType"<A extends $Annotation>(arg0: $Class$$Type<(A)>): (A)[]
+public "getDeclaredAnnotations"(): ($Annotation)[]
+public "isSealed"(arg0: $URL$$Type): boolean
+public "isSealed"(): boolean
+public static "getPackages"(): ($Package)[]
+public "getSpecificationTitle"(): StringJS
+public "getSpecificationVersion"(): StringJS
+public "getSpecificationVendor"(): StringJS
+public "getImplementationTitle"(): StringJS
+public "getImplementationVersion"(): StringJS
+public "getImplementationVendor"(): StringJS
+public "isCompatibleWith"(arg0: StringJS): boolean
+get "name"(): StringJS
+get "annotations"(): ($Annotation)[]
+get "declaredAnnotations"(): ($Annotation)[]
+get "sealed"(): boolean
+get "packages"(): ($Package)[]
+get "specificationTitle"(): StringJS
+get "specificationVersion"(): StringJS
+get "specificationVendor"(): StringJS
+get "implementationTitle"(): StringJS
+get "implementationVersion"(): StringJS
+get "implementationVendor"(): StringJS
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Package$$Type = ($Package);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Package$$Original = $Package;}
+declare module "java.lang.IllegalStateException" {
+import {$Throwable$$Type} from "java.lang.Throwable"
+import {$RuntimeException} from "java.lang.RuntimeException"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $IllegalStateException extends $RuntimeException {
+constructor(arg0: $Throwable$$Type)
+constructor(arg0: StringJS, arg1: $Throwable$$Type)
+constructor(arg0: StringJS)
+constructor()
+
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $IllegalStateException$$Type = ($IllegalStateException);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $IllegalStateException$$Original = $IllegalStateException;}
+declare module "java.lang.Exception" {
+import {$Throwable, $Throwable$$Type} from "java.lang.Throwable"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $Exception extends $Throwable {
+constructor(arg0: $Throwable$$Type)
+constructor(arg0: StringJS, arg1: $Throwable$$Type)
+constructor(arg0: StringJS)
+constructor()
+
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Exception$$Type = ($Exception);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Exception$$Original = $Exception;}
+declare module "java.lang.Boolean" {
+import {$Constable$$Interface} from "java.lang.constant.Constable"
+import {$Optional} from "java.util.Optional"
+import {$Comparable$$Interface} from "java.lang.Comparable"
+import {$Serializable$$Interface} from "java.io.Serializable"
+import {$Class} from "java.lang.Class"
+import {$DynamicConstantDesc} from "java.lang.constant.DynamicConstantDesc"
+
+export class $Boolean implements $Serializable$$Interface, $Comparable$$Interface<(boolean)>, $Constable$$Interface {
+static readonly "TRUE": boolean
+static readonly "FALSE": boolean
+static readonly "TYPE": $Class<(boolean)>
+
+/**
+ * 
+ * @deprecated
+ */
+constructor(arg0: boolean)
+/**
+ * 
+ * @deprecated
+ */
+constructor(arg0: StringJS)
+
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public static "toString"(arg0: boolean): StringJS
+public "hashCode"(): integer
+public static "hashCode"(arg0: boolean): integer
+public "compareTo"(arg0: boolean): integer
+public "compareTo"(arg0: any): integer
+public static "getBoolean"(arg0: StringJS): boolean
+public static "compare"(arg0: boolean, arg1: boolean): integer
+public "booleanValue"(): boolean
+public static "valueOf"(arg0: StringJS): boolean
+public static "valueOf"(arg0: boolean): boolean
+public "describeConstable"(): $Optional<($DynamicConstantDesc<(boolean)>)>
+public static "parseBoolean"(arg0: StringJS): boolean
+public static "logicalAnd"(arg0: boolean, arg1: boolean): boolean
+public static "logicalOr"(arg0: boolean, arg1: boolean): boolean
+public static "logicalXor"(arg0: boolean, arg1: boolean): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Boolean$$Type = ($Boolean);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Boolean$$Original = $Boolean;}
+declare module "java.lang.Comparable" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export interface $Comparable$$Interface<T> {
+
+(arg0: T): integer
+}
+
+export class $Comparable<T> implements $Comparable$$Interface {
+ "compareTo"(arg0: T): integer
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Comparable$$Type<T> = ((arg0: T) => integer);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Comparable$$Original<T> = $Comparable<(T)>;}
+declare module "java.lang.Throwable" {
+import {$StackTraceElement, $StackTraceElement$$Type} from "java.lang.StackTraceElement"
+import {$PrintStream$$Type} from "java.io.PrintStream"
+import {$Serializable$$Interface} from "java.io.Serializable"
+import {$PrintWriter$$Type} from "java.io.PrintWriter"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $Throwable implements $Serializable$$Interface {
+constructor(arg0: $Throwable$$Type)
+constructor(arg0: StringJS, arg1: $Throwable$$Type)
+constructor(arg0: StringJS)
+constructor()
+
+public "printStackTrace"(arg0: $PrintWriter$$Type): void
+public "printStackTrace"(): void
+public "printStackTrace"(arg0: $PrintStream$$Type): void
+public "getStackTrace"(): ($StackTraceElement)[]
+public "fillInStackTrace"(): $Throwable
+public "getCause"(): $Throwable
+public "initCause"(arg0: $Throwable$$Type): $Throwable
+public "toString"(): StringJS
+public "getMessage"(): StringJS
+public "getSuppressed"(): ($Throwable)[]
+public "getLocalizedMessage"(): StringJS
+public "setStackTrace"(arg0: ($StackTraceElement$$Type)[]): void
+public "addSuppressed"(arg0: $Throwable$$Type): void
+get "stackTrace"(): ($StackTraceElement)[]
+get "cause"(): $Throwable
+get "message"(): StringJS
+get "suppressed"(): ($Throwable)[]
+get "localizedMessage"(): StringJS
+set "stackTrace"(value: ($StackTraceElement$$Type)[])
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Throwable$$Type = ($Throwable);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Throwable$$Original = $Throwable;}
+declare module "java.lang.RuntimeException" {
+import {$Exception} from "java.lang.Exception"
+import {$Throwable$$Type} from "java.lang.Throwable"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $RuntimeException extends $Exception {
+constructor(arg0: $Throwable$$Type)
+constructor(arg0: StringJS, arg1: $Throwable$$Type)
+constructor(arg0: StringJS)
+constructor()
+
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $RuntimeException$$Type = ($RuntimeException);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $RuntimeException$$Original = $RuntimeException;}
+declare module "java.lang.Record" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $Record {
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Record$$Type = ($Record);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Record$$Original = $Record;}
+declare module "java.lang.Readable" {
+import {$CharBuffer, $CharBuffer$$Type} from "java.nio.CharBuffer"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export interface $Readable$$Interface {
+
+(arg0: $CharBuffer): integer
+}
+
+export class $Readable implements $Readable$$Interface {
+ "read"(arg0: $CharBuffer$$Type): integer
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Readable$$Type = ((arg0: $CharBuffer) => integer);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Readable$$Original = $Readable;}
+declare module "java.lang.Runnable" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export interface $Runnable$$Interface {
+
+(): void
+}
+
+export class $Runnable implements $Runnable$$Interface {
+ "run"(): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Runnable$$Type = (() => void);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Runnable$$Original = $Runnable;}
+declare module "java.lang.ThreadGroup" {
+import {$Thread$$Type} from "java.lang.Thread"
+import {$Throwable$$Type} from "java.lang.Throwable"
+import {$Thread$UncaughtExceptionHandler$$Interface} from "java.lang.Thread$UncaughtExceptionHandler"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $ThreadGroup implements $Thread$UncaughtExceptionHandler$$Interface {
+constructor(arg0: StringJS)
+constructor(arg0: $ThreadGroup$$Type, arg1: StringJS)
+
+public "getName"(): StringJS
+public "interrupt"(): void
+public "toString"(): StringJS
+public "list"(): void
+public "getParent"(): $ThreadGroup
+/**
+ * 
+ * @deprecated
+ */
+public "checkAccess"(): void
+/**
+ * 
+ * @deprecated
+ */
+public "setDaemon"(arg0: boolean): void
+public "getMaxPriority"(): integer
+/**
+ * 
+ * @deprecated
+ */
+public "isDaemon"(): boolean
+public "activeCount"(): integer
+public "enumerate"(arg0: ($ThreadGroup$$Type)[]): integer
+public "enumerate"(arg0: ($ThreadGroup$$Type)[], arg1: boolean): integer
+public "enumerate"(arg0: ($Thread$$Type)[]): integer
+public "enumerate"(arg0: ($Thread$$Type)[], arg1: boolean): integer
+public "uncaughtException"(arg0: $Thread$$Type, arg1: $Throwable$$Type): void
+/**
+ * 
+ * @deprecated
+ */
+public "stop"(): void
+/**
+ * 
+ * @deprecated
+ */
+public "suspend"(): void
+/**
+ * 
+ * @deprecated
+ */
+public "resume"(): void
+public "parentOf"(arg0: $ThreadGroup$$Type): boolean
+public "activeGroupCount"(): integer
+public "setMaxPriority"(arg0: integer): void
+/**
+ * 
+ * @deprecated
+ */
+public "isDestroyed"(): boolean
+/**
+ * 
+ * @deprecated
+ */
+public "destroy"(): void
+get "name"(): StringJS
+get "parent"(): $ThreadGroup
+set "daemon"(value: boolean)
+get "maxPriority"(): integer
+get "daemon"(): boolean
+set "maxPriority"(value: integer)
+get "destroyed"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ThreadGroup$$Type = ($ThreadGroup);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ThreadGroup$$Original = $ThreadGroup;}
+declare module "java.lang.Cloneable" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export interface $Cloneable$$Interface {
+}
+
+export class $Cloneable implements $Cloneable$$Interface {
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Cloneable$$Type = ($Cloneable);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Cloneable$$Original = $Cloneable;}
+declare module "java.lang.Iterable" {
+import {$Iterator, $Iterator$$Type} from "java.util.Iterator"
+import {$Spliterator} from "java.util.Spliterator"
+import {$Consumer$$Type} from "java.util.function.Consumer"
+
+export interface $Iterable$$Interface<T> {
+
+(): $Iterator$$Type<(T)>
+[Symbol.iterator](): IterableIterator<T>;
+}
+
+export class $Iterable<T> implements $Iterable$$Interface {
+ "iterator"(): $Iterator<(T)>
+ "spliterator"(): $Spliterator<(T)>
+ "forEach"(arg0: $Consumer$$Type<(T)>): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Iterable$$Type<T> = ((T)[]) | (() => $Iterator$$Type<(T)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Iterable$$Original<T> = $Iterable<(T)>;}
+declare module "java.lang.Float" {
+import {$ConstantDesc$$Interface} from "java.lang.constant.ConstantDesc"
+import {$MethodHandles$Lookup$$Type} from "java.lang.invoke.MethodHandles$Lookup"
+import {$Constable$$Interface} from "java.lang.constant.Constable"
+import {$Optional} from "java.util.Optional"
+import {$Comparable$$Interface} from "java.lang.Comparable"
+import {$Class} from "java.lang.Class"
+
+export class $Float extends number implements $Comparable$$Interface<(float)>, $Constable$$Interface, $ConstantDesc$$Interface {
+static readonly "POSITIVE_INFINITY": float
+static readonly "BYTES": integer
+static readonly "MAX_EXPONENT": integer
+static readonly "NEGATIVE_INFINITY": float
+static readonly "MIN_NORMAL": float
+static readonly "SIZE": integer
+static readonly "NaN": float
+static readonly "MAX_VALUE": float
+static readonly "MIN_VALUE": float
+static readonly "TYPE": $Class<(float)>
+static readonly "MIN_EXPONENT": integer
+static readonly "PRECISION": integer
+
+/**
+ * 
+ * @deprecated
+ */
+constructor(arg0: StringJS)
+/**
+ * 
+ * @deprecated
+ */
+constructor(arg0: double)
+/**
+ * 
+ * @deprecated
+ */
+constructor(arg0: float)
+
+public "equals"(arg0: any): boolean
+public static "toString"(arg0: float): StringJS
+public "toString"(): StringJS
+public static "hashCode"(arg0: float): integer
+public "hashCode"(): integer
+public static "min"(arg0: float, arg1: float): float
+public static "max"(arg0: float, arg1: float): float
+public static "isInfinite"(arg0: float): boolean
+public "isInfinite"(): boolean
+public static "isFinite"(arg0: float): boolean
+public static "floatToRawIntBits"(arg0: float): integer
+public static "floatToIntBits"(arg0: float): integer
+public static "intBitsToFloat"(arg0: integer): float
+public static "float16ToFloat"(arg0: short): float
+public static "floatToFloat16"(arg0: float): short
+public "compareTo"(arg0: any): integer
+public "compareTo"(arg0: float): integer
+public static "compare"(arg0: float, arg1: float): integer
+public "byteValue"(): byte
+public "shortValue"(): short
+public "intValue"(): integer
+public "longValue"(): long
+public "floatValue"(): float
+public "doubleValue"(): double
+public static "valueOf"(arg0: float): float
+public static "valueOf"(arg0: StringJS): float
+public static "toHexString"(arg0: float): StringJS
+public "resolveConstantDesc"(arg0: $MethodHandles$Lookup$$Type): float
+public "describeConstable"(): $Optional<(float)>
+public static "isNaN"(arg0: float): boolean
+public "isNaN"(): boolean
+public static "sum"(arg0: float, arg1: float): float
+public static "parseFloat"(arg0: StringJS): float
+get "infinite"(): boolean
+get "naN"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Float$$Type = ($Float);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Float$$Original = $Float;}
+declare module "java.lang.Thread$Builder$OfVirtual" {
+import {$ThreadFactory} from "java.util.concurrent.ThreadFactory"
+import {$Thread} from "java.lang.Thread"
+import {$Thread$Builder, $Thread$Builder$$Interface} from "java.lang.Thread$Builder"
+import {$Runnable$$Type} from "java.lang.Runnable"
+import {$Thread$UncaughtExceptionHandler$$Type} from "java.lang.Thread$UncaughtExceptionHandler"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export interface $Thread$Builder$OfVirtual$$Interface extends $Thread$Builder$$Interface {
+}
+
+export class $Thread$Builder$OfVirtual implements $Thread$Builder$OfVirtual$$Interface {
+ "name"(arg0: StringJS, arg1: long): $Thread$Builder
+ "name"(arg0: StringJS): $Thread$Builder
+ "uncaughtExceptionHandler"(arg0: $Thread$UncaughtExceptionHandler$$Type): $Thread$Builder
+ "inheritInheritableThreadLocals"(arg0: boolean): $Thread$Builder$OfVirtual
+ "factory"(): $ThreadFactory
+ "start"(arg0: $Runnable$$Type): $Thread
+ "unstarted"(arg0: $Runnable$$Type): $Thread
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Thread$Builder$OfVirtual$$Type = ($Thread$Builder$OfVirtual);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Thread$Builder$OfVirtual$$Original = $Thread$Builder$OfVirtual;}
+declare module "java.lang.AutoCloseable" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export interface $AutoCloseable$$Interface {
+
+(): void
+}
+
+export class $AutoCloseable implements $AutoCloseable$$Interface {
+ "close"(): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $AutoCloseable$$Type = (() => void);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $AutoCloseable$$Original = $AutoCloseable;}
+declare module "java.lang.Integer" {
+import {$ConstantDesc$$Interface} from "java.lang.constant.ConstantDesc"
+import {$MethodHandles$Lookup$$Type} from "java.lang.invoke.MethodHandles$Lookup"
+import {$Constable$$Interface} from "java.lang.constant.Constable"
+import {$Optional} from "java.util.Optional"
+import {$Comparable$$Interface} from "java.lang.Comparable"
+import {$Class} from "java.lang.Class"
+
+export class $Integer extends number implements $Comparable$$Interface<(integer)>, $Constable$$Interface, $ConstantDesc$$Interface {
+static readonly "BYTES": integer
+static readonly "SIZE": integer
+static readonly "MAX_VALUE": integer
+static readonly "MIN_VALUE": integer
+static readonly "TYPE": $Class<(integer)>
+
+/**
+ * 
+ * @deprecated
+ */
+constructor(arg0: StringJS)
+/**
+ * 
+ * @deprecated
+ */
+constructor(arg0: integer)
+
+public static "numberOfLeadingZeros"(arg0: integer): integer
+public static "numberOfTrailingZeros"(arg0: integer): integer
+public static "bitCount"(arg0: integer): integer
+public "equals"(arg0: any): boolean
+public static "toString"(arg0: integer): StringJS
+public "toString"(): StringJS
+public static "toString"(arg0: integer, arg1: integer): StringJS
+public "hashCode"(): integer
+public static "hashCode"(arg0: integer): integer
+public static "min"(arg0: integer, arg1: integer): integer
+public static "max"(arg0: integer, arg1: integer): integer
+public static "signum"(arg0: integer): integer
+public static "expand"(arg0: integer, arg1: integer): integer
+public static "compareUnsigned"(arg0: integer, arg1: integer): integer
+public static "divideUnsigned"(arg0: integer, arg1: integer): integer
+public static "remainderUnsigned"(arg0: integer, arg1: integer): integer
+public static "reverse"(arg0: integer): integer
+public static "reverseBytes"(arg0: integer): integer
+public static "compress"(arg0: integer, arg1: integer): integer
+public "compareTo"(arg0: integer): integer
+public "compareTo"(arg0: any): integer
+public static "compare"(arg0: integer, arg1: integer): integer
+public "byteValue"(): byte
+public "shortValue"(): short
+public "intValue"(): integer
+public "longValue"(): long
+public "floatValue"(): float
+public "doubleValue"(): double
+public static "valueOf"(arg0: StringJS): integer
+public static "valueOf"(arg0: integer): integer
+public static "valueOf"(arg0: StringJS, arg1: integer): integer
+public static "toHexString"(arg0: integer): StringJS
+public static "decode"(arg0: StringJS): integer
+public "resolveConstantDesc"(arg0: $MethodHandles$Lookup$$Type): integer
+public "describeConstable"(): $Optional<(integer)>
+public static "parseInt"(arg0: charseq, arg1: integer, arg2: integer, arg3: integer): integer
+public static "parseInt"(arg0: StringJS): integer
+public static "parseInt"(arg0: StringJS, arg1: integer): integer
+public static "toUnsignedLong"(arg0: integer): long
+public static "sum"(arg0: integer, arg1: integer): integer
+public static "toUnsignedString"(arg0: integer, arg1: integer): StringJS
+public static "toUnsignedString"(arg0: integer): StringJS
+public static "parseUnsignedInt"(arg0: StringJS, arg1: integer): integer
+public static "parseUnsignedInt"(arg0: charseq, arg1: integer, arg2: integer, arg3: integer): integer
+public static "parseUnsignedInt"(arg0: StringJS): integer
+public static "getInteger"(arg0: StringJS, arg1: integer): integer
+public static "getInteger"(arg0: StringJS): integer
+public static "getInteger"(arg0: StringJS, arg1: integer): integer
+public static "toOctalString"(arg0: integer): StringJS
+public static "toBinaryString"(arg0: integer): StringJS
+public static "highestOneBit"(arg0: integer): integer
+public static "lowestOneBit"(arg0: integer): integer
+public static "rotateLeft"(arg0: integer, arg1: integer): integer
+public static "rotateRight"(arg0: integer, arg1: integer): integer
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Integer$$Type = ($Integer);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Integer$$Original = $Integer;}
+declare module "java.lang.StackTraceElement" {
+import {$Serializable$$Interface} from "java.io.Serializable"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $StackTraceElement implements $Serializable$$Interface {
+constructor(arg0: StringJS, arg1: StringJS, arg2: StringJS, arg3: StringJS, arg4: StringJS, arg5: StringJS, arg6: integer)
+constructor(arg0: StringJS, arg1: StringJS, arg2: StringJS, arg3: integer)
+
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "getClassName"(): StringJS
+public "isNativeMethod"(): boolean
+public "getFileName"(): StringJS
+public "getLineNumber"(): integer
+public "getModuleName"(): StringJS
+public "getModuleVersion"(): StringJS
+public "getClassLoaderName"(): StringJS
+public "getMethodName"(): StringJS
+get "className"(): StringJS
+get "nativeMethod"(): boolean
+get "fileName"(): StringJS
+get "lineNumber"(): integer
+get "moduleName"(): StringJS
+get "moduleVersion"(): StringJS
+get "classLoaderName"(): StringJS
+get "methodName"(): StringJS
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $StackTraceElement$$Type = ($StackTraceElement);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $StackTraceElement$$Original = $StackTraceElement;}
+declare module "java.lang.NamedPackage" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $NamedPackage {
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $NamedPackage$$Type = ($NamedPackage);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $NamedPackage$$Original = $NamedPackage;}
+declare module "java.lang.CharSequence" {
+import {$IntStream} from "java.util.stream.IntStream"
+
+export interface $CharSequence$$Interface {
+get "empty"(): boolean
+}
+
+export class $CharSequence implements $CharSequence$$Interface {
+ "length"(): integer
+ "toString"(): StringJS
+static "compare"(arg0: charseq, arg1: charseq): integer
+ "charAt"(arg0: integer): character
+ "isEmpty"(): boolean
+ "codePoints"(): $IntStream
+ "subSequence"(arg0: integer, arg1: integer): charseq
+ "chars"(): $IntStream
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $CharSequence$$Type = ($CharSequence);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $CharSequence$$Original = $CharSequence;}

@@ -9,16 +9,16 @@ import {$Holder, $Holder$$Type} from "net.minecraft.core.Holder"
 export class $ComputeEnchantedLootBonusEvent extends $LivingEvent {
 constructor(entity: $LivingEntity$$Type, damageSource: $DamageSource$$Type, enchantment: $Holder$$Type<($Enchantment)>, enchantmentLevel: integer)
 
-public "getDamageSource"(): $DamageSource
-public "getEnchantmentLevel"(): integer
-public "setEnchantmentLevel"(enchantmentLevel: integer): void
 public "getEnchantment"(): $Holder<($Enchantment)>
+public "getEnchantmentLevel"(): integer
 public static "onComputeEnchantedLootBonus"(enchantment: $Holder$$Type<($Enchantment)>, enchantmentLevel: integer, livingEntity: $LivingEntity$$Type, damageSource: $DamageSource$$Type): integer
 public static "onComputeEnchantedLootBonus"(enchantment: $Holder$$Type<($Enchantment)>, enchantmentLevel: integer, lootContext: $LootContext$$Type): integer
-get "damageSource"(): $DamageSource
-get "enchantmentLevel"(): integer
-set "enchantmentLevel"(value: integer)
+public "getDamageSource"(): $DamageSource
+public "setEnchantmentLevel"(enchantmentLevel: integer): void
 get "enchantment"(): $Holder<($Enchantment)>
+get "enchantmentLevel"(): integer
+get "damageSource"(): $DamageSource
+set "enchantmentLevel"(value: integer)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

@@ -21,31 +21,6 @@ export type $GameConfig$UserData$$Type = ($GameConfig$UserData);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $GameConfig$UserData$$Original = $GameConfig$UserData;}
-declare module "net.minecraft.client.main.GameConfig$QuickPlayData" {
-import {$Record} from "java.lang.Record"
-
-export class $GameConfig$QuickPlayData extends $Record {
-constructor(arg0: StringJS, arg1: StringJS, arg2: StringJS, arg3: StringJS)
-
-public "equals"(arg0: any): boolean
-public "toString"(): StringJS
-public "hashCode"(): integer
-public "isEnabled"(): boolean
-public "path"(): StringJS
-public "realms"(): StringJS
-public "singleplayer"(): StringJS
-public "multiplayer"(): StringJS
-get "enabled"(): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $GameConfig$QuickPlayData$$Type = ({"singleplayer"?: StringJS, "multiplayer"?: StringJS, "realms"?: StringJS, "path"?: StringJS}) | ([singleplayer?: StringJS, multiplayer?: StringJS, realms?: StringJS, path?: StringJS]);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $GameConfig$QuickPlayData$$Original = $GameConfig$QuickPlayData;}
 declare module "net.minecraft.client.main.GameConfig" {
 import {$DisplayData, $DisplayData$$Type} from "com.mojang.blaze3d.platform.DisplayData"
 import {$GameConfig$QuickPlayData, $GameConfig$QuickPlayData$$Type} from "net.minecraft.client.main.GameConfig$QuickPlayData"
@@ -93,6 +68,31 @@ export type $GameConfig$GameData$$Type = ($GameConfig$GameData);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $GameConfig$GameData$$Original = $GameConfig$GameData;}
+declare module "net.minecraft.client.main.GameConfig$QuickPlayData" {
+import {$Record} from "java.lang.Record"
+
+export class $GameConfig$QuickPlayData extends $Record {
+constructor(arg0: StringJS, arg1: StringJS, arg2: StringJS, arg3: StringJS)
+
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "isEnabled"(): boolean
+public "path"(): StringJS
+public "realms"(): StringJS
+public "multiplayer"(): StringJS
+public "singleplayer"(): StringJS
+get "enabled"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $GameConfig$QuickPlayData$$Type = ({"multiplayer"?: StringJS, "singleplayer"?: StringJS, "path"?: StringJS, "realms"?: StringJS}) | ([multiplayer?: StringJS, singleplayer?: StringJS, path?: StringJS, realms?: StringJS]);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $GameConfig$QuickPlayData$$Original = $GameConfig$QuickPlayData;}
 declare module "net.minecraft.client.main.GameConfig$FolderData" {
 import {$File, $File$$Type} from "java.io.File"
 import {$Path} from "java.nio.file.Path"

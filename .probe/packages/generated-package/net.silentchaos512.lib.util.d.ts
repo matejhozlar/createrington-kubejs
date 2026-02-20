@@ -1,7 +1,7 @@
 declare module "net.silentchaos512.lib.util.Color" {
 import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
-import {$FriendlyByteBuf, $FriendlyByteBuf$$Type} from "net.minecraft.network.FriendlyByteBuf"
 import {$Codec} from "com.mojang.serialization.Codec"
+import {$FriendlyByteBuf, $FriendlyByteBuf$$Type} from "net.minecraft.network.FriendlyByteBuf"
 import {$DataResult} from "com.mojang.serialization.DataResult"
 import {$JsonObject$$Type} from "com.google.gson.JsonObject"
 
@@ -159,20 +159,17 @@ static readonly "DODGERBLUE": $Color
 static readonly "GREY": $Color
 
 constructor(arg0: float, arg1: float, arg2: float, arg3: float)
-constructor(arg0: integer)
-constructor(arg0: integer, arg1: integer, arg2: integer)
-constructor(arg0: integer, arg1: integer, arg2: integer, arg3: integer)
 constructor(arg0: float, arg1: float, arg2: float)
+constructor(arg0: integer, arg1: integer, arg2: integer, arg3: integer)
+constructor(arg0: integer, arg1: integer, arg2: integer)
+constructor(arg0: integer)
 
-public "getGreenInt"(): integer
-public "getAlphaInt"(): integer
-public "getColor"(): integer
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
-public static "blend"(arg0: integer, arg1: integer, arg2: float): integer
 public static "blend"(arg0: integer, arg1: integer): integer
 public static "blend"(arg0: $Color$$Type, arg1: $Color$$Type, arg2: float): $Color
 public static "blend"(arg0: $Color$$Type, arg1: $Color$$Type): $Color
+public static "blend"(arg0: integer, arg1: integer, arg2: float): integer
 public "format"(): StringJS
 public static "format"(arg0: integer): StringJS
 public static "from"(arg0: $JsonObject$$Type, arg1: StringJS, arg2: integer): $Color
@@ -182,23 +179,26 @@ public static "read"(arg0: StringJS): $DataResult<($Color)>
 public static "read"(arg0: $FriendlyByteBuf$$Type): $Color
 public static "parseInt"(arg0: StringJS): integer
 public static "parse"(arg0: StringJS): $Color
-public "blendWith"(arg0: $Color$$Type): $Color
-public "getRedInt"(): integer
-public "getBlueInt"(): integer
-public static "tryParse"(arg0: StringJS, arg1: integer): $Color
+public "getRed"(): float
 public "getGreen"(): float
 public "getBlue"(): float
-public "getRed"(): float
 public "getAlpha"(): float
-get "greenInt"(): integer
-get "alphaInt"(): integer
-get "color"(): integer
-get "redInt"(): integer
-get "blueInt"(): integer
+public static "tryParse"(arg0: StringJS, arg1: integer): $Color
+public "getColor"(): integer
+public "blendWith"(arg0: $Color$$Type): $Color
+public "getBlueInt"(): integer
+public "getRedInt"(): integer
+public "getGreenInt"(): integer
+public "getAlphaInt"(): integer
+get "red"(): float
 get "green"(): float
 get "blue"(): float
-get "red"(): float
 get "alpha"(): float
+get "color"(): integer
+get "blueInt"(): integer
+get "redInt"(): integer
+get "greenInt"(): integer
+get "alphaInt"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

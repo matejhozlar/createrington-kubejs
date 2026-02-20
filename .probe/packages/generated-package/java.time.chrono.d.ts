@@ -2,8 +2,8 @@ declare module "java.time.chrono.Era" {
 import {$TemporalAccessor$$Interface} from "java.time.temporal.TemporalAccessor"
 import {$TextStyle$$Type} from "java.time.format.TextStyle"
 import {$ValueRange} from "java.time.temporal.ValueRange"
-import {$Locale$$Type} from "java.util.Locale"
 import {$Temporal, $Temporal$$Type} from "java.time.temporal.Temporal"
+import {$Locale$$Type} from "java.util.Locale"
 import {$TemporalAdjuster$$Interface} from "java.time.temporal.TemporalAdjuster"
 import {$TemporalQuery$$Type} from "java.time.temporal.TemporalQuery"
 import {$TemporalField$$Type} from "java.time.temporal.TemporalField"
@@ -107,11 +107,150 @@ export type $Chronology$$Type = ($Chronology);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $Chronology$$Original = $Chronology;}
+declare module "java.time.chrono.ChronoZonedDateTime" {
+import {$TemporalUnit$$Type} from "java.time.temporal.TemporalUnit"
+import {$Comparator} from "java.util.Comparator"
+import {$Comparable$$Interface} from "java.lang.Comparable"
+import {$ZoneOffset} from "java.time.ZoneOffset"
+import {$TemporalAccessor$$Type} from "java.time.temporal.TemporalAccessor"
+import {$Temporal, $Temporal$$Type, $Temporal$$Interface} from "java.time.temporal.Temporal"
+import {$ChronoLocalDate} from "java.time.chrono.ChronoLocalDate"
+import {$LocalTime} from "java.time.LocalTime"
+import {$TemporalField$$Type} from "java.time.temporal.TemporalField"
+import {$ZoneId, $ZoneId$$Type} from "java.time.ZoneId"
+import {$DateTimeFormatter$$Type} from "java.time.format.DateTimeFormatter"
+import {$TemporalAmount$$Type} from "java.time.temporal.TemporalAmount"
+import {$ValueRange} from "java.time.temporal.ValueRange"
+import {$TemporalAdjuster$$Type} from "java.time.temporal.TemporalAdjuster"
+import {$TemporalQuery$$Type} from "java.time.temporal.TemporalQuery"
+import {$Chronology} from "java.time.chrono.Chronology"
+import {$ChronoLocalDateTime} from "java.time.chrono.ChronoLocalDateTime"
+import {$Instant} from "java.time.Instant"
+
+export interface $ChronoZonedDateTime$$Interface<D extends $ChronoLocalDate> extends $Temporal$$Interface, $Comparable$$Interface<($ChronoZonedDateTime<(never)>)> {
+get "offset"(): $ZoneOffset
+get "zone"(): $ZoneId
+get "chronology"(): $Chronology
+}
+
+export class $ChronoZonedDateTime<D extends $ChronoLocalDate> implements $ChronoZonedDateTime$$Interface {
+ "withZoneSameInstant"(arg0: $ZoneId$$Type): $ChronoZonedDateTime<(D)>
+ "withZoneSameLocal"(arg0: $ZoneId$$Type): $ChronoZonedDateTime<(D)>
+ "withLaterOffsetAtOverlap"(): $ChronoZonedDateTime<(D)>
+ "get"(arg0: $TemporalField$$Type): integer
+ "equals"(arg0: any): boolean
+ "toString"(): StringJS
+ "hashCode"(): integer
+ "compareTo"(arg0: any): integer
+ "compareTo"(arg0: $ChronoZonedDateTime$$Type<(never)>): integer
+ "getLong"(arg0: $TemporalField$$Type): long
+ "format"(arg0: $DateTimeFormatter$$Type): StringJS
+static "from"(arg0: $TemporalAccessor$$Type): $ChronoZonedDateTime<(never)>
+ "isSupported"(arg0: $TemporalField$$Type): boolean
+ "isSupported"(arg0: $TemporalUnit$$Type): boolean
+ "with"(arg0: $TemporalAdjuster$$Type): $Temporal
+ "with"(arg0: $TemporalField$$Type, arg1: long): $Temporal
+ "query"<R>(arg0: $TemporalQuery$$Type<(R)>): R
+ "getOffset"(): $ZoneOffset
+ "range"(arg0: $TemporalField$$Type): $ValueRange
+ "toInstant"(): $Instant
+ "minus"(arg0: $TemporalAmount$$Type): $Temporal
+ "minus"(arg0: long, arg1: $TemporalUnit$$Type): $Temporal
+ "getZone"(): $ZoneId
+ "plus"(arg0: long, arg1: $TemporalUnit$$Type): $Temporal
+ "plus"(arg0: $TemporalAmount$$Type): $ChronoZonedDateTime<(D)>
+ "isAfter"(arg0: $ChronoZonedDateTime$$Type<(never)>): boolean
+ "isBefore"(arg0: $ChronoZonedDateTime$$Type<(never)>): boolean
+ "toLocalTime"(): $LocalTime
+ "isEqual"(arg0: $ChronoZonedDateTime$$Type<(never)>): boolean
+ "getChronology"(): $Chronology
+ "toEpochSecond"(): long
+static "timeLineOrder"(): $Comparator<($ChronoZonedDateTime<(never)>)>
+ "toLocalDateTime"(): $ChronoLocalDateTime<(D)>
+ "toLocalDate"(): D
+ "withEarlierOffsetAtOverlap"(): $ChronoZonedDateTime<(D)>
+ "until"(arg0: $Temporal$$Type, arg1: $TemporalUnit$$Type): long
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ChronoZonedDateTime$$Type<D> = ($ChronoZonedDateTime<(D)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ChronoZonedDateTime$$Original<D> = $ChronoZonedDateTime<(D)>;}
+declare module "java.time.chrono.ChronoLocalDateTime" {
+import {$TemporalUnit$$Type} from "java.time.temporal.TemporalUnit"
+import {$Comparator} from "java.util.Comparator"
+import {$Comparable$$Interface} from "java.lang.Comparable"
+import {$ZoneOffset$$Type} from "java.time.ZoneOffset"
+import {$TemporalAccessor$$Type} from "java.time.temporal.TemporalAccessor"
+import {$ChronoZonedDateTime} from "java.time.chrono.ChronoZonedDateTime"
+import {$Temporal, $Temporal$$Type, $Temporal$$Interface} from "java.time.temporal.Temporal"
+import {$ChronoLocalDate} from "java.time.chrono.ChronoLocalDate"
+import {$LocalTime} from "java.time.LocalTime"
+import {$TemporalField$$Type} from "java.time.temporal.TemporalField"
+import {$ZoneId$$Type} from "java.time.ZoneId"
+import {$DateTimeFormatter$$Type} from "java.time.format.DateTimeFormatter"
+import {$TemporalAmount$$Type} from "java.time.temporal.TemporalAmount"
+import {$ValueRange} from "java.time.temporal.ValueRange"
+import {$TemporalAdjuster$$Type, $TemporalAdjuster$$Interface} from "java.time.temporal.TemporalAdjuster"
+import {$TemporalQuery$$Type} from "java.time.temporal.TemporalQuery"
+import {$Chronology} from "java.time.chrono.Chronology"
+import {$Instant} from "java.time.Instant"
+
+export interface $ChronoLocalDateTime$$Interface<D extends $ChronoLocalDate> extends $Temporal$$Interface, $TemporalAdjuster$$Interface, $Comparable$$Interface<($ChronoLocalDateTime<(never)>)> {
+get "chronology"(): $Chronology
+}
+
+export class $ChronoLocalDateTime<D extends $ChronoLocalDate> implements $ChronoLocalDateTime$$Interface {
+ "equals"(arg0: any): boolean
+ "toString"(): StringJS
+ "hashCode"(): integer
+ "compareTo"(arg0: any): integer
+ "compareTo"(arg0: $ChronoLocalDateTime$$Type<(never)>): integer
+ "format"(arg0: $DateTimeFormatter$$Type): StringJS
+static "from"(arg0: $TemporalAccessor$$Type): $ChronoLocalDateTime<(never)>
+ "isSupported"(arg0: $TemporalField$$Type): boolean
+ "isSupported"(arg0: $TemporalUnit$$Type): boolean
+ "with"(arg0: $TemporalAdjuster$$Type): $Temporal
+ "with"(arg0: $TemporalField$$Type, arg1: long): $Temporal
+ "query"<R>(arg0: $TemporalQuery$$Type<(R)>): R
+ "toInstant"(arg0: $ZoneOffset$$Type): $Instant
+ "minus"(arg0: $TemporalAmount$$Type): $ChronoLocalDateTime<(D)>
+ "minus"(arg0: long, arg1: $TemporalUnit$$Type): $ChronoLocalDateTime<(D)>
+ "plus"(arg0: long, arg1: $TemporalUnit$$Type): $ChronoLocalDateTime<(D)>
+ "plus"(arg0: $TemporalAmount$$Type): $ChronoLocalDateTime<(D)>
+ "adjustInto"(arg0: $Temporal$$Type): $Temporal
+ "atZone"(arg0: $ZoneId$$Type): $ChronoZonedDateTime<(D)>
+ "isAfter"(arg0: $ChronoLocalDateTime$$Type<(never)>): boolean
+ "isBefore"(arg0: $ChronoLocalDateTime$$Type<(never)>): boolean
+ "toLocalTime"(): $LocalTime
+ "isEqual"(arg0: $ChronoLocalDateTime$$Type<(never)>): boolean
+ "getChronology"(): $Chronology
+ "toEpochSecond"(arg0: $ZoneOffset$$Type): long
+static "timeLineOrder"(): $Comparator<($ChronoLocalDateTime<(never)>)>
+ "toLocalDate"(): D
+ "until"(arg0: $Temporal$$Type, arg1: $TemporalUnit$$Type): long
+ "get"(arg0: $TemporalField$$Type): integer
+ "getLong"(arg0: $TemporalField$$Type): long
+ "range"(arg0: $TemporalField$$Type): $ValueRange
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ChronoLocalDateTime$$Type<D> = ($ChronoLocalDateTime<(D)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ChronoLocalDateTime$$Original<D> = $ChronoLocalDateTime<(D)>;}
 declare module "java.time.chrono.ChronoLocalDate" {
 import {$Era} from "java.time.chrono.Era"
 import {$TemporalUnit$$Type} from "java.time.temporal.TemporalUnit"
-import {$Comparable$$Interface} from "java.lang.Comparable"
 import {$Comparator} from "java.util.Comparator"
+import {$Comparable$$Interface} from "java.lang.Comparable"
 import {$TemporalAccessor$$Type} from "java.time.temporal.TemporalAccessor"
 import {$Temporal, $Temporal$$Type, $Temporal$$Interface} from "java.time.temporal.Temporal"
 import {$LocalTime$$Type} from "java.time.LocalTime"
@@ -120,8 +259,8 @@ import {$TemporalField$$Type} from "java.time.temporal.TemporalField"
 import {$DateTimeFormatter$$Type} from "java.time.format.DateTimeFormatter"
 import {$TemporalAmount$$Type} from "java.time.temporal.TemporalAmount"
 import {$ValueRange} from "java.time.temporal.ValueRange"
-import {$TemporalQuery$$Type} from "java.time.temporal.TemporalQuery"
 import {$TemporalAdjuster$$Type, $TemporalAdjuster$$Interface} from "java.time.temporal.TemporalAdjuster"
+import {$TemporalQuery$$Type} from "java.time.temporal.TemporalQuery"
 import {$Chronology} from "java.time.chrono.Chronology"
 import {$ChronoLocalDateTime} from "java.time.chrono.ChronoLocalDateTime"
 
@@ -175,145 +314,6 @@ export type $ChronoLocalDate$$Type = ($ChronoLocalDate);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ChronoLocalDate$$Original = $ChronoLocalDate;}
-declare module "java.time.chrono.ChronoZonedDateTime" {
-import {$TemporalUnit$$Type} from "java.time.temporal.TemporalUnit"
-import {$Comparable$$Interface} from "java.lang.Comparable"
-import {$Comparator} from "java.util.Comparator"
-import {$ZoneOffset} from "java.time.ZoneOffset"
-import {$TemporalAccessor$$Type} from "java.time.temporal.TemporalAccessor"
-import {$Temporal, $Temporal$$Type, $Temporal$$Interface} from "java.time.temporal.Temporal"
-import {$ChronoLocalDate} from "java.time.chrono.ChronoLocalDate"
-import {$LocalTime} from "java.time.LocalTime"
-import {$TemporalField$$Type} from "java.time.temporal.TemporalField"
-import {$ZoneId, $ZoneId$$Type} from "java.time.ZoneId"
-import {$DateTimeFormatter$$Type} from "java.time.format.DateTimeFormatter"
-import {$TemporalAmount$$Type} from "java.time.temporal.TemporalAmount"
-import {$ValueRange} from "java.time.temporal.ValueRange"
-import {$TemporalQuery$$Type} from "java.time.temporal.TemporalQuery"
-import {$TemporalAdjuster$$Type} from "java.time.temporal.TemporalAdjuster"
-import {$Chronology} from "java.time.chrono.Chronology"
-import {$ChronoLocalDateTime} from "java.time.chrono.ChronoLocalDateTime"
-import {$Instant} from "java.time.Instant"
-
-export interface $ChronoZonedDateTime$$Interface<D extends $ChronoLocalDate> extends $Temporal$$Interface, $Comparable$$Interface<($ChronoZonedDateTime<(never)>)> {
-get "offset"(): $ZoneOffset
-get "zone"(): $ZoneId
-get "chronology"(): $Chronology
-}
-
-export class $ChronoZonedDateTime<D extends $ChronoLocalDate> implements $ChronoZonedDateTime$$Interface {
- "get"(arg0: $TemporalField$$Type): integer
- "equals"(arg0: any): boolean
- "toString"(): StringJS
- "hashCode"(): integer
- "compareTo"(arg0: $ChronoZonedDateTime$$Type<(never)>): integer
- "compareTo"(arg0: any): integer
- "getLong"(arg0: $TemporalField$$Type): long
- "format"(arg0: $DateTimeFormatter$$Type): StringJS
-static "from"(arg0: $TemporalAccessor$$Type): $ChronoZonedDateTime<(never)>
- "isSupported"(arg0: $TemporalField$$Type): boolean
- "isSupported"(arg0: $TemporalUnit$$Type): boolean
- "with"(arg0: $TemporalField$$Type, arg1: long): $Temporal
- "with"(arg0: $TemporalAdjuster$$Type): $ChronoZonedDateTime<(D)>
- "query"<R>(arg0: $TemporalQuery$$Type<(R)>): R
- "getOffset"(): $ZoneOffset
- "range"(arg0: $TemporalField$$Type): $ValueRange
- "toInstant"(): $Instant
- "minus"(arg0: long, arg1: $TemporalUnit$$Type): $Temporal
- "minus"(arg0: $TemporalAmount$$Type): $Temporal
- "getZone"(): $ZoneId
- "plus"(arg0: $TemporalAmount$$Type): $Temporal
- "plus"(arg0: long, arg1: $TemporalUnit$$Type): $Temporal
- "isAfter"(arg0: $ChronoZonedDateTime$$Type<(never)>): boolean
- "isBefore"(arg0: $ChronoZonedDateTime$$Type<(never)>): boolean
- "toLocalTime"(): $LocalTime
- "isEqual"(arg0: $ChronoZonedDateTime$$Type<(never)>): boolean
- "getChronology"(): $Chronology
- "toEpochSecond"(): long
-static "timeLineOrder"(): $Comparator<($ChronoZonedDateTime<(never)>)>
- "toLocalDateTime"(): $ChronoLocalDateTime<(D)>
- "toLocalDate"(): D
- "withEarlierOffsetAtOverlap"(): $ChronoZonedDateTime<(D)>
- "withZoneSameInstant"(arg0: $ZoneId$$Type): $ChronoZonedDateTime<(D)>
- "withZoneSameLocal"(arg0: $ZoneId$$Type): $ChronoZonedDateTime<(D)>
- "withLaterOffsetAtOverlap"(): $ChronoZonedDateTime<(D)>
- "until"(arg0: $Temporal$$Type, arg1: $TemporalUnit$$Type): long
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ChronoZonedDateTime$$Type<D> = ($ChronoZonedDateTime<(D)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ChronoZonedDateTime$$Original<D> = $ChronoZonedDateTime<(D)>;}
-declare module "java.time.chrono.ChronoLocalDateTime" {
-import {$TemporalUnit$$Type} from "java.time.temporal.TemporalUnit"
-import {$Comparable$$Interface} from "java.lang.Comparable"
-import {$Comparator} from "java.util.Comparator"
-import {$ZoneOffset$$Type} from "java.time.ZoneOffset"
-import {$TemporalAccessor$$Type} from "java.time.temporal.TemporalAccessor"
-import {$ChronoZonedDateTime} from "java.time.chrono.ChronoZonedDateTime"
-import {$Temporal, $Temporal$$Type, $Temporal$$Interface} from "java.time.temporal.Temporal"
-import {$ChronoLocalDate} from "java.time.chrono.ChronoLocalDate"
-import {$LocalTime} from "java.time.LocalTime"
-import {$TemporalField$$Type} from "java.time.temporal.TemporalField"
-import {$ZoneId$$Type} from "java.time.ZoneId"
-import {$DateTimeFormatter$$Type} from "java.time.format.DateTimeFormatter"
-import {$TemporalAmount$$Type} from "java.time.temporal.TemporalAmount"
-import {$ValueRange} from "java.time.temporal.ValueRange"
-import {$TemporalQuery$$Type} from "java.time.temporal.TemporalQuery"
-import {$TemporalAdjuster$$Type, $TemporalAdjuster$$Interface} from "java.time.temporal.TemporalAdjuster"
-import {$Chronology} from "java.time.chrono.Chronology"
-import {$Instant} from "java.time.Instant"
-
-export interface $ChronoLocalDateTime$$Interface<D extends $ChronoLocalDate> extends $Temporal$$Interface, $TemporalAdjuster$$Interface, $Comparable$$Interface<($ChronoLocalDateTime<(never)>)> {
-get "chronology"(): $Chronology
-}
-
-export class $ChronoLocalDateTime<D extends $ChronoLocalDate> implements $ChronoLocalDateTime$$Interface {
- "equals"(arg0: any): boolean
- "toString"(): StringJS
- "hashCode"(): integer
- "compareTo"(arg0: any): integer
- "compareTo"(arg0: $ChronoLocalDateTime$$Type<(never)>): integer
- "format"(arg0: $DateTimeFormatter$$Type): StringJS
-static "from"(arg0: $TemporalAccessor$$Type): $ChronoLocalDateTime<(never)>
- "isSupported"(arg0: $TemporalField$$Type): boolean
- "isSupported"(arg0: $TemporalUnit$$Type): boolean
- "with"(arg0: $TemporalAdjuster$$Type): $Temporal
- "with"(arg0: $TemporalField$$Type, arg1: long): $Temporal
- "query"<R>(arg0: $TemporalQuery$$Type<(R)>): R
- "toInstant"(arg0: $ZoneOffset$$Type): $Instant
- "minus"(arg0: $TemporalAmount$$Type): $ChronoLocalDateTime<(D)>
- "minus"(arg0: long, arg1: $TemporalUnit$$Type): $ChronoLocalDateTime<(D)>
- "plus"(arg0: long, arg1: $TemporalUnit$$Type): $ChronoLocalDateTime<(D)>
- "plus"(arg0: $TemporalAmount$$Type): $ChronoLocalDateTime<(D)>
- "adjustInto"(arg0: $Temporal$$Type): $Temporal
- "atZone"(arg0: $ZoneId$$Type): $ChronoZonedDateTime<(D)>
- "isAfter"(arg0: $ChronoLocalDateTime$$Type<(never)>): boolean
- "isBefore"(arg0: $ChronoLocalDateTime$$Type<(never)>): boolean
- "toLocalTime"(): $LocalTime
- "isEqual"(arg0: $ChronoLocalDateTime$$Type<(never)>): boolean
- "getChronology"(): $Chronology
- "toEpochSecond"(arg0: $ZoneOffset$$Type): long
-static "timeLineOrder"(): $Comparator<($ChronoLocalDateTime<(never)>)>
- "toLocalDate"(): D
- "until"(arg0: $Temporal$$Type, arg1: $TemporalUnit$$Type): long
- "get"(arg0: $TemporalField$$Type): integer
- "getLong"(arg0: $TemporalField$$Type): long
- "range"(arg0: $TemporalField$$Type): $ValueRange
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ChronoLocalDateTime$$Type<D> = ($ChronoLocalDateTime<(D)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ChronoLocalDateTime$$Original<D> = $ChronoLocalDateTime<(D)>;}
 declare module "java.time.chrono.ChronoPeriod" {
 import {$TemporalUnit, $TemporalUnit$$Type} from "java.time.temporal.TemporalUnit"
 import {$List} from "java.util.List"

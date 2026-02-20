@@ -79,14 +79,92 @@ export type $TemporalAmount$$Type = (StringJS) | (number);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $TemporalAmount$$Original = $TemporalAmount;}
+declare module "java.time.temporal.ChronoUnit" {
+import {$TemporalUnit$$Interface} from "java.time.temporal.TemporalUnit"
+import {$Enum} from "java.lang.Enum"
+import {$Duration} from "java.time.Duration"
+import {$Temporal, $Temporal$$Type} from "java.time.temporal.Temporal"
+
+export class $ChronoUnit extends $Enum<($ChronoUnit)> implements $TemporalUnit$$Interface {
+static readonly "FOREVER": $ChronoUnit
+static readonly "MICROS": $ChronoUnit
+static readonly "SECONDS": $ChronoUnit
+static readonly "DECADES": $ChronoUnit
+static readonly "MILLENNIA": $ChronoUnit
+static readonly "DAYS": $ChronoUnit
+static readonly "MILLIS": $ChronoUnit
+static readonly "HALF_DAYS": $ChronoUnit
+static readonly "MONTHS": $ChronoUnit
+static readonly "YEARS": $ChronoUnit
+static readonly "HOURS": $ChronoUnit
+static readonly "WEEKS": $ChronoUnit
+static readonly "NANOS": $ChronoUnit
+static readonly "CENTURIES": $ChronoUnit
+static readonly "MINUTES": $ChronoUnit
+static readonly "ERAS": $ChronoUnit
+
+public "toString"(): StringJS
+public static "values"(): ($ChronoUnit)[]
+public static "valueOf"(arg0: StringJS): $ChronoUnit
+public "between"(arg0: $Temporal$$Type, arg1: $Temporal$$Type): long
+public "isDurationEstimated"(): boolean
+public "getDuration"(): $Duration
+public "addTo"<R extends $Temporal>(arg0: R, arg1: long): R
+public "isSupportedBy"(arg0: $Temporal$$Type): boolean
+public "isTimeBased"(): boolean
+public "isDateBased"(): boolean
+get "durationEstimated"(): boolean
+get "duration"(): $Duration
+get "timeBased"(): boolean
+get "dateBased"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ChronoUnit$$Type = (("nanos") | ("micros") | ("millis") | ("seconds") | ("minutes") | ("hours") | ("half_days") | ("days") | ("weeks") | ("months") | ("years") | ("decades") | ("centuries") | ("millennia") | ("eras") | ("forever"));
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ChronoUnit$$Original = $ChronoUnit;}
+declare module "java.time.temporal.TemporalUnit" {
+import {$Duration} from "java.time.Duration"
+import {$Temporal, $Temporal$$Type} from "java.time.temporal.Temporal"
+
+export interface $TemporalUnit$$Interface {
+get "durationEstimated"(): boolean
+get "duration"(): $Duration
+get "timeBased"(): boolean
+get "dateBased"(): boolean
+}
+
+export class $TemporalUnit implements $TemporalUnit$$Interface {
+ "toString"(): StringJS
+ "between"(arg0: $Temporal$$Type, arg1: $Temporal$$Type): long
+ "isDurationEstimated"(): boolean
+ "getDuration"(): $Duration
+ "addTo"<R extends $Temporal>(arg0: R, arg1: long): R
+ "isSupportedBy"(arg0: $Temporal$$Type): boolean
+ "isTimeBased"(): boolean
+ "isDateBased"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $TemporalUnit$$Type = ($TemporalUnit);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $TemporalUnit$$Original = $TemporalUnit;}
 declare module "java.time.temporal.TemporalField" {
 import {$ResolverStyle$$Type} from "java.time.format.ResolverStyle"
 import {$Map$$Type} from "java.util.Map"
 import {$TemporalUnit} from "java.time.temporal.TemporalUnit"
 import {$TemporalAccessor, $TemporalAccessor$$Type} from "java.time.temporal.TemporalAccessor"
 import {$ValueRange} from "java.time.temporal.ValueRange"
-import {$Locale$$Type} from "java.util.Locale"
 import {$Temporal, $Temporal$$Type} from "java.time.temporal.Temporal"
+import {$Locale$$Type} from "java.util.Locale"
 
 export interface $TemporalField$$Interface {
 get "timeBased"(): boolean
@@ -142,54 +220,6 @@ export type $TemporalAccessor$$Type = ($TemporalAccessor);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $TemporalAccessor$$Original = $TemporalAccessor;}
-declare module "java.time.temporal.ChronoUnit" {
-import {$TemporalUnit$$Interface} from "java.time.temporal.TemporalUnit"
-import {$Enum} from "java.lang.Enum"
-import {$Duration} from "java.time.Duration"
-import {$Temporal, $Temporal$$Type} from "java.time.temporal.Temporal"
-
-export class $ChronoUnit extends $Enum<($ChronoUnit)> implements $TemporalUnit$$Interface {
-static readonly "FOREVER": $ChronoUnit
-static readonly "MICROS": $ChronoUnit
-static readonly "SECONDS": $ChronoUnit
-static readonly "DECADES": $ChronoUnit
-static readonly "MILLENNIA": $ChronoUnit
-static readonly "DAYS": $ChronoUnit
-static readonly "MILLIS": $ChronoUnit
-static readonly "HALF_DAYS": $ChronoUnit
-static readonly "MONTHS": $ChronoUnit
-static readonly "YEARS": $ChronoUnit
-static readonly "HOURS": $ChronoUnit
-static readonly "WEEKS": $ChronoUnit
-static readonly "NANOS": $ChronoUnit
-static readonly "CENTURIES": $ChronoUnit
-static readonly "MINUTES": $ChronoUnit
-static readonly "ERAS": $ChronoUnit
-
-public "toString"(): StringJS
-public static "values"(): ($ChronoUnit)[]
-public static "valueOf"(arg0: StringJS): $ChronoUnit
-public "between"(arg0: $Temporal$$Type, arg1: $Temporal$$Type): long
-public "isDurationEstimated"(): boolean
-public "getDuration"(): $Duration
-public "addTo"<R extends $Temporal>(arg0: R, arg1: long): R
-public "isSupportedBy"(arg0: $Temporal$$Type): boolean
-public "isTimeBased"(): boolean
-public "isDateBased"(): boolean
-get "durationEstimated"(): boolean
-get "duration"(): $Duration
-get "timeBased"(): boolean
-get "dateBased"(): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ChronoUnit$$Type = (("nanos") | ("micros") | ("millis") | ("seconds") | ("minutes") | ("hours") | ("half_days") | ("days") | ("weeks") | ("months") | ("years") | ("decades") | ("centuries") | ("millennia") | ("eras") | ("forever"));
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ChronoUnit$$Original = $ChronoUnit;}
 declare module "java.time.temporal.TemporalQuery" {
 import {$TemporalAccessor, $TemporalAccessor$$Type} from "java.time.temporal.TemporalAccessor"
 
@@ -215,8 +245,8 @@ import {$TemporalUnit$$Type} from "java.time.temporal.TemporalUnit"
 import {$TemporalAccessor$$Interface} from "java.time.temporal.TemporalAccessor"
 import {$TemporalAmount$$Type} from "java.time.temporal.TemporalAmount"
 import {$ValueRange} from "java.time.temporal.ValueRange"
-import {$TemporalQuery$$Type} from "java.time.temporal.TemporalQuery"
 import {$TemporalAdjuster$$Type} from "java.time.temporal.TemporalAdjuster"
+import {$TemporalQuery$$Type} from "java.time.temporal.TemporalQuery"
 import {$TemporalField$$Type} from "java.time.temporal.TemporalField"
 
 export interface $Temporal$$Interface extends $TemporalAccessor$$Interface {
@@ -246,45 +276,15 @@ export type $Temporal$$Type = ($Temporal);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $Temporal$$Original = $Temporal;}
-declare module "java.time.temporal.TemporalUnit" {
-import {$Duration} from "java.time.Duration"
-import {$Temporal, $Temporal$$Type} from "java.time.temporal.Temporal"
-
-export interface $TemporalUnit$$Interface {
-get "durationEstimated"(): boolean
-get "duration"(): $Duration
-get "timeBased"(): boolean
-get "dateBased"(): boolean
-}
-
-export class $TemporalUnit implements $TemporalUnit$$Interface {
- "toString"(): StringJS
- "between"(arg0: $Temporal$$Type, arg1: $Temporal$$Type): long
- "isDurationEstimated"(): boolean
- "getDuration"(): $Duration
- "addTo"<R extends $Temporal>(arg0: R, arg1: long): R
- "isSupportedBy"(arg0: $Temporal$$Type): boolean
- "isTimeBased"(): boolean
- "isDateBased"(): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $TemporalUnit$$Type = ($TemporalUnit);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $TemporalUnit$$Original = $TemporalUnit;}
 declare module "java.time.temporal.ChronoField" {
 import {$ResolverStyle$$Type} from "java.time.format.ResolverStyle"
 import {$Map$$Type} from "java.util.Map"
-import {$TemporalUnit} from "java.time.temporal.TemporalUnit"
 import {$Enum} from "java.lang.Enum"
+import {$TemporalUnit} from "java.time.temporal.TemporalUnit"
 import {$TemporalAccessor, $TemporalAccessor$$Type} from "java.time.temporal.TemporalAccessor"
-import {$Temporal, $Temporal$$Type} from "java.time.temporal.Temporal"
-import {$ValueRange} from "java.time.temporal.ValueRange"
 import {$Locale$$Type} from "java.util.Locale"
+import {$ValueRange} from "java.time.temporal.ValueRange"
+import {$Temporal, $Temporal$$Type} from "java.time.temporal.Temporal"
 import {$TemporalField$$Type, $TemporalField$$Interface} from "java.time.temporal.TemporalField"
 
 export class $ChronoField extends $Enum<($ChronoField)> implements $TemporalField$$Interface {

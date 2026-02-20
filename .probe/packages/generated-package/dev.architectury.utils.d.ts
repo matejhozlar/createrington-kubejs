@@ -17,8 +17,8 @@ export class $OptionalSupplier<T> implements $OptionalSupplier$$Interface {
  "ifPresent"(action: $Consumer$$Type<(T)>): void
  "ifPresentOrElse"(action: $Consumer$$Type<(T)>, emptyAction: $Runnable$$Type): void
  "orElseGet"(supplier: $Supplier$$Type<(T)>): T
- "toOptional"(): $Optional<(T)>
  "getOrNull"(): T
+ "toOptional"(): $Optional<(T)>
  "get"(): T
 }
 /**

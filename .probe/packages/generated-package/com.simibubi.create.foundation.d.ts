@@ -1,3 +1,314 @@
+declare module "com.simibubi.create.foundation.mixin.accessor.LevelRendererAccessor" {
+import {$Frustum} from "net.minecraft.client.renderer.culling.Frustum"
+
+export interface $LevelRendererAccessor$$Interface {
+}
+
+export class $LevelRendererAccessor implements $LevelRendererAccessor$$Interface {
+ "create$getCullingFrustum"(): $Frustum
+ "create$getCapturedFrustum"(): $Frustum
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $LevelRendererAccessor$$Type = ($LevelRendererAccessor);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $LevelRendererAccessor$$Original = $LevelRendererAccessor;}
+declare module "com.simibubi.create.foundation.block.render.BlockDestructionProgressExtension" {
+import {$Set, $Set$$Type} from "java.util.Set"
+import {$BlockPos, $BlockPos$$Type} from "net.minecraft.core.BlockPos"
+
+export interface $BlockDestructionProgressExtension$$Interface {
+}
+
+export class $BlockDestructionProgressExtension implements $BlockDestructionProgressExtension$$Interface {
+ "create$setExtraPositions"(arg0: $Set$$Type<($BlockPos$$Type)>): void
+ "create$getExtraPositions"(): $Set<($BlockPos)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $BlockDestructionProgressExtension$$Type = ($BlockDestructionProgressExtension);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $BlockDestructionProgressExtension$$Original = $BlockDestructionProgressExtension;}
+declare module "com.simibubi.create.foundation.mixin.accessor.AgeableListModelAccessor" {
+import {$Iterable} from "java.lang.Iterable"
+import {$ModelPart} from "net.minecraft.client.model.geom.ModelPart"
+
+export interface $AgeableListModelAccessor$$Interface {
+}
+
+export class $AgeableListModelAccessor implements $AgeableListModelAccessor$$Interface {
+ "create$callHeadParts"(): $Iterable<($ModelPart)>
+ "create$callBodyParts"(): $Iterable<($ModelPart)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $AgeableListModelAccessor$$Type = ($AgeableListModelAccessor);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $AgeableListModelAccessor$$Original = $AgeableListModelAccessor;}
+declare module "com.simibubi.create.foundation.mixin.accessor.PotionBrewingAccessor" {
+import {$Potion} from "net.minecraft.world.item.alchemy.Potion"
+import {$PotionBrewing$Mix} from "net.minecraft.world.item.alchemy.PotionBrewing$Mix"
+import {$ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
+import {$List} from "java.util.List"
+import {$Item} from "net.minecraft.world.item.Item"
+
+export interface $PotionBrewingAccessor$$Interface {
+}
+
+export class $PotionBrewingAccessor implements $PotionBrewingAccessor$$Interface {
+ "create$isContainer"(arg0: $ItemStack$$Type): boolean
+ "create$getContainerMixes"(): $List<($PotionBrewing$Mix<($Item)>)>
+ "create$getPotionMixes"(): $List<($PotionBrewing$Mix<($Potion)>)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $PotionBrewingAccessor$$Type = ($PotionBrewingAccessor);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $PotionBrewingAccessor$$Original = $PotionBrewingAccessor;}
+declare module "com.simibubi.create.foundation.mixin.accessor.FontAccessor" {
+import {$FontSet, $FontSet$$Type} from "net.minecraft.client.gui.font.FontSet"
+import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
+import {$Function, $Function$$Type} from "java.util.function.Function"
+
+export interface $FontAccessor$$Interface {
+
+(): $Function$$Type<($ResourceLocation$$Type), ($FontSet$$Type)>
+}
+
+export class $FontAccessor implements $FontAccessor$$Interface {
+ "create$getFonts"(): $Function<($ResourceLocation), ($FontSet)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $FontAccessor$$Type = (() => $Function$$Type<($ResourceLocation$$Type), ($FontSet$$Type)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $FontAccessor$$Original = $FontAccessor;}
+declare module "com.simibubi.create.foundation.mixin.accessor.GuiAccessor" {
+import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
+import {$GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
+import {$SubtitleOverlay} from "net.minecraft.client.gui.components.SubtitleOverlay"
+
+export interface $GuiAccessor$$Interface {
+}
+
+export class $GuiAccessor implements $GuiAccessor$$Interface {
+ "create$getSubtitleOverlay"(): $SubtitleOverlay
+ "create$getToolHighlightTimer"(): integer
+ "create$renderTextureOverlay"(arg0: $GuiGraphics$$Type, arg1: $ResourceLocation$$Type, arg2: float): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $GuiAccessor$$Type = ($GuiAccessor);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $GuiAccessor$$Original = $GuiAccessor;}
+declare module "com.simibubi.create.foundation.mixin.accessor.NbtAccounterAccessor" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export interface $NbtAccounterAccessor$$Interface {
+
+(): long
+}
+
+export class $NbtAccounterAccessor implements $NbtAccounterAccessor$$Interface {
+ "create$getUsage"(): long
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $NbtAccounterAccessor$$Type = (() => long);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $NbtAccounterAccessor$$Original = $NbtAccounterAccessor;}
+declare module "com.simibubi.create.foundation.blockEntity.SyncedBlockEntity" {
+import {$CompoundTag, $CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
+import {$Block} from "net.minecraft.world.level.block.Block"
+import {$Level} from "net.minecraft.world.level.Level"
+import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
+import {$HolderGetter} from "net.minecraft.core.HolderGetter"
+import {$BlockEntityType$$Type} from "net.minecraft.world.level.block.entity.BlockEntityType"
+import {$Packet} from "net.minecraft.network.protocol.Packet"
+import {$ClientboundBlockEntityDataPacket$$Type} from "net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket"
+import {$BlockPos, $BlockPos$$Type} from "net.minecraft.core.BlockPos"
+import {$BlockEntity} from "net.minecraft.world.level.block.entity.BlockEntity"
+import {$Connection$$Type} from "net.minecraft.network.Connection"
+import {$BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
+
+export class $SyncedBlockEntity extends $BlockEntity {
+ "worldPosition": $BlockPos
+ "level": $Level
+static readonly "ATTACHMENTS_NBT_KEY": StringJS
+ "hasComparators": byte
+ "remove": boolean
+
+constructor(arg0: $BlockEntityType$$Type<(never)>, arg1: $BlockPos$$Type, arg2: $BlockState$$Type)
+
+public "handleUpdateTag"(arg0: $CompoundTag$$Type, arg1: $HolderLookup$Provider$$Type): void
+public "onDataPacket"(arg0: $Connection$$Type, arg1: $ClientboundBlockEntityDataPacket$$Type, arg2: $HolderLookup$Provider$$Type): void
+public "getUpdateTag"(arg0: $HolderLookup$Provider$$Type): $CompoundTag
+public "notifyUpdate"(): void
+public "getUpdatePacket"(): $Packet
+public "readClient"(arg0: $CompoundTag$$Type, arg1: $HolderLookup$Provider$$Type): void
+public "sendData"(): void
+public "blockHolderGetter"(): $HolderGetter<($Block)>
+public "writeClient"(arg0: $CompoundTag$$Type, arg1: $HolderLookup$Provider$$Type): $CompoundTag
+get "updatePacket"(): $Packet
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $SyncedBlockEntity$$Type = ($SyncedBlockEntity);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $SyncedBlockEntity$$Original = $SyncedBlockEntity;}
+declare module "com.simibubi.create.foundation.blockEntity.CachedRenderBBBlockEntity" {
+import {$SyncedBlockEntity} from "com.simibubi.create.foundation.blockEntity.SyncedBlockEntity"
+import {$BlockEntityType$$Type} from "net.minecraft.world.level.block.entity.BlockEntityType"
+import {$Level} from "net.minecraft.world.level.Level"
+import {$Packet} from "net.minecraft.network.protocol.Packet"
+import {$BlockPos, $BlockPos$$Type} from "net.minecraft.core.BlockPos"
+import {$AABB} from "net.minecraft.world.phys.AABB"
+import {$BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
+
+export class $CachedRenderBBBlockEntity extends $SyncedBlockEntity {
+ "worldPosition": $BlockPos
+ "level": $Level
+static readonly "ATTACHMENTS_NBT_KEY": StringJS
+ "hasComparators": byte
+ "remove": boolean
+
+constructor(arg0: $BlockEntityType$$Type<(never)>, arg1: $BlockPos$$Type, arg2: $BlockState$$Type)
+
+public "getRenderBoundingBox"(): $AABB
+public "getUpdatePacket"(): $Packet
+get "renderBoundingBox"(): $AABB
+get "updatePacket"(): $Packet
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $CachedRenderBBBlockEntity$$Type = ($CachedRenderBBBlockEntity);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $CachedRenderBBBlockEntity$$Original = $CachedRenderBBBlockEntity;}
+declare module "com.simibubi.create.foundation.mixin.accessor.ItemStackHandlerAccessor" {
+import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
+import {$NonNullList, $NonNullList$$Type} from "net.minecraft.core.NonNullList"
+
+export interface $ItemStackHandlerAccessor$$Interface {
+
+(): $NonNullList$$Type<($ItemStack$$Type)>
+}
+
+export class $ItemStackHandlerAccessor implements $ItemStackHandlerAccessor$$Interface {
+ "create$getStacks"(): $NonNullList<($ItemStack)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ItemStackHandlerAccessor$$Type = (() => $NonNullList$$Type<($ItemStack$$Type)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ItemStackHandlerAccessor$$Original = $ItemStackHandlerAccessor;}
+declare module "com.simibubi.create.foundation.block.IHaveBigOutline" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export interface $IHaveBigOutline$$Interface {
+}
+
+export class $IHaveBigOutline implements $IHaveBigOutline$$Interface {
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $IHaveBigOutline$$Type = ($IHaveBigOutline);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $IHaveBigOutline$$Original = $IHaveBigOutline;}
+declare module "com.simibubi.create.foundation.advancement.CreateAdvancement$Builder" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export class $CreateAdvancement$Builder {
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $CreateAdvancement$Builder$$Type = ($CreateAdvancement$Builder);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $CreateAdvancement$Builder$$Original = $CreateAdvancement$Builder;}
+declare module "com.simibubi.create.foundation.mixin.accessor.UseOnContextAccessor" {
+import {$BlockHitResult, $BlockHitResult$$Type} from "net.minecraft.world.phys.BlockHitResult"
+
+export interface $UseOnContextAccessor$$Interface {
+
+(): $BlockHitResult$$Type
+}
+
+export class $UseOnContextAccessor implements $UseOnContextAccessor$$Interface {
+ "create$getHitResult"(): $BlockHitResult
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $UseOnContextAccessor$$Type = (() => $BlockHitResult$$Type);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $UseOnContextAccessor$$Original = $UseOnContextAccessor;}
+declare module "com.simibubi.create.foundation.advancement.CreateAdvancement" {
+import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
+import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
+import {$CreateAdvancement$Builder$$Type} from "com.simibubi.create.foundation.advancement.CreateAdvancement$Builder"
+
+export class $CreateAdvancement {
+constructor(arg0: StringJS, arg1: $UnaryOperator$$Type<($CreateAdvancement$Builder)>)
+
+public "awardTo"(arg0: $Player$$Type): void
+public "isAlreadyAwardedTo"(arg0: $Player$$Type): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $CreateAdvancement$$Type = ($CreateAdvancement);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $CreateAdvancement$$Original = $CreateAdvancement;}
 declare module "com.simibubi.create.foundation.mixin.accessor.FallingBlockEntityAccessor" {
 import {$Level$$Type} from "net.minecraft.world.level.Level"
 import {$FallingBlockEntity} from "net.minecraft.world.entity.item.FallingBlockEntity"
@@ -37,21 +348,21 @@ import {$GameEventListener} from "net.minecraft.world.level.gameevent.GameEventL
 import {$BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
 
 export interface $IBE$$Interface<T extends $BlockEntity> extends $EntityBlock$$Interface {
-get "blockEntityClass"(): $Class<(T)>
 get "blockEntityType"(): $BlockEntityType<(T)>
+get "blockEntityClass"(): $Class<(T)>
 }
 
 export class $IBE<T extends $BlockEntity> implements $IBE$$Interface {
+ "withBlockEntityDo"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Consumer$$Type<(T)>): void
+ "onBlockEntityUse"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Function$$Type<(T), ($InteractionResult$$Type)>): $InteractionResult
+ "getBlockEntityType"(): $BlockEntityType<(T)>
+ "getTicker"<S extends $BlockEntity>(arg0: $Level$$Type, arg1: $BlockState$$Type, arg2: $BlockEntityType$$Type<(S)>): $BlockEntityTicker<(S)>
+ "getBlockEntity"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type): T
+static "onRemove"(arg0: $BlockState$$Type, arg1: $Level$$Type, arg2: $BlockPos$$Type, arg3: $BlockState$$Type): void
+ "newBlockEntity"(arg0: $BlockPos$$Type, arg1: $BlockState$$Type): $BlockEntity
  "getBlockEntityOptional"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type): $Optional<(T)>
  "getBlockEntityClass"(): $Class<(T)>
  "onBlockEntityUseItemOn"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Function$$Type<(T), ($ItemInteractionResult$$Type)>): $ItemInteractionResult
- "getBlockEntityType"(): $BlockEntityType<(T)>
- "withBlockEntityDo"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Consumer$$Type<(T)>): void
- "onBlockEntityUse"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Function$$Type<(T), ($InteractionResult$$Type)>): $InteractionResult
- "newBlockEntity"(arg0: $BlockPos$$Type, arg1: $BlockState$$Type): $BlockEntity
- "getBlockEntity"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type): T
-static "onRemove"(arg0: $BlockState$$Type, arg1: $Level$$Type, arg2: $BlockPos$$Type, arg3: $BlockState$$Type): void
- "getTicker"<S extends $BlockEntity>(arg0: $Level$$Type, arg1: $BlockState$$Type, arg2: $BlockEntityType$$Type<(S)>): $BlockEntityTicker<(S)>
  "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$$Type, arg1: T): $GameEventListener
 }
 /**
@@ -83,33 +394,14 @@ export type $BehaviourType$$Type<T> = ($BehaviourType<(T)>);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $BehaviourType$$Original<T> = $BehaviourType<(T)>;}
-declare module "com.simibubi.create.foundation.mixin.accessor.LevelRendererAccessor" {
-import {$Frustum} from "net.minecraft.client.renderer.culling.Frustum"
-
-export interface $LevelRendererAccessor$$Interface {
-}
-
-export class $LevelRendererAccessor implements $LevelRendererAccessor$$Interface {
- "create$getCapturedFrustum"(): $Frustum
- "create$getCullingFrustum"(): $Frustum
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $LevelRendererAccessor$$Type = ($LevelRendererAccessor);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $LevelRendererAccessor$$Original = $LevelRendererAccessor;}
 declare module "com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour" {
-import {$BlockGetter$$Type} from "net.minecraft.world.level.BlockGetter"
 import {$SmartBlockEntity, $SmartBlockEntity$$Type} from "com.simibubi.create.foundation.blockEntity.SmartBlockEntity"
+import {$BlockGetter$$Type} from "net.minecraft.world.level.BlockGetter"
 import {$CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
 import {$Level} from "net.minecraft.world.level.Level"
 import {$BehaviourType, $BehaviourType$$Type} from "com.simibubi.create.foundation.blockEntity.behaviour.BehaviourType"
-import {$BlockPos, $BlockPos$$Type} from "net.minecraft.core.BlockPos"
 import {$ItemRequirement} from "com.simibubi.create.content.schematics.requirement.ItemRequirement"
+import {$BlockPos, $BlockPos$$Type} from "net.minecraft.core.BlockPos"
 import {$BlockEntity$$Type} from "net.minecraft.world.level.block.entity.BlockEntity"
 import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
@@ -119,7 +411,6 @@ export class $BlockEntityBehaviour {
 
 constructor(arg0: $SmartBlockEntity$$Type)
 
-public "onNeighborChanged"(arg0: $BlockPos$$Type): void
 public static "get"<T extends $BlockEntityBehaviour>(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $BehaviourType$$Type<(T)>): T
 public static "get"<T extends $BlockEntityBehaviour>(arg0: $BlockEntity$$Type, arg1: $BehaviourType$$Type<(T)>): T
 public "initialize"(): void
@@ -129,18 +420,19 @@ public "destroy"(): void
 public "getType"(): $BehaviourType<(never)>
 public "unload"(): void
 public "tick"(): void
-public "lazyTick"(): void
+public "getPos"(): $BlockPos
+public "onBlockChanged"(arg0: $BlockState$$Type): void
+public "getWorld"(): $Level
 public "writeSafe"(arg0: $CompoundTag$$Type, arg1: $HolderLookup$Provider$$Type): void
 public "isSafeNBT"(): boolean
-public "getPos"(): $BlockPos
-public "getWorld"(): $Level
+public "lazyTick"(): void
+public "onNeighborChanged"(arg0: $BlockPos$$Type): void
 public "setLazyTickRate"(arg0: integer): void
 public "getRequiredItems"(): $ItemRequirement
-public "onBlockChanged"(arg0: $BlockState$$Type): void
 get "type"(): $BehaviourType<(never)>
-get "safeNBT"(): boolean
 get "pos"(): $BlockPos
 get "world"(): $Level
+get "safeNBT"(): boolean
 set "lazyTickRate"(value: integer)
 get "requiredItems"(): $ItemRequirement
 }
@@ -159,8 +451,8 @@ export interface $MouseHandlerAccessor$$Interface {
 }
 
 export class $MouseHandlerAccessor implements $MouseHandlerAccessor$$Interface {
- "create$setYPos"(arg0: double): void
  "create$setXPos"(arg0: double): void
+ "create$setYPos"(arg0: double): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -171,26 +463,6 @@ export type $MouseHandlerAccessor$$Type = ($MouseHandlerAccessor);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $MouseHandlerAccessor$$Original = $MouseHandlerAccessor;}
-declare module "com.simibubi.create.foundation.mixin.accessor.AgeableListModelAccessor" {
-import {$Iterable} from "java.lang.Iterable"
-import {$ModelPart} from "net.minecraft.client.model.geom.ModelPart"
-
-export interface $AgeableListModelAccessor$$Interface {
-}
-
-export class $AgeableListModelAccessor implements $AgeableListModelAccessor$$Interface {
- "create$callBodyParts"(): $Iterable<($ModelPart)>
- "create$callHeadParts"(): $Iterable<($ModelPart)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $AgeableListModelAccessor$$Type = ($AgeableListModelAccessor);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $AgeableListModelAccessor$$Original = $AgeableListModelAccessor;}
 declare module "com.simibubi.create.foundation.mixin.accessor.FlowingFluidAccessor" {
 import {$Level, $Level$$Type} from "net.minecraft.world.level.Level"
 import {$BlockPos, $BlockPos$$Type} from "net.minecraft.core.BlockPos"
@@ -297,30 +569,6 @@ export type $ShapedRecipeAccessor$$Type = (() => $ShapedRecipePattern$$Type);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ShapedRecipeAccessor$$Original = $ShapedRecipeAccessor;}
-declare module "com.simibubi.create.foundation.mixin.accessor.PotionBrewingAccessor" {
-import {$PotionBrewing$Mix} from "net.minecraft.world.item.alchemy.PotionBrewing$Mix"
-import {$Potion} from "net.minecraft.world.item.alchemy.Potion"
-import {$ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
-import {$List} from "java.util.List"
-import {$Item} from "net.minecraft.world.item.Item"
-
-export interface $PotionBrewingAccessor$$Interface {
-}
-
-export class $PotionBrewingAccessor implements $PotionBrewingAccessor$$Interface {
- "create$isContainer"(arg0: $ItemStack$$Type): boolean
- "create$getContainerMixes"(): $List<($PotionBrewing$Mix<($Item)>)>
- "create$getPotionMixes"(): $List<($PotionBrewing$Mix<($Potion)>)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $PotionBrewingAccessor$$Type = ($PotionBrewingAccessor);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $PotionBrewingAccessor$$Original = $PotionBrewingAccessor;}
 declare module "com.simibubi.create.foundation.mixin.accessor.MinecartFurnaceAccessor" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $MinecartFurnaceAccessor$$Interface {
@@ -339,69 +587,6 @@ export type $MinecartFurnaceAccessor$$Type = ($MinecartFurnaceAccessor);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $MinecartFurnaceAccessor$$Original = $MinecartFurnaceAccessor;}
-declare module "com.simibubi.create.foundation.mixin.accessor.FontAccessor" {
-import {$FontSet, $FontSet$$Type} from "net.minecraft.client.gui.font.FontSet"
-import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
-import {$Function, $Function$$Type} from "java.util.function.Function"
-
-export interface $FontAccessor$$Interface {
-
-(): $Function$$Type<($ResourceLocation$$Type), ($FontSet$$Type)>
-}
-
-export class $FontAccessor implements $FontAccessor$$Interface {
- "create$getFonts"(): $Function<($ResourceLocation), ($FontSet)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $FontAccessor$$Type = (() => $Function$$Type<($ResourceLocation$$Type), ($FontSet$$Type)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $FontAccessor$$Original = $FontAccessor;}
-declare module "com.simibubi.create.foundation.mixin.accessor.GuiAccessor" {
-import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
-import {$GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
-import {$SubtitleOverlay} from "net.minecraft.client.gui.components.SubtitleOverlay"
-
-export interface $GuiAccessor$$Interface {
-}
-
-export class $GuiAccessor implements $GuiAccessor$$Interface {
- "create$getSubtitleOverlay"(): $SubtitleOverlay
- "create$renderTextureOverlay"(arg0: $GuiGraphics$$Type, arg1: $ResourceLocation$$Type, arg2: float): void
- "create$getToolHighlightTimer"(): integer
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $GuiAccessor$$Type = ($GuiAccessor);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $GuiAccessor$$Original = $GuiAccessor;}
-declare module "com.simibubi.create.foundation.mixin.accessor.NbtAccounterAccessor" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-export interface $NbtAccounterAccessor$$Interface {
-
-(): long
-}
-
-export class $NbtAccounterAccessor implements $NbtAccounterAccessor$$Interface {
- "create$getUsage"(): long
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $NbtAccounterAccessor$$Type = (() => long);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $NbtAccounterAccessor$$Original = $NbtAccounterAccessor;}
 declare module "com.simibubi.create.foundation.mixin.accessor.EntityRenderDispatcherAccessor" {
 import {$EntityRenderer, $EntityRenderer$$Type} from "net.minecraft.client.renderer.entity.EntityRenderer"
 import {$Map, $Map$$Type} from "java.util.Map"
@@ -424,43 +609,6 @@ export type $EntityRenderDispatcherAccessor$$Type = (() => $Map$$Type<($EntityTy
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $EntityRenderDispatcherAccessor$$Original = $EntityRenderDispatcherAccessor;}
-declare module "com.simibubi.create.foundation.blockEntity.SyncedBlockEntity" {
-import {$CompoundTag, $CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
-import {$BlockEntityType$$Type} from "net.minecraft.world.level.block.entity.BlockEntityType"
-import {$Block} from "net.minecraft.world.level.block.Block"
-import {$ClientboundBlockEntityDataPacket, $ClientboundBlockEntityDataPacket$$Type} from "net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket"
-import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
-import {$BlockEntity} from "net.minecraft.world.level.block.entity.BlockEntity"
-import {$Connection$$Type} from "net.minecraft.network.Connection"
-import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
-import {$HolderGetter} from "net.minecraft.core.HolderGetter"
-import {$BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
-
-export class $SyncedBlockEntity extends $BlockEntity {
-static readonly "ATTACHMENTS_NBT_KEY": StringJS
-
-constructor(arg0: $BlockEntityType$$Type<(never)>, arg1: $BlockPos$$Type, arg2: $BlockState$$Type)
-
-public "sendData"(): void
-public "readClient"(arg0: $CompoundTag$$Type, arg1: $HolderLookup$Provider$$Type): void
-public "getUpdatePacket"(): $ClientboundBlockEntityDataPacket
-public "getUpdateTag"(arg0: $HolderLookup$Provider$$Type): $CompoundTag
-public "onDataPacket"(arg0: $Connection$$Type, arg1: $ClientboundBlockEntityDataPacket$$Type, arg2: $HolderLookup$Provider$$Type): void
-public "handleUpdateTag"(arg0: $CompoundTag$$Type, arg1: $HolderLookup$Provider$$Type): void
-public "notifyUpdate"(): void
-public "blockHolderGetter"(): $HolderGetter<($Block)>
-public "writeClient"(arg0: $CompoundTag$$Type, arg1: $HolderLookup$Provider$$Type): $CompoundTag
-get "updatePacket"(): $ClientboundBlockEntityDataPacket
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $SyncedBlockEntity$$Type = ($SyncedBlockEntity);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $SyncedBlockEntity$$Original = $SyncedBlockEntity;}
 declare module "com.simibubi.create.foundation.mixin.accessor.LivingEntityAccessor" {
 import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 
@@ -481,35 +629,11 @@ export type $LivingEntityAccessor$$Type = ((arg0: $ItemStack, arg1: integer) => 
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $LivingEntityAccessor$$Original = $LivingEntityAccessor;}
-declare module "com.simibubi.create.foundation.blockEntity.CachedRenderBBBlockEntity" {
-import {$SyncedBlockEntity} from "com.simibubi.create.foundation.blockEntity.SyncedBlockEntity"
-import {$BlockEntityType$$Type} from "net.minecraft.world.level.block.entity.BlockEntityType"
-import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
-import {$AABB} from "net.minecraft.world.phys.AABB"
-import {$BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
-
-export class $CachedRenderBBBlockEntity extends $SyncedBlockEntity {
-static readonly "ATTACHMENTS_NBT_KEY": StringJS
-
-constructor(arg0: $BlockEntityType$$Type<(never)>, arg1: $BlockPos$$Type, arg2: $BlockState$$Type)
-
-public "getRenderBoundingBox"(): $AABB
-get "renderBoundingBox"(): $AABB
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $CachedRenderBBBlockEntity$$Type = ($CachedRenderBBBlockEntity);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $CachedRenderBBBlockEntity$$Original = $CachedRenderBBBlockEntity;}
 declare module "com.simibubi.create.foundation.gui.AllGuiTextures" {
 import {$ScreenElement$$Interface} from "net.createmod.catnip.gui.element.ScreenElement"
 import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
-import {$Enum} from "java.lang.Enum"
 import {$GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
+import {$Enum} from "java.lang.Enum"
 import {$Color$$Type} from "net.createmod.catnip.theme.Color"
 import {$TextureSheetSegment$$Interface} from "net.createmod.catnip.gui.TextureSheetSegment"
 
@@ -724,20 +848,20 @@ static readonly "PLAYER_INVENTORY": $AllGuiTextures
 static readonly "HOTSLOT": $AllGuiTextures
 static readonly "TOOLBELT_HOTBAR_OFF": $AllGuiTextures
 
-public "getStartY"(): integer
-public "getStartX"(): integer
 public static "values"(): ($AllGuiTextures)[]
 public static "valueOf"(arg0: StringJS): $AllGuiTextures
 public "getLocation"(): $ResourceLocation
+public "getWidth"(): integer
 public "render"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: $Color$$Type): void
 public "render"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer): void
-public "getWidth"(): integer
 public "getHeight"(): integer
+public "getStartX"(): integer
+public "getStartY"(): integer
 public "bind"(): void
-get "startY"(): integer
-get "startX"(): integer
 get "width"(): integer
 get "height"(): integer
+get "startX"(): integer
+get "startY"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -768,27 +892,6 @@ export type $MobEffectInstanceAccessor$$Type = (() => $MobEffectInstance$$Type);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $MobEffectInstanceAccessor$$Original = $MobEffectInstanceAccessor;}
-declare module "com.simibubi.create.foundation.mixin.accessor.ItemStackHandlerAccessor" {
-import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
-import {$NonNullList, $NonNullList$$Type} from "net.minecraft.core.NonNullList"
-
-export interface $ItemStackHandlerAccessor$$Interface {
-
-(): $NonNullList$$Type<($ItemStack$$Type)>
-}
-
-export class $ItemStackHandlerAccessor implements $ItemStackHandlerAccessor$$Interface {
- "create$getStacks"(): $NonNullList<($ItemStack)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ItemStackHandlerAccessor$$Type = (() => $NonNullList$$Type<($ItemStack$$Type)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ItemStackHandlerAccessor$$Original = $ItemStackHandlerAccessor;}
 declare module "com.simibubi.create.foundation.mixin.accessor.SystemReportAccessor" {
 import {$Map, $Map$$Type} from "java.util.Map"
 
@@ -817,64 +920,71 @@ export type $SystemReportAccessor$$Original = $SystemReportAccessor;}
 declare module "com.simibubi.create.foundation.blockEntity.SmartBlockEntity" {
 import {$CompoundTag, $CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
 import {$Collection} from "java.util.Collection"
-import {$IInteractionChecker$$Interface} from "com.simibubi.create.foundation.utility.IInteractionChecker"
 import {$List$$Type} from "java.util.List"
-import {$CachedRenderBBBlockEntity} from "com.simibubi.create.foundation.blockEntity.CachedRenderBBBlockEntity"
+import {$IInteractionChecker$$Interface} from "com.simibubi.create.foundation.utility.IInteractionChecker"
+import {$Level} from "net.minecraft.world.level.Level"
 import {$BehaviourType$$Type} from "com.simibubi.create.foundation.blockEntity.behaviour.BehaviourType"
+import {$CachedRenderBBBlockEntity} from "com.simibubi.create.foundation.blockEntity.CachedRenderBBBlockEntity"
 import {$ItemRequirement} from "com.simibubi.create.content.schematics.requirement.ItemRequirement"
 import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
+import {$RegistryFriendlyByteBuf$$Type} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$BlockEntityType$$Type} from "net.minecraft.world.level.block.entity.BlockEntityType"
 import {$VirtualBlockEntity$$Interface} from "net.createmod.ponder.api.VirtualBlockEntity"
-import {$RegistryFriendlyByteBuf$$Type} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$BlockEntityBehaviour, $BlockEntityBehaviour$$Type} from "com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour"
-import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
+import {$Packet} from "net.minecraft.network.protocol.Packet"
+import {$BlockPos, $BlockPos$$Type} from "net.minecraft.core.BlockPos"
 import {$SpecialBlockEntityItemRequirement$$Interface} from "com.simibubi.create.api.schematic.requirement.SpecialBlockEntityItemRequirement"
-import {$PartialSafeNBT$$Interface} from "com.simibubi.create.api.schematic.nbt.PartialSafeNBT"
 import {$CreateAdvancement$$Type} from "com.simibubi.create.foundation.advancement.CreateAdvancement"
+import {$PartialSafeNBT$$Interface} from "com.simibubi.create.api.schematic.nbt.PartialSafeNBT"
 import {$BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
 
 export class $SmartBlockEntity extends $CachedRenderBBBlockEntity implements $PartialSafeNBT$$Interface, $IInteractionChecker$$Interface, $SpecialBlockEntityItemRequirement$$Interface, $VirtualBlockEntity$$Interface {
+ "worldPosition": $BlockPos
+ "level": $Level
 static readonly "ATTACHMENTS_NBT_KEY": StringJS
+ "hasComparators": byte
 
 constructor(arg0: $BlockEntityType$$Type<(never)>, arg1: $BlockPos$$Type, arg2: $BlockState$$Type)
 
-public "attachBehaviourLate"(arg0: $BlockEntityBehaviour$$Type): void
-public "addBehavioursDeferred"(arg0: $List$$Type<($BlockEntityBehaviour$$Type)>): void
-public "award"(arg0: $CreateAdvancement$$Type): void
-public "setRemoved"(): void
 public "invalidate"(): void
 public "remove"(): void
 public "isVirtual"(): boolean
 public "initialize"(): void
 public "destroy"(): void
 public "tick"(): void
-public "lazyTick"(): void
-public "writeSafe"(arg0: $CompoundTag$$Type, arg1: $HolderLookup$Provider$$Type): void
-public "sendToMenu"(arg0: $RegistryFriendlyByteBuf$$Type): void
-public "readClient"(arg0: $CompoundTag$$Type, arg1: $HolderLookup$Provider$$Type): void
 public "onChunkUnloaded"(): void
 public "saveAdditional"(arg0: $CompoundTag$$Type, arg1: $HolderLookup$Provider$$Type): void
+public "addBehavioursDeferred"(arg0: $List$$Type<($BlockEntityBehaviour$$Type)>): void
+public "attachBehaviourLate"(arg0: $BlockEntityBehaviour$$Type): void
+public "setRemoved"(): void
+public "writeSafe"(arg0: $CompoundTag$$Type, arg1: $HolderLookup$Provider$$Type): void
+public "lazyTick"(): void
+public "readClient"(arg0: $CompoundTag$$Type, arg1: $HolderLookup$Provider$$Type): void
+public "sendToMenu"(arg0: $RegistryFriendlyByteBuf$$Type): void
 public "setLazyTickRate"(arg0: integer): void
-public "forEachBehaviour"(arg0: $Consumer$$Type<($BlockEntityBehaviour)>): void
-public "writeClient"(arg0: $CompoundTag$$Type, arg1: $HolderLookup$Provider$$Type): $CompoundTag
-public "getBehaviour"<T extends $BlockEntityBehaviour>(arg0: $BehaviourType$$Type<(T)>): T
-public "getAllBehaviours"(): $Collection<($BlockEntityBehaviour)>
 public "getRequiredItems"(arg0: $BlockState$$Type): $ItemRequirement
 public "addBehaviours"(arg0: $List$$Type<($BlockEntityBehaviour$$Type)>): void
-public "markVirtual"(): void
-public "refreshBlockState"(): void
-public "removeBehaviour"(arg0: $BehaviourType$$Type<(never)>): void
-public "canPlayerUse"(arg0: $Player$$Type): boolean
-public "awardIfNear"(arg0: $CreateAdvancement$$Type, arg1: integer): void
-public "registerAwardables"(arg0: $List$$Type<($BlockEntityBehaviour$$Type)>, ...arg1: ($CreateAdvancement$$Type)[]): void
+public "writeClient"(arg0: $CompoundTag$$Type, arg1: $HolderLookup$Provider$$Type): $CompoundTag
+public "forEachBehaviour"(arg0: $Consumer$$Type<($BlockEntityBehaviour)>): void
 public "isChunkUnloaded"(): boolean
-get "removed"(): void
+public "registerAwardables"(arg0: $List$$Type<($BlockEntityBehaviour$$Type)>, ...arg1: ($CreateAdvancement$$Type)[]): void
+public "markVirtual"(): void
+public "removeBehaviour"(arg0: $BehaviourType$$Type<(never)>): void
+public "awardIfNear"(arg0: $CreateAdvancement$$Type, arg1: integer): void
+public "refreshBlockState"(): void
+public "getBehaviour"<T extends $BlockEntityBehaviour>(arg0: $BehaviourType$$Type<(T)>): T
+public "getAllBehaviours"(): $Collection<($BlockEntityBehaviour)>
+public "canPlayerUse"(arg0: $Player$$Type): boolean
+public "award"(arg0: $CreateAdvancement$$Type): void
+public "getUpdatePacket"(): $Packet
 get "virtual"(): boolean
+get "removed"(): void
 set "lazyTickRate"(value: integer)
-get "allBehaviours"(): $Collection<($BlockEntityBehaviour)>
 get "chunkUnloaded"(): boolean
+get "allBehaviours"(): $Collection<($BlockEntityBehaviour)>
+get "updatePacket"(): $Packet
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -905,22 +1015,6 @@ export type $ServerLevelAccessor$$Type = (() => $EntityTickList$$Type);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ServerLevelAccessor$$Original = $ServerLevelAccessor;}
-declare module "com.simibubi.create.foundation.block.IHaveBigOutline" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-export interface $IHaveBigOutline$$Interface {
-}
-
-export class $IHaveBigOutline implements $IHaveBigOutline$$Interface {
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $IHaveBigOutline$$Type = ($IHaveBigOutline);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $IHaveBigOutline$$Original = $IHaveBigOutline;}
 declare module "com.simibubi.create.foundation.item.SmartInventory" {
 import {$BiPredicate$$Type} from "java.util.function.BiPredicate"
 import {$CompoundTag, $CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
@@ -946,46 +1040,46 @@ constructor(arg0: integer, arg1: $SyncedBlockEntity$$Type, arg2: integer, arg3: 
 constructor(arg0: integer, arg1: $SyncedBlockEntity$$Type, arg2: $BiPredicate$$Type<(integer), ($ItemStack)>)
 constructor(arg0: integer, arg1: $SyncedBlockEntity$$Type)
 
-public "whenContentsChanged"(arg0: $Consumer$$Type<(integer)>): $SmartInventory
-public "forbidInsertion"(): $SmartInventory
-public "allowInsertion"(): $SmartInventory
-public "withMaxStackSize"(arg0: integer): $SmartInventory
-public "serializeNBT"(arg0: $HolderLookup$Provider$$Type): $CompoundTag
+public "getSlots"(): integer
+public "getStackInSlot"(arg0: integer): $ItemStack
+public "isItemValid"(arg0: integer, arg1: $ItemStack$$Type): boolean
+public "getSlotLimit"(arg0: integer): integer
+public "extractItem"(arg0: integer, arg1: integer, arg2: boolean): $ItemStack
+public "setStackInSlot"(arg0: integer, arg1: $ItemStack$$Type): void
+public "insertItem"(arg0: integer, arg1: $ItemStack$$Type, arg2: boolean): $ItemStack
+public "getStackLimit"(arg0: integer, arg1: $ItemStack$$Type): integer
 public "deserializeNBT"(arg0: $HolderLookup$Provider$$Type, arg1: $CompoundTag$$Type): void
 public "deserializeNBT"(arg0: $HolderLookup$Provider$$Type, arg1: $Tag$$Type): void
-public "setStackInSlot"(arg0: integer, arg1: $ItemStack$$Type): void
-public "getSlotLimit"(arg0: integer): integer
-public "isItemValid"(arg0: integer, arg1: $ItemStack$$Type): boolean
-public "extractItem"(arg0: integer, arg1: integer, arg2: boolean): $ItemStack
-public "getStackInSlot"(arg0: integer): $ItemStack
-public "getSlots"(): integer
+public "serializeNBT"(arg0: $HolderLookup$Provider$$Type): $CompoundTag
 public "allowExtraction"(): $SmartInventory
-public "getStackLimit"(arg0: integer, arg1: $ItemStack$$Type): integer
-public "insertItem"(arg0: integer, arg1: $ItemStack$$Type, arg2: boolean): $ItemStack
+public "withMaxStackSize"(arg0: integer): $SmartInventory
+public "forbidInsertion"(): $SmartInventory
+public "allowInsertion"(): $SmartInventory
+public "whenContentsChanged"(arg0: $Consumer$$Type<(integer)>): $SmartInventory
 public "forbidExtraction"(): $SmartInventory
-public "getBlock"(level: $Level$$Type): $LevelBlock
 public "insertItem"(arg0: integer, arg1: $ItemStack$$Type, arg2: boolean): $ItemStack
+public "extractItem"(arg0: integer, arg1: integer, arg2: boolean): $ItemStack
 public "isMutable"(): boolean
+public "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
+public "getSlots"(): integer
 public "getSlotLimit"(arg0: integer): integer
 public "isItemValid"(arg0: integer, arg1: $ItemStack$$Type): boolean
-public "extractItem"(arg0: integer, arg1: integer, arg2: boolean): $ItemStack
 public "getStackInSlot"(arg0: integer): $ItemStack
-public "getSlots"(): integer
-public "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
 public "self"(): $IItemHandler
-public static "stillValidBlockEntity"(arg0: $BlockEntity$$Type, arg1: $Player$$Type, arg2: float): boolean
+public "getBlock"(level: $Level$$Type): $LevelBlock
 public static "stillValidBlockEntity"(arg0: $BlockEntity$$Type, arg1: $Player$$Type): boolean
-public "getHeight"(): integer
+public static "stillValidBlockEntity"(arg0: $BlockEntity$$Type, arg1: $Player$$Type, arg2: float): boolean
 public "getWidth"(): integer
-public "asContainer"(): $Container
+public "getHeight"(): integer
 public "setChanged"(): void
+public "asContainer"(): $Container
 public "clear"(): void
 public static "tryClear"(arg0: any): void
 get "slots"(): integer
 get "mutable"(): boolean
 get "slots"(): integer
-get "height"(): integer
 get "width"(): integer
+get "height"(): integer
 get "changed"(): void
 }
 /**
@@ -1002,8 +1096,8 @@ import {$ItemStack} from "net.minecraft.world.item.ItemStack"
 import {$Optional} from "java.util.Optional"
 import {$SoundEvent} from "net.minecraft.sounds.SoundEvent"
 import {$SimpleWaterloggedBlock$$Interface} from "net.minecraft.world.level.block.SimpleWaterloggedBlock"
-import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$BlockGetter$$Type} from "net.minecraft.world.level.BlockGetter"
+import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$Fluid$$Type} from "net.minecraft.world.level.material.Fluid"
 import {$BooleanProperty} from "net.minecraft.world.level.block.state.properties.BooleanProperty"
 import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
@@ -1019,13 +1113,13 @@ get "pickupSound"(): $Optional<($SoundEvent)>
 export class $ProperWaterloggedBlock implements $ProperWaterloggedBlock$$Interface {
 static readonly "WATERLOGGED": $BooleanProperty
 
+ "updateWater"(arg0: $LevelAccessor$$Type, arg1: $BlockState$$Type, arg2: $BlockPos$$Type): void
 static "withWater"(arg0: $LevelAccessor$$Type, arg1: $BlockState$$Type, arg2: $BlockPos$$Type): $BlockState
  "withWater"(arg0: $BlockState$$Type, arg1: $BlockPlaceContext$$Type): $BlockState
- "updateWater"(arg0: $LevelAccessor$$Type, arg1: $BlockState$$Type, arg2: $BlockPos$$Type): void
  "fluidState"(arg0: $BlockState$$Type): $FluidState
  "canPlaceLiquid"(arg0: $Player$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $BlockState$$Type, arg4: $Fluid$$Type): boolean
- "placeLiquid"(arg0: $LevelAccessor$$Type, arg1: $BlockPos$$Type, arg2: $BlockState$$Type, arg3: $FluidState$$Type): boolean
  "pickupBlock"(arg0: $Player$$Type, arg1: $LevelAccessor$$Type, arg2: $BlockPos$$Type, arg3: $BlockState$$Type): $ItemStack
+ "placeLiquid"(arg0: $LevelAccessor$$Type, arg1: $BlockPos$$Type, arg2: $BlockState$$Type, arg3: $FluidState$$Type): boolean
  "getPickupSound"(): $Optional<($SoundEvent)>
  "getPickupSound"(arg0: $BlockState$$Type): $Optional<($SoundEvent)>
 }
@@ -1038,19 +1132,6 @@ export type $ProperWaterloggedBlock$$Type = ($ProperWaterloggedBlock);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ProperWaterloggedBlock$$Original = $ProperWaterloggedBlock;}
-declare module "com.simibubi.create.foundation.advancement.CreateAdvancement$Builder" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-export class $CreateAdvancement$Builder {
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $CreateAdvancement$Builder$$Type = ($CreateAdvancement$Builder);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $CreateAdvancement$Builder$$Original = $CreateAdvancement$Builder;}
 declare module "com.simibubi.create.foundation.mixin.accessor.ItemFrameAccessor" {
 import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 
@@ -1071,6 +1152,26 @@ export type $ItemFrameAccessor$$Type = (() => $ItemStack$$Type);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ItemFrameAccessor$$Original = $ItemFrameAccessor;}
+declare module "com.simibubi.create.foundation.mixin.accessor.TimerAccessor" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export interface $TimerAccessor$$Interface {
+
+(): float
+get "deltaTickResidual"(): float
+}
+
+export class $TimerAccessor implements $TimerAccessor$$Interface {
+ "getDeltaTickResidual"(): float
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $TimerAccessor$$Type = (() => float);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $TimerAccessor$$Original = $TimerAccessor;}
 declare module "com.simibubi.create.foundation.utility.IInteractionChecker" {
 import {$Player, $Player$$Type} from "net.minecraft.world.entity.player.Player"
 
@@ -1091,43 +1192,3 @@ export type $IInteractionChecker$$Type = ((arg0: $Player) => boolean);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $IInteractionChecker$$Original = $IInteractionChecker;}
-declare module "com.simibubi.create.foundation.mixin.accessor.UseOnContextAccessor" {
-import {$BlockHitResult, $BlockHitResult$$Type} from "net.minecraft.world.phys.BlockHitResult"
-
-export interface $UseOnContextAccessor$$Interface {
-
-(): $BlockHitResult$$Type
-}
-
-export class $UseOnContextAccessor implements $UseOnContextAccessor$$Interface {
- "create$getHitResult"(): $BlockHitResult
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $UseOnContextAccessor$$Type = (() => $BlockHitResult$$Type);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $UseOnContextAccessor$$Original = $UseOnContextAccessor;}
-declare module "com.simibubi.create.foundation.advancement.CreateAdvancement" {
-import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
-import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
-import {$CreateAdvancement$Builder$$Type} from "com.simibubi.create.foundation.advancement.CreateAdvancement$Builder"
-
-export class $CreateAdvancement {
-constructor(arg0: StringJS, arg1: $UnaryOperator$$Type<($CreateAdvancement$Builder)>)
-
-public "awardTo"(arg0: $Player$$Type): void
-public "isAlreadyAwardedTo"(arg0: $Player$$Type): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $CreateAdvancement$$Type = ($CreateAdvancement);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $CreateAdvancement$$Original = $CreateAdvancement;}

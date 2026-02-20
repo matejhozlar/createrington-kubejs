@@ -3,8 +3,8 @@ import {$ExclusionStrategy$$Type} from "com.google.gson.ExclusionStrategy"
 import {$Cloneable$$Interface} from "java.lang.Cloneable"
 import {$Class$$Type} from "java.lang.Class"
 import {$TypeAdapterFactory$$Interface} from "com.google.gson.TypeAdapterFactory"
-import {$Gson$$Type} from "com.google.gson.Gson"
 import {$Field$$Type} from "java.lang.reflect.Field"
+import {$Gson$$Type} from "com.google.gson.Gson"
 import {$TypeAdapter} from "com.google.gson.TypeAdapter"
 import {$TypeToken$$Type} from "com.google.gson.reflect.TypeToken"
 
@@ -14,13 +14,13 @@ static readonly "DEFAULT": $Excluder
 constructor()
 
 public "create"<T>(arg0: $Gson$$Type, arg1: $TypeToken$$Type<(T)>): $TypeAdapter<(T)>
-public "withExclusionStrategy"(arg0: $ExclusionStrategy$$Type, arg1: boolean, arg2: boolean): $Excluder
-public "excludeClass"(arg0: $Class$$Type<(never)>, arg1: boolean): boolean
-public "excludeField"(arg0: $Field$$Type, arg1: boolean): boolean
-public "excludeFieldsWithoutExposeAnnotation"(): $Excluder
 public "disableInnerClassSerialization"(): $Excluder
-public "withVersion"(arg0: double): $Excluder
+public "withExclusionStrategy"(arg0: $ExclusionStrategy$$Type, arg1: boolean, arg2: boolean): $Excluder
+public "excludeFieldsWithoutExposeAnnotation"(): $Excluder
+public "excludeField"(arg0: $Field$$Type, arg1: boolean): boolean
 public "withModifiers"(...arg0: (integer)[]): $Excluder
+public "withVersion"(arg0: double): $Excluder
+public "excludeClass"(arg0: $Class$$Type<(never)>, arg1: boolean): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

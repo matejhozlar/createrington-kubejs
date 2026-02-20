@@ -255,86 +255,6 @@ export type $Flow$Publisher$$Type<T> = ((arg0: $Flow$Subscriber<(T)>) => void);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $Flow$Publisher$$Original<T> = $Flow$Publisher<(T)>;}
-declare module "java.util.concurrent.Executor" {
-import {$Runnable, $Runnable$$Type} from "java.lang.Runnable"
-
-export interface $Executor$$Interface {
-
-(arg0: $Runnable): void
-}
-
-export class $Executor implements $Executor$$Interface {
- "execute"(arg0: $Runnable$$Type): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Executor$$Type = ((arg0: $Runnable) => void);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Executor$$Original = $Executor;}
-declare module "java.util.concurrent.BlockingQueue" {
-import {$Iterator} from "java.util.Iterator"
-import {$Collection$$Type} from "java.util.Collection"
-import {$Queue$$Interface} from "java.util.Queue"
-import {$Spliterator} from "java.util.Spliterator"
-import {$Predicate$$Type} from "java.util.function.Predicate"
-import {$Stream} from "java.util.stream.Stream"
-import {$TimeUnit$$Type} from "java.util.concurrent.TimeUnit"
-import {$Consumer$$Type} from "java.util.function.Consumer"
-import {$IntFunction$$Type} from "java.util.function.IntFunction"
-
-export interface $BlockingQueue$$Interface<E> extends $Queue$$Interface<(E)> {
-[Symbol.iterator](): IterableIterator<E>;
-get "empty"(): boolean
-}
-
-export class $BlockingQueue<E> implements $BlockingQueue$$Interface {
- "remove"(arg0: any): boolean
- "put"(arg0: E): void
- "add"(arg0: E): boolean
- "contains"(arg0: any): boolean
- "poll"(arg0: long, arg1: $TimeUnit$$Type): E
- "offer"(arg0: E): boolean
- "offer"(arg0: E, arg1: long, arg2: $TimeUnit$$Type): boolean
- "take"(): E
- "drainTo"(arg0: $Collection$$Type<(E)>): integer
- "drainTo"(arg0: $Collection$$Type<(E)>, arg1: integer): integer
- "remainingCapacity"(): integer
- "remove"(): E
- "peek"(): E
- "element"(): E
- "poll"(): E
- "size"(): integer
- "equals"(arg0: any): boolean
- "hashCode"(): integer
- "clear"(): void
- "isEmpty"(): boolean
- "toArray"<T>(arg0: (T)[]): (T)[]
- "toArray"<T>(arg0: $IntFunction$$Type<((T)[])>): (T)[]
- "toArray"(): (any)[]
- "iterator"(): $Iterator<(E)>
- "stream"(): $Stream<(E)>
- "spliterator"(): $Spliterator<(E)>
- "addAll"(arg0: $Collection$$Type<(E)>): boolean
- "removeIf"(arg0: $Predicate$$Type<(E)>): boolean
- "removeAll"(arg0: $Collection$$Type<(never)>): boolean
- "retainAll"(arg0: $Collection$$Type<(never)>): boolean
- "containsAll"(arg0: $Collection$$Type<(never)>): boolean
- "parallelStream"(): $Stream<(E)>
- "forEach"(arg0: $Consumer$$Type<(E)>): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $BlockingQueue$$Type<E> = ($BlockingQueue<(E)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $BlockingQueue$$Original<E> = $BlockingQueue<(E)>;}
 declare module "java.util.concurrent.Future" {
 import {$Future$State} from "java.util.concurrent.Future$State"
 import {$Throwable} from "java.lang.Throwable"
@@ -386,11 +306,11 @@ declare module "java.util.concurrent.CompletableFuture" {
 import {$CompletionStage, $CompletionStage$$Type, $CompletionStage$$Interface} from "java.util.concurrent.CompletionStage"
 import {$Future$$Interface} from "java.util.concurrent.Future"
 import {$Runnable$$Type} from "java.lang.Runnable"
-import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$TimeUnit$$Type} from "java.util.concurrent.TimeUnit"
+import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$BiFunction$$Type} from "java.util.function.BiFunction"
-import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Function$$Type} from "java.util.function.Function"
+import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Executor, $Executor$$Type} from "java.util.concurrent.Executor"
 import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$Future$State} from "java.util.concurrent.Future$State"
@@ -399,6 +319,8 @@ import {$Throwable, $Throwable$$Type} from "java.lang.Throwable"
 export class $CompletableFuture<T> implements $Future$$Interface<(T)>, $CompletionStage$$Interface<(T)> {
 constructor()
 
+public "newIncompleteFuture"<U>(): $CompletableFuture<(U)>
+public "toCompletableFuture"(): $CompletableFuture<(T)>
 public "get"(): T
 public "get"(arg0: long, arg1: $TimeUnit$$Type): T
 public "toString"(): StringJS
@@ -414,50 +336,48 @@ public "isCancelled"(): boolean
 public "resultNow"(): T
 public "exceptionNow"(): $Throwable
 public "completeExceptionally"(arg0: $Throwable$$Type): boolean
-public "newIncompleteFuture"<U>(): $CompletableFuture<(U)>
-public "toCompletableFuture"(): $CompletableFuture<(T)>
 public "completeAsync"(arg0: $Supplier$$Type<(T)>): $CompletableFuture<(T)>
 public "completeAsync"(arg0: $Supplier$$Type<(T)>, arg1: $Executor$$Type): $CompletableFuture<(T)>
-public "exceptionallyComposeAsync"(arg0: $Function$$Type): $CompletionStage
+public "exceptionallyComposeAsync"(arg0: $Function$$Type<($Throwable), ($CompletionStage$$Type<(T)>)>): $CompletableFuture<(T)>
 public "exceptionallyComposeAsync"(arg0: $Function$$Type, arg1: $Executor$$Type): $CompletionStage
-public "exceptionallyCompose"(arg0: $Function$$Type): $CompletionStage
+public "exceptionallyCompose"(arg0: $Function$$Type<($Throwable), ($CompletionStage$$Type<(T)>)>): $CompletableFuture<(T)>
 public "exceptionallyAsync"(arg0: $Function$$Type<($Throwable), (T)>): $CompletableFuture<(T)>
 public "exceptionallyAsync"(arg0: $Function$$Type<($Throwable), (T)>, arg1: $Executor$$Type): $CompletableFuture<(T)>
 public "exceptionally"(arg0: $Function$$Type<($Throwable), (T)>): $CompletableFuture<(T)>
-public "whenCompleteAsync"(arg0: $BiConsumer$$Type<(T), ($Throwable)>, arg1: $Executor$$Type): $CompletableFuture<(T)>
-public "whenCompleteAsync"(arg0: $BiConsumer$$Type<(T), ($Throwable)>): $CompletableFuture<(T)>
+public "whenCompleteAsync"(arg0: $BiConsumer$$Type): $CompletionStage
+public "whenCompleteAsync"(arg0: $BiConsumer$$Type, arg1: $Executor$$Type): $CompletionStage
 public "handleAsync"<U>(arg0: $BiFunction$$Type<(T), ($Throwable), (U)>, arg1: $Executor$$Type): $CompletableFuture<(U)>
-public "handleAsync"(arg0: $BiFunction$$Type): $CompletionStage
+public "handleAsync"<U>(arg0: $BiFunction$$Type<(T), ($Throwable), (U)>): $CompletableFuture<(U)>
 public "thenComposeAsync"<U>(arg0: $Function$$Type<(T), ($CompletionStage$$Type<(U)>)>): $CompletableFuture<(U)>
-public "thenComposeAsync"(arg0: $Function$$Type, arg1: $Executor$$Type): $CompletionStage
-public "thenCompose"(arg0: $Function$$Type): $CompletionStage
-public "runAfterEitherAsync"(arg0: $CompletionStage$$Type, arg1: $Runnable$$Type): $CompletionStage
+public "thenComposeAsync"<U>(arg0: $Function$$Type<(T), ($CompletionStage$$Type<(U)>)>, arg1: $Executor$$Type): $CompletableFuture<(U)>
+public "thenCompose"<U>(arg0: $Function$$Type<(T), ($CompletionStage$$Type<(U)>)>): $CompletableFuture<(U)>
 public "runAfterEitherAsync"(arg0: $CompletionStage$$Type, arg1: $Runnable$$Type, arg2: $Executor$$Type): $CompletionStage
-public "runAfterEither"(arg0: $CompletionStage$$Type<(never)>, arg1: $Runnable$$Type): $CompletableFuture<(void)>
-public "acceptEitherAsync"(arg0: $CompletionStage$$Type<(T)>, arg1: $Consumer$$Type<(T)>): $CompletableFuture<(void)>
+public "runAfterEitherAsync"(arg0: $CompletionStage$$Type, arg1: $Runnable$$Type): $CompletionStage
+public "runAfterEither"(arg0: $CompletionStage$$Type, arg1: $Runnable$$Type): $CompletionStage
 public "acceptEitherAsync"(arg0: $CompletionStage$$Type, arg1: $Consumer$$Type, arg2: $Executor$$Type): $CompletionStage
+public "acceptEitherAsync"(arg0: $CompletionStage$$Type, arg1: $Consumer$$Type): $CompletionStage
 public "acceptEither"(arg0: $CompletionStage$$Type, arg1: $Consumer$$Type): $CompletionStage
-public "applyToEitherAsync"(arg0: $CompletionStage$$Type, arg1: $Function$$Type, arg2: $Executor$$Type): $CompletionStage
+public "applyToEitherAsync"<U>(arg0: $CompletionStage$$Type<(T)>, arg1: $Function$$Type<(T), (U)>, arg2: $Executor$$Type): $CompletableFuture<(U)>
 public "applyToEitherAsync"(arg0: $CompletionStage$$Type, arg1: $Function$$Type): $CompletionStage
-public "applyToEither"(arg0: $CompletionStage$$Type, arg1: $Function$$Type): $CompletionStage
-public "runAfterBothAsync"(arg0: $CompletionStage$$Type, arg1: $Runnable$$Type, arg2: $Executor$$Type): $CompletionStage
+public "applyToEither"<U>(arg0: $CompletionStage$$Type<(T)>, arg1: $Function$$Type<(T), (U)>): $CompletableFuture<(U)>
 public "runAfterBothAsync"(arg0: $CompletionStage$$Type, arg1: $Runnable$$Type): $CompletionStage
+public "runAfterBothAsync"(arg0: $CompletionStage$$Type, arg1: $Runnable$$Type, arg2: $Executor$$Type): $CompletionStage
 public "runAfterBoth"(arg0: $CompletionStage$$Type<(never)>, arg1: $Runnable$$Type): $CompletableFuture<(void)>
-public "thenAcceptBothAsync"<U>(arg0: $CompletionStage$$Type<(U)>, arg1: $BiConsumer$$Type<(T), (U)>): $CompletableFuture<(void)>
 public "thenAcceptBothAsync"<U>(arg0: $CompletionStage$$Type<(U)>, arg1: $BiConsumer$$Type<(T), (U)>, arg2: $Executor$$Type): $CompletableFuture<(void)>
+public "thenAcceptBothAsync"(arg0: $CompletionStage$$Type, arg1: $BiConsumer$$Type): $CompletionStage
 public "thenAcceptBoth"(arg0: $CompletionStage$$Type, arg1: $BiConsumer$$Type): $CompletionStage
-public "thenCombineAsync"(arg0: $CompletionStage$$Type, arg1: $BiFunction$$Type, arg2: $Executor$$Type): $CompletionStage
 public "thenCombineAsync"<U, V>(arg0: $CompletionStage$$Type<(U)>, arg1: $BiFunction$$Type<(T), (U), (V)>): $CompletableFuture<(V)>
+public "thenCombineAsync"<U, V>(arg0: $CompletionStage$$Type<(U)>, arg1: $BiFunction$$Type<(T), (U), (V)>, arg2: $Executor$$Type): $CompletableFuture<(V)>
 public "thenCombine"(arg0: $CompletionStage$$Type, arg1: $BiFunction$$Type): $CompletionStage
 public "thenRunAsync"(arg0: $Runnable$$Type, arg1: $Executor$$Type): $CompletableFuture<(void)>
 public "thenRunAsync"(arg0: $Runnable$$Type): $CompletionStage
 public "thenRun"(arg0: $Runnable$$Type): $CompletableFuture<(void)>
-public "thenAcceptAsync"(arg0: $Consumer$$Type, arg1: $Executor$$Type): $CompletionStage
-public "thenAcceptAsync"(arg0: $Consumer$$Type): $CompletionStage
+public "thenAcceptAsync"(arg0: $Consumer$$Type<(T)>): $CompletableFuture<(void)>
+public "thenAcceptAsync"(arg0: $Consumer$$Type<(T)>, arg1: $Executor$$Type): $CompletableFuture<(void)>
 public "thenAccept"(arg0: $Consumer$$Type): $CompletionStage
-public "thenApplyAsync"(arg0: $Function$$Type, arg1: $Executor$$Type): $CompletionStage
+public "thenApplyAsync"<U>(arg0: $Function$$Type<(T), (U)>, arg1: $Executor$$Type): $CompletableFuture<(U)>
 public "thenApplyAsync"(arg0: $Function$$Type): $CompletionStage
-public "thenApply"(arg0: $Function$$Type): $CompletionStage
+public "thenApply"<U>(arg0: $Function$$Type<(T), (U)>): $CompletableFuture<(U)>
 public static "runAsync"(arg0: $Runnable$$Type): $CompletableFuture<(void)>
 public static "runAsync"(arg0: $Runnable$$Type, arg1: $Executor$$Type): $CompletableFuture<(void)>
 public static "completedFuture"<U>(arg0: U): $CompletableFuture<(U)>
@@ -475,7 +395,7 @@ public static "delayedExecutor"(arg0: long, arg1: $TimeUnit$$Type): $Executor
 public static "completedStage"<U>(arg0: U): $CompletionStage<(U)>
 public static "failedFuture"<U>(arg0: $Throwable$$Type): $CompletableFuture<(U)>
 public static "failedStage"<U>(arg0: $Throwable$$Type): $CompletionStage<(U)>
-public "whenComplete"(arg0: $BiConsumer$$Type<(T), ($Throwable)>): $CompletableFuture<(T)>
+public "whenComplete"(arg0: $BiConsumer$$Type): $CompletionStage
 public static "supplyAsync"<U>(arg0: $Supplier$$Type<(U)>): $CompletableFuture<(U)>
 public static "supplyAsync"<U>(arg0: $Supplier$$Type<(U)>, arg1: $Executor$$Type): $CompletableFuture<(U)>
 public "defaultExecutor"(): $Executor
@@ -493,108 +413,22 @@ export type $CompletableFuture$$Type<T> = ($CompletableFuture<(T)>);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $CompletableFuture$$Original<T> = $CompletableFuture<(T)>;}
-declare module "java.util.concurrent.Flow$Subscriber" {
-import {$Throwable$$Type} from "java.lang.Throwable"
-import {$Flow$Subscription$$Type} from "java.util.concurrent.Flow$Subscription"
-
-export interface $Flow$Subscriber$$Interface<T> {
-}
-
-export class $Flow$Subscriber<T> implements $Flow$Subscriber$$Interface {
- "onError"(arg0: $Throwable$$Type): void
- "onComplete"(): void
- "onNext"(arg0: T): void
- "onSubscribe"(arg0: $Flow$Subscription$$Type): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Flow$Subscriber$$Type<T> = ($Flow$Subscriber<(T)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Flow$Subscriber$$Original<T> = $Flow$Subscriber<(T)>;}
-declare module "java.util.concurrent.ThreadFactory" {
-import {$Thread, $Thread$$Type} from "java.lang.Thread"
-import {$Runnable, $Runnable$$Type} from "java.lang.Runnable"
-
-export interface $ThreadFactory$$Interface {
-
-(arg0: $Runnable): $Thread$$Type
-}
-
-export class $ThreadFactory implements $ThreadFactory$$Interface {
- "newThread"(arg0: $Runnable$$Type): $Thread
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ThreadFactory$$Type = ((arg0: $Runnable) => $Thread$$Type);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ThreadFactory$$Original = $ThreadFactory;}
-declare module "java.util.concurrent.ScheduledExecutorService" {
-import {$ScheduledFuture} from "java.util.concurrent.ScheduledFuture"
-import {$Collection$$Type} from "java.util.Collection"
-import {$Callable$$Type} from "java.util.concurrent.Callable"
-import {$List} from "java.util.List"
-import {$Future} from "java.util.concurrent.Future"
-import {$ExecutorService$$Interface} from "java.util.concurrent.ExecutorService"
-import {$Runnable, $Runnable$$Type} from "java.lang.Runnable"
-import {$TimeUnit$$Type} from "java.util.concurrent.TimeUnit"
-
-export interface $ScheduledExecutorService$$Interface extends $ExecutorService$$Interface {
-get "terminated"(): boolean
-}
-
-export class $ScheduledExecutorService implements $ScheduledExecutorService$$Interface {
- "schedule"(arg0: $Runnable$$Type, arg1: long, arg2: $TimeUnit$$Type): $ScheduledFuture<(never)>
- "schedule"<V>(arg0: $Callable$$Type<(V)>, arg1: long, arg2: $TimeUnit$$Type): $ScheduledFuture<(V)>
- "scheduleAtFixedRate"(arg0: $Runnable$$Type, arg1: long, arg2: long, arg3: $TimeUnit$$Type): $ScheduledFuture<(never)>
- "scheduleWithFixedDelay"(arg0: $Runnable$$Type, arg1: long, arg2: long, arg3: $TimeUnit$$Type): $ScheduledFuture<(never)>
- "shutdown"(): void
- "isTerminated"(): boolean
- "close"(): void
- "isShutdown"(): boolean
- "submit"<T>(arg0: $Runnable$$Type, arg1: T): $Future<(T)>
- "submit"(arg0: $Runnable$$Type): $Future<(never)>
- "submit"<T>(arg0: $Callable$$Type<(T)>): $Future<(T)>
- "invokeAny"<T>(arg0: $Collection$$Type<($Callable$$Type<(T)>)>): T
- "invokeAny"<T>(arg0: $Collection$$Type<($Callable$$Type<(T)>)>, arg1: long, arg2: $TimeUnit$$Type): T
- "invokeAll"<T>(arg0: $Collection$$Type<($Callable$$Type<(T)>)>): $List<($Future<(T)>)>
- "invokeAll"<T>(arg0: $Collection$$Type<($Callable$$Type<(T)>)>, arg1: long, arg2: $TimeUnit$$Type): $List<($Future<(T)>)>
- "awaitTermination"(arg0: long, arg1: $TimeUnit$$Type): boolean
- "shutdownNow"(): $List<($Runnable)>
- "execute"(arg0: $Runnable$$Type): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ScheduledExecutorService$$Type = ($ScheduledExecutorService);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ScheduledExecutorService$$Original = $ScheduledExecutorService;}
 declare module "java.util.concurrent.CompletionStage" {
 import {$BiFunction$$Type} from "java.util.function.BiFunction"
 import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
-import {$Function$$Type} from "java.util.function.Function"
 import {$Executor$$Type} from "java.util.concurrent.Executor"
+import {$Function$$Type} from "java.util.function.Function"
 import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
-import {$Throwable$$Type} from "java.lang.Throwable"
 import {$Runnable$$Type} from "java.lang.Runnable"
+import {$Throwable$$Type} from "java.lang.Throwable"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 
 export interface $CompletionStage$$Interface<T> {
 }
 
 export class $CompletionStage<T> implements $CompletionStage$$Interface {
- "handle"<U>(arg0: $BiFunction$$Type<(T), ($Throwable), (U)>): $CompletionStage<(U)>
  "toCompletableFuture"(): $CompletableFuture<(T)>
+ "handle"<U>(arg0: $BiFunction$$Type<(T), ($Throwable), (U)>): $CompletionStage<(U)>
  "exceptionallyComposeAsync"(arg0: $Function$$Type<($Throwable), ($CompletionStage$$Type<(T)>)>): $CompletionStage<(T)>
  "exceptionallyComposeAsync"(arg0: $Function$$Type<($Throwable), ($CompletionStage$$Type<(T)>)>, arg1: $Executor$$Type): $CompletionStage<(T)>
  "exceptionallyCompose"(arg0: $Function$$Type<($Throwable), ($CompletionStage$$Type<(T)>)>): $CompletionStage<(T)>
@@ -646,3 +480,169 @@ export type $CompletionStage$$Type<T> = ($CompletionStage<(T)>);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $CompletionStage$$Original<T> = $CompletionStage<(T)>;}
+declare module "java.util.concurrent.Executor" {
+import {$Runnable, $Runnable$$Type} from "java.lang.Runnable"
+
+export interface $Executor$$Interface {
+
+(arg0: $Runnable): void
+}
+
+export class $Executor implements $Executor$$Interface {
+ "execute"(arg0: $Runnable$$Type): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Executor$$Type = ((arg0: $Runnable) => void);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Executor$$Original = $Executor;}
+declare module "java.util.concurrent.BlockingQueue" {
+import {$Iterator} from "java.util.Iterator"
+import {$Queue$$Interface} from "java.util.Queue"
+import {$Collection$$Type} from "java.util.Collection"
+import {$Spliterator} from "java.util.Spliterator"
+import {$Predicate$$Type} from "java.util.function.Predicate"
+import {$Stream} from "java.util.stream.Stream"
+import {$Consumer$$Type} from "java.util.function.Consumer"
+import {$IntFunction$$Type} from "java.util.function.IntFunction"
+import {$TimeUnit$$Type} from "java.util.concurrent.TimeUnit"
+
+export interface $BlockingQueue$$Interface<E> extends $Queue$$Interface<(E)> {
+[Symbol.iterator](): IterableIterator<E>;
+get "empty"(): boolean
+}
+
+export class $BlockingQueue<E> implements $BlockingQueue$$Interface {
+ "remove"(arg0: any): boolean
+ "put"(arg0: E): void
+ "add"(arg0: E): boolean
+ "contains"(arg0: any): boolean
+ "poll"(arg0: long, arg1: $TimeUnit$$Type): E
+ "offer"(arg0: E): boolean
+ "offer"(arg0: E, arg1: long, arg2: $TimeUnit$$Type): boolean
+ "take"(): E
+ "drainTo"(arg0: $Collection$$Type<(E)>): integer
+ "drainTo"(arg0: $Collection$$Type<(E)>, arg1: integer): integer
+ "remainingCapacity"(): integer
+ "remove"(): E
+ "peek"(): E
+ "element"(): E
+ "poll"(): E
+ "size"(): integer
+ "equals"(arg0: any): boolean
+ "hashCode"(): integer
+ "clear"(): void
+ "isEmpty"(): boolean
+ "toArray"<T>(arg0: (T)[]): (T)[]
+ "toArray"<T>(arg0: $IntFunction$$Type<((T)[])>): (T)[]
+ "toArray"(): (any)[]
+ "iterator"(): $Iterator<(E)>
+ "stream"(): $Stream<(E)>
+ "spliterator"(): $Spliterator<(E)>
+ "addAll"(arg0: $Collection$$Type<(E)>): boolean
+ "removeIf"(arg0: $Predicate$$Type<(E)>): boolean
+ "removeAll"(arg0: $Collection$$Type<(never)>): boolean
+ "retainAll"(arg0: $Collection$$Type<(never)>): boolean
+ "containsAll"(arg0: $Collection$$Type<(never)>): boolean
+ "parallelStream"(): $Stream<(E)>
+ "forEach"(arg0: $Consumer$$Type<(E)>): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $BlockingQueue$$Type<E> = ($BlockingQueue<(E)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $BlockingQueue$$Original<E> = $BlockingQueue<(E)>;}
+declare module "java.util.concurrent.Flow$Subscriber" {
+import {$Throwable$$Type} from "java.lang.Throwable"
+import {$Flow$Subscription$$Type} from "java.util.concurrent.Flow$Subscription"
+
+export interface $Flow$Subscriber$$Interface<T> {
+}
+
+export class $Flow$Subscriber<T> implements $Flow$Subscriber$$Interface {
+ "onError"(arg0: $Throwable$$Type): void
+ "onComplete"(): void
+ "onSubscribe"(arg0: $Flow$Subscription$$Type): void
+ "onNext"(arg0: T): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Flow$Subscriber$$Type<T> = ($Flow$Subscriber<(T)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Flow$Subscriber$$Original<T> = $Flow$Subscriber<(T)>;}
+declare module "java.util.concurrent.ThreadFactory" {
+import {$Thread, $Thread$$Type} from "java.lang.Thread"
+import {$Runnable, $Runnable$$Type} from "java.lang.Runnable"
+
+export interface $ThreadFactory$$Interface {
+
+(arg0: $Runnable): $Thread$$Type
+}
+
+export class $ThreadFactory implements $ThreadFactory$$Interface {
+ "newThread"(arg0: $Runnable$$Type): $Thread
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ThreadFactory$$Type = ((arg0: $Runnable) => $Thread$$Type);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ThreadFactory$$Original = $ThreadFactory;}
+declare module "java.util.concurrent.ScheduledExecutorService" {
+import {$ScheduledFuture} from "java.util.concurrent.ScheduledFuture"
+import {$Collection$$Type} from "java.util.Collection"
+import {$Callable$$Type} from "java.util.concurrent.Callable"
+import {$List} from "java.util.List"
+import {$Future} from "java.util.concurrent.Future"
+import {$ExecutorService$$Interface} from "java.util.concurrent.ExecutorService"
+import {$Runnable, $Runnable$$Type} from "java.lang.Runnable"
+import {$TimeUnit$$Type} from "java.util.concurrent.TimeUnit"
+
+export interface $ScheduledExecutorService$$Interface extends $ExecutorService$$Interface {
+get "terminated"(): boolean
+}
+
+export class $ScheduledExecutorService implements $ScheduledExecutorService$$Interface {
+ "schedule"(arg0: $Runnable$$Type, arg1: long, arg2: $TimeUnit$$Type): $ScheduledFuture<(never)>
+ "schedule"<V>(arg0: $Callable$$Type<(V)>, arg1: long, arg2: $TimeUnit$$Type): $ScheduledFuture<(V)>
+ "scheduleWithFixedDelay"(arg0: $Runnable$$Type, arg1: long, arg2: long, arg3: $TimeUnit$$Type): $ScheduledFuture<(never)>
+ "scheduleAtFixedRate"(arg0: $Runnable$$Type, arg1: long, arg2: long, arg3: $TimeUnit$$Type): $ScheduledFuture<(never)>
+ "shutdown"(): void
+ "isTerminated"(): boolean
+ "close"(): void
+ "isShutdown"(): boolean
+ "submit"<T>(arg0: $Runnable$$Type, arg1: T): $Future<(T)>
+ "submit"(arg0: $Runnable$$Type): $Future<(never)>
+ "submit"<T>(arg0: $Callable$$Type<(T)>): $Future<(T)>
+ "invokeAny"<T>(arg0: $Collection$$Type<($Callable$$Type<(T)>)>): T
+ "invokeAny"<T>(arg0: $Collection$$Type<($Callable$$Type<(T)>)>, arg1: long, arg2: $TimeUnit$$Type): T
+ "invokeAll"<T>(arg0: $Collection$$Type<($Callable$$Type<(T)>)>): $List<($Future<(T)>)>
+ "invokeAll"<T>(arg0: $Collection$$Type<($Callable$$Type<(T)>)>, arg1: long, arg2: $TimeUnit$$Type): $List<($Future<(T)>)>
+ "awaitTermination"(arg0: long, arg1: $TimeUnit$$Type): boolean
+ "shutdownNow"(): $List<($Runnable)>
+ "execute"(arg0: $Runnable$$Type): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ScheduledExecutorService$$Type = ($ScheduledExecutorService);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ScheduledExecutorService$$Original = $ScheduledExecutorService;}

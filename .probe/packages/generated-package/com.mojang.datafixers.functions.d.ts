@@ -6,12 +6,12 @@ import {$Function} from "java.util.function.Function"
 export class $PointFree<T> {
 constructor()
 
-public "evalCached"(): $Function<($DynamicOps<(never)>), (T)>
 public "type"(): $Type<(T)>
 public "toString"(): StringJS
 public "toString"(arg0: integer): StringJS
 public static "indent"(arg0: integer): StringJS
 public "eval"(): $Function<($DynamicOps<(never)>), (T)>
+public "evalCached"(): $Function<($DynamicOps<(never)>), (T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -32,16 +32,16 @@ export interface $PointFreeRule$$Interface {
 }
 
 export class $PointFreeRule implements $PointFreeRule$$Interface {
-static "once"(arg0: $PointFreeRule$$Type): $PointFreeRule
-static "many"(arg0: $PointFreeRule$$Type): $PointFreeRule
 static "seq"(...arg0: ($PointFreeRule$$Type)[]): $PointFreeRule
 static "all"(arg0: $PointFreeRule$$Type): $PointFreeRule
 static "choice"(...arg0: ($PointFreeRule$$Type)[]): $PointFreeRule
- "rewrite"<A>(arg0: $PointFree$$Type<(A)>): $Optional<($PointFree<(A)>)>
-static "one"(arg0: $PointFreeRule$$Type): $PointFreeRule
 static "everywhere"(arg0: $PointFreeRule$$Type, arg1: $PointFreeRule$$Type): $PointFreeRule
- "rewriteOrNop"<A>(arg0: $PointFree$$Type<(A)>): $PointFree<(A)>
+static "one"(arg0: $PointFreeRule$$Type): $PointFreeRule
+ "rewrite"<A>(arg0: $PointFree$$Type<(A)>): $Optional<($PointFree<(A)>)>
+static "many"(arg0: $PointFreeRule$$Type): $PointFreeRule
+static "once"(arg0: $PointFreeRule$$Type): $PointFreeRule
 static "nop"(): $PointFreeRule
+ "rewriteOrNop"<A>(arg0: $PointFree$$Type<(A)>): $PointFree<(A)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

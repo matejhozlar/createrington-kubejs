@@ -25,6 +25,7 @@ Version-controlled KubeJS scripts for the Createrington Minecraft server. Script
    SFTP_PASSWORD=your-password
    REMOTE_KUBEJS_PATH=/kubejs
    REMOTE_BACKUP_PATH=/kubejs-backup
+   LOCAL_MODPACK_PATH=ModpackDir
    ```
 
    You can also use key-based auth by setting `SFTP_PRIVATE_KEY_PATH` instead of `SFTP_PASSWORD`.
@@ -53,6 +54,7 @@ Version-controlled KubeJS scripts for the Createrington Minecraft server. Script
 | `npm run status`                  | Compare src/ and kubejs/ against remote (existence + size)      |
 | `npm run extract-tags`            | Extract tag resource locations from mod JARs into `.probe/`     |
 | `node scripts/fix-probe-types.js` | Fix ProbeJS type bugs and inject real registry IDs              |
+| `npm run deploy-local`            | Upload `kubejs/` build output to the LOCAL_MODPACK_PATH         |
 
 ### Typical workflow
 
@@ -69,10 +71,13 @@ npm run build
 # 4. Check what's changed vs the server
 npm run status
 
-# 5. Push the compiled output to the server
+#5. Push to local Modpack and test
+npm run deploy-local
+
+# 6. Push the compiled output to the server
 npm run push
 
-# 6. Use /kubejs reload in-game to apply
+# 7. Use /reload in-game to apply
 ```
 
 ## Project structure

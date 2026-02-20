@@ -114,13 +114,13 @@ constructor()
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public "isOpen"(arg0: $RecipeBookType$$Type): boolean
-public "write"(arg0: $CompoundTag$$Type): void
 public "write"(arg0: $FriendlyByteBuf$$Type): void
+public "write"(arg0: $CompoundTag$$Type): void
 public static "read"(arg0: $FriendlyByteBuf$$Type): $RecipeBookSettings
 public static "read"(arg0: $CompoundTag$$Type): $RecipeBookSettings
 public "copy"(): $RecipeBookSettings
-public "setOpen"(arg0: $RecipeBookType$$Type, arg1: boolean): void
 public "replaceFrom"(arg0: $RecipeBookSettings$$Type): void
+public "setOpen"(arg0: $RecipeBookType$$Type, arg1: boolean): void
 public "isFiltering"(arg0: $RecipeBookType$$Type): boolean
 public "setFiltering"(arg0: $RecipeBookType$$Type, arg1: boolean): void
 }
@@ -135,22 +135,26 @@ export type $RecipeBookSettings$$Type = ($RecipeBookSettings);
 export type $RecipeBookSettings$$Original = $RecipeBookSettings;}
 declare module "net.minecraft.stats.ServerRecipeBook" {
 import {$CompoundTag, $CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
+import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
 import {$Collection$$Type} from "java.util.Collection"
 import {$RecipeHolder$$Type} from "net.minecraft.world.item.crafting.RecipeHolder"
 import {$RecipeManager$$Type} from "net.minecraft.world.item.crafting.RecipeManager"
 import {$RecipeBook} from "net.minecraft.stats.RecipeBook"
+import {$Set} from "java.util.Set"
 import {$ServerPlayer$$Type} from "net.minecraft.server.level.ServerPlayer"
 
 export class $ServerRecipeBook extends $RecipeBook {
+readonly "highlight": $Set<($ResourceLocation)>
+readonly "known": $Set<($ResourceLocation)>
 static readonly "RECIPE_BOOK_TAG": StringJS
 
 constructor()
 
+public "removeRecipes"(arg0: $Collection$$Type<($RecipeHolder$$Type<(never)>)>, arg1: $ServerPlayer$$Type): integer
+public "sendInitialRecipeBook"(arg0: $ServerPlayer$$Type): void
+public "addRecipes"(arg0: $Collection$$Type<($RecipeHolder$$Type<(never)>)>, arg1: $ServerPlayer$$Type): integer
 public "fromNbt"(arg0: $CompoundTag$$Type, arg1: $RecipeManager$$Type): void
 public "toNbt"(): $CompoundTag
-public "removeRecipes"(arg0: $Collection$$Type<($RecipeHolder$$Type<(never)>)>, arg1: $ServerPlayer$$Type): integer
-public "addRecipes"(arg0: $Collection$$Type<($RecipeHolder$$Type<(never)>)>, arg1: $ServerPlayer$$Type): integer
-public "sendInitialRecipeBook"(arg0: $ServerPlayer$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -162,9 +166,9 @@ export type $ServerRecipeBook$$Type = ($ServerRecipeBook);
  */
 export type $ServerRecipeBook$$Original = $ServerRecipeBook;}
 declare module "net.minecraft.stats.StatType" {
-import {$Iterator} from "java.util.Iterator"
-import {$Iterable$$Interface} from "java.lang.Iterable"
 import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
+import {$Iterable$$Interface} from "java.lang.Iterable"
+import {$Iterator} from "java.util.Iterator"
 import {$Registry, $Registry$$Type} from "net.minecraft.core.Registry"
 import {$Stat, $Stat$$Type} from "net.minecraft.stats.Stat"
 import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
@@ -206,11 +210,82 @@ export type $StatType$$Type<T> = (Special.StatType);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $StatType$$Original<T> = $StatType<(T)>;}
+declare module "net.minecraft.stats.StatsCounter" {
+import {$StatType$$Type} from "net.minecraft.stats.StatType"
+import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
+import {$Object2IntMap} from "it.unimi.dsi.fastutil.objects.Object2IntMap"
+import {$Stat, $Stat$$Type} from "net.minecraft.stats.Stat"
+
+export class $StatsCounter {
+readonly "stats": $Object2IntMap<($Stat<(never)>)>
+
+constructor()
+
+public "getValue"<T>(arg0: $StatType$$Type<(T)>, arg1: T): integer
+public "getValue"(arg0: $Stat$$Type<(never)>): integer
+public "increment"(arg0: $Player$$Type, arg1: $Stat$$Type<(never)>, arg2: integer): void
+public "setValue"(arg0: $Player$$Type, arg1: $Stat$$Type<(never)>, arg2: integer): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $StatsCounter$$Type = ($StatsCounter);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $StatsCounter$$Original = $StatsCounter;}
+declare module "net.minecraft.stats.RecipeBook" {
+import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
+import {$RecipeHolder$$Type} from "net.minecraft.world.item.crafting.RecipeHolder"
+import {$RecipeBookMenu$$Type} from "net.minecraft.world.inventory.RecipeBookMenu"
+import {$RecipeBookType$$Type} from "net.minecraft.world.inventory.RecipeBookType"
+import {$Set} from "java.util.Set"
+import {$RecipeBookSettings, $RecipeBookSettings$$Type} from "net.minecraft.stats.RecipeBookSettings"
+
+export class $RecipeBook {
+readonly "highlight": $Set<($ResourceLocation)>
+readonly "known": $Set<($ResourceLocation)>
+
+constructor()
+
+public "remove"(arg0: $ResourceLocation$$Type): void
+public "remove"(arg0: $RecipeHolder$$Type<(never)>): void
+public "add"(arg0: $ResourceLocation$$Type): void
+public "add"(arg0: $RecipeHolder$$Type<(never)>): void
+public "contains"(arg0: $ResourceLocation$$Type): boolean
+public "contains"(arg0: $RecipeHolder$$Type<(never)>): boolean
+public "isOpen"(arg0: $RecipeBookType$$Type): boolean
+public "copyOverData"(arg0: $RecipeBook$$Type): void
+public "removeHighlight"(arg0: $RecipeHolder$$Type<(never)>): void
+public "willHighlight"(arg0: $RecipeHolder$$Type<(never)>): boolean
+public "setOpen"(arg0: $RecipeBookType$$Type, arg1: boolean): void
+public "addHighlight"(arg0: $ResourceLocation$$Type): void
+public "addHighlight"(arg0: $RecipeHolder$$Type<(never)>): void
+public "isFiltering"(arg0: $RecipeBookType$$Type): boolean
+public "isFiltering"(arg0: $RecipeBookMenu$$Type<(never), (never)>): boolean
+public "setFiltering"(arg0: $RecipeBookType$$Type, arg1: boolean): void
+public "setBookSettings"(arg0: $RecipeBookSettings$$Type): void
+public "getBookSettings"(): $RecipeBookSettings
+public "setBookSetting"(arg0: $RecipeBookType$$Type, arg1: boolean, arg2: boolean): void
+set "bookSettings"(value: $RecipeBookSettings$$Type)
+get "bookSettings"(): $RecipeBookSettings
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $RecipeBook$$Type = ($RecipeBook);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $RecipeBook$$Original = $RecipeBook;}
 declare module "net.minecraft.stats.Stat" {
 import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
 import {$StatType, $StatType$$Type} from "net.minecraft.stats.StatType"
 import {$ObjectiveCriteria} from "net.minecraft.world.scores.criteria.ObjectiveCriteria"
 import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
+import {$StatFormatter$$Type} from "net.minecraft.stats.StatFormatter"
 
 export class $Stat<T> extends $ObjectiveCriteria {
 static readonly "DEATH_COUNT": $ObjectiveCriteria
@@ -227,6 +302,8 @@ static readonly "KILL_COUNT_PLAYERS": $ObjectiveCriteria
 static readonly "TEAM_KILL": ($ObjectiveCriteria)[]
 static readonly "KILLED_BY_TEAM": ($ObjectiveCriteria)[]
 static readonly "FOOD": $ObjectiveCriteria
+
+constructor(arg0: $StatType$$Type<(T)>, arg1: T, arg2: $StatFormatter$$Type)
 
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
@@ -249,19 +326,23 @@ export type $Stat$$Type<T> = (StringJS);
 export type $Stat$$Original<T> = $Stat<(T)>;}
 declare module "net.minecraft.stats.ServerStatsCounter" {
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
+import {$Object2IntMap} from "it.unimi.dsi.fastutil.objects.Object2IntMap"
 import {$File$$Type} from "java.io.File"
-import {$Stat$$Type} from "net.minecraft.stats.Stat"
+import {$Stat, $Stat$$Type} from "net.minecraft.stats.Stat"
 import {$ServerPlayer$$Type} from "net.minecraft.server.level.ServerPlayer"
 import {$StatsCounter} from "net.minecraft.stats.StatsCounter"
 import {$MinecraftServer$$Type} from "net.minecraft.server.MinecraftServer"
 import {$DataFixer$$Type} from "com.mojang.datafixers.DataFixer"
 
 export class $ServerStatsCounter extends $StatsCounter {
+readonly "stats": $Object2IntMap<($Stat<(never)>)>
+
 constructor(arg0: $MinecraftServer$$Type, arg1: $File$$Type)
 
 public "save"(): void
 public "setValue"(arg0: $Player$$Type, arg1: $Stat$$Type<(never)>, arg2: integer): void
 public "parseLocal"(arg0: $DataFixer$$Type, arg1: StringJS): void
+public "toJson"(): StringJS
 public "sendStats"(arg0: $ServerPlayer$$Type): void
 public "markAllDirty"(): void
 }
@@ -300,63 +381,3 @@ export type $StatFormatter$$Type = ((arg0: integer) => StringJS);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $StatFormatter$$Original = $StatFormatter;}
-declare module "net.minecraft.stats.StatsCounter" {
-import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
-import {$StatType$$Type} from "net.minecraft.stats.StatType"
-import {$Stat$$Type} from "net.minecraft.stats.Stat"
-
-export class $StatsCounter {
-constructor()
-
-public "getValue"<T>(arg0: $StatType$$Type<(T)>, arg1: T): integer
-public "getValue"(arg0: $Stat$$Type<(never)>): integer
-public "increment"(arg0: $Player$$Type, arg1: $Stat$$Type<(never)>, arg2: integer): void
-public "setValue"(arg0: $Player$$Type, arg1: $Stat$$Type<(never)>, arg2: integer): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $StatsCounter$$Type = ($StatsCounter);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $StatsCounter$$Original = $StatsCounter;}
-declare module "net.minecraft.stats.RecipeBook" {
-import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
-import {$RecipeHolder$$Type} from "net.minecraft.world.item.crafting.RecipeHolder"
-import {$RecipeBookMenu$$Type} from "net.minecraft.world.inventory.RecipeBookMenu"
-import {$RecipeBookType$$Type} from "net.minecraft.world.inventory.RecipeBookType"
-import {$RecipeBookSettings, $RecipeBookSettings$$Type} from "net.minecraft.stats.RecipeBookSettings"
-
-export class $RecipeBook {
-constructor()
-
-public "remove"(arg0: $RecipeHolder$$Type<(never)>): void
-public "add"(arg0: $RecipeHolder$$Type<(never)>): void
-public "contains"(arg0: $ResourceLocation$$Type): boolean
-public "contains"(arg0: $RecipeHolder$$Type<(never)>): boolean
-public "isOpen"(arg0: $RecipeBookType$$Type): boolean
-public "copyOverData"(arg0: $RecipeBook$$Type): void
-public "setOpen"(arg0: $RecipeBookType$$Type, arg1: boolean): void
-public "willHighlight"(arg0: $RecipeHolder$$Type<(never)>): boolean
-public "removeHighlight"(arg0: $RecipeHolder$$Type<(never)>): void
-public "setBookSettings"(arg0: $RecipeBookSettings$$Type): void
-public "isFiltering"(arg0: $RecipeBookMenu$$Type<(never), (never)>): boolean
-public "isFiltering"(arg0: $RecipeBookType$$Type): boolean
-public "setBookSetting"(arg0: $RecipeBookType$$Type, arg1: boolean, arg2: boolean): void
-public "setFiltering"(arg0: $RecipeBookType$$Type, arg1: boolean): void
-public "getBookSettings"(): $RecipeBookSettings
-public "addHighlight"(arg0: $RecipeHolder$$Type<(never)>): void
-set "bookSettings"(value: $RecipeBookSettings$$Type)
-get "bookSettings"(): $RecipeBookSettings
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $RecipeBook$$Type = ($RecipeBook);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $RecipeBook$$Original = $RecipeBook;}

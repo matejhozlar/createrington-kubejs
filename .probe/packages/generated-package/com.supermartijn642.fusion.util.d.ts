@@ -16,7 +16,7 @@ public "middle"(): Y
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $Triple$$Type<X, Y, Z> = ({"middle"?: Y, "left"?: X, "right"?: Z}) | ([middle?: Y, left?: X, right?: Z]);
+export type $Triple$$Type<X, Y, Z> = ({"left"?: X, "middle"?: Y, "right"?: Z}) | ([left?: X, middle?: Y, right?: Z]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */

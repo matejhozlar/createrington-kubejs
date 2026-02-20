@@ -4,9 +4,9 @@ export interface $ExperienceOrbAccess$$Interface {
 }
 
 export class $ExperienceOrbAccess implements $ExperienceOrbAccess$$Interface {
- "clumps$setAge"(arg0: integer): void
- "clumps$setCount"(arg0: integer): void
  "clumps$getAge"(): integer
+ "clumps$setCount"(arg0: integer): void
+ "clumps$setAge"(arg0: integer): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

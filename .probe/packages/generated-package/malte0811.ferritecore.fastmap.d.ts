@@ -18,10 +18,10 @@ export type $FastMapKey$$Type<T> = ($FastMapKey<(T)>);
  */
 export type $FastMapKey$$Original<T> = $FastMapKey<(T)>;}
 declare module "malte0811.ferritecore.fastmap.FastMap" {
-import {$Collection$$Type} from "java.util.Collection"
 import {$Map$$Type} from "java.util.Map"
-import {$FastMapKey} from "malte0811.ferritecore.fastmap.FastMapKey"
+import {$Collection$$Type} from "java.util.Collection"
 import {$Comparable, $Comparable$$Type} from "java.lang.Comparable"
+import {$FastMapKey} from "malte0811.ferritecore.fastmap.FastMapKey"
 import {$ReferenceSet} from "it.unimi.dsi.fastutil.objects.ReferenceSet"
 import {$Map$Entry} from "java.util.Map$Entry"
 import {$Property, $Property$$Type} from "net.minecraft.world.level.block.state.properties.Property"

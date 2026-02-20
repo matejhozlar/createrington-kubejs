@@ -1,104 +1,3 @@
-declare module "java.util.concurrent.atomic.AtomicReference" {
-import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
-import {$Serializable$$Interface} from "java.io.Serializable"
-import {$BinaryOperator$$Type} from "java.util.function.BinaryOperator"
-
-export class $AtomicReference<V> implements $Serializable$$Interface {
-constructor(arg0: V)
-constructor()
-
-public "get"(): V
-public "toString"(): StringJS
-public "set"(arg0: V): void
-public "getOpaque"(): V
-public "setOpaque"(arg0: V): void
-public "getAcquire"(): V
-public "setRelease"(arg0: V): void
-public "compareAndSet"(arg0: V, arg1: V): boolean
-public "compareAndExchange"(arg0: V, arg1: V): V
-public "compareAndExchangeAcquire"(arg0: V, arg1: V): V
-public "compareAndExchangeRelease"(arg0: V, arg1: V): V
-public "weakCompareAndSetPlain"(arg0: V, arg1: V): boolean
-/**
- * 
- * @deprecated
- */
-public "weakCompareAndSet"(arg0: V, arg1: V): boolean
-public "weakCompareAndSetAcquire"(arg0: V, arg1: V): boolean
-public "weakCompareAndSetRelease"(arg0: V, arg1: V): boolean
-public "getAndSet"(arg0: V): V
-public "lazySet"(arg0: V): void
-public "weakCompareAndSetVolatile"(arg0: V, arg1: V): boolean
-public "getAndUpdate"(arg0: $UnaryOperator$$Type<(V)>): V
-public "updateAndGet"(arg0: $UnaryOperator$$Type<(V)>): V
-public "getAndAccumulate"(arg0: V, arg1: $BinaryOperator$$Type<(V)>): V
-public "accumulateAndGet"(arg0: V, arg1: $BinaryOperator$$Type<(V)>): V
-public "getPlain"(): V
-public "setPlain"(arg0: V): void
-get "opaque"(): V
-set "opaque"(value: V)
-get "acquire"(): V
-set "release"(value: V)
-get "plain"(): V
-set "plain"(value: V)
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $AtomicReference$$Type<V> = ($AtomicReference<(V)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $AtomicReference$$Original<V> = $AtomicReference<(V)>;}
-declare module "java.util.concurrent.atomic.AtomicReferenceArray" {
-import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
-import {$Serializable$$Interface} from "java.io.Serializable"
-import {$BinaryOperator$$Type} from "java.util.function.BinaryOperator"
-
-export class $AtomicReferenceArray<E> implements $Serializable$$Interface {
-constructor(arg0: integer)
-constructor(arg0: (E)[])
-
-public "get"(arg0: integer): E
-public "length"(): integer
-public "toString"(): StringJS
-public "set"(arg0: integer, arg1: E): void
-public "getOpaque"(arg0: integer): E
-public "setOpaque"(arg0: integer, arg1: E): void
-public "getAcquire"(arg0: integer): E
-public "setRelease"(arg0: integer, arg1: E): void
-public "compareAndSet"(arg0: integer, arg1: E, arg2: E): boolean
-public "compareAndExchange"(arg0: integer, arg1: E, arg2: E): E
-public "compareAndExchangeAcquire"(arg0: integer, arg1: E, arg2: E): E
-public "compareAndExchangeRelease"(arg0: integer, arg1: E, arg2: E): E
-public "weakCompareAndSetPlain"(arg0: integer, arg1: E, arg2: E): boolean
-/**
- * 
- * @deprecated
- */
-public "weakCompareAndSet"(arg0: integer, arg1: E, arg2: E): boolean
-public "weakCompareAndSetAcquire"(arg0: integer, arg1: E, arg2: E): boolean
-public "weakCompareAndSetRelease"(arg0: integer, arg1: E, arg2: E): boolean
-public "getAndSet"(arg0: integer, arg1: E): E
-public "lazySet"(arg0: integer, arg1: E): void
-public "weakCompareAndSetVolatile"(arg0: integer, arg1: E, arg2: E): boolean
-public "getAndUpdate"(arg0: integer, arg1: $UnaryOperator$$Type<(E)>): E
-public "updateAndGet"(arg0: integer, arg1: $UnaryOperator$$Type<(E)>): E
-public "getAndAccumulate"(arg0: integer, arg1: E, arg2: $BinaryOperator$$Type<(E)>): E
-public "accumulateAndGet"(arg0: integer, arg1: E, arg2: $BinaryOperator$$Type<(E)>): E
-public "getPlain"(arg0: integer): E
-public "setPlain"(arg0: integer, arg1: E): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $AtomicReferenceArray$$Type<E> = ($AtomicReferenceArray<(E)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $AtomicReferenceArray$$Original<E> = $AtomicReferenceArray<(E)>;}
 declare module "java.util.concurrent.atomic.AtomicInteger" {
 import {$IntUnaryOperator$$Type} from "java.util.function.IntUnaryOperator"
 import {$Serializable$$Interface} from "java.io.Serializable"
@@ -211,3 +110,104 @@ export type $AtomicBoolean$$Type = ($AtomicBoolean);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $AtomicBoolean$$Original = $AtomicBoolean;}
+declare module "java.util.concurrent.atomic.AtomicReference" {
+import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
+import {$Serializable$$Interface} from "java.io.Serializable"
+import {$BinaryOperator$$Type} from "java.util.function.BinaryOperator"
+
+export class $AtomicReference<V> implements $Serializable$$Interface {
+constructor(arg0: V)
+constructor()
+
+public "get"(): V
+public "toString"(): StringJS
+public "set"(arg0: V): void
+public "getOpaque"(): V
+public "setOpaque"(arg0: V): void
+public "getAcquire"(): V
+public "setRelease"(arg0: V): void
+public "compareAndSet"(arg0: V, arg1: V): boolean
+public "compareAndExchange"(arg0: V, arg1: V): V
+public "compareAndExchangeAcquire"(arg0: V, arg1: V): V
+public "compareAndExchangeRelease"(arg0: V, arg1: V): V
+public "weakCompareAndSetPlain"(arg0: V, arg1: V): boolean
+/**
+ * 
+ * @deprecated
+ */
+public "weakCompareAndSet"(arg0: V, arg1: V): boolean
+public "weakCompareAndSetAcquire"(arg0: V, arg1: V): boolean
+public "weakCompareAndSetRelease"(arg0: V, arg1: V): boolean
+public "getAndSet"(arg0: V): V
+public "lazySet"(arg0: V): void
+public "weakCompareAndSetVolatile"(arg0: V, arg1: V): boolean
+public "getAndUpdate"(arg0: $UnaryOperator$$Type<(V)>): V
+public "updateAndGet"(arg0: $UnaryOperator$$Type<(V)>): V
+public "getAndAccumulate"(arg0: V, arg1: $BinaryOperator$$Type<(V)>): V
+public "accumulateAndGet"(arg0: V, arg1: $BinaryOperator$$Type<(V)>): V
+public "getPlain"(): V
+public "setPlain"(arg0: V): void
+get "opaque"(): V
+set "opaque"(value: V)
+get "acquire"(): V
+set "release"(value: V)
+get "plain"(): V
+set "plain"(value: V)
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $AtomicReference$$Type<V> = ($AtomicReference<(V)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $AtomicReference$$Original<V> = $AtomicReference<(V)>;}
+declare module "java.util.concurrent.atomic.AtomicReferenceArray" {
+import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
+import {$Serializable$$Interface} from "java.io.Serializable"
+import {$BinaryOperator$$Type} from "java.util.function.BinaryOperator"
+
+export class $AtomicReferenceArray<E> implements $Serializable$$Interface {
+constructor(arg0: integer)
+constructor(arg0: (E)[])
+
+public "get"(arg0: integer): E
+public "length"(): integer
+public "toString"(): StringJS
+public "set"(arg0: integer, arg1: E): void
+public "getOpaque"(arg0: integer): E
+public "setOpaque"(arg0: integer, arg1: E): void
+public "getAcquire"(arg0: integer): E
+public "setRelease"(arg0: integer, arg1: E): void
+public "compareAndSet"(arg0: integer, arg1: E, arg2: E): boolean
+public "compareAndExchange"(arg0: integer, arg1: E, arg2: E): E
+public "compareAndExchangeAcquire"(arg0: integer, arg1: E, arg2: E): E
+public "compareAndExchangeRelease"(arg0: integer, arg1: E, arg2: E): E
+public "weakCompareAndSetPlain"(arg0: integer, arg1: E, arg2: E): boolean
+/**
+ * 
+ * @deprecated
+ */
+public "weakCompareAndSet"(arg0: integer, arg1: E, arg2: E): boolean
+public "weakCompareAndSetAcquire"(arg0: integer, arg1: E, arg2: E): boolean
+public "weakCompareAndSetRelease"(arg0: integer, arg1: E, arg2: E): boolean
+public "getAndSet"(arg0: integer, arg1: E): E
+public "lazySet"(arg0: integer, arg1: E): void
+public "weakCompareAndSetVolatile"(arg0: integer, arg1: E, arg2: E): boolean
+public "getAndUpdate"(arg0: integer, arg1: $UnaryOperator$$Type<(E)>): E
+public "updateAndGet"(arg0: integer, arg1: $UnaryOperator$$Type<(E)>): E
+public "getAndAccumulate"(arg0: integer, arg1: E, arg2: $BinaryOperator$$Type<(E)>): E
+public "accumulateAndGet"(arg0: integer, arg1: E, arg2: $BinaryOperator$$Type<(E)>): E
+public "getPlain"(arg0: integer): E
+public "setPlain"(arg0: integer, arg1: E): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $AtomicReferenceArray$$Type<E> = ($AtomicReferenceArray<(E)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $AtomicReferenceArray$$Original<E> = $AtomicReferenceArray<(E)>;}

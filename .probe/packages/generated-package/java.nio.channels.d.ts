@@ -1,60 +1,3 @@
-declare module "java.nio.channels.FileChannel" {
-import {$SeekableByteChannel, $SeekableByteChannel$$Interface} from "java.nio.channels.SeekableByteChannel"
-import {$Arena$$Type} from "java.lang.foreign.Arena"
-import {$FileAttribute$$Type} from "java.nio.file.attribute.FileAttribute"
-import {$AbstractInterruptibleChannel} from "java.nio.channels.spi.AbstractInterruptibleChannel"
-import {$MemorySegment} from "java.lang.foreign.MemorySegment"
-import {$ReadableByteChannel$$Type} from "java.nio.channels.ReadableByteChannel"
-import {$ScatteringByteChannel$$Interface} from "java.nio.channels.ScatteringByteChannel"
-import {$FileChannel$MapMode$$Type} from "java.nio.channels.FileChannel$MapMode"
-import {$FileLock} from "java.nio.channels.FileLock"
-import {$OpenOption$$Type} from "java.nio.file.OpenOption"
-import {$Set$$Type} from "java.util.Set"
-import {$WritableByteChannel$$Type} from "java.nio.channels.WritableByteChannel"
-import {$MappedByteBuffer} from "java.nio.MappedByteBuffer"
-import {$Path$$Type} from "java.nio.file.Path"
-import {$GatheringByteChannel$$Interface} from "java.nio.channels.GatheringByteChannel"
-import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $FileChannel extends $AbstractInterruptibleChannel implements $SeekableByteChannel$$Interface, $GatheringByteChannel$$Interface, $ScatteringByteChannel$$Interface {
-public "transferFrom"(arg0: $ReadableByteChannel$$Type, arg1: long, arg2: long): long
-public "lock"(arg0: long, arg1: long, arg2: boolean): $FileLock
-public "lock"(): $FileLock
-public "size"(): long
-public "position"(arg0: long): $FileChannel
-public "position"(): long
-public "map"(arg0: $FileChannel$MapMode$$Type, arg1: long, arg2: long): $MappedByteBuffer
-public "map"(arg0: $FileChannel$MapMode$$Type, arg1: long, arg2: long, arg3: $Arena$$Type): $MemorySegment
-public "write"(arg0: $ByteBuffer$$Type, arg1: long): integer
-public "write"(arg0: $ByteBuffer$$Type): integer
-public "write"(arg0: ($ByteBuffer$$Type)[], arg1: integer, arg2: integer): long
-public "write"(arg0: ($ByteBuffer$$Type)[]): long
-public "read"(arg0: $ByteBuffer$$Type, arg1: long): integer
-public "read"(arg0: $ByteBuffer$$Type): integer
-public "read"(arg0: ($ByteBuffer$$Type)[], arg1: integer, arg2: integer): long
-public "read"(arg0: ($ByteBuffer$$Type)[]): long
-public static "open"(arg0: $Path$$Type, ...arg1: ($OpenOption$$Type)[]): $FileChannel
-public static "open"(arg0: $Path$$Type, arg1: $Set$$Type<($OpenOption$$Type)>, ...arg2: ($FileAttribute$$Type<(never)>)[]): $FileChannel
-public "transferTo"(arg0: long, arg1: long, arg2: $WritableByteChannel$$Type): long
-public "tryLock"(): $FileLock
-public "tryLock"(arg0: long, arg1: long, arg2: boolean): $FileLock
-public "force"(arg0: boolean): void
-public "truncate"(arg0: long): $SeekableByteChannel
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $FileChannel$$Type = ($FileChannel);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $FileChannel$$Original = $FileChannel;}
 declare module "java.nio.channels.Channel" {
 import {$Closeable$$Interface} from "java.io.Closeable"
 
@@ -107,6 +50,317 @@ export type $ReadableByteChannel$$Type = ($ReadableByteChannel);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ReadableByteChannel$$Original = $ReadableByteChannel;}
+declare module "java.nio.channels.ServerSocketChannel" {
+import {$NetworkChannel, $NetworkChannel$$Interface} from "java.nio.channels.NetworkChannel"
+import {$ProtocolFamily$$Type} from "java.net.ProtocolFamily"
+import {$SocketOption, $SocketOption$$Type} from "java.net.SocketOption"
+import {$SocketAddress, $SocketAddress$$Type} from "java.net.SocketAddress"
+import {$SocketChannel} from "java.nio.channels.SocketChannel"
+import {$AbstractSelectableChannel} from "java.nio.channels.spi.AbstractSelectableChannel"
+import {$Set} from "java.util.Set"
+import {$ServerSocket} from "java.net.ServerSocket"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $ServerSocketChannel extends $AbstractSelectableChannel implements $NetworkChannel$$Interface {
+public "socket"(): $ServerSocket
+public "setOption"<T>(arg0: $SocketOption$$Type<(T)>, arg1: T): $ServerSocketChannel
+public "getLocalAddress"(): $SocketAddress
+public "validOps"(): integer
+public "accept"(): $SocketChannel
+public static "open"(): $ServerSocketChannel
+public static "open"(arg0: $ProtocolFamily$$Type): $ServerSocketChannel
+public "bind"(arg0: $SocketAddress$$Type): $NetworkChannel
+public "bind"(arg0: $SocketAddress$$Type, arg1: integer): $ServerSocketChannel
+public "supportedOptions"(): $Set<($SocketOption<(never)>)>
+public "getOption"<T>(arg0: $SocketOption$$Type<(T)>): T
+public "isOpen"(): boolean
+public "close"(): void
+get "localAddress"(): $SocketAddress
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ServerSocketChannel$$Type = ($ServerSocketChannel);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ServerSocketChannel$$Original = $ServerSocketChannel;}
+declare module "java.nio.channels.Pipe" {
+import {$Pipe$SourceChannel} from "java.nio.channels.Pipe$SourceChannel"
+import {$Pipe$SinkChannel} from "java.nio.channels.Pipe$SinkChannel"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $Pipe {
+public "source"(): $Pipe$SourceChannel
+public static "open"(): $Pipe
+public "sink"(): $Pipe$SinkChannel
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Pipe$$Type = ($Pipe);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Pipe$$Original = $Pipe;}
+declare module "java.nio.channels.CompletionHandler" {
+import {$Throwable$$Type} from "java.lang.Throwable"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export interface $CompletionHandler$$Interface<V, A> {
+}
+
+export class $CompletionHandler<V, A> implements $CompletionHandler$$Interface {
+ "completed"(arg0: V, arg1: A): void
+ "failed"(arg0: $Throwable$$Type, arg1: A): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $CompletionHandler$$Type<V, A> = ($CompletionHandler<(V), (A)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $CompletionHandler$$Original<V, A> = $CompletionHandler<(V), (A)>;}
+declare module "java.nio.channels.MulticastChannel" {
+import {$NetworkChannel, $NetworkChannel$$Interface} from "java.nio.channels.NetworkChannel"
+import {$SocketOption, $SocketOption$$Type} from "java.net.SocketOption"
+import {$SocketAddress, $SocketAddress$$Type} from "java.net.SocketAddress"
+import {$InetAddress$$Type} from "java.net.InetAddress"
+import {$Set} from "java.util.Set"
+import {$NetworkInterface$$Type} from "java.net.NetworkInterface"
+import {$MembershipKey} from "java.nio.channels.MembershipKey"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export interface $MulticastChannel$$Interface extends $NetworkChannel$$Interface {
+get "localAddress"(): $SocketAddress
+get "open"(): boolean
+}
+
+export class $MulticastChannel implements $MulticastChannel$$Interface {
+ "join"(arg0: $InetAddress$$Type, arg1: $NetworkInterface$$Type): $MembershipKey
+ "join"(arg0: $InetAddress$$Type, arg1: $NetworkInterface$$Type, arg2: $InetAddress$$Type): $MembershipKey
+ "close"(): void
+ "supportedOptions"(): $Set<($SocketOption<(never)>)>
+ "setOption"<T>(arg0: $SocketOption$$Type<(T)>, arg1: T): $NetworkChannel
+ "getLocalAddress"(): $SocketAddress
+ "getOption"<T>(arg0: $SocketOption$$Type<(T)>): T
+ "bind"(arg0: $SocketAddress$$Type): $NetworkChannel
+ "isOpen"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $MulticastChannel$$Type = ($MulticastChannel);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $MulticastChannel$$Original = $MulticastChannel;}
+declare module "java.nio.channels.ByteChannel" {
+import {$ReadableByteChannel$$Interface} from "java.nio.channels.ReadableByteChannel"
+import {$WritableByteChannel$$Interface} from "java.nio.channels.WritableByteChannel"
+import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export interface $ByteChannel$$Interface extends $ReadableByteChannel$$Interface, $WritableByteChannel$$Interface {
+get "open"(): boolean
+}
+
+export class $ByteChannel implements $ByteChannel$$Interface {
+ "read"(arg0: $ByteBuffer$$Type): integer
+ "write"(arg0: $ByteBuffer$$Type): integer
+ "isOpen"(): boolean
+ "close"(): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ByteChannel$$Type = ($ByteChannel);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ByteChannel$$Original = $ByteChannel;}
+declare module "java.nio.channels.InterruptibleChannel" {
+import {$Channel$$Interface} from "java.nio.channels.Channel"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export interface $InterruptibleChannel$$Interface extends $Channel$$Interface {
+get "open"(): boolean
+}
+
+export class $InterruptibleChannel implements $InterruptibleChannel$$Interface {
+ "close"(): void
+ "isOpen"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $InterruptibleChannel$$Type = ($InterruptibleChannel);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $InterruptibleChannel$$Original = $InterruptibleChannel;}
+declare module "java.nio.channels.AsynchronousFileChannel" {
+import {$AsynchronousChannel$$Interface} from "java.nio.channels.AsynchronousChannel"
+import {$FileLock, $FileLock$$Type} from "java.nio.channels.FileLock"
+import {$Future} from "java.util.concurrent.Future"
+import {$FileAttribute$$Type} from "java.nio.file.attribute.FileAttribute"
+import {$ExecutorService$$Type} from "java.util.concurrent.ExecutorService"
+import {$Set$$Type} from "java.util.Set"
+import {$OpenOption$$Type} from "java.nio.file.OpenOption"
+import {$CompletionHandler$$Type} from "java.nio.channels.CompletionHandler"
+import {$Path$$Type} from "java.nio.file.Path"
+import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $AsynchronousFileChannel implements $AsynchronousChannel$$Interface {
+public "lock"(arg0: long, arg1: long, arg2: boolean): $Future<($FileLock)>
+public "lock"<A>(arg0: A, arg1: $CompletionHandler$$Type<($FileLock$$Type), (A)>): void
+public "lock"<A>(arg0: long, arg1: long, arg2: boolean, arg3: A, arg4: $CompletionHandler$$Type<($FileLock$$Type), (A)>): void
+public "lock"(): $Future<($FileLock)>
+public "size"(): long
+public "write"(arg0: $ByteBuffer$$Type, arg1: long): $Future<(integer)>
+public "write"<A>(arg0: $ByteBuffer$$Type, arg1: long, arg2: A, arg3: $CompletionHandler$$Type<(integer), (A)>): void
+public "read"(arg0: $ByteBuffer$$Type, arg1: long): $Future<(integer)>
+public "read"<A>(arg0: $ByteBuffer$$Type, arg1: long, arg2: A, arg3: $CompletionHandler$$Type<(integer), (A)>): void
+public static "open"(arg0: $Path$$Type, arg1: $Set$$Type<($OpenOption$$Type)>, arg2: $ExecutorService$$Type, ...arg3: ($FileAttribute$$Type<(never)>)[]): $AsynchronousFileChannel
+public static "open"(arg0: $Path$$Type, ...arg1: ($OpenOption$$Type)[]): $AsynchronousFileChannel
+public "tryLock"(): $FileLock
+public "tryLock"(arg0: long, arg1: long, arg2: boolean): $FileLock
+public "force"(arg0: boolean): void
+public "truncate"(arg0: long): $AsynchronousFileChannel
+public "close"(): void
+public "isOpen"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $AsynchronousFileChannel$$Type = ($AsynchronousFileChannel);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $AsynchronousFileChannel$$Original = $AsynchronousFileChannel;}
+declare module "java.nio.channels.GatheringByteChannel" {
+import {$WritableByteChannel$$Interface} from "java.nio.channels.WritableByteChannel"
+import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export interface $GatheringByteChannel$$Interface extends $WritableByteChannel$$Interface {
+get "open"(): boolean
+}
+
+export class $GatheringByteChannel implements $GatheringByteChannel$$Interface {
+ "write"(arg0: ($ByteBuffer$$Type)[], arg1: integer, arg2: integer): long
+ "write"(arg0: ($ByteBuffer$$Type)[]): long
+ "write"(arg0: $ByteBuffer$$Type): integer
+ "isOpen"(): boolean
+ "close"(): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $GatheringByteChannel$$Type = ($GatheringByteChannel);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $GatheringByteChannel$$Original = $GatheringByteChannel;}
+declare module "java.nio.channels.FileChannel" {
+import {$SeekableByteChannel, $SeekableByteChannel$$Interface} from "java.nio.channels.SeekableByteChannel"
+import {$Arena$$Type} from "java.lang.foreign.Arena"
+import {$FileAttribute$$Type} from "java.nio.file.attribute.FileAttribute"
+import {$AbstractInterruptibleChannel} from "java.nio.channels.spi.AbstractInterruptibleChannel"
+import {$MemorySegment} from "java.lang.foreign.MemorySegment"
+import {$ReadableByteChannel$$Type} from "java.nio.channels.ReadableByteChannel"
+import {$ScatteringByteChannel$$Interface} from "java.nio.channels.ScatteringByteChannel"
+import {$FileChannel$MapMode$$Type} from "java.nio.channels.FileChannel$MapMode"
+import {$FileLock} from "java.nio.channels.FileLock"
+import {$Set$$Type} from "java.util.Set"
+import {$WritableByteChannel$$Type} from "java.nio.channels.WritableByteChannel"
+import {$OpenOption$$Type} from "java.nio.file.OpenOption"
+import {$Path$$Type} from "java.nio.file.Path"
+import {$MappedByteBuffer} from "java.nio.MappedByteBuffer"
+import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
+import {$GatheringByteChannel$$Interface} from "java.nio.channels.GatheringByteChannel"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $FileChannel extends $AbstractInterruptibleChannel implements $SeekableByteChannel$$Interface, $GatheringByteChannel$$Interface, $ScatteringByteChannel$$Interface {
+public "transferFrom"(arg0: $ReadableByteChannel$$Type, arg1: long, arg2: long): long
+public "lock"(arg0: long, arg1: long, arg2: boolean): $FileLock
+public "lock"(): $FileLock
+public "size"(): long
+public "position"(arg0: long): $FileChannel
+public "position"(): long
+public "map"(arg0: $FileChannel$MapMode$$Type, arg1: long, arg2: long): $MappedByteBuffer
+public "map"(arg0: $FileChannel$MapMode$$Type, arg1: long, arg2: long, arg3: $Arena$$Type): $MemorySegment
+public "write"(arg0: $ByteBuffer$$Type, arg1: long): integer
+public "write"(arg0: $ByteBuffer$$Type): integer
+public "write"(arg0: ($ByteBuffer$$Type)[], arg1: integer, arg2: integer): long
+public "write"(arg0: ($ByteBuffer$$Type)[]): long
+public "read"(arg0: $ByteBuffer$$Type, arg1: long): integer
+public "read"(arg0: $ByteBuffer$$Type): integer
+public "read"(arg0: ($ByteBuffer$$Type)[], arg1: integer, arg2: integer): long
+public "read"(arg0: ($ByteBuffer$$Type)[]): long
+public static "open"(arg0: $Path$$Type, ...arg1: ($OpenOption$$Type)[]): $FileChannel
+public static "open"(arg0: $Path$$Type, arg1: $Set$$Type<($OpenOption$$Type)>, ...arg2: ($FileAttribute$$Type<(never)>)[]): $FileChannel
+public "transferTo"(arg0: long, arg1: long, arg2: $WritableByteChannel$$Type): long
+public "tryLock"(): $FileLock
+public "tryLock"(arg0: long, arg1: long, arg2: boolean): $FileLock
+public "force"(arg0: boolean): void
+public "truncate"(arg0: long): $SeekableByteChannel
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $FileChannel$$Type = ($FileChannel);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $FileChannel$$Original = $FileChannel;}
 declare module "java.nio.channels.FileChannel$MapMode" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /**
@@ -219,46 +473,6 @@ export type $FileLock$$Type = ($FileLock);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $FileLock$$Original = $FileLock;}
-declare module "java.nio.channels.ServerSocketChannel" {
-import {$NetworkChannel, $NetworkChannel$$Interface} from "java.nio.channels.NetworkChannel"
-import {$ProtocolFamily$$Type} from "java.net.ProtocolFamily"
-import {$SocketOption, $SocketOption$$Type} from "java.net.SocketOption"
-import {$SocketAddress, $SocketAddress$$Type} from "java.net.SocketAddress"
-import {$SocketChannel} from "java.nio.channels.SocketChannel"
-import {$AbstractSelectableChannel} from "java.nio.channels.spi.AbstractSelectableChannel"
-import {$Set} from "java.util.Set"
-import {$ServerSocket} from "java.net.ServerSocket"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $ServerSocketChannel extends $AbstractSelectableChannel implements $NetworkChannel$$Interface {
-public "socket"(): $ServerSocket
-public "setOption"<T>(arg0: $SocketOption$$Type<(T)>, arg1: T): $ServerSocketChannel
-public "getLocalAddress"(): $SocketAddress
-public "validOps"(): integer
-public "accept"(): $SocketChannel
-public static "open"(): $ServerSocketChannel
-public static "open"(arg0: $ProtocolFamily$$Type): $ServerSocketChannel
-public "bind"(arg0: $SocketAddress$$Type): $NetworkChannel
-public "bind"(arg0: $SocketAddress$$Type, arg1: integer): $ServerSocketChannel
-public "supportedOptions"(): $Set<($SocketOption<(never)>)>
-public "getOption"<T>(arg0: $SocketOption$$Type<(T)>): T
-public "isOpen"(): boolean
-public "close"(): void
-get "localAddress"(): $SocketAddress
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ServerSocketChannel$$Type = ($ServerSocketChannel);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ServerSocketChannel$$Original = $ServerSocketChannel;}
 declare module "java.nio.channels.AsynchronousChannel" {
 import {$Channel$$Interface} from "java.nio.channels.Channel"
 
@@ -287,15 +501,15 @@ export type $AsynchronousChannel$$Original = $AsynchronousChannel;}
 declare module "java.nio.channels.SocketChannel" {
 import {$NetworkChannel, $NetworkChannel$$Interface} from "java.nio.channels.NetworkChannel"
 import {$ProtocolFamily$$Type} from "java.net.ProtocolFamily"
-import {$SocketOption, $SocketOption$$Type} from "java.net.SocketOption"
 import {$ByteChannel$$Interface} from "java.nio.channels.ByteChannel"
+import {$SocketOption, $SocketOption$$Type} from "java.net.SocketOption"
 import {$SocketAddress, $SocketAddress$$Type} from "java.net.SocketAddress"
 import {$ScatteringByteChannel$$Interface} from "java.nio.channels.ScatteringByteChannel"
 import {$Socket} from "java.net.Socket"
 import {$AbstractSelectableChannel} from "java.nio.channels.spi.AbstractSelectableChannel"
 import {$Set} from "java.util.Set"
-import {$GatheringByteChannel$$Interface} from "java.nio.channels.GatheringByteChannel"
 import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
+import {$GatheringByteChannel$$Interface} from "java.nio.channels.GatheringByteChannel"
 
 /**
  * This class is not allowed By KubeJS!
@@ -342,34 +556,11 @@ export type $SocketChannel$$Type = ($SocketChannel);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $SocketChannel$$Original = $SocketChannel;}
-declare module "java.nio.channels.Pipe" {
-import {$Pipe$SourceChannel} from "java.nio.channels.Pipe$SourceChannel"
-import {$Pipe$SinkChannel} from "java.nio.channels.Pipe$SinkChannel"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $Pipe {
-public "source"(): $Pipe$SourceChannel
-public static "open"(): $Pipe
-public "sink"(): $Pipe$SinkChannel
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Pipe$$Type = ($Pipe);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Pipe$$Original = $Pipe;}
 declare module "java.nio.channels.Pipe$SinkChannel" {
 import {$AbstractSelectableChannel} from "java.nio.channels.spi.AbstractSelectableChannel"
 import {$WritableByteChannel$$Interface} from "java.nio.channels.WritableByteChannel"
-import {$GatheringByteChannel$$Interface} from "java.nio.channels.GatheringByteChannel"
 import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
+import {$GatheringByteChannel$$Interface} from "java.nio.channels.GatheringByteChannel"
 
 /**
  * This class is not allowed By KubeJS!
@@ -394,198 +585,8 @@ export type $Pipe$SinkChannel$$Type = ($Pipe$SinkChannel);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $Pipe$SinkChannel$$Original = $Pipe$SinkChannel;}
-declare module "java.nio.channels.CompletionHandler" {
-import {$Throwable$$Type} from "java.lang.Throwable"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export interface $CompletionHandler$$Interface<V, A> {
-}
-
-export class $CompletionHandler<V, A> implements $CompletionHandler$$Interface {
- "completed"(arg0: V, arg1: A): void
- "failed"(arg0: $Throwable$$Type, arg1: A): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $CompletionHandler$$Type<V, A> = ($CompletionHandler<(V), (A)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $CompletionHandler$$Original<V, A> = $CompletionHandler<(V), (A)>;}
-declare module "java.nio.channels.MulticastChannel" {
-import {$NetworkChannel, $NetworkChannel$$Interface} from "java.nio.channels.NetworkChannel"
-import {$SocketOption, $SocketOption$$Type} from "java.net.SocketOption"
-import {$SocketAddress, $SocketAddress$$Type} from "java.net.SocketAddress"
-import {$InetAddress$$Type} from "java.net.InetAddress"
-import {$Set} from "java.util.Set"
-import {$MembershipKey} from "java.nio.channels.MembershipKey"
-import {$NetworkInterface$$Type} from "java.net.NetworkInterface"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export interface $MulticastChannel$$Interface extends $NetworkChannel$$Interface {
-get "localAddress"(): $SocketAddress
-get "open"(): boolean
-}
-
-export class $MulticastChannel implements $MulticastChannel$$Interface {
- "join"(arg0: $InetAddress$$Type, arg1: $NetworkInterface$$Type): $MembershipKey
- "join"(arg0: $InetAddress$$Type, arg1: $NetworkInterface$$Type, arg2: $InetAddress$$Type): $MembershipKey
- "close"(): void
- "supportedOptions"(): $Set<($SocketOption<(never)>)>
- "setOption"<T>(arg0: $SocketOption$$Type<(T)>, arg1: T): $NetworkChannel
- "getLocalAddress"(): $SocketAddress
- "getOption"<T>(arg0: $SocketOption$$Type<(T)>): T
- "bind"(arg0: $SocketAddress$$Type): $NetworkChannel
- "isOpen"(): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $MulticastChannel$$Type = ($MulticastChannel);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $MulticastChannel$$Original = $MulticastChannel;}
-declare module "java.nio.channels.ByteChannel" {
-import {$ReadableByteChannel$$Interface} from "java.nio.channels.ReadableByteChannel"
-import {$WritableByteChannel$$Interface} from "java.nio.channels.WritableByteChannel"
-import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export interface $ByteChannel$$Interface extends $ReadableByteChannel$$Interface, $WritableByteChannel$$Interface {
-get "open"(): boolean
-}
-
-export class $ByteChannel implements $ByteChannel$$Interface {
- "read"(arg0: $ByteBuffer$$Type): integer
- "write"(arg0: $ByteBuffer$$Type): integer
- "isOpen"(): boolean
- "close"(): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ByteChannel$$Type = ($ByteChannel);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ByteChannel$$Original = $ByteChannel;}
-declare module "java.nio.channels.InterruptibleChannel" {
-import {$Channel$$Interface} from "java.nio.channels.Channel"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export interface $InterruptibleChannel$$Interface extends $Channel$$Interface {
-get "open"(): boolean
-}
-
-export class $InterruptibleChannel implements $InterruptibleChannel$$Interface {
- "close"(): void
- "isOpen"(): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $InterruptibleChannel$$Type = ($InterruptibleChannel);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $InterruptibleChannel$$Original = $InterruptibleChannel;}
-declare module "java.nio.channels.AsynchronousFileChannel" {
-import {$AsynchronousChannel$$Interface} from "java.nio.channels.AsynchronousChannel"
-import {$FileAttribute$$Type} from "java.nio.file.attribute.FileAttribute"
-import {$FileLock, $FileLock$$Type} from "java.nio.channels.FileLock"
-import {$Future} from "java.util.concurrent.Future"
-import {$OpenOption$$Type} from "java.nio.file.OpenOption"
-import {$Set$$Type} from "java.util.Set"
-import {$ExecutorService$$Type} from "java.util.concurrent.ExecutorService"
-import {$Path$$Type} from "java.nio.file.Path"
-import {$CompletionHandler$$Type} from "java.nio.channels.CompletionHandler"
-import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $AsynchronousFileChannel implements $AsynchronousChannel$$Interface {
-public "lock"(arg0: long, arg1: long, arg2: boolean): $Future<($FileLock)>
-public "lock"<A>(arg0: A, arg1: $CompletionHandler$$Type<($FileLock$$Type), (A)>): void
-public "lock"<A>(arg0: long, arg1: long, arg2: boolean, arg3: A, arg4: $CompletionHandler$$Type<($FileLock$$Type), (A)>): void
-public "lock"(): $Future<($FileLock)>
-public "size"(): long
-public "write"(arg0: $ByteBuffer$$Type, arg1: long): $Future<(integer)>
-public "write"<A>(arg0: $ByteBuffer$$Type, arg1: long, arg2: A, arg3: $CompletionHandler$$Type<(integer), (A)>): void
-public "read"(arg0: $ByteBuffer$$Type, arg1: long): $Future<(integer)>
-public "read"<A>(arg0: $ByteBuffer$$Type, arg1: long, arg2: A, arg3: $CompletionHandler$$Type<(integer), (A)>): void
-public static "open"(arg0: $Path$$Type, arg1: $Set$$Type<($OpenOption$$Type)>, arg2: $ExecutorService$$Type, ...arg3: ($FileAttribute$$Type<(never)>)[]): $AsynchronousFileChannel
-public static "open"(arg0: $Path$$Type, ...arg1: ($OpenOption$$Type)[]): $AsynchronousFileChannel
-public "tryLock"(): $FileLock
-public "tryLock"(arg0: long, arg1: long, arg2: boolean): $FileLock
-public "force"(arg0: boolean): void
-public "truncate"(arg0: long): $AsynchronousFileChannel
-public "close"(): void
-public "isOpen"(): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $AsynchronousFileChannel$$Type = ($AsynchronousFileChannel);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $AsynchronousFileChannel$$Original = $AsynchronousFileChannel;}
-declare module "java.nio.channels.GatheringByteChannel" {
-import {$WritableByteChannel$$Interface} from "java.nio.channels.WritableByteChannel"
-import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export interface $GatheringByteChannel$$Interface extends $WritableByteChannel$$Interface {
-get "open"(): boolean
-}
-
-export class $GatheringByteChannel implements $GatheringByteChannel$$Interface {
- "write"(arg0: ($ByteBuffer$$Type)[], arg1: integer, arg2: integer): long
- "write"(arg0: ($ByteBuffer$$Type)[]): long
- "write"(arg0: $ByteBuffer$$Type): integer
- "isOpen"(): boolean
- "close"(): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $GatheringByteChannel$$Type = ($GatheringByteChannel);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $GatheringByteChannel$$Original = $GatheringByteChannel;}
 declare module "java.nio.channels.DatagramChannel" {
+import {$NetworkChannel} from "java.nio.channels.NetworkChannel"
 import {$ProtocolFamily$$Type} from "java.net.ProtocolFamily"
 import {$ByteChannel$$Interface} from "java.nio.channels.ByteChannel"
 import {$SocketAddress, $SocketAddress$$Type} from "java.net.SocketAddress"
@@ -597,8 +598,8 @@ import {$ScatteringByteChannel$$Interface} from "java.nio.channels.ScatteringByt
 import {$MulticastChannel$$Interface} from "java.nio.channels.MulticastChannel"
 import {$Set} from "java.util.Set"
 import {$MembershipKey} from "java.nio.channels.MembershipKey"
-import {$GatheringByteChannel$$Interface} from "java.nio.channels.GatheringByteChannel"
 import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
+import {$GatheringByteChannel$$Interface} from "java.nio.channels.GatheringByteChannel"
 import {$DatagramSocket} from "java.net.DatagramSocket"
 
 /**
@@ -607,25 +608,25 @@ import {$DatagramSocket} from "java.net.DatagramSocket"
  * Loading the class using require() will not throw an error, but the class will be undefined.
  */
 export class $DatagramChannel extends $AbstractSelectableChannel implements $ByteChannel$$Interface, $ScatteringByteChannel$$Interface, $GatheringByteChannel$$Interface, $MulticastChannel$$Interface {
-public "disconnect"(): $DatagramChannel
 public "socket"(): $DatagramSocket
 public "isConnected"(): boolean
-public "setOption"<T>(arg0: $SocketOption$$Type<(T)>, arg1: T): $DatagramChannel
+public "setOption"(arg0: $SocketOption$$Type, arg1: any): $NetworkChannel
 public "getLocalAddress"(): $SocketAddress
 public "getRemoteAddress"(): $SocketAddress
 public "validOps"(): integer
 public "write"(arg0: ($ByteBuffer$$Type)[]): long
-public "write"(arg0: $ByteBuffer$$Type): integer
 public "write"(arg0: ($ByteBuffer$$Type)[], arg1: integer, arg2: integer): long
+public "write"(arg0: $ByteBuffer$$Type): integer
+public "read"(arg0: $ByteBuffer$$Type): integer
 public "read"(arg0: ($ByteBuffer$$Type)[], arg1: integer, arg2: integer): long
 public "read"(arg0: ($ByteBuffer$$Type)[]): long
-public "read"(arg0: $ByteBuffer$$Type): integer
 public "connect"(arg0: $SocketAddress$$Type): $DatagramChannel
-public static "open"(): $DatagramChannel
 public static "open"(arg0: $ProtocolFamily$$Type): $DatagramChannel
-public "bind"(arg0: $SocketAddress$$Type): $DatagramChannel
-public "receive"(arg0: $ByteBuffer$$Type): $SocketAddress
+public static "open"(): $DatagramChannel
+public "bind"(arg0: $SocketAddress$$Type): $NetworkChannel
+public "disconnect"(): $DatagramChannel
 public "send"(arg0: $ByteBuffer$$Type, arg1: $SocketAddress$$Type): integer
+public "receive"(arg0: $ByteBuffer$$Type): $SocketAddress
 public "join"(arg0: $InetAddress$$Type, arg1: $NetworkInterface$$Type): $MembershipKey
 public "join"(arg0: $InetAddress$$Type, arg1: $NetworkInterface$$Type, arg2: $InetAddress$$Type): $MembershipKey
 public "close"(): void
@@ -719,16 +720,16 @@ import {$Consumer$$Type} from "java.util.function.Consumer"
  * Loading the class using require() will not throw an error, but the class will be undefined.
  */
 export class $Selector implements $Closeable$$Interface {
+public "wakeup"(): $Selector
 public "isOpen"(): boolean
 public "provider"(): $SelectorProvider
 public "close"(): void
 public "keys"(): $Set<($SelectionKey)>
 public static "open"(): $Selector
-public "select"(arg0: $Consumer$$Type<($SelectionKey)>, arg1: long): integer
 public "select"(arg0: $Consumer$$Type<($SelectionKey)>): integer
 public "select"(): integer
 public "select"(arg0: long): integer
-public "wakeup"(): $Selector
+public "select"(arg0: $Consumer$$Type<($SelectionKey)>, arg1: long): integer
 public "selectNow"(): integer
 public "selectNow"(arg0: $Consumer$$Type<($SelectionKey)>): integer
 public "selectedKeys"(): $Set<($SelectionKey)>

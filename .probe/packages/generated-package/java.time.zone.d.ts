@@ -87,8 +87,8 @@ export type $ZoneOffsetTransition$$Original = $ZoneOffsetTransition;}
 declare module "java.time.zone.ZoneRules" {
 import {$LocalDateTime$$Type} from "java.time.LocalDateTime"
 import {$Serializable$$Interface} from "java.io.Serializable"
-import {$List, $List$$Type} from "java.util.List"
 import {$ZoneOffset, $ZoneOffset$$Type} from "java.time.ZoneOffset"
+import {$List, $List$$Type} from "java.util.List"
 import {$ZoneOffsetTransition, $ZoneOffsetTransition$$Type} from "java.time.zone.ZoneOffsetTransition"
 import {$Duration} from "java.time.Duration"
 import {$ZoneOffsetTransitionRule, $ZoneOffsetTransitionRule$$Type} from "java.time.zone.ZoneOffsetTransitionRule"

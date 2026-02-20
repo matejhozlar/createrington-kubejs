@@ -1,13 +1,13 @@
 declare module "dev.lopyluna.dndesires.mixins.FurnaceBEAccessor" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $FurnaceBEAccessor$$Interface {
-get "cookingProgress$D2D"(): integer
 get "cookingTotalTime$D2D"(): integer
+get "cookingProgress$D2D"(): integer
 }
 
 export class $FurnaceBEAccessor implements $FurnaceBEAccessor$$Interface {
- "getCookingProgress$D2D"(): integer
  "getCookingTotalTime$D2D"(): integer
+ "getCookingProgress$D2D"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

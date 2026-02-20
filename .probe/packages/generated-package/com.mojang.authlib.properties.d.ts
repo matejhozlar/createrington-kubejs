@@ -40,7 +40,7 @@ public "hasSignature"(): boolean
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $Property$$Type = ({"value"?: StringJS, "name"?: StringJS, "signature"?: StringJS}) | ([value?: StringJS, name?: StringJS, signature?: StringJS]);
+export type $Property$$Type = ({"value"?: StringJS, "signature"?: StringJS, "name"?: StringJS}) | ([value?: StringJS, signature?: StringJS, name?: StringJS]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
