@@ -1,10 +1,10 @@
 // KubeJS file to add missing washing recipes for Create Colored mod items back into Create mod
-ServerEvents.recipes(event => {
+ServerEvents.recipes((event)=>{
     // pipes from colored pipes
     event.custom({
         "type": "create:splashing",
         "ingredients": [
-            { 
+            {
                 "tag": "create_colored:colored_pipes"
             }
         ],
@@ -18,7 +18,7 @@ ServerEvents.recipes(event => {
     event.custom({
         "type": "create:splashing",
         "ingredients": [
-            { 
+            {
                 "tag": "create_colored:colored_tanks"
             }
         ],

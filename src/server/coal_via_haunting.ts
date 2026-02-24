@@ -1,16 +1,16 @@
 // KubeJS file to add Create Garnished Roots recipes
-ServerEvents.recipes(event => {
+ServerEvents.recipes((event)=>{
     event.custom({
         "type": "create:haunting",
         "ingredients": [
             {
-            "item": "minecraft:charcoal"
+                "item": "minecraft:charcoal"
             }
         ],
         "results": [
             {
-            "id": "minecraft:coal"
+                "id": "minecraft:coal"
             }
         ]
-    })
+    });
 });
