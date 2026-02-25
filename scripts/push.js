@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 import dotenv from "dotenv";
 import path from "node:path";
+import fs from "node:fs";
+import crypto from "node:crypto";
 import chalk from "chalk";
 import ora from "ora";
 import {
@@ -18,6 +20,24 @@ dotenv.config({ quiet: true });
 
 const LOCAL_KUBEJS = path.resolve(__dirname, "..", "kubejs");
 const REMOTE_KUBEJS = process.env.REMOTE_KUBEJS_PATH;
+const MANIFEST_PATH = path.resolve(__dirname, "..", ".push-manifest.json");
+
+function hashFile(filePath) {
+  const content = fs.readFileSync(filePath);
+  return crypto.createHash("sha256").update(content).digest("hex");
+}
+
+function loadManifest() {
+  try {
+    return JSON.parse(fs.readFileSync(MANIFEST_PATH, "utf-8"));
+  } catch {
+    return {};
+  }
+}
+
+function saveManifest(manifest) {
+  fs.writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2) + "\n");
+}
 
 async function push() {
   console.log(chalk.cyan.bold("\nCreaterington — Push\n"));
@@ -117,11 +137,29 @@ async function push() {
       spinner.succeed(`Removed ${chalk.red(deleted)} stale remote files`);
     }
 
-    // Upload each local file
-    console.log("");
-    let uploaded = 0;
+    // Hash local files and compare against last push manifest
+    spinner.start("Hashing local files...");
+    const prevManifest = loadManifest();
+    const newManifest = {};
 
     for (const file of localFiles) {
+      newManifest[file.relative] = hashFile(file.local);
+    }
+    spinner.succeed("Hashed local files");
+
+    // Upload only changed or new files
+    console.log("");
+    let uploaded = 0;
+    let skipped = 0;
+
+    for (const file of localFiles) {
+      const hash = newManifest[file.relative];
+
+      if (prevManifest[file.relative] === hash) {
+        skipped++;
+        continue;
+      }
+
       const remoteDest = path.posix.join(REMOTE_KUBEJS, file.relative);
       const remoteDir = path.posix.dirname(remoteDest);
 
@@ -132,7 +170,13 @@ async function push() {
       uploaded++;
     }
 
+    if (skipped > 0) {
+      console.log(chalk.gray(`  Skipped ${skipped} unchanged files`));
+    }
     spinner.succeed(`Uploaded ${chalk.green(uploaded)} files`);
+
+    // Save manifest after successful upload
+    saveManifest(newManifest);
     console.log(chalk.green.bold("\nPush complete!\n"));
   } catch (err) {
     spinner.fail("Push failed");
