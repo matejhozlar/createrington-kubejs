@@ -72,14 +72,20 @@ async function push() {
     if (backupPath) {
       spinner.start("Backing up remote scripts...");
       try {
-        // Remove old backup if it exists
-        try {
-          await sftp.rmdir(backupPath, true);
-        } catch {
-          // Old backup didn't exist, that's fine
-        }
-        // Rename current remote folder to backup path
-        await sftp.rename(REMOTE_KUBEJS, backupPath);
+        await new Promise((resolve, reject) => {
+          sftp.client.exec(
+            `rm -rf "${backupPath}" && cp -r "${REMOTE_KUBEJS}" "${backupPath}"`,
+            (err, stream) => {
+              if (err) return reject(err);
+              stream.on("close", (code) => {
+                if (code === 0) resolve();
+                else reject(new Error(`Backup command exited with code ${code}`));
+              });
+              stream.on("data", () => {});
+              stream.stderr.on("data", () => {});
+            },
+          );
+        });
         spinner.succeed(
           `Backed up remote kubejs to ${chalk.gray(backupPath)}`,
         );
