@@ -254,8 +254,8 @@ import {$RecordComponent} from "java.lang.reflect.RecordComponent"
 import {$ClassDesc} from "java.lang.constant.ClassDesc"
 import {$TypeDescriptor$OfField, $TypeDescriptor$OfField$$Interface} from "java.lang.invoke.TypeDescriptor$OfField"
 import {$Field} from "java.lang.reflect.Field"
-import {$Method} from "java.lang.reflect.Method"
 import {$AccessFlag} from "java.lang.reflect.AccessFlag"
+import {$Method} from "java.lang.reflect.Method"
 import {$GenericDeclaration$$Interface} from "java.lang.reflect.GenericDeclaration"
 import {$TypeVariable} from "java.lang.reflect.TypeVariable"
 import {$Package} from "java.lang.Package"
@@ -658,8 +658,8 @@ import {$ModuleDescriptor} from "java.lang.module.ModuleDescriptor"
 import {$AnnotatedElement$$Interface} from "java.lang.reflect.AnnotatedElement"
 import {$ModuleLayer} from "java.lang.ModuleLayer"
 import {$Annotation, $Annotation$$Type} from "java.lang.annotation.Annotation"
-import {$Set} from "java.util.Set"
 import {$Class$$Type} from "java.lang.Class"
+import {$Set} from "java.util.Set"
 import {$InputStream} from "java.io.InputStream"
 import {$ClassLoader} from "java.lang.ClassLoader"
 
@@ -717,12 +717,12 @@ export type $Module$$Original = $Module;}
 declare module "java.lang.Thread" {
 import {$Map} from "java.util.Map"
 import {$Thread$Builder$OfVirtual} from "java.lang.Thread$Builder$OfVirtual"
-import {$StackTraceElement} from "java.lang.StackTraceElement"
 import {$Thread$State} from "java.lang.Thread$State"
+import {$StackTraceElement} from "java.lang.StackTraceElement"
 import {$ThreadGroup, $ThreadGroup$$Type} from "java.lang.ThreadGroup"
 import {$Thread$Builder$OfPlatform} from "java.lang.Thread$Builder$OfPlatform"
-import {$Duration$$Type} from "java.time.Duration"
 import {$Runnable$$Type, $Runnable$$Interface} from "java.lang.Runnable"
+import {$Duration$$Type} from "java.time.Duration"
 import {$Thread$UncaughtExceptionHandler, $Thread$UncaughtExceptionHandler$$Type} from "java.lang.Thread$UncaughtExceptionHandler"
 import {$ClassLoader, $ClassLoader$$Type} from "java.lang.ClassLoader"
 
@@ -933,8 +933,8 @@ export type $ClassLoader$$Type = ($ClassLoader);
  */
 export type $ClassLoader$$Original = $ClassLoader;}
 declare module "java.lang.StringBuilder" {
-import {$IntStream} from "java.util.stream.IntStream"
 import {$Comparable$$Interface} from "java.lang.Comparable"
+import {$IntStream} from "java.util.stream.IntStream"
 import {$Appendable, $Appendable$$Interface} from "java.lang.Appendable"
 import {$Serializable$$Interface} from "java.io.Serializable"
 import {$StringBuffer$$Type} from "java.lang.StringBuffer"
@@ -1276,8 +1276,8 @@ export type $Enum$EnumDesc$$Type<E> = ($Enum$EnumDesc<(E)>);
  */
 export type $Enum$EnumDesc$$Original<E> = $Enum$EnumDesc<(E)>;}
 declare module "java.lang.StringBuffer" {
-import {$IntStream} from "java.util.stream.IntStream"
 import {$Comparable$$Interface} from "java.lang.Comparable"
+import {$IntStream} from "java.util.stream.IntStream"
 import {$Appendable, $Appendable$$Interface} from "java.lang.Appendable"
 import {$Serializable$$Interface} from "java.io.Serializable"
 import {$AbstractStringBuilder} from "java.lang.AbstractStringBuilder"

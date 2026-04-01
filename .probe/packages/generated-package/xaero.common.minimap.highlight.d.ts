@@ -30,11 +30,11 @@ export class $DimensionHighlighterHandler {
 constructor(arg0: $ResourceKey$$Type<($Level)>, arg1: $HighlighterRegistry$$Type, arg2: $MinimapWriter$$Type)
 
 public "getVersion"(): integer
+public "shouldApplyRegionHighlights"(arg0: integer, arg1: integer, arg2: boolean): boolean
 public "requestRefresh"(arg0: integer, arg1: integer): void
 public "requestRefresh"(): void
 public "shouldApplyTileChunkHighlights"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: boolean): boolean
 public "applyChunkHighlightColors"(arg0: integer, arg1: integer): (integer)[]
-public "shouldApplyRegionHighlights"(arg0: integer, arg1: integer, arg2: boolean): boolean
 public "addBlockHighlightTooltips"(arg0: $InfoDisplayCompiler$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: boolean): void
 get "version"(): integer
 }

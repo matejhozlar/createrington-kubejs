@@ -26,8 +26,8 @@ export interface $IHandcarTrain$$Interface {
 }
 
 export class $IHandcarTrain implements $IHandcarTrain$$Interface {
- "railways$isHandcar"(): boolean
  "railways$setHandcar"(arg0: boolean): void
+ "railways$isHandcar"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -81,21 +81,21 @@ import {$Level$$Type} from "net.minecraft.world.level.Level"
 import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
 
 export interface $IHasTrackCasing$$Interface {
-get "alternate"(): boolean
 get "trackCasing"(): $SlabBlock
+get "alternate"(): boolean
 set "alternate"(value: boolean)
 set "trackCasing"(value: $SlabBlock$$Type)
 }
 
 export class $IHasTrackCasing implements $IHasTrackCasing$$Interface {
-static "isAlternate"(arg0: $Level$$Type, arg1: $BlockPos$$Type): boolean
- "isAlternate"(): boolean
 static "getTrackCasing"(arg0: $Level$$Type, arg1: $BlockPos$$Type): $SlabBlock
  "getTrackCasing"(): $SlabBlock
+static "isAlternate"(arg0: $Level$$Type, arg1: $BlockPos$$Type): boolean
+ "isAlternate"(): boolean
 static "setAlternateModel"(arg0: $Level$$Type, arg1: $BlockPos$$Type, arg2: boolean): boolean
  "setAlternate"(arg0: boolean): void
- "setTrackCasing"(arg0: $SlabBlock$$Type): void
 static "setTrackCasing"(arg0: $Level$$Type, arg1: $BlockPos$$Type, arg2: $SlabBlock$$Type): void
+ "setTrackCasing"(arg0: $SlabBlock$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -162,13 +162,13 @@ static "isEnabled"(arg0: $TrackEdge$$Type): boolean
  "isEnabled"(): boolean
  "isAutomatic"(): boolean
 static "isAutomatic"(arg0: $TrackEdge$$Type): boolean
- "setEnabled"(arg0: boolean): void
 static "isDisabled"(arg0: $TrackEdge$$Type): boolean
+ "setEnabled"(arg0: boolean): void
  "setAutomatic"(arg0: boolean): void
 static "automaticallySelect"(arg0: $TrackEdge$$Type): void
  "getAutomaticallySelectedPriority"(): integer
- "isAutomaticallySelected"(): boolean
  "ackAutomaticSelection"(): void
+ "isAutomaticallySelected"(): boolean
  "setAutomaticallySelected"(): void
 }
 /**
@@ -185,15 +185,15 @@ import {$Train, $Train$$Type} from "com.simibubi.create.content.trains.entity.Tr
 import {$ILimited$$Interface} from "com.railwayteam.railways.mixin_interfaces.ILimited"
 
 export interface $ILimitedGlobalStation$$Interface extends $ILimited$$Interface {
-get "stationEnabled"(): boolean
 get "disablingTrain"(): $Train
+get "stationEnabled"(): boolean
 set "limitEnabled"(value: boolean)
 get "limitEnabled"(): boolean
 }
 
 export class $ILimitedGlobalStation implements $ILimitedGlobalStation$$Interface {
- "isStationEnabled"(): boolean
  "getDisablingTrain"(): $Train
+ "isStationEnabled"(): boolean
  "orDisablingTrain"(arg0: $Train$$Type, arg1: $Train$$Type): $Train
  "setLimitEnabled"(arg0: boolean): void
  "isLimitEnabled"(): boolean
@@ -234,9 +234,9 @@ export interface $IPotentiallyInvisibleSpriteContents$$Interface {
 }
 
 export class $IPotentiallyInvisibleSpriteContents implements $IPotentiallyInvisibleSpriteContents$$Interface {
+ "railways$uploadFrame"(arg0: boolean): void
  "railways$isVisible"(): boolean
  "railways$shouldDoInvisibility"(): boolean
- "railways$uploadFrame"(arg0: boolean): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

@@ -30,8 +30,8 @@ public "getValue"(arg0: $ModelPart$$Type): float
 public "getValue"(): float
 public "setValue"(arg0: $EMFModelPart$$Type, arg1: float): void
 public "isBoolean"(): boolean
-public static "getRenderVariable"(id: StringJS): $EMFModelOrRenderVariable
 public "isRenderVariable"(): boolean
+public static "getRenderVariable"(id: StringJS): $EMFModelOrRenderVariable
 get "value"(): float
 get "boolean"(): boolean
 get "renderVariable"(): boolean
@@ -64,15 +64,15 @@ constructor(partToApplyTo: $EMFModelPart$$Type, modelOrRenderVariableToChange: $
 public "toString"(): StringJS
 public "isValid"(): boolean
 public "isVar"(): boolean
-public "getResultViaCalculate"(): float
-public "calculateAndSet"(): void
-public "initExpression"(emfAnimationVariables: $Object2ObjectLinkedOpenHashMap$$Type<(StringJS), ($EMFAnimation$$Type)>, allPartByName: $Object2ObjectOpenHashMap$$Type<(StringJS), ($EMFModelPart$$Type)>): void
 public "calculateAndSetIfNotPaused"(paused: ($ModelPart$$Type)[]): void
 public "getLastResultOnly"(): float
+public "initExpression"(emfAnimationVariables: $Object2ObjectLinkedOpenHashMap$$Type<(StringJS), ($EMFAnimation$$Type)>, allPartByName: $Object2ObjectOpenHashMap$$Type<(StringJS), ($EMFModelPart$$Type)>): void
+public "calculateAndSet"(): void
+public "getResultViaCalculate"(): float
 get "valid"(): boolean
 get "var"(): boolean
-get "resultViaCalculate"(): float
 get "lastResultOnly"(): float
+get "resultViaCalculate"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

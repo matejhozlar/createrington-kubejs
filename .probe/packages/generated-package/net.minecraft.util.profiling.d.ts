@@ -40,8 +40,8 @@ export type $MetricSampler$ThresholdTest$$Type = ((arg0: double) => boolean);
 export type $MetricSampler$ThresholdTest$$Original = $MetricSampler$ThresholdTest;}
 declare module "net.minecraft.util.profiling.metrics.MetricSampler" {
 import {$DoubleSupplier, $DoubleSupplier$$Type} from "java.util.function.DoubleSupplier"
-import {$ToDoubleFunction$$Type} from "java.util.function.ToDoubleFunction"
 import {$MetricSampler$SamplerResult} from "net.minecraft.util.profiling.metrics.MetricSampler$SamplerResult"
+import {$ToDoubleFunction$$Type} from "java.util.function.ToDoubleFunction"
 import {$MetricSampler$MetricSamplerBuilder} from "net.minecraft.util.profiling.metrics.MetricSampler$MetricSamplerBuilder"
 import {$Runnable$$Type} from "java.lang.Runnable"
 import {$MetricSampler$ThresholdTest, $MetricSampler$ThresholdTest$$Type} from "net.minecraft.util.profiling.metrics.MetricSampler$ThresholdTest"
@@ -59,15 +59,15 @@ public static "builder"<T>(arg0: StringJS, arg1: $MetricCategory$$Type, arg2: $T
 public "result"(): $MetricSampler$SamplerResult
 public static "create"<T>(arg0: StringJS, arg1: $MetricCategory$$Type, arg2: T, arg3: $ToDoubleFunction$$Type<(T)>): $MetricSampler
 public static "create"(arg0: StringJS, arg1: $MetricCategory$$Type, arg2: $DoubleSupplier$$Type): $MetricSampler
-public "onEndTick"(arg0: integer): void
-public "onFinished"(): void
-public "getSampler"(): $DoubleSupplier
-public "onStartTick"(): void
 public "getCategory"(): $MetricCategory
+public "onStartTick"(): void
 public "triggersThreshold"(): boolean
+public "onFinished"(): void
+public "onEndTick"(arg0: integer): void
+public "getSampler"(): $DoubleSupplier
 get "name"(): StringJS
-get "sampler"(): $DoubleSupplier
 get "category"(): $MetricCategory
+get "sampler"(): $DoubleSupplier
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -114,8 +114,8 @@ export class $MetricSampler$MetricSamplerBuilder<T> {
 constructor(arg0: StringJS, arg1: $MetricCategory$$Type, arg2: $ToDoubleFunction$$Type<(T)>, arg3: T)
 
 public "build"(): $MetricSampler
-public "withBeforeTick"(arg0: $Consumer$$Type<(T)>): $MetricSampler$MetricSamplerBuilder<(T)>
 public "withThresholdAlert"(arg0: $MetricSampler$ThresholdTest$$Type): $MetricSampler$MetricSamplerBuilder<(T)>
+public "withBeforeTick"(arg0: $Consumer$$Type<(T)>): $MetricSampler$MetricSamplerBuilder<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -160,28 +160,28 @@ import {$Path$$Type} from "java.nio.file.Path"
 import {$ResultField} from "net.minecraft.util.profiling.ResultField"
 
 export interface $ProfileResults$$Interface {
-get "nanoDuration"(): long
-get "tickDuration"(): integer
+get "profilerResults"(): StringJS
+get "endTimeTicks"(): integer
 get "startTimeTicks"(): integer
 get "endTimeNano"(): long
-get "endTimeTicks"(): integer
 get "startTimeNano"(): long
-get "profilerResults"(): StringJS
+get "tickDuration"(): integer
+get "nanoDuration"(): long
 }
 
 export class $ProfileResults implements $ProfileResults$$Interface {
 static readonly "PATH_SEPARATOR": character
 
- "getNanoDuration"(): long
- "getTickDuration"(): integer
  "getTimes"(arg0: StringJS): $List<($ResultField)>
-static "demanglePath"(arg0: StringJS): StringJS
+ "getProfilerResults"(): StringJS
+ "saveResults"(arg0: $Path$$Type): boolean
+ "getEndTimeTicks"(): integer
  "getStartTimeTicks"(): integer
  "getEndTimeNano"(): long
- "getEndTimeTicks"(): integer
  "getStartTimeNano"(): long
- "saveResults"(arg0: $Path$$Type): boolean
- "getProfilerResults"(): StringJS
+ "getTickDuration"(): integer
+ "getNanoDuration"(): long
+static "demanglePath"(arg0: StringJS): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -226,16 +226,16 @@ static readonly "ROOT": StringJS
  "push"(arg0: StringJS): void
  "push"(arg0: $Supplier$$Type<(StringJS)>): void
  "pop"(): void
- "popPush"(arg0: StringJS): void
- "popPush"(arg0: $Supplier$$Type<(StringJS)>): void
-static "tee"(arg0: $ProfilerFiller$$Type, arg1: $ProfilerFiller$$Type): $ProfilerFiller
- "endTick"(): void
  "startTick"(): void
+ "endTick"(): void
+ "popPush"(arg0: $Supplier$$Type<(StringJS)>): void
+ "popPush"(arg0: StringJS): void
+static "tee"(arg0: $ProfilerFiller$$Type, arg1: $ProfilerFiller$$Type): $ProfilerFiller
+ "markForCharting"(arg0: $MetricCategory$$Type): void
  "incrementCounter"(arg0: StringJS, arg1: integer): void
  "incrementCounter"(arg0: $Supplier$$Type<(StringJS)>, arg1: integer): void
  "incrementCounter"(arg0: $Supplier$$Type<(StringJS)>): void
  "incrementCounter"(arg0: StringJS): void
- "markForCharting"(arg0: $MetricCategory$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

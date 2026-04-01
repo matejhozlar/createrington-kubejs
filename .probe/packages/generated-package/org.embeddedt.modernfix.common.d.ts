@@ -6,8 +6,8 @@ export interface $BlockBehaviourInvoker$$Interface {
 }
 
 export class $BlockBehaviourInvoker implements $BlockBehaviourInvoker$$Interface {
- "invokeGetFluidState"(arg0: $BlockState$$Type): $FluidState
  "invokeIsRandomlyTicking"(arg0: $BlockState$$Type): boolean
+ "invokeGetFluidState"(arg0: $BlockState$$Type): $FluidState
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

@@ -232,12 +232,12 @@ export type $InterruptibleChannel$$Type = ($InterruptibleChannel);
 export type $InterruptibleChannel$$Original = $InterruptibleChannel;}
 declare module "java.nio.channels.AsynchronousFileChannel" {
 import {$AsynchronousChannel$$Interface} from "java.nio.channels.AsynchronousChannel"
-import {$FileLock, $FileLock$$Type} from "java.nio.channels.FileLock"
 import {$Future} from "java.util.concurrent.Future"
 import {$FileAttribute$$Type} from "java.nio.file.attribute.FileAttribute"
-import {$ExecutorService$$Type} from "java.util.concurrent.ExecutorService"
+import {$FileLock, $FileLock$$Type} from "java.nio.channels.FileLock"
 import {$Set$$Type} from "java.util.Set"
 import {$OpenOption$$Type} from "java.nio.file.OpenOption"
+import {$ExecutorService$$Type} from "java.util.concurrent.ExecutorService"
 import {$CompletionHandler$$Type} from "java.nio.channels.CompletionHandler"
 import {$Path$$Type} from "java.nio.file.Path"
 import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
@@ -315,12 +315,12 @@ import {$ScatteringByteChannel$$Interface} from "java.nio.channels.ScatteringByt
 import {$FileChannel$MapMode$$Type} from "java.nio.channels.FileChannel$MapMode"
 import {$FileLock} from "java.nio.channels.FileLock"
 import {$Set$$Type} from "java.util.Set"
-import {$WritableByteChannel$$Type} from "java.nio.channels.WritableByteChannel"
 import {$OpenOption$$Type} from "java.nio.file.OpenOption"
-import {$Path$$Type} from "java.nio.file.Path"
+import {$WritableByteChannel$$Type} from "java.nio.channels.WritableByteChannel"
 import {$MappedByteBuffer} from "java.nio.MappedByteBuffer"
-import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
+import {$Path$$Type} from "java.nio.file.Path"
 import {$GatheringByteChannel$$Interface} from "java.nio.channels.GatheringByteChannel"
+import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
 
 /**
  * This class is not allowed By KubeJS!
@@ -508,8 +508,8 @@ import {$ScatteringByteChannel$$Interface} from "java.nio.channels.ScatteringByt
 import {$Socket} from "java.net.Socket"
 import {$AbstractSelectableChannel} from "java.nio.channels.spi.AbstractSelectableChannel"
 import {$Set} from "java.util.Set"
-import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
 import {$GatheringByteChannel$$Interface} from "java.nio.channels.GatheringByteChannel"
+import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
 
 /**
  * This class is not allowed By KubeJS!
@@ -559,8 +559,8 @@ export type $SocketChannel$$Original = $SocketChannel;}
 declare module "java.nio.channels.Pipe$SinkChannel" {
 import {$AbstractSelectableChannel} from "java.nio.channels.spi.AbstractSelectableChannel"
 import {$WritableByteChannel$$Interface} from "java.nio.channels.WritableByteChannel"
-import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
 import {$GatheringByteChannel$$Interface} from "java.nio.channels.GatheringByteChannel"
+import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
 
 /**
  * This class is not allowed By KubeJS!
@@ -598,8 +598,8 @@ import {$ScatteringByteChannel$$Interface} from "java.nio.channels.ScatteringByt
 import {$MulticastChannel$$Interface} from "java.nio.channels.MulticastChannel"
 import {$Set} from "java.util.Set"
 import {$MembershipKey} from "java.nio.channels.MembershipKey"
-import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
 import {$GatheringByteChannel$$Interface} from "java.nio.channels.GatheringByteChannel"
+import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
 import {$DatagramSocket} from "java.net.DatagramSocket"
 
 /**
@@ -720,16 +720,16 @@ import {$Consumer$$Type} from "java.util.function.Consumer"
  * Loading the class using require() will not throw an error, but the class will be undefined.
  */
 export class $Selector implements $Closeable$$Interface {
-public "wakeup"(): $Selector
 public "isOpen"(): boolean
 public "provider"(): $SelectorProvider
 public "close"(): void
 public "keys"(): $Set<($SelectionKey)>
 public static "open"(): $Selector
+public "select"(arg0: $Consumer$$Type<($SelectionKey)>, arg1: long): integer
 public "select"(arg0: $Consumer$$Type<($SelectionKey)>): integer
 public "select"(): integer
 public "select"(arg0: long): integer
-public "select"(arg0: $Consumer$$Type<($SelectionKey)>, arg1: long): integer
+public "wakeup"(): $Selector
 public "selectNow"(): integer
 public "selectNow"(arg0: $Consumer$$Type<($SelectionKey)>): integer
 public "selectedKeys"(): $Set<($SelectionKey)>
@@ -759,9 +759,9 @@ public "group"(): $InetAddress
 public "block"(arg0: $InetAddress$$Type): $MembershipKey
 public "channel"(): $MulticastChannel
 public "isValid"(): boolean
+public "networkInterface"(): $NetworkInterface
 public "sourceAddress"(): $InetAddress
 public "unblock"(arg0: $InetAddress$$Type): $MembershipKey
-public "networkInterface"(): $NetworkInterface
 get "valid"(): boolean
 }
 /**

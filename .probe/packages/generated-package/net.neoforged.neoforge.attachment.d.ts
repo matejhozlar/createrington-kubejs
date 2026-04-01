@@ -24,8 +24,8 @@ import {$StreamCodec$$Type} from "net.minecraft.network.codec.StreamCodec"
 import {$IAttachmentCopyHandler$$Type} from "net.neoforged.neoforge.attachment.IAttachmentCopyHandler"
 import {$AttachmentType} from "net.neoforged.neoforge.attachment.AttachmentType"
 import {$BiPredicate$$Type} from "java.util.function.BiPredicate"
-import {$IAttachmentSerializer$$Type} from "net.neoforged.neoforge.attachment.IAttachmentSerializer"
 import {$Codec$$Type} from "com.mojang.serialization.Codec"
+import {$IAttachmentSerializer$$Type} from "net.neoforged.neoforge.attachment.IAttachmentSerializer"
 import {$IAttachmentHolder$$Type} from "net.neoforged.neoforge.attachment.IAttachmentHolder"
 import {$RegistryFriendlyByteBuf$$Type} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$Predicate$$Type} from "java.util.function.Predicate"
@@ -34,14 +34,14 @@ import {$AttachmentSyncHandler$$Type} from "net.neoforged.neoforge.attachment.At
 
 export class $AttachmentType$Builder<T> {
 public "build"(): $AttachmentType<(T)>
-public "sync"(arg0: $AttachmentSyncHandler$$Type<(T)>): $AttachmentType$Builder<(T)>
 public "sync"(arg0: $StreamCodec$$Type<($RegistryFriendlyByteBuf$$Type), (T)>): $AttachmentType$Builder<(T)>
+public "sync"(arg0: $AttachmentSyncHandler$$Type<(T)>): $AttachmentType$Builder<(T)>
 public "sync"(arg0: $BiPredicate$$Type<($IAttachmentHolder), ($ServerPlayer)>, arg1: $StreamCodec$$Type<($RegistryFriendlyByteBuf$$Type), (T)>): $AttachmentType$Builder<(T)>
 public "serialize"(arg0: $Codec$$Type<(T)>): $AttachmentType$Builder<(T)>
-public "serialize"(arg0: $IAttachmentSerializer$$Type<(never), (T)>): $AttachmentType$Builder<(T)>
 public "serialize"(arg0: $Codec$$Type<(T)>, arg1: $Predicate$$Type<(T)>): $AttachmentType$Builder<(T)>
-public "copyHandler"(arg0: $IAttachmentCopyHandler$$Type<(T)>): $AttachmentType$Builder<(T)>
+public "serialize"(arg0: $IAttachmentSerializer$$Type<(never), (T)>): $AttachmentType$Builder<(T)>
 public "copyOnDeath"(): $AttachmentType$Builder<(T)>
+public "copyHandler"(arg0: $IAttachmentCopyHandler$$Type<(T)>): $AttachmentType$Builder<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -55,18 +55,18 @@ export type $AttachmentType$Builder$$Original<T> = $AttachmentType$Builder<(T)>;
 declare module "net.neoforged.neoforge.attachment.AttachmentType" {
 import {$IAttachmentSerializer} from "net.neoforged.neoforge.attachment.IAttachmentSerializer"
 import {$IAttachmentHolder$$Type} from "net.neoforged.neoforge.attachment.IAttachmentHolder"
-import {$Function$$Type} from "java.util.function.Function"
 import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$Function$$Type} from "java.util.function.Function"
 import {$Tag} from "net.minecraft.nbt.Tag"
-import {$INBTSerializable} from "net.neoforged.neoforge.common.util.INBTSerializable"
 import {$AttachmentType$Builder} from "net.neoforged.neoforge.attachment.AttachmentType$Builder"
+import {$INBTSerializable} from "net.neoforged.neoforge.common.util.INBTSerializable"
 import {$AttachmentTypeAccessor$$Interface} from "net.fabricmc.fabric.mixin.attachment.AttachmentTypeAccessor"
 
 export class $AttachmentType<T> implements $AttachmentTypeAccessor$$Interface {
 public static "builder"<T>(arg0: $Function$$Type<($IAttachmentHolder), (T)>): $AttachmentType$Builder<(T)>
 public static "builder"<T>(arg0: $Supplier$$Type<(T)>): $AttachmentType$Builder<(T)>
-public static "serializable"<S extends $Tag, T extends $INBTSerializable<(object)>>(arg0: $Function$$Type<($IAttachmentHolder), (T)>): $AttachmentType$Builder<(T)>
 public static "serializable"<S extends $Tag, T extends $INBTSerializable<(object)>>(arg0: $Supplier$$Type<(T)>): $AttachmentType$Builder<(T)>
+public static "serializable"<S extends $Tag, T extends $INBTSerializable<(object)>>(arg0: $Function$$Type<($IAttachmentHolder), (T)>): $AttachmentType$Builder<(T)>
 public "getSerializer"(): $IAttachmentSerializer
 get "serializer"(): $IAttachmentSerializer
 /**
@@ -111,8 +111,8 @@ export type $IAttachmentCopyHandler$$Original<T> = $IAttachmentCopyHandler<(T)>;
 declare module "net.neoforged.neoforge.attachment.AttachmentHolder" {
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
 import {$AttachmentSyncPayloadS2C$$Type} from "net.fabricmc.fabric.impl.attachment.sync.s2c.AttachmentSyncPayloadS2C"
-import {$CompoundTag} from "net.minecraft.nbt.CompoundTag"
 import {$AttachmentType$$Type} from "net.neoforged.neoforge.attachment.AttachmentType"
+import {$CompoundTag} from "net.minecraft.nbt.CompoundTag"
 import {$Map} from "java.util.Map"
 import {$Optional} from "java.util.Optional"
 import {$AttachmentChange$$Type} from "net.fabricmc.fabric.impl.attachment.sync.AttachmentChange"
@@ -123,8 +123,8 @@ import {$AttachmentType$$Type as $AttachmentType$0$$Type} from "net.fabricmc.fab
 import {$IAttachmentHolder$$Interface} from "net.neoforged.neoforge.attachment.IAttachmentHolder"
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$ServerPlayer$$Type} from "net.minecraft.server.level.ServerPlayer"
-import {$RegistryAccess} from "net.minecraft.core.RegistryAccess"
 import {$AttachmentTargetInfo} from "net.fabricmc.fabric.impl.attachment.sync.AttachmentTargetInfo"
+import {$RegistryAccess} from "net.minecraft.core.RegistryAccess"
 
 export class $AttachmentHolder implements $IAttachmentHolder$$Interface, $AttachmentHolderAccessor$$Interface {
 static readonly "ATTACHMENTS_NBT_KEY": StringJS
@@ -133,38 +133,38 @@ constructor()
 
 public "getData"<T>(arg0: $AttachmentType$$Type<(T)>): T
 public "removeData"<T>(arg0: $AttachmentType$$Type<(T)>): T
+public "setData"<T>(arg0: $AttachmentType$$Type<(T)>, arg1: T): T
+public "hasAttachments"(): boolean
 public "serializeAttachments"(arg0: $HolderLookup$Provider$$Type): $CompoundTag
+public "hasData"(arg0: $AttachmentType$$Type<(never)>): boolean
 public "invokeGetAttachmentMap"(): $Map
 public "getExistingDataOrNull"<T>(arg0: $AttachmentType$$Type<(T)>): T
-public "hasAttachments"(): boolean
-public "setData"<T>(arg0: $AttachmentType$$Type<(T)>, arg1: T): T
-public "hasData"(arg0: $AttachmentType$$Type<(never)>): boolean
 public "getData"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>): T
 public "removeData"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>): T
-public "getExistingDataOrNull"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>): T
-public "getExistingData"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>): $Optional<(T)>
-public "getExistingData"<T>(arg0: $AttachmentType$$Type<(T)>): $Optional<(T)>
 public "setData"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>, arg1: T): T
+public "getExistingData"<T>(arg0: $AttachmentType$$Type<(T)>): $Optional<(T)>
+public "getExistingData"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>): $Optional<(T)>
 public "syncData"(arg0: $AttachmentType$$Type<(never)>): void
 public "syncData"(arg0: $Supplier$$Type<($AttachmentType$$Type<(never)>)>): void
 public "hasData"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>): boolean
-public "acknowledgeSyncedEntry"(arg0: $AttachmentType$0$$Type<(never)>, arg1: $AttachmentChange$$Type): void
-public "fabric_getSyncTargetInfo"(): $AttachmentTargetInfo<(never)>
-public "fabric_shouldTryToSync"(): boolean
+public "getExistingDataOrNull"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>): T
 public "fabric_syncChange"(arg0: $AttachmentType$0$$Type<(never)>, arg1: $AttachmentSyncPayloadS2C$$Type): void
 public "setAttached"<A>(arg0: $AttachmentType$0$$Type<(A)>, arg1: A): A
 public "fabric_computeInitialSyncChanges"(arg0: $ServerPlayer$$Type, arg1: $Consumer$$Type<($AttachmentChange)>): void
 public "fabric_getDynamicRegistryManager"(): $RegistryAccess
+public "fabric_shouldTryToSync"(): boolean
+public "fabric_getSyncTargetInfo"(): $AttachmentTargetInfo<(never)>
+public "acknowledgeSyncedEntry"(arg0: $AttachmentType$0$$Type<(never)>, arg1: $AttachmentChange$$Type): void
+public "getAttachedOrThrow"<A>(arg0: $AttachmentType$0$$Type<(A)>): A
+public "getAttachedOrElse"<A>(arg0: $AttachmentType$0$$Type<(A)>, arg1: A): A
+public "getAttachedOrGet"<A>(arg0: $AttachmentType$0$$Type<(A)>, arg1: $Supplier$$Type<(A)>): A
+public "getAttached"<A>(arg0: $AttachmentType$0$$Type<(A)>): A
+public "hasAttached"(arg0: $AttachmentType$0$$Type<(never)>): boolean
+public "removeAttached"<A>(arg0: $AttachmentType$0$$Type<(A)>): A
+public "modifyAttached"<A>(arg0: $AttachmentType$0$$Type<(A)>, arg1: $UnaryOperator$$Type<(A)>): A
+public "getAttachedOrSet"<A>(arg0: $AttachmentType$0$$Type<(A)>, arg1: A): A
 public "getAttachedOrCreate"<A>(arg0: $AttachmentType$0$$Type<(A)>, arg1: $Supplier$$Type<(A)>): A
 public "getAttachedOrCreate"<A>(arg0: $AttachmentType$0$$Type<(A)>): A
-public "hasAttached"(arg0: $AttachmentType$0$$Type<(never)>): boolean
-public "getAttached"<A>(arg0: $AttachmentType$0$$Type<(A)>): A
-public "removeAttached"<A>(arg0: $AttachmentType$0$$Type<(A)>): A
-public "getAttachedOrElse"<A>(arg0: $AttachmentType$0$$Type<(A)>, arg1: A): A
-public "getAttachedOrSet"<A>(arg0: $AttachmentType$0$$Type<(A)>, arg1: A): A
-public "modifyAttached"<A>(arg0: $AttachmentType$0$$Type<(A)>, arg1: $UnaryOperator$$Type<(A)>): A
-public "getAttachedOrThrow"<A>(arg0: $AttachmentType$0$$Type<(A)>): A
-public "getAttachedOrGet"<A>(arg0: $AttachmentType$0$$Type<(A)>, arg1: $Supplier$$Type<(A)>): A
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -233,45 +233,45 @@ import {$AttachmentType$$Type as $AttachmentType$0$$Type} from "net.fabricmc.fab
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$IAttachmentHolderMixin$$Interface} from "net.fabricmc.fabric.mixin.attachment.IAttachmentHolderMixin"
 import {$ServerPlayer$$Type} from "net.minecraft.server.level.ServerPlayer"
-import {$RegistryAccess} from "net.minecraft.core.RegistryAccess"
 import {$AttachmentTargetInfo} from "net.fabricmc.fabric.impl.attachment.sync.AttachmentTargetInfo"
+import {$RegistryAccess} from "net.minecraft.core.RegistryAccess"
 
 export interface $IAttachmentHolder$$Interface extends $AttachmentTargetImpl$$Interface, $IAttachmentHolderMixin$$Interface {
 }
 
 export class $IAttachmentHolder implements $IAttachmentHolder$$Interface {
- "getData"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>): T
  "getData"<T>(arg0: $AttachmentType$$Type<(T)>): T
+ "getData"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>): T
  "removeData"<T>(arg0: $AttachmentType$$Type<(T)>): T
  "removeData"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>): T
- "getExistingDataOrNull"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>): T
- "getExistingDataOrNull"<T>(arg0: $AttachmentType$$Type<(T)>): T
- "getExistingData"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>): $Optional<(T)>
- "getExistingData"<T>(arg0: $AttachmentType$$Type<(T)>): $Optional<(T)>
- "hasAttachments"(): boolean
  "setData"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>, arg1: T): T
  "setData"<T>(arg0: $AttachmentType$$Type<(T)>, arg1: T): T
+ "hasAttachments"(): boolean
+ "getExistingData"<T>(arg0: $AttachmentType$$Type<(T)>): $Optional<(T)>
+ "getExistingData"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>): $Optional<(T)>
  "syncData"(arg0: $AttachmentType$$Type<(never)>): void
  "syncData"(arg0: $Supplier$$Type<($AttachmentType$$Type<(never)>)>): void
  "hasData"(arg0: $AttachmentType$$Type<(never)>): boolean
  "hasData"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>): boolean
- "acknowledgeSyncedEntry"(arg0: $AttachmentType$0$$Type<(never)>, arg1: $AttachmentChange$$Type): void
- "fabric_getSyncTargetInfo"(): $AttachmentTargetInfo<(never)>
- "fabric_shouldTryToSync"(): boolean
+ "getExistingDataOrNull"<T>(arg0: $AttachmentType$$Type<(T)>): T
+ "getExistingDataOrNull"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>): T
  "fabric_syncChange"(arg0: $AttachmentType$0$$Type<(never)>, arg1: $AttachmentSyncPayloadS2C$$Type): void
  "setAttached"<A>(arg0: $AttachmentType$0$$Type<(A)>, arg1: A): A
  "fabric_computeInitialSyncChanges"(arg0: $ServerPlayer$$Type, arg1: $Consumer$$Type<($AttachmentChange)>): void
  "fabric_getDynamicRegistryManager"(): $RegistryAccess
+ "fabric_shouldTryToSync"(): boolean
+ "fabric_getSyncTargetInfo"(): $AttachmentTargetInfo<(never)>
+ "acknowledgeSyncedEntry"(arg0: $AttachmentType$0$$Type<(never)>, arg1: $AttachmentChange$$Type): void
+ "getAttachedOrThrow"<A>(arg0: $AttachmentType$0$$Type<(A)>): A
+ "getAttachedOrElse"<A>(arg0: $AttachmentType$0$$Type<(A)>, arg1: A): A
+ "getAttachedOrGet"<A>(arg0: $AttachmentType$0$$Type<(A)>, arg1: $Supplier$$Type<(A)>): A
+ "getAttached"<A>(arg0: $AttachmentType$0$$Type<(A)>): A
+ "hasAttached"(arg0: $AttachmentType$0$$Type<(never)>): boolean
+ "removeAttached"<A>(arg0: $AttachmentType$0$$Type<(A)>): A
+ "modifyAttached"<A>(arg0: $AttachmentType$0$$Type<(A)>, arg1: $UnaryOperator$$Type<(A)>): A
+ "getAttachedOrSet"<A>(arg0: $AttachmentType$0$$Type<(A)>, arg1: A): A
  "getAttachedOrCreate"<A>(arg0: $AttachmentType$0$$Type<(A)>, arg1: $Supplier$$Type<(A)>): A
  "getAttachedOrCreate"<A>(arg0: $AttachmentType$0$$Type<(A)>): A
- "hasAttached"(arg0: $AttachmentType$0$$Type<(never)>): boolean
- "getAttached"<A>(arg0: $AttachmentType$0$$Type<(A)>): A
- "removeAttached"<A>(arg0: $AttachmentType$0$$Type<(A)>): A
- "getAttachedOrElse"<A>(arg0: $AttachmentType$0$$Type<(A)>, arg1: A): A
- "getAttachedOrSet"<A>(arg0: $AttachmentType$0$$Type<(A)>, arg1: A): A
- "modifyAttached"<A>(arg0: $AttachmentType$0$$Type<(A)>, arg1: $UnaryOperator$$Type<(A)>): A
- "getAttachedOrThrow"<A>(arg0: $AttachmentType$0$$Type<(A)>): A
- "getAttachedOrGet"<A>(arg0: $AttachmentType$0$$Type<(A)>, arg1: $Supplier$$Type<(A)>): A
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

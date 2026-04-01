@@ -120,11 +120,11 @@ export type $ByteOrder$$Type = ($ByteOrder);
 export type $ByteOrder$$Original = $ByteOrder;}
 declare module "java.nio.CharBuffer" {
 import {$ByteOrder} from "java.nio.ByteOrder"
-import {$IntStream} from "java.util.stream.IntStream"
 import {$Comparable$$Interface} from "java.lang.Comparable"
+import {$IntStream} from "java.util.stream.IntStream"
 import {$Appendable$$Interface} from "java.lang.Appendable"
-import {$Buffer} from "java.nio.Buffer"
 import {$Readable$$Interface} from "java.lang.Readable"
+import {$Buffer} from "java.nio.Buffer"
 
 /**
  * This class is not allowed By KubeJS!

@@ -16,6 +16,7 @@ net.caffeinemc.mods.sodium.client.render.chunk.map.ClientChunkEventListener	3
 de.keksuccino.konkrete.mixin.mixins.client.IMixinEditBox	7
 net.neoforged.neoforge.event.ModifyDefaultComponentsEvent	0
 net.neoforged.neoforge.common.extensions.IHolderLookupProviderExtension	2
+io.wispforest.owo.ui.core.Sizing$Method	2
 net.minecraft.network.protocol.common.ClientboundKeepAlivePacket	3
 xaero.lib.client.gui.widget.dropdown.IDropDownContainer	7
 com.simibubi.create.content.trains.track.ITrackBlock	4
@@ -35,6 +36,7 @@ net.neoforged.neoforge.common.world.chunk.TicketController	1
 com.mojang.blaze3d.shaders.Program$Type	2
 xaero.common.graphics.CustomVertexConsumers	4
 java.lang.invoke.TypeDescriptor	3
+io.wispforest.owo.mixin.registry.ReferenceAccessor	1
 com.mojang.serialization.OptionalDynamic	3
 xaero.map.biome.BlockTintProvider	4
 xaero.map.graphics.TextureUpload$BranchDownload	6
@@ -42,6 +44,7 @@ net.minecraft.client.multiplayer.chat.report.ReportReason	3
 io.netty.util.Constant	5
 net.minecraft.world.damagesource.DamageScaling	2
 net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature	4
+io.wispforest.accessories.api.Accessory	2
 com.supermartijn642.fusion.api.util.Pair	3
 it.unimi.dsi.fastutil.floats.FloatIterable	4
 net.minecraft.world.level.levelgen.feature.stateproviders.RotatedBlockProvider	5
@@ -94,7 +97,10 @@ net.minecraft.world.level.block.entity.JigsawBlockEntity$JointType	3
 net.blay09.mods.balm.api.event.client.screen.ScreenMouseEvent$Click	0
 net.minecraft.world.damagesource.DeathMessageType	2
 com.simibubi.create.content.contraptions.behaviour.MovementContext	8
+umpaz.brewinandchewin.common.mixin.DataFixTypesAccessor	1
 net.minecraft.client.OptionInstance$TooltipSupplier	3
+io.wispforest.accessories.mixin.RegistryOpsAccessor	1
+io.wispforest.owo.ui.util.FocusHandler	1
 xaero.pac.common.server.core.accessor.ICreateContraption	8
 net.neoforged.neoforge.client.event.InputEvent	0
 net.caffeinemc.mods.lithium.common.util.deduplication.LithiumInterner	3
@@ -113,6 +119,7 @@ net.neoforged.neoforge.event.entity.living.LivingKnockBackEvent	0
 net.minecraft.commands.execution.Frame$FrameControl	3
 moe.wolfgirl.probejs.lang.typescript.code.type.js.JSLambdaType	2
 net.minecraft.network.protocol.game.ClientboundSetBorderWarningDelayPacket	2
+org.w3c.dom.DOMConfiguration	3
 net.dawson.adorablehamsterpets.accessor.PlayerEntityAccessor	2
 org.objectweb.asm.tree.InnerClassNode	11
 net.fabricmc.fabric.mixin.object.builder.AbstractBlockAccessor	3
@@ -169,6 +176,7 @@ net.minecraft.world.level.block.state.StateDefinition	2
 xaero.map.highlight.MapRegionHighlightsPreparer	4
 net.minecraft.client.CommandHistory	1
 io.netty.channel.MessageSizeEstimator	4
+io.wispforest.owo.ui.core.Color	2
 net.neoforged.neoforge.client.event.RenderPlayerEvent$Pre	0
 dev.latvian.mods.kubejs.recipe.viewer.server.FluidData$Group	3
 dev.latvian.mods.kubejs.item.ArmorMaterialBuilder	0
@@ -191,6 +199,7 @@ net.neoforged.neoforge.client.event.AddSectionGeometryEvent$AdditionalSectionRen
 dev.latvian.mods.rhino.CachedMethodInfo	4
 software.bernie.geckolib.animation.keyframe.AnimationPoint	6
 net.minecraft.world.entity.projectile.ThrowableProjectile	3
+umpaz.brewinandchewin.common.mixin.client.LevelRendererAccessor	1
 xaero.hud.minimap.info.InfoDisplays	5
 net.minecraft.world.item.Item$Properties	1
 net.minecraft.client.quickplay.QuickPlayLog$Type	2
@@ -199,12 +208,13 @@ it.unimi.dsi.fastutil.shorts.ShortUnaryOperator	3
 net.minecraft.world.item.armortrim.ArmorTrim	0
 net.minecraft.server.network.ConfigurationTask	1
 net.minecraft.world.level.lighting.LayerLightEventListener	3
-net.neoforged.neoforge.common.world.chunk.RegisterTicketControllersEvent	0
 net.neoforged.neoforge.event.entity.EntityEvent$EnteringSection	0
+net.neoforged.neoforge.common.world.chunk.RegisterTicketControllersEvent	0
 com.leclowndu93150.baguettelib.event.inventory.InventoryUpdateEvent$Offhand	0
 it.unimi.dsi.fastutil.bytes.Byte2LongFunction	3
 com.blamejared.controlling.mixin.AccessKeyMapping	2
 com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService	3
+io.wispforest.owo.ui.event.MouseDrag	2
 com.blackgear.vanillabackport.core.mixin.access.BundleContentsAccessor	1
 net.minecraft.client.resources.SkinManager$TextureCache	2
 xaero.hud.minimap.info.render.compile.InfoDisplayCompiler	6
@@ -223,6 +233,7 @@ net.minecraft.client.renderer.block.LiquidBlockRenderer	2
 net.caffeinemc.mods.lithium.common.tracking.block.SectionedBlockChangeTracker	3
 de.maxhenkel.voicechat.configbuilder.entry.LongConfigEntry	6
 net.minecraft.network.protocol.common.custom.BreezeDebugPayload$BreezeInfo	3
+io.wispforest.endec.Serializer$Map	3
 net.minecraft.network.protocol.game.ClientboundSetBorderWarningDistancePacket	2
 net.minecraft.client.gui.components.AbstractWidget	3
 net.neoforged.neoforge.event.level.ExplosionEvent	0
@@ -230,7 +241,9 @@ net.minecraft.core.NonNullList	1
 net.minecraft.world.entity.Entity$RemovalReason	2
 it.unimi.dsi.fastutil.objects.AbstractObject2IntSortedMap	6
 net.minecraft.world.entity.animal.goat.Goat	2
+io.wispforest.owo.itemgroup.OwoItemGroup$TabTextures	2
 net.minecraft.world.level.levelgen.structure.templatesystem.BlockStateMatchTest	3
+io.wispforest.accessories.api.AccessoriesCapability	1
 it.unimi.dsi.fastutil.objects.Object2ReferenceMap	7
 net.minecraft.server.ServerLinks$UntrustedEntry	3
 net.minecraft.world.level.chunk.status.ChunkStatusTask	4
@@ -240,12 +253,13 @@ net.minecraft.world.inventory.GrindstoneMenu	2
 it.unimi.dsi.fastutil.objects.Object2LongMap$Entry	3
 xaero.common.minimap.highlight.HighlighterRegistry	5
 malte0811.ferritecore.mixin.accessors.DiscreteVSAccess	4
+io.wispforest.accessories.mixin.LivingEntityAccessor	1
 net.minecraft.world.entity.ai.village.VillageSiege	1
 net.fabricmc.fabric.impl.blockview.client.RenderDataMapConsumer	5
 java.nio.file.attribute.UserPrincipal	4
 dev.latvian.mods.kubejs.player.PlayerChatReceivedKubeEvent	0
-com.jesz.createdieselgenerators.mixins.AgeableListModelAccessor	4
 java.nio.channels.Channel	4
+org.w3c.dom.DocumentFragment	3
 com.simibubi.create.api.event.PipeCollisionEvent	0
 de.keksuccino.fancymenu.util.rendering.ui.widget.UniqueWidget	4
 net.minecraft.world.level.levelgen.structure.templatesystem.BlockIgnoreProcessor	7
@@ -282,6 +296,7 @@ net.minecraft.world.scores.Score	3
 net.minecraft.world.level.levelgen.feature.trunkplacers.FancyTrunkPlacer	5
 net.neoforged.neoforge.client.event.RegisterRenderBuffersEvent	0
 com.google.common.collect.ImmutableMap$Builder	1
+io.wispforest.owo.util.Observable	2
 net.minecraft.world.level.levelgen.RandomSupport$Seed128bit	4
 net.minecraft.world.entity.Entity	1
 net.minecraft.core.Holder$Reference$Type	2
@@ -305,6 +320,7 @@ net.fabricmc.fabric.api.renderer.v1.mesh.Mesh	3
 net.minecraft.client.resources.model.ModelBakery$TextureGetter	2
 net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider	6
 net.minecraft.advancements.AdvancementTree	3
+io.wispforest.accessories.api.caching.ItemStackBasedPredicate	2
 it.unimi.dsi.fastutil.shorts.ShortIterable	4
 net.minecraft.server.network.TextFilter	2
 net.neoforged.neoforge.common.SoundAction	1
@@ -314,6 +330,7 @@ de.mrjulsen.crn.util.PenaltyResult$Type	7
 net.minecraft.world.item.component.FireworkExplosion$Shape	1
 net.minecraft.client.multiplayer.ProfileKeyPairManager	1
 org.lwjgl.util.freetype.FT_Stream_IoFunc	4
+io.wispforest.owo.ui.util.MatrixStackTransformer	1
 xaero.map.gui.ExportScreen	5
 net.minecraft.world.entity.EquipmentSlot$Type	2
 com.lightning.northstar.accessor.NorthstarFluidState	2
@@ -425,6 +442,7 @@ net.minecraft.world.level.gameevent.PositionSourceType	4
 xaero.hud.render.module.ModuleRenderContext	6
 dev.engine_room.flywheel.api.material.WriteMask	8
 de.maxhenkel.voicechat.voice.server.ServerGroupManager	4
+com.yungnickyoung.minecraft.yungsapi.world.structure.terrainadaptation.aquiferoverride.ReplaceAquiferOverride	4
 net.minecraft.stats.Stats	0
 com.railwayteam.railways.mixin_interfaces.IMonorailBezier$MonorailAngles	3
 java.awt.geom.Dimension2D	5
@@ -471,6 +489,7 @@ xaero.hud.minimap.radar.icon.definition.form.RadarIconForm	10
 java.lang.foreign.GroupLayout	6
 java.lang.Math	0
 xaero.common.misc.MapFactory	7
+org.w3c.dom.Attr	2
 net.minecraft.world.entity.ai.Brain$Provider	2
 dev.latvian.mods.kubejs.script.data.VirtualDataMapFile	1
 java.awt.event.HierarchyEvent	9
@@ -523,8 +542,10 @@ earth.terrarium.tempad.api.sizing.SizingType	3
 com.mojang.authlib.yggdrasil.ServicesKeyType	2
 earth.terrarium.tempad.api.sizing.DoorType	3
 xaero.hud.minimap.player.tracker.PlayerTrackerMinimapElementRenderer	4
+com.yungnickyoung.minecraft.yungsapi.mixin.accessor.FeaturePoolElementAccessor	1
 net.minecraft.stats.RecipeBookSettings	3
 net.neoforged.neoforge.event.level.ChunkWatchEvent$Sent	0
+io.wispforest.endec.SerializationAttribute	2
 net.minecraft.world.phys.EntityHitResult	1
 net.neoforged.neoforge.registries.callback.ClearCallback	2
 xaero.map.file.worldsave.WorldDataReader	5
@@ -534,6 +555,7 @@ net.neoforged.neoforge.event.entity.living.LivingEntityUseItemEvent$Finish	0
 net.minecraft.client.animation.Keyframe	2
 net.minecraft.network.chat.FilterMask	2
 com.mojang.datafixers.util.Unit	2
+io.wispforest.owo.ui.event.CharTyped	2
 net.minecraft.world.level.levelgen.structure.templatesystem.PosRuleTestType	10
 java.lang.Long	0
 net.neoforged.neoforge.client.event.RenderLivingEvent$Post	0
@@ -547,6 +569,7 @@ java.lang.invoke.MethodHandleInfo	2
 com.mojang.serialization.Decoder$Simple	2
 dev.latvian.mods.kubejs.recipe.component.RecipeComponentType$Unit	4
 com.blamejared.clumps.api.events.IRepairEvent	1
+io.wispforest.accessories.utils.ItemStackMutation	2
 com.railwayteam.railways.mixin_interfaces.IUpdateCount	7
 net.irisshaders.iris.mixinterface.LocalPlayerInterface	2
 net.minecraft.network.protocol.game.ServerboundContainerClickPacket	3
@@ -608,6 +631,7 @@ xaero.lib.common.config.channel.ConfigChannel	3
 net.minecraft.network.protocol.game.ClientboundSetTitlesAnimationPacket	2
 net.neoforged.neoforge.client.model.geometry.IGeometryLoader	1
 traben.entity_texture_features.utils.ETFVertexConsumer	4
+io.wispforest.accessories.api.slot.SlotTypeReference	2
 dev.latvian.mods.kubejs.client.LangKubeEvent	0
 net.minecraft.client.CameraType	2
 net.minecraft.world.level.block.entity.SpawnerBlockEntity	2
@@ -631,7 +655,6 @@ org.joml.Matrix2f	2
 cpw.mods.jarhandling.SecureJar$Provider	7
 org.joml.Matrix2d	3
 dev.latvian.apps.tinyserver.ws.Frame	2
-noobanidus.mods.lootr.common.mixins.MixinDimensionDataStorage	3
 java.nio.channels.ReadableByteChannel	3
 dev.latvian.apps.tinyserver.HTTPConnection	3
 xaero.lib.client.config.option.ClientConfigOptionManager	4
@@ -645,7 +668,6 @@ com.simibubi.create.content.trains.track.BezierConnection$SegmentAngles	3
 net.minecraft.world.item.Rarity	0
 io.netty.buffer.ByteBufConvertible	2
 xaero.map.pool.TextureUploadPool$Normal	5
-com.jesz.createdieselgenerators.compat.kubejs.LighterSkinsEventJS	0
 net.minecraft.core.RegistrySetBuilder$RegistryStub	2
 org.apache.maven.artifact.repository.ArtifactRepository	5
 net.blay09.mods.balm.api.config.schema.ConfigSchemaBuilder	3
@@ -706,7 +728,6 @@ net.minecraft.world.entity.animal.IronGolem	2
 net.neoforged.neoforge.client.extensions.IVertexConsumerExtension	3
 it.unimi.dsi.fastutil.objects.Object2IntSortedMap	7
 com.railwayteam.railways.mixin_interfaces.IHandcarTrain	5
-dev.tr7zw.entityculling.mixin.DisplayAccessor	4
 net.silentchaos512.gear.api.traits.TraitActionContext	2
 tschipp.carryon.common.carry.CarryOnData	2
 org.lwjgl.util.freetype.FT_Realloc_Func	4
@@ -745,6 +766,7 @@ net.minecraft.world.level.ColorResolver	1
 net.neoforged.neoforge.client.event.sound.SoundEvent$SoundSourceEvent	0
 net.minecraft.world.Clearable	2
 net.minecraft.world.entity.animal.sniffer.Sniffer	2
+io.wispforest.owo.itemgroup.OwoItemGroup$ScrollerTextures	2
 dev.latvian.mods.kubejs.client.icon.KubeIcon	1
 com.mojang.blaze3d.font.GlyphProvider$Conditional	3
 xaero.lib.client.config.option.value.redirect.ClientOptionValueRedirectorManager	5
@@ -759,6 +781,7 @@ net.minecraft.world.level.LevelSimulatedReader	2
 net.minecraft.world.entity.boss.EnderDragonPart	3
 net.neoforged.neoforge.common.extensions.IPackResourcesExtension	3
 xaero.hud.pushbox.PushboxManager	5
+umpaz.brewinandchewin.common.access.FoodDataEntityAccess	1
 net.minecraft.world.level.material.Fluid	1
 com.google.gson.ReflectionAccessFilter$FilterResult	5
 org.lwjgl.util.freetype.FT_Vector	4
@@ -775,6 +798,7 @@ java.net.NetworkInterface	3
 net.minecraft.network.protocol.game.ClientboundExplodePacket	2
 dev.latvian.mods.kubejs.util.LogType	1
 net.minecraft.stats.StatType	1
+io.wispforest.accessories.api.attributes.AccessoryAttributeBuilder	3
 net.minecraft.client.gui.font.glyphs.BakedGlyph	2
 dev.latvian.mods.kubejs.recipe.RecipeTypeRegistryContext	4
 net.fabricmc.fabric.mixin.transfer.BundleContentsComponentAccessor	1
@@ -935,6 +959,7 @@ net.blay09.mods.balm.api.event.server.ServerReloadedEvent	0
 dev.latvian.mods.kubejs.recipe.component.RecipeValidationContext	1
 dev.latvian.mods.rhino.type.ClassTypeInfo	3
 net.minecraft.network.protocol.game.ClientboundPlayerInfoUpdatePacket$Action	3
+io.wispforest.owo.util.pond.OwoItemExtensions	1
 net.createmod.catnip.gui.TextureSheetSegment	5
 net.minecraft.world.entity.monster.warden.AngerManagement	3
 com.simibubi.create.content.logistics.filter.FilterItemStack	4
@@ -1024,6 +1049,7 @@ com.simibubi.create.content.trains.entity.TravellingPoint$SteerDirection	5
 net.neoforged.neoforge.client.event.ClientChatReceivedEvent$System	0
 dev.latvian.mods.kubejs.item.custom.ShearsItemBuilder	0
 de.maxhenkel.voicechat.voice.server.Server	3
+io.wispforest.accessories.pond.owo.ComponentExtension	1
 net.minecraft.world.level.biome.BiomeSource	3
 net.minecraft.network.chat.SignedMessageBody$Packed	3
 net.minecraft.client.renderer.MultiBufferSource	1
@@ -1061,6 +1087,7 @@ net.caffeinemc.mods.sodium.mixin.platform.neoforge.AuxiliaryLightManagerMixin	3
 net.minecraft.client.renderer.block.model.multipart.Selector	5
 net.minecraft.world.level.block.SignBlock	8
 net.minecraft.world.level.levelgen.VerticalAnchor	5
+umpaz.brewinandchewin.common.mixin.LootContextAccessor	1
 dev.engine_room.flywheel.api.visual.BlockEntityVisual	3
 java.awt.image.BufferedImageOp	4
 xaero.lib.common.permission.config.channel.BuiltInConfigChannelPermissions	4
@@ -1073,6 +1100,7 @@ net.minecraft.util.valueproviders.WeightedListInt	4
 net.minecraft.world.level.levelgen.structure.placement.StructurePlacementType	4
 net.minecraft.world.level.levelgen.structure.structures.OceanRuinStructure	4
 java.net.DatagramSocket	5
+io.wispforest.owo.util.pond.OwoScreenExtension	1
 net.minecraft.client.telemetry.TelemetryProperty$Exporter	5
 org.lwjgl.system.CallbackI	5
 net.minecraft.world.level.biome.MobSpawnSettings$Builder	6
@@ -1091,9 +1119,11 @@ java.util.function.DoubleToLongFunction	3
 net.minecraft.network.protocol.game.ClientboundHurtAnimationPacket	2
 net.minecraft.tags.TagEntry	3
 net.minecraft.world.entity.ai.sensing.PiglinSpecificSensor	4
+io.wispforest.accessories.pond.ModelRootAccess	1
 xaero.hud.minimap.radar.icon.creator.RadarIconCreator$Parameters	9
 java.util.function.ObjDoubleConsumer	3
 net.minecraft.client.gui.Gui	1
+io.wispforest.owo.ui.core.Animation$Finished	3
 net.fabricmc.fabric.api.block.v1.FabricBlockState	3
 java.lang.ModuleLayer$Controller	4
 net.minecraft.data.loot.LootTableProvider	6
@@ -1104,10 +1134,12 @@ net.caffeinemc.mods.sodium.client.model.color.interop.ItemColorsExtension	2
 dev.latvian.mods.kubejs.block.custom.ButtonBlockBuilder	0
 squeek.appleskin.api.event.HUDOverlayEvent$HungerRestored	0
 java.util.function.IntToLongFunction	2
+io.wispforest.owo.ui.base.BaseComponent	2
 net.minecraft.world.item.crafting.RecipeHolder	1
 it.unimi.dsi.fastutil.objects.Object2FloatOpenHashMap	2
 java.util.Deque	2
 it.unimi.dsi.fastutil.objects.Reference2DoubleFunction	3
+io.wispforest.endec.Endec$DecoderWithError	2
 net.neoforged.neoforge.client.extensions.IKeyMappingExtension	2
 org.apache.maven.artifact.repository.layout.ArtifactRepositoryLayout	6
 net.minecraft.network.codec.StreamCodec	1
@@ -1131,6 +1163,7 @@ net.blay09.mods.balm.api.config.schema.builder.AbstractConfigProperty	5
 software.bernie.geckolib.animation.AnimationController	4
 org.lwjgl.util.freetype.FT_CharMap$Buffer	4
 xaero.common.minimap.write.MinimapWriterHelper	5
+com.pedrorok.hypertube.mixin.core.PlayerModelAccessor	1
 java.time.Period	3
 xaero.map.file.worldsave.biome.WorldDataReaderSectionBiomeData	7
 org.lwjgl.util.freetype.FT_GlyphSlot$Buffer	4
@@ -1138,6 +1171,7 @@ java.time.chrono.Chronology	3
 net.fabricmc.fabric.api.transfer.v1.transaction.TransactionContext$Result	5
 java.nio.CharBuffer	2
 org.lwjgl.util.freetype.FT_StreamDesc	4
+io.wispforest.accessories.mixin.ServerChunkLoadingManagerAccessor	1
 net.minecraft.world.level.StructureManager	2
 com.teamresourceful.resourcefulconfig.mixins.common.PlayerListAccessor	2
 net.neoforged.neoforge.event.entity.EntityMountEvent	0
@@ -1163,6 +1197,7 @@ net.minecraft.world.level.chunk.CarvingMask$Mask	4
 org.lwjgl.util.freetype.FT_Face	2
 de.maxhenkel.voicechat.voice.client.TalkCache	3
 net.minecraft.world.level.storage.loot.parameters.LootContextParamSet$Builder	3
+io.wispforest.owo.ui.util.CursorAdapter	3
 net.neoforged.neoforge.event.entity.player.PlayerEvent$HarvestCheck	0
 org.lwjgl.glfw.GLFWVidMode$Buffer	3
 dev.latvian.mods.kubejs.core.IngredientKJS	1
@@ -1175,6 +1210,7 @@ net.minecraft.world.item.crafting.SmithingTrimRecipe	2
 com.simibubi.create.content.trains.entity.TravellingPoint$ITrackSelector	6
 net.neoforged.neoforge.event.entity.player.PlayerEvent$TabListNameFormat	0
 java.util.Locale$FilteringMode	2
+io.wispforest.owo.ui.event.MouseDown	2
 net.minecraft.client.renderer.LightTexture	2
 com.electronwill.nightconfig.core.UnmodifiableCommentedConfig$Entry	4
 net.minecraft.network.protocol.game.ClientboundSoundPacket	2
@@ -1285,6 +1321,7 @@ net.minecraft.world.level.GameRules$IntegerValue	3
 net.minecraft.commands.SharedSuggestionProvider$TextCoordinates	2
 it.unimi.dsi.fastutil.longs.Long2ObjectFunction	2
 net.silentchaos512.gear.api.property.NumberPropertyValue	4
+io.wispforest.owo.mixin.ui.access.TextFieldWidgetAccessor	1
 net.minecraft.core.LayeredRegistryAccess	2
 net.minecraft.world.level.chunk.storage.RegionStorageInfo	2
 net.minecraft.world.entity.EquipmentUser	2
@@ -1356,10 +1393,12 @@ com.simibubi.create.foundation.virtualWorld.VirtualRenderWorld	9
 net.minecraft.world.level.ClipContext$ShapeGetter	4
 it.unimi.dsi.fastutil.longs.Long2ReferenceMap	4
 it.unimi.dsi.fastutil.objects.Reference2ReferenceMap$Entry	3
+umpaz.brewinandchewin.common.mixin.LootParamsAccessor	1
 dev.latvian.mods.kubejs.player.StageChangedEvent	0
 net.fabricmc.loader.api.metadata.ModEnvironment	4
 software.bernie.geckolib.event.GeoRenderEvent$ReplacedEntity$Post	0
 xaero.hud.minimap.waypoint.render.WaypointReader	7
+io.wispforest.owo.ui.event.MouseScroll	2
 xaero.common.minimap.radar.tracker.system.IPlayerTrackerSystem	5
 dev.latvian.mods.kubejs.block.BlockStartedFallingKubeEvent	0
 org.apache.logging.log4j.util.Supplier	5
@@ -1384,6 +1423,7 @@ java.util.Locale$Category	2
 net.minecraft.world.inventory.AbstractFurnaceMenu	3
 net.neoforged.neoforgespi.locating.ModFileDiscoveryAttributes	5
 net.neoforged.neoforge.common.world.BiomeGenerationSettingsBuilder	5
+io.wispforest.endec.Serializer$Sequence	3
 net.minecraft.world.level.levelgen.blockpredicates.TrueBlockPredicate	6
 xaero.hud.category.setting.ObjectCategorySetting	7
 net.minecraft.world.level.levelgen.structure.templatesystem.rule.blockentity.AppendLoot	11
@@ -1399,6 +1439,7 @@ net.minecraft.client.gui.navigation.FocusNavigationEvent$ArrowNavigation	2
 net.minecraft.server.level.GeneratingChunkMap	3
 net.blay09.mods.balm.api.event.TossItemEvent	0
 net.minecraft.world.level.block.entity.DecoratedPotBlockEntity$WobbleStyle	3
+com.yungnickyoung.minecraft.ribbits.mixin.interfaces.client.IChannelDuck	1
 top.theillusivec4.curios.api.event.CurioCanUnequipEvent	0
 com.simibubi.create.foundation.mixin.accessor.NbtAccounterAccessor	3
 net.neoforged.neoforge.client.event.ScreenEvent$KeyReleased	0
@@ -1410,6 +1451,7 @@ net.neoforged.neoforge.common.world.ClimateSettingsBuilder	5
 net.minecraft.world.level.border.BorderChangeListener	3
 java.io.Flushable	3
 xaero.hud.minimap.world.state.MinimapWorldStateUpdater	5
+io.wispforest.accessories.impl.InstanceEndec	4
 moe.wolfgirl.probejs.lang.java.base.TypeVariableHolder	3
 net.minecraft.world.entity.Display$IntInterpolator	4
 net.minecraft.world.level.block.state.properties.RailShape	1
@@ -1451,6 +1493,7 @@ com.mojang.datafixers.schemas.Schema	2
 com.electronwill.nightconfig.core.EnumGetMethod	4
 net.minecraft.world.entity.npc.AbstractVillager	1
 net.blay09.mods.balm.api.config.schema.ConfiguredDouble	5
+io.wispforest.owo.mixin.ext.ComponentMapImplAccessor	1
 com.mojang.realmsclient.client.RealmsClient$CompatibleVersionResponse	3
 xaero.map.region.LayeredRegionManager	5
 java.awt.Insets	8
@@ -1470,6 +1513,7 @@ io.netty.channel.ChannelHandlerAdapter	4
 de.keksuccino.fancymenu.util.resource.PlayableResource	6
 java.security.DomainCombiner	6
 net.minecraft.network.protocol.common.custom.BeeDebugPayload$BeeInfo	3
+io.wispforest.owo.ui.core.Easing	2
 net.minecraft.network.protocol.game.ServerboundSetBeaconPacket	3
 net.minecraft.world.scores.ScoreHolder	2
 it.unimi.dsi.fastutil.bytes.Byte2ObjectFunction	2
@@ -1477,6 +1521,7 @@ net.minecraft.data.DataGenerator	1
 java.nio.file.attribute.UserPrincipalLookupService	3
 xaero.map.world.MapConnectionNode	5
 net.neoforged.neoforge.client.event.RegisterClientCommandsEvent	0
+com.yungnickyoung.minecraft.yungsapi.world.structure.terrainadaptation.aquiferoverride.AquiferOverrideMaskSupplier	1
 dev.latvian.mods.rhino.BaseFunction	1
 net.caffeinemc.mods.lithium.mixin.util.accessors.EntitySectionAccessor	4
 net.createmod.ponder.mixin.client.accessor.GameRendererAccessor	2
@@ -1540,6 +1585,7 @@ net.minecraft.world.level.saveddata.maps.MapDecorationType	1
 net.neoforged.neoforge.client.event.RenderPlayerEvent	0
 net.minecraft.world.level.levelgen.feature.stateproviders.RuleBasedBlockStateProvider	4
 dev.latvian.mods.kubejs.block.drop.BlockDropSupplier	2
+it.hurts.shatterbyte.clavis.common.mixin.LootPoolAccessor	1
 de.mrjulsen.crn.mixin.TrainStatusAccessor	6
 net.minecraft.client.Options$OptionAccess	3
 de.maxhenkel.voicechat.configbuilder.entry.AbstractConfigEntry	7
@@ -1561,6 +1607,7 @@ dev.latvian.mods.kubejs.item.ItemModificationKubeEvent	0
 com.mojang.realmsclient.gui.RealmsDataFetcher	1
 net.fabricmc.fabric.mixin.renderer.client.BakedModelMixin	2
 net.minecraft.world.entity.ai.sensing.VillagerHostilesSensor	4
+io.wispforest.accessories.mixin.client.AbstractContainerScreenAccessor	1
 net.minecraft.network.protocol.game.CommonPlayerSpawnInfo	2
 net.minecraft.network.protocol.common.ClientCommonPacketListener	3
 net.minecraft.world.level.block.RotatedPillarBlock	7
@@ -1579,9 +1626,12 @@ com.google.common.collect.BaseImmutableMultimap	5
 net.minecraft.client.renderer.texture.AbstractTexture	2
 net.neoforged.neoforgespi.language.ModFileScanData$AnnotationData	5
 cpw.mods.modlauncher.api.IModuleLayerManager	9
+io.wispforest.accessories.impl.PlayerEquipControl	2
 net.minecraft.client.resources.metadata.gui.GuiSpriteScaling$NineSlice$Border	3
 net.neoforged.neoforge.common.conditions.ICondition$IContext	1
+com.yungnickyoung.minecraft.yungsapi.mixin.accessor.ListPoolElementAccessor	1
 net.minecraft.world.level.chunk.storage.ChunkStorage	3
+io.wispforest.owo.ui.core.AnimatableProperty	1
 net.minecraft.client.renderer.FogRenderer$FogMode	1
 java.nio.file.Watchable	2
 net.fabricmc.fabric.api.item.v1.CustomDamageHandler	2
@@ -1593,12 +1643,14 @@ de.keksuccino.fancymenu.mixin.mixins.common.client.IMixinMinecraft	1
 java.awt.event.KeyEvent	8
 net.minecraft.world.level.levelgen.blockpredicates.ReplaceablePredicate	6
 net.neoforged.neoforge.event.level.ChunkDataEvent$Save	0
+io.wispforest.accessories.api.slot.SlotReference	1
 net.minecraft.world.level.block.entity.BlockEntity$DataComponentInput	2
 net.minecraft.world.level.block.piston.PistonStructureResolver	1
 org.objectweb.asm.tree.ParameterNode	12
 com.tterrag.registrate.providers.ProviderType$SimpleServerDataFactory	5
 net.neoforged.neoforge.event.GrindstoneEvent$OnPlaceItem	0
 net.minecraft.core.Position	1
+io.wispforest.accessories.client.gui.ButtonEvents$AdjustRendering	1
 net.minecraft.client.player.AbstractClientPlayer	1
 dev.architectury.impl.ItemPropertiesExtensionImpl	2
 java.text.ParsePosition	2
@@ -1679,6 +1731,7 @@ dev.latvian.mods.kubejs.client.ModelGenerator$Override	2
 com.mojang.blaze3d.vertex.VertexSorting$DistanceFunction	4
 net.minecraft.client.renderer.GpuWarnlistManager	1
 net.minecraft.world.entity.decoration.LeashFenceKnotEntity	2
+io.wispforest.accessories.api.EquipAction	2
 java.awt.AttributeValue	7
 java.util.function.IntUnaryOperator	2
 net.minecraft.world.level.levelgen.feature.trunkplacers.MegaJungleTrunkPlacer	5
@@ -1712,6 +1765,7 @@ net.minecraft.client.gui.components.toasts.Toast$Visibility	2
 org.embeddedt.modernfix.neoforge.recipe.ExtendedIngredient	1
 java.awt.MenuBar	8
 net.neoforged.neoforge.client.model.generators.ModelBuilder$ElementBuilder$FaceBuilder	8
+io.wispforest.endec.Serializer	2
 net.minecraft.world.entity.decoration.BlockAttachedEntity	3
 de.maxhenkel.voicechat.voice.server.Group	5
 java.net.ServerSocket	5
@@ -1746,12 +1800,14 @@ net.silentchaos512.gear.api.property.GearPropertyMap$Immutable	3
 net.neoforged.neoforge.items.IItemHandler	2
 net.neoforged.neoforge.client.model.generators.BlockStateProvider$ConfiguredModelList	7
 net.minecraft.advancements.critereon.ItemPredicate	6
+io.wispforest.owo.ui.core.Animation$Composed	3
 net.minecraft.client.gui.components.events.GuiEventListener	1
 net.minecraft.client.color.item.ItemColors	1
 xaero.map.graphics.TextureUpload$Compressed	6
 dev.latvian.mods.kubejs.level.ExplosionKubeEvent$Before	0
 dev.latvian.mods.kubejs.server.ServerKubeEvent	0
 xaero.common.validator.NumericFieldValidator	5
+umpaz.brewinandchewin.common.mixin.client.ModelBakeryAccessor	1
 net.minecraft.commands.arguments.EntityAnchorArgument$Anchor	2
 xaero.map.message.basic.ClientboundRulesPacket	3
 xaero.hud.minimap.world.MinimapWorldManager	5
@@ -1804,6 +1860,7 @@ net.minecraft.world.item.component.ItemContainerContents$Slot	1
 java.util.PrimitiveIterator$OfInt	2
 net.blay09.mods.balm.api.event.client.screen.ScreenMouseEvent$Drag$Post	0
 org.lwjgl.glfw.GLFWVidMode	3
+io.wispforest.accessories.pond.stack.PatchedDataComponentMapExtension	1
 com.mojang.datafixers.types.templates.TypeTemplate	3
 dev.latvian.mods.kubejs.fluid.ThickFluidBuilder	0
 net.minecraft.world.item.trading.MerchantOffer	1
@@ -1871,6 +1928,7 @@ net.blay09.mods.balm.api.event.client.OpenScreenEvent	0
 net.fabricmc.fabric.api.client.model.loading.v1.ModelModifier$AfterBake$Context	6
 net.minecraft.client.gui.components.Tooltip	2
 net.minecraft.client.gui.screens.worldselection.WorldOpenFlows	1
+io.wispforest.accessories.impl.AccessoriesHolderImpl	3
 net.minecraft.client.renderer.entity.EntityRenderDispatcher	1
 net.minecraft.world.entity.animal.Rabbit	2
 net.minecraft.server.packs.PackSelectionConfig	2
@@ -1927,6 +1985,7 @@ dev.latvian.mods.kubejs.block.callback.BlockStateModifyCallback	2
 net.blay09.mods.balm.api.event.client.screen.ScreenMouseEvent$Release$Pre	0
 java.util.jar.Attributes$Name	7
 com.mojang.realmsclient.dto.PendingInvitesList	3
+org.w3c.dom.DOMStringList	4
 de.keksuccino.konkrete.mixin.mixins.client.IMixinAbstractWidget	4
 com.simibubi.create.api.contraption.storage.item.MountedItemStorageWrapper	8
 net.neoforged.neoforge.event.entity.EntityJoinLevelEvent	0
@@ -2068,6 +2127,7 @@ net.minecraft.world.level.levelgen.carver.WorldCarver	4
 xaero.pac.client.claims.tracker.result.api.IClaimsManagerClaimResultTrackerRegisterAPI	1
 net.minecraft.network.protocol.PacketType	3
 net.minecraft.world.level.levelgen.feature.BonusChestFeature	3
+io.wispforest.owo.ui.event.KeyPress	2
 dev.latvian.mods.kubejs.plugin.ClassFilter	2
 net.minecraft.network.protocol.game.ServerboundPlaceRecipePacket	3
 com.illusivesoulworks.polymorph.api.common.base.IRecipeContext	2
@@ -2087,6 +2147,7 @@ net.minecraft.core.Direction	1
 net.minecraft.world.level.block.entity.trialspawner.TrialSpawnerData	3
 earth.terrarium.tempad.api.event.TimedoorEvent	0
 net.caffeinemc.mods.sodium.client.render.chunk.compile.pipeline.TextureAtlasSpriteExtension	2
+com.yungnickyoung.minecraft.yungsapi.world.structure.terrainadaptation.aquiferoverride.NoneAquiferOverride	4
 net.fabricmc.fabric.api.client.screen.v1.ScreenMouseEvents$BeforeMouseScroll	3
 net.minecraft.core.IdMapper	2
 dev.latvian.mods.kubejs.util.NBTIOWrapper	0
@@ -2171,6 +2232,7 @@ net.minecraft.network.protocol.game.ClientboundRespawnPacket	2
 xaero.lib.common.config.server.sync.ServerConfigChannelSynchronizer	4
 dev.latvian.mods.kubejs.client.VariantBlockStateGenerator	1
 net.minecraft.world.entity.animal.ShoulderRidingEntity	3
+io.wispforest.accessories.api.DropRule	3
 net.minecraft.world.inventory.CraftingMenu	2
 dev.latvian.mods.kubejs.item.custom.ArmorItemBuilder	1
 net.fabricmc.fabric.api.attachment.v1.AttachmentType	2
@@ -2195,6 +2257,7 @@ net.neoforged.neoforge.client.event.RegisterMenuScreensEvent	0
 net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent	0
 net.minecraft.world.entity.boss.enderdragon.phases.DragonSittingFlamingPhase	5
 com.supermartijn642.fusion.entity.model.SubModelPart	4
+io.wispforest.accessories.impl.caching.EquipmentLookupCache	3
 net.caffeinemc.mods.lithium.api.inventory.LithiumDefaultedList	4
 net.minecraft.world.item.BlockItem	1
 net.minecraft.world.level.levelgen.feature.configurations.BlockPileConfiguration	3
@@ -2234,20 +2297,25 @@ net.minecraft.world.level.levelgen.feature.featuresize.ThreeLayersFeatureSize	5
 com.railwayteam.railways.mixin.client.AccessorWalkAnimationState	3
 com.railwayteam.railways.mixin.AccessorContraption	8
 net.minecraft.client.renderer.GameRenderer	1
+io.wispforest.accessories.api.components.AccessoryItemAttributeModifiers$Entry	5
 cpw.mods.modlauncher.api.ServiceRunner	10
 dev.latvian.mods.kubejs.player.PlayerAdvancementKubeEvent	0
 net.minecraft.server.ReloadableServerResources	1
 net.minecraft.server.players.IpBanListEntry	3
+io.wispforest.accessories.pond.CosmeticArmorLookupTogglable	1
 net.minecraft.world.entity.npc.WanderingTrader	2
+io.wispforest.owo.mixin.ui.SlotAccessor	1
 java.text.DecimalFormat	1
 net.minecraft.world.entity.ai.sensing.PiglinBruteSpecificSensor	4
 com.mojang.blaze3d.platform.DisplayData	2
 xaero.lib.common.permission.PermissionNode	5
+io.wispforest.endec.Deserializer$Struct	3
 net.minecraft.world.entity.ai.memory.ExpirableValue	3
 net.minecraft.network.protocol.game.ClientboundPlayerInfoUpdatePacket	2
 java.util.Date	1
 net.irisshaders.batchedentityrendering.mixin.CompositeStateAccessor	3
 java.nio.channels.CompletionHandler	5
+io.wispforest.owo.util.pond.OwoTessellatorExtension	1
 xaero.pac.common.server.player.config.api.IPlayerConfigAPI$SetResult	5
 dev.tr7zw.entityculling.access.EntityRendererInter	2
 net.minecraft.world.level.block.entity.vault.VaultServerData	3
@@ -2286,6 +2354,7 @@ net.minecraft.server.packs.resources.IoSupplier	2
 net.minecraft.world.level.saveddata.maps.MapItemSavedData$HoldingPlayer	3
 net.minecraft.commands.SharedSuggestionProvider	1
 com.simibubi.create.content.trains.entity.TrainStatus$StatusMessage	6
+com.railwayteam.railways.mixin.conductor_possession.AccessorClientChunkCacheStorage	3
 com.mojang.realmsclient.client.RealmsClient	2
 net.minecraft.world.level.biome.AmbientMoodSettings	2
 java.lang.foreign.ValueLayout$OfByte	4
@@ -2309,10 +2378,10 @@ net.minecraft.world.entity.monster.Vex	2
 net.minecraft.world.level.storage.loot.predicates.LootItemConditionType	3
 top.theillusivec4.curios.api.event.CurioAttributeModifierEvent	0
 java.util.List	0
+io.wispforest.accessories.api.EquipmentChecking	2
 net.neoforged.neoforge.client.event.CustomizeGuiOverlayEvent$Chat	0
 dev.engine_room.flywheel.impl.extension.BlockEntityTypeExtension	2
 net.minecraft.network.protocol.game.ServerboundContainerSlotStateChangedPacket	3
-dev.tr7zw.transition.mixin.EntityAccessor	2
 software.bernie.geckolib.animation.Animation	3
 net.createmod.catnip.animation.LerpedFloat$Chaser	5
 net.minecraft.world.entity.PathfinderMob	2
@@ -2342,6 +2411,7 @@ me.pepperbell.continuity.client.mixin.ReloadableResourceManagerImplAccessor	2
 net.minecraft.world.entity.ai.navigation.WaterBoundPathNavigation	3
 net.minecraft.world.level.levelgen.structure.Structure$GenerationContext	3
 net.minecraft.world.entity.EquipmentSlotGroup	1
+umpaz.brewinandchewin.common.access.ChatPlayerListAccess	1
 dev.latvian.mods.kubejs.web.SessionInfo	2
 malte0811.ferritecore.mixin.accessors.BakedQuadAccess	3
 net.minecraft.core.particles.ScalableParticleOptionsBase	2
@@ -2363,7 +2433,6 @@ it.unimi.dsi.fastutil.shorts.ShortSpliterator	3
 net.minecraft.world.level.levelgen.feature.featuresize.FeatureSize	3
 net.minecraft.world.level.pathfinder.Node	3
 dev.latvian.mods.rhino.Script	2
-com.jesz.createdieselgenerators.mixins.LootTableAccessor	2
 net.neoforged.neoforge.event.entity.player.AdvancementEvent$AdvancementEarnEvent	0
 net.minecraft.network.protocol.login.ClientboundLoginCompressionPacket	3
 net.minecraft.client.Options$FieldAccess	2
@@ -2377,6 +2446,7 @@ net.minecraft.network.chat.HoverEvent$LegacyConverter	4
 net.minecraft.network.chat.contents.DataSource$Type	2
 net.minecraft.network.protocol.game.ClientboundChunkBatchFinishedPacket	2
 com.mojang.authlib.yggdrasil.ProfileResult	2
+io.wispforest.accessories.mixin.StateHolderAccessor	1
 software.bernie.geckolib.renderer.GeoRenderer	1
 net.minecraft.world.level.border.BorderStatus	3
 org.apache.maven.artifact.handler.ArtifactHandler	5
@@ -2449,9 +2519,11 @@ com.blackgear.vanillabackport.common.level.entities.animal.ChickenVariant	3
 java.awt.datatransfer.FlavorListener	9
 net.minecraft.client.telemetry.TelemetryEventSender	2
 net.blay09.mods.balm.api.config.schema.ConfiguredBoolean	5
+io.wispforest.owo.ui.parsing.UIModel	1
 net.minecraft.world.level.portal.PortalShape	1
 xaero.pac.common.server.parties.party.api.IServerPartyAPI	4
 net.minecraft.world.item.enchantment.effects.EnchantmentLocationBasedEffect	2
+io.wispforest.owo.util.EventStream	1
 net.minecraft.client.multiplayer.ServerData$State	2
 cpw.mods.modlauncher.api.TypesafeMap	10
 java.lang.reflect.TypeVariable	2
@@ -2553,6 +2625,7 @@ dev.latvian.mods.rhino.type.RecordTypeInfo$Component	2
 net.minecraft.util.SignatureUpdater$Output	2
 net.createmod.ponder.mixin.client.accessor.BufferBuilderAccessor	4
 net.caffeinemc.mods.lithium.common.world.interests.RegionBasedStorageSectionExtended	4
+io.wispforest.owo.ui.component.VanillaWidgetComponent	1
 com.mojang.authlib.minecraft.UserApiService$UserFlag	4
 dev.latvian.mods.kubejs.plugin.builtin.wrapper.ColorWrapper	0
 de.maxhenkel.voicechat.voice.server.ClientConnection	3
@@ -2615,12 +2688,15 @@ net.neoforged.neoforge.registries.datamaps.AdvancedDataMapType	7
 net.minecraft.world.item.crafting.RecipeInput	1
 xaero.map.misc.CaveStartCalculator	4
 net.neoforged.neoforge.common.extensions.IServerGamePacketListenerExtension	4
+io.wispforest.owo.ui.inject.ComponentStub	1
 net.minecraft.world.level.block.LiquidBlock	2
 net.minecraft.world.entity.monster.AbstractIllager	3
 net.neoforged.neoforge.event.level.ExplosionEvent$Detonate	0
 net.minecraft.client.gui.navigation.FocusNavigationEvent	2
 io.netty.channel.ChannelInboundHandlerAdapter	3
 com.mojang.datafixers.kinds.Kind1$Mu	5
+io.wispforest.endec.SerializationAttribute$Instance	2
+io.wispforest.owo.ext.OwoItem	1
 de.maxhenkel.voicechat.configbuilder.entry.FloatConfigEntry	6
 java.security.spec.AlgorithmParameterSpec	3
 com.simibubi.create.foundation.block.IHaveBigOutline	5
@@ -2649,6 +2725,7 @@ xaero.lib.client.gui.widget.ITooltipHaver	5
 net.minecraft.client.Camera	1
 xaero.hud.minimap.radar.color.RadarColor	6
 net.fabricmc.fabric.api.renderer.v1.render.RenderContext	2
+io.wispforest.owo.ui.core.OwoUIDrawContext	1
 net.minecraft.client.resources.sounds.TickableSoundInstance	2
 net.minecraft.world.level.block.entity.SculkCatalystBlockEntity$CatalystListener	3
 net.fabricmc.fabric.api.transfer.v1.transaction.TransactionContext$OuterCloseCallback	4
@@ -2693,6 +2770,7 @@ moe.wolfgirl.probejs.lang.typescript.code.ts.Wrapped$Global	2
 org.lwjgl.util.freetype.FT_Vector$Buffer	5
 software.bernie.geckolib.animation.keyframe.Keyframe	5
 com.simibubi.create.content.contraptions.minecart.TrainCargoManager	6
+umpaz.brewinandchewin.common.mixin.LivingEntityAccessor	1
 net.minecraft.world.level.entity.LevelCallback	3
 net.minecraft.world.level.levelgen.carver.CaveCarverConfiguration	5
 com.supermartijn642.fusion.entity.model.EntityLayerProperties$ModelOption	5
@@ -2710,7 +2788,6 @@ net.minecraft.client.renderer.RenderStateShard$WriteMaskStateShard	2
 com.simibubi.create.foundation.blockEntity.IMergeableBE	6
 com.tterrag.registrate.builders.EntityBuilder	4
 com.mojang.datafixers.types.Type$TypeMatcher	3
-com.jesz.createdieselgenerators.compat.kubejs.MoldEventJS	0
 net.neoforged.neoforge.common.extensions.IItemExtension	2
 com.tterrag.registrate.providers.RegistrateDatapackProvider	5
 net.minecraft.world.level.levelgen.Heightmap	2
@@ -2723,6 +2800,7 @@ net.minecraft.world.entity.boss.enderdragon.phases.DragonLandingPhase	5
 net.minecraft.client.multiplayer.CommonListenerCookie	2
 java.util.Properties	4
 com.tterrag.registrate.providers.ProviderType$Context	5
+io.wispforest.owo.itemgroup.OwoItemGroup$Builder	2
 net.minecraft.world.inventory.CrafterMenu	2
 net.minecraft.world.ticks.SavedTick	3
 org.lwjgl.util.freetype.FT_StreamDesc$Buffer	5
@@ -2786,6 +2864,7 @@ net.minecraft.network.protocol.common.ServerboundCustomPayloadPacket	2
 dev.latvian.mods.kubejs.block.drop.BlockDrops	3
 org.lwjgl.util.freetype.FT_Generic$Buffer	4
 org.lwjgl.util.freetype.FT_Memory$Buffer	4
+io.wispforest.owo.itemgroup.ItemGroupReference	1
 net.irisshaders.batchedentityrendering.impl.MemoryTrackingRenderBuffers	2
 software.bernie.geckolib.renderer.GeoObjectRenderer	1
 dev.latvian.mods.kubejs.core.LevelKJS	2
@@ -2795,6 +2874,7 @@ org.lwjgl.util.freetype.FT_CharMap	3
 net.blay09.mods.balm.api.config.schema.BalmConfigSchema	1
 net.irisshaders.batchedentityrendering.mixin.BufferSourceAccessor	3
 net.minecraft.world.level.levelgen.heightproviders.HeightProvider	5
+io.wispforest.owo.ui.layers.Layer$Instance$AnchorSide	2
 dev.latvian.mods.kubejs.util.IntBounds	4
 com.mojang.brigadier.StringReader	1
 java.io.DataInputStream	5
@@ -2815,6 +2895,7 @@ net.neoforged.neoforge.common.extensions.IRecipeOutputExtension	7
 it.unimi.dsi.fastutil.objects.Reference2ObjectArrayMap	2
 com.blamejared.controlling.api.events.KeyEntryRenderEvent	0
 it.unimi.dsi.fastutil.shorts.Short2LongFunction	3
+io.wispforest.accessories.api.attributes.AttributeModificationData	4
 dev.latvian.mods.kubejs.item.ItemEntityInteractedKubeEvent	0
 net.minecraft.world.level.block.entity.HangingSignBlockEntity	2
 net.minecraft.network.protocol.configuration.ServerConfigurationPacketListener	1
@@ -2830,8 +2911,8 @@ org.joml.Vector3i	1
 com.simibubi.create.content.kinetics.base.IRotate$SpeedLevel	4
 dev.latvian.mods.kubejs.core.FluidKJS	2
 net.minecraft.client.renderer.chunk.RenderChunkRegion	4
-squeek.appleskin.api.event.TooltipOverlayEvent$Render	0
 net.neoforged.neoforge.event.entity.living.LivingConversionEvent	0
+squeek.appleskin.api.event.TooltipOverlayEvent$Render	0
 org.joml.Vector3f	0
 net.fabricmc.fabric.impl.client.screen.ScreenExtensions	2
 net.minecraft.client.DeltaTracker$Timer	2
@@ -2840,6 +2921,7 @@ org.joml.Vector3d	1
 net.minecraft.client.player.LocalPlayer	1
 net.minecraft.world.entity.Display	3
 net.neoforged.neoforge.event.entity.living.AnimalTameEvent	0
+com.yungnickyoung.minecraft.ribbits.mixin.interfaces.client.ISoundEngineDuck	1
 net.neoforged.neoforge.event.level.ExplosionEvent$Start	0
 it.unimi.dsi.fastutil.longs.AbstractLongCollection	6
 com.railwayteam.railways.content.switches.TrackSwitchBlock$SwitchState	7
@@ -2858,6 +2940,7 @@ com.smoothchunk.world.IChunkTimeSave	2
 net.fabricmc.loader.api.SemanticVersion	8
 xaero.pac.common.entity.IEntity	2
 net.minecraft.network.protocol.game.ClientboundBlockDestructionPacket	2
+io.wispforest.endec.util.EndecBuffer	1
 net.neoforged.neoforge.client.model.generators.ModelProvider	7
 net.minecraft.world.level.levelgen.blockpredicates.WouldSurvivePredicate	6
 xaero.pac.common.server.core.accessor.ICreateContraptionEntity	8
@@ -2871,8 +2954,8 @@ net.minecraft.server.level.ServerChunkCache$MainThreadExecutor	3
 de.maxhenkel.voicechat.events.ServerVoiceChatConnectedEvent	0
 java.lang.constant.DirectMethodHandleDesc$Kind	3
 xaero.map.util.linked.ILinkedChainNode	6
-net.neoforged.neoforge.event.server.ServerStartingEvent	0
 net.neoforged.neoforge.event.GrindstoneEvent	0
+net.neoforged.neoforge.event.server.ServerStartingEvent	0
 java.lang.StringBuilder	1
 com.leclowndu93150.baguettelib.event.entity.death.PlayerDeathEvent$Pre	0
 com.mojang.blaze3d.shaders.Uniform	2
@@ -2919,6 +3002,7 @@ net.fabricmc.loader.api.metadata.ModOrigin	3
 net.minecraft.resources.ResourceLocation	0
 net.minecraft.world.level.levelgen.placement.RepeatingPlacement	7
 net.minecraft.data.tags.TagsProvider$TagAppender	2
+io.wispforest.accessories.pond.CloseContainerTransfer	1
 net.minecraft.world.level.levelgen.structure.structures.JigsawStructure	4
 net.minecraft.world.level.Spawner	3
 net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer$Builder	4
@@ -2946,7 +3030,9 @@ com.mojang.authlib.yggdrasil.request.AbuseReportRequest$ClientInfo	2
 net.minecraft.world.level.levelgen.feature.stateproviders.RandomizedIntStateProvider	5
 java.util.function.DoubleConsumer	2
 net.minecraft.world.entity.animal.Panda$PandaLookAtPlayerGoal	3
+io.wispforest.endec.Endec$Encoder	2
 net.minecraft.client.renderer.chunk.SectionRenderDispatcher	2
+org.w3c.dom.EntityReference	3
 java.awt.RenderingHints$Key	4
 net.minecraft.client.model.geom.EntityModelSet	1
 dev.latvian.mods.kubejs.component.ComponentFunctions	1
@@ -2981,6 +3067,7 @@ xaero.map.region.BranchLeveledRegion	5
 net.minecraft.server.level.ChunkHolder	1
 net.minecraft.client.DebugQueryHandler	2
 net.minecraft.client.resources.server.PackReloadConfig$IdAndPath	5
+io.wispforest.owo.serialization.OwoComponentTypeBuilder	1
 net.minecraft.world.inventory.SmithingMenu	2
 dev.engine_room.flywheel.api.material.DepthTest	8
 java.awt.dnd.DropTargetListener	9
@@ -3021,6 +3108,7 @@ com.mojang.serialization.codecs.RecordCodecBuilder$Mu	3
 moe.wolfgirl.probejs.lang.typescript.Declaration	1
 java.net.ContentHandler	5
 net.minecraft.network.chat.SignableCommand$Argument	6
+io.wispforest.owo.ui.core.OwoUIDrawContext$TextAnchor	2
 net.minecraft.world.entity.animal.Bucketable	3
 xaero.common.minimap.region.MinimapTile	5
 com.mojang.datafixers.TypeRewriteRule	3
@@ -3046,12 +3134,12 @@ net.minecraft.network.protocol.game.ServerboundMovePlayerPacket	3
 net.neoforged.neoforge.event.entity.living.LivingEntityUseItemEvent$Tick	0
 net.minecraft.client.renderer.culling.Frustum	1
 net.minecraft.client.Minecraft$ChatStatus	1
-com.jesz.createdieselgenerators.mixin_interfaces.IEntity	2
 xaero.hud.minimap.radar.category.EntityRadarDefaultCategories	5
 traben.entity_model_features.utils.IEMFCuboidDataSupplier	4
 xaero.lib.client.gui.ScreenBase	5
 kotlin.jvm.internal.markers.KMappedMarker	5
 net.minecraft.util.valueproviders.UniformFloat	6
+io.wispforest.accessories.mixin.EntityTrackerAccessor	1
 java.util.ImmutableCollections$MapN	0
 net.minecraft.world.inventory.EnchantmentMenu	2
 dev.latvian.apps.tinyserver.ServerRegistry	4
@@ -3064,6 +3152,7 @@ net.neoforged.neoforge.client.event.RegisterColorHandlersEvent	0
 moe.wolfgirl.probejs.events.SnippetGenerationEventJS	0
 net.minecraft.world.level.levelgen.structure.placement.StructurePlacement$FrequencyReductionMethod	4
 com.hlysine.create_connected.mixin.copycat.fencegate.FenceGateBlockAccessor	8
+io.wispforest.owo.ui.core.Size	1
 com.tterrag.registrate.builders.MenuBuilder$MenuFactory	4
 dev.latvian.mods.rhino.util.wrap.TypeWrapperValidator	3
 net.neoforged.neoforge.client.model.generators.ModelBuilder$TransformsBuilder$TransformVecBuilder	8
@@ -3083,7 +3172,6 @@ dev.latvian.mods.kubejs.recipe.viewer.RemoveCategoriesKubeEvent	0
 net.minecraft.world.phys.shapes.DiscreteVoxelShape	3
 net.neoforged.neoforge.event.level.BlockEvent$NeighborNotifyEvent	0
 net.minecraft.util.thread.ReentrantBlockableEventLoop	1
-com.jesz.createdieselgenerators.mixins.UseOnContextInvoker	2
 java.util.Map	0
 net.minecraft.client.resources.SplashManager	1
 dev.latvian.mods.rhino.util.wrap.TypeWrapper	3
@@ -3102,6 +3190,7 @@ net.minecraft.world.item.trading.ItemCost	2
 dev.denismasterherobrine.afterdark.util.PlayerEntityAccess	2
 dev.latvian.mods.kubejs.client.SoundsGenerator	1
 java.lang.Appendable	2
+com.yungnickyoung.minecraft.yungsapi.mixin.accessor.SinglePoolElementAccessor	1
 net.minecraft.world.level.chunk.BlockColumn	4
 java.awt.JobAttributes	8
 net.fabricmc.fabric.mixin.tag.TagKeyMixin	2
@@ -3146,6 +3235,7 @@ net.minecraft.network.chat.Component	0
 org.embeddedt.modernfix.duck.ITimeTrackingServer	2
 com.mojang.brigadier.context.ContextChain	3
 net.neoforged.neoforge.event.level.NoteBlockEvent$Note	1
+it.hurts.shatterbyte.clavis.common.mixin.LootTableAccessor	1
 net.minecraft.world.scores.Team$Visibility	3
 dev.architectury.extensions.injected.InjectedItemPropertiesExtension	2
 software.bernie.geckolib.cache.object.GeoCube	2
@@ -3252,6 +3342,7 @@ net.neoforged.neoforge.event.entity.player.ArrowLooseEvent	0
 net.neoforged.neoforgespi.locating.IModFileReader	6
 net.minecraft.network.protocol.BundlerInfo	3
 java.awt.PageAttributes$OriginType	9
+io.wispforest.owo.util.pond.OwoSlotExtension	1
 net.minecraft.world.entity.animal.Pig	2
 dev.latvian.mods.rhino.WrappedExecutable	3
 net.minecraft.world.level.levelgen.WorldGenerationContext	5
@@ -3276,16 +3367,19 @@ net.minecraft.world.level.levelgen.DensityFunction$FunctionContext	3
 net.minecraft.network.protocol.game.ClientboundCommandSuggestionsPacket	2
 it.unimi.dsi.fastutil.ints.Int2CharFunction	2
 net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator	3
+io.wispforest.owo.mixin.ForwardingDynamicOpsAccessor	1
 net.neoforged.fml.common.asm.enumextension.ExtensionInfo	1
 net.neoforged.neoforge.event.level.SleepFinishedTimeEvent	0
 net.neoforged.neoforge.client.model.generators.BlockModelBuilder	8
 net.neoforged.neoforge.event.level.LevelEvent$Save	0
+io.wispforest.accessories.pond.ItemBasedSteerable	1
 net.minecraft.world.level.entity.Visibility	3
 com.simibubi.create.content.contraptions.ContraptionRelocationPacket	8
 net.minecraft.client.renderer.texture.Dumpable	2
 net.minecraft.server.packs.resources.PreparableReloadListener$PreparationBarrier	2
 dev.latvian.mods.kubejs.recipe.viewer.server.ItemData	2
 it.unimi.dsi.fastutil.ints.IntSet	4
+io.wispforest.owo.ui.core.Component$DismountReason	1
 lain.mods.cos.api.event.CosArmorDeathDrops	0
 dev.tr7zw.skinlayers.accessor.SkullSettings	3
 java.awt.geom.Point2D	4
@@ -3353,6 +3447,8 @@ net.minecraft.world.item.enchantment.effects.EnchantmentValueEffect	2
 java.security.Permission	3
 net.minecraft.network.chat.ChatTypeDecoration	3
 dzwdz.chat_heads.mixininterface.TextureLocationSettable	4
+io.wispforest.owo.ui.core.Animation$Direction	3
+com.agent772.createshufflefilter.mixins.BlockEntityBehaviourAccessor	1
 dev.latvian.apps.tinyserver.http.response.encoding.ResponseContentEncoding	2
 net.minecraft.world.ticks.ContainerSingleItem	4
 net.minecraft.core.RegistryAccess$RegistryEntry	2
@@ -3367,6 +3463,7 @@ net.minecraft.client.model.geom.builders.CubeListBuilder	4
 xaero.common.graphics.CustomRenderTypes$EntityIconLayerPhases	11
 net.minecraft.world.phys.shapes.VoxelShape	2
 net.minecraft.client.renderer.ItemInHandRenderer	2
+io.wispforest.accessories.api.slot.SlotType	2
 java.io.DataInput	2
 net.minecraft.locale.Language	3
 net.minecraft.client.DeltaTracker	1
@@ -3440,12 +3537,14 @@ net.minecraft.network.protocol.common.custom.HiveDebugPayload$HiveInfo	3
 net.caffeinemc.mods.sodium.client.services.SodiumModelData	3
 net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer	3
 de.keksuccino.fancymenu.mixin.mixins.common.client.IMixinAbstractWidget	4
+org.w3c.dom.CharacterData	4
 org.apache.commons.lang3.mutable.MutableBoolean	3
 com.tterrag.registrate.providers.RegistrateTagsProvider$IntrinsicImpl	5
 net.neoforged.neoforge.event.tick.EntityTickEvent	0
 net.minecraft.world.entity.animal.armadillo.Armadillo$ArmadilloState	3
 com.mojang.blaze3d.vertex.VertexFormatElement$Usage	4
 net.minecraft.client.model.SkullModelBase	1
+org.w3c.dom.DOMImplementation	3
 net.minecraft.util.AbortableIterationConsumer	4
 java.lang.Number	1
 net.neoforged.neoforge.event.entity.player.PlayerEvent$Clone	0
@@ -3459,6 +3558,7 @@ java.util.Optional	1
 java.util.concurrent.atomic.AtomicBoolean	5
 net.minecraft.world.level.block.Portal$Transition	2
 net.minecraft.world.level.levelgen.placement.PlacementFilter	7
+org.patryk3211.powergrid.mixin.ChunkMapAccessor	1
 net.minecraft.world.level.levelgen.feature.configurations.TwistingVinesConfig	3
 net.neoforged.neoforge.event.tick.PlayerTickEvent	0
 dev.latvian.mods.kubejs.recipe.match.ReplacementMatchInfo	1
@@ -3488,6 +3588,7 @@ net.minecraft.world.level.levelgen.structure.templatesystem.PosAlwaysTrueTest	11
 net.minecraft.nbt.TagVisitor	2
 java.util.BitSet	2
 javax.accessibility.Accessible	7
+io.wispforest.accessories.pond.ContainerScreenExtension	1
 net.minecraft.world.level.chunk.PalettedContainer$Strategy	4
 net.fabricmc.fabric.api.datagen.v1.loot.FabricBlockLootTableGenerator	8
 com.simibubi.create.api.contraption.storage.fluid.MountedFluidStorageType	10
@@ -3517,6 +3618,7 @@ dev.latvian.mods.kubejs.plugin.builtin.wrapper.ItemWrapper	0
 net.minecraft.world.entity.ai.sensing.Sensor	3
 net.minecraft.world.level.block.state.properties.StructureMode	1
 net.minecraft.network.chat.ChatTypeDecoration$Parameter	4
+io.wispforest.endec.impl.AttributeEndecBuilder	2
 net.minecraft.client.gui.components.CycleButton$Builder	3
 net.neoforged.neoforge.common.world.chunk.TicketHelper	3
 net.fabricmc.fabric.mixin.rendering.data.WorldViewMixin	2
@@ -3530,18 +3632,23 @@ net.minecraft.world.level.block.state.properties.PistonType	1
 xaero.common.core.IBufferSource	3
 net.minecraft.world.entity.animal.horse.AbstractHorse	2
 xaero.map.file.export.PNGExportResult	6
+io.wispforest.owo.ui.layers.Layer$Instance	1
 xaero.pac.client.player.config.api.IPlayerConfigOptionClientStorageAPI	7
 xaero.map.region.texture.RegionTexture	5
 com.simibubi.create.content.trains.graph.TrackEdgeIntersection	4
 net.minecraft.network.protocol.game.ClientboundGameEventPacket$Type	3
+com.cak.pattern_schematics.foundation.mixin_accessors.MovementContextAccessor	1
 net.neoforged.neoforge.fluids.BaseFlowingFluid	3
+com.denisnumb.discord_chat_mod.mixin.chat_style.CombatTrackerAccessorMixin	1
 net.minecraft.network.chat.MessageSignature	2
+org.w3c.dom.NamedNodeMap	2
 com.mojang.authlib.yggdrasil.request.AbuseReportRequest$ThirdPartyServerInfo	2
 fi.dy.masa.malilib.util.IF3KeyStateSetter	2
 net.minecraft.world.RandomSequences	2
 net.silentchaos512.gear.api.property.NumberProperty$DisplayFormat	4
 net.neoforged.neoforge.client.model.generators.MultiPartBlockStateBuilder$PartBuilder	7
 java.lang.Byte	2
+com.agent772.parallelworlds.accessor.IServerDimensionAccessor	1
 software.bernie.geckolib.renderer.GeoEntityRenderer	1
 com.google.gson.TypeAdapterFactory	3
 it.unimi.dsi.fastutil.doubles.DoubleUnaryOperator	4
@@ -3552,6 +3659,7 @@ net.blay09.mods.balm.api.config.MutableLoadedConfig	3
 net.minecraft.world.level.levelgen.feature.stateproviders.DualNoiseProvider	5
 top.theillusivec4.curios.mixin.core.AccessorEntity	2
 net.minecraft.world.level.levelgen.structure.templatesystem.LiquidSettings	5
+io.wispforest.owo.ui.core.Component$FocusSource	1
 net.minecraft.world.level.levelgen.structure.structures.JungleTempleStructure	4
 net.neoforged.neoforge.event.entity.player.PlayerEvent$PlayerLoggedOutEvent	0
 net.minecraft.world.level.block.IronBarsBlock	7
@@ -3604,6 +3712,7 @@ net.neoforged.fml.config.ModConfig	3
 net.minecraft.world.entity.ai.sensing.VillagerBabiesSensor	4
 dev.latvian.mods.kubejs.script.ScriptType	1
 org.lwjgl.util.freetype.FT_BBox$Buffer	4
+org.w3c.dom.ProcessingInstruction	3
 dev.latvian.mods.kubejs.script.SourceLine	1
 com.furiusmax.bjornlib.neo.mixin.structures.AccessorSinglePoolElement	6
 xaero.lib.client.config.option.ui.factory.IConfigOptionWidgetFactory	6
@@ -3620,6 +3729,7 @@ net.neoforged.neoforge.event.level.block.CropGrowEvent$Post	0
 net.minecraft.network.protocol.common.ClientboundServerLinksPacket	3
 dev.latvian.mods.kubejs.item.custom.SwordItemBuilder	0
 java.security.PrivilegedExceptionAction	5
+io.wispforest.owo.ui.event.MouseEnter	2
 net.minecraft.world.item.crafting.RecipeSerializer	1
 dev.ftb.mods.ftbessentials.util.neoforge.WarmupCooldownTeleporterImpl$EssentialsTeleport	0
 net.minecraft.world.level.block.entity.trialspawner.TrialSpawnerState	1
@@ -3627,7 +3737,9 @@ net.minecraft.world.level.chunk.ChunkGeneratorStructureState	3
 net.minecraft.world.entity.monster.Slime	2
 net.minecraft.network.chat.FormattedText	1
 net.minecraft.advancements.critereon.StatePropertiesPredicate	2
+org.w3c.dom.DocumentType	3
 net.minecraft.world.entity.monster.MagmaCube	2
+io.wispforest.owo.ui.core.OwoUIDrawContext$UtilityScreen	2
 xaero.hud.minimap.waypoint.server.ServerWaypointManager	6
 it.unimi.dsi.fastutil.shorts.ShortSet	3
 net.minecraft.client.gui.layouts.LayoutElement	4
@@ -3654,6 +3766,7 @@ net.caffeinemc.mods.sodium.mixin.features.textures.NativeImageAccessor	2
 java.util.function.DoubleUnaryOperator	3
 net.caffeinemc.mods.lithium.mixin.ai.useless_sensors.BrainAccessor	3
 net.minecraft.world.level.levelgen.feature.ConfiguredFeature	1
+net.minecraft.client.multiplayer.chat.ChatTrustLevel	1
 net.fabricmc.fabric.mixin.networking.accessor.EntityTrackerAccessor	4
 net.minecraft.world.level.levelgen.feature.treedecorators.TrunkVineDecorator	5
 net.fabricmc.fabric.api.screenhandler.v1.FabricScreenHandlerFactory	3
@@ -3693,6 +3806,7 @@ java.lang.StringBuffer	1
 net.fabricmc.fabric.api.recipe.v1.ingredient.CustomIngredientSerializer	3
 java.util.EventObject	9
 net.minecraft.world.ContainerListener	3
+io.wispforest.owo.mixin.ui.DrawContextInvoker	1
 xaero.common.minimap.waypoints.WaypointWorldContainer	4
 traben.entity_texture_features.features.player.ETFPlayerTexture	2
 org.lwjgl.util.freetype.FT_Outline	4
@@ -3724,7 +3838,7 @@ net.minecraft.world.level.block.entity.BlockEntityType	1
 net.neoforged.neoforge.event.entity.living.LivingDamageEvent$Pre	0
 net.silentchaos512.gear.api.material.Material	2
 net.neoforged.neoforge.event.entity.item.ItemExpireEvent	0
-com.jesz.createdieselgenerators.compat.kubejs.GetChunkOilAmountEventJS	0
+io.wispforest.accessories.pond.ModelPartLoadingHelper	1
 net.minecraft.client.renderer.texture.OverlayTexture	2
 fi.dy.masa.malilib.mixin.entity.IMixinPiglinEntity	3
 net.minecraft.world.level.dimension.DimensionType$MonsterSettings	3
@@ -3746,7 +3860,6 @@ org.joml.AxisAngle4d	1
 net.neoforged.neoforge.event.PlayLevelSoundEvent$AtEntity	0
 net.minecraft.world.level.levelgen.NoiseChunk	2
 net.blay09.mods.balm.api.event.client.screen.ScreenKeyEvent$Press$Post	0
-com.jesz.createdieselgenerators.mixins.ModelPartAccessor	3
 dev.latvian.mods.kubejs.fluid.FluidBlockBuilder	1
 net.minecraft.network.protocol.login.ClientLoginPacketListener	2
 net.minecraft.world.level.block.entity.SculkSensorBlockEntity	2
@@ -3768,6 +3881,7 @@ net.minecraft.world.item.crafting.SingleRecipeInput	3
 net.minecraft.commands.SharedSuggestionProvider$ElementSuggestionType	2
 com.blackgear.platform.core.mixin.access.NearPlaneAccessor	3
 com.mojang.blaze3d.font.SheetGlyphInfo	4
+net.minecraft.world.entity.projectile.FishingHook$OpenWaterType	1
 net.fabricmc.fabric.impl.renderer.SpriteFinderImpl$SpriteFinderAccess	2
 dev.latvian.mods.kubejs.core.ClientPacketListenerKJS	2
 it.unimi.dsi.fastutil.objects.ObjectSortedSet	1
@@ -3779,6 +3893,7 @@ java.lang.foreign.SegmentAllocator	4
 java.awt.dnd.DropTargetDragEvent	9
 java.util.RandomAccess	2
 net.minecraft.client.multiplayer.chat.report.ReportEnvironment$Server	2
+org.w3c.dom.Comment	3
 net.minecraft.client.gui.Font	1
 io.github.jamalam360.rightclickharvest.HarvestContext	1
 net.minecraft.network.protocol.game.ServerboundSetCarriedItemPacket	3
@@ -3800,6 +3915,7 @@ net.minecraft.world.entity.MobCategory	1
 net.minecraft.core.Registry	1
 net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin	3
 moe.wolfgirl.probejs.lang.typescript.code.type.js.JSLambdaType$Builder	1
+net.minecraft.client.multiplayer.ClientChunkCache	1
 com.blamejared.controlling.api.events.IKeyEntryListenersEvent	1
 net.neoforged.neoforge.event.entity.living.LivingEntityUseItemEvent$Start	0
 xaero.hud.minimap.waypoint.render.AbstractWaypointRenderContext	7
@@ -3818,11 +3934,14 @@ net.minecraft.world.level.biome.BiomeSpecialEffects$Builder	6
 net.minecraft.server.ServerLinks	2
 java.nio.LongBuffer	2
 net.minecraft.world.level.levelgen.LegacyRandomSource	5
+io.wispforest.owo.ui.event.FocusLost	2
 net.neoforged.neoforge.client.event.ScreenEvent	0
 io.netty.channel.WriteBufferWaterMark	4
 net.minecraft.world.level.chunk.Palette	6
 java.io.FilenameFilter	2
 java.nio.channels.FileChannel	2
+io.wispforest.owo.ui.event.MouseLeave	2
+io.wispforest.endec.StructEndec	2
 com.simibubi.create.foundation.block.IBE	5
 java.awt.Dimension	4
 net.neoforged.neoforge.resource.ContextAwareReloadListener	3
@@ -3874,6 +3993,7 @@ net.minecraft.world.entity.projectile.SmallFireball	2
 com.simibubi.create.content.trains.track.TrackTargetingBehaviour$RenderedTrackOverlayType	5
 java.time.DayOfWeek	3
 net.minecraft.world.entity.ai.behavior.BehaviorControl	3
+io.wispforest.owo.ui.core.Sizing	1
 net.minecraft.world.level.block.entity.vault.VaultBlockEntity	2
 net.createmod.catnip.data.WorldAttached	4
 net.minecraft.world.level.block.entity.BannerPatternLayers$Layer	1
@@ -3897,8 +4017,10 @@ squeek.appleskin.api.event.HUDOverlayEvent$Exhaustion	0
 dev.latvian.mods.kubejs.misc.PaintingVariantBuilder	0
 it.unimi.dsi.fastutil.longs.Long2LongFunction	3
 java.awt.dnd.DragSourceMotionListener	9
+io.wispforest.owo.mixin.ScreenAccessor	1
 net.minecraft.world.level.levelgen.synth.ImprovedNoise	3
 com.supermartijn642.fusion.api.texture.TextureType	2
+com.yungnickyoung.minecraft.yungsapi.mixin.accessor.PotionAccessor	1
 dev.latvian.mods.rhino.RhinoException	3
 net.minecraft.network.chat.SignedMessageValidator	2
 net.minecraft.world.level.levelgen.structure.structures.IglooStructure	4
@@ -3941,7 +4063,6 @@ xaero.hud.minimap.world.connection.MinimapWorldConnectionManager	6
 java.util.OptionalInt	1
 net.minecraft.world.level.ClipContext	2
 net.minecraft.world.level.levelgen.placement.SurfaceRelativeThresholdFilter	6
-com.jesz.createdieselgenerators.events.EntityTickEvent	0
 de.maxhenkel.voicechat.configbuilder.entry.DoubleConfigEntry	6
 de.maxhenkel.voicechat.api.RawUdpPacket	3
 net.minecraft.world.level.block.entity.ConduitBlockEntity	2
@@ -3997,7 +4118,6 @@ net.minecraft.core.HolderGetter$Provider	2
 net.minecraft.world.entity.boss.enderdragon.phases.DragonLandingApproachPhase	5
 com.mojang.brigadier.exceptions.Dynamic2CommandExceptionType$Function	5
 net.irisshaders.iris.mixinterface.ExtendedBiome	2
-dev.tr7zw.skinlayers.accessor.NativeImageAccessor	2
 xaero.pac.common.server.claims.api.IServerRegionClaimsAPI	5
 net.neoforged.neoforge.event.ItemAttributeModifierEvent	0
 net.neoforged.neoforge.registries.DeferredHolder	3
@@ -4006,6 +4126,7 @@ net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent$Clone	0
 dev.architectury.extensions.injected.InjectedBucketItemExtension	6
 com.mojang.datafixers.kinds.App2	4
 dev.latvian.apps.tinyserver.http.file.FileResponseHandler	4
+io.wispforest.owo.util.pond.OwoScreenHandlerExtension	1
 cpw.mods.niofs.union.UnionPathFilter	8
 com.teamresourceful.bytecodecs.base.WrappedByteCodec	5
 net.blay09.mods.balm.api.event.server.ServerStartingEvent	0
@@ -4018,6 +4139,7 @@ java.util.HashMap	0
 net.fabricmc.fabric.impl.transfer.fluid.FluidVariantCache	2
 dev.latvian.mods.kubejs.block.predicate.BlockPredicate	1
 xaero.hud.minimap.radar.render.element.RadarElementReader	7
+io.wispforest.endec.SerializationAttribute$WithValue	2
 xaero.map.server.radar.tracker.SyncedPlayerTracker	3
 net.blay09.mods.balm.api.config.schema.ConfiguredLong	5
 net.minecraft.world.level.levelgen.structure.templatesystem.BlackstoneReplaceProcessor	7
@@ -4123,6 +4245,7 @@ it.unimi.dsi.fastutil.objects.Reference2BooleanFunction	3
 xaero.common.minimap.radar.MinimapRadarList	5
 xaero.common.minimap.waypoints.render.WaypointsIngameRenderer	5
 xaero.lib.common.config.profile.ConfigProfile	5
+com.yungnickyoung.minecraft.yungsapi.world.structure.terrainadaptation.aquiferoverride.AquiferOverride	2
 net.minecraft.world.level.levelgen.feature.configurations.VegetationPatchConfiguration	3
 dev.latvian.mods.kubejs.script.ScriptFileInfo	4
 net.irisshaders.iris.pbr.texture.PBRAtlasTexture	3
@@ -4146,6 +4269,7 @@ dev.latvian.mods.kubejs.block.custom.CarpetBlockBuilder	0
 net.minecraft.world.level.levelgen.feature.configurations.MultifaceGrowthConfiguration	3
 it.unimi.dsi.fastutil.objects.AbstractObject2ByteSortedMap	3
 net.minecraft.world.entity.projectile.windcharge.WindCharge	2
+it.hurts.shatterbyte.clavis.common.mixin.MouseHandlerAccessor	1
 com.mojang.blaze3d.vertex.VertexBuffer$Usage	3
 dev.engine_room.flywheel.api.vertex.MutableVertexList	8
 net.minecraft.world.level.block.HorizontalDirectionalBlock	8
@@ -4161,6 +4285,7 @@ earth.terrarium.tempad.api.event.TimedoorEvent$Close	0
 net.fabricmc.fabric.api.util.BooleanFunction	6
 it.unimi.dsi.fastutil.objects.Object2ObjectMap$Entry	3
 net.minecraft.world.level.pathfinder.Path$DebugData	4
+io.wispforest.endec.SerializationContext	1
 net.minecraft.world.level.levelgen.blending.Blender	3
 net.minecraft.world.level.material.FogType	1
 net.fabricmc.fabric.impl.resource.loader.FabricResourcePackProfile	3
@@ -4174,6 +4299,7 @@ dev.latvian.mods.kubejs.core.DiggerItemKJS	2
 xaero.common.mods.SupportMods	4
 xaero.common.core.IXaeroMinimapSMultiBlockChangePacket	3
 xaero.common.minimap.waypoints.render.WaypointReader	6
+com.yungnickyoung.minecraft.ribbits.mixin.mixins.accessor.DoorBlockAccessor	1
 net.neoforged.neoforge.event.entity.player.PlayerInteractEvent$RightClickEmpty	0
 net.minecraft.world.entity.boss.enderdragon.phases.DragonDeathPhase	5
 net.minecraft.client.renderer.texture.atlas.SpriteSourceType	1
@@ -4279,6 +4405,7 @@ net.minecraft.world.inventory.ChestMenu	2
 net.neoforged.neoforge.client.extensions.common.IClientBlockExtensions	1
 net.minecraft.world.entity.monster.EnderMan	1
 it.unimi.dsi.fastutil.objects.AbstractObject2FloatFunction	4
+org.w3c.dom.CDATASection	3
 net.minecraft.world.level.GameRules$Value	3
 net.minecraft.server.packs.DownloadQueue$BatchResult	4
 net.neoforged.neoforge.common.world.ModifiableStructureInfo$StructureInfo	4
@@ -4412,6 +4539,7 @@ net.minecraft.client.gui.narration.NarrationElementOutput	2
 java.awt.dnd.DropTargetContext	9
 xaero.common.interfaces.InterfaceManager	4
 java.io.OutputStream	2
+io.wispforest.endec.Serializer$Struct	3
 net.neoforged.neoforge.event.entity.player.PlayerSetSpawnEvent	0
 it.unimi.dsi.fastutil.objects.Object2ByteMap	3
 net.neoforged.neoforge.event.level.BlockEvent$BreakEvent	0
@@ -4459,11 +4587,13 @@ com.mojang.realmsclient.dto.RealmsWorldOptions	3
 com.mojang.realmsclient.dto.WorldTemplatePaginatedList	3
 it.unimi.dsi.fastutil.longs.Long2ReferenceOpenHashMap	3
 net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditionType	9
+io.wispforest.owo.ui.core.OwoUIAdapter	2
 java.lang.foreign.ValueLayout$OfBoolean	4
 net.minecraft.util.SortedArraySet	4
 dev.engine_room.flywheel.lib.transform.TransformStack	3
 com.tterrag.registrate.util.nullness.NonNullSupplier	3
 dev.latvian.mods.kubejs.recipe.viewer.server.CategoryData	2
+io.wispforest.accessories.impl.AccessoriesContainerImpl	4
 java.lang.Package	2
 net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate	4
 java.lang.module.ModuleDescriptor$Modifier	4
@@ -4506,6 +4636,7 @@ net.neoforged.neoforge.event.level.ChunkWatchEvent	0
 it.unimi.dsi.fastutil.objects.Object2FloatFunction	2
 net.neoforged.neoforge.client.event.ScreenEvent$MouseButtonPressed$Post$Result	1
 it.unimi.dsi.fastutil.shorts.ShortPredicate	3
+io.wispforest.owo.client.screens.OwoScreenHandler	1
 xaero.common.events.ModClientEvents	4
 net.minecraft.world.level.block.state.properties.BellAttachType	1
 net.blay09.mods.balm.api.event.client.screen.ScreenMouseEvent$Drag	0
@@ -4532,7 +4663,9 @@ net.minecraft.world.item.crafting.ShapelessRecipe	2
 com.simibubi.create.foundation.mixin.accessor.ShapedRecipeAccessor	3
 net.neoforged.neoforgespi.ILaunchContext	7
 net.neoforged.neoforge.client.event.RenderGuiEvent$Post	0
+io.wispforest.endec.impl.StructField	2
 net.neoforged.neoforge.event.entity.player.PlayerNegotiationEvent	0
+it.hurts.octostudios.octolib.mixin.AbstractWidgetAccessor	1
 xaero.common.PlatformContextLoaderCommon	5
 it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap	4
 net.neoforged.neoforge.common.damagesource.IScalingFunction	3
@@ -4586,6 +4719,7 @@ dev.engine_room.flywheel.api.visual.EntityVisual	3
 com.simibubi.create.content.trains.bogey.BogeyVisualizer	9
 dev.latvian.mods.rhino.IdFunctionCall	3
 xaero.map.graphics.TextureUploader	4
+io.wispforest.accessories.pond.AccessoriesFrameBufferExtension	1
 net.fabricmc.loader.api.metadata.version.VersionComparisonOperator	7
 net.minecraft.network.protocol.game.ClientboundSectionBlocksUpdatePacket	2
 com.mojang.authlib.yggdrasil.request.AbuseReportRequest	3
@@ -4609,6 +4743,7 @@ com.mojang.serialization.MapCodec	1
 net.minecraft.world.effect.MobEffect$AttributeTemplate	2
 net.minecraft.client.renderer.DimensionSpecialEffects$SkyType	2
 net.minecraft.network.protocol.game.ClientboundContainerClosePacket	2
+io.wispforest.owo.ui.core.PositionedRectangle	1
 me.flashyreese.mods.sodiumextra.mixin.optimizations.beacon_beam_rendering.LevelRendererAccessor	2
 net.neoforged.neoforge.event.level.block.CropGrowEvent$Pre	0
 net.neoforged.neoforge.event.server.ServerLifecycleEvent	0
@@ -4617,9 +4752,11 @@ org.apache.logging.log4j.message.Message	5
 net.createmod.ponder.mixin.accessor.TimerAccessor	3
 net.minecraft.commands.execution.EntryAction	4
 net.minecraft.world.entity.Marker	2
+io.wispforest.owo.ui.event.FocusGained	2
 net.minecraft.world.level.levelgen.blending.BlendingData$DensityConsumer	3
 xaero.hud.minimap.waypoint.TemporaryWaypointHandler	6
 net.caffeinemc.mods.sodium.mixin.features.textures.animations.upload.SpriteContentsAccessor	3
+io.wispforest.accessories.pond.DroppedStacksExtension	1
 net.neoforged.neoforge.event.entity.living.MobDespawnEvent$Result	1
 net.minecraft.server.level.ServerChunkCache	2
 net.minecraft.world.entity.Display$TextDisplay$LineSplitter	3
@@ -4693,6 +4830,7 @@ net.minecraft.world.level.block.state.BlockBehaviour$StateArgumentPredicate	3
 de.maxhenkel.voicechat.events.ServerVoiceChatDisconnectedEvent	0
 net.neoforged.neoforge.client.event.RecipesUpdatedEvent	0
 dev.latvian.mods.kubejs.recipe.viewer.RemoveEntriesKubeEvent	0
+org.w3c.dom.Node	2
 net.minecraft.world.level.levelgen.DensityFunction$Visitor	4
 it.unimi.dsi.fastutil.bytes.ByteIterable	4
 net.minecraft.CrashReport	1
@@ -4717,6 +4855,7 @@ com.google.common.reflect.TypeCapture	5
 dev.latvian.mods.kubejs.recipe.match.ReplacementMatch	1
 org.joml.Matrix4x3fc	1
 java.util.stream.Collector$Characteristics	3
+io.wispforest.owo.util.pond.OwoEntityRenderDispatcherExtension	1
 com.mojang.brigadier.tree.RootCommandNode	2
 net.minecraft.world.level.levelgen.Aquifer	3
 com.illusivesoulworks.polymorph.mixin.core.AccessorInventoryMenu	3
@@ -4731,6 +4870,7 @@ net.minecraft.client.renderer.debug.GameEventListenerRenderer	2
 net.minecraft.world.level.ClipContext$Fluid	2
 io.netty.channel.epoll.EpollEventLoopGroup	2
 com.railwayteam.railways.mixin_interfaces.IGenerallySearchableNavigation	6
+io.wispforest.accessories.api.components.AccessoryItemAttributeModifiers$Builder	3
 org.apache.maven.repository.legacy.metadata.ArtifactMetadata	6
 software.bernie.geckolib.animation.AnimationState	3
 net.minecraft.world.entity.ai.attributes.AttributeMap	2
@@ -4804,6 +4944,7 @@ net.neoforged.neoforge.client.event.ScreenEvent$KeyPressed$Post	0
 dev.latvian.mods.kubejs.client.highlight.HighlightRenderer$ShaderChain	2
 java.time.LocalDateTime	2
 net.fabricmc.api.EnvType	5
+io.wispforest.owo.ui.core.ParentComponent	1
 org.joml.Vector3ic	1
 net.minecraft.world.item.crafting.TippedArrowRecipe	2
 de.maxhenkel.voicechat.configbuilder.CommentedPropertyConfig	7
@@ -4822,6 +4963,7 @@ com.simibubi.create.content.trains.schedule.ScheduleDataEntry	7
 net.minecraft.world.level.gameevent.GameEventListenerRegistry	2
 net.minecraft.nbt.StreamTagVisitor	2
 java.nio.channels.Pipe$SourceChannel	5
+com.yungnickyoung.minecraft.yungsapi.mixin.accessor.StructureTemplatePoolAccessor	1
 net.minecraft.world.level.gameevent.GameEventListener$Provider	3
 com.railwayteam.railways.mixin_interfaces.IGenerallySearchableNavigation$PointTest	6
 net.minecraft.world.level.levelgen.structure.pools.EmptyPoolElement	5
@@ -4833,6 +4975,8 @@ net.minecraft.client.model.ArmedModel	3
 xaero.map.region.MapTile	4
 net.minecraft.client.renderer.texture.atlas.SpriteResourceLoader	4
 com.mojang.datafixers.View$Mu	5
+io.wispforest.owo.mixin.BufferBuilderAccessor	1
+io.wispforest.owo.mixin.ui.access.BlockEntityAccessor	1
 net.neoforged.neoforge.items.ItemStackHandler	2
 java.util.AbstractCollection	3
 net.minecraft.client.renderer.texture.HttpTexture	3
@@ -4855,6 +4999,7 @@ traben.entity_model_features.models.animation.EMFAnimation	4
 xaero.hud.minimap.waypoint.set.WaypointSet	5
 dev.latvian.mods.kubejs.server.tag.PreTagWrapper	3
 net.neoforged.neoforge.client.model.generators.MultiPartBlockStateBuilder	6
+io.wispforest.accessories.api.EquipCheck	2
 java.nio.channels.WritableByteChannel	3
 com.lightning.northstar.world.sealer.SealReactiveBlock	4
 java.io.DataOutput	2
@@ -4868,6 +5013,7 @@ org.embeddedt.modernfix.duck.IProfilingServerFunctionManager	3
 com.blamejared.controlling.api.events.IKeyEntryRenderEvent	1
 net.minecraft.util.ModCheck	1
 net.minecraft.util.DirectoryLock	2
+io.wispforest.owo.mixin.ui.layers.HandledScreenAccessor	1
 net.minecraft.server.players.UserWhiteListEntry	3
 dev.latvian.mods.kubejs.item.ItemModificationKubeEvent$ItemModifications	1
 com.blamejared.controlling.api.events.KeyEntryMouseReleasedEvent	0
@@ -4882,6 +5028,7 @@ org.objectweb.asm.tree.LabelNode	13
 com.simibubi.create.content.kinetics.deployer.DeployerRecipeSearchEvent	0
 net.minecraft.client.renderer.SectionBufferBuilderPool	2
 net.minecraft.world.level.storage.loot.entries.SequentialEntry$Builder	5
+io.wispforest.owo.client.screens.ScreenInternals$LocalPacket	1
 xaero.common.minimap.waypoints.WaypointsManager	3
 it.unimi.dsi.fastutil.objects.Reference2LongFunction	3
 net.minecraft.client.main.GameConfig$QuickPlayData	2
@@ -4932,6 +5079,7 @@ dev.latvian.mods.kubejs.fluid.FluidBucketItemBuilder	1
 com.corosus.watut.mixin.client.NativeImageAccessor	2
 com.hlysine.create_power_loader.content.LoaderType	5
 dev.lopyluna.gnkinetics.mixins.KineticBlockEntityAccessor	3
+com.chunksending.IBatchedUpdateSender	1
 net.neoforged.neoforge.event.entity.player.PlayerFlyableFallEvent	0
 software.bernie.geckolib.animation.keyframe.BoneAnimation	4
 com.tterrag.registrate.providers.loot.RegistrateEntityLootTables	5
@@ -4963,6 +5111,7 @@ net.silentchaos512.gear.api.item.GearItem	3
 net.caffeinemc.mods.lithium.mixin.world.chunk_access.GenerationChunkHolderAccessor	3
 xaero.hud.minimap.element.render.world.MinimapElementWorldRendererHandler	5
 java.lang.Boolean	0
+io.wispforest.owo.ui.core.Animatable	1
 com.mojang.blaze3d.shaders.Shader	2
 net.fabricmc.fabric.api.renderer.v1.material.MaterialView	5
 net.neoforged.neoforge.event.brewing.PotionBrewEvent	0
@@ -5006,6 +5155,7 @@ net.minecraft.world.entity.Display$TextDisplay$Align	3
 de.keksuccino.konkrete.mixin.mixins.client.IMixinMouseHandler	2
 net.minecraft.client.StringSplitter$LinePosConsumer	3
 net.minecraft.server.players.StoredUserEntry	3
+io.wispforest.endec.Endec	1
 java.util.function.Predicate	1
 com.google.common.collect.Multimap	1
 net.minecraft.core.RegistrySetBuilder$RegistryContents	3
@@ -5020,6 +5170,7 @@ net.neoforged.neoforge.registries.IdMappingEvent	0
 net.minecraft.world.level.levelgen.feature.configurations.SimpleRandomFeatureConfiguration	3
 java.time.LocalDate	3
 dev.latvian.mods.kubejs.item.ItemClickedKubeEvent	0
+io.wispforest.accessories.impl.ExpandedSimpleContainer	3
 dev.latvian.mods.kubejs.plugin.builtin.wrapper.HolderSetWrapper	1
 com.mojang.realmsclient.dto.PlayerInfo	3
 com.railwayteam.railways.mixin.AccessorTrackTargetingBehavior	5
@@ -5028,6 +5179,7 @@ net.neoforged.neoforge.client.event.ViewportEvent$ComputeFov	0
 net.minecraft.core.component.DataComponentMap$Builder	2
 net.minecraft.network.protocol.game.ClientboundContainerSetSlotPacket	2
 it.unimi.dsi.fastutil.shorts.ShortConsumer	3
+io.wispforest.owo.ui.core.Positioning	1
 it.unimi.dsi.fastutil.longs.AbstractLongSet	5
 net.fabricmc.fabric.mixin.item.EnchantmentBuilderAccessor	3
 net.minecraft.world.entity.animal.Rabbit$Variant	3
@@ -5083,6 +5235,8 @@ net.fabricmc.fabric.impl.object.builder.FabricEntityTypeImpl$Builder$Living	6
 java.lang.foreign.ValueLayout$OfShort	4
 net.minecraft.world.level.ChunkPos	1
 net.minecraft.world.entity.animal.horse.Donkey	2
+io.wispforest.owo.mixin.ServerCommonNetworkHandlerAccessor	1
+com.yungnickyoung.minecraft.ribbits.mixin.mixins.client.accessor.SoundBufferAccessor	1
 net.fabricmc.fabric.api.client.screen.v1.ScreenKeyboardEvents$AfterKeyRelease	3
 net.minecraft.world.level.storage.WorldData	2
 net.minecraft.core.Holder$Kind	1
@@ -5165,6 +5319,7 @@ dev.latvian.mods.kubejs.player.KubePlayerEvent	1
 net.minecraft.world.scores.ReadOnlyScoreInfo	3
 java.lang.module.ModuleFinder	5
 traben.entity_model_features.models.jem_objects.EMFPartData	5
+org.patryk3211.powergrid.mixin.ChunkMapAccessor$TrackedEntityAccessor	1
 dev.latvian.mods.kubejs.block.callback.RandomTickCallback	1
 com.mojang.realmsclient.dto.RealmsServer$WorldType	3
 net.irisshaders.iris.mixin.GameRendererAccessor	2
@@ -5220,6 +5375,7 @@ com.mojang.blaze3d.vertex.Tesselator	3
 xaero.hud.minimap.element.render.MinimapElementRenderProvider	6
 dev.emi.emi.mixin.accessor.BrewingRecipeRegistryAccessor	3
 java.awt.Dialog$ModalityType	8
+io.wispforest.owo.ui.core.HorizontalAlignment	2
 net.minecraft.util.Brightness	4
 net.minecraft.network.protocol.game.ClientboundBlockChangedAckPacket	2
 net.minecraft.network.chat.FormattedText$ContentConsumer	1
@@ -5244,6 +5400,7 @@ dev.latvian.mods.kubejs.recipe.viewer.SubtypeInterpreter	1
 dev.latvian.mods.kubejs.core.MinecraftServerKJS	2
 com.mojang.datafixers.Products$P10	3
 com.mojang.datafixers.Products$P11	3
+io.wispforest.accessories.client.gui.AbstractButtonExtension	1
 net.minecraft.client.renderer.block.BlockRenderDispatcher	1
 com.simibubi.create.foundation.mixin.accessor.EntityRenderDispatcherAccessor	2
 java.nio.channels.spi.AbstractSelector	4
@@ -5268,6 +5425,7 @@ it.unimi.dsi.fastutil.doubles.Double2ObjectFunction	2
 dzwdz.chat_heads.HeadData	4
 net.minecraft.world.level.block.entity.BlastFurnaceBlockEntity	2
 net.neoforged.neoforge.event.level.BlockEvent$FluidPlaceBlockEvent	0
+io.wispforest.accessories.api.SoundEventData	3
 net.neoforged.neoforge.event.tick.LevelTickEvent$Pre	0
 net.minecraft.world.item.crafting.BannerDuplicateRecipe	2
 net.minecraft.world.damagesource.DamageEffects	2
@@ -5309,6 +5467,7 @@ net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent	0
 com.mojang.brigadier.AmbiguityConsumer	2
 java.awt.datatransfer.FlavorEvent	10
 java.util.regex.MatchResult	3
+io.wispforest.accessories.mixin.client.LivingEntityRendererAccessor	1
 net.minecraft.client.gui.components.Button$CreateNarration	3
 net.neoforged.neoforge.event.entity.player.PlayerXpEvent$XpChange	0
 net.irisshaders.batchedentityrendering.impl.DrawCallTrackingRenderBuffers	2
@@ -5368,6 +5527,8 @@ net.minecraft.client.color.block.BlockColor	1
 net.minecraft.world.entity.monster.Endermite	2
 net.minecraft.network.protocol.game.ClientboundSetCameraPacket	2
 net.fabricmc.loader.api.metadata.ModDependency	4
+org.patryk3211.powergrid.mixin.LightningAccessor	1
+io.wispforest.owo.itemgroup.Icon	2
 net.minecraft.world.level.levelgen.feature.FeaturePlaceContext	3
 com.mojang.realmsclient.dto.Subscription$SubscriptionType	4
 xaero.hud.minimap.waypoint.WaypointCollector	6
@@ -5419,9 +5580,11 @@ net.minecraft.world.entity.EntityType$Builder	5
 java.lang.constant.ClassDesc	2
 net.minecraft.world.level.block.RenderShape	3
 net.neoforged.neoforge.client.gui.map.RegisterMapDecorationRenderersEvent	0
+io.wispforest.owo.ui.event.MouseUp	2
 net.neoforged.neoforge.event.level.ExplosionKnockbackEvent	0
 org.lwjgl.system.Struct$StructValidation	4
 net.minecraft.world.entity.monster.Bogged	2
+io.wispforest.accessories.mixin.client.ModelPartAccessor	1
 com.blackgear.vanillabackport.common.api.variant.ModelAndTexture	4
 net.minecraft.world.scores.Team	2
 net.neoforged.neoforge.client.model.generators.ItemModelProvider	6
@@ -5478,6 +5641,7 @@ net.neoforged.neoforge.network.event.RegisterConfigurationTasksEvent	0
 net.caffeinemc.mods.lithium.common.world.blockentity.BlockEntityGetter	2
 com.furiusmax.bjornlib.neo.mixin.EntityAccessor	2
 net.minecraft.world.inventory.MenuType$MenuSupplier	2
+io.wispforest.accessories.mixin.SlotAccessor	1
 java.net.DatagramSocketImpl	7
 java.lang.foreign.MemoryLayout	4
 xaero.hud.minimap.radar.icon.creator.RadarIconCreator	8
@@ -5499,12 +5663,15 @@ net.caffeinemc.mods.lithium.common.block.entity.SleepingBlockEntity	3
 net.caffeinemc.mods.sodium.client.render.viewport.CameraTransform	3
 net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity	3
 net.minecraft.world.level.levelgen.feature.foliageplacers.MegaJungleFoliagePlacer	5
+net.minecraft.client.gui.GuiGraphics$ScissorStack	1
 de.keksuccino.konkrete.mixin.mixins.client.IMixinScreen	2
 net.minecraft.world.level.block.entity.ChiseledBookShelfBlockEntity	2
+io.wispforest.accessories.mixin.ItemStackAccessor	1
 net.fabricmc.fabric.impl.client.model.loading.BlockStatesLoaderHooks	3
 dev.latvian.mods.kubejs.core.EntityTypeKJS	2
 net.neoforged.neoforge.client.event.ScreenEvent$RenderInventoryMobEffects	0
 moe.wolfgirl.probejs.lang.java.base.AnnotationHolder	4
+io.wispforest.owo.ui.core.Component	1
 net.minecraft.server.packs.PackResources$ResourceOutput	2
 com.supermartijn642.fusion.extensions.EntityExtension	2
 net.neoforged.neoforge.registries.datamaps.DataMapsUpdatedEvent$UpdateCause	1
@@ -5540,8 +5707,8 @@ xaero.hud.minimap.waypoint.DeathpointHandler	6
 net.neoforged.neoforge.entity.IEntityWithComplexSpawn	8
 dev.latvian.mods.kubejs.block.entity.BlockEntityAttachment	1
 net.minecraft.network.BandwidthDebugMonitor	2
-net.neoforged.neoforge.event.entity.living.LivingDestroyBlockEvent	0
 net.neoforged.neoforge.event.level.LevelEvent$Unload	0
+net.neoforged.neoforge.event.entity.living.LivingDestroyBlockEvent	0
 net.neoforged.neoforge.client.model.geometry.IUnbakedGeometry	2
 net.minecraft.server.packs.resources.Resource	2
 java.util.zip.ZipConstants	3
@@ -5554,6 +5721,7 @@ com.simibubi.create.foundation.mixin.accessor.LivingEntityAccessor	2
 net.minecraft.network.protocol.game.ServerboundDebugSampleSubscriptionPacket	3
 net.neoforged.neoforge.common.extensions.IHolderSetExtension$SerializationType	2
 com.blackgear.vanillabackport.core.mixin.access.TreeDecoratorTypeAccessor	5
+io.wispforest.owo.ui.inject.GreedyInputComponent	1
 com.google.common.cache.CacheStats	4
 net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator	5
 com.google.common.collect.Multiset$Entry	3
@@ -5595,6 +5763,7 @@ java.lang.Throwable	1
 xaero.pac.common.server.core.accessor.IServerCommonPacketListenerImpl	4
 dev.latvian.mods.kubejs.event.EventGroup	4
 net.minecraft.network.protocol.game.ClientboundSetPlayerTeamPacket$Action	3
+io.wispforest.accessories.mixin.DelegatingOpsAccessor	1
 dev.engine_room.flywheel.lib.transform.Scale	3
 net.minecraft.world.entity.SpawnGroupData	1
 net.minecraft.util.debugchart.SampleStorage	3
@@ -5631,6 +5800,7 @@ cpw.mods.modlauncher.api.TypesafeMap$Key	9
 moe.wolfgirl.probejs.lang.snippet.parts.Variable	2
 net.minecraft.server.level.progress.ChunkProgressListener	2
 net.minecraft.world.entity.OwnableEntity	3
+io.wispforest.owo.mixin.shader.ShaderProgramAccessor	1
 java.util.function.BiPredicate	1
 moe.wolfgirl.probejs.lang.transpiler.TypeConverter	2
 io.netty.util.concurrent.Future	3
@@ -5684,6 +5854,7 @@ net.minecraft.world.level.GameRules	2
 java.awt.image.renderable.RenderableImage	4
 net.minecraft.client.gui.GuiSpriteManager	1
 net.neoforged.neoforge.common.world.ModifiableBiomeInfo	2
+io.wispforest.endec.impl.ReflectiveEndecBuilder	1
 net.neoforged.fml.config.IConfigSpec$ILoadedConfig	3
 io.netty.channel.ChannelOutboundBuffer	4
 javax.crypto.Cipher	2
@@ -5698,6 +5869,7 @@ net.neoforged.neoforge.mixins.BlockEntityTypeAccessor	2
 dev.latvian.mods.kubejs.block.custom.DoorBlockBuilder	0
 java.net.SocketAddress	2
 net.minecraft.world.entity.monster.Witch	2
+io.wispforest.owo.mixin.offline.AdvancementProgressAccessor	1
 com.google.gson.JsonDeserializationContext	2
 dev.latvian.mods.rhino.Symbol	3
 software.bernie.geckolib.animation.PlayState	4
@@ -5715,6 +5887,7 @@ net.dawson.adorablehamsterpets.mixin.client.accessor.HandledScreenAccessor	2
 com.electronwill.nightconfig.core.utils.WriterSupplier	5
 xaero.map.pool.TextureUploadPool$Compressed	5
 de.maxhenkel.voicechat.api.Group$Type	6
+net.minecraft.client.multiplayer.ClientChunkCache$Storage	2
 net.minecraft.world.entity.projectile.windcharge.AbstractWindCharge	3
 net.irisshaders.iris.vertices.MojangBufferAccessor	2
 xaero.hud.module.ModuleSessionHandler	5
@@ -5725,6 +5898,7 @@ net.minecraft.world.entity.animal.Fox	2
 it.unimi.dsi.fastutil.booleans.Boolean2IntFunction	3
 net.minecraft.world.item.component.BlockItemStateProperties	0
 com.llamalad7.mixinextras.sugar.ref.LocalDoubleRef	2
+com.yungnickyoung.minecraft.yungsapi.world.structure.terrainadaptation.aquiferoverride.AquiferOverrideMask	1
 net.minecraft.client.renderer.RenderBuffers	1
 net.neoforged.neoforge.event.entity.living.LivingConversionEvent$Post	0
 net.minecraft.world.level.storage.LevelStorageSource$LevelStorageAccess	1
@@ -5734,6 +5908,7 @@ com.mojang.datafixers.OpticFinder	3
 xaero.hud.minimap.radar.category.EntityRadarCategoryManager	4
 net.minecraft.world.entity.npc.InventoryCarrier	2
 dev.latvian.mods.rhino.IdFunctionObject	2
+io.wispforest.endec.util.MapCarrier	1
 net.minecraft.world.item.component.SeededContainerLoot	0
 dev.engine_room.flywheel.api.visualization.EntityVisualizer	2
 net.minecraft.server.level.ServerBossEvent	4
@@ -5749,6 +5924,7 @@ software.bernie.geckolib.event.GeoRenderEvent$Armor$CompileRenderLayers	0
 net.minecraft.world.level.levelgen.WorldgenRandom	4
 dev.latvian.apps.tinyserver.CompiledPath$Part	4
 com.google.common.collect.ImmutableSet$Builder	2
+io.wispforest.owo.itemgroup.gui.ItemGroupButton	2
 net.minecraft.network.protocol.login.ClientboundCustomQueryPacket	3
 it.unimi.dsi.fastutil.longs.LongPredicate	3
 net.minecraft.world.inventory.ContainerData	2
@@ -5769,6 +5945,7 @@ net.neoforged.neoforge.common.data.ExistingFileHelper	1
 com.mojang.serialization.MapEncoder	1
 net.minecraft.world.entity.ai.goal.Goal	2
 java.awt.Dialog$ModalExclusionType	7
+org.w3c.dom.UserDataHandler	2
 java.util.Spliterator$OfLong	4
 it.unimi.dsi.fastutil.longs.Long2ByteMap	5
 dev.latvian.mods.kubejs.recipe.component.RecipeComponent	2
@@ -5779,6 +5956,7 @@ net.neoforged.neoforge.common.extensions.IPacketFlowExtension	3
 net.minecraft.network.protocol.game.ServerboundAcceptTeleportationPacket	3
 net.minecraft.commands.execution.UnboundEntryAction	4
 net.fabricmc.fabric.api.client.model.loading.v1.BlockStateResolver	5
+io.wispforest.owo.itemgroup.gui.ItemGroupTab	2
 net.minecraft.world.level.storage.loot.entries.LootPoolEntryType	4
 net.neoforged.neoforge.client.model.generators.BlockModelProvider	7
 com.simibubi.create.content.contraptions.MountedStorageManager	7
@@ -5908,8 +6086,8 @@ net.neoforged.neoforge.client.event.sound.PlayStreamingSourceEvent	0
 net.silentchaos512.gear.api.part.PartList$Immutable	2
 dev.latvian.mods.rhino.regexp.RegExp	2
 de.maxhenkel.voicechat.events.ClientVoiceChatDisconnectedEvent	0
-net.neoforged.neoforge.event.entity.living.LivingFallEvent	0
 net.neoforged.neoforge.client.event.RenderTooltipEvent$Pre	0
+net.neoforged.neoforge.event.entity.living.LivingFallEvent	0
 dev.engine_room.flywheel.api.layout.Layout	6
 com.google.common.collect.SetMultimap	4
 net.minecraft.client.resources.model.BakedModel	1
@@ -5933,6 +6111,7 @@ net.minecraft.world.level.storage.loot.entries.AlternativesEntry$Builder	5
 dev.latvian.mods.kubejs.util.OpsContainer	2
 net.minecraft.world.entity.monster.PatrollingMonster	4
 net.minecraft.network.syncher.SyncedDataHolder	2
+com.yungnickyoung.minecraft.yungsapi.mixin.accessor.BoundingBoxAccessor	1
 net.caffeinemc.mods.lithium.mixin.util.accessors.ServerLevelAccessor	2
 de.keksuccino.fancymenu.mixin.mixins.common.client.IMixinReceivingLevelScreen	3
 net.minecraft.world.level.entity.ChunkEntities	4
@@ -5945,7 +6124,9 @@ it.unimi.dsi.fastutil.objects.Object2DoubleMap	2
 net.minecraft.world.inventory.InventoryMenu	2
 it.unimi.dsi.fastutil.ints.Int2ByteFunction	2
 net.minecraft.server.ServerTickRateManager	2
+io.wispforest.owo.itemgroup.OwoItemGroup	1
 it.unimi.dsi.fastutil.objects.Object2IntFunction	2
+io.wispforest.endec.Deserializer$Sequence	3
 java.util.zip.ZipFile	2
 java.text.DateFormat	5
 net.fabricmc.fabric.api.attachment.v1.AttachmentTarget	3
@@ -5975,9 +6156,11 @@ net.minecraft.world.level.entity.EntityLookup	3
 net.minecraft.world.level.block.MultifaceSpreader	5
 java.time.temporal.TemporalQuery	2
 java.security.SignatureSpi	5
+io.wispforest.accessories.api.slot.SlotEntryReference	2
 net.minecraft.world.level.dimension.DimensionType	2
 net.neoforged.neoforge.client.event.InputEvent$MouseButton	0
 xaero.hud.minimap.radar.icon.creator.render.trace.ModelPartRenderTrace	11
+org.w3c.dom.Text	3
 dev.latvian.mods.kubejs.web.RelativeURL	1
 net.minecraft.world.level.PotentialCalculator	4
 org.objectweb.asm.tree.AnnotationNode	11
@@ -5987,6 +6170,7 @@ net.irisshaders.iris.mixin.texture.TextureAtlasAccessor	2
 net.minecraft.util.datafix.DataFixTypes	3
 java.nio.channels.Pipe$SinkChannel	5
 net.minecraft.world.level.chunk.storage.RegionFile	5
+org.patryk3211.powergrid.mixin.KineticBlockEntityAccessor	1
 net.silentchaos512.gear.api.event.GetMaterialPropertiesEvent	0
 net.neoforged.neoforge.client.event.RegisterPresetEditorsEvent	0
 java.util.ArrayList	2
@@ -6051,6 +6235,7 @@ com.leclowndu93150.baguettelib.event.inventory.InventoryUpdateEvent$All	0
 net.minecraft.network.protocol.game.ClientboundContainerSetDataPacket	2
 javax.accessibility.AccessibleRole	8
 top.theillusivec4.curios.api.SlotContext	1
+net.minecraft.world.entity.ItemBasedSteering	1
 net.minecraft.network.syncher.EntityDataAccessor	2
 dev.latvian.mods.kubejs.recipe.viewer.AddEntriesKubeEvent	0
 java.util.Set	1
@@ -6100,6 +6285,7 @@ net.neoforged.neoforge.client.event.AddAttributeTooltipsEvent	0
 net.minecraft.client.KeyMapping	1
 java.nio.file.attribute.FileAttributeView	4
 net.neoforged.neoforge.client.event.RenderArmEvent	0
+io.wispforest.accessories.pond.AccessoriesLivingEntityExtension	1
 net.minecraft.client.gui.components.toasts.TutorialToast	2
 net.neoforged.neoforge.event.level.block.CropGrowEvent	0
 dev.latvian.apps.tinyserver.http.response.CookieResponse$Builder	2
@@ -6136,8 +6322,9 @@ org.embeddedt.modernfix.duck.IBlockState	3
 net.neoforged.neoforge.event.entity.item.ItemTossEvent	0
 net.minecraft.commands.ExecutionCommandSource	2
 com.mojang.authlib.minecraft.report.ReportEvidence	4
-net.neoforged.neoforge.client.event.ScreenEvent$MouseButtonReleased$Pre	0
 net.silentchaos512.gear.api.event.GearItemEvent	0
+net.neoforged.neoforge.client.event.ScreenEvent$MouseButtonReleased$Pre	0
+org.w3c.dom.Document	2
 net.minecraft.world.item.crafting.Ingredient	0
 net.neoforged.neoforge.common.world.AuxiliaryLightManager	2
 net.fabricmc.fabric.impl.object.builder.FabricEntityTypeImpl$Builder$Mob	6
@@ -6161,6 +6348,7 @@ net.minecraft.world.level.saveddata.SavedData	3
 net.minecraft.advancements.AdvancementHolder	1
 net.minecraft.world.entity.ai.gossip.GossipContainer	3
 net.minecraft.world.level.block.ButtonBlock	7
+io.wispforest.owo.itemgroup.OwoItemGroup$ButtonDefinition	3
 dev.latvian.mods.rhino.type.JSOptionalParam	4
 net.minecraft.world.level.biome.Climate$ParameterPoint	3
 net.minecraft.world.level.storage.loot.entries.ComposableEntryContainer	4
@@ -6190,11 +6378,13 @@ net.silentchaos512.gear.api.util.GearComponentInstance	2
 net.caffeinemc.mods.sodium.api.vertex.buffer.VertexBufferWriter	4
 net.minecraft.network.protocol.game.ServerboundPlayerActionPacket$Action	2
 net.fabricmc.fabric.api.client.screen.v1.ScreenMouseEvents$AllowMouseScroll	3
+io.wispforest.endec.Endec$Decoder	2
 net.caffeinemc.mods.sodium.api.blockentity.BlockEntityRenderPredicate	2
 net.fabricmc.fabric.api.blockview.v2.FabricBlockView	2
 net.minecraft.world.level.block.entity.TheEndGatewayBlockEntity	2
 it.unimi.dsi.fastutil.shorts.ShortBidirectionalIterator	4
 java.time.zone.ZoneOffsetTransitionRule$TimeDefinition	6
+io.wispforest.owo.client.screens.SyncedProperty	1
 net.neoforged.neoforge.event.entity.living.MobSpawnEvent$PositionCheck	0
 java.awt.datatransfer.DataFlavor	9
 xaero.common.minimap.render.MinimapRenderer	6
@@ -6231,6 +6421,7 @@ net.minecraft.world.level.block.entity.trialspawner.TrialSpawner$StateAccessor	3
 net.neoforged.neoforge.server.permission.events.PermissionGatherEvent$Handler	0
 de.keksuccino.fancymenu.mixin.mixins.common.client.IMixinScreen	2
 net.minecraft.world.level.timers.TimerCallback$Serializer	4
+com.yungnickyoung.minecraft.yungsapi.world.structure.terrainadaptation.aquiferoverride.SolidifyAquiferOverride	4
 net.minecraft.util.FormattedCharSequence	1
 org.apache.logging.log4j.spi.StandardLevel	6
 net.minecraft.client.gui.components.ChatComponent$DelayedMessageDeletion	4
@@ -6256,6 +6447,7 @@ net.neoforged.neoforgespi.locating.IDependencyLocator	6
 com.illusivesoulworks.polymorph.mixin.core.AccessorAbstractFurnaceBlockEntity	4
 dev.latvian.mods.rhino.type.TypeInfoBase	3
 java.time.zone.ZoneRules	4
+org.patryk3211.powergrid.mixin.forge.EntityTrackerAccessor	1
 net.minecraft.world.entity.monster.Phantom	2
 net.minecraft.world.level.chunk.storage.SimpleRegionStorage	4
 org.lwjgl.util.freetype.FT_Stream$Buffer	4
@@ -6282,9 +6474,12 @@ dev.latvian.mods.kubejs.block.entity.KubeBlockEntity	1
 org.joml.Vector2fc	1
 net.neoforged.neoforge.event.entity.living.LivingSwapItemsEvent	0
 software.bernie.geckolib.animation.AnimationController$CustomKeyframeHandler	5
+com.pedrorok.hypertube.mixin.core.CameraAccessorMixin	1
 net.minecraft.network.protocol.game.ClientboundClearTitlesPacket	2
 com.tterrag.registrate.providers.ProviderType	4
+io.wispforest.accessories.mixin.client.GuiGraphicsAccessor	1
 net.minecraft.server.bossevents.CustomBossEvent	3
+io.wispforest.endec.util.Endable	4
 net.minecraft.world.level.levelgen.placement.HeightRangePlacement	6
 net.neoforged.neoforge.common.damagesource.IDeathMessageProvider	3
 xaero.hud.controls.key.function.KeyMappingFunction	5
@@ -6371,6 +6566,7 @@ dev.latvian.mods.kubejs.command.ArgumentTypeWrapper	2
 org.lwjgl.system.NativeResource	4
 net.neoforged.neoforge.client.event.RegisterClientReloadListenersEvent	0
 tschipp.carryon.common.scripting.CarryOnScript$ScriptObject$ScriptObjectEntity	5
+noobanidus.mods.lootr.common.mixins.AccessorMixinBrushableBlockEntity	1
 net.minecraft.client.renderer.RenderStateShard$ColorLogicStateShard	2
 com.mojang.authlib.SignatureState	3
 xaero.map.file.export.PNGExporter	5
@@ -6389,6 +6585,7 @@ net.minecraft.world.entity.TamableAnimal	3
 java.util.function.LongPredicate	3
 net.minecraft.world.level.lighting.LevelLightEngine	2
 net.neoforged.neoforge.event.entity.player.PlayerEvent$SaveToFile	0
+io.wispforest.owo.ui.core.Surface	2
 xaero.map.file.OldFormatSupport	5
 com.simibubi.create.foundation.blockEntity.SmartBlockEntity	1
 net.minecraft.util.profiling.metrics.ProfilerMeasured	3
@@ -6426,6 +6623,7 @@ java.io.Reader	2
 net.irisshaders.iris.mixin.ProgramTypeAccessor	3
 net.minecraft.server.packs.resources.PreparableReloadListener	1
 dev.latvian.mods.kubejs.item.custom.DiggerItemBuilder$Shovel	0
+io.wispforest.owo.mixin.ScreenHandlerInvoker	1
 java.nio.file.WatchEvent$Modifier	2
 net.minecraft.world.level.levelgen.placement.RandomOffsetPlacement	6
 java.util.concurrent.Flow$Subscriber	4
@@ -6450,14 +6648,17 @@ xaero.pac.common.claims.player.api.IPlayerChunkClaimAPI	3
 xaero.hud.category.serialization.data.ObjectCategoryDataSerializer	6
 net.minecraft.world.entity.animal.horse.AbstractChestedHorse	3
 net.minecraft.client.resources.model.ModelBaker	3
+io.wispforest.owo.ui.core.VerticalAlignment	2
 net.minecraft.world.level.gameevent.GameEventListener	3
 net.minecraft.server.packs.PackLocationInfo	2
 net.minecraft.client.renderer.GpuWarnlistManager$Preparations	2
 net.minecraft.world.level.NaturalSpawner$SpawnState	3
 net.neoforged.neoforge.data.event.GatherDataEvent$ItemTagsProvider	1
 java.awt.event.ActionListener	10
+com.yungnickyoung.minecraft.ribbits.mixin.mixins.client.accessor.ClientLevelAccessor	1
 it.unimi.dsi.fastutil.ints.IntCollection	2
 net.minecraft.world.level.levelgen.blockpredicates.MatchingFluidsPredicate	6
+io.wispforest.accessories.api.components.AccessoryItemAttributeModifiers	4
 tschipp.carryon.common.scripting.CarryOnScript	3
 com.kipti.bnb.mixin_accessor.FlywheelAccessibleKineticNetwork	4
 org.spongepowered.asm.mixin.injection.callback.Cancellable	2
@@ -6498,6 +6699,7 @@ net.minecraft.world.entity.animal.TropicalFish	2
 dev.latvian.mods.kubejs.core.MessageSenderKJS	2
 traben.entity_model_features.models.IEMFModelNameContainer	3
 org.apache.maven.artifact.versioning.Restriction	4
+io.wispforest.accessories.mixin.CraftingMenuAccessor	1
 net.minecraft.world.entity.player.ProfilePublicKey	3
 net.neoforged.neoforge.data.event.GatherDataEvent	0
 dev.latvian.mods.kubejs.client.KeybindRegistryKubeEvent	0
@@ -6511,6 +6713,7 @@ net.fabricmc.fabric.api.client.model.loading.v1.BlockStateResolver$Context	6
 xaero.hud.minimap.waypoint.render.WaypointMapRenderReader	8
 com.mojang.blaze3d.vertex.MeshData$SortState	3
 net.minecraft.world.food.FoodProperties$PossibleEffect	1
+org.w3c.dom.NodeList	2
 com.blamejared.controlling.api.events.KeyEntryListenersEvent	0
 net.minecraft.world.item.enchantment.Enchantment$Builder	2
 net.minecraft.client.gui.screens.inventory.AbstractContainerScreen	1
@@ -6530,6 +6733,8 @@ com.mojang.blaze3d.vertex.MeshData	2
 net.minecraft.world.level.block.entity.CrafterBlockEntity	2
 net.minecraft.world.item.crafting.ShapedRecipePattern$Data	4
 net.minecraft.client.gui.ComponentPath	2
+com.starfish_studios.another_furniture.mixin.neoforge.create.ContraptionMixin	1
+umpaz.brewinandchewin.common.access.LootParamsParamSetAccess	1
 net.minecraft.world.level.levelgen.feature.configurations.BlockColumnConfiguration$Layer	4
 net.neoforged.neoforge.common.world.ModifiableStructureInfo	3
 com.mojang.brigadier.ParseResults	1
@@ -6539,9 +6744,11 @@ dev.latvian.mods.rhino.MemberType	2
 net.minecraft.world.level.block.state.StateDefinition$Factory	3
 net.neoforged.neoforge.common.MutableDataComponentHolder	1
 net.minecraft.advancements.Advancement	2
+io.wispforest.accessories.api.AccessoriesContainer	2
 net.irisshaders.iris.mixinterface.ShaderInstanceInterface	2
 net.minecraft.world.entity.player.PlayerModelPart	2
 malte0811.ferritecore.fastmap.FastMap	3
+io.wispforest.owo.mixin.ClientCommonNetworkHandlerAccessor	1
 fzzyhmstrs.emi_loot.mixins.LootTableAccessor	2
 it.unimi.dsi.fastutil.longs.LongSpliterator	3
 net.neoforged.neoforgespi.language.IModFileInfo$LanguageSpec	4
@@ -6597,6 +6804,7 @@ dev.latvian.mods.kubejs.recipe.schema.postprocessing.RecipePostProcessorType	3
 net.neoforged.neoforge.event.entity.player.ArrowNockEvent	0
 dev.latvian.mods.kubejs.recipe.match.ItemMatch	2
 xaero.common.server.radar.tracker.SyncedPlayerTrackerSystemManager	3
+io.wispforest.endec.SerializationAttribute$Marker	3
 net.neoforged.neoforge.fluids.crafting.SizedFluidIngredient	1
 com.mojang.blaze3d.vertex.ByteBufferBuilder$Result	2
 net.minecraft.client.resources.metadata.animation.FrameSize	3
@@ -6605,6 +6813,7 @@ net.minecraft.core.component.DataComponentType$Builder	1
 net.minecraft.network.protocol.ping.ClientboundPongResponsePacket	2
 dev.latvian.mods.kubejs.level.LevelBlock	1
 net.minecraft.world.scores.ScoreAccess	3
+io.wispforest.owo.client.screens.ScreenInternals$SyncPropertiesPacket	1
 net.minecraft.network.protocol.game.ClientboundLevelChunkPacketData$BlockEntityTagOutput	2
 net.minecraft.network.protocol.game.ServerboundChatCommandPacket	3
 net.minecraft.world.entity.animal.FrogVariant	3
@@ -6636,6 +6845,7 @@ xaero.lib.client.level.ClientLevelData	2
 net.caffeinemc.mods.sodium.mixin.core.render.texture.TextureAtlasAccessor	2
 net.fabricmc.fabric.api.item.v1.FabricItem	2
 net.neoforged.neoforge.event.AddReloadListenerEvent	0
+io.wispforest.accessories.api.AccessoriesHolder	1
 net.minecraft.advancements.AdvancementTree$Listener	4
 net.minecraft.world.level.block.entity.StructureBlockEntity$UpdateType	4
 net.minecraft.world.level.chunk.PaletteResize	4
@@ -6708,6 +6918,7 @@ net.minecraft.world.level.block.MultifaceSpreader$SpreadPredicate	6
 net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent	0
 net.neoforged.neoforge.client.event.RenderGuiLayerEvent	0
 net.minecraft.network.protocol.game.ClientboundSetEntityLinkPacket	2
+io.wispforest.owo.network.OwoClientConnectionExtension	1
 com.mojang.datafixers.DataFixer	1
 io.netty.channel.ChannelFuture	2
 java.lang.Float	0
@@ -6758,6 +6969,7 @@ it.unimi.dsi.fastutil.longs.Long2FloatFunction	3
 com.blackgear.platform.core.mixin.access.CameraAccessor	2
 tschipp.carryon.common.scripting.Matchables$OptionalVec3	5
 net.minecraft.world.item.component.MapDecorations$Entry	1
+io.wispforest.owo.mixin.ui.access.ClickableWidgetAccessor	1
 net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration	2
 net.neoforged.neoforge.client.event.RenderHighlightEvent$Block	0
 net.minecraft.world.level.biome.BiomeManager$NoiseBiomeSource	2
@@ -6812,6 +7024,7 @@ net.minecraft.world.level.levelgen.WorldDimensions	2
 net.minecraft.client.gui.components.toasts.ToastComponent	1
 net.minecraft.world.entity.player.Player$BedSleepingProblem	1
 java.awt.Font	4
+org.w3c.dom.TypeInfo	2
 net.minecraft.data.loot.EntityLootSubProvider	7
 net.minecraft.server.ServerFunctionManager	2
 net.minecraft.client.renderer.PostPass	3
@@ -6827,9 +7040,11 @@ com.google.gson.internal.Excluder	3
 net.minecraft.world.level.storage.LevelData	2
 net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher	1
 net.fabricmc.fabric.impl.resource.loader.FabricResource	3
+noobanidus.mods.lootr.common.mixins.AccessorMixinFallingBlockEntity	1
 net.neoforged.neoforge.event.entity.player.PlayerInteractEvent$LeftClickBlock$Action	1
 xaero.lib.common.config.server.sync.ServerPlayerConfigSynchronizer	3
 software.bernie.geckolib.animation.AnimatableManager	4
+io.wispforest.accessories.impl.caching.AccessoriesHolderLookupCache	2
 net.minecraft.world.item.alchemy.PotionBrewing$Builder	1
 net.minecraft.world.level.block.entity.BlockEntity	1
 com.google.common.collect.ForwardingMultimap	2
@@ -6863,6 +7078,7 @@ net.minecraft.server.level.TickingTracker	4
 net.neoforged.neoforge.event.level.block.CreateFluidSourceEvent	0
 dev.latvian.mods.kubejs.core.BlockBuilderProvider	3
 net.neoforged.neoforge.common.ItemAbility	1
+io.wispforest.endec.Deserializer	2
 java.time.OffsetTime	4
 xaero.hud.minimap.player.tracker.PlayerTrackerMinimapElementRenderContext	5
 com.simibubi.create.content.kinetics.transmission.sequencer.SequencedGearshiftBlockEntity$SequenceContext	2
@@ -6928,6 +7144,7 @@ net.minecraft.client.telemetry.TelemetryPropertyMap$Builder	3
 xaero.map.world.MapWorld	4
 net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator$Context	1
 org.joml.Matrix3x2d	3
+com.yungnickyoung.minecraft.yungsapi.mixin.accessor.NoiseChunkAccessor	1
 org.joml.Matrix3x2f	2
 net.minecraft.world.item.enchantment.LevelBasedValue$Linear	5
 java.lang.Integer	0
@@ -6947,6 +7164,7 @@ net.minecraft.world.level.BaseCommandBlock	2
 dev.latvian.mods.kubejs.generator.KubeAssetGenerator	0
 net.minecraft.client.renderer.block.model.Variant	5
 java.math.MathContext	3
+io.wispforest.owo.itemgroup.OwoItemSettingsExtension	1
 net.minecraft.client.main.GameConfig$FolderData	2
 net.minecraft.util.debugchart.RemoteDebugSampleType	2
 net.neoforged.neoforge.client.model.generators.ItemModelBuilder	6
@@ -6988,6 +7206,7 @@ net.fabricmc.fabric.api.renderer.v1.model.SpriteFinder	3
 net.minecraft.world.inventory.ItemCombinerMenuSlotDefinition$SlotDefinition	4
 net.caffeinemc.mods.lithium.common.block.ListeningBlockStatePredicate	4
 net.neoforged.neoforge.network.handling.IPayloadContext	3
+com.yungnickyoung.minecraft.yungsapi.world.structure.terrainadaptation.aquiferoverride.AquiferOverrideType	3
 fuzs.puzzleslib.neoforge.mixin.client.accessor.ItemColorsNeoForgeAccessor	2
 net.minecraft.world.item.CreativeModeTab$ItemDisplayParameters	1
 xaero.map.file.worldsave.WorldDataHandler$Result	5
@@ -7008,10 +7227,12 @@ java.util.stream.IntStream$Builder	2
 net.fabricmc.fabric.api.renderer.v1.mesh.QuadEmitter	3
 net.neoforged.neoforge.event.server.ServerStartedEvent	0
 net.minecraft.world.entity.Pose	1
+io.wispforest.endec.Deserializer$Map	3
 com.google.common.collect.ImmutableCollection	2
 net.minecraft.world.entity.boss.enderdragon.phases.AbstractDragonPhaseInstance	6
 net.minecraft.nbt.NbtAccounter	2
 xaero.lib.common.player.IServerPlayer	2
+io.wispforest.owo.ui.core.CursorStyle	1
 xaero.common.minimap.waypoints.Waypoint	4
 net.minecraft.world.level.entity.EntityTickList	2
 java.lang.invoke.MethodHandle	2
@@ -7030,6 +7251,7 @@ dev.latvian.apps.tinyserver.http.HTTPMethod	3
 java.awt.font.TextHitInfo	9
 top.theillusivec4.curios.api.type.capability.ICurio$DropRule	1
 java.text.FieldPosition	2
+io.wispforest.owo.ui.core.Animation	2
 xaero.hud.minimap.waypoint.render.WaypointsGuiRenderer	5
 dev.latvian.mods.kubejs.recipe.schema.UnknownKubeRecipe	0
 com.mojang.authlib.minecraft.TelemetryEvent	4
@@ -7059,10 +7281,12 @@ net.minecraft.world.level.border.WorldBorder	2
 moe.wolfgirl.probejs.lang.typescript.code.type.TSParamType	1
 com.simibubi.create.content.trains.bogey.BogeyVisual	8
 com.simibubi.create.foundation.collision.CollisionList	7
+io.wispforest.owo.mixin.RegistryOpsAccessor	1
 xaero.common.misc.ListFactory	7
 xaero.hud.minimap.radar.icon.definition.form.model.config.RadarIconModelConfig	10
 it.unimi.dsi.fastutil.objects.ObjectIterable	3
 traben.entity_model_features.utils.IEMFTextureSizeSupplier	3
+io.wispforest.endec.impl.KeyedEndec	1
 xaero.pac.client.event.api.OPACClientAddonRegisterEvent	0
 net.minecraft.client.renderer.MultiBufferSource$BufferSource	2
 net.neoforged.neoforge.event.village.VillageSiegeEvent	0
@@ -7092,6 +7316,7 @@ dev.latvian.mods.kubejs.core.FluidIngredientKJS	2
 com.railwayteam.railways.mixin_interfaces.IMonorailBezier	3
 com.simibubi.create.content.trains.signal.SignalBlockEntity$OverlayState	4
 moe.wolfgirl.probejs.lang.java.clazz.members.ParamInfo	4
+io.wispforest.owo.itemgroup.gui.ItemGroupTab$ContentSupplier	2
 net.minecraft.client.model.geom.ModelPart$Visitor	3
 net.fabricmc.fabric.api.lookup.v1.block.BlockApiCache	3
 com.mojang.authlib.minecraft.MinecraftSessionService	1
@@ -7138,10 +7363,12 @@ dev.latvian.mods.kubejs.recipe.viewer.GroupEntriesKubeEvent	0
 net.minecraft.world.level.levelgen.structure.pools.LegacySinglePoolElement	5
 net.neoforged.neoforge.common.world.StructureModifier	4
 net.minecraft.world.level.levelgen.feature.configurations.GeodeConfiguration	3
+io.wispforest.owo.util.EventSource	1
 net.minecraft.client.gui.components.TabOrderedElement	2
 java.awt.Color	4
 net.minecraft.tags.TagNetworkSerialization$NetworkPayload	3
 cpw.mods.modlauncher.api.IModuleLayerManager$Layer	10
+io.wispforest.owo.ui.core.Positioning$Type	2
 net.silentchaos512.gear.api.material.TextureType	2
 java.nio.channels.ScatteringByteChannel	2
 com.google.common.collect.ImmutableCollection$Builder	2
@@ -7259,6 +7486,7 @@ dev.latvian.mods.kubejs.level.WrappedSpawner	1
 dev.latvian.mods.kubejs.util.ClassWrapper	1
 net.minecraft.world.level.levelgen.feature.foliageplacers.MegaPineFoliagePlacer	5
 net.neoforged.neoforge.common.world.BiomeModifier	3
+org.w3c.dom.Element	1
 dev.latvian.mods.kubejs.entity.BeforeLivingEntityHurtKubeEvent	0
 com.mojang.datafixers.DSL$TypeReference	2
 dev.latvian.mods.kubejs.server.tag.PreTagKubeEvent	2
@@ -7283,11 +7511,11 @@ net.fabricmc.fabric.mixin.object.builder.AbstractBlockSettingsAccessor	3
 net.minecraft.world.phys.Vec2	1
 net.minecraft.world.phys.Vec3	0
 net.minecraft.world.item.crafting.RecipeManager$CachedCheck	2
+io.wispforest.accessories.pond.AccessoriesAPIAccess	1
 net.neoforged.neoforgespi.locating.IModFile	4
 com.tterrag.registrate.util.nullness.NonNullConsumer	4
 net.blay09.mods.balm.api.config.schema.builder.ResourceLocationConfigProperty	4
 it.unimi.dsi.fastutil.longs.Long2IntMap$Entry	3
-com.jesz.createdieselgenerators.mixins.LootPoolAccessor	3
 net.fabricmc.fabric.mixin.datagen.loot.BlockLootTableGeneratorAccessor	8
 com.railwayteam.railways.mixin_interfaces.ILimited	5
 net.silentchaos512.gear.gear.part.RepairContext$Type	2
@@ -7312,6 +7540,8 @@ net.neoforged.neoforge.common.extensions.IClientCommonPacketListenerExtension	4
 net.silentchaos512.gear.api.material.MaterialSerializer	3
 net.dawson.adorablehamsterpets.entity.client.feature.ShoulderAnimationState	4
 moe.wolfgirl.probejs.lang.typescript.code.ts.Wrapped	3
+io.wispforest.owo.ui.layers.Layer	1
+org.patryk3211.powergrid.mixin.forge.ThreadedAnvilChunkStorageAccessor	1
 net.minecraft.core.component.TypedDataComponent	2
 earth.terrarium.tempad.api.sizing.TimedoorPlacementSettings$Companion	3
 net.minecraft.world.entity.animal.PolarBear	2
@@ -7347,6 +7577,7 @@ xaero.pac.common.parties.party.api.IPartyMemberDynamicInfoSyncableAPI	6
 net.neoforged.neoforge.client.event.RenderLivingEvent$Pre	0
 net.caffeinemc.mods.lithium.common.util.change_tracking.ChangeSubscriber	1
 xaero.map.server.radar.tracker.SyncedPlayerTrackerSystemManager	3
+com.yungnickyoung.minecraft.ribbits.mixin.interfaces.client.ISoundManagerDuck	1
 net.neoforged.neoforge.event.entity.living.EnderManAngerEvent	0
 net.minecraft.world.entity.monster.ZombieVillager	2
 net.minecraft.world.level.storage.loot.parameters.LootContextParam	2
@@ -7420,7 +7651,6 @@ java.nio.channels.MembershipKey	5
 xaero.map.region.OverlayManager	4
 net.minecraft.util.StaticCache2D$Initializer	4
 net.blay09.mods.balm.api.event.client.screen.ContainerScreenDrawEvent$Background	0
-noobanidus.mods.lootr.common.mixins.AccessorMixinVehicleEntity	4
 net.minecraft.world.level.gameevent.EntityPositionSource	5
 com.electronwill.nightconfig.core.io.ConfigWriter	5
 java.lang.module.ResolvedModule	5
@@ -7461,6 +7691,7 @@ it.unimi.dsi.fastutil.floats.FloatPredicate	4
 xaero.map.server.player.ServerPlayerData	2
 xaero.hud.controls.ControlsRegister	4
 net.minecraft.world.entity.ai.sensing.AdultSensor	4
+io.wispforest.owo.mixin.ui.access.ButtonWidgetAccessor	1
 org.joml.Quaternionfc	1
 net.neoforged.neoforge.client.event.ClientTickEvent$Pre	0
 dev.latvian.mods.kubejs.gui.chest.ChestMenuSlot	3
@@ -7481,6 +7712,8 @@ com.mojang.datafixers.kinds.K1	3
 com.mojang.datafixers.kinds.K2	4
 net.blay09.mods.balm.api.config.schema.ConfiguredProperty	2
 com.simibubi.create.content.kinetics.belt.transport.TransportedItemStack	3
+io.wispforest.owo.mixin.itemgroup.ItemGroupAccessor	1
+com.agent772.parallelworlds.mixin.IStructureManagerAccessor	1
 dev.latvian.mods.kubejs.level.ExplosionKubeEvent	1
 javax.accessibility.AccessibleIcon	8
 xaero.hud.minimap.radar.icon.creator.render.form.IRadarIconFormPrerenderer	11
@@ -7496,6 +7729,7 @@ dev.engine_room.flywheel.impl.mixin.ModelPartAccessor	3
 net.minecraft.world.level.levelgen.structure.structures.SwampHutStructure	4
 net.blay09.mods.balm.api.event.client.UseItemInputEvent	0
 com.google.gson.JsonObject	1
+io.wispforest.owo.ui.core.Insets	1
 net.minecraft.world.level.storage.PlayerDataStorage	2
 com.simibubi.create.content.trains.track.TrackMaterial$TrackModelHolder	4
 it.unimi.dsi.fastutil.objects.AbstractObject2ObjectMap	6

@@ -4,8 +4,8 @@ export interface $PlayerEntityAccess$$Interface {
 }
 
 export class $PlayerEntityAccess implements $PlayerEntityAccess$$Interface {
- "the_afterdark$setLastWorld"(arg0: StringJS): void
  "the_afterdark$getLastWorld"(): StringJS
+ "the_afterdark$setLastWorld"(arg0: StringJS): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

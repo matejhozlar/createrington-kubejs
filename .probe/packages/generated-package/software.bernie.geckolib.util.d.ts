@@ -21,36 +21,36 @@ constructor(argbInt: integer)
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public static "ofRGBA"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): $Color
-public static "ofRGBA"(arg0: float, arg1: float, arg2: float, arg3: float): $Color
-public "getRed"(): integer
+public "getColor"(): integer
 public "getGreen"(): integer
+public "darker"(arg0: float): $Color
+public "getRed"(): integer
 public "getBlue"(): integer
 public "getAlpha"(): integer
-public "getColor"(): integer
-public static "HSBtoARGB"(arg0: float, arg1: float, arg2: float): integer
-public static "ofARGB"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): $Color
-public static "ofARGB"(arg0: float, arg1: float, arg2: float, arg3: float): $Color
-public "argbInt"(): integer
 public "brighter"(arg0: double): $Color
-public "darker"(arg0: float): $Color
-public static "ofOpaque"(arg0: integer): $Color
-public static "ofRGB"(arg0: float, arg1: float, arg2: float): $Color
+public static "HSBtoARGB"(arg0: float, arg1: float, arg2: float): integer
+public "argbInt"(): integer
+public static "ofARGB"(arg0: float, arg1: float, arg2: float, arg3: float): $Color
+public static "ofARGB"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): $Color
 public static "ofRGB"(arg0: integer, arg1: integer, arg2: integer): $Color
+public static "ofRGB"(arg0: float, arg1: float, arg2: float): $Color
 public static "ofHSB"(arg0: float, arg1: float, arg2: float): $Color
-public "getBlueFloat"(): float
-public "getGreenFloat"(): float
+public static "ofRGBA"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): $Color
+public static "ofRGBA"(arg0: float, arg1: float, arg2: float, arg3: float): $Color
 public "getAlphaFloat"(): float
+public "getGreenFloat"(): float
 public "getRedFloat"(): float
-get "red"(): integer
+public "getBlueFloat"(): float
+public static "ofOpaque"(arg0: integer): $Color
+get "color"(): integer
 get "green"(): integer
+get "red"(): integer
 get "blue"(): integer
 get "alpha"(): integer
-get "color"(): integer
-get "blueFloat"(): float
-get "greenFloat"(): float
 get "alphaFloat"(): float
+get "greenFloat"(): float
 get "redFloat"(): float
+get "blueFloat"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

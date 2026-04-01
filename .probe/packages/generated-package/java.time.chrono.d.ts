@@ -52,8 +52,8 @@ import {$ResolverStyle$$Type} from "java.time.format.ResolverStyle"
 import {$ZoneId$$Type} from "java.time.ZoneId"
 import {$Set} from "java.util.Set"
 import {$ValueRange} from "java.time.temporal.ValueRange"
-import {$ChronoLocalDateTime} from "java.time.chrono.ChronoLocalDateTime"
 import {$Instant$$Type} from "java.time.Instant"
+import {$ChronoLocalDateTime} from "java.time.chrono.ChronoLocalDateTime"
 
 export interface $Chronology$$Interface extends $Comparable$$Interface<($Chronology)> {
 get "id"(): StringJS
@@ -124,8 +124,8 @@ import {$ValueRange} from "java.time.temporal.ValueRange"
 import {$TemporalAdjuster$$Type} from "java.time.temporal.TemporalAdjuster"
 import {$TemporalQuery$$Type} from "java.time.temporal.TemporalQuery"
 import {$Chronology} from "java.time.chrono.Chronology"
-import {$ChronoLocalDateTime} from "java.time.chrono.ChronoLocalDateTime"
 import {$Instant} from "java.time.Instant"
+import {$ChronoLocalDateTime} from "java.time.chrono.ChronoLocalDateTime"
 
 export interface $ChronoZonedDateTime$$Interface<D extends $ChronoLocalDate> extends $Temporal$$Interface, $Comparable$$Interface<($ChronoZonedDateTime<(never)>)> {
 get "offset"(): $ZoneOffset
@@ -134,31 +134,28 @@ get "chronology"(): $Chronology
 }
 
 export class $ChronoZonedDateTime<D extends $ChronoLocalDate> implements $ChronoZonedDateTime$$Interface {
- "withZoneSameInstant"(arg0: $ZoneId$$Type): $ChronoZonedDateTime<(D)>
- "withZoneSameLocal"(arg0: $ZoneId$$Type): $ChronoZonedDateTime<(D)>
- "withLaterOffsetAtOverlap"(): $ChronoZonedDateTime<(D)>
  "get"(arg0: $TemporalField$$Type): integer
  "equals"(arg0: any): boolean
  "toString"(): StringJS
  "hashCode"(): integer
- "compareTo"(arg0: any): integer
  "compareTo"(arg0: $ChronoZonedDateTime$$Type<(never)>): integer
+ "compareTo"(arg0: any): integer
  "getLong"(arg0: $TemporalField$$Type): long
  "format"(arg0: $DateTimeFormatter$$Type): StringJS
 static "from"(arg0: $TemporalAccessor$$Type): $ChronoZonedDateTime<(never)>
  "isSupported"(arg0: $TemporalField$$Type): boolean
  "isSupported"(arg0: $TemporalUnit$$Type): boolean
- "with"(arg0: $TemporalAdjuster$$Type): $Temporal
  "with"(arg0: $TemporalField$$Type, arg1: long): $Temporal
+ "with"(arg0: $TemporalAdjuster$$Type): $ChronoZonedDateTime<(D)>
  "query"<R>(arg0: $TemporalQuery$$Type<(R)>): R
  "getOffset"(): $ZoneOffset
  "range"(arg0: $TemporalField$$Type): $ValueRange
  "toInstant"(): $Instant
- "minus"(arg0: $TemporalAmount$$Type): $Temporal
  "minus"(arg0: long, arg1: $TemporalUnit$$Type): $Temporal
+ "minus"(arg0: $TemporalAmount$$Type): $Temporal
  "getZone"(): $ZoneId
+ "plus"(arg0: $TemporalAmount$$Type): $Temporal
  "plus"(arg0: long, arg1: $TemporalUnit$$Type): $Temporal
- "plus"(arg0: $TemporalAmount$$Type): $ChronoZonedDateTime<(D)>
  "isAfter"(arg0: $ChronoZonedDateTime$$Type<(never)>): boolean
  "isBefore"(arg0: $ChronoZonedDateTime$$Type<(never)>): boolean
  "toLocalTime"(): $LocalTime
@@ -168,6 +165,9 @@ static "from"(arg0: $TemporalAccessor$$Type): $ChronoZonedDateTime<(never)>
 static "timeLineOrder"(): $Comparator<($ChronoZonedDateTime<(never)>)>
  "toLocalDateTime"(): $ChronoLocalDateTime<(D)>
  "toLocalDate"(): D
+ "withZoneSameInstant"(arg0: $ZoneId$$Type): $ChronoZonedDateTime<(D)>
+ "withZoneSameLocal"(arg0: $ZoneId$$Type): $ChronoZonedDateTime<(D)>
+ "withLaterOffsetAtOverlap"(): $ChronoZonedDateTime<(D)>
  "withEarlierOffsetAtOverlap"(): $ChronoZonedDateTime<(D)>
  "until"(arg0: $Temporal$$Type, arg1: $TemporalUnit$$Type): long
 }

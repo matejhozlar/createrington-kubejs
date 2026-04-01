@@ -4,14 +4,14 @@ export interface $BakedGlyphAccessor$$Interface {
 }
 
 export class $BakedGlyphAccessor implements $BakedGlyphAccessor$$Interface {
- "dragonlib$setU0"(arg0: float): void
- "dragonlib$getU0"(): float
- "dragonlib$setU1"(arg0: float): void
- "dragonlib$getU1"(): float
  "dragonlib$setV0"(arg0: float): void
- "dragonlib$getV0"(): float
  "dragonlib$setV1"(arg0: float): void
+ "dragonlib$setU0"(arg0: float): void
  "dragonlib$getV1"(): float
+ "dragonlib$setU1"(arg0: float): void
+ "dragonlib$getV0"(): float
+ "dragonlib$getU0"(): float
+ "dragonlib$getU1"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -31,9 +31,9 @@ export interface $ScreenAccessor$$Interface {
 }
 
 export class $ScreenAccessor implements $ScreenAccessor$$Interface {
- "dragonlib$clearFocus"(): void
  "dragonlib$createTabEvent"(): $FocusNavigationEvent$TabNavigation
  "dragonlib$createArrowEvent"(arg0: $ScreenDirection$$Type): $FocusNavigationEvent$ArrowNavigation
+ "dragonlib$clearFocus"(): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

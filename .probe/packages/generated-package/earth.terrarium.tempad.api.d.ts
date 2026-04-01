@@ -17,9 +17,9 @@ export class $SyncableContext<T> implements $SyncableContext$$Interface {
  "getData"(): T
  "getHolder"(): $ContextHolder<(T)>
  "getStack"(): $ItemStack
- "exchange"(arg0: $ItemStack$$Type): void
  "setStack"(arg0: $ItemStack$$Type): void
  "addStack"(arg0: $ItemStack$$Type): void
+ "exchange"(arg0: $ItemStack$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -34,8 +34,8 @@ declare module "earth.terrarium.tempad.api.sizing.SizingType" {
 import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
 import {$Codec} from "com.mojang.serialization.Codec"
 import {$TimedoorPlacementSettings} from "earth.terrarium.tempad.api.sizing.TimedoorPlacementSettings"
-import {$ByteCodec, $ByteCodec$$Type} from "com.teamresourceful.bytecodecs.base.ByteCodec"
 import {$SizingType$Companion} from "earth.terrarium.tempad.api.sizing.SizingType$Companion"
+import {$ByteCodec, $ByteCodec$$Type} from "com.teamresourceful.bytecodecs.base.ByteCodec"
 import {$MapCodec, $MapCodec$$Type} from "com.mojang.serialization.MapCodec"
 
 export class $SizingType<T extends $TimedoorPlacementSettings> {
@@ -43,18 +43,18 @@ static readonly "Companion": $SizingType$Companion
 
 constructor(arg0: $ResourceLocation$$Type, arg1: $ByteCodec$$Type<(T)>, arg2: $MapCodec$$Type<(T)>)
 
-public static "copy$default"(arg0: $SizingType$$Type, arg1: $ResourceLocation$$Type, arg2: $ByteCodec$$Type, arg3: $MapCodec$$Type, arg4: integer, arg5: any): $SizingType
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "getId"(): $ResourceLocation
 public "copy"(arg0: $ResourceLocation$$Type, arg1: $ByteCodec$$Type<(T)>, arg2: $MapCodec$$Type<(T)>): $SizingType<(T)>
 public "component1"(): $ResourceLocation
+public "component3"(): $MapCodec<(T)>
 public "getCodec"(): $MapCodec<(T)>
 public "component2"(): $ByteCodec<(T)>
-public "component3"(): $MapCodec<(T)>
-public "getByteCodec"(): $ByteCodec<(T)>
+public static "copy$default"(arg0: $SizingType$$Type, arg1: $ResourceLocation$$Type, arg2: $ByteCodec$$Type, arg3: $MapCodec$$Type, arg4: integer, arg5: any): $SizingType
 public static "access$getCodec$cp"(): $Codec
+public "getByteCodec"(): $ByteCodec<(T)>
 public static "access$getByteCodec$cp"(): $ByteCodec
 get "id"(): $ResourceLocation
 get "codec"(): $MapCodec<(T)>
@@ -106,18 +106,18 @@ constructor(arg0: $TimedoorEntity$$Type, arg1: $ResourceLocation$$Type, arg2: $U
 public "fail"(arg0: $Component$$Type): void
 public "getProvider"(): $ResourceLocation
 public "getErrorMessage"(): $Component
-public "setErrorMessage"(arg0: $Component$$Type): void
-public "getLocationId"(): $UUID
 public "getOpener"(): $GameProfile
-public "isCanceled"(): boolean
+public "getLocationId"(): $UUID
+public "setErrorMessage"(arg0: $Component$$Type): void
 public "setCanceled"(arg0: boolean): void
+public "isCanceled"(): boolean
 get "provider"(): $ResourceLocation
 get "errorMessage"(): $Component
-set "errorMessage"(value: $Component$$Type)
-get "locationId"(): $UUID
 get "opener"(): $GameProfile
-get "canceled"(): boolean
+get "locationId"(): $UUID
+set "errorMessage"(value: $Component$$Type)
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -136,8 +136,8 @@ import {$Color, $Color$$Type} from "com.teamresourceful.resourcefullib.common.co
 import {$Level, $Level$$Type} from "net.minecraft.world.level.Level"
 import {$ByteCodec} from "com.teamresourceful.bytecodecs.base.ByteCodec"
 import {$ResourceKey, $ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
-import {$NamedGlobalVec3$Companion} from "earth.terrarium.tempad.api.locations.NamedGlobalVec3$Companion"
 import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component"
+import {$NamedGlobalVec3$Companion} from "earth.terrarium.tempad.api.locations.NamedGlobalVec3$Companion"
 import {$MapCodec} from "com.mojang.serialization.MapCodec"
 
 export class $NamedGlobalVec3 implements $TooltipComponent$$Interface {
@@ -145,37 +145,37 @@ static readonly "Companion": $NamedGlobalVec3$Companion
 
 constructor(arg0: $Component$$Type, arg1: $Vec3$$Type, arg2: $ResourceKey$$Type<($Level)>, arg3: float, arg4: $Color$$Type)
 
-public static "copy$default"(arg0: $NamedGlobalVec3$$Type, arg1: $Component$$Type, arg2: $Vec3$$Type, arg3: $ResourceKey$$Type, arg4: float, arg5: $Color$$Type, arg6: integer, arg7: any): $NamedGlobalVec3
 public "getName"(): $Component
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "copy"(arg0: $Component$$Type, arg1: $Vec3$$Type, arg2: $ResourceKey$$Type<($Level)>, arg3: float, arg4: $Color$$Type): $NamedGlobalVec3
-public "getDimension"(): $ResourceKey<($Level)>
-public "getPos"(): $Vec3
-public "component1"(): $Component
-public "getX"(): integer
-public "getZ"(): integer
 public "getY"(): integer
-public static "access$getBYTE_CODEC$cp"(): $ByteCodec
-public "getColor"(): $Color
-public "component2"(): $Vec3
+public "getDimension"(): $ResourceKey<($Level)>
+public "component1"(): $Component
 public "component3"(): $ResourceKey<($Level)>
 public "component4"(): float
 public "component5"(): $Color
-public "getAngle"(): float
-public static "access$getCODEC$cp"(): $MapCodec
+public "getColor"(): $Color
 public static "access$getNowhere$cp"(): $NamedGlobalVec3
+public "getAngle"(): float
+public "getPos"(): $Vec3
+public "component2"(): $Vec3
+public "getX"(): integer
+public "getZ"(): integer
+public static "copy$default"(arg0: $NamedGlobalVec3$$Type, arg1: $Component$$Type, arg2: $Vec3$$Type, arg3: $ResourceKey$$Type, arg4: float, arg5: $Color$$Type, arg6: integer, arg7: any): $NamedGlobalVec3
+public static "access$getCODEC$cp"(): $MapCodec
+public static "access$getBYTE_CODEC$cp"(): $ByteCodec
 public "getOffsetLocation"(): $Vec3
 public "getDimensionText"(): $MutableComponent
 get "name"(): $Component
+get "y"(): integer
 get "dimension"(): $ResourceKey<($Level)>
+get "color"(): $Color
+get "angle"(): float
 get "pos"(): $Vec3
 get "x"(): integer
 get "z"(): integer
-get "y"(): integer
-get "color"(): $Color
-get "angle"(): float
 get "offsetLocation"(): $Vec3
 get "dimensionText"(): $MutableComponent
 }
@@ -191,18 +191,18 @@ export type $NamedGlobalVec3$$Original = $NamedGlobalVec3;}
 declare module "earth.terrarium.tempad.api.locations.NamedGlobalVec3$Companion" {
 import {$DefaultConstructorMarker$$Type} from "kotlin.jvm.internal.DefaultConstructorMarker"
 import {$ByteCodec} from "com.teamresourceful.bytecodecs.base.ByteCodec"
-import {$NamedGlobalVec3} from "earth.terrarium.tempad.api.locations.NamedGlobalVec3"
 import {$MapCodec} from "com.mojang.serialization.MapCodec"
+import {$NamedGlobalVec3} from "earth.terrarium.tempad.api.locations.NamedGlobalVec3"
 
 export class $NamedGlobalVec3$Companion {
 constructor(arg0: $DefaultConstructorMarker$$Type)
 
 public "getCODEC"(): $MapCodec<($NamedGlobalVec3)>
-public "getNowhere"(): $NamedGlobalVec3
 public "getBYTE_CODEC"(): $ByteCodec<($NamedGlobalVec3)>
+public "getNowhere"(): $NamedGlobalVec3
 get "CODEC"(): $MapCodec<($NamedGlobalVec3)>
-get "nowhere"(): $NamedGlobalVec3
 get "BYTE_CODEC"(): $ByteCodec<($NamedGlobalVec3)>
+get "nowhere"(): $NamedGlobalVec3
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -223,9 +223,9 @@ set "stack"(value: $ItemStack$$Type)
 
 export class $ItemContext implements $ItemContext$$Interface {
  "getStack"(): $ItemStack
- "exchange"(arg0: $ItemStack$$Type): void
  "setStack"(arg0: $ItemStack$$Type): void
  "addStack"(arg0: $ItemStack$$Type): void
+ "exchange"(arg0: $ItemStack$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -308,11 +308,11 @@ export class $TimedoorEvent$Enter extends $TimedoorEvent implements $ICancellabl
 constructor(arg0: $TimedoorEntity$$Type, arg1: $Entity$$Type)
 
 public "getTeleportee"(): $Entity
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
+public "isCanceled"(): boolean
 get "teleportee"(): $Entity
-get "canceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -324,8 +324,8 @@ export type $TimedoorEvent$Enter$$Type = ($TimedoorEvent$Enter);
  */
 export type $TimedoorEvent$Enter$$Original = $TimedoorEvent$Enter;}
 declare module "earth.terrarium.tempad.api.sizing.SizingType$Companion" {
-import {$SizingType} from "earth.terrarium.tempad.api.sizing.SizingType"
 import {$DefaultConstructorMarker$$Type} from "kotlin.jvm.internal.DefaultConstructorMarker"
+import {$SizingType} from "earth.terrarium.tempad.api.sizing.SizingType"
 import {$Codec} from "com.mojang.serialization.Codec"
 import {$ByteCodec} from "com.teamresourceful.bytecodecs.base.ByteCodec"
 
@@ -347,8 +347,8 @@ export type $SizingType$Companion$$Type = ($SizingType$Companion);
  */
 export type $SizingType$Companion$$Original = $SizingType$Companion;}
 declare module "earth.terrarium.tempad.api.sizing.TimedoorPlacementSettings" {
-import {$SizingType} from "earth.terrarium.tempad.api.sizing.SizingType"
 import {$Vec3$$Type} from "net.minecraft.world.phys.Vec3"
+import {$SizingType} from "earth.terrarium.tempad.api.sizing.SizingType"
 import {$TimedoorEntity$$Type} from "earth.terrarium.tempad.common.entity.TimedoorEntity"
 import {$DoorType$$Type} from "earth.terrarium.tempad.api.sizing.DoorType"
 import {$EntityDimensions} from "net.minecraft.world.entity.EntityDimensions"
@@ -367,11 +367,11 @@ static readonly "Companion": $TimedoorPlacementSettings$Companion
  "getType"(): $SizingType<(never)>
  "getDimensions"(): $EntityDimensions
  "isInside"(arg0: $TimedoorEntity$$Type, arg1: $Entity$$Type): boolean
- "depthAtPercent"(arg0: float): float
+ "getShowLineAnimation"(): boolean
  "heightAtPercent"(arg0: float): float
+ "depthAtPercent"(arg0: float): float
  "placeTimedoor"(arg0: $DoorType$$Type, arg1: $Vec3$$Type, arg2: float, arg3: $TimedoorEntity$$Type): void
  "widthAtPercent"(arg0: float): float
- "getShowLineAnimation"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -435,7 +435,6 @@ static readonly "Companion": $ContextHolder$Companion
 
 constructor(arg0: $ContextType$$Type<(T)>, arg1: T)
 
-public static "copy$default"(arg0: $ContextHolder$$Type, arg1: $ContextType$$Type, arg2: any, arg3: integer, arg4: any): $ContextHolder
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
@@ -446,6 +445,7 @@ public "getData"(): T
 public "component1"(): $ContextType<(T)>
 public "getCtx"(arg0: $Player$$Type): $SyncableContext<(T)>
 public "component2"(): T
+public static "copy$default"(arg0: $ContextHolder$$Type, arg1: $ContextType$$Type, arg2: any, arg3: integer, arg4: any): $ContextHolder
 public static "access$getCodec$cp"(): $ByteCodec
 get "type"(): $ContextType<(T)>
 get "data"(): T
@@ -493,7 +493,6 @@ static readonly "Companion": $ContextType$Companion
 
 constructor(arg0: $ResourceLocation$$Type, arg1: $ByteCodec$$Type<(T)>)
 
-public static "copy$default"(arg0: $ContextType$$Type, arg1: $ResourceLocation$$Type, arg2: $ByteCodec$$Type, arg3: integer, arg4: any): $ContextType
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
@@ -504,6 +503,7 @@ public "component1"(): $ResourceLocation
 public "getCodec"(): $ByteCodec<(T)>
 public "getCtx"(arg0: $Player$$Type, arg1: T): $SyncableContext<(T)>
 public "component2"(): $ByteCodec<(T)>
+public static "copy$default"(arg0: $ContextType$$Type, arg1: $ResourceLocation$$Type, arg2: $ByteCodec$$Type, arg3: integer, arg4: any): $ContextType
 public static "access$getCodec$cp"(): $ByteCodec
 get "id"(): $ResourceLocation
 get "codec"(): $ByteCodec<(T)>

@@ -18,7 +18,7 @@ public "close"(): void
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $GlyphProvider$Conditional$$Type = ({"provider"?: $GlyphProvider$$Type, "filter"?: $FontOption$Filter$$Type}) | ([provider?: $GlyphProvider$$Type, filter?: $FontOption$Filter$$Type]);
+export type $GlyphProvider$Conditional$$Type = ({"filter"?: $FontOption$Filter$$Type, "provider"?: $GlyphProvider$$Type}) | ([filter?: $FontOption$Filter$$Type, provider?: $GlyphProvider$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -38,8 +38,8 @@ export class $GlyphProvider implements $GlyphProvider$$Interface {
 static readonly "BASELINE": float
 
  "close"(): void
- "getSupportedGlyphs"(): $IntSet
  "getGlyph"(arg0: integer): $GlyphInfo
+ "getSupportedGlyphs"(): $IntSet
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -53,30 +53,30 @@ export type $GlyphProvider$$Original = $GlyphProvider;}
 declare module "com.mojang.blaze3d.font.SheetGlyphInfo" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $SheetGlyphInfo$$Interface {
-get "right"(): float
 get "left"(): float
+get "right"(): float
+get "top"(): float
 get "bottom"(): float
 get "colored"(): boolean
-get "oversample"(): float
 get "bearingLeft"(): float
+get "oversample"(): float
 get "bearingTop"(): float
 get "pixelWidth"(): integer
 get "pixelHeight"(): integer
-get "top"(): float
 }
 
 export class $SheetGlyphInfo implements $SheetGlyphInfo$$Interface {
- "upload"(arg0: integer, arg1: integer): void
- "getRight"(): float
  "getLeft"(): float
+ "getRight"(): float
+ "getTop"(): float
  "getBottom"(): float
+ "upload"(arg0: integer, arg1: integer): void
  "isColored"(): boolean
- "getOversample"(): float
  "getBearingLeft"(): float
+ "getOversample"(): float
  "getBearingTop"(): float
  "getPixelWidth"(): integer
  "getPixelHeight"(): integer
- "getTop"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -93,15 +93,15 @@ import {$BakedGlyph, $BakedGlyph$$Type} from "net.minecraft.client.gui.font.glyp
 import {$Function$$Type} from "java.util.function.Function"
 
 export interface $GlyphInfo$$Interface {
-get "boldOffset"(): float
 get "shadowOffset"(): float
+get "boldOffset"(): float
 get "advance"(): float
 }
 
 export class $GlyphInfo implements $GlyphInfo$$Interface {
  "bake"(arg0: $Function$$Type<($SheetGlyphInfo), ($BakedGlyph$$Type)>): $BakedGlyph
- "getBoldOffset"(): float
  "getShadowOffset"(): float
+ "getBoldOffset"(): float
  "getAdvance"(arg0: boolean): float
  "getAdvance"(): float
 }

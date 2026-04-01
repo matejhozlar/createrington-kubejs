@@ -8,14 +8,14 @@ import {$MinecraftServer, $MinecraftServer$$Type} from "net.minecraft.server.Min
 export class $OPACServerAddonRegisterEvent extends $Event {
 constructor(arg0: $MinecraftServer$$Type, arg1: $IPlayerPermissionSystemRegisterAPI$$Type, arg2: $IPlayerPartySystemRegisterAPI$$Type, arg3: $IClaimsManagerTrackerRegisterAPI$$Type)
 
-public "getServer"(): $MinecraftServer
+public "getPartySystemManagerAPI"(): $IPlayerPartySystemRegisterAPI
 public "getClaimsManagerTrackerAPI"(): $IClaimsManagerTrackerRegisterAPI
 public "getPermissionSystemManager"(): $IPlayerPermissionSystemRegisterAPI
-public "getPartySystemManagerAPI"(): $IPlayerPartySystemRegisterAPI
-get "server"(): $MinecraftServer
+public "getServer"(): $MinecraftServer
+get "partySystemManagerAPI"(): $IPlayerPartySystemRegisterAPI
 get "claimsManagerTrackerAPI"(): $IClaimsManagerTrackerRegisterAPI
 get "permissionSystemManager"(): $IPlayerPermissionSystemRegisterAPI
-get "partySystemManagerAPI"(): $IPlayerPartySystemRegisterAPI
+get "server"(): $MinecraftServer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

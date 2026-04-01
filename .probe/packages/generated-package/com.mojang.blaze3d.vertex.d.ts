@@ -17,7 +17,6 @@ static readonly "NORMAL": $VertexFormatElement
 constructor(id: integer, index: integer, type: $VertexFormatElement$Type$$Type, usage: $VertexFormatElement$Usage$$Type, count: integer)
 
 public "byteSize"(): integer
-public static "findNextId"(): integer
 public "index"(): integer
 public "type"(): $VertexFormatElement$Type
 public "equals"(arg0: any): boolean
@@ -30,13 +29,14 @@ public "mask"(): integer
 public "usage"(): $VertexFormatElement$Usage
 public "setupBufferState"(arg0: integer, arg1: long, arg2: integer): void
 public static "elementsFromMask"(arg0: integer): $Stream<($VertexFormatElement)>
+public static "findNextId"(): integer
 public static "byId"(arg0: integer): $VertexFormatElement
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $VertexFormatElement$$Type = ({"count"?: integer, "usage"?: $VertexFormatElement$Usage$$Type, "type"?: $VertexFormatElement$Type$$Type, "index"?: integer, "id"?: integer}) | ([count?: integer, usage?: $VertexFormatElement$Usage$$Type, type?: $VertexFormatElement$Type$$Type, index?: integer, id?: integer]);
+export type $VertexFormatElement$$Type = ({"index"?: integer, "type"?: $VertexFormatElement$Type$$Type, "usage"?: $VertexFormatElement$Usage$$Type, "count"?: integer, "id"?: integer}) | ([index?: integer, type?: $VertexFormatElement$Type$$Type, usage?: $VertexFormatElement$Usage$$Type, count?: integer, id?: integer]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -45,16 +45,13 @@ declare module "com.mojang.blaze3d.vertex.VertexFormat" {
 import {$VertexBuffer} from "com.mojang.blaze3d.vertex.VertexBuffer"
 import {$VertexFormat$Builder} from "com.mojang.blaze3d.vertex.VertexFormat$Builder"
 import {$VertexFormatExtensions$$Interface} from "net.caffeinemc.mods.sodium.api.vertex.format.VertexFormatExtensions"
-import {$VertexFormatElement, $VertexFormatElement$$Type} from "com.mojang.blaze3d.vertex.VertexFormatElement"
 import {$List} from "java.util.List"
+import {$VertexFormatElement, $VertexFormatElement$$Type} from "com.mojang.blaze3d.vertex.VertexFormatElement"
 import {$ImmutableMap} from "com.google.common.collect.ImmutableMap"
 
 export class $VertexFormat implements $VertexFormatExtensions$$Interface {
 static readonly "UNKNOWN_ELEMENT": integer
 
-public "hasNormal"(): boolean
-public "hasColor"(): boolean
-public "hasUV"(arg0: integer): boolean
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
@@ -63,23 +60,26 @@ public "contains"(arg0: $VertexFormatElement$$Type): boolean
 public "getOffset"(arg0: $VertexFormatElement$$Type): integer
 public "getElementAttributeNames"(): $List<(StringJS)>
 public "getElements"(): $List<($VertexFormatElement)>
-public "setupBufferState"(): void
+public "getImmediateDrawVertexBuffer"(): $VertexBuffer
+public "getElementName"(arg0: $VertexFormatElement$$Type): StringJS
+public "clearBufferState"(): void
 public "getElementMapping"(): $ImmutableMap<(StringJS), ($VertexFormatElement)>
+public "setupBufferState"(): void
 public "hasPosition"(): boolean
 public "getElementsMask"(): integer
-public "clearBufferState"(): void
 public "sodium$getGlobalId"(): integer
-public "getElementName"(arg0: $VertexFormatElement$$Type): StringJS
+public "hasColor"(): boolean
+public "hasUV"(arg0: integer): boolean
+public "hasNormal"(): boolean
 public "getOffsetsByElement"(): (integer)[]
-public "getImmediateDrawVertexBuffer"(): $VertexBuffer
 public "getVertexSize"(): integer
 get "elementAttributeNames"(): $List<(StringJS)>
 get "elements"(): $List<($VertexFormatElement)>
-get "upBufferState"(): void
+get "immediateDrawVertexBuffer"(): $VertexBuffer
 get "elementMapping"(): $ImmutableMap<(StringJS), ($VertexFormatElement)>
+get "upBufferState"(): void
 get "elementsMask"(): integer
 get "offsetsByElement"(): (integer)[]
-get "immediateDrawVertexBuffer"(): $VertexBuffer
 get "vertexSize"(): integer
 }
 /**
@@ -103,9 +103,9 @@ constructor(arg0: $Matrix4f$$Type, arg1: $Matrix3f$$Type)
 
 public "copy"(): $PoseStack$Pose
 public "normal"(): $Matrix3f
-public "pose"(): $Matrix4f
 public "transformNormal"(arg0: float, arg1: float, arg2: float, arg3: $Vector3f$$Type): $Vector3f
 public "transformNormal"(arg0: $Vector3f$$Type, arg1: $Vector3f$$Type): $Vector3f
+public "pose"(): $Matrix4f
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -137,8 +137,8 @@ export type $VertexSorting$DistanceFunction$$Type = ((arg0: $Vector3f) => float)
  */
 export type $VertexSorting$DistanceFunction$$Original = $VertexSorting$DistanceFunction;}
 declare module "com.mojang.blaze3d.vertex.VertexSorting" {
-import {$VertexSorting$DistanceFunction$$Type} from "com.mojang.blaze3d.vertex.VertexSorting$DistanceFunction"
 import {$Vector3f, $Vector3f$$Type} from "org.joml.Vector3f"
+import {$VertexSorting$DistanceFunction$$Type} from "com.mojang.blaze3d.vertex.VertexSorting$DistanceFunction"
 
 export interface $VertexSorting$$Interface {
 
@@ -196,13 +196,13 @@ export type $VertexFormat$Mode$$Original = $VertexFormat$Mode;}
 declare module "com.mojang.blaze3d.vertex.PoseStack" {
 import {$PoseStack$Pose} from "com.mojang.blaze3d.vertex.PoseStack$Pose"
 import {$PoseStackAccessor$$Interface as $PoseStackAccessor$0$$Interface} from "dev.engine_room.flywheel.impl.mixin.PoseStackAccessor"
-import {$IPoseStackExtension$$Interface} from "net.neoforged.neoforge.client.extensions.IPoseStackExtension"
 import {$PoseStackAccessor$$Interface} from "org.embeddedt.modernfix.neoforge.mixin.bugfix.entity_pose_stack.PoseStackAccessor"
+import {$IPoseStackExtension$$Interface} from "net.neoforged.neoforge.client.extensions.IPoseStackExtension"
 import {$Transformation$$Type} from "com.mojang.math.Transformation"
 import {$PoseTransformStack} from "dev.engine_room.flywheel.lib.transform.PoseTransformStack"
 import {$Deque} from "java.util.Deque"
-import {$PoseStackExtension$$Interface} from "dev.engine_room.flywheel.impl.extension.PoseStackExtension"
 import {$Quaternionf$$Type} from "org.joml.Quaternionf"
+import {$PoseStackExtension$$Interface} from "dev.engine_room.flywheel.impl.extension.PoseStackExtension"
 import {$Matrix4f$$Type} from "org.joml.Matrix4f"
 
 export class $PoseStack implements $IPoseStackExtension$$Interface, $PoseStackAccessor$$Interface, $PoseStackAccessor$0$$Interface, $PoseStackExtension$$Interface {
@@ -213,17 +213,17 @@ constructor()
 public "clear"(): boolean
 public "scale"(arg0: float, arg1: float, arg2: float): void
 public "last"(): $PoseStack$Pose
-public "popPose"(): void
-public "pushPose"(): void
 public "flywheel$transformStack"(): $PoseTransformStack
 public "flywheel$getPoseStack"(): $Deque
-public "rotateAround"(arg0: $Quaternionf$$Type, arg1: float, arg2: float, arg3: float): void
-public "getPoseStack"(): $Deque
-public "mulPose"(arg0: $Quaternionf$$Type): void
-public "mulPose"(arg0: $Matrix4f$$Type): void
-public "translate"(arg0: double, arg1: double, arg2: double): void
-public "translate"(arg0: float, arg1: float, arg2: float): void
 public "setIdentity"(): void
+public "getPoseStack"(): $Deque
+public "translate"(arg0: float, arg1: float, arg2: float): void
+public "translate"(arg0: double, arg1: double, arg2: double): void
+public "rotateAround"(arg0: $Quaternionf$$Type, arg1: float, arg2: float, arg3: float): void
+public "popPose"(): void
+public "pushPose"(): void
+public "mulPose"(arg0: $Matrix4f$$Type): void
+public "mulPose"(arg0: $Quaternionf$$Type): void
 public "pushTransformation"(arg0: $Transformation$$Type): void
 get "identity"(): void
 }
@@ -248,35 +248,35 @@ import {$Matrix3f$$Type} from "org.joml.Matrix3f"
 
 export interface $VertexConsumer$$Interface extends $IVertexConsumerExtension$$Interface {
 set "color"(value: integer)
+set "whiteAlpha"(value: integer)
 set "light"(value: integer)
 set "overlay"(value: integer)
-set "whiteAlpha"(value: integer)
 }
 
 export class $VertexConsumer implements $VertexConsumer$$Interface {
  "setColor"(arg0: float, arg1: float, arg2: float, arg3: float): $VertexConsumer
  "setColor"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): $VertexConsumer
  "setColor"(arg0: integer): $VertexConsumer
- "setNormal"(arg0: float, arg1: float, arg2: float): $VertexConsumer
- "setNormal"(arg0: $PoseStack$Pose$$Type, arg1: float, arg2: float, arg3: float): $VertexConsumer
+ "setWhiteAlpha"(arg0: integer): $VertexConsumer
+ "putBulkData"(arg0: $PoseStack$Pose$$Type, arg1: $BakedQuad$$Type, arg2: float, arg3: float, arg4: float, arg5: float, arg6: integer, arg7: integer): void
+ "putBulkData"(arg0: $PoseStack$Pose$$Type, arg1: $BakedQuad$$Type, arg2: (float)[], arg3: float, arg4: float, arg5: float, arg6: float, arg7: (integer)[], arg8: integer, arg9: boolean): void
  "setLight"(arg0: integer): $VertexConsumer
  "setUv2"(arg0: integer, arg1: integer): $VertexConsumer
+ "setNormal"(arg0: $PoseStack$Pose$$Type, arg1: float, arg2: float, arg3: float): $VertexConsumer
+ "setNormal"(arg0: float, arg1: float, arg2: float): $VertexConsumer
  "setUv1"(arg0: integer, arg1: integer): $VertexConsumer
- "setOverlay"(arg0: integer): $VertexConsumer
- "addVertex"(arg0: $Vector3f$$Type): $VertexConsumer
- "addVertex"(arg0: $PoseStack$Pose$$Type, arg1: $Vector3f$$Type): $VertexConsumer
  "addVertex"(arg0: $PoseStack$Pose$$Type, arg1: float, arg2: float, arg3: float): $VertexConsumer
- "addVertex"(arg0: $Matrix4f$$Type, arg1: float, arg2: float, arg3: float): $VertexConsumer
+ "addVertex"(arg0: $PoseStack$Pose$$Type, arg1: $Vector3f$$Type): $VertexConsumer
  "addVertex"(arg0: float, arg1: float, arg2: float): $VertexConsumer
+ "addVertex"(arg0: $Matrix4f$$Type, arg1: float, arg2: float, arg3: float): $VertexConsumer
  "addVertex"(arg0: float, arg1: float, arg2: float, arg3: integer, arg4: float, arg5: float, arg6: integer, arg7: integer, arg8: float, arg9: float, arg10: float): void
+ "addVertex"(arg0: $Vector3f$$Type): $VertexConsumer
+ "setOverlay"(arg0: integer): $VertexConsumer
  "setUv"(arg0: float, arg1: float): $VertexConsumer
- "putBulkData"(arg0: $PoseStack$Pose$$Type, arg1: $BakedQuad$$Type, arg2: (float)[], arg3: float, arg4: float, arg5: float, arg6: float, arg7: (integer)[], arg8: integer, arg9: boolean): void
- "putBulkData"(arg0: $PoseStack$Pose$$Type, arg1: $BakedQuad$$Type, arg2: float, arg3: float, arg4: float, arg5: float, arg6: integer, arg7: integer): void
- "setWhiteAlpha"(arg0: integer): $VertexConsumer
- "misc"(arg0: $VertexFormatElement$$Type, ...arg1: (integer)[]): $VertexConsumer
- "putBulkData"(arg0: $PoseStack$Pose$$Type, arg1: $BakedQuad$$Type, arg2: float, arg3: float, arg4: float, arg5: float, arg6: integer, arg7: integer, arg8: boolean): void
  "applyBakedLighting"(arg0: integer, arg1: $ByteBuffer$$Type): integer
+ "putBulkData"(arg0: $PoseStack$Pose$$Type, arg1: $BakedQuad$$Type, arg2: float, arg3: float, arg4: float, arg5: float, arg6: integer, arg7: integer, arg8: boolean): void
  "applyBakedNormals"(arg0: $Vector3f$$Type, arg1: $ByteBuffer$$Type, arg2: $Matrix3f$$Type): void
+ "misc"(arg0: $VertexFormatElement$$Type, ...arg1: (integer)[]): $VertexConsumer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -301,15 +301,15 @@ public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "format"(): $VertexFormat
-public "indexType"(): $VertexFormat$IndexType
 public "vertexCount"(): integer
 public "indexCount"(): integer
+public "indexType"(): $VertexFormat$IndexType
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $MeshData$DrawState$$Type = ({"format"?: $VertexFormat$$Type, "indexCount"?: integer, "indexType"?: $VertexFormat$IndexType$$Type, "mode"?: $VertexFormat$Mode$$Type, "vertexCount"?: integer}) | ([format?: $VertexFormat$$Type, indexCount?: integer, indexType?: $VertexFormat$IndexType$$Type, mode?: $VertexFormat$Mode$$Type, vertexCount?: integer]);
+export type $MeshData$DrawState$$Type = ({"mode"?: $VertexFormat$Mode$$Type, "indexType"?: $VertexFormat$IndexType$$Type, "indexCount"?: integer, "format"?: $VertexFormat$$Type, "vertexCount"?: integer}) | ([mode?: $VertexFormat$Mode$$Type, indexType?: $VertexFormat$IndexType$$Type, indexCount?: integer, format?: $VertexFormat$$Type, vertexCount?: integer]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -379,11 +379,12 @@ export type $VertexBuffer$Usage$$Type = (("static") | ("dynamic"));
  */
 export type $VertexBuffer$Usage$$Original = $VertexBuffer$Usage;}
 declare module "com.mojang.blaze3d.vertex.Tesselator" {
-import {$BufferBuilder} from "com.mojang.blaze3d.vertex.BufferBuilder"
+import {$BufferBuilder, $BufferBuilder$$Type} from "com.mojang.blaze3d.vertex.BufferBuilder"
 import {$VertexFormat$Mode$$Type} from "com.mojang.blaze3d.vertex.VertexFormat$Mode"
+import {$OwoTessellatorExtension$$Interface} from "io.wispforest.owo.util.pond.OwoTessellatorExtension"
 import {$VertexFormat$$Type} from "com.mojang.blaze3d.vertex.VertexFormat"
 
-export class $Tesselator {
+export class $Tesselator implements $OwoTessellatorExtension$$Interface {
 constructor()
 constructor(arg0: integer)
 
@@ -391,6 +392,9 @@ public "clear"(): void
 public "begin"(arg0: $VertexFormat$Mode$$Type, arg1: $VertexFormat$$Type): $BufferBuilder
 public static "getInstance"(): $Tesselator
 public static "init"(): void
+public "owo$getStoredBuilder"(): $BufferBuilder
+public "owo$setStoredBuilder"(builder: $BufferBuilder$$Type): void
+public "owo$skipNextBegin"(): void
 get "instance"(): $Tesselator
 }
 /**
@@ -426,8 +430,8 @@ export type $VertexFormat$IndexType$$Type = (("short") | ("int"));
 export type $VertexFormat$IndexType$$Original = $VertexFormat$IndexType;}
 declare module "com.mojang.blaze3d.vertex.VertexBuffer" {
 import {$MeshData$$Type} from "com.mojang.blaze3d.vertex.MeshData"
-import {$VertexBuffer$Usage$$Type} from "com.mojang.blaze3d.vertex.VertexBuffer$Usage"
 import {$AutoCloseable$$Interface} from "java.lang.AutoCloseable"
+import {$VertexBuffer$Usage$$Type} from "com.mojang.blaze3d.vertex.VertexBuffer$Usage"
 import {$ShaderInstance$$Type} from "net.minecraft.client.renderer.ShaderInstance"
 import {$ByteBufferBuilder$Result$$Type} from "com.mojang.blaze3d.vertex.ByteBufferBuilder$Result"
 import {$VertexBufferHelper$$Interface} from "net.irisshaders.iris.helpers.VertexBufferHelper"
@@ -442,12 +446,12 @@ public "close"(): void
 public "isInvalid"(): boolean
 public "bind"(): void
 public "getFormat"(): $VertexFormat
-public "upload"(arg0: $MeshData$$Type): void
-public "restoreBinding"(): void
-public "saveBinding"(): void
 public "uploadIndexBuffer"(arg0: $ByteBufferBuilder$Result$$Type): void
+public "saveBinding"(): void
+public "restoreBinding"(): void
 public "draw"(): void
 public "drawWithShader"(arg0: $Matrix4f$$Type, arg1: $Matrix4f$$Type, arg2: $ShaderInstance$$Type): void
+public "upload"(arg0: $MeshData$$Type): void
 get "invalid"(): boolean
 get "format"(): $VertexFormat
 }
@@ -474,15 +478,15 @@ constructor(arg0: ($Vector3f$$Type)[], arg1: $VertexFormat$IndexType$$Type)
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public "indexType"(): $VertexFormat$IndexType
 public "buildSortedIndexBuffer"(arg0: $ByteBufferBuilder$$Type, arg1: $VertexSorting$$Type): $ByteBufferBuilder$Result
+public "indexType"(): $VertexFormat$IndexType
 public "centroids"(): ($Vector3f)[]
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $MeshData$SortState$$Type = ({"indexType"?: $VertexFormat$IndexType$$Type, "centroids"?: ($Vector3f$$Type)[]}) | ([indexType?: $VertexFormat$IndexType$$Type, centroids?: ($Vector3f$$Type)[]]);
+export type $MeshData$SortState$$Type = ({"centroids"?: ($Vector3f$$Type)[], "indexType"?: $VertexFormat$IndexType$$Type}) | ([centroids?: ($Vector3f$$Type)[], indexType?: $VertexFormat$IndexType$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -501,8 +505,8 @@ constructor(arg0: $ByteBufferBuilder$Result$$Type, arg1: $MeshData$DrawState$$Ty
 
 public "close"(): void
 public "indexBuffer"(): $ByteBuffer
-public "vertexBuffer"(): $ByteBuffer
 public "drawState"(): $MeshData$DrawState
+public "vertexBuffer"(): $ByteBuffer
 public "sortQuads"(arg0: $ByteBufferBuilder$$Type, arg1: $VertexSorting$$Type): $MeshData$SortState
 }
 /**
@@ -534,29 +538,30 @@ export type $ByteBufferBuilder$Result$$Original = $ByteBufferBuilder$Result;}
 declare module "com.mojang.blaze3d.vertex.BufferBuilder" {
 import {$BufferBuilderExtension$$Interface} from "net.caffeinemc.mods.sodium.client.render.vertex.buffer.BufferBuilderExtension"
 import {$VertexFormatElement$$Type} from "com.mojang.blaze3d.vertex.VertexFormatElement"
-import {$VertexConsumer, $VertexConsumer$$Type, $VertexConsumer$$Interface} from "com.mojang.blaze3d.vertex.VertexConsumer"
-import {$ETFVertexConsumer$$Interface} from "traben.entity_texture_features.utils.ETFVertexConsumer"
 import {$Vector3f$$Type} from "org.joml.Vector3f"
 import {$BlockSensitiveBufferBuilder$$Interface} from "net.irisshaders.iris.vertices.BlockSensitiveBufferBuilder"
 import {$ColorwheelBufferBuilder$$Interface} from "dev.djefrey.colorwheel.ColorwheelBufferBuilder"
 import {$Matrix4f$$Type} from "org.joml.Matrix4f"
+import {$PoseStack$Pose$$Type} from "com.mojang.blaze3d.vertex.PoseStack$Pose"
+import {$MultiBufferSource, $MultiBufferSource$$Type} from "net.minecraft.client.renderer.MultiBufferSource"
+import {$VertexBufferWriter, $VertexBufferWriter$$Type, $VertexBufferWriter$$Interface} from "net.caffeinemc.mods.sodium.api.vertex.buffer.VertexBufferWriter"
+import {$BufferBuilderAccessor$$Interface} from "io.wispforest.owo.mixin.BufferBuilderAccessor"
+import {$ETFVertexConsumer$$Interface} from "traben.entity_texture_features.utils.ETFVertexConsumer"
+import {$VertexConsumer, $VertexConsumer$$Type, $VertexConsumer$$Interface} from "com.mojang.blaze3d.vertex.VertexConsumer"
 import {$Matrix3f$$Type} from "org.joml.Matrix3f"
 import {$BakedQuad$$Type} from "net.minecraft.client.renderer.block.model.BakedQuad"
 import {$MemoryStack$$Type} from "org.lwjgl.system.MemoryStack"
-import {$PoseStack$Pose$$Type} from "com.mojang.blaze3d.vertex.PoseStack$Pose"
 import {$MeshData} from "com.mojang.blaze3d.vertex.MeshData"
-import {$MultiBufferSource, $MultiBufferSource$$Type} from "net.minecraft.client.renderer.MultiBufferSource"
 import {$ByteBufferBuilder$$Type} from "com.mojang.blaze3d.vertex.ByteBufferBuilder"
-import {$VertexFormat$Mode$$Type} from "com.mojang.blaze3d.vertex.VertexFormat$Mode"
-import {$VertexBufferWriter, $VertexBufferWriter$$Type, $VertexBufferWriter$$Interface} from "net.caffeinemc.mods.sodium.api.vertex.buffer.VertexBufferWriter"
+import {$VertexFormat$Mode, $VertexFormat$Mode$$Type} from "com.mojang.blaze3d.vertex.VertexFormat$Mode"
 import {$BufferBuilderExt$$Interface} from "net.irisshaders.batchedentityrendering.impl.BufferBuilderExt"
 import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
-import {$BufferBuilderAccessor$$Interface} from "net.createmod.ponder.mixin.client.accessor.BufferBuilderAccessor"
+import {$BufferBuilderAccessor$$Interface as $BufferBuilderAccessor$0$$Interface} from "net.createmod.ponder.mixin.client.accessor.BufferBuilderAccessor"
 import {$VertexFormat, $VertexFormat$$Type} from "com.mojang.blaze3d.vertex.VertexFormat"
 import {$RenderType, $RenderType$$Type} from "net.minecraft.client.renderer.RenderType"
 import {$ETFTexture} from "traben.entity_texture_features.features.texture_handlers.ETFTexture"
 
-export class $BufferBuilder implements $VertexConsumer$$Interface, $BlockSensitiveBufferBuilder$$Interface, $BufferBuilderExtension$$Interface, $VertexBufferWriter$$Interface, $ETFVertexConsumer$$Interface, $ColorwheelBufferBuilder$$Interface, $BufferBuilderAccessor$$Interface, $BufferBuilderExt$$Interface {
+export class $BufferBuilder implements $VertexConsumer$$Interface, $BlockSensitiveBufferBuilder$$Interface, $BufferBuilderExtension$$Interface, $VertexBufferWriter$$Interface, $ETFVertexConsumer$$Interface, $BufferBuilderAccessor$$Interface, $ColorwheelBufferBuilder$$Interface, $BufferBuilderAccessor$0$$Interface, $BufferBuilderExt$$Interface {
 readonly "format": $VertexFormat
  "building": boolean
 
@@ -564,49 +569,53 @@ constructor(arg0: $ByteBufferBuilder$$Type, arg1: $VertexFormat$Mode$$Type, arg2
 
 public "build"(): $MeshData
 public "push"(arg0: $MemoryStack$$Type, arg1: long, arg2: integer, arg3: $VertexFormat$$Type): void
-public "setColor"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): $VertexConsumer
+public "getFormat"(): $VertexFormat
 public "setColor"(arg0: integer): $VertexConsumer
-public "etf$initETFVertexConsumer"(provider: $MultiBufferSource$$Type, renderLayer: $RenderType$$Type): void
-public "setNormal"(arg0: float, arg1: float, arg2: float): $VertexConsumer
-public "setLight"(arg0: integer): $VertexConsumer
-public "setUv2"(arg0: integer, arg1: integer): $VertexConsumer
-public "setUv1"(arg0: integer, arg1: integer): $VertexConsumer
+public "setColor"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): $VertexConsumer
 public "etf$getProvider"(): $MultiBufferSource
 public "etf$getRenderLayer"(): $RenderType
-public "etf$getETFTexture"(): $ETFTexture
 public "catnip$getVertices"(): integer
 public "clrwlBeginBlock"(block: integer, renderType: byte, lightEmission: byte, isTerrain: boolean, posX: integer, posY: integer, posZ: integer): void
-public "sodium$duplicateVertex"(): void
-public "buildOrThrow"(): $MeshData
-public "setOverlay"(arg0: integer): $VertexConsumer
-public "addVertex"(arg0: float, arg1: float, arg2: float, arg3: integer, arg4: float, arg5: float, arg6: integer, arg7: integer, arg8: float, arg9: float, arg10: float): void
-public "addVertex"(arg0: float, arg1: float, arg2: float): $VertexConsumer
-public "setUv"(arg0: float, arg1: float): $VertexConsumer
-public "putBulkData"(arg0: $PoseStack$Pose$$Type, arg1: $BakedQuad$$Type, arg2: float, arg3: float, arg4: float, arg5: float, arg6: integer, arg7: integer): void
-public "putBulkData"(arg0: $PoseStack$Pose$$Type, arg1: $BakedQuad$$Type, arg2: (float)[], arg3: float, arg4: float, arg5: float, arg6: float, arg7: (integer)[], arg8: integer, arg9: boolean): void
-public "endBlock"(): void
+public "etf$getETFTexture"(): $ETFTexture
 public "beginBlock"(arg0: integer, arg1: byte, arg2: byte, arg3: integer, arg4: integer, arg5: integer): void
 public "splitStrip"(): void
+public "endBlock"(): void
+public "buildOrThrow"(): $MeshData
+public "sodium$duplicateVertex"(): void
+public "getDrawMode"(): $VertexFormat$Mode
+public "etf$initETFVertexConsumer"(provider: $MultiBufferSource$$Type, renderLayer: $RenderType$$Type): void
+public "isBuilding"(): boolean
+public "putBulkData"(arg0: $PoseStack$Pose$$Type, arg1: $BakedQuad$$Type, arg2: float, arg3: float, arg4: float, arg5: float, arg6: integer, arg7: integer): void
+public "putBulkData"(arg0: $PoseStack$Pose$$Type, arg1: $BakedQuad$$Type, arg2: (float)[], arg3: float, arg4: float, arg5: float, arg6: float, arg7: (integer)[], arg8: integer, arg9: boolean): void
+public "setLight"(arg0: integer): $VertexConsumer
+public "setUv2"(arg0: integer, arg1: integer): $VertexConsumer
+public "setNormal"(arg0: float, arg1: float, arg2: float): $VertexConsumer
+public "setUv1"(arg0: integer, arg1: integer): $VertexConsumer
+public "addVertex"(arg0: float, arg1: float, arg2: float): $VertexConsumer
+public "addVertex"(arg0: float, arg1: float, arg2: float, arg3: integer, arg4: float, arg5: float, arg6: integer, arg7: integer, arg8: float, arg9: float, arg10: float): void
+public "setOverlay"(arg0: integer): $VertexConsumer
+public "setUv"(arg0: float, arg1: float): $VertexConsumer
 public "setColor"(arg0: float, arg1: float, arg2: float, arg3: float): $VertexConsumer
-public "setNormal"(arg0: $PoseStack$Pose$$Type, arg1: float, arg2: float, arg3: float): $VertexConsumer
-public "addVertex"(arg0: $Vector3f$$Type): $VertexConsumer
-public "addVertex"(arg0: $PoseStack$Pose$$Type, arg1: $Vector3f$$Type): $VertexConsumer
-public "addVertex"(arg0: $PoseStack$Pose$$Type, arg1: float, arg2: float, arg3: float): $VertexConsumer
-public "addVertex"(arg0: $Matrix4f$$Type, arg1: float, arg2: float, arg3: float): $VertexConsumer
 public "setWhiteAlpha"(arg0: integer): $VertexConsumer
-public "restoreBlock"(): void
-public "ignoreMidBlock"(arg0: boolean): void
+public "setNormal"(arg0: $PoseStack$Pose$$Type, arg1: float, arg2: float, arg3: float): $VertexConsumer
+public "addVertex"(arg0: $PoseStack$Pose$$Type, arg1: float, arg2: float, arg3: float): $VertexConsumer
+public "addVertex"(arg0: $PoseStack$Pose$$Type, arg1: $Vector3f$$Type): $VertexConsumer
+public "addVertex"(arg0: $Matrix4f$$Type, arg1: float, arg2: float, arg3: float): $VertexConsumer
+public "addVertex"(arg0: $Vector3f$$Type): $VertexConsumer
 public "overrideBlock"(arg0: integer): void
+public "ignoreMidBlock"(arg0: boolean): void
+public "restoreBlock"(): void
 public static "of"(arg0: $VertexConsumer$$Type): $VertexBufferWriter
 public static "copyInto"(arg0: $VertexBufferWriter$$Type, arg1: $MemoryStack$$Type, arg2: long, arg3: integer, arg4: $VertexFormat$$Type): void
-public "canUseIntrinsics"(): boolean
 public static "tryOf"(arg0: $VertexConsumer$$Type): $VertexBufferWriter
+public "canUseIntrinsics"(): boolean
 public "clrwlEndBlock"(): void
-public "misc"(arg0: $VertexFormatElement$$Type, ...arg1: (integer)[]): $VertexConsumer
-public "putBulkData"(arg0: $PoseStack$Pose$$Type, arg1: $BakedQuad$$Type, arg2: float, arg3: float, arg4: float, arg5: float, arg6: integer, arg7: integer, arg8: boolean): void
 public "applyBakedLighting"(arg0: integer, arg1: $ByteBuffer$$Type): integer
+public "putBulkData"(arg0: $PoseStack$Pose$$Type, arg1: $BakedQuad$$Type, arg2: float, arg3: float, arg4: float, arg5: float, arg6: integer, arg7: integer, arg8: boolean): void
 public "applyBakedNormals"(arg0: $Vector3f$$Type, arg1: $ByteBuffer$$Type, arg2: $Matrix3f$$Type): void
+public "misc"(arg0: $VertexFormatElement$$Type, ...arg1: (integer)[]): $VertexConsumer
 set "color"(value: integer)
+get "drawMode"(): $VertexFormat$Mode
 set "light"(value: integer)
 set "overlay"(value: integer)
 set "whiteAlpha"(value: integer)
@@ -660,14 +669,14 @@ public "clear"(): void
 public "close"(): void
 public "build"(): $ByteBufferBuilder$Result
 public "reserve"(arg0: integer): long
+public "freeAndDeleteBuffer"(): void
 public "discard"(): void
 public "getPointer"(): long
-public "freeAndDeleteBuffer"(): void
-public "getUsedSize"(): long
 public "getAllocatedSize"(): long
+public "getUsedSize"(): long
 get "pointer"(): long
-get "usedSize"(): long
 get "allocatedSize"(): long
+get "usedSize"(): long
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

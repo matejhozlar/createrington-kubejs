@@ -1,6 +1,6 @@
 declare module "java.text.NumberFormat" {
-import {$FieldPosition$$Type} from "java.text.FieldPosition"
 import {$ParsePosition$$Type} from "java.text.ParsePosition"
+import {$FieldPosition$$Type} from "java.text.FieldPosition"
 import {$StringBuffer, $StringBuffer$$Type} from "java.lang.StringBuffer"
 import {$NumberFormat$Style$$Type} from "java.text.NumberFormat$Style"
 import {$Locale, $Locale$$Type} from "java.util.Locale"
@@ -240,10 +240,10 @@ export type $ParsePosition$$Type = ($ParsePosition);
 export type $ParsePosition$$Original = $ParsePosition;}
 declare module "java.text.DecimalFormat" {
 import {$AttributedCharacterIterator} from "java.text.AttributedCharacterIterator"
-import {$NumberFormat} from "java.text.NumberFormat"
-import {$FieldPosition$$Type} from "java.text.FieldPosition"
 import {$ParsePosition$$Type} from "java.text.ParsePosition"
 import {$StringBuffer, $StringBuffer$$Type} from "java.lang.StringBuffer"
+import {$NumberFormat} from "java.text.NumberFormat"
+import {$FieldPosition$$Type} from "java.text.FieldPosition"
 import {$Currency, $Currency$$Type} from "java.util.Currency"
 import {$DecimalFormatSymbols, $DecimalFormatSymbols$$Type} from "java.text.DecimalFormatSymbols"
 import {$RoundingMode, $RoundingMode$$Type} from "java.math.RoundingMode"
@@ -343,9 +343,9 @@ export type $DecimalFormat$$Original = $DecimalFormat;}
 declare module "java.text.Format" {
 import {$AttributedCharacterIterator} from "java.text.AttributedCharacterIterator"
 import {$Serializable$$Interface} from "java.io.Serializable"
-import {$FieldPosition$$Type} from "java.text.FieldPosition"
 import {$ParsePosition$$Type} from "java.text.ParsePosition"
 import {$StringBuffer, $StringBuffer$$Type} from "java.lang.StringBuffer"
+import {$FieldPosition$$Type} from "java.text.FieldPosition"
 import {$Cloneable$$Interface} from "java.lang.Cloneable"
 
 export class $Format implements $Serializable$$Interface, $Cloneable$$Interface {
@@ -373,9 +373,9 @@ import {$AttributedCharacterIterator$Attribute, $AttributedCharacterIterator$Att
 
 export interface $AttributedCharacterIterator$$Interface extends $CharacterIterator$$Interface {
 get "attributes"(): $Map<($AttributedCharacterIterator$Attribute), (any)>
-get "allAttributeKeys"(): $Set<($AttributedCharacterIterator$Attribute)>
-get "runStart"(): integer
 get "runLimit"(): integer
+get "runStart"(): integer
+get "allAttributeKeys"(): $Set<($AttributedCharacterIterator$Attribute)>
 get "index"(): integer
 get "beginIndex"(): integer
 get "endIndex"(): integer
@@ -385,13 +385,13 @@ set "index"(value: integer)
 export class $AttributedCharacterIterator implements $AttributedCharacterIterator$$Interface {
  "getAttributes"(): $Map<($AttributedCharacterIterator$Attribute), (any)>
  "getAttribute"(arg0: $AttributedCharacterIterator$Attribute$$Type): any
- "getAllAttributeKeys"(): $Set<($AttributedCharacterIterator$Attribute)>
- "getRunStart"(): integer
- "getRunStart"(arg0: $Set$$Type<($AttributedCharacterIterator$Attribute$$Type)>): integer
- "getRunStart"(arg0: $AttributedCharacterIterator$Attribute$$Type): integer
- "getRunLimit"(arg0: $AttributedCharacterIterator$Attribute$$Type): integer
  "getRunLimit"(): integer
  "getRunLimit"(arg0: $Set$$Type<($AttributedCharacterIterator$Attribute$$Type)>): integer
+ "getRunLimit"(arg0: $AttributedCharacterIterator$Attribute$$Type): integer
+ "getRunStart"(arg0: $AttributedCharacterIterator$Attribute$$Type): integer
+ "getRunStart"(arg0: $Set$$Type<($AttributedCharacterIterator$Attribute$$Type)>): integer
+ "getRunStart"(): integer
+ "getAllAttributeKeys"(): $Set<($AttributedCharacterIterator$Attribute)>
  "clone"(): any
  "next"(): character
  "last"(): character
@@ -472,9 +472,9 @@ export type $DateFormatSymbols$$Type = ($DateFormatSymbols);
  */
 export type $DateFormatSymbols$$Original = $DateFormatSymbols;}
 declare module "java.text.DateFormat" {
-import {$FieldPosition$$Type} from "java.text.FieldPosition"
 import {$ParsePosition$$Type} from "java.text.ParsePosition"
 import {$NumberFormat, $NumberFormat$$Type} from "java.text.NumberFormat"
+import {$FieldPosition$$Type} from "java.text.FieldPosition"
 import {$StringBuffer, $StringBuffer$$Type} from "java.lang.StringBuffer"
 import {$TimeZone, $TimeZone$$Type} from "java.util.TimeZone"
 import {$Date, $Date$$Type} from "java.util.Date"
@@ -561,9 +561,9 @@ export type $DateFormat$$Original = $DateFormat;}
 declare module "java.text.SimpleDateFormat" {
 import {$AttributedCharacterIterator} from "java.text.AttributedCharacterIterator"
 import {$DateFormatSymbols, $DateFormatSymbols$$Type} from "java.text.DateFormatSymbols"
-import {$FieldPosition$$Type} from "java.text.FieldPosition"
 import {$ParsePosition$$Type} from "java.text.ParsePosition"
 import {$StringBuffer, $StringBuffer$$Type} from "java.lang.StringBuffer"
+import {$FieldPosition$$Type} from "java.text.FieldPosition"
 import {$Date, $Date$$Type} from "java.util.Date"
 import {$Locale$$Type} from "java.util.Locale"
 import {$DateFormat} from "java.text.DateFormat"

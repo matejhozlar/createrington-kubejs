@@ -1,9 +1,9 @@
 declare module "net.minecraft.data.worldgen.BootstrapContext" {
-import {$Registry$$Type} from "net.minecraft.core.Registry"
 import {$Optional} from "java.util.Optional"
+import {$Registry$$Type} from "net.minecraft.core.Registry"
 import {$HolderLookup$RegistryLookup} from "net.minecraft.core.HolderLookup$RegistryLookup"
-import {$Lifecycle$$Type} from "com.mojang.serialization.Lifecycle"
 import {$Holder$Reference} from "net.minecraft.core.Holder$Reference"
+import {$Lifecycle$$Type} from "com.mojang.serialization.Lifecycle"
 import {$ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
 import {$HolderGetter} from "net.minecraft.core.HolderGetter"
 

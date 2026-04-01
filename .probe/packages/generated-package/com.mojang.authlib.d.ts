@@ -11,8 +11,8 @@ public "getProxy"(): $Proxy
 public static "concatenateURL"(arg0: $URL$$Type, arg1: StringJS): $URL
 public static "constantURL"(arg0: StringJS): $URL
 public static "buildQuery"(arg0: $Map$$Type<(StringJS), (any)>): StringJS
-public "createProfileRepository"(): $GameProfileRepository
 public "createMinecraftSessionService"(): $MinecraftSessionService
+public "createProfileRepository"(): $GameProfileRepository
 get "proxy"(): $Proxy
 }
 /**
@@ -54,14 +54,14 @@ public "name"(): StringJS
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public "sessionHost"(): StringJS
 public "servicesHost"(): StringJS
+public "sessionHost"(): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $Environment$$Type = ({"sessionHost"?: StringJS, "servicesHost"?: StringJS, "name"?: StringJS}) | ([sessionHost?: StringJS, servicesHost?: StringJS, name?: StringJS]);
+export type $Environment$$Type = ({"servicesHost"?: StringJS, "sessionHost"?: StringJS, "name"?: StringJS}) | ([servicesHost?: StringJS, sessionHost?: StringJS, name?: StringJS]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -74,8 +74,8 @@ export interface $ProfileLookupCallback$$Interface {
 }
 
 export class $ProfileLookupCallback implements $ProfileLookupCallback$$Interface {
- "onProfileLookupSucceeded"(arg0: $GameProfile$$Type): void
  "onProfileLookupFailed"(arg0: StringJS, arg1: $Exception$$Type): void
+ "onProfileLookupSucceeded"(arg0: $GameProfile$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -94,8 +94,8 @@ export interface $AuthenticationService$$Interface {
 }
 
 export class $AuthenticationService implements $AuthenticationService$$Interface {
- "createProfileRepository"(): $GameProfileRepository
  "createMinecraftSessionService"(): $MinecraftSessionService
+ "createProfileRepository"(): $GameProfileRepository
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

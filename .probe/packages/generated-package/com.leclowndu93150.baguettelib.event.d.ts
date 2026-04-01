@@ -61,13 +61,13 @@ import {$Event} from "net.neoforged.bus.api.Event"
 
 export class $InventoryUpdateEvent extends $Event {
 public "getSlot"(): integer
-public "getNewStack"(): $ItemStack
-public "getOldStack"(): $ItemStack
 public "getPlayer"(): $Player
+public "getOldStack"(): $ItemStack
+public "getNewStack"(): $ItemStack
 get "slot"(): integer
-get "newStack"(): $ItemStack
-get "oldStack"(): $ItemStack
 get "player"(): $Player
+get "oldStack"(): $ItemStack
+get "newStack"(): $ItemStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -89,11 +89,11 @@ export class $PlayerDeathEvent$Pre extends $PlayerDeathEvent implements $ICancel
 constructor(arg0: $Player$$Type, arg1: $DamageSource$$Type)
 
 public "getEntity"(): $LivingEntity
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
+public "isCanceled"(): boolean
 get "entity"(): $LivingEntity
-get "canceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -173,10 +173,10 @@ import {$LivingEntity$$Type} from "net.minecraft.world.entity.LivingEntity"
 export class $LivingDeathEvent$Pre extends $LivingDeathEvent implements $ICancellableEvent$$Interface {
 constructor(arg0: $LivingEntity$$Type, arg1: $DamageSource$$Type)
 
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
-get "canceled"(): boolean
+public "isCanceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

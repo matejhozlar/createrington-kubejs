@@ -45,8 +45,8 @@ export interface $AgeableListModelAccessor$$Interface {
 }
 
 export class $AgeableListModelAccessor implements $AgeableListModelAccessor$$Interface {
- "create$callHeadParts"(): $Iterable<($ModelPart)>
  "create$callBodyParts"(): $Iterable<($ModelPart)>
+ "create$callHeadParts"(): $Iterable<($ModelPart)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -58,8 +58,8 @@ export type $AgeableListModelAccessor$$Type = ($AgeableListModelAccessor);
  */
 export type $AgeableListModelAccessor$$Original = $AgeableListModelAccessor;}
 declare module "com.simibubi.create.foundation.mixin.accessor.PotionBrewingAccessor" {
-import {$Potion} from "net.minecraft.world.item.alchemy.Potion"
 import {$PotionBrewing$Mix} from "net.minecraft.world.item.alchemy.PotionBrewing$Mix"
+import {$Potion} from "net.minecraft.world.item.alchemy.Potion"
 import {$ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$List} from "java.util.List"
 import {$Item} from "net.minecraft.world.item.Item"
@@ -68,9 +68,9 @@ export interface $PotionBrewingAccessor$$Interface {
 }
 
 export class $PotionBrewingAccessor implements $PotionBrewingAccessor$$Interface {
- "create$isContainer"(arg0: $ItemStack$$Type): boolean
- "create$getContainerMixes"(): $List<($PotionBrewing$Mix<($Item)>)>
  "create$getPotionMixes"(): $List<($PotionBrewing$Mix<($Potion)>)>
+ "create$getContainerMixes"(): $List<($PotionBrewing$Mix<($Item)>)>
+ "create$isContainer"(arg0: $ItemStack$$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -113,8 +113,8 @@ export interface $GuiAccessor$$Interface {
 
 export class $GuiAccessor implements $GuiAccessor$$Interface {
  "create$getSubtitleOverlay"(): $SubtitleOverlay
- "create$getToolHighlightTimer"(): integer
  "create$renderTextureOverlay"(arg0: $GuiGraphics$$Type, arg1: $ResourceLocation$$Type, arg2: float): void
+ "create$getToolHighlightTimer"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -151,8 +151,8 @@ import {$Level} from "net.minecraft.world.level.Level"
 import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$HolderGetter} from "net.minecraft.core.HolderGetter"
 import {$BlockEntityType$$Type} from "net.minecraft.world.level.block.entity.BlockEntityType"
-import {$Packet} from "net.minecraft.network.protocol.Packet"
 import {$ClientboundBlockEntityDataPacket$$Type} from "net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket"
+import {$Packet} from "net.minecraft.network.protocol.Packet"
 import {$BlockPos, $BlockPos$$Type} from "net.minecraft.core.BlockPos"
 import {$BlockEntity} from "net.minecraft.world.level.block.entity.BlockEntity"
 import {$Connection$$Type} from "net.minecraft.network.Connection"
@@ -167,13 +167,13 @@ static readonly "ATTACHMENTS_NBT_KEY": StringJS
 
 constructor(arg0: $BlockEntityType$$Type<(never)>, arg1: $BlockPos$$Type, arg2: $BlockState$$Type)
 
-public "handleUpdateTag"(arg0: $CompoundTag$$Type, arg1: $HolderLookup$Provider$$Type): void
-public "onDataPacket"(arg0: $Connection$$Type, arg1: $ClientboundBlockEntityDataPacket$$Type, arg2: $HolderLookup$Provider$$Type): void
-public "getUpdateTag"(arg0: $HolderLookup$Provider$$Type): $CompoundTag
 public "notifyUpdate"(): void
-public "getUpdatePacket"(): $Packet
 public "readClient"(arg0: $CompoundTag$$Type, arg1: $HolderLookup$Provider$$Type): void
 public "sendData"(): void
+public "getUpdatePacket"(): $Packet
+public "getUpdateTag"(arg0: $HolderLookup$Provider$$Type): $CompoundTag
+public "onDataPacket"(arg0: $Connection$$Type, arg1: $ClientboundBlockEntityDataPacket$$Type, arg2: $HolderLookup$Provider$$Type): void
+public "handleUpdateTag"(arg0: $CompoundTag$$Type, arg1: $HolderLookup$Provider$$Type): void
 public "blockHolderGetter"(): $HolderGetter<($Block)>
 public "writeClient"(arg0: $CompoundTag$$Type, arg1: $HolderLookup$Provider$$Type): $CompoundTag
 get "updatePacket"(): $Packet
@@ -353,16 +353,16 @@ get "blockEntityClass"(): $Class<(T)>
 }
 
 export class $IBE<T extends $BlockEntity> implements $IBE$$Interface {
+ "getBlockEntityType"(): $BlockEntityType<(T)>
  "withBlockEntityDo"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Consumer$$Type<(T)>): void
  "onBlockEntityUse"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Function$$Type<(T), ($InteractionResult$$Type)>): $InteractionResult
- "getBlockEntityType"(): $BlockEntityType<(T)>
- "getTicker"<S extends $BlockEntity>(arg0: $Level$$Type, arg1: $BlockState$$Type, arg2: $BlockEntityType$$Type<(S)>): $BlockEntityTicker<(S)>
- "getBlockEntity"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type): T
 static "onRemove"(arg0: $BlockState$$Type, arg1: $Level$$Type, arg2: $BlockPos$$Type, arg3: $BlockState$$Type): void
  "newBlockEntity"(arg0: $BlockPos$$Type, arg1: $BlockState$$Type): $BlockEntity
- "getBlockEntityOptional"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type): $Optional<(T)>
  "getBlockEntityClass"(): $Class<(T)>
  "onBlockEntityUseItemOn"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Function$$Type<(T), ($ItemInteractionResult$$Type)>): $ItemInteractionResult
+ "getBlockEntityOptional"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type): $Optional<(T)>
+ "getTicker"<S extends $BlockEntity>(arg0: $Level$$Type, arg1: $BlockState$$Type, arg2: $BlockEntityType$$Type<(S)>): $BlockEntityTicker<(S)>
+ "getBlockEntity"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type): T
  "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$$Type, arg1: T): $GameEventListener
 }
 /**
@@ -395,18 +395,19 @@ export type $BehaviourType$$Type<T> = ($BehaviourType<(T)>);
  */
 export type $BehaviourType$$Original<T> = $BehaviourType<(T)>;}
 declare module "com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour" {
-import {$SmartBlockEntity, $SmartBlockEntity$$Type} from "com.simibubi.create.foundation.blockEntity.SmartBlockEntity"
 import {$BlockGetter$$Type} from "net.minecraft.world.level.BlockGetter"
+import {$SmartBlockEntity, $SmartBlockEntity$$Type} from "com.simibubi.create.foundation.blockEntity.SmartBlockEntity"
 import {$CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
 import {$Level} from "net.minecraft.world.level.Level"
 import {$BehaviourType, $BehaviourType$$Type} from "com.simibubi.create.foundation.blockEntity.behaviour.BehaviourType"
+import {$BlockEntityBehaviourAccessor$$Interface} from "com.agent772.createshufflefilter.mixins.BlockEntityBehaviourAccessor"
 import {$ItemRequirement} from "com.simibubi.create.content.schematics.requirement.ItemRequirement"
 import {$BlockPos, $BlockPos$$Type} from "net.minecraft.core.BlockPos"
 import {$BlockEntity$$Type} from "net.minecraft.world.level.block.entity.BlockEntity"
 import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
 
-export class $BlockEntityBehaviour {
+export class $BlockEntityBehaviour implements $BlockEntityBehaviourAccessor$$Interface {
  "blockEntity": $SmartBlockEntity
 
 constructor(arg0: $SmartBlockEntity$$Type)
@@ -420,20 +421,21 @@ public "destroy"(): void
 public "getType"(): $BehaviourType<(never)>
 public "unload"(): void
 public "tick"(): void
-public "getPos"(): $BlockPos
-public "onBlockChanged"(arg0: $BlockState$$Type): void
 public "getWorld"(): $Level
-public "writeSafe"(arg0: $CompoundTag$$Type, arg1: $HolderLookup$Provider$$Type): void
 public "isSafeNBT"(): boolean
 public "lazyTick"(): void
-public "onNeighborChanged"(arg0: $BlockPos$$Type): void
+public "writeSafe"(arg0: $CompoundTag$$Type, arg1: $HolderLookup$Provider$$Type): void
 public "setLazyTickRate"(arg0: integer): void
+public "getPos"(): $BlockPos
+public "onNeighborChanged"(arg0: $BlockPos$$Type): void
+public "onBlockChanged"(arg0: $BlockState$$Type): void
+public "getBlockEntity"(): $SmartBlockEntity
 public "getRequiredItems"(): $ItemRequirement
 get "type"(): $BehaviourType<(never)>
-get "pos"(): $BlockPos
 get "world"(): $Level
 get "safeNBT"(): boolean
 set "lazyTickRate"(value: integer)
+get "pos"(): $BlockPos
 get "requiredItems"(): $ItemRequirement
 }
 /**
@@ -575,8 +577,8 @@ export interface $MinecartFurnaceAccessor$$Interface {
 }
 
 export class $MinecartFurnaceAccessor implements $MinecartFurnaceAccessor$$Interface {
- "create$getFuel"(): integer
  "create$setFuel"(arg0: integer): void
+ "create$getFuel"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -854,14 +856,14 @@ public "getLocation"(): $ResourceLocation
 public "getWidth"(): integer
 public "render"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: $Color$$Type): void
 public "render"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer): void
-public "getHeight"(): integer
 public "getStartX"(): integer
 public "getStartY"(): integer
+public "getHeight"(): integer
 public "bind"(): void
 get "width"(): integer
-get "height"(): integer
 get "startX"(): integer
 get "startY"(): integer
+get "height"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -920,24 +922,24 @@ export type $SystemReportAccessor$$Original = $SystemReportAccessor;}
 declare module "com.simibubi.create.foundation.blockEntity.SmartBlockEntity" {
 import {$CompoundTag, $CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
 import {$Collection} from "java.util.Collection"
-import {$List$$Type} from "java.util.List"
 import {$IInteractionChecker$$Interface} from "com.simibubi.create.foundation.utility.IInteractionChecker"
+import {$List$$Type} from "java.util.List"
 import {$Level} from "net.minecraft.world.level.Level"
-import {$BehaviourType$$Type} from "com.simibubi.create.foundation.blockEntity.behaviour.BehaviourType"
 import {$CachedRenderBBBlockEntity} from "com.simibubi.create.foundation.blockEntity.CachedRenderBBBlockEntity"
+import {$BehaviourType$$Type} from "com.simibubi.create.foundation.blockEntity.behaviour.BehaviourType"
 import {$ItemRequirement} from "com.simibubi.create.content.schematics.requirement.ItemRequirement"
 import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
-import {$RegistryFriendlyByteBuf$$Type} from "net.minecraft.network.RegistryFriendlyByteBuf"
-import {$BlockEntityType$$Type} from "net.minecraft.world.level.block.entity.BlockEntityType"
 import {$VirtualBlockEntity$$Interface} from "net.createmod.ponder.api.VirtualBlockEntity"
+import {$BlockEntityType$$Type} from "net.minecraft.world.level.block.entity.BlockEntityType"
+import {$RegistryFriendlyByteBuf$$Type} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$BlockEntityBehaviour, $BlockEntityBehaviour$$Type} from "com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour"
 import {$Packet} from "net.minecraft.network.protocol.Packet"
 import {$BlockPos, $BlockPos$$Type} from "net.minecraft.core.BlockPos"
 import {$SpecialBlockEntityItemRequirement$$Interface} from "com.simibubi.create.api.schematic.requirement.SpecialBlockEntityItemRequirement"
-import {$CreateAdvancement$$Type} from "com.simibubi.create.foundation.advancement.CreateAdvancement"
 import {$PartialSafeNBT$$Interface} from "com.simibubi.create.api.schematic.nbt.PartialSafeNBT"
+import {$CreateAdvancement$$Type} from "com.simibubi.create.foundation.advancement.CreateAdvancement"
 import {$BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
 
 export class $SmartBlockEntity extends $CachedRenderBBBlockEntity implements $PartialSafeNBT$$Interface, $IInteractionChecker$$Interface, $SpecialBlockEntityItemRequirement$$Interface, $VirtualBlockEntity$$Interface {
@@ -954,30 +956,30 @@ public "isVirtual"(): boolean
 public "initialize"(): void
 public "destroy"(): void
 public "tick"(): void
-public "onChunkUnloaded"(): void
-public "saveAdditional"(arg0: $CompoundTag$$Type, arg1: $HolderLookup$Provider$$Type): void
-public "addBehavioursDeferred"(arg0: $List$$Type<($BlockEntityBehaviour$$Type)>): void
 public "attachBehaviourLate"(arg0: $BlockEntityBehaviour$$Type): void
+public "addBehavioursDeferred"(arg0: $List$$Type<($BlockEntityBehaviour$$Type)>): void
 public "setRemoved"(): void
-public "writeSafe"(arg0: $CompoundTag$$Type, arg1: $HolderLookup$Provider$$Type): void
-public "lazyTick"(): void
 public "readClient"(arg0: $CompoundTag$$Type, arg1: $HolderLookup$Provider$$Type): void
+public "lazyTick"(): void
+public "writeSafe"(arg0: $CompoundTag$$Type, arg1: $HolderLookup$Provider$$Type): void
 public "sendToMenu"(arg0: $RegistryFriendlyByteBuf$$Type): void
 public "setLazyTickRate"(arg0: integer): void
-public "getRequiredItems"(arg0: $BlockState$$Type): $ItemRequirement
-public "addBehaviours"(arg0: $List$$Type<($BlockEntityBehaviour$$Type)>): void
-public "writeClient"(arg0: $CompoundTag$$Type, arg1: $HolderLookup$Provider$$Type): $CompoundTag
+public "award"(arg0: $CreateAdvancement$$Type): void
+public "onChunkUnloaded"(): void
+public "saveAdditional"(arg0: $CompoundTag$$Type, arg1: $HolderLookup$Provider$$Type): void
 public "forEachBehaviour"(arg0: $Consumer$$Type<($BlockEntityBehaviour)>): void
+public "addBehaviours"(arg0: $List$$Type<($BlockEntityBehaviour$$Type)>): void
+public "getRequiredItems"(arg0: $BlockState$$Type): $ItemRequirement
+public "canPlayerUse"(arg0: $Player$$Type): boolean
 public "isChunkUnloaded"(): boolean
 public "registerAwardables"(arg0: $List$$Type<($BlockEntityBehaviour$$Type)>, ...arg1: ($CreateAdvancement$$Type)[]): void
-public "markVirtual"(): void
-public "removeBehaviour"(arg0: $BehaviourType$$Type<(never)>): void
 public "awardIfNear"(arg0: $CreateAdvancement$$Type, arg1: integer): void
-public "refreshBlockState"(): void
 public "getBehaviour"<T extends $BlockEntityBehaviour>(arg0: $BehaviourType$$Type<(T)>): T
+public "refreshBlockState"(): void
 public "getAllBehaviours"(): $Collection<($BlockEntityBehaviour)>
-public "canPlayerUse"(arg0: $Player$$Type): boolean
-public "award"(arg0: $CreateAdvancement$$Type): void
+public "removeBehaviour"(arg0: $BehaviourType$$Type<(never)>): void
+public "writeClient"(arg0: $CompoundTag$$Type, arg1: $HolderLookup$Provider$$Type): $CompoundTag
+public "markVirtual"(): void
 public "getUpdatePacket"(): $Packet
 get "virtual"(): boolean
 get "removed"(): void
@@ -1025,8 +1027,8 @@ import {$INBTSerializable$$Interface} from "net.neoforged.neoforge.common.util.I
 import {$IItemHandler} from "net.neoforged.neoforge.items.IItemHandler"
 import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$Consumer$$Type} from "java.util.function.Consumer"
-import {$SyncedBlockEntity$$Type} from "com.simibubi.create.foundation.blockEntity.SyncedBlockEntity"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
+import {$SyncedBlockEntity$$Type} from "com.simibubi.create.foundation.blockEntity.SyncedBlockEntity"
 import {$LevelBlock} from "dev.latvian.mods.kubejs.level.LevelBlock"
 import {$Container} from "net.minecraft.world.Container"
 import {$IItemHandlerModifiable$$Type, $IItemHandlerModifiable$$Interface} from "net.neoforged.neoforge.items.IItemHandlerModifiable"
@@ -1040,47 +1042,47 @@ constructor(arg0: integer, arg1: $SyncedBlockEntity$$Type, arg2: integer, arg3: 
 constructor(arg0: integer, arg1: $SyncedBlockEntity$$Type, arg2: $BiPredicate$$Type<(integer), ($ItemStack)>)
 constructor(arg0: integer, arg1: $SyncedBlockEntity$$Type)
 
-public "getSlots"(): integer
+public "insertItem"(arg0: integer, arg1: $ItemStack$$Type, arg2: boolean): $ItemStack
 public "getStackInSlot"(arg0: integer): $ItemStack
 public "isItemValid"(arg0: integer, arg1: $ItemStack$$Type): boolean
 public "getSlotLimit"(arg0: integer): integer
 public "extractItem"(arg0: integer, arg1: integer, arg2: boolean): $ItemStack
 public "setStackInSlot"(arg0: integer, arg1: $ItemStack$$Type): void
-public "insertItem"(arg0: integer, arg1: $ItemStack$$Type, arg2: boolean): $ItemStack
-public "getStackLimit"(arg0: integer, arg1: $ItemStack$$Type): integer
+public "getSlots"(): integer
+public "allowInsertion"(): $SmartInventory
+public "forbidInsertion"(): $SmartInventory
+public "withMaxStackSize"(arg0: integer): $SmartInventory
 public "deserializeNBT"(arg0: $HolderLookup$Provider$$Type, arg1: $CompoundTag$$Type): void
 public "deserializeNBT"(arg0: $HolderLookup$Provider$$Type, arg1: $Tag$$Type): void
 public "serializeNBT"(arg0: $HolderLookup$Provider$$Type): $CompoundTag
 public "allowExtraction"(): $SmartInventory
-public "withMaxStackSize"(arg0: integer): $SmartInventory
-public "forbidInsertion"(): $SmartInventory
-public "allowInsertion"(): $SmartInventory
 public "whenContentsChanged"(arg0: $Consumer$$Type<(integer)>): $SmartInventory
 public "forbidExtraction"(): $SmartInventory
+public "getStackLimit"(arg0: integer, arg1: $ItemStack$$Type): integer
+public "self"(): $IItemHandler
 public "insertItem"(arg0: integer, arg1: $ItemStack$$Type, arg2: boolean): $ItemStack
 public "extractItem"(arg0: integer, arg1: integer, arg2: boolean): $ItemStack
-public "isMutable"(): boolean
-public "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
+public "isItemValid"(arg0: integer, arg1: $ItemStack$$Type): boolean
 public "getSlots"(): integer
 public "getSlotLimit"(arg0: integer): integer
-public "isItemValid"(arg0: integer, arg1: $ItemStack$$Type): boolean
 public "getStackInSlot"(arg0: integer): $ItemStack
-public "self"(): $IItemHandler
+public "isMutable"(): boolean
+public "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
 public "getBlock"(level: $Level$$Type): $LevelBlock
 public static "stillValidBlockEntity"(arg0: $BlockEntity$$Type, arg1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(arg0: $BlockEntity$$Type, arg1: $Player$$Type, arg2: float): boolean
-public "getWidth"(): integer
+public "clear"(): void
 public "getHeight"(): integer
 public "setChanged"(): void
+public "getWidth"(): integer
 public "asContainer"(): $Container
-public "clear"(): void
 public static "tryClear"(arg0: any): void
 get "slots"(): integer
-get "mutable"(): boolean
 get "slots"(): integer
-get "width"(): integer
+get "mutable"(): boolean
 get "height"(): integer
 get "changed"(): void
+get "width"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1117,10 +1119,10 @@ static readonly "WATERLOGGED": $BooleanProperty
 static "withWater"(arg0: $LevelAccessor$$Type, arg1: $BlockState$$Type, arg2: $BlockPos$$Type): $BlockState
  "withWater"(arg0: $BlockState$$Type, arg1: $BlockPlaceContext$$Type): $BlockState
  "fluidState"(arg0: $BlockState$$Type): $FluidState
- "canPlaceLiquid"(arg0: $Player$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $BlockState$$Type, arg4: $Fluid$$Type): boolean
- "pickupBlock"(arg0: $Player$$Type, arg1: $LevelAccessor$$Type, arg2: $BlockPos$$Type, arg3: $BlockState$$Type): $ItemStack
- "placeLiquid"(arg0: $LevelAccessor$$Type, arg1: $BlockPos$$Type, arg2: $BlockState$$Type, arg3: $FluidState$$Type): boolean
  "getPickupSound"(): $Optional<($SoundEvent)>
+ "pickupBlock"(arg0: $Player$$Type, arg1: $LevelAccessor$$Type, arg2: $BlockPos$$Type, arg3: $BlockState$$Type): $ItemStack
+ "canPlaceLiquid"(arg0: $Player$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $BlockState$$Type, arg4: $Fluid$$Type): boolean
+ "placeLiquid"(arg0: $LevelAccessor$$Type, arg1: $BlockPos$$Type, arg2: $BlockState$$Type, arg3: $FluidState$$Type): boolean
  "getPickupSound"(arg0: $BlockState$$Type): $Optional<($SoundEvent)>
 }
 /**

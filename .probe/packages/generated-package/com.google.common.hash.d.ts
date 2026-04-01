@@ -7,13 +7,13 @@ public "hashCode"(): integer
 public "bits"(): integer
 public static "fromString"(string: StringJS): $HashCode
 public "asInt"(): integer
-public "writeBytesTo"(dest: (byte)[], offset: integer, maxLength: integer): integer
-public "asBytes"(): (byte)[]
 public "padToLong"(): long
 public static "fromBytes"(bytes: (byte)[]): $HashCode
+public static "fromLong"(hash: long): $HashCode
 public static "fromInt"(hash: integer): $HashCode
 public "asLong"(): long
-public static "fromLong"(hash: long): $HashCode
+public "writeBytesTo"(dest: (byte)[], offset: integer, maxLength: integer): integer
+public "asBytes"(): (byte)[]
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

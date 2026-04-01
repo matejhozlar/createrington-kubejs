@@ -8,8 +8,8 @@ constructor(arg0: $GeoAnimatable$$Type)
 
 public "getManagerForId"<T extends $GeoAnimatable>(arg0: long): $AnimatableManager<(T)>
 public "getRenderProvider"(): any
-public "addDataPoint"<D>(arg0: long, arg1: $DataTicket$$Type<(D)>, arg2: D): void
 public "getDataPoint"<D>(arg0: long, arg1: $DataTicket$$Type<(D)>): D
+public "addDataPoint"<D>(arg0: long, arg1: $DataTicket$$Type<(D)>, arg2: D): void
 get "renderProvider"(): any
 }
 /**
@@ -31,11 +31,11 @@ get "boneResetTime"(): double
 }
 
 export class $GeoAnimatable implements $GeoAnimatable$$Interface {
+ "getTick"(arg0: any): double
  "shouldPlayAnimsWhileGamePaused"(): boolean
+ "registerControllers"(arg0: $AnimatableManager$ControllerRegistrar$$Type): void
  "getAnimatableInstanceCache"(): $AnimatableInstanceCache
  "animatableCacheOverride"(): $AnimatableInstanceCache
- "registerControllers"(arg0: $AnimatableManager$ControllerRegistrar$$Type): void
- "getTick"(arg0: any): double
  "getBoneResetTime"(): double
 }
 /**

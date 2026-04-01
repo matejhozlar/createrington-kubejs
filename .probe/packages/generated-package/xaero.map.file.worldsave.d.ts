@@ -1,8 +1,8 @@
 declare module "xaero.map.file.worldsave.WorldDataReader" {
-import {$MapProcessor$$Type} from "xaero.map.MapProcessor"
 import {$HolderLookup$$Type} from "net.minecraft.core.HolderLookup"
-import {$CompoundTag} from "net.minecraft.nbt.CompoundTag"
+import {$MapProcessor$$Type} from "xaero.map.MapProcessor"
 import {$MapRegion$$Type} from "xaero.map.region.MapRegion"
+import {$CompoundTag} from "net.minecraft.nbt.CompoundTag"
 import {$Block$$Type} from "net.minecraft.world.level.block.Block"
 import {$BlockStateShortShapeCache$$Type} from "xaero.map.cache.BlockStateShortShapeCache"
 import {$ChunkPos$$Type} from "net.minecraft.world.level.ChunkPos"
@@ -10,8 +10,8 @@ import {$Fluid$$Type} from "net.minecraft.world.level.material.Fluid"
 import {$Registry$$Type} from "net.minecraft.core.Registry"
 import {$Executor$$Type} from "xaero.map.executor.Executor"
 import {$RegionFile$$Type} from "net.minecraft.world.level.chunk.storage.RegionFile"
-import {$ServerLevel$$Type} from "net.minecraft.server.level.ServerLevel"
 import {$WorldDataBiomeManager$$Type} from "xaero.map.file.worldsave.biome.WorldDataBiomeManager"
+import {$ServerLevel$$Type} from "net.minecraft.server.level.ServerLevel"
 import {$OverlayManager$$Type} from "xaero.map.region.OverlayManager"
 
 export class $WorldDataReader {
@@ -19,8 +19,8 @@ export class $WorldDataReader {
 
 constructor(arg0: $OverlayManager$$Type, arg1: $BlockStateShortShapeCache$$Type, arg2: $WorldDataBiomeManager$$Type, arg3: long)
 
-public "readChunk"(arg0: $RegionFile$$Type, arg1: $ChunkPos$$Type): $CompoundTag
 public "setMapProcessor"(arg0: $MapProcessor$$Type): void
+public "readChunk"(arg0: $RegionFile$$Type, arg1: $ChunkPos$$Type): $CompoundTag
 public "buildRegion"(arg0: $MapRegion$$Type, arg1: $ServerLevel$$Type, arg2: $HolderLookup$$Type<($Block$$Type)>, arg3: $Registry$$Type<($Block$$Type)>, arg4: $Registry$$Type<($Fluid$$Type)>, arg5: boolean, arg6: (integer)[], arg7: $Executor$$Type): boolean
 set "mapProcessor"(value: $MapProcessor$$Type)
 }
@@ -34,8 +34,8 @@ export type $WorldDataReader$$Type = ($WorldDataReader);
  */
 export type $WorldDataReader$$Original = $WorldDataReader;}
 declare module "xaero.map.file.worldsave.WorldDataHandler" {
-import {$MapProcessor$$Type} from "xaero.map.MapProcessor"
 import {$HolderLookup$$Type} from "net.minecraft.core.HolderLookup"
+import {$MapProcessor$$Type} from "xaero.map.MapProcessor"
 import {$MapRegion$$Type} from "xaero.map.region.MapRegion"
 import {$Block$$Type} from "net.minecraft.world.level.block.Block"
 import {$WorldDataReader, $WorldDataReader$$Type} from "xaero.map.file.worldsave.WorldDataReader"
@@ -50,16 +50,16 @@ import {$Path} from "java.nio.file.Path"
 export class $WorldDataHandler {
 constructor(arg0: $WorldDataReader$$Type, arg1: $Executor$$Type)
 
-public "handleRenderExecutor"(): void
-public static "onServerWorldUnload"(arg0: $ServerLevel$$Type): void
-public "buildRegion"(arg0: $MapRegion$$Type, arg1: $HolderLookup$$Type<($Block$$Type)>, arg2: $Registry$$Type<($Block$$Type)>, arg3: $Registry$$Type<($Fluid$$Type)>, arg4: boolean, arg5: (integer)[]): $WorldDataHandler$Result
-public "getWorldDir"(): $Path
 public "getWorldDataReader"(): $WorldDataReader
 public "getWorldServer"(): $ServerLevel
+public "handleRenderExecutor"(): void
+public static "onServerWorldUnload"(arg0: $ServerLevel$$Type): void
+public "getWorldDir"(): $Path
 public "prepareSingleplayer"(arg0: $Level$$Type, arg1: $MapProcessor$$Type): void
-get "worldDir"(): $Path
+public "buildRegion"(arg0: $MapRegion$$Type, arg1: $HolderLookup$$Type<($Block$$Type)>, arg2: $Registry$$Type<($Block$$Type)>, arg3: $Registry$$Type<($Fluid$$Type)>, arg4: boolean, arg5: (integer)[]): $WorldDataHandler$Result
 get "worldDataReader"(): $WorldDataReader
 get "worldServer"(): $ServerLevel
+get "worldDir"(): $Path
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

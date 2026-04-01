@@ -56,29 +56,29 @@ public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "identifier"(): StringJS
-public "textureHeight"(): double
-public "textureWidth"(): double
 public static "deserializer"(): $JsonDeserializer<($ModelProperties)>
-public "animationSingleLegAnimation"(): boolean
-public "animationSingleArmAnimation"(): boolean
-public "animationStatueOfLibertyArms"(): boolean
+public "textureWidth"(): double
+public "textureHeight"(): double
+public "animationNoHeadBob"(): boolean
 public "animationArmsDown"(): boolean
 public "visibleBoundsWidth"(): double
 public "preserveModelPose"(): boolean
-public "animationNoHeadBob"(): boolean
 public "animationStationaryLegs"(): boolean
-public "visibleBoundsOffset"(): (double)[]
+public "animationUpsideDown"(): boolean
 public "visibleBoundsHeight"(): double
 public "animationDontShowArmor"(): boolean
-public "animationArmsOutFront"(): boolean
+public "visibleBoundsOffset"(): (double)[]
 public "animationInvertedCrouch"(): boolean
-public "animationUpsideDown"(): boolean
+public "animationArmsOutFront"(): boolean
+public "animationSingleArmAnimation"(): boolean
+public "animationSingleLegAnimation"(): boolean
+public "animationStatueOfLibertyArms"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $ModelProperties$$Type = ({"animationUpsideDown"?: boolean, "visibleBoundsOffset"?: (double)[], "animationStatueOfLibertyArms"?: boolean, "visibleBoundsWidth"?: double, "textureHeight"?: double, "animationSingleArmAnimation"?: boolean, "animationSingleLegAnimation"?: boolean, "animationNoHeadBob"?: boolean, "animationArmsOutFront"?: boolean, "animationStationaryLegs"?: boolean, "preserveModelPose"?: boolean, "animationDontShowArmor"?: boolean, "visibleBoundsHeight"?: double, "animationArmsDown"?: boolean, "textureWidth"?: double, "identifier"?: StringJS, "animationInvertedCrouch"?: boolean}) | ([animationUpsideDown?: boolean, visibleBoundsOffset?: (double)[], animationStatueOfLibertyArms?: boolean, visibleBoundsWidth?: double, textureHeight?: double, animationSingleArmAnimation?: boolean, animationSingleLegAnimation?: boolean, animationNoHeadBob?: boolean, animationArmsOutFront?: boolean, animationStationaryLegs?: boolean, preserveModelPose?: boolean, animationDontShowArmor?: boolean, visibleBoundsHeight?: double, animationArmsDown?: boolean, textureWidth?: double, identifier?: StringJS, animationInvertedCrouch?: boolean]);
+export type $ModelProperties$$Type = ({"identifier"?: StringJS, "textureWidth"?: double, "animationArmsDown"?: boolean, "visibleBoundsHeight"?: double, "animationDontShowArmor"?: boolean, "preserveModelPose"?: boolean, "animationStationaryLegs"?: boolean, "animationArmsOutFront"?: boolean, "animationNoHeadBob"?: boolean, "animationSingleLegAnimation"?: boolean, "animationSingleArmAnimation"?: boolean, "textureHeight"?: double, "visibleBoundsWidth"?: double, "animationStatueOfLibertyArms"?: boolean, "visibleBoundsOffset"?: (double)[], "animationUpsideDown"?: boolean, "animationInvertedCrouch"?: boolean}) | ([identifier?: StringJS, textureWidth?: double, animationArmsDown?: boolean, visibleBoundsHeight?: double, animationDontShowArmor?: boolean, preserveModelPose?: boolean, animationStationaryLegs?: boolean, animationArmsOutFront?: boolean, animationNoHeadBob?: boolean, animationSingleLegAnimation?: boolean, animationSingleArmAnimation?: boolean, textureHeight?: double, visibleBoundsWidth?: double, animationStatueOfLibertyArms?: boolean, visibleBoundsOffset?: (double)[], animationUpsideDown?: boolean, animationInvertedCrouch?: boolean]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */

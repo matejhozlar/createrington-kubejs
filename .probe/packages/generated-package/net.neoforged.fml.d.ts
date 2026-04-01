@@ -50,12 +50,12 @@ public "getNamespace"(): StringJS
 public "getModId"(): StringJS
 public "registerConfig"(arg0: $ModConfig$Type$$Type, arg1: $IConfigSpec$$Type, arg2: StringJS): void
 public "registerConfig"(arg0: $ModConfig$Type$$Type, arg1: $IConfigSpec$$Type): void
-public "registerExtensionPoint"<T extends $IExtensionPoint>(arg0: $Class$$Type<(T)>, arg1: T): void
-public "registerExtensionPoint"<T extends $IExtensionPoint>(arg0: $Class$$Type<(T)>, arg1: $Supplier$$Type<(T)>): void
 public "getModInfo"(): $IModInfo
-public "getEventBus"(): $IEventBus
+public "registerExtensionPoint"<T extends $IExtensionPoint>(arg0: $Class$$Type<(T)>, arg1: $Supplier$$Type<(T)>): void
+public "registerExtensionPoint"<T extends $IExtensionPoint>(arg0: $Class$$Type<(T)>, arg1: T): void
 public "acceptEvent"<T extends $Event>(arg0: $EventPriority$$Type, arg1: T): void
 public "acceptEvent"<T extends $Event>(arg0: T): void
+public "getEventBus"(): $IEventBus
 public "getCustomExtension"<T extends $IExtensionPoint>(arg0: $Class$$Type<(T)>): $Optional<(T)>
 get "namespace"(): StringJS
 get "modId"(): StringJS
@@ -95,23 +95,23 @@ public "hashCode"(): integer
 public "cause"(): $Throwable
 public static "error"(arg0: StringJS, ...arg1: (any)[]): $ModLoadingIssue
 public static "warning"(arg0: StringJS, ...arg1: (any)[]): $ModLoadingIssue
-public "severity"(): $ModLoadingIssue$Severity
+public "withSeverity"(arg0: $ModLoadingIssue$Severity$$Type): $ModLoadingIssue
 public "withAffectedModFile"(arg0: $IModFile$$Type): $ModLoadingIssue
 public "withCause"(arg0: $Throwable$$Type): $ModLoadingIssue
+public "severity"(): $ModLoadingIssue$Severity
 public "translationKey"(): StringJS
 public "withAffectedPath"(arg0: $Path$$Type): $ModLoadingIssue
-public "withSeverity"(arg0: $ModLoadingIssue$Severity$$Type): $ModLoadingIssue
-public "translationArgs"(): $List<(any)>
-public "affectedModFile"(): $IModFile
-public "affectedMod"(): $IModInfo
 public "withAffectedMod"(arg0: $IModInfo$$Type): $ModLoadingIssue
 public "affectedPath"(): $Path
+public "affectedModFile"(): $IModFile
+public "translationArgs"(): $List<(any)>
+public "affectedMod"(): $IModInfo
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $ModLoadingIssue$$Type = ({"affectedModFile"?: $IModFile$$Type, "affectedPath"?: $Path$$Type, "affectedMod"?: $IModInfo$$Type, "cause"?: $Throwable$$Type, "translationKey"?: StringJS, "translationArgs"?: $List$$Type<(any)>, "severity"?: $ModLoadingIssue$Severity$$Type}) | ([affectedModFile?: $IModFile$$Type, affectedPath?: $Path$$Type, affectedMod?: $IModInfo$$Type, cause?: $Throwable$$Type, translationKey?: StringJS, translationArgs?: $List$$Type<(any)>, severity?: $ModLoadingIssue$Severity$$Type]);
+export type $ModLoadingIssue$$Type = ({"severity"?: $ModLoadingIssue$Severity$$Type, "translationArgs"?: $List$$Type<(any)>, "translationKey"?: StringJS, "cause"?: $Throwable$$Type, "affectedMod"?: $IModInfo$$Type, "affectedPath"?: $Path$$Type, "affectedModFile"?: $IModFile$$Type}) | ([severity?: $ModLoadingIssue$Severity$$Type, translationArgs?: $List$$Type<(any)>, translationKey?: StringJS, cause?: $Throwable$$Type, affectedMod?: $IModInfo$$Type, affectedPath?: $Path$$Type, affectedModFile?: $IModFile$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */

@@ -43,18 +43,18 @@ constructor(arg0: ($HolderSet$$Type<($Block$$Type)>)?, arg1: ($StatePropertiesPr
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public "matches"(arg0: $BlockInWorld$$Type): boolean
 public "matches"(arg0: $ServerLevel$$Type, arg1: $BlockPos$$Type): boolean
+public "matches"(arg0: $BlockInWorld$$Type): boolean
 public "properties"(): $Optional<($StatePropertiesPredicate)>
-public "requiresNbt"(): boolean
 public "blocks"(): $Optional<($HolderSet<($Block)>)>
+public "requiresNbt"(): boolean
 public "nbt"(): $Optional<($NbtPredicate)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $BlockPredicate$$Type = ({"nbt"?: ($NbtPredicate$$Type)?, "properties"?: ($StatePropertiesPredicate$$Type)?, "blocks"?: ($HolderSet$$Type<($Block$$Type)>)?}) | ([nbt?: ($NbtPredicate$$Type)?, properties?: ($StatePropertiesPredicate$$Type)?, blocks?: ($HolderSet$$Type<($Block$$Type)>)?]);
+export type $BlockPredicate$$Type = ({"blocks"?: ($HolderSet$$Type<($Block$$Type)>)?, "properties"?: ($StatePropertiesPredicate$$Type)?, "nbt"?: ($NbtPredicate$$Type)?}) | ([blocks?: ($HolderSet$$Type<($Block$$Type)>)?, properties?: ($StatePropertiesPredicate$$Type)?, nbt?: ($NbtPredicate$$Type)?]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -63,8 +63,8 @@ declare module "net.minecraft.advancements.critereon.StatePropertiesPredicate$Pr
 import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
 import {$Optional} from "java.util.Optional"
 import {$StateHolder, $StateHolder$$Type} from "net.minecraft.world.level.block.state.StateHolder"
-import {$StatePropertiesPredicate$ValueMatcher, $StatePropertiesPredicate$ValueMatcher$$Type} from "net.minecraft.advancements.critereon.StatePropertiesPredicate$ValueMatcher"
 import {$StateDefinition$$Type} from "net.minecraft.world.level.block.state.StateDefinition"
+import {$StatePropertiesPredicate$ValueMatcher, $StatePropertiesPredicate$ValueMatcher$$Type} from "net.minecraft.advancements.critereon.StatePropertiesPredicate$ValueMatcher"
 import {$ByteBuf} from "io.netty.buffer.ByteBuf"
 import {$Record} from "java.lang.Record"
 
@@ -85,15 +85,15 @@ public "valueMatcher"(): $StatePropertiesPredicate$ValueMatcher
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $StatePropertiesPredicate$PropertyMatcher$$Type = ({"valueMatcher"?: $StatePropertiesPredicate$ValueMatcher$$Type, "name"?: StringJS}) | ([valueMatcher?: $StatePropertiesPredicate$ValueMatcher$$Type, name?: StringJS]);
+export type $StatePropertiesPredicate$PropertyMatcher$$Type = ({"name"?: StringJS, "valueMatcher"?: $StatePropertiesPredicate$ValueMatcher$$Type}) | ([name?: StringJS, valueMatcher?: $StatePropertiesPredicate$ValueMatcher$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $StatePropertiesPredicate$PropertyMatcher$$Original = $StatePropertiesPredicate$PropertyMatcher;}
 declare module "net.minecraft.advancements.critereon.CriterionValidator" {
 import {$HolderGetter$Provider$$Type} from "net.minecraft.core.HolderGetter$Provider"
-import {$Optional$$Type} from "java.util.Optional"
 import {$ContextAwarePredicate$$Type} from "net.minecraft.advancements.critereon.ContextAwarePredicate"
+import {$Optional$$Type} from "java.util.Optional"
 import {$List$$Type} from "java.util.List"
 import {$ProblemReporter$$Type} from "net.minecraft.util.ProblemReporter"
 import {$LootContextParamSet$$Type} from "net.minecraft.world.level.storage.loot.parameters.LootContextParamSet"
@@ -103,9 +103,9 @@ constructor(arg0: $ProblemReporter$$Type, arg1: $HolderGetter$Provider$$Type)
 
 public "validate"(arg0: $ContextAwarePredicate$$Type, arg1: $LootContextParamSet$$Type, arg2: StringJS): void
 public "validate"(arg0: $List$$Type<($ContextAwarePredicate$$Type)>, arg1: $LootContextParamSet$$Type, arg2: StringJS): void
-public "validateEntities"(arg0: $List$$Type<($ContextAwarePredicate$$Type)>, arg1: StringJS): void
 public "validateEntity"(arg0: ($ContextAwarePredicate$$Type)?, arg1: StringJS): void
 public "validateEntity"(arg0: $ContextAwarePredicate$$Type, arg1: StringJS): void
+public "validateEntities"(arg0: $List$$Type<($ContextAwarePredicate$$Type)>, arg1: StringJS): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -119,11 +119,11 @@ export type $CriterionValidator$$Original = $CriterionValidator;}
 declare module "net.minecraft.advancements.critereon.MinMaxBounds" {
 import {$SimpleCommandExceptionType} from "com.mojang.brigadier.exceptions.SimpleCommandExceptionType"
 import {$MinMaxBounds$BoundsFactory$$Type} from "net.minecraft.advancements.critereon.MinMaxBounds$BoundsFactory"
-import {$Optional} from "java.util.Optional"
 import {$Codec, $Codec$$Type} from "com.mojang.serialization.Codec"
+import {$Optional} from "java.util.Optional"
 import {$StringReader$$Type} from "com.mojang.brigadier.StringReader"
-import {$Function$$Type} from "java.util.function.Function"
 import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$Function$$Type} from "java.util.function.Function"
 import {$MinMaxBounds$BoundsFromReaderFactory$$Type} from "net.minecraft.advancements.critereon.MinMaxBounds$BoundsFromReaderFactory"
 import {$DynamicCommandExceptionType$$Type} from "com.mojang.brigadier.exceptions.DynamicCommandExceptionType"
 
@@ -137,10 +137,10 @@ static readonly "ERROR_EMPTY": $SimpleCommandExceptionType
 
  "min"(): $Optional<(T)>
  "max"(): $Optional<(T)>
- "isAny"(): boolean
- "unwrapPoint"(): $Optional<(T)>
 static "createCodec"<T extends number, R extends $MinMaxBounds<(object)>>(arg0: $Codec$$Type<(T)>, arg1: $MinMaxBounds$BoundsFactory$$Type<(T), (R)>): $Codec<(R)>
 static "fromReader"<T extends number, R extends $MinMaxBounds<(object)>>(arg0: $StringReader$$Type, arg1: $MinMaxBounds$BoundsFromReaderFactory$$Type<(T), (R)>, arg2: $Function$$Type<(StringJS), (T)>, arg3: $Supplier$$Type<($DynamicCommandExceptionType$$Type)>, arg4: $Function$$Type<(T), (T)>): R
+ "unwrapPoint"(): $Optional<(T)>
+ "isAny"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -187,8 +187,8 @@ export type $NbtPredicate$$Type = ({"tag"?: $CompoundTag$$Type}) | ([tag?: $Comp
 export type $NbtPredicate$$Original = $NbtPredicate;}
 declare module "net.minecraft.advancements.critereon.MinMaxBounds$Doubles" {
 import {$MinMaxBounds$BoundsFactory$$Type} from "net.minecraft.advancements.critereon.MinMaxBounds$BoundsFactory"
-import {$Codec, $Codec$$Type} from "com.mojang.serialization.Codec"
 import {$Optional, $Optional$$Type} from "java.util.Optional"
+import {$Codec, $Codec$$Type} from "com.mojang.serialization.Codec"
 import {$StringReader$$Type} from "com.mojang.brigadier.StringReader"
 import {$Function$$Type} from "java.util.function.Function"
 import {$Supplier$$Type} from "java.util.function.Supplier"
@@ -210,25 +210,25 @@ public "min"(): $Optional<(double)>
 public "max"(): $Optional<(double)>
 public "matches"(arg0: double): boolean
 public static "between"(arg0: double, arg1: double): $MinMaxBounds$Doubles
-public static "atLeast"(arg0: double): $MinMaxBounds$Doubles
 public static "atMost"(arg0: double): $MinMaxBounds$Doubles
+public static "atLeast"(arg0: double): $MinMaxBounds$Doubles
 public static "fromReader"(arg0: $StringReader$$Type, arg1: $Function$$Type<(double), (double)>): $MinMaxBounds$Doubles
 public static "fromReader"(arg0: $StringReader$$Type): $MinMaxBounds$Doubles
-public static "exactly"(arg0: double): $MinMaxBounds$Doubles
-public "minSq"(): $Optional<(double)>
 public "maxSq"(): $Optional<(double)>
+public "minSq"(): $Optional<(double)>
 public "matchesSqr"(arg0: double): boolean
-public "isAny"(): boolean
-public "unwrapPoint"(): $Optional<(double)>
+public static "exactly"(arg0: double): $MinMaxBounds$Doubles
 public static "createCodec"<T extends number, R extends $MinMaxBounds<(object)>>(arg0: $Codec$$Type<(double)>, arg1: $MinMaxBounds$BoundsFactory$$Type<(double), (R)>): $Codec<(R)>
 public static "fromReader"<T extends number, R extends $MinMaxBounds<(object)>>(arg0: $StringReader$$Type, arg1: $MinMaxBounds$BoundsFromReaderFactory$$Type<(double), (R)>, arg2: $Function$$Type<(StringJS), (double)>, arg3: $Supplier$$Type<($DynamicCommandExceptionType$$Type)>, arg4: $Function$$Type<(double), (double)>): R
+public "unwrapPoint"(): $Optional<(double)>
+public "isAny"(): boolean
 get "any"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $MinMaxBounds$Doubles$$Type = ({"maxSq"?: (double)?, "min"?: (double)?, "minSq"?: (double)?, "max"?: (double)?}) | ([maxSq?: (double)?, min?: (double)?, minSq?: (double)?, max?: (double)?]);
+export type $MinMaxBounds$Doubles$$Type = ({"minSq"?: (double)?, "min"?: (double)?, "maxSq"?: (double)?, "max"?: (double)?}) | ([minSq?: (double)?, min?: (double)?, maxSq?: (double)?, max?: (double)?]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -257,8 +257,8 @@ import {$List, $List$$Type} from "java.util.List"
 import {$StateHolder, $StateHolder$$Type} from "net.minecraft.world.level.block.state.StateHolder"
 import {$StateDefinition$$Type} from "net.minecraft.world.level.block.state.StateDefinition"
 import {$FluidState$$Type} from "net.minecraft.world.level.material.FluidState"
-import {$ByteBuf} from "io.netty.buffer.ByteBuf"
 import {$StatePropertiesPredicate$PropertyMatcher, $StatePropertiesPredicate$PropertyMatcher$$Type} from "net.minecraft.advancements.critereon.StatePropertiesPredicate$PropertyMatcher"
+import {$ByteBuf} from "io.netty.buffer.ByteBuf"
 import {$BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
 import {$Record} from "java.lang.Record"
 

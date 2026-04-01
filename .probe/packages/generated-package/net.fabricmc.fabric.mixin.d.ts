@@ -95,9 +95,9 @@ get "vanillaAdapter"(): boolean
 }
 
 export class $BakedModelMixin implements $BakedModelMixin$$Interface {
- "isVanillaAdapter"(): boolean
  "emitItemQuads"(arg0: $ItemStack$$Type, arg1: $Supplier$$Type<($RandomSource$$Type)>, arg2: $RenderContext$$Type): void
  "emitBlockQuads"(arg0: $BlockAndTintGetter$$Type, arg1: $BlockState$$Type, arg2: $BlockPos$$Type, arg3: $Supplier$$Type<($RandomSource$$Type)>, arg4: $RenderContext$$Type): void
+ "isVanillaAdapter"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -154,16 +154,16 @@ export type $ServerChunkLoadingManagerAccessor$$Type = (() => $Int2ObjectMap$$Ty
  */
 export type $ServerChunkLoadingManagerAccessor$$Original = $ServerChunkLoadingManagerAccessor;}
 declare module "net.fabricmc.fabric.mixin.attachment.IAttachmentHolderMixin" {
-import {$AttachmentTargetImpl$$Interface} from "net.fabricmc.fabric.impl.attachment.AttachmentTargetImpl"
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
+import {$AttachmentTargetImpl$$Interface} from "net.fabricmc.fabric.impl.attachment.AttachmentTargetImpl"
 import {$AttachmentSyncPayloadS2C$$Type} from "net.fabricmc.fabric.impl.attachment.sync.s2c.AttachmentSyncPayloadS2C"
 import {$AttachmentType$$Type} from "net.fabricmc.fabric.api.attachment.v1.AttachmentType"
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$AttachmentChange$$Type} from "net.fabricmc.fabric.impl.attachment.sync.AttachmentChange"
 import {$ServerPlayer$$Type} from "net.minecraft.server.level.ServerPlayer"
 import {$Consumer$$Type} from "java.util.function.Consumer"
-import {$RegistryAccess, $RegistryAccess$$Type} from "net.minecraft.core.RegistryAccess"
 import {$AttachmentTargetInfo} from "net.fabricmc.fabric.impl.attachment.sync.AttachmentTargetInfo"
+import {$RegistryAccess, $RegistryAccess$$Type} from "net.minecraft.core.RegistryAccess"
 
 export interface $IAttachmentHolderMixin$$Interface extends $AttachmentTargetImpl$$Interface {
 
@@ -171,23 +171,23 @@ export interface $IAttachmentHolderMixin$$Interface extends $AttachmentTargetImp
 }
 
 export class $IAttachmentHolderMixin implements $IAttachmentHolderMixin$$Interface {
- "acknowledgeSyncedEntry"(arg0: $AttachmentType$$Type<(never)>, arg1: $AttachmentChange$$Type): void
- "fabric_getSyncTargetInfo"(): $AttachmentTargetInfo<(never)>
- "fabric_shouldTryToSync"(): boolean
  "fabric_syncChange"(arg0: $AttachmentType$$Type<(never)>, arg1: $AttachmentSyncPayloadS2C$$Type): void
  "setAttached"<A>(arg0: $AttachmentType$$Type<(A)>, arg1: A): A
  "fabric_computeInitialSyncChanges"(arg0: $ServerPlayer$$Type, arg1: $Consumer$$Type<($AttachmentChange)>): void
  "fabric_getDynamicRegistryManager"(): $RegistryAccess
+ "fabric_shouldTryToSync"(): boolean
+ "fabric_getSyncTargetInfo"(): $AttachmentTargetInfo<(never)>
+ "acknowledgeSyncedEntry"(arg0: $AttachmentType$$Type<(never)>, arg1: $AttachmentChange$$Type): void
+ "getAttachedOrThrow"<A>(arg0: $AttachmentType$$Type<(A)>): A
+ "getAttachedOrElse"<A>(arg0: $AttachmentType$$Type<(A)>, arg1: A): A
+ "getAttachedOrGet"<A>(arg0: $AttachmentType$$Type<(A)>, arg1: $Supplier$$Type<(A)>): A
+ "getAttached"<A>(arg0: $AttachmentType$$Type<(A)>): A
+ "hasAttached"(arg0: $AttachmentType$$Type<(never)>): boolean
+ "removeAttached"<A>(arg0: $AttachmentType$$Type<(A)>): A
+ "modifyAttached"<A>(arg0: $AttachmentType$$Type<(A)>, arg1: $UnaryOperator$$Type<(A)>): A
+ "getAttachedOrSet"<A>(arg0: $AttachmentType$$Type<(A)>, arg1: A): A
  "getAttachedOrCreate"<A>(arg0: $AttachmentType$$Type<(A)>, arg1: $Supplier$$Type<(A)>): A
  "getAttachedOrCreate"<A>(arg0: $AttachmentType$$Type<(A)>): A
- "hasAttached"(arg0: $AttachmentType$$Type<(never)>): boolean
- "getAttached"<A>(arg0: $AttachmentType$$Type<(A)>): A
- "removeAttached"<A>(arg0: $AttachmentType$$Type<(A)>): A
- "getAttachedOrElse"<A>(arg0: $AttachmentType$$Type<(A)>, arg1: A): A
- "getAttachedOrSet"<A>(arg0: $AttachmentType$$Type<(A)>, arg1: A): A
- "modifyAttached"<A>(arg0: $AttachmentType$$Type<(A)>, arg1: $UnaryOperator$$Type<(A)>): A
- "getAttachedOrThrow"<A>(arg0: $AttachmentType$$Type<(A)>): A
- "getAttachedOrGet"<A>(arg0: $AttachmentType$$Type<(A)>, arg1: $Supplier$$Type<(A)>): A
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -221,8 +221,8 @@ export type $TagKeyMixin$$Type = ($TagKeyMixin);
  */
 export type $TagKeyMixin$$Original = $TagKeyMixin;}
 declare module "net.fabricmc.fabric.mixin.rendering.data.WorldViewMixin" {
-import {$LevelLightEngine} from "net.minecraft.world.level.lighting.LevelLightEngine"
 import {$BlockHitResult} from "net.minecraft.world.phys.BlockHitResult"
+import {$LevelLightEngine} from "net.minecraft.world.level.lighting.LevelLightEngine"
 import {$LevelHeightAccessor} from "net.minecraft.world.level.LevelHeightAccessor"
 import {$Optional} from "java.util.Optional"
 import {$Direction$$Type} from "net.minecraft.core.Direction"
@@ -232,9 +232,9 @@ import {$Vec3$$Type} from "net.minecraft.world.phys.Vec3"
 import {$BlockEntityType$$Type} from "net.minecraft.world.level.block.entity.BlockEntityType"
 import {$Function$$Type} from "java.util.function.Function"
 import {$Supplier$$Type} from "java.util.function.Supplier"
-import {$Biome} from "net.minecraft.world.level.biome.Biome"
 import {$ModelData} from "net.neoforged.neoforge.client.model.data.ModelData"
 import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
+import {$Biome} from "net.minecraft.world.level.biome.Biome"
 import {$Stream} from "java.util.stream.Stream"
 import {$ClipBlockStateContext$$Type} from "net.minecraft.world.level.ClipBlockStateContext"
 import {$BlockState, $BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
@@ -245,19 +245,19 @@ import {$ChunkPos$$Type} from "net.minecraft.world.level.ChunkPos"
 import {$BiFunction$$Type} from "java.util.function.BiFunction"
 import {$VoxelShape$$Type} from "net.minecraft.world.phys.shapes.VoxelShape"
 import {$ClipContext$$Type} from "net.minecraft.world.level.ClipContext"
-import {$FluidState} from "net.minecraft.world.level.material.FluidState"
 import {$BlockEntity} from "net.minecraft.world.level.block.entity.BlockEntity"
+import {$FluidState} from "net.minecraft.world.level.material.FluidState"
 import {$AABB$$Type} from "net.minecraft.world.phys.AABB"
 
 export interface $WorldViewMixin$$Interface extends $RenderAttachedBlockView$$Interface {
 get "lightEngine"(): $LevelLightEngine
 get "maxLightLevel"(): integer
+get "minBuildHeight"(): integer
 get "maxBuildHeight"(): integer
-get "maxSection"(): integer
+get "height"(): integer
 get "minSection"(): integer
 get "sectionsCount"(): integer
-get "height"(): integer
-get "minBuildHeight"(): integer
+get "maxSection"(): integer
 }
 
 export class $WorldViewMixin implements $WorldViewMixin$$Interface {
@@ -266,38 +266,38 @@ export class $WorldViewMixin implements $WorldViewMixin$$Interface {
  * @deprecated
  */
  "getBlockEntityRenderAttachment"(arg0: $BlockPos$$Type): any
- "getLightEngine"(): $LevelLightEngine
  "canSeeSky"(arg0: $BlockPos$$Type): boolean
+ "getBrightness"(arg0: $LightLayer$$Type, arg1: $BlockPos$$Type): integer
  "getShade"(arg0: $Direction$$Type, arg1: boolean): float
  "getBlockTint"(arg0: $BlockPos$$Type, arg1: $ColorResolver$$Type): integer
- "getBrightness"(arg0: $LightLayer$$Type, arg1: $BlockPos$$Type): integer
+ "getLightEngine"(): $LevelLightEngine
  "getRawBrightness"(arg0: $BlockPos$$Type, arg1: integer): integer
- "clipWithInteractionOverride"(arg0: $Vec3$$Type, arg1: $Vec3$$Type, arg2: $BlockPos$$Type, arg3: $VoxelShape$$Type, arg4: $BlockState$$Type): $BlockHitResult
  "getFluidState"(arg0: $BlockPos$$Type): $FluidState
- "getBlockEntity"<T extends $BlockEntity>(arg0: $BlockPos$$Type, arg1: $BlockEntityType$$Type<(T)>): $Optional<(T)>
- "getBlockEntity"(arg0: $BlockPos$$Type): $BlockEntity
- "getLightEmission"(arg0: $BlockPos$$Type): integer
  "clip"(arg0: $ClipContext$$Type): $BlockHitResult
  "getBlockState"(arg0: $BlockPos$$Type): $BlockState
  "getBlockFloorHeight"(arg0: $BlockPos$$Type): double
  "getBlockFloorHeight"(arg0: $VoxelShape$$Type, arg1: $Supplier$$Type<($VoxelShape$$Type)>): double
- "getBlockStates"(arg0: $AABB$$Type): $Stream<($BlockState)>
- "isBlockInLine"(arg0: $ClipBlockStateContext$$Type): $BlockHitResult
- "getMaxLightLevel"(): integer
 static "traverseBlocks"<T, C>(arg0: $Vec3$$Type, arg1: $Vec3$$Type, arg2: C, arg3: $BiFunction$$Type<(C), ($BlockPos), (T)>, arg4: $Function$$Type<(C), (T)>): T
+ "getBlockStates"(arg0: $AABB$$Type): $Stream<($BlockState)>
+ "getMaxLightLevel"(): integer
+ "isBlockInLine"(arg0: $ClipBlockStateContext$$Type): $BlockHitResult
+ "getLightEmission"(arg0: $BlockPos$$Type): integer
+ "clipWithInteractionOverride"(arg0: $Vec3$$Type, arg1: $Vec3$$Type, arg2: $BlockPos$$Type, arg3: $VoxelShape$$Type, arg4: $BlockState$$Type): $BlockHitResult
+ "getBlockEntity"<T extends $BlockEntity>(arg0: $BlockPos$$Type, arg1: $BlockEntityType$$Type<(T)>): $Optional<(T)>
+ "getBlockEntity"(arg0: $BlockPos$$Type): $BlockEntity
  "getShade"(arg0: float, arg1: float, arg2: float, arg3: boolean): float
 static "create"(arg0: integer, arg1: integer): $LevelHeightAccessor
- "getSectionYFromSectionIndex"(arg0: integer): integer
- "getSectionIndexFromSectionY"(arg0: integer): integer
+ "isOutsideBuildHeight"(arg0: integer): boolean
+ "isOutsideBuildHeight"(arg0: $BlockPos$$Type): boolean
+ "getMinBuildHeight"(): integer
  "getMaxBuildHeight"(): integer
- "getSectionIndex"(arg0: integer): integer
- "getMaxSection"(): integer
+ "getHeight"(): integer
  "getMinSection"(): integer
  "getSectionsCount"(): integer
- "getHeight"(): integer
- "isOutsideBuildHeight"(arg0: $BlockPos$$Type): boolean
- "isOutsideBuildHeight"(arg0: integer): boolean
- "getMinBuildHeight"(): integer
+ "getMaxSection"(): integer
+ "getSectionIndex"(arg0: integer): integer
+ "getSectionIndexFromSectionY"(arg0: integer): integer
+ "getSectionYFromSectionIndex"(arg0: integer): integer
  "getAuxLightManager"(arg0: $BlockPos$$Type): $AuxiliaryLightManager
  "getAuxLightManager"(arg0: $ChunkPos$$Type): $AuxiliaryLightManager
  "getModelData"(arg0: $BlockPos$$Type): $ModelData
@@ -489,19 +489,19 @@ import {$Enchantment} from "net.minecraft.world.item.enchantment.Enchantment"
 import {$List, $List$$Type} from "java.util.List"
 import {$HolderSet} from "net.minecraft.core.HolderSet"
 import {$Enchantment$EnchantmentDefinition} from "net.minecraft.world.item.enchantment.Enchantment$EnchantmentDefinition"
-import {$DataComponentMap$Builder} from "net.minecraft.core.component.DataComponentMap$Builder"
 import {$DataComponentType$$Type} from "net.minecraft.core.component.DataComponentType"
+import {$DataComponentMap$Builder} from "net.minecraft.core.component.DataComponentMap$Builder"
 
 export interface $EnchantmentBuilderAccessor$$Interface {
 get "definition"(): $Enchantment$EnchantmentDefinition
-get "effectMap"(): $DataComponentMap$Builder
 get "exclusiveSet"(): $HolderSet<($Enchantment)>
+get "effectMap"(): $DataComponentMap$Builder
 }
 
 export class $EnchantmentBuilderAccessor implements $EnchantmentBuilderAccessor$$Interface {
  "getDefinition"(): $Enchantment$EnchantmentDefinition
- "getEffectMap"(): $DataComponentMap$Builder
  "getExclusiveSet"(): $HolderSet<($Enchantment)>
+ "getEffectMap"(): $DataComponentMap$Builder
  "invokeGetEffectsList"<E>(arg0: $DataComponentType$$Type<($List$$Type<(E)>)>): $List<(E)>
 }
 /**
@@ -524,9 +524,9 @@ export interface $LootTableAccessor$$Interface {
 }
 
 export class $LootTableAccessor implements $LootTableAccessor$$Interface {
- "fabric_getPools"(): $List<($LootPool)>
- "fabric_getFunctions"(): $List<($LootItemFunction)>
  "fabric_getRandomSequenceId"(): $Optional<($ResourceLocation)>
+ "fabric_getFunctions"(): $List<($LootItemFunction)>
+ "fabric_getPools"(): $List<($LootPool)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -645,13 +645,13 @@ import {$Font} from "net.minecraft.client.gui.Font"
 import {$Minecraft} from "net.minecraft.client.Minecraft"
 
 export interface $ScreenAccessor$$Interface {
-get "font"(): $Font
 get "minecraft"(): $Minecraft
+get "font"(): $Font
 }
 
 export class $ScreenAccessor implements $ScreenAccessor$$Interface {
- "getFont"(): $Font
  "getMinecraft"(): $Minecraft
+ "getFont"(): $Font
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -705,8 +705,8 @@ export type $IBlockStateExtensionMixin$$Type = ($IBlockStateExtensionMixin);
  */
 export type $IBlockStateExtensionMixin$$Original = $IBlockStateExtensionMixin;}
 declare module "net.fabricmc.fabric.mixin.object.builder.AbstractBlockSettingsAccessor" {
-import {$FeatureFlagSet, $FeatureFlagSet$$Type} from "net.minecraft.world.flag.FeatureFlagSet"
 import {$MapColor, $MapColor$$Type} from "net.minecraft.world.level.material.MapColor"
+import {$FeatureFlagSet, $FeatureFlagSet$$Type} from "net.minecraft.world.flag.FeatureFlagSet"
 import {$SoundType} from "net.minecraft.world.level.block.SoundType"
 import {$BlockBehaviour$OffsetFunction, $BlockBehaviour$OffsetFunction$$Type} from "net.minecraft.world.level.block.state.BlockBehaviour$OffsetFunction"
 import {$LootTable, $LootTable$$Type} from "net.minecraft.world.level.storage.loot.LootTable"
@@ -715,109 +715,109 @@ import {$ToIntFunction} from "java.util.function.ToIntFunction"
 import {$Function, $Function$$Type} from "java.util.function.Function"
 import {$BlockBehaviour$StateArgumentPredicate} from "net.minecraft.world.level.block.state.BlockBehaviour$StateArgumentPredicate"
 import {$ResourceKey, $ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
-import {$BlockBehaviour$StatePredicate} from "net.minecraft.world.level.block.state.BlockBehaviour$StatePredicate"
 import {$PushReaction} from "net.minecraft.world.level.material.PushReaction"
-import {$BlockState, $BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
+import {$BlockBehaviour$StatePredicate} from "net.minecraft.world.level.block.state.BlockBehaviour$StatePredicate"
 import {$EntityType} from "net.minecraft.world.entity.EntityType"
+import {$BlockState, $BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
 
 export interface $AbstractBlockSettingsAccessor$$Interface {
-get "isAir"(): boolean
-set "drops"(value: $ResourceKey$$Type<($LootTable)>)
-set "liquid"(value: boolean)
-set "isAir"(value: boolean)
-get "speedFactor"(): float
-get "jumpFactor"(): float
-get "isRandomlyTicking"(): boolean
-get "isRedstoneConductor"(): boolean
-set "isRandomlyTicking"(value: boolean)
-set "requiredFeatures"(value: $FeatureFlagSet$$Type)
-get "emissiveRendering"(): $BlockBehaviour$StatePredicate
-set "spawnTerrainParticles"(value: boolean)
-get "spawnTerrainParticles"(): boolean
-get "requiredFeatures"(): $FeatureFlagSet
+get "hasPostProcess"(): $BlockBehaviour$StatePredicate
+get "forceSolidOn"(): boolean
+get "canOcclude"(): boolean
+get "hasCollision"(): boolean
+get "dynamicShape"(): boolean
+get "isValidSpawn"(): boolean
+get "isSuffocating"(): boolean
+get "isViewBlocking"(): boolean
+get "offsetFunction"(): $BlockBehaviour$OffsetFunction
+get "luminance"(): $ToIntFunction<($BlockState)>
+get "ignitedByLava"(): boolean
+get "destroyTime"(): float
+get "forceSolidOff"(): boolean
+set "hasCollision"(value: boolean)
+set "forceSolidOff"(value: boolean)
+set "replaceable"(value: boolean)
+set "forceSolidOn"(value: boolean)
+set "mapColor"(value: $Function$$Type<($BlockState), ($MapColor$$Type)>)
+set "canOcclude"(value: boolean)
+set "ignitedByLava"(value: boolean)
+get "instrument"(): $NoteBlockInstrument
+get "replaceable"(): boolean
+get "pushReaction"(): $PushReaction
+set "dynamicShape"(value: boolean)
+set "offsetFunction"(value: $BlockBehaviour$OffsetFunction$$Type)
+get "explosionResistance"(): float
 get "requiresCorrectToolForDrops"(): boolean
 set "requiresCorrectToolForDrops"(value: boolean)
-get "drops"(): $ResourceKey<($LootTable)>
 get "mapColor"(): $Function<($BlockState), ($MapColor)>
-get "explosionResistance"(): float
 get "soundType"(): $SoundType
 get "friction"(): float
-set "hasCollision"(value: boolean)
-set "replaceable"(value: boolean)
-get "offsetFunction"(): $BlockBehaviour$OffsetFunction
-set "ignitedByLava"(value: boolean)
-set "forceSolidOn"(value: boolean)
-get "forceSolidOff"(): boolean
-get "forceSolidOn"(): boolean
-get "replaceable"(): boolean
-get "dynamicShape"(): boolean
-set "dynamicShape"(value: boolean)
-set "canOcclude"(value: boolean)
-get "isViewBlocking"(): boolean
-get "hasCollision"(): boolean
-get "luminance"(): $ToIntFunction<($BlockState)>
-get "canOcclude"(): boolean
-get "pushReaction"(): $PushReaction
-get "instrument"(): $NoteBlockInstrument
-set "mapColor"(value: $Function$$Type<($BlockState), ($MapColor$$Type)>)
-get "ignitedByLava"(): boolean
-set "forceSolidOff"(value: boolean)
-get "isSuffocating"(): boolean
-get "hasPostProcess"(): $BlockBehaviour$StatePredicate
-get "destroyTime"(): float
-get "isValidSpawn"(): boolean
-set "offsetFunction"(value: $BlockBehaviour$OffsetFunction$$Type)
 get "liquid"(): boolean
+get "jumpFactor"(): float
+get "speedFactor"(): float
+set "drops"(value: $ResourceKey$$Type<($LootTable)>)
+set "liquid"(value: boolean)
+get "isAir"(): boolean
+set "isAir"(value: boolean)
+get "spawnTerrainParticles"(): boolean
+set "isRandomlyTicking"(value: boolean)
+set "spawnTerrainParticles"(value: boolean)
+get "isRedstoneConductor"(): boolean
+get "emissiveRendering"(): $BlockBehaviour$StatePredicate
+get "isRandomlyTicking"(): boolean
+set "requiredFeatures"(value: $FeatureFlagSet$$Type)
+get "requiredFeatures"(): $FeatureFlagSet
+get "drops"(): $ResourceKey<($LootTable)>
 }
 
 export class $AbstractBlockSettingsAccessor implements $AbstractBlockSettingsAccessor$$Interface {
- "getIsAir"(): boolean
- "setDrops"(arg0: $ResourceKey$$Type<($LootTable)>): void
- "setLiquid"(arg0: boolean): void
- "setIsAir"(arg0: boolean): void
- "getSpeedFactor"(): float
- "getJumpFactor"(): float
- "getIsRandomlyTicking"(): boolean
- "getIsRedstoneConductor"(): $BlockBehaviour$StatePredicate
- "setIsRandomlyTicking"(arg0: boolean): void
- "setRequiredFeatures"(arg0: $FeatureFlagSet$$Type): void
- "getEmissiveRendering"(): $BlockBehaviour$StatePredicate
- "setSpawnTerrainParticles"(arg0: boolean): void
- "getSpawnTerrainParticles"(): boolean
- "getRequiredFeatures"(): $FeatureFlagSet
+ "getHasPostProcess"(): $BlockBehaviour$StatePredicate
+ "getForceSolidOn"(): boolean
+ "getCanOcclude"(): boolean
+ "getHasCollision"(): boolean
+ "getDynamicShape"(): boolean
+ "getIsValidSpawn"(): $BlockBehaviour$StateArgumentPredicate<($EntityType<(never)>)>
+ "getIsSuffocating"(): $BlockBehaviour$StatePredicate
+ "getIsViewBlocking"(): $BlockBehaviour$StatePredicate
+ "getOffsetFunction"(): $BlockBehaviour$OffsetFunction
+ "getLuminance"(): $ToIntFunction<($BlockState)>
+ "getIgnitedByLava"(): boolean
+ "getDestroyTime"(): float
+ "getForceSolidOff"(): boolean
+ "setHasCollision"(arg0: boolean): void
+ "setForceSolidOff"(arg0: boolean): void
+ "setReplaceable"(arg0: boolean): void
+ "setForceSolidOn"(arg0: boolean): void
+ "setMapColor"(arg0: $Function$$Type<($BlockState), ($MapColor$$Type)>): void
+ "setCanOcclude"(arg0: boolean): void
+ "setIgnitedByLava"(arg0: boolean): void
+ "getInstrument"(): $NoteBlockInstrument
+ "getReplaceable"(): boolean
+ "getPushReaction"(): $PushReaction
+ "setDynamicShape"(arg0: boolean): void
+ "setOffsetFunction"(arg0: $BlockBehaviour$OffsetFunction$$Type): void
+ "getExplosionResistance"(): float
  "isRequiresCorrectToolForDrops"(): boolean
  "setRequiresCorrectToolForDrops"(arg0: boolean): void
- "getDrops"(): $ResourceKey<($LootTable)>
  "getMapColor"(): $Function<($BlockState), ($MapColor)>
- "getExplosionResistance"(): float
  "getSoundType"(): $SoundType
  "getFriction"(): float
- "setHasCollision"(arg0: boolean): void
- "setReplaceable"(arg0: boolean): void
- "getOffsetFunction"(): $BlockBehaviour$OffsetFunction
- "setIgnitedByLava"(arg0: boolean): void
- "setForceSolidOn"(arg0: boolean): void
- "getForceSolidOff"(): boolean
- "getForceSolidOn"(): boolean
- "getReplaceable"(): boolean
- "getDynamicShape"(): boolean
- "setDynamicShape"(arg0: boolean): void
- "setCanOcclude"(arg0: boolean): void
- "getIsViewBlocking"(): $BlockBehaviour$StatePredicate
- "getHasCollision"(): boolean
- "getLuminance"(): $ToIntFunction<($BlockState)>
- "getCanOcclude"(): boolean
- "getPushReaction"(): $PushReaction
- "getInstrument"(): $NoteBlockInstrument
- "setMapColor"(arg0: $Function$$Type<($BlockState), ($MapColor$$Type)>): void
- "getIgnitedByLava"(): boolean
- "setForceSolidOff"(arg0: boolean): void
- "getIsSuffocating"(): $BlockBehaviour$StatePredicate
- "getHasPostProcess"(): $BlockBehaviour$StatePredicate
- "getDestroyTime"(): float
- "getIsValidSpawn"(): $BlockBehaviour$StateArgumentPredicate<($EntityType<(never)>)>
- "setOffsetFunction"(arg0: $BlockBehaviour$OffsetFunction$$Type): void
  "getLiquid"(): boolean
+ "getJumpFactor"(): float
+ "getSpeedFactor"(): float
+ "setDrops"(arg0: $ResourceKey$$Type<($LootTable)>): void
+ "setLiquid"(arg0: boolean): void
+ "getIsAir"(): boolean
+ "setIsAir"(arg0: boolean): void
+ "getSpawnTerrainParticles"(): boolean
+ "setIsRandomlyTicking"(arg0: boolean): void
+ "setSpawnTerrainParticles"(arg0: boolean): void
+ "getIsRedstoneConductor"(): $BlockBehaviour$StatePredicate
+ "getEmissiveRendering"(): $BlockBehaviour$StatePredicate
+ "getIsRandomlyTicking"(): boolean
+ "setRequiredFeatures"(arg0: $FeatureFlagSet$$Type): void
+ "getRequiredFeatures"(): $FeatureFlagSet
+ "getDrops"(): $ResourceKey<($LootTable)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -837,9 +837,9 @@ export interface $VillagerEntityAccessor$$Interface {
 }
 
 export class $VillagerEntityAccessor implements $VillagerEntityAccessor$$Interface {
-static "fabric_getGatherableItems"(): $Set<($Item)>
-static "fabric_setItemFoodValues"(arg0: $Map$$Type<($Item$$Type), (integer)>): void
 static "fabric_setGatherableItems"(arg0: $Set$$Type<($Item$$Type)>): void
+static "fabric_setItemFoodValues"(arg0: $Map$$Type<($Item$$Type), (integer)>): void
+static "fabric_getGatherableItems"(): $Set<($Item)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -861,11 +861,11 @@ export interface $LootPoolAccessor$$Interface {
 }
 
 export class $LootPoolAccessor implements $LootPoolAccessor$$Interface {
- "fabric_getRolls"(): $NumberProvider
- "fabric_getEntries"(): $List<($LootPoolEntryContainer)>
+ "fabric_getConditions"(): $List<($LootItemCondition)>
  "fabric_getBonusRolls"(): $NumberProvider
  "fabric_getFunctions"(): $List<($LootItemFunction)>
- "fabric_getConditions"(): $List<($LootItemCondition)>
+ "fabric_getEntries"(): $List<($LootPoolEntryContainer)>
+ "fabric_getRolls"(): $NumberProvider
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

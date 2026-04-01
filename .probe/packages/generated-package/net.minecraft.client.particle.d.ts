@@ -41,8 +41,8 @@ export type $SpriteSet$$Type = ($SpriteSet);
  */
 export type $SpriteSet$$Original = $SpriteSet;}
 declare module "net.minecraft.client.particle.TextureSheetParticle" {
-import {$ClientLevel, $ClientLevel$$Type} from "net.minecraft.client.multiplayer.ClientLevel"
 import {$TextureAtlasSprite, $TextureAtlasSprite$$Type} from "net.minecraft.client.renderer.texture.TextureAtlasSprite"
+import {$ClientLevel, $ClientLevel$$Type} from "net.minecraft.client.multiplayer.ClientLevel"
 import {$SingleQuadParticle} from "net.minecraft.client.particle.SingleQuadParticle"
 import {$RandomSource} from "net.minecraft.util.RandomSource"
 import {$VertexConsumer$$Type} from "com.mojang.blaze3d.vertex.VertexConsumer"
@@ -84,17 +84,17 @@ readonly "level": $ClientLevel
 constructor(arg0: $ClientLevel$$Type, arg1: double, arg2: double, arg3: double)
 constructor(arg0: $ClientLevel$$Type, arg1: double, arg2: double, arg3: double, arg4: double, arg5: double, arg6: double)
 
-public "getV0"(): float
-public "getU1"(): float
-public "getU0"(): float
-public "getV1"(): float
 public "render"(arg0: $VertexConsumer$$Type, arg1: $Camera$$Type, arg2: float): void
+public "getU0"(): float
+public "getU1"(): float
+public "getV0"(): float
+public "getV1"(): float
 public "setSprite"(arg0: $TextureAtlasSprite$$Type): void
 public "setSpriteFromAge"(arg0: $SpriteSet$$Type): void
 public "pickSprite"(arg0: $SpriteSet$$Type): void
-get "v0"(): float
-get "u1"(): float
 get "u0"(): float
+get "u1"(): float
+get "v0"(): float
 get "v1"(): float
 set "spriteFromAge"(value: $SpriteSet$$Type)
 }
@@ -108,8 +108,8 @@ export type $TextureSheetParticle$$Type = ($TextureSheetParticle);
  */
 export type $TextureSheetParticle$$Original = $TextureSheetParticle;}
 declare module "net.minecraft.client.particle.SingleQuadParticle" {
-import {$ClientLevel, $ClientLevel$$Type} from "net.minecraft.client.multiplayer.ClientLevel"
 import {$SingleQuadParticle$FacingCameraMode} from "net.minecraft.client.particle.SingleQuadParticle$FacingCameraMode"
+import {$ClientLevel, $ClientLevel$$Type} from "net.minecraft.client.multiplayer.ClientLevel"
 import {$RandomSource} from "net.minecraft.util.RandomSource"
 import {$CallbackInfo$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfo"
 import {$Particle} from "net.minecraft.client.particle.Particle"
@@ -153,20 +153,20 @@ constructor(arg0: $ClientLevel$$Type, arg1: double, arg2: double, arg3: double)
 constructor(arg0: $ClientLevel$$Type, arg1: double, arg2: double, arg3: double, arg4: double, arg5: double, arg6: double)
 
 public "scale"(arg0: float): $Particle
-public "getRenderBoundingBox"(arg0: float): $AABB
-public "getV0"(): float
-public "getU1"(): float
-public "getU0"(): float
-public "getV1"(): float
 public "render"(arg0: $VertexConsumer$$Type, arg1: $Camera$$Type, arg2: float): void
-public "getFacingCameraMode"(): $SingleQuadParticle$FacingCameraMode
-public "handler$cgd000$sodium$renderRotatedQuad"(arg0: $VertexConsumer$$Type, arg1: $Quaternionf$$Type, arg2: float, arg3: float, arg4: float, arg5: float, arg6: $CallbackInfo$$Type): void
+public "handler$ckh000$sodium$renderRotatedQuad"(arg0: $VertexConsumer$$Type, arg1: $Quaternionf$$Type, arg2: float, arg3: float, arg4: float, arg5: float, arg6: $CallbackInfo$$Type): void
+public "getU0"(): float
+public "getU1"(): float
+public "getV0"(): float
+public "getV1"(): float
+public "getRenderBoundingBox"(arg0: float): $AABB
+public "getQuadSize"(arg0: float): float
 public "renderRotatedQuad"(arg0: $VertexConsumer$$Type, arg1: $Camera$$Type, arg2: $Quaternionf$$Type, arg3: float): void
 public "renderRotatedQuad"(arg0: $VertexConsumer$$Type, arg1: $Quaternionf$$Type, arg2: float, arg3: float, arg4: float, arg5: float): void
-public "getQuadSize"(arg0: float): float
-get "v0"(): float
-get "u1"(): float
+public "getFacingCameraMode"(): $SingleQuadParticle$FacingCameraMode
 get "u0"(): float
+get "u1"(): float
+get "v0"(): float
 get "v1"(): float
 get "facingCameraMode"(): $SingleQuadParticle$FacingCameraMode
 }
@@ -230,11 +230,11 @@ import {$ParticleRenderType$$Type} from "net.minecraft.client.particle.ParticleR
 import {$LightTexture$$Type} from "net.minecraft.client.renderer.LightTexture"
 import {$Map} from "java.util.Map"
 import {$Predicate$$Type} from "java.util.function.Predicate"
+import {$PreparableReloadListener$$Interface} from "net.minecraft.server.packs.resources.PreparableReloadListener"
 import {$ParticleEngine$SpriteParticleRegistration$$Type} from "net.minecraft.client.particle.ParticleEngine$SpriteParticleRegistration"
 import {$TextureAtlas} from "net.minecraft.client.renderer.texture.TextureAtlas"
-import {$PreparableReloadListener$$Interface} from "net.minecraft.server.packs.resources.PreparableReloadListener"
-import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
 import {$ParticleEngineAccessor$$Interface} from "net.createmod.ponder.mixin.client.accessor.ParticleEngineAccessor"
+import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
 import {$PreparableReloadListener$PreparationBarrier$$Type} from "net.minecraft.server.packs.resources.PreparableReloadListener$PreparationBarrier"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$TextureManager$$Type} from "net.minecraft.client.renderer.texture.TextureManager"
@@ -270,23 +270,23 @@ public "close"(): void
 public "tick"(): void
 public "reload"(arg0: $PreparableReloadListener$PreparationBarrier$$Type, arg1: $ResourceManager$$Type, arg2: $ProfilerFiller$$Type, arg3: $ProfilerFiller$$Type, arg4: $Executor$$Type, arg5: $Executor$$Type): $CompletableFuture<(void)>
 public "setLevel"(arg0: $ClientLevel$$Type): void
-public "crack"(arg0: $BlockPos$$Type, arg1: $Direction$$Type): void
-public "iterateParticles"(arg0: $Consumer$$Type<($Particle)>): void
-public "createTrackingEmitter"(arg0: $Entity$$Type, arg1: $ParticleOptions$$Type, arg2: integer): void
 public "createTrackingEmitter"(arg0: $Entity$$Type, arg1: $ParticleOptions$$Type): void
+public "createTrackingEmitter"(arg0: $Entity$$Type, arg1: $ParticleOptions$$Type, arg2: integer): void
+public "crack"(arg0: $BlockPos$$Type, arg1: $Direction$$Type): void
 public "render"(arg0: $LightTexture$$Type, arg1: $Camera$$Type, arg2: float, arg3: $Frustum$$Type, arg4: $Predicate$$Type<($ParticleRenderType)>): void
 /**
  * 
  * @deprecated
  */
 public "render"(arg0: $LightTexture$$Type, arg1: $Camera$$Type, arg2: float): void
-public "addBlockHitEffects"(arg0: $BlockPos$$Type, arg1: $BlockHitResult$$Type): void
 public "createParticle"(arg0: $ParticleOptions$$Type, arg1: double, arg2: double, arg3: double, arg4: double, arg5: double, arg6: double): $Particle
-public "handler$zcd000$sodium_extra$addBlockBreakParticles"(arg0: $BlockPos$$Type, arg1: $BlockState$$Type, arg2: $CallbackInfo$$Type): void
-public "countParticles"(): StringJS
-public "ponder$getProviders"(): $Map
-public "getParticleAtlasTexture"(): $TextureAtlas
+public "iterateParticles"(arg0: $Consumer$$Type<($Particle)>): void
+public "addBlockHitEffects"(arg0: $BlockPos$$Type, arg1: $BlockHitResult$$Type): void
 public "handler$zcd000$sodium_extra$addBlockBreakingParticles"(arg0: $BlockPos$$Type, arg1: $Direction$$Type, arg2: $CallbackInfo$$Type): void
+public "countParticles"(): StringJS
+public "handler$zcd000$sodium_extra$addBlockBreakParticles"(arg0: $BlockPos$$Type, arg1: $BlockState$$Type, arg2: $CallbackInfo$$Type): void
+public "getParticleAtlasTexture"(): $TextureAtlas
+public "ponder$getProviders"(): $Map
 public "handler$zcd000$sodium_extra$addParticle"(arg0: $ParticleOptions$$Type, arg1: double, arg2: double, arg3: double, arg4: double, arg5: double, arg6: double, arg7: $CallbackInfoReturnable$$Type): void
 public "getName"(): StringJS
 get "particleAtlasTexture"(): $TextureAtlas
@@ -375,28 +375,28 @@ public "move"(arg0: double, arg1: double, arg2: double): void
 public "tick"(): void
 public "setColor"(arg0: float, arg1: float, arg2: float): void
 public "setSize"(arg0: float, arg1: float): void
-public "setAlpha"(arg0: float): void
-public "getRenderBoundingBox"(arg0: float): $AABB
-public "getPos"(): $Vec3
-public "setBoundingBox"(arg0: $AABB$$Type): void
 public "getRenderType"(): $ParticleRenderType
 public "render"(arg0: $VertexConsumer$$Type, arg1: $Camera$$Type, arg2: float): void
-public "setPower"(arg0: float): $Particle
-public "getLightColor"(arg0: float): integer
-public "setLocationFromBoundingbox"(): void
-public "setLifetime"(arg0: integer): void
-public "getLifetime"(): integer
 public "getParticleGroup"(): $Optional<($ParticleGroup)>
+public "setLifetime"(arg0: integer): void
 public "setParticleSpeed"(arg0: double, arg1: double, arg2: double): void
-public "getBoundingBox"(): $AABB
+public "getLifetime"(): integer
+public "setPower"(arg0: float): $Particle
+public "setLocationFromBoundingbox"(): void
+public "getRenderBoundingBox"(arg0: float): $AABB
+public "getLightColor"(arg0: float): integer
 public "setPos"(arg0: double, arg1: double, arg2: double): void
+public "setBoundingBox"(arg0: $AABB$$Type): void
+public "getPos"(): $Vec3
+public "getBoundingBox"(): $AABB
+public "setAlpha"(arg0: float): void
 get "alive"(): boolean
-get "pos"(): $Vec3
-set "boundingBox"(value: $AABB$$Type)
 get "renderType"(): $ParticleRenderType
+get "particleGroup"(): $Optional<($ParticleGroup)>
 set "power"(value: float)
 get "locationFromBoundingbox"(): void
-get "particleGroup"(): $Optional<($ParticleGroup)>
+set "boundingBox"(value: $AABB$$Type)
+get "pos"(): $Vec3
 get "boundingBox"(): $AABB
 }
 /**
@@ -433,8 +433,8 @@ export type $SingleQuadParticle$FacingCameraMode$$Type = ((arg0: $Quaternionf, a
  */
 export type $SingleQuadParticle$FacingCameraMode$$Original = $SingleQuadParticle$FacingCameraMode;}
 declare module "net.minecraft.client.particle.SimpleAnimatedParticle" {
-import {$ClientLevel, $ClientLevel$$Type} from "net.minecraft.client.multiplayer.ClientLevel"
 import {$TextureAtlasSprite} from "net.minecraft.client.renderer.texture.TextureAtlasSprite"
+import {$ClientLevel, $ClientLevel$$Type} from "net.minecraft.client.multiplayer.ClientLevel"
 import {$RandomSource} from "net.minecraft.util.RandomSource"
 import {$ParticleRenderType} from "net.minecraft.client.particle.ParticleRenderType"
 import {$TextureSheetParticle} from "net.minecraft.client.particle.TextureSheetParticle"
@@ -477,12 +477,12 @@ constructor(arg0: $ClientLevel$$Type, arg1: double, arg2: double, arg3: double, 
 
 public "tick"(): void
 public "setColor"(arg0: integer): void
-public "setFadeColor"(arg0: integer): void
 public "getRenderType"(): $ParticleRenderType
 public "getLightColor"(arg0: float): integer
+public "setFadeColor"(arg0: integer): void
 set "color"(value: integer)
-set "fadeColor"(value: integer)
 get "renderType"(): $ParticleRenderType
+set "fadeColor"(value: integer)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

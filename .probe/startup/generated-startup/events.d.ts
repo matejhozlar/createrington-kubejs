@@ -1,7 +1,6 @@
-import {$ItemToolTierRegistryKubeEvent} from "dev.latvian.mods.kubejs.item.custom.ItemToolTierRegistryKubeEvent"
 import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
+import {$ItemToolTierRegistryKubeEvent} from "dev.latvian.mods.kubejs.item.custom.ItemToolTierRegistryKubeEvent"
 import {$KubeStartupEvent} from "dev.latvian.mods.kubejs.event.KubeStartupEvent"
-import {$MoldEventJS} from "com.jesz.createdieselgenerators.compat.kubejs.MoldEventJS"
 import {$BlockModificationKubeEvent} from "dev.latvian.mods.kubejs.block.BlockModificationKubeEvent"
 import {$KeybindRegistryKubeEvent} from "dev.latvian.mods.kubejs.client.KeybindRegistryKubeEvent"
 import {$ItemModificationKubeEvent} from "dev.latvian.mods.kubejs.item.ItemModificationKubeEvent"
@@ -38,8 +37,5 @@ function postInit(handler: (event: $KubeStartupEvent) => void): void
 }
 export namespace BlockEvents {
 function modification(handler: (event: $BlockModificationKubeEvent) => void): void
-}
-export namespace CDGEvents {
-function molds(handler: (event: $MoldEventJS) => void): void
 }
 }

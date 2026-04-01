@@ -66,14 +66,14 @@ import {$TimeUnit$$Type} from "java.util.concurrent.TimeUnit"
  */
 export interface $ChannelProgressivePromise$$Interface extends $ProgressivePromise$$Interface<(void)>, $ChannelProgressiveFuture$$Interface, $ChannelPromise$$Interface {
 set "failure"(value: $Throwable$$Type)
-get "success"(): $ChannelProgressivePromise
 set "success"(value: void)
+get "success"(): $ChannelProgressivePromise
 set "success"(value: void)
 get "uncancellable"(): boolean
 get "void"(): boolean
-get "now"(): void
 get "success"(): boolean
 get "cancellable"(): boolean
+get "now"(): void
 get "done"(): boolean
 get "cancelled"(): boolean
 }
@@ -83,32 +83,32 @@ export class $ChannelProgressivePromise implements $ChannelProgressivePromise$$I
  "sync"(): $ChannelProgressivePromise
  "awaitUninterruptibly"(): $ChannelProgressivePromise
  "removeListeners"(...arg0: ($GenericFutureListener$$Type<($Future$$Type<(void)>)>)[]): $ChannelProgressivePromise
- "unvoid"(): $ChannelProgressivePromise
  "removeListener"(arg0: $GenericFutureListener$$Type<($Future$$Type<(void)>)>): $ChannelProgressivePromise
  "addListener"(arg0: $GenericFutureListener$$Type<($Future$$Type<(void)>)>): $ChannelProgressivePromise
- "addListeners"(...arg0: ($GenericFutureListener$$Type<($Future$$Type<(void)>)>)[]): $ChannelProgressivePromise
  "setProgress"(arg0: long, arg1: long): $ChannelProgressivePromise
- "setFailure"(arg0: $Throwable$$Type): $ChannelProgressivePromise
- "setSuccess"(): $ChannelProgressivePromise
- "setSuccess"(arg0: void): $ChannelProgressivePromise
  "syncUninterruptibly"(): $ChannelProgressivePromise
+ "addListeners"(...arg0: ($GenericFutureListener$$Type<($Future$$Type<(void)>)>)[]): $ChannelProgressivePromise
+ "setFailure"(arg0: $Throwable$$Type): $ChannelProgressivePromise
+ "unvoid"(): $ChannelProgressivePromise
+ "setSuccess"(arg0: void): $ChannelProgressivePromise
+ "setSuccess"(): $ChannelProgressivePromise
  "setSuccess"(arg0: void): $ProgressivePromise<(void)>
  "tryProgress"(arg0: long, arg1: long): boolean
  "channel"(): $Channel
  "trySuccess"(): boolean
  "setUncancellable"(): boolean
- "tryFailure"(arg0: $Throwable$$Type): boolean
  "trySuccess"(arg0: void): boolean
+ "tryFailure"(arg0: $Throwable$$Type): boolean
  "isVoid"(): boolean
  "cause"(): $Throwable
  "cancel"(arg0: boolean): boolean
- "await"(arg0: long, arg1: $TimeUnit$$Type): boolean
  "await"(arg0: long): boolean
- "awaitUninterruptibly"(arg0: long, arg1: $TimeUnit$$Type): boolean
+ "await"(arg0: long, arg1: $TimeUnit$$Type): boolean
  "awaitUninterruptibly"(arg0: long): boolean
- "getNow"(): void
+ "awaitUninterruptibly"(arg0: long, arg1: $TimeUnit$$Type): boolean
  "isSuccess"(): boolean
  "isCancellable"(): boolean
+ "getNow"(): void
  "get"(arg0: long, arg1: $TimeUnit$$Type): void
  "get"(): void
  "state"(): $Future$State
@@ -128,8 +128,8 @@ export type $ChannelProgressivePromise$$Type = ($ChannelProgressivePromise);
 export type $ChannelProgressivePromise$$Original = $ChannelProgressivePromise;}
 declare module "io.netty.channel.ChannelConfig" {
 import {$Map, $Map$$Type} from "java.util.Map"
-import {$RecvByteBufAllocator, $RecvByteBufAllocator$$Type} from "io.netty.channel.RecvByteBufAllocator"
 import {$WriteBufferWaterMark, $WriteBufferWaterMark$$Type} from "io.netty.channel.WriteBufferWaterMark"
+import {$RecvByteBufAllocator, $RecvByteBufAllocator$$Type} from "io.netty.channel.RecvByteBufAllocator"
 import {$ChannelOption, $ChannelOption$$Type} from "io.netty.channel.ChannelOption"
 import {$ByteBufAllocator, $ByteBufAllocator$$Type} from "io.netty.buffer.ByteBufAllocator"
 import {$MessageSizeEstimator, $MessageSizeEstimator$$Type} from "io.netty.channel.MessageSizeEstimator"
@@ -141,66 +141,66 @@ import {$MessageSizeEstimator, $MessageSizeEstimator$$Type} from "io.netty.chann
  */
 export interface $ChannelConfig$$Interface {
 get "options"(): $Map<($ChannelOption<(never)>), (any)>
-set "options"(value: $Map$$Type<($ChannelOption$$Type<(never)>), (never)>)
 set "connectTimeoutMillis"(value: integer)
-get "writeBufferHighWaterMark"(): integer
-set "writeBufferHighWaterMark"(value: integer)
 get "allocator"(): $ByteBufAllocator
 set "autoRead"(value: boolean)
+set "options"(value: $Map$$Type<($ChannelOption$$Type<(never)>), (never)>)
+get "autoRead"(): boolean
 set "allocator"(value: $ByteBufAllocator$$Type)
+get "recvByteBufAllocator"(): T
+get "writeBufferWaterMark"(): $WriteBufferWaterMark
+get "maxMessagesPerRead"(): integer
+set "recvByteBufAllocator"(value: $RecvByteBufAllocator$$Type)
+set "writeBufferLowWaterMark"(value: integer)
+get "connectTimeoutMillis"(): integer
+set "writeBufferWaterMark"(value: $WriteBufferWaterMark$$Type)
+set "messageSizeEstimator"(value: $MessageSizeEstimator$$Type)
+get "messageSizeEstimator"(): $MessageSizeEstimator
+get "writeBufferLowWaterMark"(): integer
+set "maxMessagesPerRead"(value: integer)
 get "writeSpinCount"(): integer
-set "autoClose"(value: boolean)
 get "autoClose"(): boolean
 set "writeSpinCount"(value: integer)
-get "connectTimeoutMillis"(): integer
-get "recvByteBufAllocator"(): T
-set "maxMessagesPerRead"(value: integer)
-set "messageSizeEstimator"(value: $MessageSizeEstimator$$Type)
-set "writeBufferLowWaterMark"(value: integer)
-get "maxMessagesPerRead"(): integer
-get "writeBufferLowWaterMark"(): integer
-get "messageSizeEstimator"(): $MessageSizeEstimator
-set "writeBufferWaterMark"(value: $WriteBufferWaterMark$$Type)
-set "recvByteBufAllocator"(value: $RecvByteBufAllocator$$Type)
-get "writeBufferWaterMark"(): $WriteBufferWaterMark
-get "autoRead"(): boolean
+set "autoClose"(value: boolean)
+get "writeBufferHighWaterMark"(): integer
+set "writeBufferHighWaterMark"(value: integer)
 }
 
 export class $ChannelConfig implements $ChannelConfig$$Interface {
  "setOption"<T>(arg0: $ChannelOption$$Type<(T)>, arg1: T): boolean
  "getOption"<T>(arg0: $ChannelOption$$Type<(T)>): T
  "getOptions"(): $Map<($ChannelOption<(never)>), (any)>
- "setOptions"(arg0: $Map$$Type<($ChannelOption$$Type<(never)>), (never)>): boolean
  "setConnectTimeoutMillis"(arg0: integer): $ChannelConfig
- "getWriteBufferHighWaterMark"(): integer
- "setWriteBufferHighWaterMark"(arg0: integer): $ChannelConfig
  "getAllocator"(): $ByteBufAllocator
  "setAutoRead"(arg0: boolean): $ChannelConfig
+ "setOptions"(arg0: $Map$$Type<($ChannelOption$$Type<(never)>), (never)>): boolean
+ "isAutoRead"(): boolean
  "setAllocator"(arg0: $ByteBufAllocator$$Type): $ChannelConfig
- "getWriteSpinCount"(): integer
- "setAutoClose"(arg0: boolean): $ChannelConfig
- "isAutoClose"(): boolean
- "setWriteSpinCount"(arg0: integer): $ChannelConfig
- "getConnectTimeoutMillis"(): integer
  "getRecvByteBufAllocator"<T extends $RecvByteBufAllocator>(): T
-/**
- * 
- * @deprecated
- */
- "setMaxMessagesPerRead"(arg0: integer): $ChannelConfig
- "setMessageSizeEstimator"(arg0: $MessageSizeEstimator$$Type): $ChannelConfig
- "setWriteBufferLowWaterMark"(arg0: integer): $ChannelConfig
+ "getWriteBufferWaterMark"(): $WriteBufferWaterMark
 /**
  * 
  * @deprecated
  */
  "getMaxMessagesPerRead"(): integer
- "getWriteBufferLowWaterMark"(): integer
- "getMessageSizeEstimator"(): $MessageSizeEstimator
- "setWriteBufferWaterMark"(arg0: $WriteBufferWaterMark$$Type): $ChannelConfig
  "setRecvByteBufAllocator"(arg0: $RecvByteBufAllocator$$Type): $ChannelConfig
- "getWriteBufferWaterMark"(): $WriteBufferWaterMark
- "isAutoRead"(): boolean
+ "setWriteBufferLowWaterMark"(arg0: integer): $ChannelConfig
+ "getConnectTimeoutMillis"(): integer
+ "setWriteBufferWaterMark"(arg0: $WriteBufferWaterMark$$Type): $ChannelConfig
+ "setMessageSizeEstimator"(arg0: $MessageSizeEstimator$$Type): $ChannelConfig
+ "getMessageSizeEstimator"(): $MessageSizeEstimator
+ "getWriteBufferLowWaterMark"(): integer
+/**
+ * 
+ * @deprecated
+ */
+ "setMaxMessagesPerRead"(arg0: integer): $ChannelConfig
+ "getWriteSpinCount"(): integer
+ "isAutoClose"(): boolean
+ "setWriteSpinCount"(arg0: integer): $ChannelConfig
+ "setAutoClose"(arg0: boolean): $ChannelConfig
+ "getWriteBufferHighWaterMark"(): integer
+ "setWriteBufferHighWaterMark"(arg0: integer): $ChannelConfig
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -273,8 +273,8 @@ import {$ChannelHandlerContext$$Type} from "io.netty.channel.ChannelHandlerConte
  * Loading the class using require() will not throw an error, but the class will be undefined.
  */
 export class $SimpleChannelInboundHandler<I> extends $ChannelInboundHandlerAdapter {
-public "channelRead"(arg0: $ChannelHandlerContext$$Type, arg1: any): void
 public "acceptInboundMessage"(arg0: any): boolean
+public "channelRead"(arg0: $ChannelHandlerContext$$Type, arg1: any): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -298,13 +298,13 @@ export interface $ChannelHandler$$Interface {
 }
 
 export class $ChannelHandler implements $ChannelHandler$$Interface {
- "handlerAdded"(arg0: $ChannelHandlerContext$$Type): void
  "handlerRemoved"(arg0: $ChannelHandlerContext$$Type): void
 /**
  * 
  * @deprecated
  */
  "exceptionCaught"(arg0: $ChannelHandlerContext$$Type, arg1: $Throwable$$Type): void
+ "handlerAdded"(arg0: $ChannelHandlerContext$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -328,14 +328,14 @@ import {$ChannelHandlerContext$$Type} from "io.netty.channel.ChannelHandlerConte
 export class $ChannelHandlerAdapter implements $ChannelHandler$$Interface {
 constructor()
 
-public "isSharable"(): boolean
-public "handlerAdded"(arg0: $ChannelHandlerContext$$Type): void
 public "handlerRemoved"(arg0: $ChannelHandlerContext$$Type): void
 /**
  * 
  * @deprecated
  */
 public "exceptionCaught"(arg0: $ChannelHandlerContext$$Type, arg1: $Throwable$$Type): void
+public "handlerAdded"(arg0: $ChannelHandlerContext$$Type): void
+public "isSharable"(): boolean
 get "sharable"(): boolean
 }
 /**
@@ -360,14 +360,14 @@ export interface $ChannelInboundInvoker$$Interface {
 
 export class $ChannelInboundInvoker implements $ChannelInboundInvoker$$Interface {
  "fireChannelWritabilityChanged"(): $ChannelInboundInvoker
- "fireChannelRegistered"(): $ChannelInboundInvoker
- "fireChannelInactive"(): $ChannelInboundInvoker
- "fireUserEventTriggered"(arg0: any): $ChannelInboundInvoker
  "fireChannelReadComplete"(): $ChannelInboundInvoker
  "fireChannelUnregistered"(): $ChannelInboundInvoker
+ "fireUserEventTriggered"(arg0: any): $ChannelInboundInvoker
+ "fireChannelRegistered"(): $ChannelInboundInvoker
+ "fireChannelInactive"(): $ChannelInboundInvoker
+ "fireExceptionCaught"(arg0: $Throwable$$Type): $ChannelInboundInvoker
  "fireChannelActive"(): $ChannelInboundInvoker
  "fireChannelRead"(arg0: any): $ChannelInboundInvoker
- "fireExceptionCaught"(arg0: $Throwable$$Type): $ChannelInboundInvoker
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -415,8 +415,8 @@ export interface $ChannelId$$Interface extends $Serializable$$Interface, $Compar
 }
 
 export class $ChannelId implements $ChannelId$$Interface {
- "asShortText"(): StringJS
  "asLongText"(): StringJS
+ "asShortText"(): StringJS
  "compareTo"(arg0: $ChannelId$$Type): integer
 }
 /**
@@ -433,8 +433,8 @@ import {$GenericFutureListener$$Type} from "io.netty.util.concurrent.GenericFutu
 import {$ChannelFuture$$Interface} from "io.netty.channel.ChannelFuture"
 import {$Future$$Type} from "io.netty.util.concurrent.Future"
 import {$Future$State} from "java.util.concurrent.Future$State"
-import {$Throwable} from "java.lang.Throwable"
 import {$ProgressiveFuture$$Interface} from "io.netty.util.concurrent.ProgressiveFuture"
+import {$Throwable} from "java.lang.Throwable"
 import {$Channel} from "io.netty.channel.Channel"
 import {$TimeUnit$$Type} from "java.util.concurrent.TimeUnit"
 
@@ -445,9 +445,9 @@ import {$TimeUnit$$Type} from "java.util.concurrent.TimeUnit"
  */
 export interface $ChannelProgressiveFuture$$Interface extends $ChannelFuture$$Interface, $ProgressiveFuture$$Interface<(void)> {
 get "void"(): boolean
-get "now"(): void
 get "success"(): boolean
 get "cancellable"(): boolean
+get "now"(): void
 get "done"(): boolean
 get "cancelled"(): boolean
 }
@@ -459,19 +459,19 @@ export class $ChannelProgressiveFuture implements $ChannelProgressiveFuture$$Int
  "removeListeners"(...arg0: ($GenericFutureListener$$Type<($Future$$Type<(void)>)>)[]): $ChannelProgressiveFuture
  "removeListener"(arg0: $GenericFutureListener$$Type<($Future$$Type<(void)>)>): $ChannelProgressiveFuture
  "addListener"(arg0: $GenericFutureListener$$Type<($Future$$Type<(void)>)>): $ChannelProgressiveFuture
- "addListeners"(...arg0: ($GenericFutureListener$$Type<($Future$$Type<(void)>)>)[]): $ChannelProgressiveFuture
  "syncUninterruptibly"(): $ChannelProgressiveFuture
+ "addListeners"(...arg0: ($GenericFutureListener$$Type<($Future$$Type<(void)>)>)[]): $ChannelProgressiveFuture
  "isVoid"(): boolean
  "channel"(): $Channel
  "cause"(): $Throwable
  "cancel"(arg0: boolean): boolean
- "await"(arg0: long, arg1: $TimeUnit$$Type): boolean
  "await"(arg0: long): boolean
- "awaitUninterruptibly"(arg0: long, arg1: $TimeUnit$$Type): boolean
+ "await"(arg0: long, arg1: $TimeUnit$$Type): boolean
  "awaitUninterruptibly"(arg0: long): boolean
- "getNow"(): void
+ "awaitUninterruptibly"(arg0: long, arg1: $TimeUnit$$Type): boolean
  "isSuccess"(): boolean
  "isCancellable"(): boolean
+ "getNow"(): void
  "get"(arg0: long, arg1: $TimeUnit$$Type): void
  "get"(): void
  "state"(): $Future$State
@@ -506,8 +506,8 @@ export interface $ChannelOutboundInvoker$$Interface {
 
 export class $ChannelOutboundInvoker implements $ChannelOutboundInvoker$$Interface {
  "flush"(): $ChannelOutboundInvoker
- "write"(arg0: any): $ChannelFuture
  "write"(arg0: any, arg1: $ChannelPromise$$Type): $ChannelFuture
+ "write"(arg0: any): $ChannelFuture
  "read"(): $ChannelOutboundInvoker
  "connect"(arg0: $SocketAddress$$Type, arg1: $ChannelPromise$$Type): $ChannelFuture
  "connect"(arg0: $SocketAddress$$Type, arg1: $SocketAddress$$Type, arg2: $ChannelPromise$$Type): $ChannelFuture
@@ -517,17 +517,17 @@ export class $ChannelOutboundInvoker implements $ChannelOutboundInvoker$$Interfa
  "close"(): $ChannelFuture
  "bind"(arg0: $SocketAddress$$Type): $ChannelFuture
  "bind"(arg0: $SocketAddress$$Type, arg1: $ChannelPromise$$Type): $ChannelFuture
- "disconnect"(arg0: $ChannelPromise$$Type): $ChannelFuture
+ "newProgressivePromise"(): $ChannelProgressivePromise
  "disconnect"(): $ChannelFuture
+ "disconnect"(arg0: $ChannelPromise$$Type): $ChannelFuture
  "voidPromise"(): $ChannelPromise
+ "newPromise"(): $ChannelPromise
+ "newFailedFuture"(arg0: $Throwable$$Type): $ChannelFuture
+ "writeAndFlush"(arg0: any): $ChannelFuture
+ "writeAndFlush"(arg0: any, arg1: $ChannelPromise$$Type): $ChannelFuture
+ "newSucceededFuture"(): $ChannelFuture
  "deregister"(arg0: $ChannelPromise$$Type): $ChannelFuture
  "deregister"(): $ChannelFuture
- "newPromise"(): $ChannelPromise
- "newProgressivePromise"(): $ChannelProgressivePromise
- "newFailedFuture"(arg0: $Throwable$$Type): $ChannelFuture
- "writeAndFlush"(arg0: any, arg1: $ChannelPromise$$Type): $ChannelFuture
- "writeAndFlush"(arg0: any): $ChannelFuture
- "newSucceededFuture"(): $ChannelFuture
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -592,8 +592,8 @@ public "register"(arg0: $Channel$$Type): $ChannelFuture
  */
 public "register"(arg0: $Channel$$Type, arg1: $ChannelPromise$$Type): $ChannelFuture
 public "register"(arg0: $ChannelPromise$$Type): $ChannelFuture
-public "schedule"<V>(arg0: $Callable$$Type<(V)>, arg1: long, arg2: $TimeUnit$$Type): $ScheduledFuture<(V)>
 public "schedule"(arg0: $Runnable$$Type, arg1: long, arg2: $TimeUnit$$Type): $ScheduledFuture<(never)>
+public "schedule"<V>(arg0: $Callable$$Type<(V)>, arg1: long, arg2: $TimeUnit$$Type): $ScheduledFuture<(V)>
 public "submit"<T>(arg0: $Runnable$$Type, arg1: T): $Future<(T)>
 public "submit"(arg0: $Runnable$$Type): $Future<(never)>
 public "submit"<T>(arg0: $Callable$$Type<(T)>): $Future<(T)>
@@ -602,9 +602,9 @@ public "submit"<T>(arg0: $Callable$$Type<(T)>): $Future<(T)>
  * @deprecated
  */
 public "shutdownNow"(): $List<($Runnable)>
-public "shutdownGracefully"(): $Future<(never)>
 public "scheduleWithFixedDelay"(arg0: $Runnable$$Type, arg1: long, arg2: long, arg3: $TimeUnit$$Type): $ScheduledFuture<(never)>
 public "scheduleAtFixedRate"(arg0: $Runnable$$Type, arg1: long, arg2: long, arg3: $TimeUnit$$Type): $ScheduledFuture<(never)>
+public "shutdownGracefully"(): $Future<(never)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -629,15 +629,15 @@ import {$ChannelHandlerContext$$Type} from "io.netty.channel.ChannelHandlerConte
 export class $ChannelInboundHandlerAdapter extends $ChannelHandlerAdapter implements $ChannelInboundHandler$$Interface {
 constructor()
 
-public "channelActive"(arg0: $ChannelHandlerContext$$Type): void
+public "channelUnregistered"(arg0: $ChannelHandlerContext$$Type): void
+public "channelWritabilityChanged"(arg0: $ChannelHandlerContext$$Type): void
+public "channelReadComplete"(arg0: $ChannelHandlerContext$$Type): void
+public "exceptionCaught"(arg0: $ChannelHandlerContext$$Type, arg1: $Throwable$$Type): void
 public "channelInactive"(arg0: $ChannelHandlerContext$$Type): void
+public "channelActive"(arg0: $ChannelHandlerContext$$Type): void
+public "channelRead"(arg0: $ChannelHandlerContext$$Type, arg1: any): void
 public "userEventTriggered"(arg0: $ChannelHandlerContext$$Type, arg1: any): void
 public "channelRegistered"(arg0: $ChannelHandlerContext$$Type): void
-public "channelRead"(arg0: $ChannelHandlerContext$$Type, arg1: any): void
-public "exceptionCaught"(arg0: $ChannelHandlerContext$$Type, arg1: $Throwable$$Type): void
-public "channelUnregistered"(arg0: $ChannelHandlerContext$$Type): void
-public "channelReadComplete"(arg0: $ChannelHandlerContext$$Type): void
-public "channelWritabilityChanged"(arg0: $ChannelHandlerContext$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -650,22 +650,22 @@ export type $ChannelInboundHandlerAdapter$$Type = ($ChannelInboundHandlerAdapter
 export type $ChannelInboundHandlerAdapter$$Original = $ChannelInboundHandlerAdapter;}
 declare module "io.netty.channel.EventLoop" {
 import {$Iterator} from "java.util.Iterator"
-import {$Callable$$Type} from "java.util.concurrent.Callable"
-import {$Future as $Future$0} from "io.netty.util.concurrent.Future"
 import {$Collection$$Type} from "java.util.Collection"
+import {$Future} from "io.netty.util.concurrent.Future"
+import {$Callable$$Type} from "java.util.concurrent.Callable"
 import {$Spliterator} from "java.util.Spliterator"
 import {$EventLoopGroup, $EventLoopGroup$$Interface} from "io.netty.channel.EventLoopGroup"
 import {$List} from "java.util.List"
-import {$Future} from "java.util.concurrent.Future"
+import {$Future as $Future$0} from "java.util.concurrent.Future"
 import {$Thread$$Type} from "java.lang.Thread"
 import {$ScheduledFuture} from "io.netty.util.concurrent.ScheduledFuture"
 import {$Runnable, $Runnable$$Type} from "java.lang.Runnable"
 import {$Promise} from "io.netty.util.concurrent.Promise"
 import {$ChannelPromise$$Type} from "io.netty.channel.ChannelPromise"
-import {$Channel$$Type} from "io.netty.channel.Channel"
 import {$EventExecutor, $EventExecutor$$Type} from "io.netty.util.concurrent.EventExecutor"
-import {$TimeUnit$$Type} from "java.util.concurrent.TimeUnit"
+import {$Channel$$Type} from "io.netty.channel.Channel"
 import {$Consumer$$Type} from "java.util.function.Consumer"
+import {$TimeUnit$$Type} from "java.util.concurrent.TimeUnit"
 import {$ChannelFuture} from "io.netty.channel.ChannelFuture"
 import {$Throwable$$Type} from "java.lang.Throwable"
 import {$ProgressivePromise} from "io.netty.util.concurrent.ProgressivePromise"
@@ -692,34 +692,34 @@ export class $EventLoop implements $EventLoop$$Interface {
  "register"(arg0: $Channel$$Type, arg1: $ChannelPromise$$Type): $ChannelFuture
  "register"(arg0: $ChannelPromise$$Type): $ChannelFuture
  "register"(arg0: $Channel$$Type): $ChannelFuture
+ "newProgressivePromise"<V>(): $ProgressivePromise<(V)>
+ "newPromise"<V>(): $Promise<(V)>
+ "newFailedFuture"<V>(arg0: $Throwable$$Type): $Future<(V)>
  "inEventLoop"(arg0: $Thread$$Type): boolean
  "inEventLoop"(): boolean
- "newPromise"<V>(): $Promise<(V)>
- "newProgressivePromise"<V>(): $ProgressivePromise<(V)>
- "newFailedFuture"<V>(arg0: $Throwable$$Type): $Future$0<(V)>
- "newSucceededFuture"<V>(arg0: V): $Future$0<(V)>
+ "newSucceededFuture"<V>(arg0: V): $Future<(V)>
 /**
  * 
  * @deprecated
  */
  "shutdown"(): void
  "iterator"(): $Iterator<($EventExecutor)>
- "schedule"<V>(arg0: $Callable$$Type<(V)>, arg1: long, arg2: $TimeUnit$$Type): $ScheduledFuture<(V)>
  "schedule"(arg0: $Runnable$$Type, arg1: long, arg2: $TimeUnit$$Type): $ScheduledFuture<(never)>
- "submit"<T>(arg0: $Runnable$$Type, arg1: T): $Future$0<(T)>
- "submit"(arg0: $Runnable$$Type): $Future$0<(never)>
- "submit"<T>(arg0: $Callable$$Type<(T)>): $Future$0<(T)>
+ "schedule"<V>(arg0: $Callable$$Type<(V)>, arg1: long, arg2: $TimeUnit$$Type): $ScheduledFuture<(V)>
+ "submit"<T>(arg0: $Runnable$$Type, arg1: T): $Future<(T)>
+ "submit"(arg0: $Runnable$$Type): $Future<(never)>
+ "submit"<T>(arg0: $Callable$$Type<(T)>): $Future<(T)>
 /**
  * 
  * @deprecated
  */
  "shutdownNow"(): $List<($Runnable)>
- "shutdownGracefully"(arg0: long, arg1: long, arg2: $TimeUnit$$Type): $Future$0<(never)>
- "shutdownGracefully"(): $Future$0<(never)>
- "isShuttingDown"(): boolean
- "terminationFuture"(): $Future$0<(never)>
  "scheduleWithFixedDelay"(arg0: $Runnable$$Type, arg1: long, arg2: long, arg3: $TimeUnit$$Type): $ScheduledFuture<(never)>
  "scheduleAtFixedRate"(arg0: $Runnable$$Type, arg1: long, arg2: long, arg3: $TimeUnit$$Type): $ScheduledFuture<(never)>
+ "terminationFuture"(): $Future<(never)>
+ "shutdownGracefully"(): $Future<(never)>
+ "shutdownGracefully"(arg0: long, arg1: long, arg2: $TimeUnit$$Type): $Future<(never)>
+ "isShuttingDown"(): boolean
  "spliterator"(): $Spliterator<($EventExecutor)>
  "forEach"(arg0: $Consumer$$Type<($EventExecutor)>): void
  "isTerminated"(): boolean
@@ -727,8 +727,8 @@ export class $EventLoop implements $EventLoop$$Interface {
  "isShutdown"(): boolean
  "invokeAny"<T>(arg0: $Collection$$Type<($Callable$$Type<(T)>)>): T
  "invokeAny"<T>(arg0: $Collection$$Type<($Callable$$Type<(T)>)>, arg1: long, arg2: $TimeUnit$$Type): T
- "invokeAll"<T>(arg0: $Collection$$Type<($Callable$$Type<(T)>)>): $List<($Future<(T)>)>
- "invokeAll"<T>(arg0: $Collection$$Type<($Callable$$Type<(T)>)>, arg1: long, arg2: $TimeUnit$$Type): $List<($Future<(T)>)>
+ "invokeAll"<T>(arg0: $Collection$$Type<($Callable$$Type<(T)>)>): $List<($Future$0<(T)>)>
+ "invokeAll"<T>(arg0: $Collection$$Type<($Callable$$Type<(T)>)>, arg1: long, arg2: $TimeUnit$$Type): $List<($Future$0<(T)>)>
  "awaitTermination"(arg0: long, arg1: $TimeUnit$$Type): boolean
  "execute"(arg0: $Runnable$$Type): void
 }
@@ -776,8 +776,8 @@ import {$Channel} from "io.netty.channel.Channel"
 import {$ChannelOutboundInvoker$$Interface} from "io.netty.channel.ChannelOutboundInvoker"
 import {$ChannelFuture} from "io.netty.channel.ChannelFuture"
 import {$ChannelProgressivePromise} from "io.netty.channel.ChannelProgressivePromise"
-import {$ChannelHandler} from "io.netty.channel.ChannelHandler"
 import {$AttributeMap$$Interface} from "io.netty.util.AttributeMap"
+import {$ChannelHandler} from "io.netty.channel.ChannelHandler"
 import {$Throwable$$Type} from "java.lang.Throwable"
 import {$AttributeKey$$Type} from "io.netty.util.AttributeKey"
 import {$ByteBufAllocator} from "io.netty.buffer.ByteBufAllocator"
@@ -806,23 +806,23 @@ export class $ChannelHandlerContext implements $ChannelHandlerContext$$Interface
  "executor"(): $EventExecutor
  "fireChannelWritabilityChanged"(): $ChannelHandlerContext
  "pipeline"(): $ChannelPipeline
+ "fireChannelReadComplete"(): $ChannelHandlerContext
+ "fireChannelUnregistered"(): $ChannelHandlerContext
+ "fireUserEventTriggered"(arg0: any): $ChannelHandlerContext
+ "fireChannelRegistered"(): $ChannelHandlerContext
+ "fireChannelInactive"(): $ChannelHandlerContext
+ "fireExceptionCaught"(arg0: $Throwable$$Type): $ChannelHandlerContext
+ "isRemoved"(): boolean
 /**
  * 
  * @deprecated
  */
  "hasAttr"<T>(arg0: $AttributeKey$$Type<(T)>): boolean
- "alloc"(): $ByteBufAllocator
- "fireChannelRegistered"(): $ChannelHandlerContext
- "fireChannelInactive"(): $ChannelHandlerContext
- "fireUserEventTriggered"(arg0: any): $ChannelHandlerContext
- "fireChannelReadComplete"(): $ChannelHandlerContext
- "fireChannelUnregistered"(): $ChannelHandlerContext
  "fireChannelActive"(): $ChannelHandlerContext
  "fireChannelRead"(arg0: any): $ChannelHandlerContext
- "isRemoved"(): boolean
- "fireExceptionCaught"(arg0: $Throwable$$Type): $ChannelHandlerContext
- "write"(arg0: any): $ChannelFuture
+ "alloc"(): $ByteBufAllocator
  "write"(arg0: any, arg1: $ChannelPromise$$Type): $ChannelFuture
+ "write"(arg0: any): $ChannelFuture
  "connect"(arg0: $SocketAddress$$Type, arg1: $ChannelPromise$$Type): $ChannelFuture
  "connect"(arg0: $SocketAddress$$Type, arg1: $SocketAddress$$Type, arg2: $ChannelPromise$$Type): $ChannelFuture
  "connect"(arg0: $SocketAddress$$Type, arg1: $SocketAddress$$Type): $ChannelFuture
@@ -831,17 +831,17 @@ export class $ChannelHandlerContext implements $ChannelHandlerContext$$Interface
  "close"(): $ChannelFuture
  "bind"(arg0: $SocketAddress$$Type): $ChannelFuture
  "bind"(arg0: $SocketAddress$$Type, arg1: $ChannelPromise$$Type): $ChannelFuture
- "disconnect"(arg0: $ChannelPromise$$Type): $ChannelFuture
+ "newProgressivePromise"(): $ChannelProgressivePromise
  "disconnect"(): $ChannelFuture
+ "disconnect"(arg0: $ChannelPromise$$Type): $ChannelFuture
  "voidPromise"(): $ChannelPromise
+ "newPromise"(): $ChannelPromise
+ "newFailedFuture"(arg0: $Throwable$$Type): $ChannelFuture
+ "writeAndFlush"(arg0: any): $ChannelFuture
+ "writeAndFlush"(arg0: any, arg1: $ChannelPromise$$Type): $ChannelFuture
+ "newSucceededFuture"(): $ChannelFuture
  "deregister"(arg0: $ChannelPromise$$Type): $ChannelFuture
  "deregister"(): $ChannelFuture
- "newPromise"(): $ChannelPromise
- "newProgressivePromise"(): $ChannelProgressivePromise
- "newFailedFuture"(arg0: $Throwable$$Type): $ChannelFuture
- "writeAndFlush"(arg0: any, arg1: $ChannelPromise$$Type): $ChannelFuture
- "writeAndFlush"(arg0: any): $ChannelFuture
- "newSucceededFuture"(): $ChannelFuture
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -865,10 +865,10 @@ import {$ScheduledFuture} from "io.netty.util.concurrent.ScheduledFuture"
 import {$EventExecutorGroup$$Interface} from "io.netty.util.concurrent.EventExecutorGroup"
 import {$Runnable, $Runnable$$Type} from "java.lang.Runnable"
 import {$ChannelPromise$$Type} from "io.netty.channel.ChannelPromise"
-import {$Channel$$Type} from "io.netty.channel.Channel"
 import {$EventExecutor, $EventExecutor$$Type} from "io.netty.util.concurrent.EventExecutor"
-import {$TimeUnit$$Type} from "java.util.concurrent.TimeUnit"
+import {$Channel$$Type} from "io.netty.channel.Channel"
 import {$Consumer$$Type} from "java.util.function.Consumer"
+import {$TimeUnit$$Type} from "java.util.concurrent.TimeUnit"
 import {$ChannelFuture} from "io.netty.channel.ChannelFuture"
 
 /**
@@ -897,8 +897,8 @@ export class $EventLoopGroup implements $EventLoopGroup$$Interface {
  */
  "shutdown"(): void
  "iterator"(): $Iterator<($EventExecutor)>
- "schedule"<V>(arg0: $Callable$$Type<(V)>, arg1: long, arg2: $TimeUnit$$Type): $ScheduledFuture<(V)>
  "schedule"(arg0: $Runnable$$Type, arg1: long, arg2: $TimeUnit$$Type): $ScheduledFuture<(never)>
+ "schedule"<V>(arg0: $Callable$$Type<(V)>, arg1: long, arg2: $TimeUnit$$Type): $ScheduledFuture<(V)>
  "submit"<T>(arg0: $Runnable$$Type, arg1: T): $Future<(T)>
  "submit"(arg0: $Runnable$$Type): $Future<(never)>
  "submit"<T>(arg0: $Callable$$Type<(T)>): $Future<(T)>
@@ -907,12 +907,12 @@ export class $EventLoopGroup implements $EventLoopGroup$$Interface {
  * @deprecated
  */
  "shutdownNow"(): $List<($Runnable)>
- "shutdownGracefully"(arg0: long, arg1: long, arg2: $TimeUnit$$Type): $Future<(never)>
- "shutdownGracefully"(): $Future<(never)>
- "isShuttingDown"(): boolean
- "terminationFuture"(): $Future<(never)>
  "scheduleWithFixedDelay"(arg0: $Runnable$$Type, arg1: long, arg2: long, arg3: $TimeUnit$$Type): $ScheduledFuture<(never)>
  "scheduleAtFixedRate"(arg0: $Runnable$$Type, arg1: long, arg2: long, arg3: $TimeUnit$$Type): $ScheduledFuture<(never)>
+ "terminationFuture"(): $Future<(never)>
+ "shutdownGracefully"(): $Future<(never)>
+ "shutdownGracefully"(arg0: long, arg1: long, arg2: $TimeUnit$$Type): $Future<(never)>
+ "isShuttingDown"(): boolean
  "spliterator"(): $Spliterator<($EventExecutor)>
  "forEach"(arg0: $Consumer$$Type<($EventExecutor)>): void
  "isTerminated"(): boolean
@@ -956,9 +956,9 @@ get "success"(): $ChannelPromise
 get "void"(): boolean
 get "uncancellable"(): boolean
 set "success"(value: void)
-get "now"(): void
 get "success"(): boolean
 get "cancellable"(): boolean
+get "now"(): void
 get "done"(): boolean
 get "cancelled"(): boolean
 }
@@ -969,29 +969,29 @@ export class $ChannelPromise implements $ChannelPromise$$Interface {
  "channel"(): $Channel
  "awaitUninterruptibly"(): $ChannelPromise
  "removeListeners"(...arg0: ($GenericFutureListener$$Type<($Future$$Type<(void)>)>)[]): $ChannelPromise
- "unvoid"(): $ChannelPromise
  "removeListener"(arg0: $GenericFutureListener$$Type<($Future$$Type<(void)>)>): $ChannelPromise
  "addListener"(arg0: $GenericFutureListener$$Type<($Future$$Type<(void)>)>): $ChannelPromise
+ "syncUninterruptibly"(): $ChannelPromise
  "addListeners"(...arg0: ($GenericFutureListener$$Type<($Future$$Type<(void)>)>)[]): $ChannelPromise
  "trySuccess"(): boolean
  "setFailure"(arg0: $Throwable$$Type): $ChannelPromise
+ "unvoid"(): $ChannelPromise
  "setSuccess"(arg0: void): $ChannelPromise
  "setSuccess"(): $ChannelPromise
- "syncUninterruptibly"(): $ChannelPromise
  "isVoid"(): boolean
  "setUncancellable"(): boolean
- "tryFailure"(arg0: $Throwable$$Type): boolean
  "trySuccess"(arg0: void): boolean
+ "tryFailure"(arg0: $Throwable$$Type): boolean
  "setSuccess"(arg0: void): $Promise<(void)>
  "cause"(): $Throwable
  "cancel"(arg0: boolean): boolean
- "await"(arg0: long, arg1: $TimeUnit$$Type): boolean
  "await"(arg0: long): boolean
- "awaitUninterruptibly"(arg0: long, arg1: $TimeUnit$$Type): boolean
+ "await"(arg0: long, arg1: $TimeUnit$$Type): boolean
  "awaitUninterruptibly"(arg0: long): boolean
- "getNow"(): void
+ "awaitUninterruptibly"(arg0: long, arg1: $TimeUnit$$Type): boolean
  "isSuccess"(): boolean
  "isCancellable"(): boolean
+ "getNow"(): void
  "get"(arg0: long, arg1: $TimeUnit$$Type): void
  "get"(): void
  "state"(): $Future$State
@@ -1054,16 +1054,16 @@ export class $Channel implements $Channel$$Interface {
  "config"(): $ChannelConfig
  "isWritable"(): boolean
  "metadata"(): $ChannelMetadata
- "eventLoop"(): $EventLoop
  "pipeline"(): $ChannelPipeline
+ "eventLoop"(): $EventLoop
  "closeFuture"(): $ChannelFuture
  "alloc"(): $ByteBufAllocator
  "bytesBeforeWritable"(): long
  "bytesBeforeUnwritable"(): long
  "attr"<T>(arg0: $AttributeKey$$Type<(T)>): $Attribute<(T)>
  "hasAttr"<T>(arg0: $AttributeKey$$Type<(T)>): boolean
- "write"(arg0: any): $ChannelFuture
  "write"(arg0: any, arg1: $ChannelPromise$$Type): $ChannelFuture
+ "write"(arg0: any): $ChannelFuture
  "connect"(arg0: $SocketAddress$$Type, arg1: $ChannelPromise$$Type): $ChannelFuture
  "connect"(arg0: $SocketAddress$$Type, arg1: $SocketAddress$$Type, arg2: $ChannelPromise$$Type): $ChannelFuture
  "connect"(arg0: $SocketAddress$$Type, arg1: $SocketAddress$$Type): $ChannelFuture
@@ -1072,17 +1072,17 @@ export class $Channel implements $Channel$$Interface {
  "close"(): $ChannelFuture
  "bind"(arg0: $SocketAddress$$Type): $ChannelFuture
  "bind"(arg0: $SocketAddress$$Type, arg1: $ChannelPromise$$Type): $ChannelFuture
- "disconnect"(arg0: $ChannelPromise$$Type): $ChannelFuture
+ "newProgressivePromise"(): $ChannelProgressivePromise
  "disconnect"(): $ChannelFuture
+ "disconnect"(arg0: $ChannelPromise$$Type): $ChannelFuture
  "voidPromise"(): $ChannelPromise
+ "newPromise"(): $ChannelPromise
+ "newFailedFuture"(arg0: $Throwable$$Type): $ChannelFuture
+ "writeAndFlush"(arg0: any): $ChannelFuture
+ "writeAndFlush"(arg0: any, arg1: $ChannelPromise$$Type): $ChannelFuture
+ "newSucceededFuture"(): $ChannelFuture
  "deregister"(arg0: $ChannelPromise$$Type): $ChannelFuture
  "deregister"(): $ChannelFuture
- "newPromise"(): $ChannelPromise
- "newProgressivePromise"(): $ChannelProgressivePromise
- "newFailedFuture"(arg0: $Throwable$$Type): $ChannelFuture
- "writeAndFlush"(arg0: any, arg1: $ChannelPromise$$Type): $ChannelFuture
- "writeAndFlush"(arg0: any): $ChannelFuture
- "newSucceededFuture"(): $ChannelFuture
  "compareTo"(arg0: $Channel$$Type): integer
 }
 /**
@@ -1120,8 +1120,8 @@ export type $RecvByteBufAllocator$$Type = (() => $RecvByteBufAllocator$Handle$$T
  */
 export type $RecvByteBufAllocator$$Original = $RecvByteBufAllocator;}
 declare module "io.netty.channel.ChannelPipeline" {
-import {$Iterable$$Interface} from "java.lang.Iterable"
 import {$Iterator} from "java.util.Iterator"
+import {$Iterable$$Interface} from "java.lang.Iterable"
 import {$ChannelInboundInvoker$$Interface} from "io.netty.channel.ChannelInboundInvoker"
 import {$Map} from "java.util.Map"
 import {$SocketAddress$$Type} from "java.net.SocketAddress"
@@ -1131,8 +1131,8 @@ import {$EventExecutorGroup$$Type} from "io.netty.util.concurrent.EventExecutorG
 import {$ChannelPromise, $ChannelPromise$$Type} from "io.netty.channel.ChannelPromise"
 import {$Channel} from "io.netty.channel.Channel"
 import {$ChannelHandlerContext} from "io.netty.channel.ChannelHandlerContext"
-import {$Map$Entry, $Map$Entry$$Type} from "java.util.Map$Entry"
 import {$ChannelOutboundInvoker, $ChannelOutboundInvoker$$Interface} from "io.netty.channel.ChannelOutboundInvoker"
+import {$Map$Entry, $Map$Entry$$Type} from "java.util.Map$Entry"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$ChannelFuture} from "io.netty.channel.ChannelFuture"
 import {$ChannelProgressivePromise} from "io.netty.channel.ChannelProgressivePromise"
@@ -1178,22 +1178,22 @@ export class $ChannelPipeline implements $ChannelPipeline$$Interface {
  "removeLast"(): $ChannelHandler
  "channel"(): $Channel
  "fireChannelWritabilityChanged"(): $ChannelPipeline
- "lastContext"(): $ChannelHandlerContext
- "addBefore"(arg0: StringJS, arg1: StringJS, arg2: $ChannelHandler$$Type): $ChannelPipeline
- "addBefore"(arg0: $EventExecutorGroup$$Type, arg1: StringJS, arg2: StringJS, arg3: $ChannelHandler$$Type): $ChannelPipeline
- "addAfter"(arg0: StringJS, arg1: StringJS, arg2: $ChannelHandler$$Type): $ChannelPipeline
- "addAfter"(arg0: $EventExecutorGroup$$Type, arg1: StringJS, arg2: StringJS, arg3: $ChannelHandler$$Type): $ChannelPipeline
- "fireChannelRegistered"(): $ChannelPipeline
- "fireChannelInactive"(): $ChannelPipeline
- "fireUserEventTriggered"(arg0: any): $ChannelPipeline
  "fireChannelReadComplete"(): $ChannelPipeline
  "fireChannelUnregistered"(): $ChannelPipeline
+ "fireUserEventTriggered"(arg0: any): $ChannelPipeline
+ "fireChannelRegistered"(): $ChannelPipeline
+ "fireChannelInactive"(): $ChannelPipeline
+ "lastContext"(): $ChannelHandlerContext
+ "fireExceptionCaught"(arg0: $Throwable$$Type): $ChannelPipeline
  "fireChannelActive"(): $ChannelPipeline
  "fireChannelRead"(arg0: any): $ChannelPipeline
- "fireExceptionCaught"(arg0: $Throwable$$Type): $ChannelPipeline
+ "addAfter"(arg0: $EventExecutorGroup$$Type, arg1: StringJS, arg2: StringJS, arg3: $ChannelHandler$$Type): $ChannelPipeline
+ "addAfter"(arg0: StringJS, arg1: StringJS, arg2: $ChannelHandler$$Type): $ChannelPipeline
+ "addBefore"(arg0: StringJS, arg1: StringJS, arg2: $ChannelHandler$$Type): $ChannelPipeline
+ "addBefore"(arg0: $EventExecutorGroup$$Type, arg1: StringJS, arg2: StringJS, arg3: $ChannelHandler$$Type): $ChannelPipeline
  "firstContext"(): $ChannelHandlerContext
- "write"(arg0: any): $ChannelFuture
  "write"(arg0: any, arg1: $ChannelPromise$$Type): $ChannelFuture
+ "write"(arg0: any): $ChannelFuture
  "read"(): $ChannelOutboundInvoker
  "connect"(arg0: $SocketAddress$$Type, arg1: $ChannelPromise$$Type): $ChannelFuture
  "connect"(arg0: $SocketAddress$$Type, arg1: $SocketAddress$$Type, arg2: $ChannelPromise$$Type): $ChannelFuture
@@ -1203,17 +1203,17 @@ export class $ChannelPipeline implements $ChannelPipeline$$Interface {
  "close"(): $ChannelFuture
  "bind"(arg0: $SocketAddress$$Type): $ChannelFuture
  "bind"(arg0: $SocketAddress$$Type, arg1: $ChannelPromise$$Type): $ChannelFuture
- "disconnect"(arg0: $ChannelPromise$$Type): $ChannelFuture
+ "newProgressivePromise"(): $ChannelProgressivePromise
  "disconnect"(): $ChannelFuture
+ "disconnect"(arg0: $ChannelPromise$$Type): $ChannelFuture
  "voidPromise"(): $ChannelPromise
+ "newPromise"(): $ChannelPromise
+ "newFailedFuture"(arg0: $Throwable$$Type): $ChannelFuture
+ "writeAndFlush"(arg0: any): $ChannelFuture
+ "writeAndFlush"(arg0: any, arg1: $ChannelPromise$$Type): $ChannelFuture
+ "newSucceededFuture"(): $ChannelFuture
  "deregister"(arg0: $ChannelPromise$$Type): $ChannelFuture
  "deregister"(): $ChannelFuture
- "newPromise"(): $ChannelPromise
- "newProgressivePromise"(): $ChannelProgressivePromise
- "newFailedFuture"(arg0: $Throwable$$Type): $ChannelFuture
- "writeAndFlush"(arg0: any, arg1: $ChannelPromise$$Type): $ChannelFuture
- "writeAndFlush"(arg0: any): $ChannelFuture
- "newSucceededFuture"(): $ChannelFuture
  "iterator"(): $Iterator<($Map$Entry<(StringJS), ($ChannelHandler)>)>
  "spliterator"(): $Spliterator<($Map$Entry<(StringJS), ($ChannelHandler)>)>
  "forEach"(arg0: $Consumer$$Type<($Map$Entry<(StringJS), ($ChannelHandler)>)>): void
@@ -1241,17 +1241,17 @@ export interface $ChannelInboundHandler$$Interface extends $ChannelHandler$$Inte
 }
 
 export class $ChannelInboundHandler implements $ChannelInboundHandler$$Interface {
- "channelActive"(arg0: $ChannelHandlerContext$$Type): void
+ "channelUnregistered"(arg0: $ChannelHandlerContext$$Type): void
+ "channelWritabilityChanged"(arg0: $ChannelHandlerContext$$Type): void
+ "channelReadComplete"(arg0: $ChannelHandlerContext$$Type): void
+ "exceptionCaught"(arg0: $ChannelHandlerContext$$Type, arg1: $Throwable$$Type): void
  "channelInactive"(arg0: $ChannelHandlerContext$$Type): void
+ "channelActive"(arg0: $ChannelHandlerContext$$Type): void
+ "channelRead"(arg0: $ChannelHandlerContext$$Type, arg1: any): void
  "userEventTriggered"(arg0: $ChannelHandlerContext$$Type, arg1: any): void
  "channelRegistered"(arg0: $ChannelHandlerContext$$Type): void
- "channelRead"(arg0: $ChannelHandlerContext$$Type, arg1: any): void
- "exceptionCaught"(arg0: $ChannelHandlerContext$$Type, arg1: $Throwable$$Type): void
- "channelUnregistered"(arg0: $ChannelHandlerContext$$Type): void
- "channelReadComplete"(arg0: $ChannelHandlerContext$$Type): void
- "channelWritabilityChanged"(arg0: $ChannelHandlerContext$$Type): void
- "handlerAdded"(arg0: $ChannelHandlerContext$$Type): void
  "handlerRemoved"(arg0: $ChannelHandlerContext$$Type): void
+ "handlerAdded"(arg0: $ChannelHandlerContext$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1263,10 +1263,10 @@ export type $ChannelInboundHandler$$Type = ($ChannelInboundHandler);
  */
 export type $ChannelInboundHandler$$Original = $ChannelInboundHandler;}
 declare module "io.netty.channel.DefaultEventLoopGroup" {
-import {$Future} from "io.netty.util.concurrent.Future"
 import {$Callable$$Type} from "java.util.concurrent.Callable"
-import {$Executor$$Type} from "java.util.concurrent.Executor"
+import {$Future} from "io.netty.util.concurrent.Future"
 import {$List} from "java.util.List"
+import {$Executor$$Type} from "java.util.concurrent.Executor"
 import {$ThreadFactory$$Type} from "java.util.concurrent.ThreadFactory"
 import {$ScheduledFuture} from "io.netty.util.concurrent.ScheduledFuture"
 import {$Runnable, $Runnable$$Type} from "java.lang.Runnable"
@@ -1287,8 +1287,8 @@ constructor(arg0: integer)
 constructor()
 
 public "next"(): $EventExecutor
-public "schedule"<V>(arg0: $Callable$$Type<(V)>, arg1: long, arg2: $TimeUnit$$Type): $ScheduledFuture<(V)>
 public "schedule"(arg0: $Runnable$$Type, arg1: long, arg2: $TimeUnit$$Type): $ScheduledFuture<(never)>
+public "schedule"<V>(arg0: $Callable$$Type<(V)>, arg1: long, arg2: $TimeUnit$$Type): $ScheduledFuture<(V)>
 public "submit"<T>(arg0: $Runnable$$Type, arg1: T): $Future<(T)>
 public "submit"(arg0: $Runnable$$Type): $Future<(never)>
 public "submit"<T>(arg0: $Callable$$Type<(T)>): $Future<(T)>
@@ -1297,9 +1297,9 @@ public "submit"<T>(arg0: $Callable$$Type<(T)>): $Future<(T)>
  * @deprecated
  */
 public "shutdownNow"(): $List<($Runnable)>
-public "shutdownGracefully"(): $Future<(never)>
 public "scheduleWithFixedDelay"(arg0: $Runnable$$Type, arg1: long, arg2: long, arg3: $TimeUnit$$Type): $ScheduledFuture<(never)>
 public "scheduleAtFixedRate"(arg0: $Runnable$$Type, arg1: long, arg2: long, arg3: $TimeUnit$$Type): $ScheduledFuture<(never)>
+public "shutdownGracefully"(): $Future<(never)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1329,13 +1329,13 @@ export class $RecvByteBufAllocator$Handle implements $RecvByteBufAllocator$Handl
  "reset"(arg0: $ChannelConfig$$Type): void
  "allocate"(arg0: $ByteBufAllocator$$Type): $ByteBuf
  "guess"(): integer
- "continueReading"(): boolean
  "readComplete"(): void
- "incMessagesRead"(arg0: integer): void
+ "continueReading"(): boolean
  "lastBytesRead"(): integer
  "lastBytesRead"(arg0: integer): void
- "attemptedBytesRead"(arg0: integer): void
+ "incMessagesRead"(arg0: integer): void
  "attemptedBytesRead"(): integer
+ "attemptedBytesRead"(arg0: integer): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1349,8 +1349,8 @@ export type $RecvByteBufAllocator$Handle$$Original = $RecvByteBufAllocator$Handl
 declare module "io.netty.channel.ChannelOutboundBuffer" {
 import {$ChannelOutboundBuffer$MessageProcessor$$Type} from "io.netty.channel.ChannelOutboundBuffer$MessageProcessor"
 import {$Throwable$$Type} from "java.lang.Throwable"
-import {$ByteBuffer} from "java.nio.ByteBuffer"
 import {$ChannelPromise$$Type} from "io.netty.channel.ChannelPromise"
+import {$ByteBuffer} from "java.nio.ByteBuffer"
 
 /**
  * This class is not allowed By KubeJS!
@@ -1358,32 +1358,32 @@ import {$ChannelPromise$$Type} from "io.netty.channel.ChannelPromise"
  * Loading the class using require() will not throw an error, but the class will be undefined.
  */
 export class $ChannelOutboundBuffer {
-public "progress"(arg0: long): void
 public "remove"(arg0: $Throwable$$Type): boolean
 public "remove"(): boolean
 public "size"(): integer
 public "isEmpty"(): boolean
 public "current"(): any
 public "isWritable"(): boolean
-public "addMessage"(arg0: any, arg1: integer, arg2: $ChannelPromise$$Type): void
 public "currentProgress"(): long
-public "nioBuffers"(): ($ByteBuffer)[]
-public "nioBuffers"(arg0: integer, arg1: long): ($ByteBuffer)[]
+public "progress"(arg0: long): void
 public "nioBufferCount"(): integer
+public "addMessage"(arg0: any, arg1: integer, arg2: $ChannelPromise$$Type): void
 /**
  * 
  * @deprecated
  */
 public "recycle"(): void
-public "setUserDefinedWritability"(arg0: integer, arg1: boolean): void
+public "nioBuffers"(): ($ByteBuffer)[]
+public "nioBuffers"(arg0: integer, arg1: long): ($ByteBuffer)[]
+public "addFlush"(): void
 public "getUserDefinedWritability"(arg0: integer): boolean
-public "forEachFlushedMessage"(arg0: $ChannelOutboundBuffer$MessageProcessor$$Type): void
+public "setUserDefinedWritability"(arg0: integer, arg1: boolean): void
 public "totalPendingWriteBytes"(): long
-public "nioBufferSize"(): long
-public "removeBytes"(arg0: long): void
+public "forEachFlushedMessage"(arg0: $ChannelOutboundBuffer$MessageProcessor$$Type): void
 public "bytesBeforeWritable"(): long
 public "bytesBeforeUnwritable"(): long
-public "addFlush"(): void
+public "removeBytes"(arg0: long): void
+public "nioBufferSize"(): long
 get "empty"(): boolean
 get "writable"(): boolean
 }
@@ -1448,9 +1448,9 @@ export class $Channel$Unsafe implements $Channel$Unsafe$$Interface {
  "disconnect"(arg0: $ChannelPromise$$Type): void
  "voidPromise"(): $ChannelPromise
  "deregister"(arg0: $ChannelPromise$$Type): void
- "closeForcibly"(): void
- "recvBufAllocHandle"(): $RecvByteBufAllocator$Handle
  "outboundBuffer"(): $ChannelOutboundBuffer
+ "recvBufAllocHandle"(): $RecvByteBufAllocator$Handle
+ "closeForcibly"(): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1476,9 +1476,9 @@ import {$TimeUnit$$Type} from "java.util.concurrent.TimeUnit"
  */
 export interface $ChannelFuture$$Interface extends $Future$$Interface<(void)> {
 get "void"(): boolean
-get "now"(): void
 get "success"(): boolean
 get "cancellable"(): boolean
+get "now"(): void
 get "done"(): boolean
 get "cancelled"(): boolean
 }
@@ -1492,17 +1492,17 @@ export class $ChannelFuture implements $ChannelFuture$$Interface {
  "removeListeners"(...arg0: ($GenericFutureListener$$Type<($Future$$Type<(void)>)>)[]): $ChannelFuture
  "removeListener"(arg0: $GenericFutureListener$$Type<($Future$$Type<(void)>)>): $ChannelFuture
  "addListener"(arg0: $GenericFutureListener$$Type<($Future$$Type<(void)>)>): $ChannelFuture
- "addListeners"(...arg0: ($GenericFutureListener$$Type<($Future$$Type<(void)>)>)[]): $ChannelFuture
  "syncUninterruptibly"(): $ChannelFuture
+ "addListeners"(...arg0: ($GenericFutureListener$$Type<($Future$$Type<(void)>)>)[]): $ChannelFuture
  "cause"(): $Throwable
  "cancel"(arg0: boolean): boolean
- "await"(arg0: long, arg1: $TimeUnit$$Type): boolean
  "await"(arg0: long): boolean
- "awaitUninterruptibly"(arg0: long, arg1: $TimeUnit$$Type): boolean
+ "await"(arg0: long, arg1: $TimeUnit$$Type): boolean
  "awaitUninterruptibly"(arg0: long): boolean
- "getNow"(): void
+ "awaitUninterruptibly"(arg0: long, arg1: $TimeUnit$$Type): boolean
  "isSuccess"(): boolean
  "isCancellable"(): boolean
+ "getNow"(): void
  "get"(arg0: long, arg1: $TimeUnit$$Type): void
  "get"(): void
  "state"(): $Future$State
@@ -1521,8 +1521,8 @@ export type $ChannelFuture$$Type = ($ChannelFuture);
  */
 export type $ChannelFuture$$Original = $ChannelFuture;}
 declare module "io.netty.channel.ChannelOption" {
-import {$RecvByteBufAllocator} from "io.netty.channel.RecvByteBufAllocator"
 import {$WriteBufferWaterMark} from "io.netty.channel.WriteBufferWaterMark"
+import {$RecvByteBufAllocator} from "io.netty.channel.RecvByteBufAllocator"
 import {$InetAddress} from "java.net.InetAddress"
 import {$AbstractConstant} from "io.netty.util.AbstractConstant"
 import {$Class$$Type} from "java.lang.Class"

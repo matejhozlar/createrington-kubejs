@@ -7,10 +7,10 @@ export interface $ETFVertexConsumer$$Interface {
 }
 
 export class $ETFVertexConsumer implements $ETFVertexConsumer$$Interface {
- "etf$initETFVertexConsumer"(arg0: $MultiBufferSource$$Type, arg1: $RenderType$$Type): void
  "etf$getProvider"(): $MultiBufferSource
  "etf$getRenderLayer"(): $RenderType
  "etf$getETFTexture"(): $ETFTexture
+ "etf$initETFVertexConsumer"(arg0: $MultiBufferSource$$Type, arg1: $RenderType$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -49,8 +49,8 @@ import {$ItemStack} from "net.minecraft.world.item.ItemStack"
 import {$UUID} from "java.util.UUID"
 import {$Level} from "net.minecraft.world.level.Level"
 import {$Component} from "net.minecraft.network.chat.Component"
-import {$Vec3} from "net.minecraft.world.phys.Vec3"
 import {$Pose} from "net.minecraft.world.entity.Pose"
+import {$Vec3} from "net.minecraft.world.phys.Vec3"
 import {$Team} from "net.minecraft.world.scores.Team"
 import {$Entity$$Type} from "net.minecraft.world.entity.Entity"
 import {$BlockPos} from "net.minecraft.core.BlockPos"
@@ -60,29 +60,29 @@ export interface $ETFEntity$$Interface {
 }
 
 export class $ETFEntity implements $ETFEntity$$Interface {
- "etf$getScoreboardTeam"(): $Team
- "etf$getItemsEquipped"(): $Iterable<($ItemStack)>
  "etf$getType"(): $EntityType<(never)>
- "etf$getHandItems"(): $Iterable<($ItemStack)>
  "etf$hasCustomName"(): boolean
+ "etf$getBlockY"(): integer
  "etf$getCustomName"(): $Component
+ "etf$getHandItems"(): $Iterable<($ItemStack)>
+ "etf$getArmorItems"(): $Iterable<($ItemStack)>
+ "etf$getUuid"(): $UUID
+ "etf$getOptifineId"(): integer
+ "etf$canBeBright"(): boolean
+ "etf$isBlockEntity"(): boolean
+ "etf$getVelocity"(): $Vec3
+ "etf$distanceTo"(arg0: $Entity$$Type): float
 /**
  * 
  * @deprecated
  */
  "etf$getPose"(): $Pose
- "etf$distanceTo"(arg0: $Entity$$Type): float
- "etf$getVelocity"(): $Vec3
- "etf$getUuid"(): $UUID
- "etf$getOptifineId"(): integer
- "etf$getArmorItems"(): $Iterable<($ItemStack)>
- "etf$canBeBright"(): boolean
- "etf$isBlockEntity"(): boolean
- "etf$getBlockY"(): integer
- "etf$getNbt"(): $CompoundTag
- "etf$getBlockPos"(): $BlockPos
  "etf$getEntityKey"(): StringJS
  "etf$getWorld"(): $Level
+ "etf$getBlockPos"(): $BlockPos
+ "etf$getItemsEquipped"(): $Iterable<($ItemStack)>
+ "etf$getScoreboardTeam"(): $Team
+ "etf$getNbt"(): $CompoundTag
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -98,6 +98,7 @@ import {$Map, $Map$$Type} from "java.util.Map"
 import {$ObjectSet} from "it.unimi.dsi.fastutil.objects.ObjectSet"
 import {$UUID, $UUID$$Type} from "java.util.UUID"
 import {$Function} from "java.util.function.Function"
+import {$Set} from "java.util.Set"
 import {$Object2IntLinkedOpenHashMap} from "it.unimi.dsi.fastutil.objects.Object2IntLinkedOpenHashMap"
 import {$SortedMap} from "java.util.SortedMap"
 import {$Map$Entry, $Map$Entry$$Type} from "java.util.Map$Entry"
@@ -109,10 +110,8 @@ constructor()
 public "put"(uuid: $UUID$$Type, v: integer): integer
 public "put"(arg0: any, arg1: integer): integer
 public "getInt"(k: any): integer
-public "keySet"(): $ObjectSet
-public "subMap"(arg0: any, arg1: any): $SortedMap
+public "keySet"(): $Set
 public "headMap"(arg0: any): $SortedMap
-public "tailMap"(arg0: any): $SortedMap
 /**
  * 
  * @deprecated

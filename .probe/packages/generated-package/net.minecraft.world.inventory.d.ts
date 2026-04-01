@@ -4,13 +4,13 @@ import {$ItemStack} from "net.minecraft.world.item.ItemStack"
 import {$Optional$$Type} from "java.util.Optional"
 import {$List} from "java.util.List"
 import {$ContainerSynchronizer} from "net.minecraft.world.inventory.ContainerSynchronizer"
-import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
 import {$NonNullList} from "net.minecraft.core.NonNullList"
+import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
 import {$Holder, $Holder$$Type} from "net.minecraft.core.Holder"
 import {$MobEffect, $MobEffect$$Type} from "net.minecraft.world.effect.MobEffect"
+import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$Slot} from "net.minecraft.world.inventory.Slot"
 import {$ContainerData$$Type} from "net.minecraft.world.inventory.ContainerData"
-import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$Container$$Type} from "net.minecraft.world.Container"
 import {$AbstractContainerMenu} from "net.minecraft.world.inventory.AbstractContainerMenu"
 import {$ContainerLevelAccess$$Type} from "net.minecraft.world.inventory.ContainerLevelAccess"
@@ -43,20 +43,20 @@ constructor(arg0: integer, arg1: $Container$$Type)
 constructor(arg0: integer, arg1: $Container$$Type, arg2: $ContainerData$$Type, arg3: $ContainerLevelAccess$$Type)
 
 public "removed"(arg0: $Player$$Type): void
-public "hasPayment"(): boolean
-public "handler$ehc000$deeperdarker$stillValid"(arg0: $Player$$Type, arg1: $CallbackInfoReturnable$$Type): void
-public "getPrimaryEffect"(): $Holder<($MobEffect)>
-public static "encodeEffect"(arg0: $Holder$$Type<($MobEffect)>): integer
-public static "decodeEffect"(arg0: integer): $Holder<($MobEffect)>
-public "updateEffects"(arg0: ($Holder$$Type<($MobEffect$$Type)>)?, arg1: ($Holder$$Type<($MobEffect$$Type)>)?): void
-public "getSecondaryEffect"(): $Holder<($MobEffect)>
-public "setData"(arg0: integer, arg1: integer): void
-public "stillValid"(arg0: $Player$$Type): boolean
 public "getLevels"(): integer
+public "handler$eoe000$deeperdarker$stillValid"(arg0: $Player$$Type, arg1: $CallbackInfoReturnable$$Type): void
+public "setData"(arg0: integer, arg1: integer): void
 public "quickMoveStack"(arg0: $Player$$Type, arg1: integer): $ItemStack
+public "stillValid"(arg0: $Player$$Type): boolean
+public "hasPayment"(): boolean
+public "getPrimaryEffect"(): $Holder<($MobEffect)>
+public "getSecondaryEffect"(): $Holder<($MobEffect)>
+public static "encodeEffect"(arg0: $Holder$$Type<($MobEffect)>): integer
+public "updateEffects"(arg0: ($Holder$$Type<($MobEffect$$Type)>)?, arg1: ($Holder$$Type<($MobEffect$$Type)>)?): void
+public static "decodeEffect"(arg0: integer): $Holder<($MobEffect)>
+get "levels"(): integer
 get "primaryEffect"(): $Holder<($MobEffect)>
 get "secondaryEffect"(): $Holder<($MobEffect)>
-get "levels"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -73,10 +73,10 @@ import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$List} from "java.util.List"
 import {$ContainerSynchronizer} from "net.minecraft.world.inventory.ContainerSynchronizer"
 import {$Inventory$$Type} from "net.minecraft.world.entity.player.Inventory"
-import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
 import {$NonNullList} from "net.minecraft.core.NonNullList"
-import {$Slot} from "net.minecraft.world.inventory.Slot"
+import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
+import {$Slot} from "net.minecraft.world.inventory.Slot"
 import {$Container, $Container$$Type} from "net.minecraft.world.Container"
 import {$AbstractContainerMenu} from "net.minecraft.world.inventory.AbstractContainerMenu"
 import {$ContainerLevelAccess$$Type} from "net.minecraft.world.inventory.ContainerLevelAccess"
@@ -115,10 +115,10 @@ constructor(arg0: integer, arg1: $Inventory$$Type, arg2: $ContainerLevelAccess$$
 
 public "removed"(arg0: $Player$$Type): void
 public "computeResult"(arg0: $ItemStack$$Type, arg1: $ItemStack$$Type): $ItemStack
-public "handler$ehc000$deeperdarker$stillValid"(arg0: $Player$$Type, arg1: $CallbackInfoReturnable$$Type): void
-public "stillValid"(arg0: $Player$$Type): boolean
+public "handler$eoe000$deeperdarker$stillValid"(arg0: $Player$$Type, arg1: $CallbackInfoReturnable$$Type): void
 public "quickMoveStack"(arg0: $Player$$Type, arg1: integer): $ItemStack
 public "slotsChanged"(arg0: $Container$$Type): void
+public "stillValid"(arg0: $Player$$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -137,6 +137,7 @@ import {$IExtensibleEnum$$Interface} from "net.neoforged.fml.common.asm.enumexte
 export class $RecipeBookType extends $Enum<($RecipeBookType)> implements $IExtensibleEnum$$Interface {
 static readonly "FURNACE": $RecipeBookType
 static readonly "BLAST_FURNACE": $RecipeBookType
+static readonly "BREWINANDCHEWIN_FERMENTING": $RecipeBookType
 static readonly "SMOKER": $RecipeBookType
 static readonly "FARMERSDELIGHT_COOKING": $RecipeBookType
 static readonly "CRAFTING": $RecipeBookType
@@ -153,7 +154,7 @@ get "extensionInfo"(): $ExtensionInfo
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $RecipeBookType$$Type = (("crafting") | ("furnace") | ("blast_furnace") | ("smoker") | ("farmersdelight_cooking") | ("refurbished_furniture_freezer") | ("refurbished_furniture_microwave") | ("refurbished_furniture_oven"));
+export type $RecipeBookType$$Type = (("crafting") | ("furnace") | ("blast_furnace") | ("smoker") | ("brewinandchewin_fermenting") | ("farmersdelight_cooking") | ("refurbished_furniture_freezer") | ("refurbished_furniture_microwave") | ("refurbished_furniture_oven"));
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -167,8 +168,8 @@ import {$NonNullList} from "net.minecraft.core.NonNullList"
 import {$Slot} from "net.minecraft.world.inventory.Slot"
 import {$AbstractContainerMenu} from "net.minecraft.world.inventory.AbstractContainerMenu"
 import {$RecipeInput} from "net.minecraft.world.item.crafting.RecipeInput"
-import {$RecipeHolder$$Type} from "net.minecraft.world.item.crafting.RecipeHolder"
 import {$Recipe} from "net.minecraft.world.item.crafting.Recipe"
+import {$RecipeHolder$$Type} from "net.minecraft.world.item.crafting.RecipeHolder"
 import {$RecipeBookType} from "net.minecraft.world.inventory.RecipeBookType"
 import {$MenuType, $MenuType$$Type} from "net.minecraft.world.inventory.MenuType"
 import {$Set} from "java.util.Set"
@@ -200,24 +201,24 @@ static readonly "QUICKCRAFT_TYPE_CHARITABLE": integer
 constructor(arg0: $MenuType$$Type<(never)>, arg1: integer)
 
 public "getSize"(): integer
-public "fillCraftSlotsStackedContents"(arg0: $StackedContents$$Type): void
-public "clearCraftingContent"(): void
-public "getRecipeBookCategories"(): $List<($RecipeBookCategories)>
 public "finishPlacingRecipe"(arg0: $RecipeHolder$$Type<(R)>): void
 public "shouldMoveToInventory"(arg0: integer): boolean
-public "getRecipeBookType"(): $RecipeBookType
-public "getGridWidth"(): integer
-public "handlePlacement"(arg0: boolean, arg1: $RecipeHolder$$Type<(never)>, arg2: $ServerPlayer$$Type): void
+public "clearCraftingContent"(): void
+public "getRecipeBookCategories"(): $List<($RecipeBookCategories)>
+public "fillCraftSlotsStackedContents"(arg0: $StackedContents$$Type): void
 public "recipeMatches"(arg0: $RecipeHolder$$Type<(R)>): boolean
-public "getResultSlotIndex"(): integer
+public "getGridWidth"(): integer
 public "beginPlacingRecipe"(): void
 public "getGridHeight"(): integer
+public "getResultSlotIndex"(): integer
+public "getRecipeBookType"(): $RecipeBookType
+public "handlePlacement"(arg0: boolean, arg1: $RecipeHolder$$Type<(never)>, arg2: $ServerPlayer$$Type): void
 get "size"(): integer
 get "recipeBookCategories"(): $List<($RecipeBookCategories)>
-get "recipeBookType"(): $RecipeBookType
 get "gridWidth"(): integer
-get "resultSlotIndex"(): integer
 get "gridHeight"(): integer
+get "resultSlotIndex"(): integer
+get "recipeBookType"(): $RecipeBookType
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -261,10 +262,10 @@ export interface $ContainerSynchronizer$$Interface {
 }
 
 export class $ContainerSynchronizer implements $ContainerSynchronizer$$Interface {
- "sendInitialData"(arg0: $AbstractContainerMenu$$Type, arg1: $NonNullList$$Type<($ItemStack$$Type)>, arg2: $ItemStack$$Type, arg3: (integer)[]): void
- "sendDataChange"(arg0: $AbstractContainerMenu$$Type, arg1: integer, arg2: integer): void
  "sendCarriedChange"(arg0: $AbstractContainerMenu$$Type, arg1: $ItemStack$$Type): void
  "sendSlotChange"(arg0: $AbstractContainerMenu$$Type, arg1: integer, arg2: $ItemStack$$Type): void
+ "sendInitialData"(arg0: $AbstractContainerMenu$$Type, arg1: $NonNullList$$Type<($ItemStack$$Type)>, arg2: $ItemStack$$Type, arg3: (integer)[]): void
+ "sendDataChange"(arg0: $AbstractContainerMenu$$Type, arg1: integer, arg2: integer): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -282,10 +283,10 @@ import {$List} from "java.util.List"
 import {$Runnable, $Runnable$$Type} from "java.lang.Runnable"
 import {$ContainerSynchronizer} from "net.minecraft.world.inventory.ContainerSynchronizer"
 import {$Inventory$$Type} from "net.minecraft.world.entity.player.Inventory"
-import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
 import {$NonNullList} from "net.minecraft.core.NonNullList"
-import {$Slot, $Slot$$Type} from "net.minecraft.world.inventory.Slot"
+import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
+import {$Slot, $Slot$$Type} from "net.minecraft.world.inventory.Slot"
 import {$Container, $Container$$Type} from "net.minecraft.world.Container"
 import {$AbstractContainerMenu} from "net.minecraft.world.inventory.AbstractContainerMenu"
 import {$StonecutterRecipe} from "net.minecraft.world.item.crafting.StonecutterRecipe"
@@ -330,23 +331,23 @@ constructor(arg0: integer, arg1: $Inventory$$Type, arg2: $ContainerLevelAccess$$
 
 public "getType"(): $MenuType<(never)>
 public "removed"(arg0: $Player$$Type): void
-public "canTakeItemForPickAll"(arg0: $ItemStack$$Type, arg1: $Slot$$Type): boolean
+public "setupResultSlot"(): void
 public "getNumRecipes"(): integer
 public "hasInputItem"(): boolean
-public "setupResultSlot"(): void
-public "handler$ehc000$deeperdarker$stillValid"(arg0: $Player$$Type, arg1: $CallbackInfoReturnable$$Type): void
-public "getRecipes"(): $List<($RecipeHolder<($StonecutterRecipe)>)>
-public "stillValid"(arg0: $Player$$Type): boolean
-public "registerUpdateListener"(arg0: $Runnable$$Type): void
-public "getSelectedRecipeIndex"(): integer
-public "clickMenuButton"(arg0: $Player$$Type, arg1: integer): boolean
+public "handler$eoe000$deeperdarker$stillValid"(arg0: $Player$$Type, arg1: $CallbackInfoReturnable$$Type): void
+public "canTakeItemForPickAll"(arg0: $ItemStack$$Type, arg1: $Slot$$Type): boolean
 public "quickMoveStack"(arg0: $Player$$Type, arg1: integer): $ItemStack
+public "clickMenuButton"(arg0: $Player$$Type, arg1: integer): boolean
 public "slotsChanged"(arg0: $Container$$Type): void
+public "stillValid"(arg0: $Player$$Type): boolean
+public "getSelectedRecipeIndex"(): integer
+public "registerUpdateListener"(arg0: $Runnable$$Type): void
+public "getRecipes"(): $List<($RecipeHolder<($StonecutterRecipe)>)>
 get "type"(): $MenuType<(never)>
-get "numRecipes"(): integer
 get "upResultSlot"(): void
-get "recipes"(): $List<($RecipeHolder<($StonecutterRecipe)>)>
+get "numRecipes"(): integer
 get "selectedRecipeIndex"(): integer
+get "recipes"(): $List<($RecipeHolder<($StonecutterRecipe)>)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -370,9 +371,9 @@ import {$ContainerSynchronizer} from "net.minecraft.world.inventory.ContainerSyn
 import {$Inventory$$Type} from "net.minecraft.world.entity.player.Inventory"
 import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
 import {$NonNullList} from "net.minecraft.core.NonNullList"
-import {$ContainerData$$Type} from "net.minecraft.world.inventory.ContainerData"
 import {$Slot} from "net.minecraft.world.inventory.Slot"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
+import {$ContainerData$$Type} from "net.minecraft.world.inventory.ContainerData"
 import {$Container$$Type} from "net.minecraft.world.Container"
 import {$RecipeHolder$$Type} from "net.minecraft.world.item.crafting.RecipeHolder"
 import {$RecipeBookType, $RecipeBookType$$Type} from "net.minecraft.world.inventory.RecipeBookType"
@@ -412,30 +413,30 @@ constructor(arg0: $MenuType$$Type<(never)>, arg1: $RecipeType$$Type<($AbstractCo
 constructor(arg0: $MenuType$$Type<(never)>, arg1: $RecipeType$$Type<($AbstractCookingRecipe$$Type)>, arg2: $RecipeBookType$$Type, arg3: integer, arg4: $Inventory$$Type, arg5: $Container$$Type, arg6: $ContainerData$$Type)
 
 public "getSize"(): integer
-public "canSmelt"(arg0: $ItemStack$$Type): boolean
-public "fillCraftSlotsStackedContents"(arg0: $StackedContents$$Type): void
-public "isFuel"(arg0: $ItemStack$$Type): boolean
-public "isLit"(): boolean
-public "handler$ehc000$deeperdarker$stillValid"(arg0: $Player$$Type, arg1: $CallbackInfoReturnable$$Type): void
-public "clearCraftingContent"(): void
 public "shouldMoveToInventory"(arg0: integer): boolean
+public "clearCraftingContent"(): void
+public "fillCraftSlotsStackedContents"(arg0: $StackedContents$$Type): void
+public "handler$eoe000$deeperdarker$stillValid"(arg0: $Player$$Type, arg1: $CallbackInfoReturnable$$Type): void
+public "isFuel"(arg0: $ItemStack$$Type): boolean
+public "recipeMatches"(arg0: $RecipeHolder$$Type<($AbstractCookingRecipe$$Type)>): boolean
+public "getGridWidth"(): integer
+public "getGridHeight"(): integer
+public "getResultSlotIndex"(): integer
+public "getRecipeBookType"(): $RecipeBookType
+public "quickMoveStack"(arg0: $Player$$Type, arg1: integer): $ItemStack
+public "stillValid"(arg0: $Player$$Type): boolean
+public "isLit"(): boolean
+public "canSmelt"(arg0: $ItemStack$$Type): boolean
 public "getBurnProgress"(): float
 public "getLitProgress"(): float
-public "stillValid"(arg0: $Player$$Type): boolean
-public "getRecipeBookType"(): $RecipeBookType
-public "getGridWidth"(): integer
-public "recipeMatches"(arg0: $RecipeHolder$$Type<($AbstractCookingRecipe$$Type)>): boolean
-public "quickMoveStack"(arg0: $Player$$Type, arg1: integer): $ItemStack
-public "getResultSlotIndex"(): integer
-public "getGridHeight"(): integer
 get "size"(): integer
+get "gridWidth"(): integer
+get "gridHeight"(): integer
+get "resultSlotIndex"(): integer
+get "recipeBookType"(): $RecipeBookType
 get "lit"(): boolean
 get "burnProgress"(): float
 get "litProgress"(): float
-get "recipeBookType"(): $RecipeBookType
-get "gridWidth"(): integer
-get "resultSlotIndex"(): integer
-get "gridHeight"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -456,8 +457,8 @@ public "get"(): integer
 public "set"(arg0: integer): void
 public static "shared"(arg0: (integer)[], arg1: integer): $DataSlot
 public static "standalone"(): $DataSlot
-public static "forContainer"(arg0: $ContainerData$$Type, arg1: integer): $DataSlot
 public "checkAndClearUpdateFlag"(): boolean
+public static "forContainer"(arg0: $ContainerData$$Type, arg1: integer): $DataSlot
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -530,10 +531,10 @@ import {$ItemStack} from "net.minecraft.world.item.ItemStack"
 import {$List} from "java.util.List"
 import {$ContainerSynchronizer} from "net.minecraft.world.inventory.ContainerSynchronizer"
 import {$Inventory$$Type} from "net.minecraft.world.entity.player.Inventory"
-import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
 import {$NonNullList} from "net.minecraft.core.NonNullList"
-import {$Slot} from "net.minecraft.world.inventory.Slot"
+import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
+import {$Slot} from "net.minecraft.world.inventory.Slot"
 import {$Container$$Type} from "net.minecraft.world.Container"
 import {$AbstractContainerMenu} from "net.minecraft.world.inventory.AbstractContainerMenu"
 import {$MenuType} from "net.minecraft.world.inventory.MenuType"
@@ -566,9 +567,9 @@ constructor(arg0: integer, arg1: $Inventory$$Type)
 constructor(arg0: integer, arg1: $Inventory$$Type, arg2: $Container$$Type)
 
 public "removed"(arg0: $Player$$Type): void
-public "handler$ehc000$deeperdarker$stillValid"(arg0: $Player$$Type, arg1: $CallbackInfoReturnable$$Type): void
-public "stillValid"(arg0: $Player$$Type): boolean
+public "handler$eoe000$deeperdarker$stillValid"(arg0: $Player$$Type, arg1: $CallbackInfoReturnable$$Type): void
 public "quickMoveStack"(arg0: $Player$$Type, arg1: integer): $ItemStack
+public "stillValid"(arg0: $Player$$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -585,10 +586,10 @@ import {$ItemStack} from "net.minecraft.world.item.ItemStack"
 import {$List} from "java.util.List"
 import {$ContainerSynchronizer} from "net.minecraft.world.inventory.ContainerSynchronizer"
 import {$Inventory$$Type} from "net.minecraft.world.entity.player.Inventory"
-import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
 import {$NonNullList} from "net.minecraft.core.NonNullList"
-import {$Slot} from "net.minecraft.world.inventory.Slot"
+import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
+import {$Slot} from "net.minecraft.world.inventory.Slot"
 import {$Container$$Type} from "net.minecraft.world.Container"
 import {$AbstractContainerMenu} from "net.minecraft.world.inventory.AbstractContainerMenu"
 import {$MenuType} from "net.minecraft.world.inventory.MenuType"
@@ -620,9 +621,9 @@ constructor(arg0: integer, arg1: $Inventory$$Type)
 constructor(arg0: integer, arg1: $Inventory$$Type, arg2: $Container$$Type)
 
 public "removed"(arg0: $Player$$Type): void
-public "handler$ehc000$deeperdarker$stillValid"(arg0: $Player$$Type, arg1: $CallbackInfoReturnable$$Type): void
-public "stillValid"(arg0: $Player$$Type): boolean
+public "handler$eoe000$deeperdarker$stillValid"(arg0: $Player$$Type, arg1: $CallbackInfoReturnable$$Type): void
 public "quickMoveStack"(arg0: $Player$$Type, arg1: integer): $ItemStack
+public "stillValid"(arg0: $Player$$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -634,16 +635,20 @@ export type $DispenserMenu$$Type = ($DispenserMenu);
  */
 export type $DispenserMenu$$Original = $DispenserMenu;}
 declare module "net.minecraft.world.inventory.Slot" {
-import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
-import {$Container, $Container$$Type} from "net.minecraft.world.Container"
-import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
+import {$PositionedRectangle, $PositionedRectangle$$Type} from "io.wispforest.owo.ui.core.PositionedRectangle"
 import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$Optional} from "java.util.Optional"
 import {$Pair} from "com.mojang.datafixers.util.Pair"
-import {$SlotAccessor$$Interface} from "net.blay09.mods.balm.mixin.SlotAccessor"
-import {$SlotAccessor$$Interface as $SlotAccessor$0$$Interface} from "net.dawson.adorablehamsterpets.mixin.accessor.SlotAccessor"
+import {$SlotAccessor$$Interface as $SlotAccessor$1$$Interface} from "io.wispforest.accessories.mixin.SlotAccessor"
+import {$SlotAccessor$$Interface} from "io.wispforest.owo.mixin.ui.SlotAccessor"
+import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
+import {$OwoSlotExtension$$Interface} from "io.wispforest.owo.util.pond.OwoSlotExtension"
+import {$Container, $Container$$Type} from "net.minecraft.world.Container"
+import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
+import {$SlotAccessor$$Interface as $SlotAccessor$0$$Interface} from "net.blay09.mods.balm.mixin.SlotAccessor"
+import {$SlotAccessor$$Interface as $SlotAccessor$2$$Interface} from "net.dawson.adorablehamsterpets.mixin.accessor.SlotAccessor"
 
-export class $Slot implements $SlotAccessor$$Interface, $SlotAccessor$0$$Interface {
+export class $Slot implements $SlotAccessor$0$$Interface, $SlotAccessor$1$$Interface, $SlotAccessor$2$$Interface, $SlotAccessor$$Interface, $OwoSlotExtension$$Interface {
 readonly "container": $Container
  "x": integer
  "index": integer
@@ -656,43 +661,50 @@ public "remove"(arg0: integer): $ItemStack
 public "set"(arg0: $ItemStack$$Type): void
 public "isActive"(): boolean
 public "getItem"(): $ItemStack
-public "adorablehamsterpets$getInventory"(): $Container
-public "setY"(arg0: integer): void
-public "setX"(arg0: integer): void
-public "mayPlace"(arg0: $ItemStack$$Type): boolean
-public "isFake"(): boolean
-public "mayPickup"(arg0: $Player$$Type): boolean
-public "allowModification"(arg0: $Player$$Type): boolean
+public "safeInsert"(arg0: $ItemStack$$Type): $ItemStack
+public "safeInsert"(arg0: $ItemStack$$Type, arg1: integer): $ItemStack
 public "tryRemove"(arg0: integer, arg1: integer, arg2: $Player$$Type): $Optional<($ItemStack)>
 public "onTake"(arg0: $Player$$Type, arg1: $ItemStack$$Type): void
 public "safeTake"(arg0: integer, arg1: integer, arg2: $Player$$Type): $ItemStack
-public "safeInsert"(arg0: $ItemStack$$Type, arg1: integer): $ItemStack
-public "safeInsert"(arg0: $ItemStack$$Type): $ItemStack
-public "getMaxStackSize"(arg0: $ItemStack$$Type): integer
-public "getMaxStackSize"(): integer
-public "setBackground"(arg0: $ResourceLocation$$Type, arg1: $ResourceLocation$$Type): $Slot
-public "getNoItemIcon"(): $Pair<($ResourceLocation), ($ResourceLocation)>
-public "isHighlightable"(): boolean
-public "isSameInventory"(arg0: $Slot$$Type): boolean
-public "getSlotIndex"(): integer
 public "setChanged"(): void
-public "checkTakeAchievements"(arg0: $ItemStack$$Type): void
+public "allowModification"(arg0: $Player$$Type): boolean
+public "owo$getScissorArea"(): $PositionedRectangle
+public "getNoItemIcon"(): $Pair<($ResourceLocation), ($ResourceLocation)>
+public "isSameInventory"(arg0: $Slot$$Type): boolean
+public "isHighlightable"(): boolean
+public "getSlotIndex"(): integer
+public "setX"(arg0: integer): void
+public "setY"(arg0: integer): void
+public "isFake"(): boolean
+public "mayPickup"(arg0: $Player$$Type): boolean
+public "mayPlace"(arg0: $ItemStack$$Type): boolean
+public "setBackground"(arg0: $ResourceLocation$$Type, arg1: $ResourceLocation$$Type): $Slot
+public "onQuickCraft"(arg0: $ItemStack$$Type, arg1: integer): void
+public "onQuickCraft"(arg0: $ItemStack$$Type, arg1: $ItemStack$$Type): void
+public "onSwapCraft"(arg0: integer): void
 public "setByPlayer"(arg0: $ItemStack$$Type): void
 public "setByPlayer"(arg0: $ItemStack$$Type, arg1: $ItemStack$$Type): void
-public "onSwapCraft"(arg0: integer): void
 public "getContainerSlot"(): integer
-public "onQuickCraft"(arg0: $ItemStack$$Type, arg1: $ItemStack$$Type): void
-public "onQuickCraft"(arg0: $ItemStack$$Type, arg1: integer): void
+public "owo$setX"(arg0: integer): void
+public "owo$setY"(arg0: integer): void
+public "getMaxStackSize"(): integer
+public "getMaxStackSize"(arg0: $ItemStack$$Type): integer
+public "owo$getDisabledOverride"(): boolean
+public "checkTakeAchievements"(arg0: $ItemStack$$Type): void
+public "owo$setDisabledOverride"(disabled: boolean): void
+public "owo$setScissorArea"(scissor: $PositionedRectangle$$Type): void
+public "accessories$setY"(arg0: integer): void
+public "adorablehamsterpets$getInventory"(): $Container
 get "active"(): boolean
 get "item"(): $ItemStack
-get "fake"(): boolean
-get "maxStackSize"(): integer
+get "changed"(): void
 get "noItemIcon"(): $Pair<($ResourceLocation), ($ResourceLocation)>
 get "highlightable"(): boolean
 get "slotIndex"(): integer
-get "changed"(): void
+get "fake"(): boolean
 set "byPlayer"(value: $ItemStack$$Type)
 get "containerSlot"(): integer
+get "maxStackSize"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -710,10 +722,10 @@ import {$DataSlot} from "net.minecraft.world.inventory.DataSlot"
 import {$List} from "java.util.List"
 import {$ContainerSynchronizer} from "net.minecraft.world.inventory.ContainerSynchronizer"
 import {$Inventory$$Type} from "net.minecraft.world.entity.player.Inventory"
-import {$ItemCombinerMenu} from "net.minecraft.world.inventory.ItemCombinerMenu"
 import {$NonNullList} from "net.minecraft.core.NonNullList"
+import {$ItemCombinerMenu} from "net.minecraft.world.inventory.ItemCombinerMenu"
+import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$Slot} from "net.minecraft.world.inventory.Slot"
-import {$Player, $Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$ItemCombinerMenuSlotDefinition} from "net.minecraft.world.inventory.ItemCombinerMenuSlotDefinition"
 import {$Container} from "net.minecraft.world.Container"
 import {$ContainerLevelAccess, $ContainerLevelAccess$$Type} from "net.minecraft.world.inventory.ContainerLevelAccess"
@@ -736,7 +748,6 @@ static readonly "QUICKCRAFT_TYPE_CLONE": integer
  "itemName": StringJS
  "containerId": integer
 static readonly "QUICKCRAFT_TYPE_CHARITABLE": integer
-readonly "player": $Player
 static readonly "INPUT_SLOT": integer
 readonly "cost": $DataSlot
 static readonly "$assertionsDisabled": boolean
@@ -758,15 +769,15 @@ readonly "containerListeners": $List<($ContainerListener)>
 constructor(arg0: integer, arg1: $Inventory$$Type)
 constructor(arg0: integer, arg1: $Inventory$$Type, arg2: $ContainerLevelAccess$$Type)
 
-public "mayPickup"(arg0: $Player$$Type, arg1: boolean): boolean
 public "isValidBlock"(arg0: $BlockState$$Type): boolean
-public "createResult"(): void
 public "setItemName"(arg0: StringJS): boolean
+public "createResult"(): void
 public "setMaximumCost"(arg0: long): void
+public "createInputSlotDefinitions"(): $ItemCombinerMenuSlotDefinition
 public "onTake"(arg0: $Player$$Type, arg1: $ItemStack$$Type): void
+public "mayPickup"(arg0: $Player$$Type, arg1: boolean): boolean
 public "getCost"(): integer
 public static "calculateIncreasedRepairCost"(arg0: integer): integer
-public "createInputSlotDefinitions"(): $ItemCombinerMenuSlotDefinition
 set "maximumCost"(value: long)
 }
 /**
@@ -785,10 +796,10 @@ import {$RecipeBookMenu} from "net.minecraft.world.inventory.RecipeBookMenu"
 import {$List} from "java.util.List"
 import {$Level$$Type} from "net.minecraft.world.level.Level"
 import {$Inventory$$Type} from "net.minecraft.world.entity.player.Inventory"
-import {$Slot, $Slot$$Type} from "net.minecraft.world.inventory.Slot"
 import {$Player, $Player$$Type} from "net.minecraft.world.entity.player.Player"
-import {$ContainerLevelAccess$$Type} from "net.minecraft.world.inventory.ContainerLevelAccess"
+import {$Slot, $Slot$$Type} from "net.minecraft.world.inventory.Slot"
 import {$RecipeBookType} from "net.minecraft.world.inventory.RecipeBookType"
+import {$ContainerLevelAccess$$Type} from "net.minecraft.world.inventory.ContainerLevelAccess"
 import {$Set} from "java.util.Set"
 import {$ResultContainer, $ResultContainer$$Type} from "net.minecraft.world.inventory.ResultContainer"
 import {$CraftingInput} from "net.minecraft.world.item.crafting.CraftingInput"
@@ -796,6 +807,7 @@ import {$ContainerListener} from "net.minecraft.world.inventory.ContainerListene
 import {$ContainerSynchronizer} from "net.minecraft.world.inventory.ContainerSynchronizer"
 import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
 import {$NonNullList} from "net.minecraft.core.NonNullList"
+import {$CraftingMenuAccessor$$Interface} from "io.wispforest.accessories.mixin.CraftingMenuAccessor"
 import {$Container$$Type} from "net.minecraft.world.Container"
 import {$AbstractContainerMenu$$Type} from "net.minecraft.world.inventory.AbstractContainerMenu"
 import {$RecipeHolder$$Type} from "net.minecraft.world.item.crafting.RecipeHolder"
@@ -804,7 +816,7 @@ import {$CraftingRecipe, $CraftingRecipe$$Type} from "net.minecraft.world.item.c
 import {$CraftingContainer, $CraftingContainer$$Type} from "net.minecraft.world.inventory.CraftingContainer"
 import {$StackedContents$$Type} from "net.minecraft.world.entity.player.StackedContents"
 
-export class $CraftingMenu extends $RecipeBookMenu<($CraftingInput), ($CraftingRecipe)> implements $AccessorCraftingMenu$$Interface {
+export class $CraftingMenu extends $RecipeBookMenu<($CraftingInput), ($CraftingRecipe)> implements $CraftingMenuAccessor$$Interface, $AccessorCraftingMenu$$Interface {
 readonly "quickcraftSlots": $Set<($Slot)>
  "remoteCarried": $ItemStack
 static readonly "QUICKCRAFT_HEADER_START": integer
@@ -826,39 +838,41 @@ readonly "containerListeners": $List<($ContainerListener)>
  "quickcraftStatus": integer
  "containerId": integer
 static readonly "QUICKCRAFT_TYPE_CHARITABLE": integer
-readonly "player": $Player
 
 constructor(arg0: integer, arg1: $Inventory$$Type)
 constructor(arg0: integer, arg1: $Inventory$$Type, arg2: $ContainerLevelAccess$$Type)
 
 public "getSize"(): integer
 public "removed"(arg0: $Player$$Type): void
-public "canTakeItemForPickAll"(arg0: $ItemStack$$Type, arg1: $Slot$$Type): boolean
-public "fillCraftSlotsStackedContents"(arg0: $StackedContents$$Type): void
-public "handler$ehc000$deeperdarker$stillValid"(arg0: $Player$$Type, arg1: $CallbackInfoReturnable$$Type): void
-public static "slotChangedCraftingGrid"(arg0: $AbstractContainerMenu$$Type, arg1: $Level$$Type, arg2: $Player$$Type, arg3: $CraftingContainer$$Type, arg4: $ResultContainer$$Type, arg5: $RecipeHolder$$Type<($CraftingRecipe$$Type)>): void
-public "clearCraftingContent"(): void
 public "finishPlacingRecipe"(arg0: $RecipeHolder$$Type<($CraftingRecipe$$Type)>): void
+public static "slotChangedCraftingGrid"(arg0: $AbstractContainerMenu$$Type, arg1: $Level$$Type, arg2: $Player$$Type, arg3: $CraftingContainer$$Type, arg4: $ResultContainer$$Type, arg5: $RecipeHolder$$Type<($CraftingRecipe$$Type)>): void
 public "shouldMoveToInventory"(arg0: integer): boolean
+public "clearCraftingContent"(): void
+public "fillCraftSlotsStackedContents"(arg0: $StackedContents$$Type): void
+public "handler$eoe000$deeperdarker$stillValid"(arg0: $Player$$Type, arg1: $CallbackInfoReturnable$$Type): void
 public "getPlayer"(): $Player
 public "getCraftSlots"(): $CraftingContainer
-public "stillValid"(arg0: $Player$$Type): boolean
-public "getRecipeBookType"(): $RecipeBookType
-public "getGridWidth"(): integer
-public "getResultSlots"(): $ResultContainer
+public "canTakeItemForPickAll"(arg0: $ItemStack$$Type, arg1: $Slot$$Type): boolean
 public "recipeMatches"(arg0: $RecipeHolder$$Type<($CraftingRecipe$$Type)>): boolean
-public "quickMoveStack"(arg0: $Player$$Type, arg1: integer): $ItemStack
-public "slotsChanged"(arg0: $Container$$Type): void
-public "getResultSlotIndex"(): integer
+public "getGridWidth"(): integer
 public "beginPlacingRecipe"(): void
 public "getGridHeight"(): integer
+public "getResultSlots"(): $ResultContainer
+public "getResultSlotIndex"(): integer
+public "getRecipeBookType"(): $RecipeBookType
+public "quickMoveStack"(arg0: $Player$$Type, arg1: integer): $ItemStack
+public "slotsChanged"(arg0: $Container$$Type): void
+public "stillValid"(arg0: $Player$$Type): boolean
+public static "slotChangedCraftingGrid$accessories_$md$1ae6d3$0"(arg0: $AbstractContainerMenu$$Type, arg1: $Level$$Type, arg2: $Player$$Type, arg3: $CraftingContainer$$Type, arg4: $ResultContainer$$Type, arg5: $RecipeHolder$$Type): void
+public static "accessories$slotChangedCraftingGrid"(abstractContainerMenu: $AbstractContainerMenu$$Type, level: $Level$$Type, player: $Player$$Type, craftingContainer: $CraftingContainer$$Type, resultContainer: $ResultContainer$$Type, recipeHolder: $RecipeHolder$$Type<($CraftingRecipe$$Type)>): void
 get "size"(): integer
+get "player"(): $Player
 get "craftSlots"(): $CraftingContainer
-get "recipeBookType"(): $RecipeBookType
 get "gridWidth"(): integer
+get "gridHeight"(): integer
 get "resultSlots"(): $ResultContainer
 get "resultSlotIndex"(): integer
-get "gridHeight"(): integer
+get "recipeBookType"(): $RecipeBookType
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -870,27 +884,38 @@ export type $CraftingMenu$$Type = ($CraftingMenu);
  */
 export type $CraftingMenu$$Original = $CraftingMenu;}
 declare module "net.minecraft.world.inventory.AbstractContainerMenu" {
-import {$ContainerListener, $ContainerListener$$Type} from "net.minecraft.world.inventory.ContainerListener"
 import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
-import {$DataSlot, $DataSlot$$Type} from "net.minecraft.world.inventory.DataSlot"
 import {$List, $List$$Type} from "java.util.List"
+import {$ScreenInternals$LocalPacket$$Type} from "io.wispforest.owo.client.screens.ScreenInternals$LocalPacket"
+import {$Player, $Player$$Type} from "net.minecraft.world.entity.player.Player"
+import {$Slot, $Slot$$Type} from "net.minecraft.world.inventory.Slot"
+import {$ContainerData$$Type} from "net.minecraft.world.inventory.ContainerData"
+import {$ContainerLevelAccess$$Type} from "net.minecraft.world.inventory.ContainerLevelAccess"
+import {$Class$$Type} from "java.lang.Class"
+import {$Set, $Set$$Type} from "java.util.Set"
+import {$OwoScreenHandlerExtension$$Interface} from "io.wispforest.owo.util.pond.OwoScreenHandlerExtension"
+import {$ClickType$$Type} from "net.minecraft.world.inventory.ClickType"
+import {$Endec$$Type} from "io.wispforest.endec.Endec"
+import {$ContainerListener, $ContainerListener$$Type} from "net.minecraft.world.inventory.ContainerListener"
+import {$DataSlot, $DataSlot$$Type} from "net.minecraft.world.inventory.DataSlot"
 import {$Block$$Type} from "net.minecraft.world.level.block.Block"
 import {$SlotAccess} from "net.minecraft.world.entity.SlotAccess"
+import {$SyncedProperty} from "io.wispforest.owo.client.screens.SyncedProperty"
+import {$OwoScreenHandler$$Interface} from "io.wispforest.owo.client.screens.OwoScreenHandler"
+import {$ScreenHandlerInvoker$$Interface} from "io.wispforest.owo.mixin.ScreenHandlerInvoker"
 import {$ContainerSynchronizer, $ContainerSynchronizer$$Type} from "net.minecraft.world.inventory.ContainerSynchronizer"
 import {$NonNullList} from "net.minecraft.core.NonNullList"
-import {$ContainerData$$Type} from "net.minecraft.world.inventory.ContainerData"
-import {$Slot, $Slot$$Type} from "net.minecraft.world.inventory.Slot"
-import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
+import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$Operation$$Type} from "com.llamalad7.mixinextras.injector.wrapoperation.Operation"
+import {$ScreenInternals$SyncPropertiesPacket$$Type} from "io.wispforest.owo.client.screens.ScreenInternals$SyncPropertiesPacket"
 import {$Container$$Type} from "net.minecraft.world.Container"
+import {$ReflectiveEndecBuilder} from "io.wispforest.endec.impl.ReflectiveEndecBuilder"
 import {$OptionalInt} from "java.util.OptionalInt"
-import {$ContainerLevelAccess$$Type} from "net.minecraft.world.inventory.ContainerLevelAccess"
 import {$MenuType, $MenuType$$Type} from "net.minecraft.world.inventory.MenuType"
-import {$Set, $Set$$Type} from "java.util.Set"
-import {$ClickType$$Type} from "net.minecraft.world.inventory.ClickType"
 import {$BlockEntity$$Type} from "net.minecraft.world.level.block.entity.BlockEntity"
+import {$Record, $Record$$Type} from "java.lang.Record"
 
-export class $AbstractContainerMenu {
+export class $AbstractContainerMenu implements $ScreenHandlerInvoker$$Interface, $OwoScreenHandlerExtension$$Interface, $OwoScreenHandler$$Interface {
 readonly "quickcraftSlots": $Set<($Slot)>
  "remoteCarried": $ItemStack
 static readonly "QUICKCRAFT_HEADER_START": integer
@@ -916,63 +941,76 @@ constructor(arg0: $MenuType$$Type<(never)>, arg1: integer)
 public "getType"(): $MenuType<(never)>
 public "getSlot"(arg0: integer): $Slot
 public "removed"(arg0: $Player$$Type): void
-public static "canItemQuickReplace"(arg0: $Slot$$Type, arg1: $ItemStack$$Type, arg2: boolean): boolean
-public static "getQuickCraftPlaceCount"(arg0: $Set$$Type<($Slot$$Type)>, arg1: integer, arg2: $ItemStack$$Type): integer
-public "canTakeItemForPickAll"(arg0: $ItemStack$$Type, arg1: $Slot$$Type): boolean
-public "findSlot"(arg0: $Container$$Type, arg1: integer): $OptionalInt
-public "canDragTo"(arg0: $Slot$$Type): boolean
-public "transferState"(arg0: $AbstractContainerMenu$$Type): void
-public "wrapOperation$cpl000$geckolib$removeGeckolibIdOnCopy"(arg0: $ItemStack$$Type, arg1: integer, arg2: $Operation$$Type): $ItemStack
-public "wrapOperation$cpl000$geckolib$forceGeckolibSlotChange"(arg0: $ItemStack$$Type, arg1: $ItemStack$$Type, arg2: $Operation$$Type): boolean
-public static "getRedstoneSignalFromContainer"(arg0: $Container$$Type): integer
-public static "getRedstoneSignalFromBlockEntity"(arg0: $BlockEntity$$Type): integer
-public "clicked"(arg0: integer, arg1: integer, arg2: $ClickType$$Type, arg3: $Player$$Type): void
-public "addSlot"(arg0: $Slot$$Type): $Slot
-public "doClick"(arg0: integer, arg1: integer, arg2: $ClickType$$Type, arg3: $Player$$Type): void
-public "getStateId"(): integer
-public "getItems"(): $NonNullList<($ItemStack)>
-public "setRemoteSlot"(arg0: integer, arg1: $ItemStack$$Type): void
-public "setRemoteSlotNoCopy"(arg0: integer, arg1: $ItemStack$$Type): void
-public "createCarriedSlotAccess"(): $SlotAccess
-public static "isValidQuickcraftType"(arg0: integer, arg1: $Player$$Type): boolean
-public "resumeRemoteUpdates"(): void
-public static "getQuickcraftHeader"(arg0: integer): integer
-public "synchronizeCarriedToRemote"(): void
+public "player"(): $Player
+public "suppressRemoteUpdates"(): void
 public static "checkContainerDataCount"(arg0: $ContainerData$$Type, arg1: integer): void
+public "addClientboundMessage"(messageClass: $Class$$Type, endec: $Endec$$Type, handler: $Consumer$$Type): void
 public "sendAllDataToRemote"(): void
+public static "getQuickcraftHeader"(arg0: integer): integer
+public "createCarriedSlotAccess"(): $SlotAccess
+public "owo$readPropertySync"(packet: $ScreenInternals$SyncPropertiesPacket$$Type): void
+public "synchronizeCarriedToRemote"(): void
+public static "isValidQuickcraftType"(arg0: integer, arg1: $Player$$Type): boolean
+public "setRemoteSlotNoCopy"(arg0: integer, arg1: $ItemStack$$Type): void
+public "resumeRemoteUpdates"(): void
+public "addServerboundMessage"(messageClass: $Class$$Type, endec: $Endec$$Type, handler: $Consumer$$Type): void
 public "setData"(arg0: integer, arg1: integer): void
-public "setSynchronizer"(arg0: $ContainerSynchronizer$$Type): void
-public "addSlotListener"(arg0: $ContainerListener$$Type): void
+public "addSlot"(arg0: $Slot$$Type): $Slot
+public "clicked"(arg0: integer, arg1: integer, arg2: $ClickType$$Type, arg3: $Player$$Type): void
+public "getStateId"(): integer
+public static "getRedstoneSignalFromBlockEntity"(arg0: $BlockEntity$$Type): integer
+public static "getRedstoneSignalFromContainer"(arg0: $Container$$Type): integer
+public "getCarried"(): $ItemStack
+public "setCarried"(arg0: $ItemStack$$Type): void
+public "createProperty"(clazz: $Class$$Type, endec: $Endec$$Type, initial: any): $SyncedProperty
 public static "getQuickcraftMask"(arg0: integer, arg1: integer): integer
 public "broadcastChanges"(): void
-public static "stillValid"(arg0: $ContainerLevelAccess$$Type, arg1: $Player$$Type, arg2: $Block$$Type): boolean
-public "stillValid"(arg0: $Player$$Type): boolean
-public "setCarried"(arg0: $ItemStack$$Type): void
-public "getCarried"(): $ItemStack
-public "setItem"(arg0: integer, arg1: integer, arg2: $ItemStack$$Type): void
-public "wrapOperation$cpl000$geckolib$forceGeckolibIdSync"(arg0: $ItemStack$$Type, arg1: $ItemStack$$Type, arg2: $Operation$$Type): boolean
-public "suppressRemoteUpdates"(): void
-public static "checkContainerSize"(arg0: $Container$$Type, arg1: integer): void
-public "isValidSlotIndex"(arg0: integer): boolean
-public "addDataSlot"(arg0: $DataSlot$$Type): $DataSlot
-public "addDataSlots"(arg0: $ContainerData$$Type): void
-public "removeSlotListener"(arg0: $ContainerListener$$Type): void
-public "clickMenuButton"(arg0: $Player$$Type, arg1: integer): boolean
-public "moveItemStackTo"(arg0: $ItemStack$$Type, arg1: integer, arg2: integer, arg3: boolean): boolean
-public "resetQuickCraft"(): void
+public "findSlot"(arg0: $Container$$Type, arg1: integer): $OptionalInt
+public "canDragTo"(arg0: $Slot$$Type): boolean
+public static "canItemQuickReplace"(arg0: $Slot$$Type, arg1: $ItemStack$$Type, arg2: boolean): boolean
+public "canTakeItemForPickAll"(arg0: $ItemStack$$Type, arg1: $Slot$$Type): boolean
+public static "getQuickCraftPlaceCount"(arg0: $Set$$Type<($Slot$$Type)>, arg1: integer, arg2: $ItemStack$$Type): integer
+public "setRemoteCarried"(arg0: $ItemStack$$Type): void
 public "incrementStateId"(): integer
 public "quickMoveStack"(arg0: $Player$$Type, arg1: integer): $ItemStack
+public "addDataSlots"(arg0: $ContainerData$$Type): void
 public static "getQuickcraftType"(arg0: integer): integer
-public "slotsChanged"(arg0: $Container$$Type): void
-public "broadcastFullState"(): void
-public "setRemoteCarried"(arg0: $ItemStack$$Type): void
 public "clearContainer"(arg0: $Player$$Type, arg1: $Container$$Type): void
 public "initializeContents"(arg0: integer, arg1: $List$$Type<($ItemStack$$Type)>, arg2: $ItemStack$$Type): void
+public "clickMenuButton"(arg0: $Player$$Type, arg1: integer): boolean
+public "endecBuilder"(): $ReflectiveEndecBuilder
+public "resetQuickCraft"(): void
+public "owo$insertItem"(arg0: $ItemStack$$Type, arg1: integer, arg2: integer, arg3: boolean): boolean
+public "removeSlotListener"(arg0: $ContainerListener$$Type): void
+public "isValidSlotIndex"(arg0: integer): boolean
+public static "checkContainerSize"(arg0: $Container$$Type, arg1: integer): void
+public "moveItemStackTo"(arg0: $ItemStack$$Type, arg1: integer, arg2: integer, arg3: boolean): boolean
+public "owo$handlePacket"(packet: $ScreenInternals$LocalPacket$$Type, clientbound: boolean): void
+public "broadcastFullState"(): void
+public "slotsChanged"(arg0: $Container$$Type): void
+public "addDataSlot"(arg0: $DataSlot$$Type): $DataSlot
+public "stillValid"(arg0: $Player$$Type): boolean
+public static "stillValid"(arg0: $ContainerLevelAccess$$Type, arg1: $Player$$Type, arg2: $Block$$Type): boolean
+public "addSlotListener"(arg0: $ContainerListener$$Type): void
+public "setSynchronizer"(arg0: $ContainerSynchronizer$$Type): void
+public "transferState"(arg0: $AbstractContainerMenu$$Type): void
+public "setRemoteSlot"(arg0: integer, arg1: $ItemStack$$Type): void
+public "sendMessage"(message: $Record$$Type): void
+public "owo$attachToPlayer"(player: $Player$$Type): void
+public "getItems"(): $NonNullList<($ItemStack)>
+public "wrapOperation$dfi000$geckolib$removeGeckolibIdOnCopy"(arg0: $ItemStack$$Type, arg1: integer, arg2: $Operation$$Type): $ItemStack
+public "wrapOperation$dfi000$geckolib$forceGeckolibSlotChange"(arg0: $ItemStack$$Type, arg1: $ItemStack$$Type, arg2: $Operation$$Type): boolean
+public "doClick"(arg0: integer, arg1: integer, arg2: $ClickType$$Type, arg3: $Player$$Type): void
+public "wrapOperation$dfi000$geckolib$forceGeckolibIdSync"(arg0: $ItemStack$$Type, arg1: $ItemStack$$Type, arg2: $Operation$$Type): boolean
+public "setItem"(arg0: integer, arg1: integer, arg2: $ItemStack$$Type): void
+public "addClientboundMessage"<R extends $Record>(messageClass: $Class$$Type<(R)>, handler: $Consumer$$Type<(R)>): void
+public "addServerboundMessage"<R extends $Record>(messageClass: $Class$$Type<(R)>, handler: $Consumer$$Type<(R)>): void
+public "createProperty"<T>(clazz: $Class$$Type<(T)>, initial: T): $SyncedProperty<(T)>
 get "type"(): $MenuType<(never)>
 get "stateId"(): integer
-get "items"(): $NonNullList<($ItemStack)>
-set "carried"(value: $ItemStack$$Type)
 get "carried"(): $ItemStack
+set "carried"(value: $ItemStack$$Type)
+get "items"(): $NonNullList<($ItemStack)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -991,8 +1029,8 @@ import {$List} from "java.util.List"
 import {$ContainerSynchronizer} from "net.minecraft.world.inventory.ContainerSynchronizer"
 import {$Inventory$$Type} from "net.minecraft.world.entity.player.Inventory"
 import {$NonNullList} from "net.minecraft.core.NonNullList"
-import {$Slot, $Slot$$Type} from "net.minecraft.world.inventory.Slot"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
+import {$Slot, $Slot$$Type} from "net.minecraft.world.inventory.Slot"
 import {$Merchant, $Merchant$$Type} from "net.minecraft.world.item.trading.Merchant"
 import {$Container$$Type} from "net.minecraft.world.Container"
 import {$AbstractContainerMenu} from "net.minecraft.world.inventory.AbstractContainerMenu"
@@ -1027,32 +1065,32 @@ static readonly "QUICKCRAFT_TYPE_CHARITABLE": integer
 constructor(arg0: integer, arg1: $Inventory$$Type)
 constructor(arg0: integer, arg1: $Inventory$$Type, arg2: $Merchant$$Type)
 
-public "showProgressBar"(): boolean
-public "getTraderXp"(): integer
-public "setCanRestock"(arg0: boolean): void
-public "setMerchantLevel"(arg0: integer): void
-public "setSelectionHint"(arg0: integer): void
-public "getTraderLevel"(): integer
-public "getFutureTraderXp"(): integer
-public "setShowProgressBar"(arg0: boolean): void
 public "removed"(arg0: $Player$$Type): void
-public "canTakeItemForPickAll"(arg0: $ItemStack$$Type, arg1: $Slot$$Type): boolean
 public "tryMoveItems"(arg0: integer): void
-public "setXp"(arg0: integer): void
-public "setOffers"(arg0: $MerchantOffers$$Type): void
-public "getOffers"(): $MerchantOffers
-public "stillValid"(arg0: $Player$$Type): boolean
 public "canRestock"(): boolean
+public "getTraderXp"(): integer
+public "getTraderLevel"(): integer
+public "setShowProgressBar"(arg0: boolean): void
+public "setSelectionHint"(arg0: integer): void
+public "setMerchantLevel"(arg0: integer): void
+public "setCanRestock"(arg0: boolean): void
+public "getFutureTraderXp"(): integer
+public "showProgressBar"(): boolean
+public "canTakeItemForPickAll"(arg0: $ItemStack$$Type, arg1: $Slot$$Type): boolean
 public "quickMoveStack"(arg0: $Player$$Type, arg1: integer): $ItemStack
 public "slotsChanged"(arg0: $Container$$Type): void
+public "stillValid"(arg0: $Player$$Type): boolean
+public "getOffers"(): $MerchantOffers
+public "setOffers"(arg0: $MerchantOffers$$Type): void
+public "setXp"(arg0: integer): void
 get "traderXp"(): integer
-set "merchantLevel"(value: integer)
-set "selectionHint"(value: integer)
 get "traderLevel"(): integer
+set "selectionHint"(value: integer)
+set "merchantLevel"(value: integer)
 get "futureTraderXp"(): integer
-set "xp"(value: integer)
-set "offers"(value: $MerchantOffers$$Type)
 get "offers"(): $MerchantOffers
+set "offers"(value: $MerchantOffers$$Type)
+set "xp"(value: integer)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1072,15 +1110,15 @@ import {$Level$$Type} from "net.minecraft.world.level.Level"
 import {$ServerPlayer$$Type} from "net.minecraft.server.level.ServerPlayer"
 
 export interface $RecipeCraftingHolder$$Interface {
-set "recipeUsed"(value: $RecipeHolder$$Type<(never)>)
 get "recipeUsed"(): $RecipeHolder<(never)>
+set "recipeUsed"(value: $RecipeHolder$$Type<(never)>)
 }
 
 export class $RecipeCraftingHolder implements $RecipeCraftingHolder$$Interface {
+ "getRecipeUsed"(): $RecipeHolder<(never)>
+ "awardUsedRecipes"(arg0: $Player$$Type, arg1: $List$$Type<($ItemStack$$Type)>): void
  "setRecipeUsed"(arg0: $Level$$Type, arg1: $ServerPlayer$$Type, arg2: $RecipeHolder$$Type<(never)>): boolean
  "setRecipeUsed"(arg0: $RecipeHolder$$Type<(never)>): void
- "awardUsedRecipes"(arg0: $Player$$Type, arg1: $List$$Type<($ItemStack$$Type)>): void
- "getRecipeUsed"(): $RecipeHolder<(never)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1119,15 +1157,15 @@ import {$List} from "java.util.List"
 import {$ContainerSynchronizer} from "net.minecraft.world.inventory.ContainerSynchronizer"
 import {$Inventory$$Type} from "net.minecraft.world.entity.player.Inventory"
 import {$NonNullList} from "net.minecraft.core.NonNullList"
+import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$Slot} from "net.minecraft.world.inventory.Slot"
 import {$ContainerData$$Type} from "net.minecraft.world.inventory.ContainerData"
-import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$Container} from "net.minecraft.world.Container"
 import {$AbstractContainerMenu, $AbstractContainerMenu$$Type} from "net.minecraft.world.inventory.AbstractContainerMenu"
 import {$MenuType} from "net.minecraft.world.inventory.MenuType"
 import {$Set} from "java.util.Set"
-import {$AccessorCrafterMenu$$Interface} from "com.illusivesoulworks.polymorph.mixin.core.AccessorCrafterMenu"
 import {$CraftingContainer$$Type} from "net.minecraft.world.inventory.CraftingContainer"
+import {$AccessorCrafterMenu$$Interface} from "com.illusivesoulworks.polymorph.mixin.core.AccessorCrafterMenu"
 
 export class $CrafterMenu extends $AbstractContainerMenu implements $ContainerListener$$Interface, $AccessorCrafterMenu$$Interface {
 readonly "quickcraftSlots": $Set<($Slot)>
@@ -1154,15 +1192,15 @@ static readonly "QUICKCRAFT_TYPE_CHARITABLE": integer
 constructor(arg0: integer, arg1: $Inventory$$Type)
 constructor(arg0: integer, arg1: $Inventory$$Type, arg2: $CraftingContainer$$Type, arg3: $ContainerData$$Type)
 
-public "setSlotState"(arg0: integer, arg1: boolean): void
-public "isSlotDisabled"(arg0: integer): boolean
 public "getContainer"(): $Container
-public "stillValid"(arg0: $Player$$Type): boolean
-public "slotChanged"(arg0: $AbstractContainerMenu$$Type, arg1: integer, arg2: $ItemStack$$Type): void
+public "isSlotDisabled"(arg0: integer): boolean
+public "setSlotState"(arg0: integer, arg1: boolean): void
 public "isPowered"(): boolean
-public "callRefreshRecipeResult"(): void
 public "quickMoveStack"(arg0: $Player$$Type, arg1: integer): $ItemStack
 public "dataChanged"(arg0: $AbstractContainerMenu$$Type, arg1: integer, arg2: integer): void
+public "stillValid"(arg0: $Player$$Type): boolean
+public "slotChanged"(arg0: $AbstractContainerMenu$$Type, arg1: integer, arg2: $ItemStack$$Type): void
+public "callRefreshRecipeResult"(): void
 get "container"(): $Container
 get "powered"(): boolean
 }
@@ -1181,10 +1219,10 @@ import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$List} from "java.util.List"
 import {$ContainerSynchronizer} from "net.minecraft.world.inventory.ContainerSynchronizer"
 import {$Inventory$$Type} from "net.minecraft.world.entity.player.Inventory"
-import {$ItemCombinerMenu} from "net.minecraft.world.inventory.ItemCombinerMenu"
 import {$NonNullList} from "net.minecraft.core.NonNullList"
+import {$ItemCombinerMenu} from "net.minecraft.world.inventory.ItemCombinerMenu"
+import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$Slot, $Slot$$Type} from "net.minecraft.world.inventory.Slot"
-import {$Player, $Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$ItemCombinerMenuSlotDefinition} from "net.minecraft.world.inventory.ItemCombinerMenuSlotDefinition"
 import {$Container} from "net.minecraft.world.Container"
 import {$RecipeHolder} from "net.minecraft.world.item.crafting.RecipeHolder"
@@ -1211,7 +1249,6 @@ static readonly "QUICKCRAFT_TYPE_CLONE": integer
 static readonly "SLOT_Y_PLACEMENT": integer
 static readonly "TEMPLATE_SLOT_X_PLACEMENT": integer
 static readonly "QUICKCRAFT_TYPE_CHARITABLE": integer
-readonly "player": $Player
 static readonly "TEMPLATE_SLOT": integer
 static readonly "$assertionsDisabled": boolean
  "lastSlots": $NonNullList<($ItemStack)>
@@ -1233,14 +1270,14 @@ readonly "containerListeners": $List<($ContainerListener)>
 constructor(arg0: integer, arg1: $Inventory$$Type)
 constructor(arg0: integer, arg1: $Inventory$$Type, arg2: $ContainerLevelAccess$$Type)
 
-public "canTakeItemForPickAll"(arg0: $ItemStack$$Type, arg1: $Slot$$Type): boolean
-public "mayPickup"(arg0: $Player$$Type, arg1: boolean): boolean
 public "isValidBlock"(arg0: $BlockState$$Type): boolean
 public "createResult"(): void
-public "onTake"(arg0: $Player$$Type, arg1: $ItemStack$$Type): void
+public "createInputSlotDefinitions"(): $ItemCombinerMenuSlotDefinition
 public "getSlotToQuickMoveTo"(arg0: $ItemStack$$Type): integer
 public "canMoveIntoInputSlots"(arg0: $ItemStack$$Type): boolean
-public "createInputSlotDefinitions"(): $ItemCombinerMenuSlotDefinition
+public "onTake"(arg0: $Player$$Type, arg1: $ItemStack$$Type): void
+public "mayPickup"(arg0: $Player$$Type, arg1: boolean): boolean
+public "canTakeItemForPickAll"(arg0: $ItemStack$$Type, arg1: $Slot$$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1257,10 +1294,10 @@ import {$ItemStack} from "net.minecraft.world.item.ItemStack"
 import {$List} from "java.util.List"
 import {$ContainerSynchronizer} from "net.minecraft.world.inventory.ContainerSynchronizer"
 import {$Inventory$$Type} from "net.minecraft.world.entity.player.Inventory"
-import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
 import {$NonNullList} from "net.minecraft.core.NonNullList"
-import {$Slot} from "net.minecraft.world.inventory.Slot"
+import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
+import {$Slot} from "net.minecraft.world.inventory.Slot"
 import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
 import {$Container$$Type} from "net.minecraft.world.Container"
 import {$AbstractContainerMenu} from "net.minecraft.world.inventory.AbstractContainerMenu"
@@ -1298,15 +1335,15 @@ constructor(arg0: integer, arg1: $Inventory$$Type)
 constructor(arg0: integer, arg1: $Inventory$$Type, arg2: $ContainerLevelAccess$$Type)
 
 public "removed"(arg0: $Player$$Type): void
-public "getEnchantmentSeed"(): integer
-public "handler$ehc000$deeperdarker$stillValid"(arg0: $Player$$Type, arg1: $CallbackInfoReturnable$$Type): void
-public "stillValid"(arg0: $Player$$Type): boolean
+public "handler$eoe000$deeperdarker$stillValid"(arg0: $Player$$Type, arg1: $CallbackInfoReturnable$$Type): void
 public "getGoldCount"(): integer
-public "clickMenuButton"(arg0: $Player$$Type, arg1: integer): boolean
 public "quickMoveStack"(arg0: $Player$$Type, arg1: integer): $ItemStack
+public "clickMenuButton"(arg0: $Player$$Type, arg1: integer): boolean
 public "slotsChanged"(arg0: $Container$$Type): void
-get "enchantmentSeed"(): integer
+public "stillValid"(arg0: $Player$$Type): boolean
+public "getEnchantmentSeed"(): integer
 get "goldCount"(): integer
+get "enchantmentSeed"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1339,10 +1376,10 @@ import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$List} from "java.util.List"
 import {$ContainerSynchronizer} from "net.minecraft.world.inventory.ContainerSynchronizer"
 import {$Inventory$$Type} from "net.minecraft.world.entity.player.Inventory"
-import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
 import {$NonNullList} from "net.minecraft.core.NonNullList"
-import {$Slot, $Slot$$Type} from "net.minecraft.world.inventory.Slot"
+import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
+import {$Slot, $Slot$$Type} from "net.minecraft.world.inventory.Slot"
 import {$Container, $Container$$Type} from "net.minecraft.world.Container"
 import {$AbstractContainerMenu} from "net.minecraft.world.inventory.AbstractContainerMenu"
 import {$ContainerLevelAccess$$Type} from "net.minecraft.world.inventory.ContainerLevelAccess"
@@ -1380,11 +1417,11 @@ constructor(arg0: integer, arg1: $Inventory$$Type)
 constructor(arg0: integer, arg1: $Inventory$$Type, arg2: $ContainerLevelAccess$$Type)
 
 public "removed"(arg0: $Player$$Type): void
+public "handler$eoe000$deeperdarker$stillValid"(arg0: $Player$$Type, arg1: $CallbackInfoReturnable$$Type): void
 public "canTakeItemForPickAll"(arg0: $ItemStack$$Type, arg1: $Slot$$Type): boolean
-public "handler$ehc000$deeperdarker$stillValid"(arg0: $Player$$Type, arg1: $CallbackInfoReturnable$$Type): void
-public "stillValid"(arg0: $Player$$Type): boolean
 public "quickMoveStack"(arg0: $Player$$Type, arg1: integer): $ItemStack
 public "slotsChanged"(arg0: $Container$$Type): void
+public "stillValid"(arg0: $Player$$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1420,10 +1457,10 @@ import {$ItemStack} from "net.minecraft.world.item.ItemStack"
 import {$List} from "java.util.List"
 import {$ContainerSynchronizer} from "net.minecraft.world.inventory.ContainerSynchronizer"
 import {$Inventory$$Type} from "net.minecraft.world.entity.player.Inventory"
-import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
 import {$NonNullList} from "net.minecraft.core.NonNullList"
-import {$Slot} from "net.minecraft.world.inventory.Slot"
+import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
+import {$Slot} from "net.minecraft.world.inventory.Slot"
 import {$Container, $Container$$Type} from "net.minecraft.world.Container"
 import {$AbstractContainerMenu} from "net.minecraft.world.inventory.AbstractContainerMenu"
 import {$MenuType, $MenuType$$Type} from "net.minecraft.world.inventory.MenuType"
@@ -1455,18 +1492,18 @@ constructor(arg0: $MenuType$$Type<(never)>, arg1: integer, arg2: $Inventory$$Typ
 
 public "removed"(arg0: $Player$$Type): void
 public "getContainer"(): $Container
-public static "twoRows"(arg0: integer, arg1: $Inventory$$Type): $ChestMenu
+public "handler$eoe000$deeperdarker$stillValid"(arg0: $Player$$Type, arg1: $CallbackInfoReturnable$$Type): void
+public static "threeRows"(arg0: integer, arg1: $Inventory$$Type, arg2: $Container$$Type): $ChestMenu
+public static "threeRows"(arg0: integer, arg1: $Inventory$$Type): $ChestMenu
+public "getRowCount"(): integer
+public "quickMoveStack"(arg0: $Player$$Type, arg1: integer): $ItemStack
+public "stillValid"(arg0: $Player$$Type): boolean
 public static "oneRow"(arg0: integer, arg1: $Inventory$$Type): $ChestMenu
 public static "fourRows"(arg0: integer, arg1: $Inventory$$Type): $ChestMenu
+public static "twoRows"(arg0: integer, arg1: $Inventory$$Type): $ChestMenu
 public static "sixRows"(arg0: integer, arg1: $Inventory$$Type, arg2: $Container$$Type): $ChestMenu
 public static "sixRows"(arg0: integer, arg1: $Inventory$$Type): $ChestMenu
 public static "fiveRows"(arg0: integer, arg1: $Inventory$$Type): $ChestMenu
-public "handler$ehc000$deeperdarker$stillValid"(arg0: $Player$$Type, arg1: $CallbackInfoReturnable$$Type): void
-public "getRowCount"(): integer
-public "stillValid"(arg0: $Player$$Type): boolean
-public static "threeRows"(arg0: integer, arg1: $Inventory$$Type): $ChestMenu
-public static "threeRows"(arg0: integer, arg1: $Inventory$$Type, arg2: $Container$$Type): $ChestMenu
-public "quickMoveStack"(arg0: $Player$$Type, arg1: integer): $ItemStack
 get "container"(): $Container
 get "rowCount"(): integer
 }
@@ -1489,16 +1526,16 @@ constructor(arg0: $List$$Type<($ItemCombinerMenuSlotDefinition$SlotDefinition$$T
 
 public "getSlot"(arg0: integer): $ItemCombinerMenuSlotDefinition$SlotDefinition
 public static "create"(): $ItemCombinerMenuSlotDefinition$Builder
-public "getSlots"(): $List<($ItemCombinerMenuSlotDefinition$SlotDefinition)>
 public "getNumOfInputSlots"(): integer
 public "getResultSlot"(): $ItemCombinerMenuSlotDefinition$SlotDefinition
-public "hasSlot"(arg0: integer): boolean
 public "getInputSlotIndexes"(): $List<(integer)>
+public "hasSlot"(arg0: integer): boolean
+public "getSlots"(): $List<($ItemCombinerMenuSlotDefinition$SlotDefinition)>
 public "getResultSlotIndex"(): integer
-get "slots"(): $List<($ItemCombinerMenuSlotDefinition$SlotDefinition)>
 get "numOfInputSlots"(): integer
 get "resultSlot"(): $ItemCombinerMenuSlotDefinition$SlotDefinition
 get "inputSlotIndexes"(): $List<(integer)>
+get "slots"(): $List<($ItemCombinerMenuSlotDefinition$SlotDefinition)>
 get "resultSlotIndex"(): integer
 }
 /**
@@ -1518,8 +1555,8 @@ export interface $ContainerListener$$Interface {
 }
 
 export class $ContainerListener implements $ContainerListener$$Interface {
- "slotChanged"(arg0: $AbstractContainerMenu$$Type, arg1: integer, arg2: $ItemStack$$Type): void
  "dataChanged"(arg0: $AbstractContainerMenu$$Type, arg1: integer, arg2: integer): void
+ "slotChanged"(arg0: $AbstractContainerMenu$$Type, arg1: integer, arg2: $ItemStack$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1534,8 +1571,8 @@ declare module "net.minecraft.world.inventory.PlayerEnderChestContainer" {
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$EnderChestBlockEntity$$Type} from "net.minecraft.world.level.block.entity.EnderChestBlockEntity"
 import {$ItemStack} from "net.minecraft.world.item.ItemStack"
-import {$Entity} from "net.minecraft.world.entity.Entity"
 import {$SimpleContainer} from "net.minecraft.world.SimpleContainer"
+import {$Entity} from "net.minecraft.world.entity.Entity"
 import {$BlockEntity$$Type} from "net.minecraft.world.level.block.entity.BlockEntity"
 import {$ListTag, $ListTag$$Type} from "net.minecraft.nbt.ListTag"
 import {$NonNullList} from "net.minecraft.core.NonNullList"
@@ -1548,13 +1585,13 @@ export class $PlayerEnderChestContainer extends $SimpleContainer {
 
 constructor()
 
-public "isActiveChest"(arg0: $EnderChestBlockEntity$$Type): boolean
 public "createTag"(arg0: $HolderLookup$Provider$$Type): $ListTag
+public "setActiveChest"(arg0: $EnderChestBlockEntity$$Type): void
 public "stillValid"(arg0: $Player$$Type): boolean
 public "fromTag"(arg0: $ListTag$$Type, arg1: $HolderLookup$Provider$$Type): void
 public "stopOpen"(arg0: $Player$$Type): void
 public "startOpen"(arg0: $Player$$Type): void
-public "setActiveChest"(arg0: $EnderChestBlockEntity$$Type): void
+public "isActiveChest"(arg0: $EnderChestBlockEntity$$Type): boolean
 public static "stillValidBlockEntity"(arg0: $BlockEntity$$Type, arg1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(arg0: $BlockEntity$$Type, arg1: $Player$$Type, arg2: float): boolean
 public static "tryClear"(arg0: any): void
@@ -1593,69 +1630,69 @@ constructor()
 
 public "isEmpty"(): boolean
 public "getItem"(arg0: integer): $ItemStack
-public "removeItemNoUpdate"(arg0: integer): $ItemStack
-public "getContainerSize"(): integer
 public "removeItem"(arg0: integer, arg1: integer): $ItemStack
-public "stillValid"(arg0: $Player$$Type): boolean
 public "setChanged"(): void
-public "setItem"(arg0: integer, arg1: $ItemStack$$Type): void
 public "clearContent"(): void
-public "setRecipeUsed"(arg0: $RecipeHolder$$Type<(never)>): void
 public "getRecipeUsed"(): $RecipeHolder<(never)>
+public "setRecipeUsed"(arg0: $RecipeHolder$$Type<(never)>): void
+public "stillValid"(arg0: $Player$$Type): boolean
+public "getContainerSize"(): integer
+public "removeItemNoUpdate"(arg0: integer): $ItemStack
+public "setItem"(arg0: integer, arg1: $ItemStack$$Type): void
 public "canPlaceItem"(arg0: integer, arg1: $ItemStack$$Type): boolean
-public "getMaxStackSize"(): integer
-public "getMaxStackSize"(arg0: $ItemStack$$Type): integer
 public "hasAnyMatching"(arg0: $Predicate$$Type<($ItemStack)>): boolean
-public "stopOpen"(arg0: $Player$$Type): void
-public "hasAnyOf"(arg0: $Set$$Type<($Item$$Type)>): boolean
-public "countItem"(arg0: $Item$$Type): integer
-public "startOpen"(arg0: $Player$$Type): void
 public "canTakeItem"(arg0: $Container$$Type, arg1: integer, arg2: $ItemStack$$Type): boolean
 public static "stillValidBlockEntity"(arg0: $BlockEntity$$Type, arg1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(arg0: $BlockEntity$$Type, arg1: $Player$$Type, arg2: float): boolean
-public "setRecipeUsed"(arg0: $Level$$Type, arg1: $ServerPlayer$$Type, arg2: $RecipeHolder$$Type<(never)>): boolean
+public "stopOpen"(arg0: $Player$$Type): void
+public "startOpen"(arg0: $Player$$Type): void
+public "countItem"(arg0: $Item$$Type): integer
+public "hasAnyOf"(arg0: $Set$$Type<($Item$$Type)>): boolean
+public "getMaxStackSize"(arg0: $ItemStack$$Type): integer
+public "getMaxStackSize"(): integer
 public "awardUsedRecipes"(arg0: $Player$$Type, arg1: $List$$Type<($ItemStack$$Type)>): void
+public "setRecipeUsed"(arg0: $Level$$Type, arg1: $ServerPlayer$$Type, arg2: $RecipeHolder$$Type<(never)>): boolean
 public static "tryClear"(arg0: any): void
 public "canReceiveTransferCooldown"(): boolean
 public "setTransferCooldown"(arg0: long): void
 public "lithium$itemInsertionTestRequiresStackSize1"(): boolean
+public "self"(): $Container
+public "clear"(): void
+public "getHeight"(): integer
+public "setChanged"(): void
 public "insertItem"(slot: integer, stack: $ItemStack$$Type, simulate: boolean): $ItemStack
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
-public "getWidth"(): integer
-public "getHeight"(): integer
-public "isMutable"(): boolean
-public "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
+public "isItemValid"(slot: integer, stack: $ItemStack$$Type): boolean
 public "getSlots"(): integer
 public "getSlotLimit"(slot: integer): integer
-public "isItemValid"(slot: integer, stack: $ItemStack$$Type): boolean
-public "setChanged"(): void
 public "getStackInSlot"(slot: integer): $ItemStack
+public "getWidth"(): integer
+public "isMutable"(): boolean
+public "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
 public "asContainer"(): $Container
-public "clear"(): void
-public "self"(): $Container
 public "getBlock"(level: $Level$$Type): $LevelBlock
 public "isEmpty"(): boolean
+public "find"(match: $ItemPredicate$$Type): integer
+public "find"(): integer
+public "clear"(match: $ItemPredicate$$Type): void
+public "count"(match: $ItemPredicate$$Type): integer
+public "count"(): integer
 public "insertItem"(stack: $ItemStack$$Type, simulate: boolean): $ItemStack
 public "countNonEmpty"(): integer
 public "countNonEmpty"(match: $ItemPredicate$$Type): integer
 public "getAllItems"(): $List<($ItemStack)>
-public "clear"(match: $ItemPredicate$$Type): void
-public "find"(): integer
-public "find"(match: $ItemPredicate$$Type): integer
-public "count"(): integer
-public "count"(match: $ItemPredicate$$Type): integer
 get "empty"(): boolean
-get "containerSize"(): integer
 get "changed"(): void
-set "recipeUsed"(value: $RecipeHolder$$Type<(never)>)
 get "recipeUsed"(): $RecipeHolder<(never)>
+set "recipeUsed"(value: $RecipeHolder$$Type<(never)>)
+get "containerSize"(): integer
 get "maxStackSize"(): integer
 set "transferCooldown"(value: long)
-get "width"(): integer
 get "height"(): integer
-get "mutable"(): boolean
-get "slots"(): integer
 get "changed"(): void
+get "slots"(): integer
+get "width"(): integer
+get "mutable"(): boolean
 get "empty"(): boolean
 get "allItems"(): $List<($ItemStack)>
 }
@@ -1694,8 +1731,8 @@ import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$CraftingInput$Positioned} from "net.minecraft.world.item.crafting.CraftingInput$Positioned"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$List} from "java.util.List"
-import {$Level$$Type} from "net.minecraft.world.level.Level"
 import {$StackedContentsCompatible$$Interface} from "net.minecraft.world.inventory.StackedContentsCompatible"
+import {$Level$$Type} from "net.minecraft.world.level.Level"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$LevelBlock} from "dev.latvian.mods.kubejs.level.LevelBlock"
 import {$Container, $Container$$Type, $Container$$Interface} from "net.minecraft.world.Container"
@@ -1710,15 +1747,15 @@ get "width"(): integer
 get "items"(): $List<($ItemStack)>
 get "height"(): integer
 get "empty"(): boolean
+get "changed"(): void
 get "containerSize"(): integer
 get "maxStackSize"(): integer
-get "changed"(): void
 set "transferCooldown"(value: long)
-get "width"(): integer
 get "height"(): integer
-get "mutable"(): boolean
-get "slots"(): integer
 get "changed"(): void
+get "slots"(): integer
+get "width"(): integer
+get "mutable"(): boolean
 get "empty"(): boolean
 get "allItems"(): $List<($ItemStack)>
 }
@@ -1726,59 +1763,59 @@ get "allItems"(): $List<($ItemStack)>
 export class $CraftingContainer implements $CraftingContainer$$Interface {
  "getWidth"(): integer
  "getItems"(): $List<($ItemStack)>
- "asCraftInput"(): $CraftingInput
  "getHeight"(): integer
  "asPositionedCraftInput"(): $CraftingInput$Positioned
+ "asCraftInput"(): $CraftingInput
  "isEmpty"(): boolean
  "getItem"(arg0: integer): $ItemStack
- "canPlaceItem"(arg0: integer, arg1: $ItemStack$$Type): boolean
- "removeItemNoUpdate"(arg0: integer): $ItemStack
- "getContainerSize"(): integer
  "removeItem"(arg0: integer, arg1: integer): $ItemStack
- "getMaxStackSize"(): integer
- "getMaxStackSize"(arg0: $ItemStack$$Type): integer
+ "canPlaceItem"(arg0: integer, arg1: $ItemStack$$Type): boolean
  "hasAnyMatching"(arg0: $Predicate$$Type<($ItemStack)>): boolean
- "stillValid"(arg0: $Player$$Type): boolean
  "setChanged"(): void
- "setItem"(arg0: integer, arg1: $ItemStack$$Type): void
- "stopOpen"(arg0: $Player$$Type): void
- "hasAnyOf"(arg0: $Set$$Type<($Item$$Type)>): boolean
- "countItem"(arg0: $Item$$Type): integer
- "startOpen"(arg0: $Player$$Type): void
  "canTakeItem"(arg0: $Container$$Type, arg1: integer, arg2: $ItemStack$$Type): boolean
 static "stillValidBlockEntity"(arg0: $BlockEntity$$Type, arg1: $Player$$Type): boolean
 static "stillValidBlockEntity"(arg0: $BlockEntity$$Type, arg1: $Player$$Type, arg2: float): boolean
+ "stillValid"(arg0: $Player$$Type): boolean
+ "getContainerSize"(): integer
+ "removeItemNoUpdate"(arg0: integer): $ItemStack
+ "stopOpen"(arg0: $Player$$Type): void
+ "startOpen"(arg0: $Player$$Type): void
+ "countItem"(arg0: $Item$$Type): integer
+ "hasAnyOf"(arg0: $Set$$Type<($Item$$Type)>): boolean
+ "getMaxStackSize"(arg0: $ItemStack$$Type): integer
+ "getMaxStackSize"(): integer
+ "setItem"(arg0: integer, arg1: $ItemStack$$Type): void
  "fillStackedContents"(arg0: $StackedContents$$Type): void
-static "tryClear"(arg0: any): void
  "clearContent"(): void
+static "tryClear"(arg0: any): void
  "canReceiveTransferCooldown"(): boolean
  "setTransferCooldown"(arg0: long): void
  "lithium$itemInsertionTestRequiresStackSize1"(): boolean
+ "self"(): $Container
+ "clear"(): void
+ "getHeight"(): integer
+ "setChanged"(): void
  "insertItem"(slot: integer, stack: $ItemStack$$Type, simulate: boolean): $ItemStack
  "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
- "getWidth"(): integer
- "getHeight"(): integer
- "isMutable"(): boolean
- "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
+ "isItemValid"(slot: integer, stack: $ItemStack$$Type): boolean
  "getSlots"(): integer
  "getSlotLimit"(slot: integer): integer
- "isItemValid"(slot: integer, stack: $ItemStack$$Type): boolean
- "setChanged"(): void
  "getStackInSlot"(slot: integer): $ItemStack
+ "getWidth"(): integer
+ "isMutable"(): boolean
+ "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
  "asContainer"(): $Container
- "clear"(): void
- "self"(): $Container
  "getBlock"(level: $Level$$Type): $LevelBlock
  "isEmpty"(): boolean
+ "find"(match: $ItemPredicate$$Type): integer
+ "find"(): integer
+ "clear"(match: $ItemPredicate$$Type): void
+ "count"(match: $ItemPredicate$$Type): integer
+ "count"(): integer
  "insertItem"(stack: $ItemStack$$Type, simulate: boolean): $ItemStack
  "countNonEmpty"(): integer
  "countNonEmpty"(match: $ItemPredicate$$Type): integer
  "getAllItems"(): $List<($ItemStack)>
- "clear"(match: $ItemPredicate$$Type): void
- "find"(): integer
- "find"(match: $ItemPredicate$$Type): integer
- "count"(): integer
- "count"(match: $ItemPredicate$$Type): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1818,15 +1855,15 @@ import {$List} from "java.util.List"
 import {$Runnable, $Runnable$$Type} from "java.lang.Runnable"
 import {$ContainerSynchronizer} from "net.minecraft.world.inventory.ContainerSynchronizer"
 import {$Inventory$$Type} from "net.minecraft.world.entity.player.Inventory"
-import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
 import {$NonNullList} from "net.minecraft.core.NonNullList"
+import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
 import {$Holder} from "net.minecraft.core.Holder"
-import {$Slot} from "net.minecraft.world.inventory.Slot"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
+import {$Slot} from "net.minecraft.world.inventory.Slot"
 import {$Container$$Type} from "net.minecraft.world.Container"
 import {$AbstractContainerMenu} from "net.minecraft.world.inventory.AbstractContainerMenu"
-import {$ContainerLevelAccess$$Type} from "net.minecraft.world.inventory.ContainerLevelAccess"
 import {$BannerPattern} from "net.minecraft.world.level.block.entity.BannerPattern"
+import {$ContainerLevelAccess$$Type} from "net.minecraft.world.inventory.ContainerLevelAccess"
 import {$MenuType} from "net.minecraft.world.inventory.MenuType"
 import {$Set} from "java.util.Set"
 
@@ -1864,15 +1901,15 @@ public "removed"(arg0: $Player$$Type): void
 public "getResultSlot"(): $Slot
 public "getBannerSlot"(): $Slot
 public "getPatternSlot"(): $Slot
-public "handler$ehc000$deeperdarker$stillValid"(arg0: $Player$$Type, arg1: $CallbackInfoReturnable$$Type): void
-public "getDyeSlot"(): $Slot
+public "handler$eoe000$deeperdarker$stillValid"(arg0: $Player$$Type, arg1: $CallbackInfoReturnable$$Type): void
+public "quickMoveStack"(arg0: $Player$$Type, arg1: integer): $ItemStack
+public "clickMenuButton"(arg0: $Player$$Type, arg1: integer): boolean
+public "slotsChanged"(arg0: $Container$$Type): void
 public "stillValid"(arg0: $Player$$Type): boolean
 public "getSelectedBannerPatternIndex"(): integer
 public "registerUpdateListener"(arg0: $Runnable$$Type): void
 public "getSelectablePatterns"(): $List<($Holder<($BannerPattern)>)>
-public "clickMenuButton"(arg0: $Player$$Type, arg1: integer): boolean
-public "quickMoveStack"(arg0: $Player$$Type, arg1: integer): $ItemStack
-public "slotsChanged"(arg0: $Container$$Type): void
+public "getDyeSlot"(): $Slot
 get "resultSlot"(): $Slot
 get "patternSlot"(): $Slot
 get "selectablePatterns"(): $List<($Holder<($BannerPattern)>)>
@@ -2028,14 +2065,14 @@ import {$List} from "java.util.List"
 import {$ContainerSynchronizer} from "net.minecraft.world.inventory.ContainerSynchronizer"
 import {$Inventory$$Type} from "net.minecraft.world.entity.player.Inventory"
 import {$NonNullList} from "net.minecraft.core.NonNullList"
-import {$Slot, $Slot$$Type} from "net.minecraft.world.inventory.Slot"
 import {$Player, $Player$$Type} from "net.minecraft.world.entity.player.Player"
+import {$Slot, $Slot$$Type} from "net.minecraft.world.inventory.Slot"
 import {$AccessorInventoryMenu$$Interface} from "com.illusivesoulworks.polymorph.mixin.core.AccessorInventoryMenu"
-import {$Container$$Type} from "net.minecraft.world.Container"
 import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
+import {$Container$$Type} from "net.minecraft.world.Container"
 import {$RecipeHolder$$Type} from "net.minecraft.world.item.crafting.RecipeHolder"
-import {$EquipmentSlot} from "net.minecraft.world.entity.EquipmentSlot"
 import {$RecipeBookType} from "net.minecraft.world.inventory.RecipeBookType"
+import {$EquipmentSlot} from "net.minecraft.world.entity.EquipmentSlot"
 import {$MenuType} from "net.minecraft.world.inventory.MenuType"
 import {$Set} from "java.util.Set"
 import {$CraftingRecipe, $CraftingRecipe$$Type} from "net.minecraft.world.item.crafting.CraftingRecipe"
@@ -2092,28 +2129,28 @@ constructor(arg0: $Inventory$$Type, arg1: boolean, arg2: $Player$$Type)
 public "getSize"(): integer
 public "removed"(arg0: $Player$$Type): void
 public "getOwner"(): $Player
-public "canTakeItemForPickAll"(arg0: $ItemStack$$Type, arg1: $Slot$$Type): boolean
-public "fillCraftSlotsStackedContents"(arg0: $StackedContents$$Type): void
-public static "isHotbarSlot"(arg0: integer): boolean
-public "clearCraftingContent"(): void
 public "shouldMoveToInventory"(arg0: integer): boolean
+public "clearCraftingContent"(): void
+public "fillCraftSlotsStackedContents"(arg0: $StackedContents$$Type): void
 public "getCraftSlots"(): $CraftingContainer
-public "stillValid"(arg0: $Player$$Type): boolean
-public "getRecipeBookType"(): $RecipeBookType
-public "getGridWidth"(): integer
-public "getResultSlots"(): $ResultContainer
+public "canTakeItemForPickAll"(arg0: $ItemStack$$Type, arg1: $Slot$$Type): boolean
 public "recipeMatches"(arg0: $RecipeHolder$$Type<($CraftingRecipe$$Type)>): boolean
+public "getGridWidth"(): integer
+public "getGridHeight"(): integer
+public "getResultSlots"(): $ResultContainer
+public "getResultSlotIndex"(): integer
+public "getRecipeBookType"(): $RecipeBookType
 public "quickMoveStack"(arg0: $Player$$Type, arg1: integer): $ItemStack
 public "slotsChanged"(arg0: $Container$$Type): void
-public "getResultSlotIndex"(): integer
-public "getGridHeight"(): integer
+public "stillValid"(arg0: $Player$$Type): boolean
+public static "isHotbarSlot"(arg0: integer): boolean
 get "size"(): integer
 get "craftSlots"(): $CraftingContainer
-get "recipeBookType"(): $RecipeBookType
 get "gridWidth"(): integer
+get "gridHeight"(): integer
 get "resultSlots"(): $ResultContainer
 get "resultSlotIndex"(): integer
-get "gridHeight"(): integer
+get "recipeBookType"(): $RecipeBookType
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2126,13 +2163,13 @@ export type $InventoryMenu$$Type = ($InventoryMenu);
 export type $InventoryMenu$$Original = $InventoryMenu;}
 declare module "net.minecraft.world.inventory.MenuType" {
 import {$FeatureFlagSet, $FeatureFlagSet$$Type} from "net.minecraft.world.flag.FeatureFlagSet"
-import {$LoomMenu} from "net.minecraft.world.inventory.LoomMenu"
 import {$MenuType$MenuSupplier, $MenuType$MenuSupplier$$Type} from "net.minecraft.world.inventory.MenuType$MenuSupplier"
+import {$LoomMenu} from "net.minecraft.world.inventory.LoomMenu"
 import {$List} from "java.util.List"
 import {$IMenuTypeExtension$$Interface} from "net.neoforged.neoforge.common.extensions.IMenuTypeExtension"
 import {$GrindstoneMenu} from "net.minecraft.world.inventory.GrindstoneMenu"
-import {$Inventory$$Type} from "net.minecraft.world.entity.player.Inventory"
 import {$MenuTypeKJS$$Interface} from "dev.latvian.mods.kubejs.core.MenuTypeKJS"
+import {$Inventory$$Type} from "net.minecraft.world.entity.player.Inventory"
 import {$CartographyTableMenu} from "net.minecraft.world.inventory.CartographyTableMenu"
 import {$Holder} from "net.minecraft.core.Holder"
 import {$CraftingMenu} from "net.minecraft.world.inventory.CraftingMenu"
@@ -2149,9 +2186,9 @@ import {$CrafterMenu} from "net.minecraft.world.inventory.CrafterMenu"
 import {$ChestMenu} from "net.minecraft.world.inventory.ChestMenu"
 import {$IContainerFactory$$Type} from "net.neoforged.neoforge.network.IContainerFactory"
 import {$StonecutterMenu} from "net.minecraft.world.inventory.StonecutterMenu"
+import {$Registry} from "net.minecraft.core.Registry"
 import {$BlastFurnaceMenu} from "net.minecraft.world.inventory.BlastFurnaceMenu"
 import {$ShulkerBoxMenu} from "net.minecraft.world.inventory.ShulkerBoxMenu"
-import {$Registry} from "net.minecraft.core.Registry"
 import {$AbstractContainerMenu} from "net.minecraft.world.inventory.AbstractContainerMenu"
 import {$RegistryFriendlyByteBuf$$Type} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$TagKey} from "net.minecraft.tags.TagKey"
@@ -2191,31 +2228,31 @@ static readonly "SHULKER_BOX": $MenuType<($ShulkerBoxMenu)>
 
 constructor(arg0: $MenuType$MenuSupplier$$Type<(T)>, arg1: $FeatureFlagSet$$Type)
 
-public "create"(arg0: integer, arg1: $Inventory$$Type, arg2: $RegistryFriendlyByteBuf$$Type): any
+public "create"(arg0: integer, arg1: $Inventory$$Type, arg2: $RegistryFriendlyByteBuf$$Type): T
 public "create"(arg0: integer, arg1: $Inventory$$Type): T
+public "getKey"(): $ResourceKey
 public "requiredFeatures"(): $FeatureFlagSet
 public "getId"(): StringJS
-public "getKey"(): $ResourceKey
 public "isEnabled"(arg0: $FeatureFlagSet$$Type): boolean
 public static "create"<T extends $AbstractContainerMenu>(arg0: $IContainerFactory$$Type<(T)>): $MenuType<(T)>
-public "getRegistry"(): $Registry<($MenuType<(never)>)>
 public "getRegistryId"(): $ResourceKey<($Registry<($MenuType<(never)>)>)>
+public "getRegistry"(): $Registry<($MenuType<(never)>)>
 public "specialEquals"(o: any, shallow: boolean): boolean
-public "getMod"(): StringJS
-public "hasTag"(tag: $ResourceLocation$$Type): boolean
-public "getIdLocation"(): $ResourceLocation
 public "asHolder"(): $Holder<($MenuType<(never)>)>
 public "getTagKeys"(): $List<($TagKey<($MenuType<(never)>)>)>
 public "getTags"(): $List<($ResourceLocation)>
+public "getIdLocation"(): $ResourceLocation
+public "getMod"(): StringJS
+public "hasTag"(tag: $ResourceLocation$$Type): boolean
 public static "checkSpecialEquality"(arg1: any, arg2: any, arg3: boolean): boolean
-get "id"(): StringJS
 get "key"(): $ResourceKey
-get "registry"(): $Registry<($MenuType<(never)>)>
+get "id"(): StringJS
 get "registryId"(): $ResourceKey<($Registry<($MenuType<(never)>)>)>
-get "mod"(): StringJS
-get "idLocation"(): $ResourceLocation
+get "registry"(): $Registry<($MenuType<(never)>)>
 get "tagKeys"(): $List<($TagKey<($MenuType<(never)>)>)>
 get "tags"(): $List<($ResourceLocation)>
+get "idLocation"(): $ResourceLocation
+get "mod"(): StringJS
 /**
  * This field is a type stub generated by ProbeJS and shall not be used in any sense.
  */
@@ -2241,10 +2278,10 @@ import {$List} from "java.util.List"
 import {$SimpleContainer} from "net.minecraft.world.SimpleContainer"
 import {$ContainerSynchronizer} from "net.minecraft.world.inventory.ContainerSynchronizer"
 import {$Inventory$$Type} from "net.minecraft.world.entity.player.Inventory"
-import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
 import {$NonNullList} from "net.minecraft.core.NonNullList"
+import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
+import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$Slot} from "net.minecraft.world.inventory.Slot"
-import {$Player, $Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$ItemCombinerMenuSlotDefinition, $ItemCombinerMenuSlotDefinition$$Type} from "net.minecraft.world.inventory.ItemCombinerMenuSlotDefinition"
 import {$Container, $Container$$Type} from "net.minecraft.world.Container"
 import {$AbstractContainerMenu} from "net.minecraft.world.inventory.AbstractContainerMenu"
@@ -2265,7 +2302,6 @@ static readonly "QUICKCRAFT_HEADER_CONTINUE": integer
 static readonly "QUICKCRAFT_TYPE_CLONE": integer
  "containerId": integer
 static readonly "QUICKCRAFT_TYPE_CHARITABLE": integer
-readonly "player": $Player
 static readonly "$assertionsDisabled": boolean
  "lastSlots": $NonNullList<($ItemStack)>
 readonly "inputSlots": $Container
@@ -2283,21 +2319,21 @@ readonly "containerListeners": $List<($ContainerListener)>
 constructor(arg0: $MenuType$$Type<(never)>, arg1: integer, arg2: $Inventory$$Type, arg3: $ContainerLevelAccess$$Type)
 
 public "removed"(arg0: $Player$$Type): void
-public "mayPickup"(arg0: $Player$$Type, arg1: boolean): boolean
-public "createInputSlots"(arg0: $ItemCombinerMenuSlotDefinition$$Type): void
 public "isValidBlock"(arg0: $BlockState$$Type): boolean
 public "createResult"(): void
+public "createInputSlots"(arg0: $ItemCombinerMenuSlotDefinition$$Type): void
+public "getResultSlot"(): integer
 public "createContainer"(arg0: integer): $SimpleContainer
 public "createResultSlot"(arg0: $ItemCombinerMenuSlotDefinition$$Type): void
-public "getResultSlot"(): integer
-public "onTake"(arg0: $Player$$Type, arg1: $ItemStack$$Type): void
-public "handler$ehc000$deeperdarker$stillValid"(arg0: $Player$$Type, arg1: $CallbackInfoReturnable$$Type): void
-public "stillValid"(arg0: $Player$$Type): boolean
+public "createInputSlotDefinitions"(): $ItemCombinerMenuSlotDefinition
 public "getSlotToQuickMoveTo"(arg0: $ItemStack$$Type): integer
 public "canMoveIntoInputSlots"(arg0: $ItemStack$$Type): boolean
-public "createInputSlotDefinitions"(): $ItemCombinerMenuSlotDefinition
+public "handler$eoe000$deeperdarker$stillValid"(arg0: $Player$$Type, arg1: $CallbackInfoReturnable$$Type): void
+public "onTake"(arg0: $Player$$Type, arg1: $ItemStack$$Type): void
+public "mayPickup"(arg0: $Player$$Type, arg1: boolean): boolean
 public "quickMoveStack"(arg0: $Player$$Type, arg1: integer): $ItemStack
 public "slotsChanged"(arg0: $Container$$Type): void
+public "stillValid"(arg0: $Player$$Type): boolean
 get "resultSlot"(): integer
 }
 /**
@@ -2315,10 +2351,10 @@ import {$ItemStack} from "net.minecraft.world.item.ItemStack"
 import {$List} from "java.util.List"
 import {$ContainerSynchronizer} from "net.minecraft.world.inventory.ContainerSynchronizer"
 import {$Inventory$$Type} from "net.minecraft.world.entity.player.Inventory"
-import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
 import {$NonNullList} from "net.minecraft.core.NonNullList"
-import {$Slot} from "net.minecraft.world.inventory.Slot"
+import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
+import {$Slot} from "net.minecraft.world.inventory.Slot"
 import {$Container$$Type} from "net.minecraft.world.Container"
 import {$AbstractContainerMenu} from "net.minecraft.world.inventory.AbstractContainerMenu"
 import {$MenuType} from "net.minecraft.world.inventory.MenuType"
@@ -2350,9 +2386,9 @@ constructor(arg0: integer, arg1: $Inventory$$Type)
 constructor(arg0: integer, arg1: $Inventory$$Type, arg2: $Container$$Type)
 
 public "removed"(arg0: $Player$$Type): void
-public "handler$ehc000$deeperdarker$stillValid"(arg0: $Player$$Type, arg1: $CallbackInfoReturnable$$Type): void
-public "stillValid"(arg0: $Player$$Type): boolean
+public "handler$eoe000$deeperdarker$stillValid"(arg0: $Player$$Type, arg1: $CallbackInfoReturnable$$Type): void
 public "quickMoveStack"(arg0: $Player$$Type, arg1: integer): $ItemStack
+public "stillValid"(arg0: $Player$$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2399,9 +2435,9 @@ import {$ItemStack} from "net.minecraft.world.item.ItemStack"
 import {$List} from "java.util.List"
 import {$ContainerSynchronizer} from "net.minecraft.world.inventory.ContainerSynchronizer"
 import {$NonNullList} from "net.minecraft.core.NonNullList"
+import {$Slot} from "net.minecraft.world.inventory.Slot"
 import {$ContainerData$$Type} from "net.minecraft.world.inventory.ContainerData"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
-import {$Slot} from "net.minecraft.world.inventory.Slot"
 import {$Container$$Type} from "net.minecraft.world.Container"
 import {$AbstractContainerMenu} from "net.minecraft.world.inventory.AbstractContainerMenu"
 import {$MenuType} from "net.minecraft.world.inventory.MenuType"
@@ -2435,12 +2471,12 @@ static readonly "QUICKCRAFT_TYPE_CHARITABLE": integer
 constructor(arg0: integer)
 constructor(arg0: integer, arg1: $Container$$Type, arg2: $ContainerData$$Type)
 
-public "getPage"(): integer
-public "getBook"(): $ItemStack
 public "setData"(arg0: integer, arg1: integer): void
-public "stillValid"(arg0: $Player$$Type): boolean
-public "clickMenuButton"(arg0: $Player$$Type, arg1: integer): boolean
+public "getPage"(): integer
 public "quickMoveStack"(arg0: $Player$$Type, arg1: integer): $ItemStack
+public "clickMenuButton"(arg0: $Player$$Type, arg1: integer): boolean
+public "stillValid"(arg0: $Player$$Type): boolean
+public "getBook"(): $ItemStack
 get "page"(): integer
 get "book"(): $ItemStack
 }
@@ -2459,11 +2495,11 @@ import {$ItemStack} from "net.minecraft.world.item.ItemStack"
 import {$List} from "java.util.List"
 import {$ContainerSynchronizer} from "net.minecraft.world.inventory.ContainerSynchronizer"
 import {$Inventory$$Type} from "net.minecraft.world.entity.player.Inventory"
-import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
 import {$NonNullList} from "net.minecraft.core.NonNullList"
+import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
+import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$Slot} from "net.minecraft.world.inventory.Slot"
 import {$ContainerData$$Type} from "net.minecraft.world.inventory.ContainerData"
-import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$Container$$Type} from "net.minecraft.world.Container"
 import {$AbstractContainerMenu} from "net.minecraft.world.inventory.AbstractContainerMenu"
 import {$MenuType} from "net.minecraft.world.inventory.MenuType"
@@ -2494,11 +2530,11 @@ static readonly "QUICKCRAFT_TYPE_CHARITABLE": integer
 constructor(arg0: integer, arg1: $Inventory$$Type)
 constructor(arg0: integer, arg1: $Inventory$$Type, arg2: $Container$$Type, arg3: $ContainerData$$Type)
 
+public "handler$eoe000$deeperdarker$stillValid"(arg0: $Player$$Type, arg1: $CallbackInfoReturnable$$Type): void
 public "getFuel"(): integer
-public "handler$ehc000$deeperdarker$stillValid"(arg0: $Player$$Type, arg1: $CallbackInfoReturnable$$Type): void
-public "getBrewingTicks"(): integer
-public "stillValid"(arg0: $Player$$Type): boolean
 public "quickMoveStack"(arg0: $Player$$Type, arg1: integer): $ItemStack
+public "stillValid"(arg0: $Player$$Type): boolean
+public "getBrewingTicks"(): integer
 get "fuel"(): integer
 get "brewingTicks"(): integer
 }
@@ -2533,7 +2569,7 @@ public "mayPlace"(): $Predicate<($ItemStack)>
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $ItemCombinerMenuSlotDefinition$SlotDefinition$$Type = ({"mayPlace"?: $Predicate$$Type<($ItemStack$$Type)>, "y"?: integer, "x"?: integer, "slotIndex"?: integer}) | ([mayPlace?: $Predicate$$Type<($ItemStack$$Type)>, y?: integer, x?: integer, slotIndex?: integer]);
+export type $ItemCombinerMenuSlotDefinition$SlotDefinition$$Type = ({"x"?: integer, "y"?: integer, "mayPlace"?: $Predicate$$Type<($ItemStack$$Type)>, "slotIndex"?: integer}) | ([x?: integer, y?: integer, mayPlace?: $Predicate$$Type<($ItemStack$$Type)>, slotIndex?: integer]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */

@@ -6,10 +6,10 @@ import {$ToggleKeyMapping$$Type} from "net.minecraft.client.ToggleKeyMapping"
 export class $ClientEventsListener {
 constructor()
 
-public "clientTickPost"(arg0: $HudSession$$Type): void
-public "playerTickPost"(arg0: $HudSession$$Type): void
 public "handleRenderStatusEffectOverlay"(arg0: $GuiGraphics$$Type): boolean
 public "handleForceToggleKeyMapping"(arg0: $ToggleKeyMapping$$Type): boolean
+public "clientTickPost"(arg0: $HudSession$$Type): void
+public "playerTickPost"(arg0: $HudSession$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -50,10 +50,10 @@ import {$MinecraftServer$$Type} from "net.minecraft.server.MinecraftServer"
 export class $CommonEvents {
 constructor(arg0: $HudMod$$Type)
 
-public "onServerStarting"(arg0: $MinecraftServer$$Type): void
-public "onPlayerLogIn"(arg0: $Player$$Type): void
-public "onServerStopped"(arg0: $MinecraftServer$$Type): void
 public "onPlayerWorldJoin"(arg0: $ServerPlayer$$Type): void
+public "onServerStarting"(arg0: $MinecraftServer$$Type): void
+public "onServerStopped"(arg0: $MinecraftServer$$Type): void
+public "onPlayerLogIn"(arg0: $Player$$Type): void
 public "handlePlayerTickStart"(arg0: $Player$$Type): void
 }
 /**
@@ -74,8 +74,8 @@ import {$Component$$Type} from "net.minecraft.network.chat.Component"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
 import {$ToggleKeyMapping$$Type} from "net.minecraft.client.ToggleKeyMapping"
-import {$GameProfile$$Type} from "com.mojang.authlib.GameProfile"
 import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
+import {$GameProfile$$Type} from "com.mojang.authlib.GameProfile"
 import {$LevelAccessor$$Type} from "net.minecraft.world.level.LevelAccessor"
 import {$ChatType$Bound$$Type} from "net.minecraft.network.chat.ChatType$Bound"
 
@@ -84,22 +84,22 @@ export class $ClientEvents {
 
 constructor(arg0: $HudMod$$Type)
 
-public "handleClientSystemChatReceivedEvent"(arg0: $Component$$Type): boolean
 public "handleClientPlayerChatReceivedEvent"(arg0: $ChatType$Bound$$Type, arg1: $Component$$Type, arg2: $GameProfile$$Type): boolean
-public "handleGuiOpen"(arg0: $Screen$$Type): $Screen
+public "handleClientSystemChatReceivedEvent"(arg0: $Component$$Type): boolean
+public "handleRenderGameOverlayEventPost"(): void
+public "handleRenderStatusEffectOverlay"(arg0: $GuiGraphics$$Type): boolean
+public "handleForceToggleKeyMapping"(arg0: $ToggleKeyMapping$$Type): boolean
+public "handleRenderGameOverlayEventPre"(arg0: $GuiGraphics$$Type, arg1: float): void
+public "handleRenderCrosshairOverlay"(arg0: $GuiGraphics$$Type): boolean
 public "getLastGuiOpen"(): any
+public "handleGuiOpen"(arg0: $Screen$$Type): $Screen
 public "worldUnload"(arg0: $LevelAccessor$$Type): void
-public "handlePlayerSetSpawnEvent"(arg0: $BlockPos$$Type, arg1: $Level$$Type): void
-public "handleRenderTickStart"(): void
 public "handlePlayerTickStart"(arg0: $Player$$Type): void
-public "handleClientTickStart"(): void
 public "handleClientSendChatEvent"(arg0: StringJS): boolean
 public "handleDrawScreenEventPost"(arg0: $Screen$$Type): void
-public "handleRenderGameOverlayEventPre"(arg0: $GuiGraphics$$Type, arg1: float): void
-public "handleRenderStatusEffectOverlay"(arg0: $GuiGraphics$$Type): boolean
-public "handleRenderGameOverlayEventPost"(): void
-public "handleForceToggleKeyMapping"(arg0: $ToggleKeyMapping$$Type): boolean
-public "handleRenderCrosshairOverlay"(arg0: $GuiGraphics$$Type): boolean
+public "handlePlayerSetSpawnEvent"(arg0: $BlockPos$$Type, arg1: $Level$$Type): void
+public "handleClientTickStart"(): void
+public "handleRenderTickStart"(): void
 get "lastGuiOpen"(): any
 }
 /**

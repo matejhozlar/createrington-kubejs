@@ -3,10 +3,10 @@ import {$MapProcessor$$Type} from "xaero.map.MapProcessor"
 import {$Registry$$Type} from "net.minecraft.core.Registry"
 import {$PNGExportResult} from "xaero.map.file.export.PNGExportResult"
 import {$MapTileSelection$$Type} from "xaero.map.gui.MapTileSelection"
-import {$Path$$Type} from "java.nio.file.Path"
 import {$Biome$$Type} from "net.minecraft.world.level.biome.Biome"
-import {$OldFormatSupport$$Type} from "xaero.map.file.OldFormatSupport"
+import {$Path$$Type} from "java.nio.file.Path"
 import {$DimensionType$$Type} from "net.minecraft.world.level.dimension.DimensionType"
+import {$OldFormatSupport$$Type} from "xaero.map.file.OldFormatSupport"
 
 export class $PNGExporter {
 constructor(arg0: $Path$$Type)

@@ -19,7 +19,7 @@ public "codePointIndex"(): integer
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $HeadData$$Type = ({"codePointIndex"?: integer, "playerInfo"?: $PlayerInfo$$Type}) | ([codePointIndex?: integer, playerInfo?: $PlayerInfo$$Type]);
+export type $HeadData$$Type = ({"playerInfo"?: $PlayerInfo$$Type, "codePointIndex"?: integer}) | ([playerInfo?: $PlayerInfo$$Type, codePointIndex?: integer]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */

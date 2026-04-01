@@ -12,43 +12,43 @@ import {$Pose} from "net.minecraft.world.entity.Pose"
 import {$Vec3} from "net.minecraft.world.phys.Vec3"
 import {$Team} from "net.minecraft.world.scores.Team"
 import {$BlockPos} from "net.minecraft.core.BlockPos"
-import {$Entity, $Entity$$Type} from "net.minecraft.world.entity.Entity"
 import {$ETFEntity$$Interface} from "traben.entity_texture_features.utils.ETFEntity"
+import {$Entity, $Entity$$Type} from "net.minecraft.world.entity.Entity"
 import {$EntityType} from "net.minecraft.world.entity.EntityType"
 
 export interface $ETFPlayerEntity$$Interface extends $ETFEntity$$Interface {
 }
 
 export class $ETFPlayerEntity implements $ETFPlayerEntity$$Interface {
- "etf$getUuidAsString"(): StringJS
- "etf$isPartVisible"(arg0: $PlayerModelPart$$Type): boolean
- "etf$isTeammate"(arg0: $Player$$Type): boolean
- "etf$getEntity"(): $Entity
- "etf$getName"(): $Component
  "etf$getInventory"(): $Inventory
- "etf$getScoreboardTeam"(): $Team
- "etf$getItemsEquipped"(): $Iterable<($ItemStack)>
+ "etf$isPartVisible"(arg0: $PlayerModelPart$$Type): boolean
+ "etf$getEntity"(): $Entity
+ "etf$isTeammate"(arg0: $Player$$Type): boolean
+ "etf$getName"(): $Component
+ "etf$getUuidAsString"(): StringJS
  "etf$getType"(): $EntityType<(never)>
- "etf$getHandItems"(): $Iterable<($ItemStack)>
  "etf$hasCustomName"(): boolean
+ "etf$getBlockY"(): integer
  "etf$getCustomName"(): $Component
+ "etf$getHandItems"(): $Iterable<($ItemStack)>
+ "etf$getArmorItems"(): $Iterable<($ItemStack)>
+ "etf$getUuid"(): $UUID
+ "etf$getOptifineId"(): integer
+ "etf$canBeBright"(): boolean
+ "etf$isBlockEntity"(): boolean
+ "etf$getVelocity"(): $Vec3
+ "etf$distanceTo"(arg0: $Entity$$Type): float
 /**
  * 
  * @deprecated
  */
  "etf$getPose"(): $Pose
- "etf$distanceTo"(arg0: $Entity$$Type): float
- "etf$getVelocity"(): $Vec3
- "etf$getUuid"(): $UUID
- "etf$getOptifineId"(): integer
- "etf$getArmorItems"(): $Iterable<($ItemStack)>
- "etf$canBeBright"(): boolean
- "etf$isBlockEntity"(): boolean
- "etf$getBlockY"(): integer
- "etf$getNbt"(): $CompoundTag
- "etf$getBlockPos"(): $BlockPos
  "etf$getEntityKey"(): StringJS
  "etf$getWorld"(): $Level
+ "etf$getBlockPos"(): $BlockPos
+ "etf$getItemsEquipped"(): $Iterable<($ItemStack)>
+ "etf$getScoreboardTeam"(): $Team
+ "etf$getNbt"(): $CompoundTag
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -94,17 +94,17 @@ constructor()
 constructor(player: $ETFPlayerEntity$$Type, rendererGivenSkin: $ResourceLocation$$Type)
 
 public "changeSkinToThisForTool"(image: $NativeImage$$Type): void
-public "getBaseHeadTextureIdentifierOrNullForVanilla"(): $ResourceLocation
 public "getBaseTextureEmissiveIdentifierOrNullForNone"(): $ResourceLocation
-public "canUseFeaturesForThisPlayer"(): boolean
+public "getBaseHeadTextureIdentifierOrNullForVanilla"(): $ResourceLocation
 public "getBaseTextureIdentifierOrNullForVanilla"(player: $ETFPlayerEntity$$Type): $ResourceLocation
 public "getBaseTextureIdentifierOrNullForVanilla"(player: $Player$$Type): $ResourceLocation
 public "isCorrectObjectForThisSkin"(check: $ResourceLocation$$Type): boolean
+public "canUseFeaturesForThisPlayer"(): boolean
 public "checkTexture"(skipSkinLoad: boolean): void
 public static "getSkinNumberToPixelColour"(color: integer): integer
 public static "getSkinPixelColourToNumber"(color: integer): integer
-get "baseHeadTextureIdentifierOrNullForVanilla"(): $ResourceLocation
 get "baseTextureEmissiveIdentifierOrNullForNone"(): $ResourceLocation
+get "baseHeadTextureIdentifierOrNullForVanilla"(): $ResourceLocation
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

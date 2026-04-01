@@ -1,14 +1,14 @@
 declare module "malte0811.ferritecore.mixin.accessors.DiscreteVSAccess" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $DiscreteVSAccess$$Interface {
-get "YSize"(): integer
 get "XSize"(): integer
+get "YSize"(): integer
 get "ZSize"(): integer
 }
 
 export class $DiscreteVSAccess implements $DiscreteVSAccess$$Interface {
- "getYSize"(): integer
  "getXSize"(): integer
+ "getYSize"(): integer
  "getZSize"(): integer
 }
 /**
@@ -26,16 +26,16 @@ import {$DiscreteVoxelShape, $DiscreteVoxelShape$$Type} from "net.minecraft.worl
 
 export interface $VoxelShapeAccess$$Interface {
 get "shape"(): $DiscreteVoxelShape
+set "faces"(value: ($VoxelShape$$Type)[])
 set "shape"(value: $DiscreteVoxelShape$$Type)
 get "faces"(): ($VoxelShape)[]
-set "faces"(value: ($VoxelShape$$Type)[])
 }
 
 export class $VoxelShapeAccess implements $VoxelShapeAccess$$Interface {
  "getShape"(): $DiscreteVoxelShape
+ "setFaces"(arg0: ($VoxelShape$$Type)[]): void
  "setShape"(arg0: $DiscreteVoxelShape$$Type): void
  "getFaces"(): ($VoxelShape)[]
- "setFaces"(arg0: ($VoxelShape$$Type)[]): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

@@ -31,22 +31,22 @@ import {$Pair} from "com.supermartijn642.fusion.api.util.Pair"
 
 export interface $SpritePreparationContext$$Interface {
 get "identifier"(): $ResourceLocation
-get "textureHeight"(): integer
-get "textureWidth"(): integer
-get "animationMetadata"(): $AnimationMetadataSection
-get "originalFrameHeight"(): integer
-get "originalFrameWith"(): integer
 get "originalFrameSize"(): $Pair<(integer), (integer)>
+get "originalFrameWith"(): integer
+get "originalFrameHeight"(): integer
+get "animationMetadata"(): $AnimationMetadataSection
+get "textureWidth"(): integer
+get "textureHeight"(): integer
 }
 
 export class $SpritePreparationContext implements $SpritePreparationContext$$Interface {
  "getIdentifier"(): $ResourceLocation
- "getTextureHeight"(): integer
- "getTextureWidth"(): integer
- "getAnimationMetadata"(): $AnimationMetadataSection
- "getOriginalFrameHeight"(): integer
- "getOriginalFrameWith"(): integer
  "getOriginalFrameSize"(): $Pair<(integer), (integer)>
+ "getOriginalFrameWith"(): integer
+ "getOriginalFrameHeight"(): integer
+ "getAnimationMetadata"(): $AnimationMetadataSection
+ "getTextureWidth"(): integer
+ "getTextureHeight"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -69,8 +69,8 @@ get "texture"(): $ResourceLocation
 export class $SpriteIdentifier implements $SpriteIdentifier$$Interface {
 static "of"(atlas: $ResourceLocation$$Type, texture: $ResourceLocation$$Type): $SpriteIdentifier
 static "of"(material: $Material$$Type): $SpriteIdentifier
- "getAtlas"(): $ResourceLocation
 static "missing"(): $SpriteIdentifier
+ "getAtlas"(): $ResourceLocation
  "getTexture"(): $ResourceLocation
  "toMaterial"(): $Material
 }
@@ -87,27 +87,27 @@ declare module "com.supermartijn642.fusion.api.model.ModelInstance" {
 import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
 import {$Collection} from "java.util.Collection"
 import {$BlockModel} from "net.minecraft.client.renderer.block.model.BlockModel"
-import {$BakedModel} from "net.minecraft.client.resources.model.BakedModel"
 import {$List} from "java.util.List"
+import {$BakedModel} from "net.minecraft.client.resources.model.BakedModel"
 import {$ModelType, $ModelType$$Type} from "com.supermartijn642.fusion.api.model.ModelType"
 import {$ModelBakingContext$$Type} from "com.supermartijn642.fusion.api.model.ModelBakingContext"
 
 export interface $ModelInstance$$Interface<T> {
+get "modelType"(): $ModelType<(T)>
+get "modelDependencies"(): $Collection<($ResourceLocation)>
+get "modelData"(): T
 get "asVanillaModel"(): $BlockModel
 get "parentModels"(): $List<($ResourceLocation)>
-get "modelType"(): $ModelType<(T)>
-get "modelData"(): T
-get "modelDependencies"(): $Collection<($ResourceLocation)>
 }
 
 export class $ModelInstance<T> implements $ModelInstance$$Interface {
+static "of"<T>(modelType: $ModelType$$Type<(T)>, modelData: T): $ModelInstance<(T)>
+ "getModelType"(): $ModelType<(T)>
+ "bake"(context: $ModelBakingContext$$Type): $BakedModel
+ "getModelDependencies"(): $Collection<($ResourceLocation)>
+ "getModelData"(): T
  "getAsVanillaModel"(): $BlockModel
  "getParentModels"(): $List<($ResourceLocation)>
-static "of"<T>(modelType: $ModelType$$Type<(T)>, modelData: T): $ModelInstance<(T)>
- "bake"(context: $ModelBakingContext$$Type): $BakedModel
- "getModelType"(): $ModelType<(T)>
- "getModelData"(): T
- "getModelDependencies"(): $Collection<($ResourceLocation)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -132,8 +132,8 @@ export interface $TextureType$$Interface<T> extends $Serializer$$Interface<(T)> 
 export class $TextureType<T> implements $TextureType$$Interface {
  "createSprite"(context: $SpriteCreationContext$$Type, data: T): $TextureAtlasSprite
  "getFrameSize"(context: $SpritePreparationContext$$Type, data: T): $Pair<(integer), (integer)>
- "serialize"(data: T): $JsonObject
  "deserialize"(json: $JsonObject$$Type): T
+ "serialize"(data: T): $JsonObject
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -147,8 +147,8 @@ export type $TextureType$$Original<T> = $TextureType<(T)>;}
 declare module "com.supermartijn642.fusion.api.model.ModelBakingContext" {
 import {$TextureAtlasSprite} from "net.minecraft.client.renderer.texture.TextureAtlasSprite"
 import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
-import {$SpriteIdentifier$$Type} from "com.supermartijn642.fusion.api.model.SpriteIdentifier"
 import {$ModelInstance} from "com.supermartijn642.fusion.api.model.ModelInstance"
+import {$SpriteIdentifier$$Type} from "com.supermartijn642.fusion.api.model.SpriteIdentifier"
 import {$ModelState} from "net.minecraft.client.resources.model.ModelState"
 import {$ModelBaker} from "net.minecraft.client.resources.model.ModelBaker"
 
@@ -159,12 +159,12 @@ get "modelIdentifier"(): $ResourceLocation
 }
 
 export class $ModelBakingContext implements $ModelBakingContext$$Interface {
- "getModel"(identifier: $ResourceLocation$$Type): $ModelInstance<(never)>
- "getTransformation"(): $ModelState
- "getTexture"(identifier: $SpriteIdentifier$$Type): $TextureAtlasSprite
  "getTexture"(atlas: $ResourceLocation$$Type, texture: $ResourceLocation$$Type): $TextureAtlasSprite
- "getModelBaker"(): $ModelBaker
+ "getTexture"(identifier: $SpriteIdentifier$$Type): $TextureAtlasSprite
  "getBlockTexture"(texture: $ResourceLocation$$Type): $TextureAtlasSprite
+ "getTransformation"(): $ModelState
+ "getModel"(identifier: $ResourceLocation$$Type): $ModelInstance<(never)>
+ "getModelBaker"(): $ModelBaker
  "getModelIdentifier"(): $ResourceLocation
 }
 /**
@@ -180,8 +180,8 @@ declare module "com.supermartijn642.fusion.api.model.ModelType" {
 import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
 import {$Collection} from "java.util.Collection"
 import {$BlockModel} from "net.minecraft.client.renderer.block.model.BlockModel"
-import {$BakedModel} from "net.minecraft.client.resources.model.BakedModel"
 import {$List} from "java.util.List"
+import {$BakedModel} from "net.minecraft.client.resources.model.BakedModel"
 import {$JsonObject, $JsonObject$$Type} from "com.google.gson.JsonObject"
 import {$ModelBakingContext$$Type} from "com.supermartijn642.fusion.api.model.ModelBakingContext"
 import {$Serializer$$Interface} from "com.supermartijn642.fusion.api.util.Serializer"
@@ -190,12 +190,12 @@ export interface $ModelType$$Interface<T> extends $Serializer$$Interface<(T)> {
 }
 
 export class $ModelType<T> implements $ModelType$$Interface {
- "getAsVanillaModel"(data: T): $BlockModel
- "getParentModels"(data: T): $List<($ResourceLocation)>
  "bake"(context: $ModelBakingContext$$Type, data: T): $BakedModel
  "getModelDependencies"(data: T): $Collection<($ResourceLocation)>
- "serialize"(data: T): $JsonObject
+ "getAsVanillaModel"(data: T): $BlockModel
+ "getParentModels"(data: T): $List<($ResourceLocation)>
  "deserialize"(json: $JsonObject$$Type): T
+ "serialize"(data: T): $JsonObject
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -213,8 +213,8 @@ export interface $Serializer$$Interface<T> {
 }
 
 export class $Serializer<T> implements $Serializer$$Interface {
- "serialize"(data: T): $JsonObject
  "deserialize"(json: $JsonObject$$Type): T
+ "serialize"(data: T): $JsonObject
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -233,33 +233,33 @@ import {$TextureAtlas} from "net.minecraft.client.renderer.texture.TextureAtlas"
 
 export interface $SpriteCreationContext$$Interface {
 get "atlas"(): $TextureAtlas
+get "textureBuffers"(): ($NativeImage)[]
+get "spriteHeight"(): integer
+get "spriteWidth"(): integer
+get "mipmapLevels"(): integer
+get "textureIdentifier"(): $ResourceLocation
+get "spritePositionX"(): integer
+get "textureWidth"(): integer
 get "atlasHeight"(): integer
 get "spritePositionY"(): integer
-get "spritePositionX"(): integer
-get "atlasWidth"(): integer
-get "spriteHeight"(): integer
-get "mipmapLevels"(): integer
-get "spriteWidth"(): integer
-get "textureBuffers"(): ($NativeImage)[]
 get "textureHeight"(): integer
-get "textureWidth"(): integer
-get "textureIdentifier"(): $ResourceLocation
+get "atlasWidth"(): integer
 }
 
 export class $SpriteCreationContext implements $SpriteCreationContext$$Interface {
  "getAtlas"(): $TextureAtlas
+ "getTextureBuffers"(): ($NativeImage)[]
+ "getSpriteHeight"(): integer
+ "getSpriteWidth"(): integer
+ "getMipmapLevels"(): integer
+ "createOriginalSprite"(): $TextureAtlasSprite
+ "getTextureIdentifier"(): $ResourceLocation
+ "getSpritePositionX"(): integer
+ "getTextureWidth"(): integer
  "getAtlasHeight"(): integer
  "getSpritePositionY"(): integer
- "getSpritePositionX"(): integer
- "getAtlasWidth"(): integer
- "getSpriteHeight"(): integer
- "getMipmapLevels"(): integer
- "getSpriteWidth"(): integer
- "getTextureBuffers"(): ($NativeImage)[]
  "getTextureHeight"(): integer
- "getTextureWidth"(): integer
- "getTextureIdentifier"(): $ResourceLocation
- "createOriginalSprite"(): $TextureAtlasSprite
+ "getAtlasWidth"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

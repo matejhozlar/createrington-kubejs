@@ -1,6 +1,6 @@
 declare module "com.kyanite.deeperdarker.content.blocks.OthersidePortalBlock$PortalSpawnEvent" {
-import {$BlockEvent} from "net.neoforged.neoforge.event.level.BlockEvent"
 import {$OthersidePortalBlock$OthersidePortalShape, $OthersidePortalBlock$OthersidePortalShape$$Type} from "com.kyanite.deeperdarker.content.blocks.OthersidePortalBlock$OthersidePortalShape"
+import {$BlockEvent} from "net.neoforged.neoforge.event.level.BlockEvent"
 import {$ICancellableEvent$$Interface} from "net.neoforged.bus.api.ICancellableEvent"
 import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
 import {$LevelAccessor$$Type} from "net.minecraft.world.level.LevelAccessor"
@@ -10,11 +10,11 @@ export class $OthersidePortalBlock$PortalSpawnEvent extends $BlockEvent implemen
 constructor(arg0: $LevelAccessor$$Type, arg1: $BlockPos$$Type, arg2: $BlockState$$Type, arg3: $OthersidePortalBlock$OthersidePortalShape$$Type)
 
 public "getSize"(): $OthersidePortalBlock$OthersidePortalShape
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
+public "isCanceled"(): boolean
 get "size"(): $OthersidePortalBlock$OthersidePortalShape
-get "canceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

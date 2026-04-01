@@ -42,9 +42,9 @@ export type $NorthstarOxygen$Provider$$Type = ($NorthstarOxygen$Provider);
 export type $NorthstarOxygen$Provider$$Original = $NorthstarOxygen$Provider;}
 declare module "com.lightning.northstar.world.oxygen.NorthstarOxygen" {
 import {$Vec3$$Type} from "net.minecraft.world.phys.Vec3"
-import {$Vec3i$$Type} from "net.minecraft.core.Vec3i"
 import {$Fluid$$Type} from "net.minecraft.world.level.material.Fluid"
 import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
+import {$Vec3i$$Type} from "net.minecraft.core.Vec3i"
 import {$RenderLevelStageEvent$$Type} from "net.neoforged.neoforge.client.event.RenderLevelStageEvent"
 import {$Level$$Type} from "net.minecraft.world.level.Level"
 import {$LivingEntity$$Type} from "net.minecraft.world.entity.LivingEntity"
@@ -58,23 +58,23 @@ static readonly "MAXIMUM_OXYGEN": integer
 
 constructor(level: $Level$$Type)
 
-public static "getDimension"(level: $Level$$Type): $NorthstarOxygen
-public static "onPostRender"(event: $RenderLevelStageEvent$$Type): void
-public static "getOxygenTank"(entity: $LivingEntity$$Type): $ItemStack
-public static "depleteOxygen"(stack: $ItemStack$$Type, deplete: boolean): boolean
 public "processUpdates"(level: $ServerLevel$$Type): void
-public static "hasOxygen"(level: $Level$$Type, pos: $Vec3$$Type): boolean
-public static "hasOxygen"(level: $Level$$Type, pos: $Vec3i$$Type): boolean
+public static "getDimension"(level: $Level$$Type): $NorthstarOxygen
+public static "onBreathe"(event: $LivingBreatheEvent$$Type): void
+public "getSealer"(pos: $Vec3$$Type): $NorthstarOxygen$Provider
+public "getSealer"(pos: $Vec3i$$Type): $NorthstarOxygen$Provider
 public "hasOxygen"(): boolean
+public static "hasOxygen"(level: $Level$$Type, pos: $Vec3i$$Type): boolean
+public static "hasOxygen"(level: $Level$$Type, pos: $Vec3$$Type): boolean
 public "hasOxygen"(pos: $Vec3$$Type): boolean
 public "hasOxygen"(pos: $Vec3i$$Type): boolean
-public static "isOxygen"(fluid: $Fluid$$Type): boolean
-public "getSealer"(pos: $Vec3i$$Type): $NorthstarOxygen$Provider
-public "getSealer"(pos: $Vec3$$Type): $NorthstarOxygen$Provider
-public "unregisterSealer"(provider: $NorthstarOxygen$Provider$$Type): void
 public "registerSealer"(provider: $NorthstarOxygen$Provider$$Type): void
+public "unregisterSealer"(provider: $NorthstarOxygen$Provider$$Type): void
 public "enqueueUpdates"(positions: $LongCollection$$Type): void
-public static "onBreathe"(event: $LivingBreatheEvent$$Type): void
+public static "isOxygen"(fluid: $Fluid$$Type): boolean
+public static "depleteOxygen"(stack: $ItemStack$$Type, deplete: boolean): boolean
+public static "onPostRender"(event: $RenderLevelStageEvent$$Type): void
+public static "getOxygenTank"(entity: $LivingEntity$$Type): $ItemStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -158,8 +158,8 @@ import {$Vec3i$$Type} from "net.minecraft.core.Vec3i"
 import {$RenderLevelStageEvent$$Type} from "net.neoforged.neoforge.client.event.RenderLevelStageEvent"
 import {$Level$$Type} from "net.minecraft.world.level.Level"
 import {$LivingEntity$$Type} from "net.minecraft.world.entity.LivingEntity"
-import {$ServerLevel$$Type} from "net.minecraft.server.level.ServerLevel"
 import {$ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
+import {$ServerLevel$$Type} from "net.minecraft.server.level.ServerLevel"
 import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
 import {$FluidState$$Type} from "net.minecraft.world.level.material.FluidState"
 import {$LongCollection$$Type} from "it.unimi.dsi.fastutil.longs.LongCollection"
@@ -170,27 +170,27 @@ static readonly "MAXIMUM_TEMPERATURE": integer
 
 constructor(level: $Level$$Type)
 
-public static "getDimension"(level: $Level$$Type): $NorthstarTemperature
-public static "onPostRender"(event: $RenderLevelStageEvent$$Type): void
-public static "hasHeatProtection"(entity: $LivingEntity$$Type): boolean
-public static "hasInsulation"(entity: $LivingEntity$$Type): boolean
-public "processUpdates"(level: $ServerLevel$$Type): void
-public static "getTemperatureAt"(level: $Level$$Type, pos: $Vec3i$$Type): float
-public "getTemperatureAt"(pos: $Vec3$$Type): float
 public static "getTemperatureAt"(level: $Level$$Type, pos: $Vec3$$Type): float
+public static "getTemperatureAt"(level: $Level$$Type, pos: $Vec3i$$Type): float
 public "getTemperatureAt"(pos: $Vec3i$$Type): float
-public static "getBaseTemperature"(level: $Level$$Type, pos: $BlockPos$$Type): float
-public static "isCombustible"(state: $FluidState$$Type): boolean
-public static "getBoilingPoint"(state: $FluidState$$Type): integer
+public "getTemperatureAt"(pos: $Vec3$$Type): float
+public "processUpdates"(level: $ServerLevel$$Type): void
+public static "getDimension"(level: $Level$$Type): $NorthstarTemperature
 public static "combustionTemp"(state: $FluidState$$Type): integer
+public static "getBoilingPoint"(state: $FluidState$$Type): integer
 public static "getFreezingPoint"(state: $FluidState$$Type): integer
+public static "isCombustible"(state: $FluidState$$Type): boolean
+public static "getBaseTemperature"(level: $Level$$Type, pos: $BlockPos$$Type): float
 public static "tickEntity"(entity: $LivingEntity$$Type): void
 public static "evaporate"(level: $Level$$Type, pos: $BlockPos$$Type): void
-public "unregisterSealer"(provider: $NorthstarTemperature$Provider$$Type): void
 public "registerSealer"(provider: $NorthstarTemperature$Provider$$Type): void
+public "unregisterSealer"(provider: $NorthstarTemperature$Provider$$Type): void
 public "enqueueUpdates"(positions: $LongCollection$$Type): void
 public static "getHeatRating"(level: $ResourceKey$$Type<($Level)>): double
 public static "getHeatConstant"(level: $ResourceKey$$Type<($Level)>): double
+public static "hasHeatProtection"(entity: $LivingEntity$$Type): boolean
+public static "hasInsulation"(entity: $LivingEntity$$Type): boolean
+public static "onPostRender"(event: $RenderLevelStageEvent$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

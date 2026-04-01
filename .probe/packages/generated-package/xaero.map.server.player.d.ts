@@ -2,13 +2,13 @@ declare module "xaero.map.server.player.IServerPlayer" {
 import {$ServerPlayerData, $ServerPlayerData$$Type} from "xaero.map.server.player.ServerPlayerData"
 
 export interface $IServerPlayer$$Interface {
-set "xaeroWorldMapPlayerData"(value: $ServerPlayerData$$Type)
 get "xaeroWorldMapPlayerData"(): $ServerPlayerData
+set "xaeroWorldMapPlayerData"(value: $ServerPlayerData$$Type)
 }
 
 export class $IServerPlayer implements $IServerPlayer$$Interface {
- "setXaeroWorldMapPlayerData"(arg0: $ServerPlayerData$$Type): void
  "getXaeroWorldMapPlayerData"(): $ServerPlayerData
+ "setXaeroWorldMapPlayerData"(arg0: $ServerPlayerData$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -29,25 +29,25 @@ export class $ServerPlayerData {
 constructor(arg0: $UUID$$Type)
 
 public static "get"(arg0: $ServerPlayer$$Type): $ServerPlayerData
-public "ensureCurrentlySyncedPlayers"(): $Set<($UUID)>
-public "setClientModNetworkVersion"(arg0: integer): void
-public "getLastTrackedPlayerSync"(): long
 public "ensureLastSyncedData"(): $SyncedTrackedPlayer
 public "getCurrentlySyncedPlayers"(): $Set<($UUID)>
 public "setLastTrackedPlayerSync"(arg0: long): void
+public "getLastTrackedPlayerSync"(): long
+public "setClientModNetworkVersion"(arg0: integer): void
 public "getClientModNetworkVersion"(): integer
-public "getLastSyncedData"(): $SyncedTrackedPlayer
-public "setOpacData"(arg0: any): void
-public "getOpacData"(): any
 public "hasMod"(): boolean
-set "clientModNetworkVersion"(value: integer)
-get "lastTrackedPlayerSync"(): long
+public "ensureCurrentlySyncedPlayers"(): $Set<($UUID)>
+public "getOpacData"(): any
+public "setOpacData"(arg0: any): void
+public "getLastSyncedData"(): $SyncedTrackedPlayer
 get "currentlySyncedPlayers"(): $Set<($UUID)>
 set "lastTrackedPlayerSync"(value: long)
+get "lastTrackedPlayerSync"(): long
+set "clientModNetworkVersion"(value: integer)
 get "clientModNetworkVersion"(): integer
-get "lastSyncedData"(): $SyncedTrackedPlayer
-set "opacData"(value: any)
 get "opacData"(): any
+set "opacData"(value: any)
+get "lastSyncedData"(): $SyncedTrackedPlayer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

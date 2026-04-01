@@ -19,16 +19,16 @@ export type $Unit$$Type = (("instance"));
  */
 export type $Unit$$Original = $Unit;}
 declare module "net.minecraft.util.ListAndDeque" {
-import {$RandomAccess$$Interface} from "java.util.RandomAccess"
-import {$Iterator} from "java.util.Iterator"
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
+import {$Iterator} from "java.util.Iterator"
+import {$RandomAccess$$Interface} from "java.util.RandomAccess"
 import {$Collection$$Type} from "java.util.Collection"
 import {$Comparator$$Type} from "java.util.Comparator"
 import {$Spliterator} from "java.util.Spliterator"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$List, $List$$Interface} from "java.util.List"
-import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$IntFunction$$Type} from "java.util.function.IntFunction"
+import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$ListIterator} from "java.util.ListIterator"
 import {$Serializable$$Interface} from "java.io.Serializable"
 import {$Cloneable$$Interface} from "java.lang.Cloneable"
@@ -128,14 +128,14 @@ export {} // Mark the file as a module, do not remove unless there are other imp
 export class $Tuple<A, B> {
 constructor(arg0: A, arg1: B)
 
-public "setA"(arg0: A): void
-public "setB"(arg0: B): void
 public "getA"(): A
 public "getB"(): B
-set "a"(value: A)
-set "b"(value: B)
+public "setA"(arg0: A): void
+public "setB"(arg0: B): void
 get "a"(): A
 get "b"(): B
+set "a"(value: A)
+set "b"(value: B)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -163,11 +163,11 @@ public "toString"(): StringJS
 public "hashCode"(): integer
 public "contains"(arg0: $InclusiveRange$$Type<(T)>): boolean
 public static "create"<T extends $Comparable<(object)>>(arg0: T, arg1: T): $DataResult<($InclusiveRange<(T)>)>
-public "minInclusive"(): T
+public "isValueInRange"(arg0: T): boolean
 public "maxInclusive"(): T
+public "minInclusive"(): T
 public static "codec"<T extends $Comparable<(object)>>(arg0: $Codec$$Type<(T)>, arg1: T, arg2: T): $Codec<($InclusiveRange<(T)>)>
 public static "codec"<T extends $Comparable<(object)>>(arg0: $Codec$$Type<(T)>): $Codec<($InclusiveRange<(T)>)>
-public "isValueInRange"(arg0: T): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -222,8 +222,8 @@ export type $TimeSource$$Type = ((arg0: $TimeUnit) => long);
  */
 export type $TimeSource$$Original = $TimeSource;}
 declare module "net.minecraft.util.ClassInstanceMultiMap" {
-import {$Iterator} from "java.util.Iterator"
 import {$ClassInstanceMultiMapAccessor$$Interface} from "net.caffeinemc.mods.lithium.mixin.alloc.entity_iteration.ClassInstanceMultiMapAccessor"
+import {$Iterator} from "java.util.Iterator"
 import {$ArrayList$$Type} from "java.util.ArrayList"
 import {$Collection} from "java.util.Collection"
 import {$EntityClassGroup$$Type} from "net.caffeinemc.mods.lithium.common.entity.EntityClassGroup"
@@ -245,11 +245,11 @@ public "contains"(arg0: any): boolean
 public "find"(arg0: $Class$$Type): $Collection
 public "getAllInstances"(): $List
 public "lithium$getAllOfGroupType"(arg0: $EntityClassGroup$$Type): $Collection
-public "localvar$bll000$lithium$remove"(arg0: any): any
-public "lithium$replaceCollectionAndGet"(arg0: $Class$$Type, arg1: $ArrayList$$Type): $List
-public "lithium$replaceCollectionAndGet"(arg0: $Class$$Type, arg1: $Function$$Type): $List
-public "localvar$bll000$lithium$add"(arg0: any): any
 public "lithium$getOrCreateAllOfTypeRaw"(arg0: $Class$$Type): $List
+public "localvar$bpo000$lithium$add"(arg0: any): any
+public "localvar$bpo000$lithium$remove"(arg0: any): any
+public "lithium$replaceCollectionAndGet"(arg0: $Class$$Type, arg1: $Function$$Type): $List
+public "lithium$replaceCollectionAndGet"(arg0: $Class$$Type, arg1: $ArrayList$$Type): $List
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 get "allInstances"(): $List
@@ -381,16 +381,16 @@ static "create"(): $RandomSource
  "nextFloat"(): float
  "nextGaussian"(): double
  "fork"(): $RandomSource
- "triangle"(arg0: double, arg1: double): double
 static "createNewThreadLocalInstance"(): $RandomSource
+ "triangle"(arg0: double, arg1: double): double
  "nextIntBetweenInclusive"(arg0: integer, arg1: integer): integer
+ "consumeCount"(arg0: integer): void
+ "forkPositional"(): $PositionalRandomFactory
 /**
  * 
  * @deprecated
  */
 static "createThreadSafe"(): $RandomSource
- "forkPositional"(): $PositionalRandomFactory
- "consumeCount"(arg0: integer): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -409,9 +409,9 @@ static readonly "NO_ID_VALUE": integer
 
 constructor()
 
-public "getLastIdFor"(arg0: $Class$$Type<(never)>): integer
 public "getCount"(arg0: $Class$$Type<(never)>): integer
 public "define"(arg0: $Class$$Type<(never)>): integer
+public "getLastIdFor"(arg0: $Class$$Type<(never)>): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -490,15 +490,15 @@ import {$Encoder, $Encoder$$Type} from "com.mojang.serialization.Encoder"
 import {$Decoder$Terminal$$Type} from "com.mojang.serialization.Decoder$Terminal"
 import {$MapDecoder$$Type} from "com.mojang.serialization.MapDecoder"
 import {$Codec, $Codec$$Type} from "com.mojang.serialization.Codec"
-import {$Either} from "com.mojang.datafixers.util.Either"
 import {$Function, $Function$$Type} from "java.util.function.Function"
-import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$Either} from "com.mojang.datafixers.util.Either"
 import {$Decoder, $Decoder$$Type} from "com.mojang.serialization.Decoder"
+import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Decoder$Boxed$$Type} from "com.mojang.serialization.Decoder$Boxed"
 import {$Map} from "java.util.Map"
 import {$Pair} from "com.mojang.datafixers.util.Pair"
-import {$DataResult} from "com.mojang.serialization.DataResult"
 import {$SimpleMapCodec} from "com.mojang.serialization.codecs.SimpleMapCodec"
+import {$DataResult} from "com.mojang.serialization.DataResult"
 import {$Decoder$Simple$$Type} from "com.mojang.serialization.Decoder$Simple"
 import {$UnboundedMapCodec} from "com.mojang.serialization.codecs.UnboundedMapCodec"
 import {$Consumer$$Type} from "java.util.function.Consumer"
@@ -530,24 +530,24 @@ public static "recursive"<A>(arg0: StringJS, arg1: $Function$$Type<($Codec<(A)>)
 public static "pair"<F, S>(arg0: $Codec$$Type<(F)>, arg1: $Codec$$Type<(S)>): $Codec<($Pair<(F), (S)>)>
 public static "checkRange"<N extends number>(arg0: N, arg1: N): $Function<(N), ($DataResult<(N)>)>
 public static "xor"<F, S>(arg0: $Codec$$Type<(F)>, arg1: $Codec$$Type<(S)>): $Codec<($Either<(F), (S)>)>
-public static "unboundedMap"<K, V>(arg0: $Codec$$Type<(K)>, arg1: $Codec$$Type<(V)>): $UnboundedMapCodec<(K), (V)>
-public static "sizeLimitedString"(arg0: integer): $Codec<(StringJS)>
-public static "withAlternative"<T, U>(arg0: $Codec$$Type<(T)>, arg1: $Codec$$Type<(U)>, arg2: $Function$$Type<(U), (T)>): $Codec<(T)>
-public static "withAlternative"<T>(arg0: $Codec$$Type<(T)>, arg1: $Codec$$Type<(T)>): $Codec<(T)>
 public "withLifecycle"(arg0: $Lifecycle$$Type): $Decoder
-public static "optionalField"<F>(arg0: StringJS, arg1: $Codec$$Type<(F)>, arg2: boolean): $MapCodec<($Optional<(F)>)>
-public static "doubleRange"(arg0: double, arg1: double): $Codec<(double)>
-public static "lazyInitialized"<A>(arg0: $Supplier$$Type<($Codec$$Type<(A)>)>): $Codec<(A)>
-public "promotePartial"(arg0: $Consumer$$Type): $Decoder
 public static "compoundList"<K, V>(arg0: $Codec$$Type<(K)>, arg1: $Codec$$Type<(V)>): $Codec<($List<($Pair<(K), (V)>)>)>
-public static "stringResolver"<E>(arg0: $Function$$Type<(E), (StringJS)>, arg1: $Function$$Type<(StringJS), (E)>): $Codec<(E)>
+public static "optionalField"<F>(arg0: StringJS, arg1: $Codec$$Type<(F)>, arg2: boolean): $MapCodec<($Optional<(F)>)>
+public "promotePartial"(arg0: $Consumer$$Type): $Decoder
 public static "dispatchedMap"<K, V>(arg0: $Codec$$Type<(K)>, arg1: $Function$$Type<(K), ($Codec$$Type<(V)>)>): $Codec<($Map<(K), (V)>)>
-public static "floatRange"(arg0: float, arg1: float): $Codec<(float)>
+public static "stringResolver"<E>(arg0: $Function$$Type<(E), (StringJS)>, arg1: $Function$$Type<(StringJS), (E)>): $Codec<(E)>
+public static "lazyInitialized"<A>(arg0: $Supplier$$Type<($Codec$$Type<(A)>)>): $Codec<(A)>
+public static "withAlternative"<T>(arg0: $Codec$$Type<(T)>, arg1: $Codec$$Type<(T)>): $Codec<(T)>
+public static "withAlternative"<T, U>(arg0: $Codec$$Type<(T)>, arg1: $Codec$$Type<(U)>, arg2: $Function$$Type<(U), (T)>): $Codec<(T)>
+public static "sizeLimitedString"(arg0: integer): $Codec<(StringJS)>
+public static "doubleRange"(arg0: double, arg1: double): $Codec<(double)>
+public static "unboundedMap"<K, V>(arg0: $Codec$$Type<(K)>, arg1: $Codec$$Type<(V)>): $UnboundedMapCodec<(K), (V)>
 public static "mapEither"<F, S>(arg0: $MapCodec$$Type<(F)>, arg1: $MapCodec$$Type<(S)>): $MapCodec<($Either<(F), (S)>)>
-public static "simpleMap"<K, V>(arg0: $Codec$$Type<(K)>, arg1: $Codec$$Type<(V)>, arg2: $Keyable$$Type): $SimpleMapCodec<(K), (V)>
-public static "mapPair"<F, S>(arg0: $MapCodec$$Type<(F)>, arg1: $MapCodec$$Type<(S)>): $MapCodec<($Pair<(F), (S)>)>
 public static "intRange"(arg0: integer, arg1: integer): $Codec<(integer)>
 public static "either"<F, S>(arg0: $Codec$$Type<(F)>, arg1: $Codec$$Type<(S)>): $Codec<($Either<(F), (S)>)>
+public static "floatRange"(arg0: float, arg1: float): $Codec<(float)>
+public static "simpleMap"<K, V>(arg0: $Codec$$Type<(K)>, arg1: $Codec$$Type<(V)>, arg2: $Keyable$$Type): $SimpleMapCodec<(K), (V)>
+public static "mapPair"<F, S>(arg0: $MapCodec$$Type<(F)>, arg1: $MapCodec$$Type<(S)>): $MapCodec<($Pair<(F), (S)>)>
 public static "empty"<A>(): $MapEncoder<(A)>
 public static "error"<A>(arg0: StringJS): $Encoder<(A)>
 public static "ofSimple"<A>(arg0: $Decoder$Simple$$Type<(A)>): $Decoder<(A)>
@@ -607,8 +607,8 @@ declare module "net.minecraft.util.SortedArraySet" {
 import {$Iterator} from "java.util.Iterator"
 import {$Collection$$Type, $Collection$$Interface} from "java.util.Collection"
 import {$Spliterator} from "java.util.Spliterator"
-import {$Comparable} from "java.lang.Comparable"
 import {$Comparator$$Type} from "java.util.Comparator"
+import {$Comparable} from "java.lang.Comparable"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$Set} from "java.util.Set"
 import {$AbstractSet} from "java.util.AbstractSet"
@@ -624,16 +624,16 @@ public "get"(arg0: T): T
 public "equals"(arg0: any): boolean
 public "clear"(): void
 public "add"(arg0: T): boolean
-public "toArray"(): (any)[]
 public "toArray"<U>(arg0: (U)[]): (U)[]
+public "toArray"(): (any)[]
 public "iterator"(): $Iterator<(T)>
 public "contains"(arg0: any): boolean
 public "last"(): T
 public "first"(): T
-public static "create"<T extends $Comparable<(object)>>(arg0: integer): $SortedArraySet<(T)>
 public static "create"<T extends $Comparable<(object)>>(): $SortedArraySet<(T)>
-public static "create"<T>(arg0: $Comparator$$Type<(T)>): $SortedArraySet<(T)>
 public static "create"<T>(arg0: $Comparator$$Type<(T)>, arg1: integer): $SortedArraySet<(T)>
+public static "create"<T>(arg0: $Comparator$$Type<(T)>): $SortedArraySet<(T)>
+public static "create"<T extends $Comparable<(object)>>(arg0: integer): $SortedArraySet<(T)>
 public "removeIf"(filter: $Predicate$$Type): boolean
 public "addOrGet"(arg0: T): T
 public "removeInternal"(arg0: integer): void
@@ -705,9 +705,9 @@ public "hashCode"(): integer
 public "merge"(arg0: $ModCheck$$Type): $ModCheck
 public "description"(): StringJS
 public static "identify"(arg0: StringJS, arg1: $Supplier$$Type<(StringJS)>, arg2: StringJS, arg3: $Class$$Type<(never)>): $ModCheck
+public "shouldReportAsModified"(): boolean
 public "fullDescription"(): StringJS
 public "confidence"(): $ModCheck$Confidence
-public "shouldReportAsModified"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -755,9 +755,9 @@ public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "block"(): integer
+public "pack"(): integer
 public "sky"(): integer
 public static "unpack"(arg0: integer): $Brightness
-public "pack"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -777,10 +777,10 @@ import {$Encoder, $Encoder$$Type} from "com.mojang.serialization.Encoder"
 import {$Decoder$Terminal, $Decoder$Terminal$$Type} from "com.mojang.serialization.Decoder$Terminal"
 import {$MapDecoder$$Type} from "com.mojang.serialization.MapDecoder"
 import {$Codec, $Codec$$Type, $Codec$$Interface} from "com.mojang.serialization.Codec"
-import {$Either} from "com.mojang.datafixers.util.Either"
 import {$Function, $Function$$Type} from "java.util.function.Function"
-import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$Either} from "com.mojang.datafixers.util.Either"
 import {$Decoder, $Decoder$$Type} from "com.mojang.serialization.Decoder"
+import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Codec$ResultFunction$$Type} from "com.mojang.serialization.Codec$ResultFunction"
 import {$Decoder$Boxed, $Decoder$Boxed$$Type} from "com.mojang.serialization.Decoder$Boxed"
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
@@ -819,54 +819,54 @@ public "orElse"(arg0: $Consumer$$Type<(StringJS)>, arg1: S): $Codec<(S)>
 public static "unit"<A>(arg0: S): $Codec<(S)>
 public static "unit"<A>(arg0: $Supplier$$Type<(S)>): $Codec<(S)>
 public static "string"(arg0: integer, arg1: integer): $Codec<(StringJS)>
-public "orElseGet"(arg0: $UnaryOperator$$Type<(StringJS)>, arg1: $Supplier$$Type<(S)>): $Codec<(S)>
-public "orElseGet"(arg0: $Supplier$$Type<(S)>): $Codec<(S)>
 public "orElseGet"(arg0: $Consumer$$Type<(StringJS)>, arg1: $Supplier$$Type<(S)>): $Codec<(S)>
+public "orElseGet"(arg0: $Supplier$$Type<(S)>): $Codec<(S)>
+public "orElseGet"(arg0: $UnaryOperator$$Type<(StringJS)>, arg1: $Supplier$$Type<(S)>): $Codec<(S)>
 public static "recursive"<A>(arg0: StringJS, arg1: $Function$$Type<($Codec<(S)>), ($Codec$$Type<(S)>)>): $Codec<(S)>
 public static "pair"<F, S>(arg0: $Codec$$Type<(F)>, arg1: $Codec$$Type<(S)>): $Codec<($Pair<(F), (S)>)>
 public static "checkRange"<N extends number>(arg0: N, arg1: N): $Function<(N), ($DataResult<(N)>)>
 public static "xor"<F, S>(arg0: $Codec$$Type<(F)>, arg1: $Codec$$Type<(S)>): $Codec<($Either<(F), (S)>)>
+public "withLifecycle"(arg0: $Lifecycle$$Type): $Decoder
+public "partialDispatch"<E>(arg0: StringJS, arg1: $Function$$Type<(E), ($DataResult$$Type<(S)>)>, arg2: $Function$$Type<(S), ($DataResult$$Type<($MapCodec$$Type<(E)>)>)>): $Codec<(E)>
+public "dispatchMap"<E>(arg0: StringJS, arg1: $Function$$Type<(E), (S)>, arg2: $Function$$Type<(S), ($MapCodec$$Type<(E)>)>): $MapCodec<(E)>
+public "dispatchMap"<E>(arg0: $Function$$Type<(E), (S)>, arg1: $Function$$Type<(S), ($MapCodec$$Type<(E)>)>): $MapCodec<(E)>
+public static "compoundList"<K, V>(arg0: $Codec$$Type<(K)>, arg1: $Codec$$Type<(V)>): $Codec<($List<($Pair<(K), (V)>)>)>
+public static "optionalField"<F>(arg0: StringJS, arg1: $Codec$$Type<(F)>, arg2: boolean): $MapCodec<($Optional<(F)>)>
+public "promotePartial"(arg0: $Consumer$$Type): $Decoder
+public static "dispatchedMap"<K, V>(arg0: $Codec$$Type<(K)>, arg1: $Function$$Type<(K), ($Codec$$Type<(V)>)>): $Codec<($Map<(K), (V)>)>
+public static "stringResolver"<E>(arg0: $Function$$Type<(E), (StringJS)>, arg1: $Function$$Type<(StringJS), (E)>): $Codec<(E)>
+public static "lazyInitialized"<A>(arg0: $Supplier$$Type<($Codec$$Type<(S)>)>): $Codec<(S)>
+public "sizeLimitedListOf"(arg0: integer): $Codec<($List<(S)>)>
+public static "withAlternative"<T>(arg0: $Codec$$Type<(T)>, arg1: $Codec$$Type<(T)>): $Codec<(T)>
+public static "withAlternative"<T, U>(arg0: $Codec$$Type<(T)>, arg1: $Codec$$Type<(U)>, arg2: $Function$$Type<(U), (T)>): $Codec<(T)>
+public static "sizeLimitedString"(arg0: integer): $Codec<(StringJS)>
+public static "doubleRange"(arg0: double, arg1: double): $Codec<(double)>
+public "dispatchStable"<E>(arg0: $Function$$Type<(E), (S)>, arg1: $Function$$Type<(S), ($MapCodec$$Type<(E)>)>): $Codec<(E)>
+public "flatComapMap"<S>(arg0: $Function$$Type<(S), (S)>, arg1: $Function$$Type<(S), ($DataResult$$Type<(S)>)>): $Codec<(S)>
 public static "unboundedMap"<K, V>(arg0: $Codec$$Type<(K)>, arg1: $Codec$$Type<(V)>): $UnboundedMapCodec<(K), (V)>
 public "comapFlatMap"<S>(arg0: $Function$$Type<(S), ($DataResult$$Type<(S)>)>, arg1: $Function$$Type<(S), (S)>): $Codec<(S)>
 public "optionalFieldOf"(arg0: StringJS, arg1: S): $MapCodec<(S)>
+public "optionalFieldOf"(arg0: StringJS, arg1: $Lifecycle$$Type, arg2: S, arg3: $Lifecycle$$Type): $MapCodec<(S)>
 public "optionalFieldOf"(arg0: StringJS, arg1: S, arg2: $Lifecycle$$Type): $MapCodec<(S)>
 public "optionalFieldOf"(arg0: StringJS): $MapCodec<($Optional<(S)>)>
-public "optionalFieldOf"(arg0: StringJS, arg1: $Lifecycle$$Type, arg2: S, arg3: $Lifecycle$$Type): $MapCodec<(S)>
-public "partialDispatch"<E>(arg0: StringJS, arg1: $Function$$Type<(E), ($DataResult$$Type<(S)>)>, arg2: $Function$$Type<(S), ($DataResult$$Type<($MapCodec$$Type<(E)>)>)>): $Codec<(E)>
-public static "sizeLimitedString"(arg0: integer): $Codec<(StringJS)>
-public static "withAlternative"<T, U>(arg0: $Codec$$Type<(T)>, arg1: $Codec$$Type<(U)>, arg2: $Function$$Type<(U), (T)>): $Codec<(T)>
-public static "withAlternative"<T>(arg0: $Codec$$Type<(T)>, arg1: $Codec$$Type<(T)>): $Codec<(T)>
-public "dispatchStable"<E>(arg0: $Function$$Type<(E), (S)>, arg1: $Function$$Type<(S), ($MapCodec$$Type<(E)>)>): $Codec<(E)>
-public "withLifecycle"(arg0: $Lifecycle$$Type): $Decoder
-public static "optionalField"<F>(arg0: StringJS, arg1: $Codec$$Type<(F)>, arg2: boolean): $MapCodec<($Optional<(F)>)>
-public static "doubleRange"(arg0: double, arg1: double): $Codec<(double)>
-public static "lazyInitialized"<A>(arg0: $Supplier$$Type<($Codec$$Type<(S)>)>): $Codec<(S)>
-public "promotePartial"(arg0: $Consumer$$Type): $Decoder
-public "flatComapMap"<S>(arg0: $Function$$Type<(S), (S)>, arg1: $Function$$Type<(S), ($DataResult$$Type<(S)>)>): $Codec<(S)>
-public static "compoundList"<K, V>(arg0: $Codec$$Type<(K)>, arg1: $Codec$$Type<(V)>): $Codec<($List<($Pair<(K), (V)>)>)>
-public static "stringResolver"<E>(arg0: $Function$$Type<(E), (StringJS)>, arg1: $Function$$Type<(StringJS), (E)>): $Codec<(E)>
-public "dispatchMap"<E>(arg0: $Function$$Type<(E), (S)>, arg1: $Function$$Type<(S), ($MapCodec$$Type<(E)>)>): $MapCodec<(E)>
-public "dispatchMap"<E>(arg0: StringJS, arg1: $Function$$Type<(E), (S)>, arg2: $Function$$Type<(S), ($MapCodec$$Type<(E)>)>): $MapCodec<(E)>
-public static "dispatchedMap"<K, V>(arg0: $Codec$$Type<(K)>, arg1: $Function$$Type<(K), ($Codec$$Type<(V)>)>): $Codec<($Map<(K), (V)>)>
-public "sizeLimitedListOf"(arg0: integer): $Codec<($List<(S)>)>
-public static "floatRange"(arg0: float, arg1: float): $Codec<(float)>
 public static "mapEither"<F, S>(arg0: $MapCodec$$Type<(F)>, arg1: $MapCodec$$Type<(S)>): $MapCodec<($Either<(F), (S)>)>
-public static "simpleMap"<K, V>(arg0: $Codec$$Type<(K)>, arg1: $Codec$$Type<(V)>, arg2: $Keyable$$Type): $SimpleMapCodec<(K), (V)>
-public static "mapPair"<F, S>(arg0: $MapCodec$$Type<(F)>, arg1: $MapCodec$$Type<(S)>): $MapCodec<($Pair<(F), (S)>)>
-public static "intRange"(arg0: integer, arg1: integer): $Codec<(integer)>
-public "fieldOf"(arg0: StringJS): $MapCodec<(S)>
-public "mapResult"(arg0: $Codec$ResultFunction$$Type<(S)>): $Codec<(S)>
 public "xmap"<S>(arg0: $Function$$Type<(S), (S)>, arg1: $Function$$Type<(S), (S)>): $Codec<(S)>
-public "listOf"(): $Codec<($List<(S)>)>
+public static "intRange"(arg0: integer, arg1: integer): $Codec<(integer)>
 public "listOf"(arg0: integer, arg1: integer): $Codec<($List<(S)>)>
+public "listOf"(): $Codec<($List<(S)>)>
 public static "either"<F, S>(arg0: $Codec$$Type<(F)>, arg1: $Codec$$Type<(S)>): $Codec<($Either<(F), (S)>)>
 public "stable"(): $Codec<(S)>
-public "deprecated"(arg0: integer): $Codec<(S)>
 public "flatXmap"<S>(arg0: $Function$$Type<(S), ($DataResult$$Type<(S)>)>, arg1: $Function$$Type<(S), ($DataResult$$Type<(S)>)>): $Codec<(S)>
+public static "floatRange"(arg0: float, arg1: float): $Codec<(float)>
+public static "simpleMap"<K, V>(arg0: $Codec$$Type<(K)>, arg1: $Codec$$Type<(V)>, arg2: $Keyable$$Type): $SimpleMapCodec<(K), (V)>
+public "deprecated"(arg0: integer): $Codec<(S)>
+public static "mapPair"<F, S>(arg0: $MapCodec$$Type<(F)>, arg1: $MapCodec$$Type<(S)>): $MapCodec<($Pair<(F), (S)>)>
+public "mapResult"(arg0: $Codec$ResultFunction$$Type<(S)>): $Codec<(S)>
+public "fieldOf"(arg0: StringJS): $MapCodec<(S)>
+public "lenientOptionalFieldOf"(arg0: StringJS): $MapCodec<($Optional<(S)>)>
 public "lenientOptionalFieldOf"(arg0: StringJS, arg1: $Lifecycle$$Type, arg2: S, arg3: $Lifecycle$$Type): $MapCodec<(S)>
 public "lenientOptionalFieldOf"(arg0: StringJS, arg1: S, arg2: $Lifecycle$$Type): $MapCodec<(S)>
 public "lenientOptionalFieldOf"(arg0: StringJS, arg1: S): $MapCodec<(S)>
-public "lenientOptionalFieldOf"(arg0: StringJS): $MapCodec<($Optional<(S)>)>
 public static "empty"<A>(): $MapEncoder<(S)>
 public static "error"<A>(arg0: StringJS): $Encoder<(S)>
 public "encodeStart"<T>(arg0: $DynamicOps$$Type<(T)>, arg1: S): $DataResult<(T)>
@@ -875,14 +875,14 @@ public "flatComap"<B>(arg0: $Function$$Type<(B), ($DataResult$$Type<(S)>)>): $En
 public "decode"<T>(arg0: $Dynamic$$Type<(T)>): $DataResult<($Pair<(S), (T)>)>
 public "map"<B>(arg0: $Function$$Type<(S), (B)>): $Decoder<(B)>
 public "flatMap"<B>(arg0: $Function$$Type<(S), ($DataResult$$Type<(B)>)>): $Decoder<(B)>
-public "parse"<T>(arg0: $Dynamic$$Type<(T)>): $DataResult<(S)>
 public "parse"<T>(arg0: $DynamicOps$$Type<(T)>, arg1: T): $DataResult<(S)>
+public "parse"<T>(arg0: $Dynamic$$Type<(T)>): $DataResult<(S)>
 public "boxed"(): $Decoder$Boxed<(S)>
-public "terminal"(): $Decoder$Terminal<(S)>
 public static "ofSimple"<A>(arg0: $Decoder$Simple$$Type<(S)>): $Decoder<(S)>
 public static "ofTerminal"<A>(arg0: $Decoder$Terminal$$Type<(S)>): $Decoder<(S)>
 public static "ofBoxed"<A>(arg0: $Decoder$Boxed$$Type<(S)>): $Decoder<(S)>
 public "simple"(): $Decoder$Simple<(S)>
+public "terminal"(): $Decoder$Terminal<(S)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -937,9 +937,9 @@ export type $ExtraCodecs$TagOrElementLocation$$Type = ({"id"?: $ResourceLocation
  */
 export type $ExtraCodecs$TagOrElementLocation$$Original = $ExtraCodecs$TagOrElementLocation;}
 declare module "net.minecraft.util.FormattedCharSequence" {
+import {$Style$$Type} from "net.minecraft.network.chat.Style"
 import {$Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$List$$Type} from "java.util.List"
-import {$Style$$Type} from "net.minecraft.network.chat.Style"
 import {$FormattedCharSink, $FormattedCharSink$$Type} from "net.minecraft.util.FormattedCharSink"
 
 export interface $FormattedCharSequence$$Interface {
@@ -956,14 +956,14 @@ static "codepoint"(arg0: integer, arg1: $Style$$Type): $FormattedCharSequence
 static "decorateOutput"(arg0: $FormattedCharSink$$Type, arg1: $Int2IntFunction$$Type): $FormattedCharSink
 static "backward"(arg0: StringJS, arg1: $Style$$Type, arg2: $Int2IntFunction$$Type): $FormattedCharSequence
 static "backward"(arg0: StringJS, arg1: $Style$$Type): $FormattedCharSequence
-static "fromPair"(arg0: $FormattedCharSequence$$Type, arg1: $FormattedCharSequence$$Type): $FormattedCharSequence
+static "composite"(arg0: $List$$Type<($FormattedCharSequence$$Type)>): $FormattedCharSequence
+static "composite"(arg0: $FormattedCharSequence$$Type, arg1: $FormattedCharSequence$$Type): $FormattedCharSequence
+static "composite"(arg0: $FormattedCharSequence$$Type): $FormattedCharSequence
+static "composite"(): $FormattedCharSequence
+static "composite"(...arg0: ($FormattedCharSequence$$Type)[]): $FormattedCharSequence
 static "forward"(arg0: StringJS, arg1: $Style$$Type): $FormattedCharSequence
 static "forward"(arg0: StringJS, arg1: $Style$$Type, arg2: $Int2IntFunction$$Type): $FormattedCharSequence
-static "composite"(arg0: $FormattedCharSequence$$Type, arg1: $FormattedCharSequence$$Type): $FormattedCharSequence
-static "composite"(arg0: $List$$Type<($FormattedCharSequence$$Type)>): $FormattedCharSequence
-static "composite"(): $FormattedCharSequence
-static "composite"(arg0: $FormattedCharSequence$$Type): $FormattedCharSequence
-static "composite"(...arg0: ($FormattedCharSequence$$Type)[]): $FormattedCharSequence
+static "fromPair"(arg0: $FormattedCharSequence$$Type, arg1: $FormattedCharSequence$$Type): $FormattedCharSequence
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -975,8 +975,8 @@ export type $FormattedCharSequence$$Type = ((arg0: $FormattedCharSink) => boolea
  */
 export type $FormattedCharSequence$$Original = $FormattedCharSequence;}
 declare module "net.minecraft.util.ArrayListDeque" {
-import {$Iterator} from "java.util.Iterator"
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
+import {$Iterator} from "java.util.Iterator"
 import {$Collection$$Type} from "java.util.Collection"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$List} from "java.util.List"
@@ -1059,28 +1059,28 @@ declare module "net.minecraft.util.StringRepresentable" {
 import {$RemappedEnumConstant$$Interface} from "dev.latvian.mods.rhino.util.RemappedEnumConstant"
 import {$Keyable} from "com.mojang.serialization.Keyable"
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Enum, $Enum$$Type} from "java.lang.Enum"
+import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Function, $Function$$Type} from "java.util.function.Function"
 import {$Supplier$$Type} from "java.util.function.Supplier"
 
 export interface $StringRepresentable$$Interface extends $RemappedEnumConstant$$Interface {
 
 (): StringJS
-get "remappedEnumConstantName"(): StringJS
 get "serializedName"(): StringJS
+get "remappedEnumConstantName"(): StringJS
 }
 
 export class $StringRepresentable implements $StringRepresentable$$Interface {
 static readonly "PRE_BUILT_MAP_THRESHOLD": integer
 
-static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
 static "keys"(arg0: ($StringRepresentable$$Type)[]): $Keyable
- "getRemappedEnumConstantName"(): StringJS
+static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
  "getSerializedName"(): StringJS
+static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
+ "getRemappedEnumConstantName"(): StringJS
 static "fromEnum"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 static "fromValues"<T extends $StringRepresentable>(arg0: $Supplier$$Type<((T)[])>): $Codec<(T)>
-static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1122,8 +1122,8 @@ export interface $ProgressListener$$Interface {
 
 export class $ProgressListener implements $ProgressListener$$Interface {
  "stop"(): void
- "progressStagePercentage"(arg0: integer): void
  "progressStartNoAbort"(arg0: $Component$$Type): void
+ "progressStagePercentage"(arg0: integer): void
  "progressStage"(arg0: $Component$$Type): void
  "progressStart"(arg0: $Component$$Type): void
 }
@@ -1153,8 +1153,8 @@ export class $BitStorage implements $BitStorage$$Interface {
  "getAndSet"(arg0: integer, arg1: integer): integer
  "getAll"(arg0: $IntConsumer$$Type): void
  "getBits"(): integer
- "getRaw"(): (long)[]
  "unpack"(arg0: (integer)[]): void
+ "getRaw"(): (long)[]
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1199,9 +1199,9 @@ export interface $TaskChainer$$Interface {
 export class $TaskChainer implements $TaskChainer$$Interface {
 static readonly "LOGGER": $Logger
 
-static "immediate"(arg0: $Executor$$Type): $TaskChainer
- "append"(arg0: $Runnable$$Type): void
  "append"<T>(arg0: $CompletableFuture$$Type<(T)>, arg1: $Consumer$$Type<(T)>): void
+ "append"(arg0: $Runnable$$Type): void
+static "immediate"(arg0: $Executor$$Type): $TaskChainer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1220,8 +1220,8 @@ export interface $HttpUtil$DownloadProgressListener$$Interface {
 
 export class $HttpUtil$DownloadProgressListener implements $HttpUtil$DownloadProgressListener$$Interface {
  "requestFinished"(arg0: boolean): void
- "downloadedBytes"(arg0: long): void
  "requestStart"(): void
+ "downloadedBytes"(arg0: long): void
  "downloadStart"(arg0: $OptionalLong$$Type): void
 }
 /**

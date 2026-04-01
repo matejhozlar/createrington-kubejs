@@ -27,19 +27,19 @@ export class $Point2D implements $Cloneable$$Interface {
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public "clone"(): any
-public "distance"(arg0: double, arg1: double): double
 public "distance"(arg0: $Point2D$$Type): double
 public static "distance"(arg0: double, arg1: double, arg2: double, arg3: double): double
+public "distance"(arg0: double, arg1: double): double
+public "getY"(): double
+public "distanceSq"(arg0: double, arg1: double): double
+public static "distanceSq"(arg0: double, arg1: double, arg2: double, arg3: double): double
+public "distanceSq"(arg0: $Point2D$$Type): double
 public "setLocation"(arg0: double, arg1: double): void
 public "setLocation"(arg0: $Point2D$$Type): void
 public "getX"(): double
-public "getY"(): double
-public "distanceSq"(arg0: double, arg1: double): double
-public "distanceSq"(arg0: $Point2D$$Type): double
-public static "distanceSq"(arg0: double, arg1: double, arg2: double, arg3: double): double
+get "y"(): double
 set "location"(value: $Point2D$$Type)
 get "x"(): double
-get "y"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -55,55 +55,55 @@ import {$Shape$$Interface} from "java.awt.Shape"
 import {$Dimension2D$$Type} from "java.awt.geom.Dimension2D"
 import {$Rectangle2D, $Rectangle2D$$Type} from "java.awt.geom.Rectangle2D"
 import {$Point2D$$Type} from "java.awt.geom.Point2D"
-import {$Rectangle} from "java.awt.Rectangle"
 import {$PathIterator} from "java.awt.geom.PathIterator"
+import {$Rectangle} from "java.awt.Rectangle"
 import {$Cloneable$$Interface} from "java.lang.Cloneable"
 import {$AffineTransform$$Type} from "java.awt.geom.AffineTransform"
 
 export class $RectangularShape implements $Shape$$Interface, $Cloneable$$Interface {
-public "getCenterY"(): double
-public "getMaxX"(): double
-public "getMinX"(): double
 public "clone"(): any
 public "isEmpty"(): boolean
-public "contains"(arg0: $Point2D$$Type): boolean
 public "contains"(arg0: $Rectangle2D$$Type): boolean
+public "contains"(arg0: $Point2D$$Type): boolean
 public "getBounds"(): $Rectangle
-public "intersects"(arg0: $Rectangle2D$$Type): boolean
-public "getWidth"(): double
-public "getMaxY"(): double
-public "getCenterX"(): double
-public "getX"(): double
-public "getFrame"(): $Rectangle2D
 public "getY"(): double
-public "getPathIterator"(arg0: $AffineTransform$$Type, arg1: double): $PathIterator
-public "setFrameFromDiagonal"(arg0: $Point2D$$Type, arg1: $Point2D$$Type): void
-public "setFrameFromDiagonal"(arg0: double, arg1: double, arg2: double, arg3: double): void
-public "setFrameFromCenter"(arg0: double, arg1: double, arg2: double, arg3: double): void
-public "setFrameFromCenter"(arg0: $Point2D$$Type, arg1: $Point2D$$Type): void
-public "getHeight"(): double
+public "intersects"(arg0: $Rectangle2D$$Type): boolean
+public "getCenterY"(): double
+public "getWidth"(): double
 public "getMinY"(): double
+public "getMaxY"(): double
+public "getMaxX"(): double
+public "getMinX"(): double
+public "getFrame"(): $Rectangle2D
+public "getCenterX"(): double
+public "getHeight"(): double
+public "getX"(): double
 public "setFrame"(arg0: double, arg1: double, arg2: double, arg3: double): void
 public "setFrame"(arg0: $Rectangle2D$$Type): void
 public "setFrame"(arg0: $Point2D$$Type, arg1: $Dimension2D$$Type): void
+public "getPathIterator"(arg0: $AffineTransform$$Type, arg1: double): $PathIterator
+public "setFrameFromDiagonal"(arg0: double, arg1: double, arg2: double, arg3: double): void
+public "setFrameFromDiagonal"(arg0: $Point2D$$Type, arg1: $Point2D$$Type): void
+public "setFrameFromCenter"(arg0: double, arg1: double, arg2: double, arg3: double): void
+public "setFrameFromCenter"(arg0: $Point2D$$Type, arg1: $Point2D$$Type): void
 public "contains"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
 public "contains"(arg0: double, arg1: double): boolean
 public "intersects"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
-public "getPathIterator"(arg0: $AffineTransform$$Type): $PathIterator
 public "getBounds2D"(): $Rectangle2D
-get "centerY"(): double
-get "maxX"(): double
-get "minX"(): double
+public "getPathIterator"(arg0: $AffineTransform$$Type): $PathIterator
 get "empty"(): boolean
 get "bounds"(): $Rectangle
-get "width"(): double
-get "maxY"(): double
-get "centerX"(): double
-get "x"(): double
-get "frame"(): $Rectangle2D
 get "y"(): double
-get "height"(): double
+get "centerY"(): double
+get "width"(): double
 get "minY"(): double
+get "maxY"(): double
+get "maxX"(): double
+get "minX"(): double
+get "frame"(): $Rectangle2D
+get "centerX"(): double
+get "height"(): double
+get "x"(): double
 set "frame"(value: $Rectangle2D$$Type)
 get "bounds2D"(): $Rectangle2D
 }
@@ -120,33 +120,33 @@ declare module "java.awt.geom.Line2D" {
 import {$Shape$$Interface} from "java.awt.Shape"
 import {$Rectangle2D, $Rectangle2D$$Type} from "java.awt.geom.Rectangle2D"
 import {$Point2D, $Point2D$$Type} from "java.awt.geom.Point2D"
-import {$Rectangle} from "java.awt.Rectangle"
 import {$PathIterator} from "java.awt.geom.PathIterator"
+import {$Rectangle} from "java.awt.Rectangle"
 import {$Cloneable$$Interface} from "java.lang.Cloneable"
 import {$AffineTransform$$Type} from "java.awt.geom.AffineTransform"
 
 export class $Line2D implements $Shape$$Interface, $Cloneable$$Interface {
 public "clone"(): any
 public "contains"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
-public "contains"(arg0: $Rectangle2D$$Type): boolean
 public "contains"(arg0: $Point2D$$Type): boolean
+public "contains"(arg0: $Rectangle2D$$Type): boolean
 public "contains"(arg0: double, arg1: double): boolean
 public "getBounds"(): $Rectangle
-public "intersects"(arg0: $Rectangle2D$$Type): boolean
 public "intersects"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
-public "getPathIterator"(arg0: $AffineTransform$$Type): $PathIterator
+public "intersects"(arg0: $Rectangle2D$$Type): boolean
+public "setLine"(arg0: $Point2D$$Type, arg1: $Point2D$$Type): void
+public "setLine"(arg0: double, arg1: double, arg2: double, arg3: double): void
+public "setLine"(arg0: $Line2D$$Type): void
 public "getPathIterator"(arg0: $AffineTransform$$Type, arg1: double): $PathIterator
+public "getPathIterator"(arg0: $AffineTransform$$Type): $PathIterator
 public "getX1"(): double
 public "getY1"(): double
 public "getX2"(): double
 public "getY2"(): double
-public "intersectsLine"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
 public "intersectsLine"(arg0: $Line2D$$Type): boolean
-public "setLine"(arg0: double, arg1: double, arg2: double, arg3: double): void
-public "setLine"(arg0: $Point2D$$Type, arg1: $Point2D$$Type): void
-public "setLine"(arg0: $Line2D$$Type): void
-public "relativeCCW"(arg0: double, arg1: double): integer
+public "intersectsLine"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
 public static "relativeCCW"(arg0: double, arg1: double, arg2: double, arg3: double, arg4: double, arg5: double): integer
+public "relativeCCW"(arg0: double, arg1: double): integer
 public "relativeCCW"(arg0: $Point2D$$Type): integer
 public static "linesIntersect"(arg0: double, arg1: double, arg2: double, arg3: double, arg4: double, arg5: double, arg6: double, arg7: double): boolean
 public "ptSegDistSq"(arg0: double, arg1: double): double
@@ -165,11 +165,11 @@ public "getP1"(): $Point2D
 public "getP2"(): $Point2D
 public "getBounds2D"(): $Rectangle2D
 get "bounds"(): $Rectangle
+set "line"(value: $Line2D$$Type)
 get "x1"(): double
 get "y1"(): double
 get "x2"(): double
 get "y2"(): double
-set "line"(value: $Line2D$$Type)
 get "p1"(): $Point2D
 get "p2"(): $Point2D
 get "bounds2D"(): $Rectangle2D
@@ -213,71 +213,71 @@ public "toString"(): StringJS
 public "hashCode"(): integer
 public "clone"(): any
 public "scale"(arg0: double, arg1: double): void
-public "transform"(arg0: $Point2D$$Type, arg1: $Point2D$$Type): $Point2D
 public "transform"(arg0: (double)[], arg1: integer, arg2: (float)[], arg3: integer, arg4: integer): void
+public "transform"(arg0: $Point2D$$Type, arg1: $Point2D$$Type): $Point2D
 public "transform"(arg0: ($Point2D$$Type)[], arg1: integer, arg2: ($Point2D$$Type)[], arg3: integer, arg4: integer): void
 public "transform"(arg0: (float)[], arg1: integer, arg2: (double)[], arg3: integer, arg4: integer): void
-public "transform"(arg0: (double)[], arg1: integer, arg2: (double)[], arg3: integer, arg4: integer): void
 public "transform"(arg0: (float)[], arg1: integer, arg2: (float)[], arg3: integer, arg4: integer): void
+public "transform"(arg0: (double)[], arg1: integer, arg2: (double)[], arg3: integer, arg4: integer): void
 public "getType"(): integer
 public "isIdentity"(): boolean
-public "rotate"(arg0: double): void
-public "rotate"(arg0: double, arg1: double, arg2: double, arg3: double): void
 public "rotate"(arg0: double, arg1: double, arg2: double): void
 public "rotate"(arg0: double, arg1: double): void
+public "rotate"(arg0: double, arg1: double, arg2: double, arg3: double): void
+public "rotate"(arg0: double): void
 public "invert"(): void
 public "shear"(arg0: double, arg1: double): void
-public "getScaleX"(): double
-public "getScaleY"(): double
-public "concatenate"(arg0: $AffineTransform$$Type): void
 public "translate"(arg0: double, arg1: double): void
-public "setTransform"(arg0: $AffineTransform$$Type): void
-public "setTransform"(arg0: double, arg1: double, arg2: double, arg3: double, arg4: double, arg5: double): void
+public "getScaleY"(): double
+public "getScaleX"(): double
 public "getMatrix"(arg0: (double)[]): void
+public static "getTranslateInstance"(arg0: double, arg1: double): $AffineTransform
+public "concatenate"(arg0: $AffineTransform$$Type): void
+public "setTransform"(arg0: double, arg1: double, arg2: double, arg3: double, arg4: double, arg5: double): void
+public "setTransform"(arg0: $AffineTransform$$Type): void
+public "getTranslateY"(): double
+public "deltaTransform"(arg0: $Point2D$$Type, arg1: $Point2D$$Type): $Point2D
+public "deltaTransform"(arg0: (double)[], arg1: integer, arg2: (double)[], arg3: integer, arg4: integer): void
 public "preConcatenate"(arg0: $AffineTransform$$Type): void
+public "inverseTransform"(arg0: $Point2D$$Type, arg1: $Point2D$$Type): $Point2D
+public "inverseTransform"(arg0: (double)[], arg1: integer, arg2: (double)[], arg3: integer, arg4: integer): void
+public static "getScaleInstance"(arg0: double, arg1: double): $AffineTransform
 public "setToTranslation"(arg0: double, arg1: double): void
-public "setToRotation"(arg0: double, arg1: double, arg2: double, arg3: double): void
-public "setToRotation"(arg0: double, arg1: double): void
 public "setToRotation"(arg0: double, arg1: double, arg2: double): void
+public "setToRotation"(arg0: double, arg1: double): void
+public "setToRotation"(arg0: double, arg1: double, arg2: double, arg3: double): void
 public "setToRotation"(arg0: double): void
-public "setToQuadrantRotation"(arg0: integer, arg1: double, arg2: double): void
 public "setToQuadrantRotation"(arg0: integer): void
+public "setToQuadrantRotation"(arg0: integer, arg1: double, arg2: double): void
 public "setToScale"(arg0: double, arg1: double): void
 public "setToShear"(arg0: double, arg1: double): void
-public static "getTranslateInstance"(arg0: double, arg1: double): $AffineTransform
 public static "getRotateInstance"(arg0: double, arg1: double, arg2: double, arg3: double): $AffineTransform
-public static "getRotateInstance"(arg0: double, arg1: double, arg2: double): $AffineTransform
 public static "getRotateInstance"(arg0: double, arg1: double): $AffineTransform
+public static "getRotateInstance"(arg0: double, arg1: double, arg2: double): $AffineTransform
 public static "getRotateInstance"(arg0: double): $AffineTransform
 public static "getQuadrantRotateInstance"(arg0: integer, arg1: double, arg2: double): $AffineTransform
 public static "getQuadrantRotateInstance"(arg0: integer): $AffineTransform
-public static "getScaleInstance"(arg0: double, arg1: double): $AffineTransform
 public static "getShearInstance"(arg0: double, arg1: double): $AffineTransform
 public "getDeterminant"(): double
 public "getShearX"(): double
 public "getShearY"(): double
 public "getTranslateX"(): double
-public "getTranslateY"(): double
 public "quadrantRotate"(arg0: integer, arg1: double, arg2: double): void
 public "quadrantRotate"(arg0: integer): void
 public "setToIdentity"(): void
 public "createInverse"(): $AffineTransform
-public "inverseTransform"(arg0: $Point2D$$Type, arg1: $Point2D$$Type): $Point2D
-public "inverseTransform"(arg0: (double)[], arg1: integer, arg2: (double)[], arg3: integer, arg4: integer): void
-public "deltaTransform"(arg0: (double)[], arg1: integer, arg2: (double)[], arg3: integer, arg4: integer): void
-public "deltaTransform"(arg0: $Point2D$$Type, arg1: $Point2D$$Type): $Point2D
 public "createTransformedShape"(arg0: $Shape$$Type): $Shape
 get "type"(): integer
 get "identity"(): boolean
-get "scaleX"(): double
 get "scaleY"(): double
+get "scaleX"(): double
+get "translateY"(): double
 set "toRotation"(value: double)
 set "toQuadrantRotation"(value: integer)
 get "determinant"(): double
 get "shearX"(): double
 get "shearY"(): double
 get "translateX"(): double
-get "translateY"(): double
 get "toIdentity"(): void
 }
 /**
@@ -307,9 +307,9 @@ static readonly "SEG_MOVETO": integer
 
  "next"(): void
  "isDone"(): boolean
- "getWindingRule"(): integer
  "currentSegment"(arg0: (float)[]): integer
  "currentSegment"(arg0: (double)[]): integer
+ "getWindingRule"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -335,26 +335,26 @@ static readonly "OUT_LEFT": integer
 
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
-public "add"(arg0: double, arg1: double): void
-public "add"(arg0: $Rectangle2D$$Type): void
 public "add"(arg0: $Point2D$$Type): void
-public "contains"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
+public "add"(arg0: $Rectangle2D$$Type): void
+public "add"(arg0: double, arg1: double): void
 public "contains"(arg0: double, arg1: double): boolean
+public "contains"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
 public static "union"(arg0: $Rectangle2D$$Type, arg1: $Rectangle2D$$Type, arg2: $Rectangle2D$$Type): void
 public "intersects"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
 public static "intersect"(arg0: $Rectangle2D$$Type, arg1: $Rectangle2D$$Type, arg2: $Rectangle2D$$Type): void
-public "outcode"(arg0: double, arg1: double): integer
+public "getBounds2D"(): $Rectangle2D
+public "setFrame"(arg0: double, arg1: double, arg2: double, arg3: double): void
 public "outcode"(arg0: $Point2D$$Type): integer
+public "outcode"(arg0: double, arg1: double): integer
 public "createIntersection"(arg0: $Rectangle2D$$Type): $Rectangle2D
 public "createUnion"(arg0: $Rectangle2D$$Type): $Rectangle2D
-public "getPathIterator"(arg0: $AffineTransform$$Type, arg1: double): $PathIterator
 public "getPathIterator"(arg0: $AffineTransform$$Type): $PathIterator
+public "getPathIterator"(arg0: $AffineTransform$$Type, arg1: double): $PathIterator
 public "intersectsLine"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
 public "intersectsLine"(arg0: $Line2D$$Type): boolean
-public "setFrame"(arg0: double, arg1: double, arg2: double, arg3: double): void
-public "getBounds2D"(): $Rectangle2D
-public "setRect"(arg0: $Rectangle2D$$Type): void
 public "setRect"(arg0: double, arg1: double, arg2: double, arg3: double): void
+public "setRect"(arg0: $Rectangle2D$$Type): void
 get "bounds2D"(): $Rectangle2D
 set "rect"(value: $Rectangle2D$$Type)
 }

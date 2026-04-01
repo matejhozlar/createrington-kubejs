@@ -1,7 +1,7 @@
 declare module "xaero.lib.client.gui.widget.IClickableWidget" {
 import {$Supplier, $Supplier$$Type} from "java.util.function.Supplier"
-import {$Tooltip, $Tooltip$$Type} from "xaero.lib.client.gui.widget.Tooltip"
 import {$ITooltipHaver$$Interface} from "xaero.lib.client.gui.widget.ITooltipHaver"
+import {$Tooltip, $Tooltip$$Type} from "xaero.lib.client.gui.widget.Tooltip"
 
 export interface $IClickableWidget$$Interface extends $ITooltipHaver$$Interface {
 set "xaero_tooltip"(value: $Supplier$$Type<($Tooltip$$Type)>)
@@ -22,42 +22,42 @@ export type $IClickableWidget$$Type = ($IClickableWidget);
  */
 export type $IClickableWidget$$Original = $IClickableWidget;}
 declare module "xaero.lib.client.gui.config.context.IEditConfigScreenContext" {
-import {$Iterable} from "java.lang.Iterable"
 import {$ConfigChannel$$Type} from "xaero.lib.common.config.channel.ConfigChannel"
+import {$Iterable} from "java.lang.Iterable"
 import {$ConfigProfile, $ConfigProfile$$Type} from "xaero.lib.common.config.profile.ConfigProfile"
-import {$Config} from "xaero.lib.common.config.Config"
 import {$IConfigProfileInfo} from "xaero.lib.common.config.profile.IConfigProfileInfo"
+import {$Config} from "xaero.lib.common.config.Config"
 import {$Component} from "net.minecraft.network.chat.Component"
 
 export interface $IEditConfigScreenContext$$Interface {
 get "clientSide"(): boolean
-get "syncMessage"(): $Component
-get "autoConfirm"(): boolean
-get "autoDefaultProfile"(): boolean
 get "screenTitleFormat"(): StringJS
+get "autoDefaultProfile"(): boolean
 get "dropdownNarration"(): $Component
+get "autoConfirm"(): boolean
+get "syncMessage"(): $Component
 }
 
 export class $IEditConfigScreenContext implements $IEditConfigScreenContext$$Interface {
  "reset"(arg0: $ConfigChannel$$Type): void
+ "createProfile"(arg0: StringJS, arg1: StringJS, arg2: $ConfigChannel$$Type, arg3: StringJS): void
  "getCurrentProfile"(arg0: $ConfigChannel$$Type): $ConfigProfile
  "isClientSide"(): boolean
- "hasPermission"(arg0: $ConfigChannel$$Type): boolean
- "deleteProfile"(arg0: $ConfigProfile$$Type, arg1: $ConfigChannel$$Type): void
- "createProfile"(arg0: StringJS, arg1: StringJS, arg2: $ConfigChannel$$Type, arg3: StringJS): void
- "getSyncMessage"(): $Component
- "getEnforcedConfig"(arg0: $ConfigChannel$$Type): $Config
- "getSyncStatus"(arg0: $ConfigChannel$$Type): boolean
- "isAutoConfirm"(): boolean
- "setCurrentProfile"(arg0: StringJS, arg1: $ConfigChannel$$Type): void
- "confirmProfile"(arg0: $ConfigProfile$$Type, arg1: $ConfigChannel$$Type): void
- "getProfiles"(arg0: $ConfigChannel$$Type): $Iterable<($IConfigProfileInfo)>
- "isAutoDefaultProfile"(): boolean
  "setDefaultProfileId"(arg0: StringJS, arg1: $ConfigChannel$$Type): void
  "getScreenTitleFormat"(): StringJS
- "getDefaultProfileId"(arg0: $ConfigChannel$$Type): StringJS
  "getSelectedProfileId"(arg0: $ConfigChannel$$Type): StringJS
+ "getDefaultProfileId"(arg0: $ConfigChannel$$Type): StringJS
+ "isAutoDefaultProfile"(): boolean
  "getDropdownNarration"(): $Component
+ "isAutoConfirm"(): boolean
+ "getSyncStatus"(arg0: $ConfigChannel$$Type): boolean
+ "setCurrentProfile"(arg0: StringJS, arg1: $ConfigChannel$$Type): void
+ "getSyncMessage"(): $Component
+ "getEnforcedConfig"(arg0: $ConfigChannel$$Type): $Config
+ "confirmProfile"(arg0: $ConfigProfile$$Type, arg1: $ConfigChannel$$Type): void
+ "getProfiles"(arg0: $ConfigChannel$$Type): $Iterable<($IConfigProfileInfo)>
+ "deleteProfile"(arg0: $ConfigProfile$$Type, arg1: $ConfigChannel$$Type): void
+ "hasPermission"(arg0: $ConfigChannel$$Type): boolean
  "profileExists"(arg0: StringJS, arg1: $ConfigChannel$$Type): boolean
 }
 /**
@@ -93,13 +93,13 @@ export type $ITooltipHaver$$Type = (() => $Supplier$$Type<($Tooltip$$Type)>);
 export type $ITooltipHaver$$Original = $ITooltipHaver;}
 declare module "xaero.lib.client.gui.ScreenBase" {
 import {$DropDownWidget$$Type} from "xaero.lib.client.gui.widget.dropdown.DropDownWidget"
-import {$IScreenBase$$Interface} from "xaero.lib.client.gui.IScreenBase"
 import {$Screen$DeferredTooltipRendering} from "net.minecraft.client.gui.screens.Screen$DeferredTooltipRendering"
 import {$CycleButton} from "net.minecraft.client.gui.components.CycleButton"
+import {$IScreenBase$$Interface} from "xaero.lib.client.gui.IScreenBase"
 import {$Screen, $Screen$$Type} from "net.minecraft.client.gui.screens.Screen"
 import {$List} from "java.util.List"
-import {$NarratorStatus} from "net.minecraft.client.NarratorStatus"
 import {$CubeMap} from "net.minecraft.client.renderer.CubeMap"
+import {$NarratorStatus} from "net.minecraft.client.NarratorStatus"
 import {$AbstractWidget$$Type} from "net.minecraft.client.gui.components.AbstractWidget"
 import {$Font} from "net.minecraft.client.gui.Font"
 import {$ScreenExtensions} from "net.fabricmc.fabric.impl.client.screen.ScreenExtensions"
@@ -138,23 +138,25 @@ public "refresh"(): void
 public "onExit"(arg0: $Screen$$Type): void
 public "getIndex"(arg0: $GuiEventListener$$Type): integer
 public "onClose"(): void
-public "shouldSkipWorldRender"(): boolean
-public "render"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: float): void
+public static "tryToGetEscape"(arg0: $Screen$$Type): $Screen
 public "getEscape"(): $Screen
-public "mouseClicked"(arg0: double, arg1: double, arg2: integer): boolean
-public "mouseReleased"(arg0: double, arg1: double, arg2: integer): boolean
+public "render"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: float): void
 public "mouseScrolled"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
 public "renderBackground"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: float): void
-public "canSkipWorldRender"(): boolean
-public "renderEscapeScreen"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: float): void
-public "replaceWidget"(arg0: $AbstractWidget$$Type, arg1: $AbstractWidget$$Type): void
-public "onDropdownClosed"(arg0: $DropDownWidget$$Type): void
-public "onDropdownOpen"(arg0: $DropDownWidget$$Type): void
-public "restoreFocus"(arg0: integer): void
-public static "tryToGetEscape"(arg0: $Screen$$Type): $Screen
 public "goBack"(): void
+public "mouseClicked"(arg0: double, arg1: double, arg2: integer): boolean
+public "shouldSkipWorldRender"(): boolean
+public "canSkipWorldRender"(): boolean
+public "onDropdownOpen"(arg0: $DropDownWidget$$Type): void
+public "replaceWidget"(arg0: $AbstractWidget$$Type, arg1: $AbstractWidget$$Type): void
+public "renderEscapeScreen"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: float): void
+public "restoreFocus"(arg0: integer): void
+public "onDropdownClosed"(arg0: $DropDownWidget$$Type): void
+public "mouseReleased"(arg0: double, arg1: double, arg2: integer): boolean
 public "replaceRenderableWidget"(arg0: $AbstractWidget$$Type, arg1: $AbstractWidget$$Type): void
 public static "getExtensions"(arg0: $Screen$$Type): $ScreenExtensions
+public static "owo$ROTATING_PANORAMA_RENDERER"(): $PanoramaRenderer
+public static "owo$PANORAMA_RENDERER"(): $CubeMap
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -184,18 +186,18 @@ constructor(arg0: StringJS, arg1: $Style$$Type)
 constructor(arg0: StringJS, arg1: $Style$$Type, arg2: boolean)
 
 public "get"(): $Tooltip
+public "getFullCode"(): StringJS
 public "getLine"(arg0: integer): $Component
 public "drawBox"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer): void
-public "setStartWidth"(arg0: integer): void
 public "getPlainText"(): StringJS
-public "getFullCode"(): StringJS
-public "splitWords"(arg0: $ArrayList$$Type<($Component$$Type)>, arg1: $FormattedText$$Type): void
-public "setAutoLinebreak"(arg0: boolean): void
+public "setStartWidth"(arg0: integer): void
 public "withWidth"(arg0: integer): $Tooltip
+public "setAutoLinebreak"(arg0: boolean): void
 public "createLines"(arg0: $Component$$Type): void
-set "startWidth"(value: integer)
-get "plainText"(): StringJS
+public "splitWords"(arg0: $ArrayList$$Type<($Component$$Type)>, arg1: $FormattedText$$Type): void
 get "fullCode"(): StringJS
+get "plainText"(): StringJS
+set "startWidth"(value: integer)
 set "autoLinebreak"(value: boolean)
 }
 /**
@@ -213,8 +215,8 @@ import {$Screen$DeferredTooltipRendering} from "net.minecraft.client.gui.screens
 import {$CycleButton} from "net.minecraft.client.gui.components.CycleButton"
 import {$Screen, $Screen$$Type} from "net.minecraft.client.gui.screens.Screen"
 import {$List} from "java.util.List"
-import {$NarratorStatus} from "net.minecraft.client.NarratorStatus"
 import {$CubeMap} from "net.minecraft.client.renderer.CubeMap"
+import {$NarratorStatus} from "net.minecraft.client.NarratorStatus"
 import {$AbstractWidget$$Type} from "net.minecraft.client.gui.components.AbstractWidget"
 import {$Font} from "net.minecraft.client.gui.Font"
 import {$ScreenExtensions} from "net.fabricmc.fabric.impl.client.screen.ScreenExtensions"
@@ -256,17 +258,19 @@ constructor(arg0: $Component$$Type, arg1: $Screen$$Type, arg2: $Screen$$Type, ar
 public "init"(): void
 public "onExit"(arg0: $Screen$$Type): void
 public "tick"(): void
-public "keyPressed"(arg0: integer, arg1: integer, arg2: integer): boolean
 public "render"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: float): void
-public "getScreen"<S extends $Screen>(): S
-public "mouseClicked"(arg0: double, arg1: double, arg2: integer): boolean
 public "renderBackground"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: float): void
 public "charTyped"(arg0: character, arg1: integer): boolean
+public "mouseClicked"(arg0: double, arg1: double, arg2: integer): boolean
+public "keyPressed"(arg0: integer, arg1: integer, arg2: integer): boolean
 public "addButtonVisible"(arg0: $AbstractWidget$$Type): void
 public "getEntriesCopy"(): ($ISettingEntry)[]
+public "getScreen"<S extends $Screen>(): S
 public static "getExtensions"(arg0: $Screen$$Type): $ScreenExtensions
-get "screen"(): S
+public static "owo$ROTATING_PANORAMA_RENDERER"(): $PanoramaRenderer
+public static "owo$PANORAMA_RENDERER"(): $CubeMap
 get "entriesCopy"(): ($ISettingEntry)[]
+get "screen"(): S
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

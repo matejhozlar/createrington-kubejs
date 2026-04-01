@@ -18,17 +18,17 @@ export class $ConfigBuilder implements $ConfigBuilder$$Interface {
 static "builder"<C>(arg0: $Function$$Type<($ConfigBuilder), (C)>): $ConfigBuilder$Builder<(C)>
  "entry"<T>(arg0: StringJS, arg1: T, ...arg2: (StringJS)[]): $ConfigEntry<(T)>
  "header"(...arg0: (StringJS)[]): $ConfigBuilder
- "doubleEntry"(arg0: StringJS, arg1: double, arg2: double, arg3: double, ...arg4: (StringJS)[]): $DoubleConfigEntry
- "doubleEntry"(arg0: StringJS, arg1: double, ...arg2: (StringJS)[]): $DoubleConfigEntry
+ "enumEntry"<E extends $Enum<(object)>>(arg0: StringJS, arg1: E, ...arg2: (StringJS)[]): $EnumConfigEntry<(E)>
+ "floatEntry"(arg0: StringJS, arg1: float, ...arg2: (StringJS)[]): $FloatConfigEntry
+ "floatEntry"(arg0: StringJS, arg1: float, arg2: float, arg3: float, ...arg4: (StringJS)[]): $FloatConfigEntry
+ "longEntry"(arg0: StringJS, arg1: long, ...arg2: (StringJS)[]): $LongConfigEntry
+ "longEntry"(arg0: StringJS, arg1: long, arg2: long, arg3: long, ...arg4: (StringJS)[]): $LongConfigEntry
+ "stringEntry"(arg0: StringJS, arg1: StringJS, ...arg2: (StringJS)[]): $StringConfigEntry
  "integerEntry"(arg0: StringJS, arg1: integer, ...arg2: (StringJS)[]): $IntegerConfigEntry
  "integerEntry"(arg0: StringJS, arg1: integer, arg2: integer, arg3: integer, ...arg4: (StringJS)[]): $IntegerConfigEntry
+ "doubleEntry"(arg0: StringJS, arg1: double, ...arg2: (StringJS)[]): $DoubleConfigEntry
+ "doubleEntry"(arg0: StringJS, arg1: double, arg2: double, arg3: double, ...arg4: (StringJS)[]): $DoubleConfigEntry
  "booleanEntry"(arg0: StringJS, arg1: boolean, ...arg2: (StringJS)[]): $BooleanConfigEntry
- "stringEntry"(arg0: StringJS, arg1: StringJS, ...arg2: (StringJS)[]): $StringConfigEntry
- "enumEntry"<E extends $Enum<(object)>>(arg0: StringJS, arg1: E, ...arg2: (StringJS)[]): $EnumConfigEntry<(E)>
- "floatEntry"(arg0: StringJS, arg1: float, arg2: float, arg3: float, ...arg4: (StringJS)[]): $FloatConfigEntry
- "floatEntry"(arg0: StringJS, arg1: float, ...arg2: (StringJS)[]): $FloatConfigEntry
- "longEntry"(arg0: StringJS, arg1: long, arg2: long, arg3: long, ...arg4: (StringJS)[]): $LongConfigEntry
- "longEntry"(arg0: StringJS, arg1: long, ...arg2: (StringJS)[]): $LongConfigEntry
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

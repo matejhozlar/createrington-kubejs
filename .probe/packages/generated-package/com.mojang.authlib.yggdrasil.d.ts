@@ -1,8 +1,8 @@
 declare module "com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService" {
 import {$HttpAuthenticationService} from "com.mojang.authlib.HttpAuthenticationService"
 import {$Proxy$$Type} from "java.net.Proxy"
-import {$UserApiService} from "com.mojang.authlib.minecraft.UserApiService"
 import {$ServicesKeySet} from "com.mojang.authlib.yggdrasil.ServicesKeySet"
+import {$UserApiService} from "com.mojang.authlib.minecraft.UserApiService"
 import {$Environment$$Type} from "com.mojang.authlib.Environment"
 import {$MinecraftSessionService} from "com.mojang.authlib.minecraft.MinecraftSessionService"
 import {$GameProfileRepository} from "com.mojang.authlib.GameProfileRepository"
@@ -11,10 +11,10 @@ export class $YggdrasilAuthenticationService extends $HttpAuthenticationService 
 constructor(arg0: $Proxy$$Type)
 constructor(arg0: $Proxy$$Type, arg1: $Environment$$Type)
 
-public "getServicesKeySet"(): $ServicesKeySet
-public "createProfileRepository"(): $GameProfileRepository
-public "createMinecraftSessionService"(): $MinecraftSessionService
 public "createUserApiService"(arg0: StringJS): $UserApiService
+public "createMinecraftSessionService"(): $MinecraftSessionService
+public "createProfileRepository"(): $GameProfileRepository
+public "getServicesKeySet"(): $ServicesKeySet
 get "servicesKeySet"(): $ServicesKeySet
 }
 /**
@@ -51,11 +51,11 @@ import {$Record} from "java.lang.Record"
 export class $KeyPairResponse$KeyPair extends $Record {
 constructor(privateKey: StringJS, publicKey: StringJS)
 
-public "publicKey"(): StringJS
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "privateKey"(): StringJS
+public "publicKey"(): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -188,17 +188,17 @@ public "toString"(): StringJS
 public "version"(): integer
 public "hashCode"(): integer
 public "id"(): $UUID
-public "realmInfo"(): $AbuseReportRequest$RealmInfo
 public "report"(): $AbuseReport
-public "reportType"(): StringJS
-public "thirdPartyServerInfo"(): $AbuseReportRequest$ThirdPartyServerInfo
 public "clientInfo"(): $AbuseReportRequest$ClientInfo
+public "reportType"(): StringJS
+public "realmInfo"(): $AbuseReportRequest$RealmInfo
+public "thirdPartyServerInfo"(): $AbuseReportRequest$ThirdPartyServerInfo
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $AbuseReportRequest$$Type = ({"thirdPartyServerInfo"?: $AbuseReportRequest$ThirdPartyServerInfo$$Type, "clientInfo"?: $AbuseReportRequest$ClientInfo$$Type, "reportType"?: StringJS, "version"?: integer, "report"?: $AbuseReport$$Type, "id"?: $UUID$$Type, "realmInfo"?: $AbuseReportRequest$RealmInfo$$Type}) | ([thirdPartyServerInfo?: $AbuseReportRequest$ThirdPartyServerInfo$$Type, clientInfo?: $AbuseReportRequest$ClientInfo$$Type, reportType?: StringJS, version?: integer, report?: $AbuseReport$$Type, id?: $UUID$$Type, realmInfo?: $AbuseReportRequest$RealmInfo$$Type]);
+export type $AbuseReportRequest$$Type = ({"id"?: $UUID$$Type, "report"?: $AbuseReport$$Type, "version"?: integer, "reportType"?: StringJS, "clientInfo"?: $AbuseReportRequest$ClientInfo$$Type, "thirdPartyServerInfo"?: $AbuseReportRequest$ThirdPartyServerInfo$$Type, "realmInfo"?: $AbuseReportRequest$RealmInfo$$Type}) | ([id?: $UUID$$Type, report?: $AbuseReport$$Type, version?: integer, reportType?: StringJS, clientInfo?: $AbuseReportRequest$ClientInfo$$Type, thirdPartyServerInfo?: $AbuseReportRequest$ThirdPartyServerInfo$$Type, realmInfo?: $AbuseReportRequest$RealmInfo$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -223,7 +223,7 @@ public "publicKeySignature"(): $ByteBuffer
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $KeyPairResponse$$Type = ({"publicKeySignature"?: $ByteBuffer$$Type, "refreshedAfter"?: StringJS, "keyPair"?: $KeyPairResponse$KeyPair$$Type, "expiresAt"?: StringJS}) | ([publicKeySignature?: $ByteBuffer$$Type, refreshedAfter?: StringJS, keyPair?: $KeyPairResponse$KeyPair$$Type, expiresAt?: StringJS]);
+export type $KeyPairResponse$$Type = ({"expiresAt"?: StringJS, "keyPair"?: $KeyPairResponse$KeyPair$$Type, "refreshedAfter"?: StringJS, "publicKeySignature"?: $ByteBuffer$$Type}) | ([expiresAt?: StringJS, keyPair?: $KeyPairResponse$KeyPair$$Type, refreshedAfter?: StringJS, publicKeySignature?: $ByteBuffer$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -237,9 +237,9 @@ export interface $ServicesKeyInfo$$Interface {
 
 export class $ServicesKeyInfo implements $ServicesKeyInfo$$Interface {
  "signature"(): $Signature
- "validateProperty"(arg0: $Property$$Type): boolean
  "keyBitCount"(): integer
  "signatureBitCount"(): integer
+ "validateProperty"(arg0: $Property$$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

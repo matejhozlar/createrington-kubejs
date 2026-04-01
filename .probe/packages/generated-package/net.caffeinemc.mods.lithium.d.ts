@@ -3,8 +3,8 @@ export {} // Mark the file as a module, do not remove unless there are other imp
 export class $LithiumInterner<T> {
 constructor()
 
-public "deleteCanonical"(arg0: T): void
 public "getCanonical"<S>(arg0: S): S
+public "deleteCanonical"(arg0: T): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -34,14 +34,14 @@ public "hashCode"(): integer
 public "register"(): void
 public "unregister"(): void
 public "isUnchangedSince"(arg0: long): boolean
-public static "registerAt"(arg0: $Level$$Type, arg1: $AABB$$Type, arg2: $ListeningBlockStatePredicate$$Type): $SectionedBlockChangeTracker
-public "setChanged"(arg0: long): void
 public "setChanged"(arg0: $BlockListeningSection$$Type): void
+public "setChanged"(arg0: long): void
+public static "registerAt"(arg0: $Level$$Type, arg1: $AABB$$Type, arg2: $ListeningBlockStatePredicate$$Type): $SectionedBlockChangeTracker
 public "onChunkSectionInvalidated"(arg0: $SectionPos$$Type): void
 public "matchesMovedBox"(arg0: $AABB$$Type): boolean
 public "listenToAllSections"(): void
-set "changed"(value: long)
 set "changed"(value: $BlockListeningSection$$Type)
+set "changed"(value: long)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -239,13 +239,13 @@ export type $NonNullListAccessor$$Type<T> = (() => $List$$Type<(T)>);
 export type $NonNullListAccessor$$Original<T> = $NonNullListAccessor<(T)>;}
 declare module "net.caffeinemc.mods.lithium.common.world.LithiumData$Data" {
 import {$PathNavigation, $PathNavigation$$Type} from "net.minecraft.world.entity.ai.navigation.PathNavigation"
-import {$SectionedEntityMovementTracker, $SectionedEntityMovementTracker$$Type} from "net.caffeinemc.mods.lithium.common.tracking.entity.SectionedEntityMovementTracker"
 import {$ChunkSectionChangeCallback, $ChunkSectionChangeCallback$$Type} from "net.caffeinemc.mods.lithium.common.tracking.block.ChunkSectionChangeCallback"
+import {$SectionedEntityMovementTracker, $SectionedEntityMovementTracker$$Type} from "net.caffeinemc.mods.lithium.common.tracking.entity.SectionedEntityMovementTracker"
 import {$ReferenceOpenHashSet, $ReferenceOpenHashSet$$Type} from "it.unimi.dsi.fastutil.objects.ReferenceOpenHashSet"
 import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$Long2ReferenceOpenHashMap, $Long2ReferenceOpenHashMap$$Type} from "it.unimi.dsi.fastutil.longs.Long2ReferenceOpenHashMap"
-import {$GameEventDispatcherStorage, $GameEventDispatcherStorage$$Type} from "net.caffeinemc.mods.lithium.common.world.GameEventDispatcherStorage"
 import {$SectionedBlockChangeTracker, $SectionedBlockChangeTracker$$Type} from "net.caffeinemc.mods.lithium.common.tracking.block.SectionedBlockChangeTracker"
+import {$GameEventDispatcherStorage, $GameEventDispatcherStorage$$Type} from "net.caffeinemc.mods.lithium.common.world.GameEventDispatcherStorage"
 import {$LithiumInterner, $LithiumInterner$$Type} from "net.caffeinemc.mods.lithium.common.util.deduplication.LithiumInterner"
 import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$Record} from "java.lang.Record"
@@ -257,18 +257,18 @@ constructor(gameEventDispatchers: $GameEventDispatcherStorage$$Type, ominousBann
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public "chunkSectionChangeCallbacks"(): $Long2ReferenceOpenHashMap<($ChunkSectionChangeCallback)>
 public "activeNavigations"(): $ReferenceOpenHashSet<($PathNavigation)>
-public "ominousBanner"(): $ItemStack
 public "gameEventDispatchers"(): $GameEventDispatcherStorage
-public "entityMovementTrackers"(): $LithiumInterner<($SectionedEntityMovementTracker<(never), (never)>)>
+public "ominousBanner"(): $ItemStack
+public "chunkSectionChangeCallbacks"(): $Long2ReferenceOpenHashMap<($ChunkSectionChangeCallback)>
 public "blockChangeTrackers"(): $LithiumInterner<($SectionedBlockChangeTracker)>
+public "entityMovementTrackers"(): $LithiumInterner<($SectionedEntityMovementTracker<(never), (never)>)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $LithiumData$Data$$Type = ({"ominousBanner"?: $ItemStack$$Type, "chunkSectionChangeCallbacks"?: $Long2ReferenceOpenHashMap$$Type<($ChunkSectionChangeCallback$$Type)>, "entityMovementTrackers"?: $LithiumInterner$$Type<($SectionedEntityMovementTracker$$Type<(never), (never)>)>, "activeNavigations"?: $ReferenceOpenHashSet$$Type<($PathNavigation$$Type)>, "gameEventDispatchers"?: $GameEventDispatcherStorage$$Type, "blockChangeTrackers"?: $LithiumInterner$$Type<($SectionedBlockChangeTracker$$Type)>}) | ([ominousBanner?: $ItemStack$$Type, chunkSectionChangeCallbacks?: $Long2ReferenceOpenHashMap$$Type<($ChunkSectionChangeCallback$$Type)>, entityMovementTrackers?: $LithiumInterner$$Type<($SectionedEntityMovementTracker$$Type<(never), (never)>)>, activeNavigations?: $ReferenceOpenHashSet$$Type<($PathNavigation$$Type)>, gameEventDispatchers?: $GameEventDispatcherStorage$$Type, blockChangeTrackers?: $LithiumInterner$$Type<($SectionedBlockChangeTracker$$Type)>]);
+export type $LithiumData$Data$$Type = ({"blockChangeTrackers"?: $LithiumInterner$$Type<($SectionedBlockChangeTracker$$Type)>, "gameEventDispatchers"?: $GameEventDispatcherStorage$$Type, "activeNavigations"?: $ReferenceOpenHashSet$$Type<($PathNavigation$$Type)>, "entityMovementTrackers"?: $LithiumInterner$$Type<($SectionedEntityMovementTracker$$Type<(never), (never)>)>, "chunkSectionChangeCallbacks"?: $Long2ReferenceOpenHashMap$$Type<($ChunkSectionChangeCallback$$Type)>, "ominousBanner"?: $ItemStack$$Type}) | ([blockChangeTrackers?: $LithiumInterner$$Type<($SectionedBlockChangeTracker$$Type)>, gameEventDispatchers?: $GameEventDispatcherStorage$$Type, activeNavigations?: $ReferenceOpenHashSet$$Type<($PathNavigation$$Type)>, entityMovementTrackers?: $LithiumInterner$$Type<($SectionedEntityMovementTracker$$Type<(never), (never)>)>, chunkSectionChangeCallbacks?: $Long2ReferenceOpenHashMap$$Type<($ChunkSectionChangeCallback$$Type)>, ominousBanner?: $ItemStack$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -316,75 +316,75 @@ import {$Set$$Type} from "java.util.Set"
 import {$BlockEntity$$Type} from "net.minecraft.world.level.block.entity.BlockEntity"
 
 export interface $LithiumInventory$$Interface extends $Container$$Interface {
-get "inventoryLithium"(): $NonNullList<($ItemStack)>
 set "inventoryLithium"(value: $NonNullList$$Type<($ItemStack$$Type)>)
+get "inventoryLithium"(): $NonNullList<($ItemStack)>
 get "empty"(): boolean
+get "changed"(): void
 get "containerSize"(): integer
 get "maxStackSize"(): integer
-get "changed"(): void
 set "transferCooldown"(value: long)
-get "width"(): integer
 get "height"(): integer
-get "mutable"(): boolean
-get "slots"(): integer
 get "changed"(): void
+get "slots"(): integer
+get "width"(): integer
+get "mutable"(): boolean
 get "empty"(): boolean
 get "allItems"(): $List<($ItemStack)>
 }
 
 export class $LithiumInventory implements $LithiumInventory$$Interface {
+ "setInventoryLithium"(arg0: $NonNullList$$Type<($ItemStack$$Type)>): void
  "generateLootLithium"(): void
  "getInventoryLithium"(): $NonNullList<($ItemStack)>
- "setInventoryLithium"(arg0: $NonNullList$$Type<($ItemStack$$Type)>): void
  "isEmpty"(): boolean
  "getItem"(arg0: integer): $ItemStack
- "canPlaceItem"(arg0: integer, arg1: $ItemStack$$Type): boolean
- "removeItemNoUpdate"(arg0: integer): $ItemStack
- "getContainerSize"(): integer
  "removeItem"(arg0: integer, arg1: integer): $ItemStack
- "getMaxStackSize"(): integer
- "getMaxStackSize"(arg0: $ItemStack$$Type): integer
+ "canPlaceItem"(arg0: integer, arg1: $ItemStack$$Type): boolean
  "hasAnyMatching"(arg0: $Predicate$$Type<($ItemStack)>): boolean
- "stillValid"(arg0: $Player$$Type): boolean
  "setChanged"(): void
- "setItem"(arg0: integer, arg1: $ItemStack$$Type): void
- "stopOpen"(arg0: $Player$$Type): void
- "hasAnyOf"(arg0: $Set$$Type<($Item$$Type)>): boolean
- "countItem"(arg0: $Item$$Type): integer
- "startOpen"(arg0: $Player$$Type): void
  "canTakeItem"(arg0: $Container$$Type, arg1: integer, arg2: $ItemStack$$Type): boolean
 static "stillValidBlockEntity"(arg0: $BlockEntity$$Type, arg1: $Player$$Type): boolean
 static "stillValidBlockEntity"(arg0: $BlockEntity$$Type, arg1: $Player$$Type, arg2: float): boolean
-static "tryClear"(arg0: any): void
+ "stillValid"(arg0: $Player$$Type): boolean
+ "getContainerSize"(): integer
+ "removeItemNoUpdate"(arg0: integer): $ItemStack
+ "stopOpen"(arg0: $Player$$Type): void
+ "startOpen"(arg0: $Player$$Type): void
+ "countItem"(arg0: $Item$$Type): integer
+ "hasAnyOf"(arg0: $Set$$Type<($Item$$Type)>): boolean
+ "getMaxStackSize"(arg0: $ItemStack$$Type): integer
+ "getMaxStackSize"(): integer
+ "setItem"(arg0: integer, arg1: $ItemStack$$Type): void
  "clearContent"(): void
+static "tryClear"(arg0: any): void
  "canReceiveTransferCooldown"(): boolean
  "setTransferCooldown"(arg0: long): void
  "lithium$itemInsertionTestRequiresStackSize1"(): boolean
+ "self"(): $Container
+ "clear"(): void
+ "getHeight"(): integer
+ "setChanged"(): void
  "insertItem"(slot: integer, stack: $ItemStack$$Type, simulate: boolean): $ItemStack
  "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
- "getWidth"(): integer
- "getHeight"(): integer
- "isMutable"(): boolean
- "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
+ "isItemValid"(slot: integer, stack: $ItemStack$$Type): boolean
  "getSlots"(): integer
  "getSlotLimit"(slot: integer): integer
- "isItemValid"(slot: integer, stack: $ItemStack$$Type): boolean
- "setChanged"(): void
  "getStackInSlot"(slot: integer): $ItemStack
+ "getWidth"(): integer
+ "isMutable"(): boolean
+ "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
  "asContainer"(): $Container
- "clear"(): void
- "self"(): $Container
  "getBlock"(level: $Level$$Type): $LevelBlock
  "isEmpty"(): boolean
+ "find"(match: $ItemPredicate$$Type): integer
+ "find"(): integer
+ "clear"(match: $ItemPredicate$$Type): void
+ "count"(match: $ItemPredicate$$Type): integer
+ "count"(): integer
  "insertItem"(stack: $ItemStack$$Type, simulate: boolean): $ItemStack
  "countNonEmpty"(): integer
  "countNonEmpty"(match: $ItemPredicate$$Type): integer
  "getAllItems"(): $List<($ItemStack)>
- "clear"(match: $ItemPredicate$$Type): void
- "find"(): integer
- "find"(match: $ItemPredicate$$Type): integer
- "count"(): integer
- "count"(match: $ItemPredicate$$Type): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -463,9 +463,9 @@ export interface $ChangePublisher$$Interface<T> {
 }
 
 export class $ChangePublisher<T> implements $ChangePublisher$$Interface {
- "lithium$unsubscribe"(arg0: $ChangeSubscriber$$Type<(T)>): integer
  "lithium$isSubscribedWithData"(arg0: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg1: integer): boolean
  "lithium$unsubscribeWithData"(arg0: $ChangeSubscriber$$Type<(T)>, arg1: integer): void
+ "lithium$unsubscribe"(arg0: $ChangeSubscriber$$Type<(T)>): integer
  "lithium$subscribe"(arg0: $ChangeSubscriber$$Type<(T)>, arg1: integer): void
 }
 /**
@@ -507,15 +507,15 @@ export interface $EquipmentEntity$TickableEnchantmentTrackingEntity$$Interface e
 export class $EquipmentEntity$TickableEnchantmentTrackingEntity implements $EquipmentEntity$TickableEnchantmentTrackingEntity$$Interface {
  "lithium$updateHasTickableEnchantments"(arg0: $ItemStack$$Type, arg1: $ItemStack$$Type): void
  "lithium$notifyAfterEnchantmentChange"(arg0: $ItemStack$$Type, arg1: integer): void
-static "combine"<T>(arg0: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg1: integer, arg2: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg3: integer): $ChangeSubscriber<($ItemStack)>
 static "without"<T>(arg0: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg1: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg2: integer, arg3: boolean): $ChangeSubscriber<($ItemStack)>
 static "without"<T>(arg0: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg1: $ChangeSubscriber$$Type<($ItemStack$$Type)>): $ChangeSubscriber<($ItemStack)>
- "lithium$forceUnsubscribe"(arg0: $ItemStack$$Type, arg1: integer): void
+static "combine"<T>(arg0: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg1: integer, arg2: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg3: integer): $ChangeSubscriber<($ItemStack)>
 static "dataOf"(arg0: $ChangeSubscriber$$Type<(never)>, arg1: $ChangeSubscriber$$Type<(never)>, arg2: integer): integer
-static "containsSubscriber"(arg0: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg1: integer, arg2: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg3: integer): boolean
+ "lithium$forceUnsubscribe"(arg0: $ItemStack$$Type, arg1: integer): void
+ "lithium$notify"(arg0: $ItemStack$$Type, arg1: integer): void
 static "dataWithout"<T>(arg0: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg1: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg2: integer, arg3: integer, arg4: boolean): integer
 static "dataWithout"<T>(arg0: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg1: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg2: integer): integer
- "lithium$notify"(arg0: $ItemStack$$Type, arg1: integer): void
+static "containsSubscriber"(arg0: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg1: integer, arg2: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg3: integer): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -554,9 +554,9 @@ export interface $NavigatingEntity$$Interface {
 }
 
 export class $NavigatingEntity implements $NavigatingEntity$$Interface {
- "lithium$setRegisteredToWorld"(arg0: $PathNavigation$$Type): void
  "lithium$getRegisteredNavigation"(): $PathNavigation
  "lithium$isRegisteredToWorld"(): boolean
+ "lithium$setRegisteredToWorld"(arg0: $PathNavigation$$Type): void
  "lithium$updateNavigationRegistration"(): void
 }
 /**
@@ -596,14 +596,14 @@ export interface $InventoryChangeEmitter$$Interface {
 }
 
 export class $InventoryChangeEmitter implements $InventoryChangeEmitter$$Interface {
- "lithium$emitFirstComparatorAdded"(): void
- "lithium$emitContentModified"(): void
- "lithium$emitStackListReplaced"(): void
- "lithium$forwardContentChangeOnce"(arg0: $InventoryChangeListener$$Type, arg1: $LithiumStackList$$Type, arg2: $InventoryChangeTracker$$Type): void
  "lithium$forwardMajorInventoryChanges"(arg0: $InventoryChangeListener$$Type): void
- "lithium$stopForwardingMajorInventoryChanges"(arg0: $InventoryChangeListener$$Type): void
  "lithium$emitRemoved"(): void
  "emitCallbackReplaced"(): void
+ "lithium$emitFirstComparatorAdded"(): void
+ "lithium$stopForwardingMajorInventoryChanges"(arg0: $InventoryChangeListener$$Type): void
+ "lithium$emitStackListReplaced"(): void
+ "lithium$forwardContentChangeOnce"(arg0: $InventoryChangeListener$$Type, arg1: $LithiumStackList$$Type, arg2: $InventoryChangeTracker$$Type): void
+ "lithium$emitContentModified"(): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -623,12 +623,12 @@ export interface $EntityMovementTrackerSection$$Interface {
 }
 
 export class $EntityMovementTrackerSection implements $EntityMovementTrackerSection$$Interface {
- "lithium$trackEntityMovement"(arg0: integer, arg1: long): void
- "lithium$removeListener"(arg0: $EntitySectionStorage$$Type<(never)>, arg1: $SectionedEntityMovementTracker$$Type<(never), (never)>): void
  "lithium$addListener"(arg0: $SectionedEntityMovementTracker$$Type<(never), (never)>): void
+ "lithium$removeListener"(arg0: $EntitySectionStorage$$Type<(never)>, arg1: $SectionedEntityMovementTracker$$Type<(never), (never)>): void
  "lithium$getChangeTime"(arg0: integer): long
- "lithium$removeListenToMovementOnce"<S, E extends $EntityAccess>(arg0: $SectionedEntityMovementTracker$$Type<(E), (S)>, arg1: integer): void
  "lithium$listenToMovementOnce"<S, E extends $EntityAccess>(arg0: $SectionedEntityMovementTracker$$Type<(E), (S)>, arg1: integer): void
+ "lithium$removeListenToMovementOnce"<S, E extends $EntityAccess>(arg0: $SectionedEntityMovementTracker$$Type<(E), (S)>, arg1: integer): void
+ "lithium$trackEntityMovement"(arg0: integer, arg1: long): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -686,8 +686,8 @@ export interface $RegionBasedStorageSectionExtended$$Interface<R> {
 }
 
 export class $RegionBasedStorageSectionExtended<R> implements $RegionBasedStorageSectionExtended$$Interface {
- "lithium$getInChunkColumn"(arg0: integer, arg1: integer): $Iterable<(R)>
  "lithium$getWithinChunkColumn"(arg0: integer, arg1: integer): $Stream<(R)>
+ "lithium$getInChunkColumn"(arg0: integer, arg1: integer): $Iterable<(R)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -728,10 +728,10 @@ export interface $BlockCachingEntity$$Interface {
 }
 
 export class $BlockCachingEntity implements $BlockCachingEntity$$Interface {
- "lithium$OnBlockCacheSet"(arg0: $BlockState$$Type): void
- "lithium$getCachedFeetBlockState"(): $BlockState
  "lithium$OnBlockCacheDeleted"(): void
  "lithium$SetClimbingMobCachingSectionUpdateBehavior"(arg0: boolean): void
+ "lithium$getCachedFeetBlockState"(): $BlockState
+ "lithium$OnBlockCacheSet"(arg0: $BlockState$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -876,10 +876,10 @@ export interface $InventoryChangeListener$$Interface {
 }
 
 export class $InventoryChangeListener implements $InventoryChangeListener$$Interface {
- "lithium$handleInventoryRemoved"(arg0: $Container$$Type): void
- "lithium$handleComparatorAdded"(arg0: $Container$$Type): boolean
  "lithium$handleInventoryContentModified"(arg0: $Container$$Type): void
  "handleStackListReplaced"(arg0: $Container$$Type): void
+ "lithium$handleInventoryRemoved"(arg0: $Container$$Type): void
+ "lithium$handleComparatorAdded"(arg0: $Container$$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -976,39 +976,39 @@ export class $LithiumStackList extends $NonNullList<($ItemStack)> implements $Li
 constructor(arg0: $NonNullList$$Type<($ItemStack$$Type)>, arg1: integer)
 constructor(arg0: integer)
 
-public "remove"(arg0: integer): any
+public "remove"(arg0: integer): $ItemStack
 public "clear"(): void
 public "add"(arg0: integer, arg1: any): void
 public "add"(arg0: integer, arg1: $ItemStack$$Type): void
 public "set"(arg0: integer, arg1: any): any
 public "set"(arg0: integer, arg1: $ItemStack$$Type): $ItemStack
 public "changed"(): void
-public "setInventoryModificationCallback"(arg0: $InventoryChangeTracker$$Type): void
-public "getFullSlots"(): integer
-public "getModCount"(): long
-public "getOccupiedSlots"(): integer
-public "lithium$notifyCount"(arg0: any, arg1: integer, arg2: integer): void
-public "lithium$notifyCount"(arg0: $ItemStack$$Type, arg1: integer, arg2: integer): void
-public "lithium$forceUnsubscribe"(arg0: $ItemStack$$Type, arg1: integer): void
-public "lithium$forceUnsubscribe"(arg0: any, arg1: integer): void
-public "removeInventoryModificationCallback"(arg0: $InventoryChangeTracker$$Type): void
-public "changedALot"(): void
-public "maybeSendsComparatorUpdatesOnFailedExtract"(): boolean
-public "runComparatorUpdatePatternOnFailedExtract"(arg0: $LithiumStackList$$Type, arg1: $Container$$Type): void
-public "getSignalStrength"(arg0: $Container$$Type): integer
-public "lithium$notify"(arg0: any, arg1: integer): void
-public "lithium$notify"(arg0: $ItemStack$$Type, arg1: integer): void
-public "hasSignalStrengthOverride"(): boolean
+public "setReducedSignalStrengthOverride"(): void
 public "clearSignalStrengthOverride"(): void
 public "changedInteractionConditions"(): void
-public "setReducedSignalStrengthOverride"(): void
-public static "combine"<T>(arg0: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg1: integer, arg2: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg3: integer): $ChangeSubscriber<($ItemStack)>
+public "getOccupiedSlots"(): integer
+public "getFullSlots"(): integer
+public "getModCount"(): long
+public "removeInventoryModificationCallback"(arg0: $InventoryChangeTracker$$Type): void
+public "getSignalStrength"(arg0: $Container$$Type): integer
+public "runComparatorUpdatePatternOnFailedExtract"(arg0: $LithiumStackList$$Type, arg1: $Container$$Type): void
+public "maybeSendsComparatorUpdatesOnFailedExtract"(): boolean
+public "lithium$forceUnsubscribe"(arg0: $ItemStack$$Type, arg1: integer): void
+public "lithium$forceUnsubscribe"(arg0: any, arg1: integer): void
+public "lithium$notifyCount"(arg0: any, arg1: integer, arg2: integer): void
+public "lithium$notifyCount"(arg0: $ItemStack$$Type, arg1: integer, arg2: integer): void
+public "lithium$notify"(arg0: $ItemStack$$Type, arg1: integer): void
+public "lithium$notify"(arg0: any, arg1: integer): void
+public "setInventoryModificationCallback"(arg0: $InventoryChangeTracker$$Type): void
+public "hasSignalStrengthOverride"(): boolean
+public "changedALot"(): void
 public static "without"<T>(arg0: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg1: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg2: integer, arg3: boolean): $ChangeSubscriber<($ItemStack)>
 public static "without"<T>(arg0: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg1: $ChangeSubscriber$$Type<($ItemStack$$Type)>): $ChangeSubscriber<($ItemStack)>
+public static "combine"<T>(arg0: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg1: integer, arg2: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg3: integer): $ChangeSubscriber<($ItemStack)>
 public static "dataOf"(arg0: $ChangeSubscriber$$Type<(never)>, arg1: $ChangeSubscriber$$Type<(never)>, arg2: integer): integer
-public static "containsSubscriber"(arg0: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg1: integer, arg2: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg3: integer): boolean
 public static "dataWithout"<T>(arg0: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg1: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg2: integer, arg3: integer, arg4: boolean): integer
 public static "dataWithout"<T>(arg0: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg1: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg2: integer): integer
+public static "containsSubscriber"(arg0: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg1: integer, arg2: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg3: integer): boolean
 public "remove"(arg0: any): boolean
 public "isEmpty"(): boolean
 public "toArray"(): (any)[]
@@ -1031,11 +1031,11 @@ public "removeAll"(arg0: $Collection$$Type<(never)>): boolean
 public "retainAll"(arg0: $Collection$$Type<(never)>): boolean
 public "reversed"(): $SequencedCollection
 public "containsAll"(arg0: $Collection$$Type<(never)>): boolean
-set "inventoryModificationCallback"(value: $InventoryChangeTracker$$Type)
+get "reducedSignalStrengthOverride"(): void
+get "occupiedSlots"(): integer
 get "fullSlots"(): integer
 get "modCount"(): long
-get "occupiedSlots"(): integer
-get "reducedSignalStrengthOverride"(): void
+set "inventoryModificationCallback"(value: $InventoryChangeTracker$$Type)
 get "empty"(): boolean
 }
 /**
@@ -1067,21 +1067,21 @@ export type $LithiumCooldownReceivingInventory$$Type = ($LithiumCooldownReceivin
  */
 export type $LithiumCooldownReceivingInventory$$Original = $LithiumCooldownReceivingInventory;}
 declare module "net.caffeinemc.mods.lithium.common.world.ClimbingMobCachingSection" {
-import {$EntityPushablePredicate$$Type} from "net.caffeinemc.mods.lithium.common.entity.pushable.EntityPushablePredicate"
 import {$ArrayList$$Type} from "java.util.ArrayList"
+import {$EntityPushablePredicate$$Type} from "net.caffeinemc.mods.lithium.common.entity.pushable.EntityPushablePredicate"
 import {$AbortableIterationConsumer$Continuation} from "net.minecraft.util.AbortableIterationConsumer$Continuation"
 import {$Level$$Type} from "net.minecraft.world.level.Level"
 import {$Entity$$Type} from "net.minecraft.world.entity.Entity"
-import {$AABB$$Type} from "net.minecraft.world.phys.AABB"
 import {$BlockCachingEntity$$Type} from "net.caffeinemc.mods.lithium.common.entity.pushable.BlockCachingEntity"
+import {$AABB$$Type} from "net.minecraft.world.phys.AABB"
 import {$BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
 
 export interface $ClimbingMobCachingSection$$Interface {
 }
 
 export class $ClimbingMobCachingSection implements $ClimbingMobCachingSection$$Interface {
- "lithium$collectPushableEntities"(arg0: $Level$$Type, arg1: $Entity$$Type, arg2: $AABB$$Type, arg3: $EntityPushablePredicate$$Type<($Entity$$Type)>, arg4: $ArrayList$$Type<($Entity$$Type)>): $AbortableIterationConsumer$Continuation
  "lithium$onEntityModifiedCachedBlock"(arg0: $BlockCachingEntity$$Type, arg1: $BlockState$$Type): void
+ "lithium$collectPushableEntities"(arg0: $Level$$Type, arg1: $Entity$$Type, arg2: $AABB$$Type, arg3: $EntityPushablePredicate$$Type<($Entity$$Type)>, arg4: $ArrayList$$Type<($Entity$$Type)>): $AbortableIterationConsumer$Continuation
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1104,8 +1104,8 @@ constructor()
 
 public static "init"(): void
 public static "create"(arg0: long, arg1: $Level$$Type): $ChunkSectionChangeCallback
-public "onBlockChange"(arg0: integer, arg1: $BlockListeningSection$$Type): short
 public "onChunkSectionInvalidated"(arg0: $SectionPos$$Type): void
+public "onBlockChange"(arg0: integer, arg1: $BlockListeningSection$$Type): short
 public "removeTracker"(arg0: $SectionedBlockChangeTracker$$Type, arg1: $ListeningBlockStatePredicate$$Type): short
 public "addTracker"(arg0: $SectionedBlockChangeTracker$$Type, arg1: $ListeningBlockStatePredicate$$Type): short
 }
@@ -1147,8 +1147,8 @@ export interface $ComparatorTracker$$Interface {
 }
 
 export class $ComparatorTracker implements $ComparatorTracker$$Interface {
- "lithium$hasAnyComparatorNearby"(): boolean
  "lithium$onComparatorAdded"(arg0: $Direction$$Type, arg1: integer): void
+ "lithium$hasAnyComparatorNearby"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1210,15 +1210,15 @@ export interface $ChangeSubscriber$CountChangeSubscriber$$Interface<T> extends $
 
 export class $ChangeSubscriber$CountChangeSubscriber<T> implements $ChangeSubscriber$CountChangeSubscriber$$Interface {
  "lithium$notifyCount"(arg0: T, arg1: integer, arg2: integer): void
-static "combine"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: integer, arg2: $ChangeSubscriber$$Type<(T)>, arg3: integer): $ChangeSubscriber<(T)>
 static "without"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: $ChangeSubscriber$$Type<(T)>, arg2: integer, arg3: boolean): $ChangeSubscriber<(T)>
 static "without"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: $ChangeSubscriber$$Type<(T)>): $ChangeSubscriber<(T)>
- "lithium$forceUnsubscribe"(arg0: T, arg1: integer): void
+static "combine"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: integer, arg2: $ChangeSubscriber$$Type<(T)>, arg3: integer): $ChangeSubscriber<(T)>
 static "dataOf"(arg0: $ChangeSubscriber$$Type<(never)>, arg1: $ChangeSubscriber$$Type<(never)>, arg2: integer): integer
-static "containsSubscriber"(arg0: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg1: integer, arg2: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg3: integer): boolean
+ "lithium$forceUnsubscribe"(arg0: T, arg1: integer): void
+ "lithium$notify"(arg0: T, arg1: integer): void
 static "dataWithout"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: $ChangeSubscriber$$Type<(T)>, arg2: integer, arg3: integer, arg4: boolean): integer
 static "dataWithout"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: $ChangeSubscriber$$Type<(T)>, arg2: integer): integer
- "lithium$notify"(arg0: T, arg1: integer): void
+static "containsSubscriber"(arg0: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg1: integer, arg2: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg3: integer): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1239,16 +1239,16 @@ export interface $InventoryChangeTracker$$Interface extends $InventoryChangeEmit
 
 export class $InventoryChangeTracker implements $InventoryChangeTracker$$Interface {
  "stopListenForMajorInventoryChanges"(arg0: $InventoryChangeListener$$Type): void
- "listenForMajorInventoryChanges"(arg0: $InventoryChangeListener$$Type): void
  "listenForContentChangesOnce"(arg0: $LithiumStackList$$Type, arg1: $InventoryChangeListener$$Type): void
- "lithium$emitFirstComparatorAdded"(): void
- "lithium$emitContentModified"(): void
- "lithium$emitStackListReplaced"(): void
- "lithium$forwardContentChangeOnce"(arg0: $InventoryChangeListener$$Type, arg1: $LithiumStackList$$Type, arg2: $InventoryChangeTracker$$Type): void
+ "listenForMajorInventoryChanges"(arg0: $InventoryChangeListener$$Type): void
  "lithium$forwardMajorInventoryChanges"(arg0: $InventoryChangeListener$$Type): void
- "lithium$stopForwardingMajorInventoryChanges"(arg0: $InventoryChangeListener$$Type): void
  "lithium$emitRemoved"(): void
  "emitCallbackReplaced"(): void
+ "lithium$emitFirstComparatorAdded"(): void
+ "lithium$stopForwardingMajorInventoryChanges"(arg0: $InventoryChangeListener$$Type): void
+ "lithium$emitStackListReplaced"(): void
+ "lithium$forwardContentChangeOnce"(arg0: $InventoryChangeListener$$Type, arg1: $LithiumStackList$$Type, arg2: $InventoryChangeTracker$$Type): void
+ "lithium$emitContentModified"(): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1268,8 +1268,8 @@ export interface $BlockListeningSection$$Interface {
 }
 
 export class $BlockListeningSection implements $BlockListeningSection$$Interface {
- "lithium$removeFromCallback"(arg0: $ListeningBlockStatePredicate$$Type, arg1: $SectionedBlockChangeTracker$$Type): void
  "lithium$addToCallback"(arg0: $ListeningBlockStatePredicate$$Type, arg1: $SectionedBlockChangeTracker$$Type, arg2: long, arg3: $Level$$Type): void
+ "lithium$removeFromCallback"(arg0: $ListeningBlockStatePredicate$$Type, arg1: $SectionedBlockChangeTracker$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1353,15 +1353,15 @@ export interface $ChangeSubscriber$EnchantmentSubscriber$$Interface<T> extends $
 
 export class $ChangeSubscriber$EnchantmentSubscriber<T> implements $ChangeSubscriber$EnchantmentSubscriber$$Interface {
  "lithium$notifyAfterEnchantmentChange"(arg0: T, arg1: integer): void
-static "combine"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: integer, arg2: $ChangeSubscriber$$Type<(T)>, arg3: integer): $ChangeSubscriber<(T)>
 static "without"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: $ChangeSubscriber$$Type<(T)>, arg2: integer, arg3: boolean): $ChangeSubscriber<(T)>
 static "without"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: $ChangeSubscriber$$Type<(T)>): $ChangeSubscriber<(T)>
- "lithium$forceUnsubscribe"(arg0: T, arg1: integer): void
+static "combine"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: integer, arg2: $ChangeSubscriber$$Type<(T)>, arg3: integer): $ChangeSubscriber<(T)>
 static "dataOf"(arg0: $ChangeSubscriber$$Type<(never)>, arg1: $ChangeSubscriber$$Type<(never)>, arg2: integer): integer
-static "containsSubscriber"(arg0: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg1: integer, arg2: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg3: integer): boolean
+ "lithium$forceUnsubscribe"(arg0: T, arg1: integer): void
+ "lithium$notify"(arg0: T, arg1: integer): void
 static "dataWithout"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: $ChangeSubscriber$$Type<(T)>, arg2: integer, arg3: integer, arg4: boolean): integer
 static "dataWithout"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: $ChangeSubscriber$$Type<(T)>, arg2: integer): integer
- "lithium$notify"(arg0: T, arg1: integer): void
+static "containsSubscriber"(arg0: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg1: integer, arg2: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg3: integer): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1471,15 +1471,15 @@ set "ticker"(value: $TickingBlockEntity$$Type)
 export class $SleepingBlockEntity implements $SleepingBlockEntity$$Interface {
 static readonly "SLEEPING_BLOCK_ENTITY_TICKER": $TickingBlockEntity
 
+ "sleepOnlyCurrentTick"(): void
+ "lithium$startSleeping"(): boolean
+ "lithium$getTickWrapper"(): $WrappedBlockEntityTickInvokerAccessor
+ "lithium$setSleepingTicker"(arg0: $TickingBlockEntity$$Type): void
+ "lithium$setTickWrapper"(arg0: $WrappedBlockEntityTickInvokerAccessor$$Type): void
+ "lithium$getSleepingTicker"(): $TickingBlockEntity
  "isSleeping"(): boolean
  "setTicker"(arg0: $TickingBlockEntity$$Type): void
  "wakeUpNow"(): void
- "sleepOnlyCurrentTick"(): void
- "lithium$setTickWrapper"(arg0: $WrappedBlockEntityTickInvokerAccessor$$Type): void
- "lithium$startSleeping"(): boolean
- "lithium$getSleepingTicker"(): $TickingBlockEntity
- "lithium$getTickWrapper"(): $WrappedBlockEntityTickInvokerAccessor
- "lithium$setSleepingTicker"(arg0: $TickingBlockEntity$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1506,16 +1506,16 @@ public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "replace"(arg0: long, arg1: $Int2ObjectMap$$Type<($GameEventListenerRegistry$$Type)>): void
+public "removeChunk"(arg0: long): void
 public "storage"(): $Long2ReferenceOpenHashMap<($Int2ObjectMap<($GameEventListenerRegistry)>)>
 public "addChunk"(arg0: long, arg1: $Int2ObjectMap$$Type<($GameEventListenerRegistry$$Type)>): void
 public "loadedChunks"(): $LongOpenHashSet
-public "removeChunk"(arg0: long): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $GameEventDispatcherStorage$$Type = ({"loadedChunks"?: $LongOpenHashSet$$Type, "storage"?: $Long2ReferenceOpenHashMap$$Type<($Int2ObjectMap$$Type<($GameEventListenerRegistry$$Type)>)>}) | ([loadedChunks?: $LongOpenHashSet$$Type, storage?: $Long2ReferenceOpenHashMap$$Type<($Int2ObjectMap$$Type<($GameEventListenerRegistry$$Type)>)>]);
+export type $GameEventDispatcherStorage$$Type = ({"storage"?: $Long2ReferenceOpenHashMap$$Type<($Int2ObjectMap$$Type<($GameEventListenerRegistry$$Type)>)>, "loadedChunks"?: $LongOpenHashSet$$Type}) | ([storage?: $Long2ReferenceOpenHashMap$$Type<($Int2ObjectMap$$Type<($GameEventListenerRegistry$$Type)>)>, loadedChunks?: $LongOpenHashSet$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -1553,24 +1553,24 @@ constructor(world: $Level$$Type, chunkX1: integer, chunkY1: integer, chunkZ1: in
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
+public "numSections"(): integer
+public "world"(): $Level
+public "chunkX1"(): integer
+public "chunkX2"(): integer
+public "chunkY1"(): integer
 public "chunkY2"(): integer
 public "chunkZ1"(): integer
 public "chunkZ2"(): integer
-public "chunkY1"(): integer
-public "chunkX2"(): integer
-public "chunkX1"(): integer
-public "world"(): $Level
-public "numSections"(): integer
-public static "relevantExpandedBlocksBox"(arg0: $Level$$Type, arg1: $AABB$$Type): $WorldSectionBox
-public "matchesRelevantBlocksBox"(arg0: $AABB$$Type): boolean
-public static "relevantFluidBox"(arg0: $Level$$Type, arg1: $AABB$$Type): $WorldSectionBox
 public static "entityAccessBox"(arg0: $Level$$Type, arg1: $AABB$$Type): $WorldSectionBox
+public static "relevantFluidBox"(arg0: $Level$$Type, arg1: $AABB$$Type): $WorldSectionBox
+public "matchesRelevantBlocksBox"(arg0: $AABB$$Type): boolean
+public static "relevantExpandedBlocksBox"(arg0: $Level$$Type, arg1: $AABB$$Type): $WorldSectionBox
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $WorldSectionBox$$Type = ({"chunkX1"?: integer, "world"?: $Level$$Type, "chunkZ2"?: integer, "chunkZ1"?: integer, "chunkY2"?: integer, "chunkY1"?: integer, "chunkX2"?: integer}) | ([chunkX1?: integer, world?: $Level$$Type, chunkZ2?: integer, chunkZ1?: integer, chunkY2?: integer, chunkY1?: integer, chunkX2?: integer]);
+export type $WorldSectionBox$$Type = ({"chunkY1"?: integer, "chunkY2"?: integer, "chunkZ1"?: integer, "chunkZ2"?: integer, "world"?: $Level$$Type, "chunkX1"?: integer, "chunkX2"?: integer}) | ([chunkY1?: integer, chunkY2?: integer, chunkZ1?: integer, chunkZ2?: integer, world?: $Level$$Type, chunkX1?: integer, chunkX2?: integer]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -1582,9 +1582,9 @@ export interface $UpdateReceiver$$Interface {
 }
 
 export class $UpdateReceiver implements $UpdateReceiver$$Interface {
+ "lithium$invalidateCacheOnUndirectedNeighborUpdate"(): void
  "lithium$invalidateCacheOnNeighborUpdate"(arg0: boolean): void
  "lithium$invalidateCacheOnNeighborUpdate"(arg0: $Direction$$Type): void
- "lithium$invalidateCacheOnUndirectedNeighborUpdate"(): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1609,12 +1609,12 @@ constructor(arg0: $WorldSectionBox$$Type, arg1: $Class$$Type<(S)>)
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public "register"(arg0: $ServerLevel$$Type): void
-public "emitEntityMovement"(arg0: integer, arg1: $EntityMovementTrackerSection$$Type): void
-public "onSectionLeftRange"(arg0: $EntityMovementTrackerSection$$Type): void
 public "isUnchangedSince"(arg0: long): boolean
+public "onSectionEnteredRange"(arg0: $EntityMovementTrackerSection$$Type): void
 public "unRegister"(arg0: $ServerLevel$$Type): void
 public "listenToEntityMovementOnce"(arg0: $SectionedEntityMovementListener$$Type): void
-public "onSectionEnteredRange"(arg0: $EntityMovementTrackerSection$$Type): void
+public "emitEntityMovement"(arg0: integer, arg1: $EntityMovementTrackerSection$$Type): void
+public "onSectionLeftRange"(arg0: $EntityMovementTrackerSection$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1653,8 +1653,8 @@ export interface $ServerWorldExtended$$Interface {
 }
 
 export class $ServerWorldExtended implements $ServerWorldExtended$$Interface {
- "lithium$setNavigationInactive"(arg0: $Mob$$Type): void
  "lithium$setNavigationActive"(arg0: $Mob$$Type): void
+ "lithium$setNavigationInactive"(arg0: $Mob$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1730,15 +1730,15 @@ export type $ListeningBlockStatePredicate$$Original = $ListeningBlockStatePredic
 declare module "net.caffeinemc.mods.lithium.mixin.ai.useless_sensors.SensorAccessor" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $SensorAccessor$$Interface {
-get "senseInterval"(): integer
-set "lastSenseTime"(value: long)
 get "lastSenseTime"(): long
+set "lastSenseTime"(value: long)
+get "senseInterval"(): integer
 }
 
 export class $SensorAccessor implements $SensorAccessor$$Interface {
- "getSenseInterval"(): integer
- "setLastSenseTime"(arg0: long): void
  "getLastSenseTime"(): long
+ "setLastSenseTime"(arg0: long): void
+ "getSenseInterval"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1781,9 +1781,9 @@ export interface $TypeFilterableListInternalAccess$$Interface<T> {
 }
 
 export class $TypeFilterableListInternalAccess<T> implements $TypeFilterableListInternalAccess$$Interface {
+ "lithium$getOrCreateAllOfTypeRaw"<S>(arg0: $Class$$Type<(S)>): $List<(S)>
  "lithium$replaceCollectionAndGet"<S>(arg0: $Class$$Type<(S)>, arg1: $Function$$Type<($ArrayList<(S)>), ($List$$Type<(S)>)>): $List<(S)>
  "lithium$replaceCollectionAndGet"<S>(arg0: $Class$$Type<(S)>, arg1: $ArrayList$$Type<(S)>): $List<(S)>
- "lithium$getOrCreateAllOfTypeRaw"<S>(arg0: $Class$$Type<(S)>): $List<(S)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1840,15 +1840,15 @@ export interface $ChangeSubscriber$$Interface<T> {
 }
 
 export class $ChangeSubscriber<T> implements $ChangeSubscriber$$Interface {
-static "combine"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: integer, arg2: $ChangeSubscriber$$Type<(T)>, arg3: integer): $ChangeSubscriber<(T)>
 static "without"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: $ChangeSubscriber$$Type<(T)>, arg2: integer, arg3: boolean): $ChangeSubscriber<(T)>
 static "without"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: $ChangeSubscriber$$Type<(T)>): $ChangeSubscriber<(T)>
- "lithium$forceUnsubscribe"(arg0: T, arg1: integer): void
+static "combine"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: integer, arg2: $ChangeSubscriber$$Type<(T)>, arg3: integer): $ChangeSubscriber<(T)>
 static "dataOf"(arg0: $ChangeSubscriber$$Type<(never)>, arg1: $ChangeSubscriber$$Type<(never)>, arg2: integer): integer
-static "containsSubscriber"(arg0: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg1: integer, arg2: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg3: integer): boolean
+ "lithium$forceUnsubscribe"(arg0: T, arg1: integer): void
+ "lithium$notify"(arg0: T, arg1: integer): void
 static "dataWithout"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: $ChangeSubscriber$$Type<(T)>, arg2: integer, arg3: integer, arg4: boolean): integer
 static "dataWithout"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: $ChangeSubscriber$$Type<(T)>, arg2: integer): integer
- "lithium$notify"(arg0: T, arg1: integer): void
+static "containsSubscriber"(arg0: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg1: integer, arg2: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg3: integer): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

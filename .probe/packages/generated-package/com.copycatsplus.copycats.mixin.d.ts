@@ -7,9 +7,9 @@ export interface $VoxelShapeAccessor$$Interface {
 }
 
 export class $VoxelShapeAccessor implements $VoxelShapeAccessor$$Interface {
- "copycats$callGetCoords"(arg0: $Direction$Axis$$Type): $DoubleList
  "copycats$getShape"(): $DiscreteVoxelShape
  "copycats$setShape"(arg0: $DiscreteVoxelShape$$Type): void
+ "copycats$callGetCoords"(arg0: $Direction$Axis$$Type): $DoubleList
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

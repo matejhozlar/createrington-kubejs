@@ -39,8 +39,8 @@ export class $Mod implements $Mod$$Interface {
  "getItem"(id: StringJS): $Item
  "getBlock"(id: StringJS): $Block
  "getModId"(): StringJS
- "runIfLoaded"<T>(action: $Supplier$$Type<($Supplier$$Type<(T)>)>): $Optional<(T)>
  "executeIfLoaded"(action: $Supplier$$Type<($Runnable$$Type)>): void
+ "runIfLoaded"<T>(action: $Supplier$$Type<($Supplier$$Type<(T)>)>): $Optional<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

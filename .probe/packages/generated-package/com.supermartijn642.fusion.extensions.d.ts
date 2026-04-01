@@ -23,13 +23,13 @@ import {$FusionModelPart, $FusionModelPart$$Type} from "com.supermartijn642.fusi
 import {$List, $List$$Type} from "java.util.List"
 
 export interface $EntityRendererExtension$$Interface {
-set "fusionModelParts"(value: $List$$Type<($FusionModelPart$$Type)>)
 get "fusionModelParts"(): $List<($FusionModelPart)>
+set "fusionModelParts"(value: $List$$Type<($FusionModelPart$$Type)>)
 }
 
 export class $EntityRendererExtension implements $EntityRendererExtension$$Interface {
- "setFusionModelParts"(parts: $List$$Type<($FusionModelPart$$Type)>): void
  "getFusionModelParts"(): $List<($FusionModelPart)>
+ "setFusionModelParts"(parts: $List$$Type<($FusionModelPart$$Type)>): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -49,10 +49,10 @@ export interface $EntityExtension$$Interface {
 }
 
 export class $EntityExtension implements $EntityExtension$$Interface {
+ "getFusionModel"(layerIndex: integer): $Triple<($ModelPart), ($ResourceLocation), (float)>
+ "setFusionModel"(layerIndex: integer, model: $Triple$$Type<($ModelPart$$Type), ($ResourceLocation$$Type), (float)>): void
  "markFusionRecomputeModels"(): void
  "shouldFusionRecomputeModel"(layerIndex: integer): boolean
- "setFusionModel"(layerIndex: integer, model: $Triple$$Type<($ModelPart$$Type), ($ResourceLocation$$Type), (float)>): void
- "getFusionModel"(layerIndex: integer): $Triple<($ModelPart), ($ResourceLocation), (float)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -108,13 +108,13 @@ declare module "com.supermartijn642.fusion.extensions.TextureAtlasSpriteExtensio
 import {$TextureType, $TextureType$$Type} from "com.supermartijn642.fusion.api.texture.TextureType"
 
 export interface $TextureAtlasSpriteExtension$$Interface {
-set "fusionTextureType"(value: $TextureType$$Type<(never)>)
 get "fusionTextureType"(): $TextureType<(never)>
+set "fusionTextureType"(value: $TextureType$$Type<(never)>)
 }
 
 export class $TextureAtlasSpriteExtension implements $TextureAtlasSpriteExtension$$Interface {
- "setFusionTextureType"(type: $TextureType$$Type<(never)>): void
  "getFusionTextureType"(): $TextureType<(never)>
+ "setFusionTextureType"(type: $TextureType$$Type<(never)>): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -129,13 +129,13 @@ declare module "com.supermartijn642.fusion.extensions.BlockModelExtension" {
 import {$ModelInstance, $ModelInstance$$Type} from "com.supermartijn642.fusion.api.model.ModelInstance"
 
 export interface $BlockModelExtension$$Interface {
-set "fusionModel"(value: $ModelInstance$$Type<(never)>)
 get "fusionModel"(): $ModelInstance<(never)>
+set "fusionModel"(value: $ModelInstance$$Type<(never)>)
 }
 
 export class $BlockModelExtension implements $BlockModelExtension$$Interface {
- "setFusionModel"(model: $ModelInstance$$Type<(never)>): void
  "getFusionModel"(): $ModelInstance<(never)>
+ "setFusionModel"(model: $ModelInstance$$Type<(never)>): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

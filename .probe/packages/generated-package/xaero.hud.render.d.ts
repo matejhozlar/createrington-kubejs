@@ -1,6 +1,6 @@
 declare module "xaero.hud.render.HudRenderer" {
-import {$CustomVertexConsumers} from "xaero.common.graphics.CustomVertexConsumers"
 import {$Hud$$Type} from "xaero.hud.Hud"
+import {$CustomVertexConsumers} from "xaero.common.graphics.CustomVertexConsumers"
 import {$GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
 import {$PushboxHandler, $PushboxHandler$$Type} from "xaero.hud.pushbox.PushboxHandler"
 
@@ -8,10 +8,10 @@ export class $HudRenderer {
 constructor(arg0: $PushboxHandler$$Type)
 
 public "render"(arg0: $Hud$$Type, arg1: $GuiGraphics$$Type, arg2: float): void
-public "getCustomVertexConsumers"(): $CustomVertexConsumers
 public "getPushboxHandler"(): $PushboxHandler
-get "customVertexConsumers"(): $CustomVertexConsumers
+public "getCustomVertexConsumers"(): $CustomVertexConsumers
 get "pushboxHandler"(): $PushboxHandler
+get "customVertexConsumers"(): $CustomVertexConsumers
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

@@ -4,8 +4,8 @@ export interface $Blaze3dRenderTargetExt$$Interface {
 }
 
 export class $Blaze3dRenderTargetExt implements $Blaze3dRenderTargetExt$$Interface {
- "iris$getColorBufferVersion"(): integer
  "iris$getDepthBufferVersion"(): integer
+ "iris$getColorBufferVersion"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

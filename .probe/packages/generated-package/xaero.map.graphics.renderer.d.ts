@@ -16,16 +16,16 @@ export type $MultiTextureRenderTypeRenderer$$Original = $MultiTextureRenderTypeR
 declare module "xaero.map.graphics.renderer.multitexture.MultiTextureRenderTypeRendererProvider" {
 import {$IntConsumer$$Type} from "java.util.function.IntConsumer"
 import {$Runnable$$Type} from "java.lang.Runnable"
-import {$RenderType$$Type} from "net.minecraft.client.renderer.RenderType"
 import {$MultiTextureRenderTypeRenderer, $MultiTextureRenderTypeRenderer$$Type} from "xaero.map.graphics.renderer.multitexture.MultiTextureRenderTypeRenderer"
+import {$RenderType$$Type} from "net.minecraft.client.renderer.RenderType"
 
 export class $MultiTextureRenderTypeRendererProvider {
 constructor(arg0: integer)
 
-public "getRenderer"(arg0: $IntConsumer$$Type, arg1: $IntConsumer$$Type, arg2: $Runnable$$Type, arg3: $RenderType$$Type): $MultiTextureRenderTypeRenderer
-public "getRenderer"(arg0: $IntConsumer$$Type, arg1: $IntConsumer$$Type, arg2: $RenderType$$Type): $MultiTextureRenderTypeRenderer
 public "draw"(arg0: $MultiTextureRenderTypeRenderer$$Type): void
 public static "defaultTextureBind"(arg0: integer): void
+public "getRenderer"(arg0: $IntConsumer$$Type, arg1: $IntConsumer$$Type, arg2: $RenderType$$Type): $MultiTextureRenderTypeRenderer
+public "getRenderer"(arg0: $IntConsumer$$Type, arg1: $IntConsumer$$Type, arg2: $Runnable$$Type, arg3: $RenderType$$Type): $MultiTextureRenderTypeRenderer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

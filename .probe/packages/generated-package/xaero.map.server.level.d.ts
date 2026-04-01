@@ -11,11 +11,11 @@ public "write"(arg0: $PrintWriter$$Type): void
 public "read"(arg0: $BufferedReader$$Type): void
 public static "read"(arg0: $FriendlyByteBuf$$Type): $LevelMapProperties
 public "getId"(): integer
-public "isUsable"(): boolean
 public "setUsable"(arg0: boolean): void
+public "isUsable"(): boolean
 get "id"(): integer
-get "usable"(): boolean
 set "usable"(value: boolean)
+get "usable"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

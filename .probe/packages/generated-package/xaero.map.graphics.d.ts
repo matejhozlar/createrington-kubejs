@@ -6,11 +6,11 @@ constructor(...arg0: (integer)[])
 public "pre"(): void
 public "post"(arg0: integer): void
 public "getAverage"(arg0: integer): long
-public "getTotalsString"(): StringJS
 public "isFinished"(arg0: integer): boolean
 public "isFinished"(): boolean
-get "totalsString"(): StringJS
+public "getTotalsString"(): StringJS
 get "finished"(): boolean
+get "totalsString"(): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -60,14 +60,14 @@ static readonly "NORMAL": integer
 
 constructor(arg0: $TextureUploadPool$Normal$$Type, arg1: $TextureUploadPool$Compressed$$Type, arg2: $TextureUploadPool$BranchUpdate$$Type, arg3: $TextureUploadPool$BranchUpdate$$Type, arg4: $TextureUploadPool$BranchDownload$$Type, arg5: $TextureUploadPool$SubsequentNormal$$Type, arg6: $TextureUploadBenchmark$$Type)
 
-public "requestUpload"(arg0: $TextureUpload$$Type): long
 public "uploadTextures"(): void
 public "requestBranchUpdate"(arg0: boolean, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer, arg9: long, arg10: integer, arg11: integer, arg12: integer, arg13: integer, arg14: integer, arg15: integer, arg16: $BranchTextureRenderer$$Type, arg17: integer, arg18: integer): long
 public "requestBranchDownload"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): long
-public "finishNewestRequestImmediately"(): void
-public "requestSubsequentNormal"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: long, arg8: integer, arg9: integer, arg10: integer, arg11: integer): long
 public "requestCompressed"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: long, arg9: integer): long
 public "requestNormal"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: long, arg9: integer, arg10: integer): long
+public "requestUpload"(arg0: $TextureUpload$$Type): long
+public "requestSubsequentNormal"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: long, arg8: integer, arg9: integer, arg10: integer, arg11: integer): long
+public "finishNewestRequestImmediately"(): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

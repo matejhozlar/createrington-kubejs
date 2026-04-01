@@ -3,25 +3,25 @@ import {$HumanoidArm} from "net.minecraft.world.entity.HumanoidArm"
 import {$List} from "java.util.List"
 import {$NarratorStatus} from "net.minecraft.client.NarratorStatus"
 import {$TutorialSteps} from "net.minecraft.client.tutorial.TutorialSteps"
-import {$PlayerModelPart$$Type} from "net.minecraft.world.entity.player.PlayerModelPart"
 import {$PrioritizeChunkUpdates} from "net.minecraft.client.PrioritizeChunkUpdates"
 import {$ParticleStatus} from "net.minecraft.client.ParticleStatus"
+import {$PlayerModelPart$$Type} from "net.minecraft.world.entity.player.PlayerModelPart"
 import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component"
 import {$IMixinOptions$$Interface} from "de.keksuccino.fancymenu.mixin.mixins.common.client.IMixinOptions"
 import {$SoundSource$$Type} from "net.minecraft.sounds.SoundSource"
 import {$Set} from "java.util.Set"
 import {$Gson} from "com.google.gson.Gson"
 import {$Minecraft, $Minecraft$$Type} from "net.minecraft.client.Minecraft"
-import {$CloudStatus} from "net.minecraft.client.CloudStatus"
 import {$AttackIndicatorStatus} from "net.minecraft.client.AttackIndicatorStatus"
+import {$CloudStatus} from "net.minecraft.client.CloudStatus"
 import {$Logger} from "org.slf4j.Logger"
 import {$File, $File$$Type} from "java.io.File"
 import {$PackRepository$$Type} from "net.minecraft.server.packs.repository.PackRepository"
 import {$CameraType, $CameraType$$Type} from "net.minecraft.client.CameraType"
 import {$KeyMapping, $KeyMapping$$Type} from "net.minecraft.client.KeyMapping"
 import {$ClientInformation} from "net.minecraft.server.level.ClientInformation"
-import {$InputConstants$Key$$Type} from "com.mojang.blaze3d.platform.InputConstants$Key"
 import {$Options$FieldAccess$$Type} from "net.minecraft.client.Options$FieldAccess"
+import {$InputConstants$Key$$Type} from "com.mojang.blaze3d.platform.InputConstants$Key"
 import {$OptionInstance} from "net.minecraft.client.OptionInstance"
 import {$ChatVisiblity} from "net.minecraft.world.entity.player.ChatVisiblity"
 import {$GraphicsStatus} from "net.minecraft.client.GraphicsStatus"
@@ -88,116 +88,116 @@ readonly "keyDown": $KeyMapping
 
 constructor(arg0: $Minecraft$$Type, arg1: $File$$Type)
 
-public "glintSpeed"(): $OptionInstance<(double)>
-public "bobView"(): $OptionInstance<(boolean)>
 public "load"(arg0: boolean): void
 public "load"(): void
 public "save"(): void
 public "getFile"(): $File
 public static "isTrue"(arg0: StringJS): boolean
-public "chatScale"(): $OptionInstance<(double)>
-public "chatWidth"(): $OptionInstance<(double)>
-public "getMenuBackgroundBlurriness"(): integer
-public "darkMojangStudiosBackground"(): $OptionInstance<(boolean)>
-public "invokeProcessOptionsFancyMenu"(arg0: $Options$FieldAccess$$Type): void
-public "onboardingAccessibilityFinished"(): void
-public "fov"(): $OptionInstance<(integer)>
-public "broadcastOptions"(): void
-public "isModelPartEnabled"(arg0: $PlayerModelPart$$Type): boolean
-public "toggleModelPart"(arg0: $PlayerModelPart$$Type, arg1: boolean): void
-public static "genericValueLabel"(arg0: $Component$$Type, arg1: $Component$$Type): $Component
-public static "genericValueLabel"(arg0: $Component$$Type, arg1: integer): $Component
-public "chatLineSpacing"(): $OptionInstance<(double)>
-public "chatHeightFocused"(): $OptionInstance<(double)>
-public "showSubtitles"(): $OptionInstance<(boolean)>
-public "sensitivity"(): $OptionInstance<(double)>
-public "toggleCrouch"(): $OptionInstance<(boolean)>
-public "entityShadows"(): $OptionInstance<(boolean)>
-public "autoSuggestions"(): $OptionInstance<(boolean)>
-public "narratorHotkey"(): $OptionInstance<(boolean)>
-public "useNativeTransport"(): boolean
-public "onlyShowSecureChat"(): $OptionInstance<(boolean)>
-public "allowServerListing"(): $OptionInstance<(boolean)>
-public "soundDevice"(): $OptionInstance<(StringJS)>
-public "toggleSprint"(): $OptionInstance<(boolean)>
-public "panoramaSpeed"(): $OptionInstance<(double)>
-public "highContrast"(): $OptionInstance<(boolean)>
-public "directionalAudio"(): $OptionInstance<(boolean)>
-public "invertYMouse"(): $OptionInstance<(boolean)>
-public "attackIndicator"(): $OptionInstance<($AttackIndicatorStatus)>
-public "hideMatchedNames"(): $OptionInstance<(boolean)>
-public "guiScale"(): $OptionInstance<(integer)>
-public "particles"(): $OptionInstance<($ParticleStatus)>
-public "narrator"(): $OptionInstance<($NarratorStatus)>
-public "chatDelay"(): $OptionInstance<(double)>
-public "fullscreen"(): $OptionInstance<(boolean)>
-public "setCameraType"(arg0: $CameraType$$Type): void
-public "getCameraType"(): $CameraType
-public "ambientOcclusion"(): $OptionInstance<(boolean)>
-public "renderDistance"(): $OptionInstance<(integer)>
-public "chatVisibility"(): $OptionInstance<($ChatVisiblity)>
-public "reducedDebugInfo"(): $OptionInstance<(boolean)>
-public static "isFalse"(arg0: StringJS): boolean
-public "mainHand"(): $OptionInstance<($HumanoidArm)>
-public "chatColors"(): $OptionInstance<(boolean)>
 public "gamma"(): $OptionInstance<(double)>
+public "darkMojangStudiosBackground"(): $OptionInstance<(boolean)>
 public "getBackgroundColor"(arg0: integer): integer
 public "getBackgroundColor"(arg0: float): integer
+public static "isFalse"(arg0: StringJS): boolean
+public "fov"(): $OptionInstance<(integer)>
+public "autoJump"(): $OptionInstance<(boolean)>
+public "notificationDisplayTime"(): $OptionInstance<(double)>
+public "setServerRenderDistance"(arg0: integer): void
+public "darknessEffectScale"(): $OptionInstance<(double)>
+public "mouseWheelSensitivity"(): $OptionInstance<(double)>
+public "entityDistanceScaling"(): $OptionInstance<(double)>
+public "discreteMouseScroll"(): $OptionInstance<(boolean)>
+public "realmsNotifications"(): $OptionInstance<(boolean)>
+public "getBackgroundOpacity"(arg0: float): float
+public "updateResourcePacks"(arg0: $PackRepository$$Type): void
+public "getSoundSourceVolume"(arg0: $SoundSource$$Type): float
+public static "genericValueOrOffLabel"(arg0: $Component$$Type, arg1: integer): $Component
+public "japaneseGlyphVariants"(): $OptionInstance<(boolean)>
+public "backgroundForChatOnly"(): $OptionInstance<(boolean)>
+public "chatHeightUnfocused"(): $OptionInstance<(double)>
+public "showAutosaveIndicator"(): $OptionInstance<(boolean)>
+public "getModelPartsFancyMenu"(): $Set
+public "buildPlayerInformation"(): $ClientInformation
+public "chatOpacity"(): $OptionInstance<(double)>
+public "setKey"(arg0: $KeyMapping$$Type, arg1: $InputConstants$Key$$Type): void
+public "guiScale"(): $OptionInstance<(integer)>
+public "particles"(): $OptionInstance<($ParticleStatus)>
+public "chatWidth"(): $OptionInstance<(double)>
+public "chatScale"(): $OptionInstance<(double)>
+public "operatorItemsTab"(): $OptionInstance<(boolean)>
+public "touchscreen"(): $OptionInstance<(boolean)>
+public "hideSplashTexts"(): $OptionInstance<(boolean)>
 public "prioritizeChunkUpdates"(): $OptionInstance<($PrioritizeChunkUpdates)>
+public "loadSelectedResourcePacks"(arg0: $PackRepository$$Type): void
+public "fullscreen"(): $OptionInstance<(boolean)>
+public "chatDelay"(): $OptionInstance<(double)>
+public "narrator"(): $OptionInstance<($NarratorStatus)>
+public "getMenuBackgroundBlurriness"(): integer
+public "getCloudsType"(): $CloudStatus
+public "textBackgroundOpacity"(): $OptionInstance<(double)>
+public "enableVsync"(): $OptionInstance<(boolean)>
+public "mipmapLevels"(): $OptionInstance<(integer)>
+public "rawMouseInput"(): $OptionInstance<(boolean)>
+public "framerateLimit"(): $OptionInstance<(integer)>
+public "telemetryOptInExtra"(): $OptionInstance<(boolean)>
+public "dumpOptionsForReport"(): StringJS
+public "getEffectiveRenderDistance"(): integer
+public "getCameraType"(): $CameraType
+public "setCameraType"(arg0: $CameraType$$Type): void
+public "chatLinksPrompt"(): $OptionInstance<(boolean)>
+public "chatLinks"(): $OptionInstance<(boolean)>
+public "bobView"(): $OptionInstance<(boolean)>
+public "menuBackgroundBlurriness"(): $OptionInstance<(integer)>
+public "glintStrength"(): $OptionInstance<(double)>
 public "fovEffectScale"(): $OptionInstance<(double)>
 public "screenEffectScale"(): $OptionInstance<(double)>
 public "damageTiltStrength"(): $OptionInstance<(double)>
-public "chatOpacity"(): $OptionInstance<(double)>
-public "autoJump"(): $OptionInstance<(boolean)>
-public "setKey"(arg0: $KeyMapping$$Type, arg1: $InputConstants$Key$$Type): void
-public "forceUnicodeFont"(): $OptionInstance<(boolean)>
-public "cloudStatus"(): $OptionInstance<($CloudStatus)>
-public "biomeBlendRadius"(): $OptionInstance<(integer)>
-public "graphicsMode"(): $OptionInstance<($GraphicsStatus)>
-public "mipmapLevels"(): $OptionInstance<(integer)>
-public "enableVsync"(): $OptionInstance<(boolean)>
-public "rawMouseInput"(): $OptionInstance<(boolean)>
-public "glintStrength"(): $OptionInstance<(double)>
-public "framerateLimit"(): $OptionInstance<(integer)>
+public "getSoundSourceOptionInstance"(arg0: $SoundSource$$Type): $OptionInstance<(double)>
+public "invokeProcessOptionsFancyMenu"(arg0: $Options$FieldAccess$$Type): void
+public "onboardingAccessibilityFinished"(): void
 public "hideLightningFlash"(): $OptionInstance<(boolean)>
 public "simulationDistance"(): $OptionInstance<(integer)>
-public "hideSplashTexts"(): $OptionInstance<(boolean)>
-public "touchscreen"(): $OptionInstance<(boolean)>
-public "operatorItemsTab"(): $OptionInstance<(boolean)>
-public "notificationDisplayTime"(): $OptionInstance<(double)>
-public "menuBackgroundBlurriness"(): $OptionInstance<(integer)>
-public "loadSelectedResourcePacks"(arg0: $PackRepository$$Type): void
-public "dumpOptionsForReport"(): StringJS
-public "getEffectiveRenderDistance"(): integer
-public "telemetryOptInExtra"(): $OptionInstance<(boolean)>
-public "getCloudsType"(): $CloudStatus
-public "getSoundSourceOptionInstance"(arg0: $SoundSource$$Type): $OptionInstance<(double)>
-public "setServerRenderDistance"(arg0: integer): void
-public "japaneseGlyphVariants"(): $OptionInstance<(boolean)>
-public "discreteMouseScroll"(): $OptionInstance<(boolean)>
-public "realmsNotifications"(): $OptionInstance<(boolean)>
-public "backgroundForChatOnly"(): $OptionInstance<(boolean)>
-public "showAutosaveIndicator"(): $OptionInstance<(boolean)>
-public "updateResourcePacks"(arg0: $PackRepository$$Type): void
-public "getSoundSourceVolume"(arg0: $SoundSource$$Type): float
-public "entityDistanceScaling"(): $OptionInstance<(double)>
-public "chatHeightUnfocused"(): $OptionInstance<(double)>
-public "mouseWheelSensitivity"(): $OptionInstance<(double)>
-public "darknessEffectScale"(): $OptionInstance<(double)>
-public "getBackgroundOpacity"(arg0: float): float
-public static "genericValueOrOffLabel"(arg0: $Component$$Type, arg1: integer): $Component
-public "buildPlayerInformation"(): $ClientInformation
-public "getModelPartsFancyMenu"(): $Set
-public "chatLinksPrompt"(): $OptionInstance<(boolean)>
-public "textBackgroundOpacity"(): $OptionInstance<(double)>
-public "chatLinks"(): $OptionInstance<(boolean)>
+public "renderDistance"(): $OptionInstance<(integer)>
+public "reducedDebugInfo"(): $OptionInstance<(boolean)>
+public "toggleCrouch"(): $OptionInstance<(boolean)>
+public "toggleSprint"(): $OptionInstance<(boolean)>
+public "hideMatchedNames"(): $OptionInstance<(boolean)>
+public "directionalAudio"(): $OptionInstance<(boolean)>
+public "onlyShowSecureChat"(): $OptionInstance<(boolean)>
+public "chatHeightFocused"(): $OptionInstance<(double)>
+public "useNativeTransport"(): boolean
+public "attackIndicator"(): $OptionInstance<($AttackIndicatorStatus)>
+public "panoramaSpeed"(): $OptionInstance<(double)>
+public "narratorHotkey"(): $OptionInstance<(boolean)>
+public "allowServerListing"(): $OptionInstance<(boolean)>
+public "chatLineSpacing"(): $OptionInstance<(double)>
+public "highContrast"(): $OptionInstance<(boolean)>
+public "sensitivity"(): $OptionInstance<(double)>
+public "autoSuggestions"(): $OptionInstance<(boolean)>
+public "invertYMouse"(): $OptionInstance<(boolean)>
+public "showSubtitles"(): $OptionInstance<(boolean)>
+public "entityShadows"(): $OptionInstance<(boolean)>
+public "soundDevice"(): $OptionInstance<(StringJS)>
+public static "genericValueLabel"(arg0: $Component$$Type, arg1: integer): $Component
+public static "genericValueLabel"(arg0: $Component$$Type, arg1: $Component$$Type): $Component
+public "toggleModelPart"(arg0: $PlayerModelPart$$Type, arg1: boolean): void
+public "isModelPartEnabled"(arg0: $PlayerModelPart$$Type): boolean
+public "broadcastOptions"(): void
+public "forceUnicodeFont"(): $OptionInstance<(boolean)>
+public "chatColors"(): $OptionInstance<(boolean)>
+public "mainHand"(): $OptionInstance<($HumanoidArm)>
+public "glintSpeed"(): $OptionInstance<(double)>
+public "chatVisibility"(): $OptionInstance<($ChatVisiblity)>
+public "ambientOcclusion"(): $OptionInstance<(boolean)>
+public "graphicsMode"(): $OptionInstance<($GraphicsStatus)>
+public "cloudStatus"(): $OptionInstance<($CloudStatus)>
+public "biomeBlendRadius"(): $OptionInstance<(integer)>
 get "file"(): $File
-set "cameraType"(value: $CameraType$$Type)
-get "cameraType"(): $CameraType
-get "effectiveRenderDistance"(): integer
-get "cloudsType"(): $CloudStatus
 set "serverRenderDistance"(value: integer)
 get "modelPartsFancyMenu"(): $Set
+get "cloudsType"(): $CloudStatus
+get "effectiveRenderDistance"(): integer
+get "cameraType"(): $CameraType
+set "cameraType"(value: $CameraType$$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -235,8 +235,8 @@ import {$Path$$Type} from "java.nio.file.Path"
 export class $CommandHistory {
 constructor(arg0: $Path$$Type)
 
-public "history"(): $Collection<(StringJS)>
 public "addCommand"(arg0: StringJS): void
+public "history"(): $Collection<(StringJS)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -257,8 +257,8 @@ import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$OptionInstance$TooltipSupplier$$Type} from "net.minecraft.client.OptionInstance$TooltipSupplier"
 import {$Codec, $Codec$$Type} from "com.mojang.serialization.Codec"
 import {$Function} from "java.util.function.Function"
-import {$OptionInstance} from "net.minecraft.client.OptionInstance"
 import {$OptionInstance$CycleableValueSet$$Interface} from "net.minecraft.client.OptionInstance$CycleableValueSet"
+import {$OptionInstance} from "net.minecraft.client.OptionInstance"
 import {$Record} from "java.lang.Record"
 
 export class $OptionInstance$Enum<T> extends $Record implements $OptionInstance$CycleableValueSet$$Interface<(T)> {
@@ -269,8 +269,8 @@ public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "values"(): $List<(T)>
 public "hashCode"(): integer
-public "valueListSupplier"(): $CycleButton$ValueListSupplier<(T)>
 public "codec"(): $Codec<(T)>
+public "valueListSupplier"(): $CycleButton$ValueListSupplier<(T)>
 public "createButton"(arg0: $OptionInstance$TooltipSupplier$$Type<(T)>, arg1: $Options$$Type, arg2: integer, arg3: integer, arg4: integer, arg5: $Consumer$$Type<(T)>): $Function<($OptionInstance<(T)>), ($AbstractWidget)>
 }
 /**
@@ -283,50 +283,56 @@ export type $OptionInstance$Enum$$Type<T> = ({"values"?: $List$$Type<(T)>, "code
  */
 export type $OptionInstance$Enum$$Original<T> = $OptionInstance$Enum<(T)>;}
 declare module "net.minecraft.client.MouseHandler" {
-import {$MouseHandlerAccessor$$Interface as $MouseHandlerAccessor$0$$Interface} from "com.simibubi.create.foundation.mixin.accessor.MouseHandlerAccessor"
+import {$MouseHandlerAccessor$$Interface as $MouseHandlerAccessor$1$$Interface} from "com.simibubi.create.foundation.mixin.accessor.MouseHandlerAccessor"
+import {$MouseHandlerAccessor$$Interface as $MouseHandlerAccessor$0$$Interface} from "it.hurts.shatterbyte.clavis.common.mixin.MouseHandlerAccessor"
 import {$CallbackInfo$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfo"
-import {$MouseHandlerAccessor$$Interface as $MouseHandlerAccessor$1$$Interface} from "team.creative.creativecore.mixin.MouseHandlerAccessor"
+import {$MouseHandlerAccessor$$Interface as $MouseHandlerAccessor$2$$Interface} from "team.creative.creativecore.mixin.MouseHandlerAccessor"
 import {$IMixinMouseHandler$$Interface} from "de.keksuccino.konkrete.mixin.mixins.client.IMixinMouseHandler"
 import {$Minecraft$$Type} from "net.minecraft.client.Minecraft"
 import {$LocalDoubleRef$$Type} from "com.llamalad7.mixinextras.sugar.ref.LocalDoubleRef"
 import {$MouseHandlerAccessor$$Interface} from "net.blay09.mods.balm.mixin.MouseHandlerAccessor"
 
-export class $MouseHandler implements $MouseHandlerAccessor$$Interface, $IMixinMouseHandler$$Interface, $MouseHandlerAccessor$1$$Interface, $MouseHandlerAccessor$0$$Interface {
+export class $MouseHandler implements $MouseHandlerAccessor$$Interface, $IMixinMouseHandler$$Interface, $MouseHandlerAccessor$0$$Interface, $MouseHandlerAccessor$2$$Interface, $MouseHandlerAccessor$1$$Interface {
 constructor(arg0: $Minecraft$$Type)
 
 public "setup"(arg0: long): void
-public "getActiveButtonKonkrete"(): integer
-public "getLastHandleMovementTime"(): double
-public "handler$dnn000$ok_zoomer$applyZoomChanges"(arg0: double, arg1: $CallbackInfo$$Type, arg2: $LocalDoubleRef$$Type, arg3: $LocalDoubleRef$$Type, arg4: double): void
-public "grabMouse"(): void
-public "isMouseGrabbed"(): boolean
-public "getMouseY"(): double
-public "getMouseX"(): double
 public "xpos"(): double
 public "ypos"(): double
-public "isRightPressed"(): boolean
-public "cursorEntered"(): void
-public "setIgnoreFirstMove"(): void
-public "releaseMouse"(): void
+public "grabMouse"(): void
+public "setYpos"(arg0: double): void
+public "getXpos"(): double
+public "setXpos"(arg0: double): void
+public "getYpos"(): double
+public "getLastHandleMovementTime"(): double
+public "getActiveButtonKonkrete"(): integer
 public "handleAccumulatedMovement"(): void
-public "isMiddlePressed"(): boolean
+public "isRightPressed"(): boolean
+public "releaseMouse"(): void
+public "getMouseX"(): double
+public "getMouseY"(): double
 public "isLeftPressed"(): boolean
+public "isMiddlePressed"(): boolean
 public "getXVelocity"(): double
 public "getYVelocity"(): double
+public "invokeOnMove"(arg0: long, arg1: double, arg2: double): void
 public "create$setXPos"(arg0: double): void
 public "create$setYPos"(arg0: double): void
+public "isMouseGrabbed"(): boolean
+public "handler$eea000$ok_zoomer$applyZoomChanges"(arg0: double, arg1: $CallbackInfo$$Type, arg2: $LocalDoubleRef$$Type, arg3: $LocalDoubleRef$$Type, arg4: double): void
+public "cursorEntered"(): void
+public "setIgnoreFirstMove"(): void
 set "up"(value: long)
-get "activeButtonKonkrete"(): integer
 get "lastHandleMovementTime"(): double
-get "mouseGrabbed"(): boolean
-get "mouseY"(): double
-get "mouseX"(): double
+get "activeButtonKonkrete"(): integer
 get "rightPressed"(): boolean
-get "ignoreFirstMove"(): void
-get "middlePressed"(): boolean
+get "mouseX"(): double
+get "mouseY"(): double
 get "leftPressed"(): boolean
+get "middlePressed"(): boolean
 get "XVelocity"(): double
 get "YVelocity"(): double
+get "mouseGrabbed"(): boolean
+get "ignoreFirstMove"(): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -348,8 +354,8 @@ static readonly "FIRST_PERSON": $CameraType
 public static "values"(): ($CameraType)[]
 public static "valueOf"(arg0: StringJS): $CameraType
 public "isMirrored"(): boolean
-public "isFirstPerson"(): boolean
 public "cycle"(): $CameraType
+public "isFirstPerson"(): boolean
 get "mirrored"(): boolean
 get "firstPerson"(): boolean
 }
@@ -379,9 +385,9 @@ readonly "known": $Set<($ResourceLocation)>
 
 constructor()
 
-public "getCollection"(arg0: $RecipeBookCategories$$Type): $List<($RecipeCollection)>
 public "setupCollections"(arg0: $Iterable$$Type<($RecipeHolder$$Type<(never)>)>, arg1: $RegistryAccess$$Type): void
 public "getCollections"(): $List<($RecipeCollection)>
+public "getCollection"(arg0: $RecipeBookCategories$$Type): $List<($RecipeCollection)>
 get "collections"(): $List<($RecipeCollection)>
 }
 /**
@@ -407,9 +413,9 @@ public "getName"(): $Component
 public static "values"(): ($NarratorStatus)[]
 public static "valueOf"(arg0: StringJS): $NarratorStatus
 public "getId"(): integer
-public "shouldNarrateChat"(): boolean
 public static "byId"(arg0: integer): $NarratorStatus
 public "shouldNarrateSystem"(): boolean
+public "shouldNarrateChat"(): boolean
 get "name"(): $Component
 get "id"(): integer
 }
@@ -424,8 +430,8 @@ export type $NarratorStatus$$Type = (("off") | ("all") | ("chat") | ("system"));
 export type $NarratorStatus$$Original = $NarratorStatus;}
 declare module "net.minecraft.client.ParticleStatus" {
 import {$Enum} from "java.lang.Enum"
-import {$OptionEnum$$Interface} from "net.minecraft.util.OptionEnum"
 import {$Component} from "net.minecraft.network.chat.Component"
+import {$OptionEnum$$Interface} from "net.minecraft.util.OptionEnum"
 
 export class $ParticleStatus extends $Enum<($ParticleStatus)> implements $OptionEnum$$Interface {
 static readonly "ALL": $ParticleStatus
@@ -466,25 +472,25 @@ readonly "widthProvider": $StringSplitter$WidthProvider
 
 constructor(arg0: $StringSplitter$WidthProvider$$Type)
 
+public "stringWidth"(arg0: $FormattedCharSequence$$Type): float
+public "stringWidth"(arg0: $FormattedText$$Type): float
+public "stringWidth"(arg0: StringJS): float
 public "splitLines"(arg0: $FormattedText$$Type, arg1: integer, arg2: $Style$$Type): $List<($FormattedText)>
 public "splitLines"(arg0: StringJS, arg1: integer, arg2: $Style$$Type): $List<($FormattedText)>
 public "splitLines"(arg0: StringJS, arg1: integer, arg2: $Style$$Type, arg3: boolean, arg4: $StringSplitter$LinePosConsumer$$Type): void
 public "splitLines"(arg0: $FormattedText$$Type, arg1: integer, arg2: $Style$$Type, arg3: $FormattedText$$Type): $List<($FormattedText)>
 public "splitLines"(arg0: $FormattedText$$Type, arg1: integer, arg2: $Style$$Type, arg3: $BiConsumer$$Type<($FormattedText), (boolean)>): void
-public "stringWidth"(arg0: $FormattedCharSequence$$Type): float
-public "stringWidth"(arg0: $FormattedText$$Type): float
-public "stringWidth"(arg0: StringJS): float
 public "componentStyleAtWidth"(arg0: $FormattedText$$Type, arg1: integer): $Style
 public "componentStyleAtWidth"(arg0: $FormattedCharSequence$$Type, arg1: integer): $Style
 public static "getWordPosition"(arg0: StringJS, arg1: integer, arg2: integer, arg3: boolean): integer
-public "plainIndexAtWidth"(arg0: StringJS, arg1: integer, arg2: $Style$$Type): integer
-public "getWidthProvider"(): $StringSplitter$WidthProvider
-public "findLineBreak"(arg0: StringJS, arg1: integer, arg2: $Style$$Type): integer
-public "formattedHeadByWidth"(arg0: StringJS, arg1: integer, arg2: $Style$$Type): StringJS
-public "formattedIndexByWidth"(arg0: StringJS, arg1: integer, arg2: $Style$$Type): integer
 public "plainTailByWidth"(arg0: StringJS, arg1: integer, arg2: $Style$$Type): StringJS
-public "plainHeadByWidth"(arg0: StringJS, arg1: integer, arg2: $Style$$Type): StringJS
 public "headByWidth"(arg0: $FormattedText$$Type, arg1: integer, arg2: $Style$$Type): $FormattedText
+public "plainHeadByWidth"(arg0: StringJS, arg1: integer, arg2: $Style$$Type): StringJS
+public "plainIndexAtWidth"(arg0: StringJS, arg1: integer, arg2: $Style$$Type): integer
+public "findLineBreak"(arg0: StringJS, arg1: integer, arg2: $Style$$Type): integer
+public "getWidthProvider"(): $StringSplitter$WidthProvider
+public "formattedIndexByWidth"(arg0: StringJS, arg1: integer, arg2: $Style$$Type): integer
+public "formattedHeadByWidth"(arg0: StringJS, arg1: integer, arg2: $Style$$Type): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -512,8 +518,8 @@ export type $Options$OptionAccess$$Type = ($Options$OptionAccess);
  */
 export type $Options$OptionAccess$$Original = $Options$OptionAccess;}
 declare module "net.minecraft.client.RecipeBookCategories" {
-import {$Map, $Map$$Type} from "java.util.Map"
 import {$ItemStack} from "net.minecraft.world.item.ItemStack"
+import {$Map, $Map$$Type} from "java.util.Map"
 import {$Enum} from "java.lang.Enum"
 import {$RecipeBookType$$Type} from "net.minecraft.world.inventory.RecipeBookType"
 import {$List, $List$$Type} from "java.util.List"
@@ -545,6 +551,7 @@ static readonly "BLAST_FURNACE_BLOCKS": $RecipeBookCategories
 static readonly "BLAST_FURNACE_CATEGORIES": $List<($RecipeBookCategories)>
 static readonly "FARMERSDELIGHT_COOKING_MEALS": $RecipeBookCategories
 static readonly "REFURBISHED_FURNITURE_FREEZER_BLOCKS": $RecipeBookCategories
+static readonly "BREWINANDCHEWIN_FERMENTING_SEARCH": $RecipeBookCategories
 static readonly "REFURBISHED_FURNITURE_FREEZER_MISC": $RecipeBookCategories
 static readonly "CRAFTING_MISC": $RecipeBookCategories
 static readonly "CAMPFIRE": $RecipeBookCategories
@@ -561,26 +568,28 @@ static readonly "FURNACE_SEARCH": $RecipeBookCategories
 static readonly "REFURBISHED_FURNITURE_MICROWAVE_FOOD": $RecipeBookCategories
 static readonly "BLAST_FURNACE_SEARCH": $RecipeBookCategories
 static readonly "UNKNOWN": $RecipeBookCategories
+static readonly "BREWINANDCHEWIN_FERMENTING_MEALS": $RecipeBookCategories
 static readonly "REFURBISHED_FURNITURE_FREEZER_ITEMS": $RecipeBookCategories
 static readonly "FURNACE_MISC": $RecipeBookCategories
+static readonly "BREWINANDCHEWIN_FERMENTING_DRINKS": $RecipeBookCategories
 static readonly "REFURBISHED_FURNITURE_OVEN_ITEMS": $RecipeBookCategories
 
 public static "values"(): ($RecipeBookCategories)[]
 public static "valueOf"(arg0: StringJS): $RecipeBookCategories
 public static "getExtensionInfo"(): $ExtensionInfo
 public static "getCategories"(arg0: $RecipeBookType$$Type): $List<($RecipeBookCategories)>
-public static "setAGGREGATE_CATEGORIES$connector_$md$6d3b50$0"(arg0: $Map$$Type): void
 public "getIconItems"(): $List<($ItemStack)>
+public static "setAGGREGATE_CATEGORIES$connector_$md$1ae6d3$0"(arg0: $Map$$Type): void
 public static "setAGGREGATE_CATEGORIES"(arg0: $Map$$Type<($RecipeBookCategories$$Type), ($List$$Type<($RecipeBookCategories$$Type)>)>): void
 get "extensionInfo"(): $ExtensionInfo
-set "AGGREGATE_CATEGORIES$connector_$md$6d3b50$0"(value: $Map$$Type)
 get "iconItems"(): $List<($ItemStack)>
+set "AGGREGATE_CATEGORIES$connector_$md$1ae6d3$0"(value: $Map$$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $RecipeBookCategories$$Type = (("crafting_search") | ("crafting_building_blocks") | ("crafting_redstone") | ("crafting_equipment") | ("crafting_misc") | ("furnace_search") | ("furnace_food") | ("furnace_blocks") | ("furnace_misc") | ("blast_furnace_search") | ("blast_furnace_blocks") | ("blast_furnace_misc") | ("smoker_search") | ("smoker_food") | ("stonecutter") | ("smithing") | ("campfire") | ("unknown") | ("farmersdelight_cooking_drinks") | ("farmersdelight_cooking_meals") | ("farmersdelight_cooking_misc") | ("farmersdelight_cooking_search") | ("refurbished_furniture_freezer_blocks") | ("refurbished_furniture_freezer_food") | ("refurbished_furniture_freezer_items") | ("refurbished_furniture_freezer_misc") | ("refurbished_furniture_freezer_search") | ("refurbished_furniture_microwave_blocks") | ("refurbished_furniture_microwave_food") | ("refurbished_furniture_microwave_items") | ("refurbished_furniture_microwave_misc") | ("refurbished_furniture_microwave_search") | ("refurbished_furniture_oven_blocks") | ("refurbished_furniture_oven_food") | ("refurbished_furniture_oven_items") | ("refurbished_furniture_oven_misc") | ("refurbished_furniture_oven_search"));
+export type $RecipeBookCategories$$Type = (("crafting_search") | ("crafting_building_blocks") | ("crafting_redstone") | ("crafting_equipment") | ("crafting_misc") | ("furnace_search") | ("furnace_food") | ("furnace_blocks") | ("furnace_misc") | ("blast_furnace_search") | ("blast_furnace_blocks") | ("blast_furnace_misc") | ("smoker_search") | ("smoker_food") | ("stonecutter") | ("smithing") | ("campfire") | ("unknown") | ("brewinandchewin_fermenting_drinks") | ("brewinandchewin_fermenting_meals") | ("brewinandchewin_fermenting_search") | ("farmersdelight_cooking_drinks") | ("farmersdelight_cooking_meals") | ("farmersdelight_cooking_misc") | ("farmersdelight_cooking_search") | ("refurbished_furniture_freezer_blocks") | ("refurbished_furniture_freezer_food") | ("refurbished_furniture_freezer_items") | ("refurbished_furniture_freezer_misc") | ("refurbished_furniture_freezer_search") | ("refurbished_furniture_microwave_blocks") | ("refurbished_furniture_microwave_food") | ("refurbished_furniture_microwave_items") | ("refurbished_furniture_microwave_misc") | ("refurbished_furniture_microwave_search") | ("refurbished_furniture_oven_blocks") | ("refurbished_furniture_oven_food") | ("refurbished_furniture_oven_items") | ("refurbished_furniture_oven_misc") | ("refurbished_furniture_oven_search"));
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -659,15 +668,15 @@ import {$LevelStorageSource$LevelStorageAccess$$Type} from "net.minecraft.world.
 import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$CallbackInfo$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfo"
 import {$PlayerSocialManager} from "net.minecraft.client.gui.screens.social.PlayerSocialManager"
-import {$ClientPacketListener} from "net.minecraft.client.multiplayer.ClientPacketListener"
 import {$MobEffectTextureManager} from "net.minecraft.client.resources.MobEffectTextureManager"
-import {$Minecraft$ChatStatus} from "net.minecraft.client.Minecraft$ChatStatus"
 import {$IXaeroMinimapMinecraftClient$$Interface} from "xaero.common.core.IXaeroMinimapMinecraftClient"
+import {$Minecraft$ChatStatus} from "net.minecraft.client.Minecraft$ChatStatus"
+import {$DeltaTracker$Timer} from "net.minecraft.client.DeltaTracker$Timer"
 import {$ResourceLoadStateTracker} from "net.minecraft.client.ResourceLoadStateTracker"
 import {$ServerData} from "net.minecraft.client.multiplayer.ServerData"
 import {$LocalPlayer} from "net.minecraft.client.player.LocalPlayer"
-import {$MinecraftClientKJS$$Interface} from "dev.latvian.mods.kubejs.core.MinecraftClientKJS"
 import {$Proxy} from "java.net.Proxy"
+import {$MinecraftClientKJS$$Interface} from "dev.latvian.mods.kubejs.core.MinecraftClientKJS"
 import {$InputType, $InputType$$Type} from "net.minecraft.client.InputType"
 import {$MusicManager} from "net.minecraft.client.sounds.MusicManager"
 import {$PaintingTextureManager} from "net.minecraft.client.resources.PaintingTextureManager"
@@ -679,8 +688,8 @@ import {$ProfileKeyPairManager} from "net.minecraft.client.multiplayer.ProfileKe
 import {$GameRenderer} from "net.minecraft.client.renderer.GameRenderer"
 import {$WindowEventHandler$$Interface} from "com.mojang.blaze3d.platform.WindowEventHandler"
 import {$CrashReport, $CrashReport$$Type} from "net.minecraft.CrashReport"
-import {$SkinManager} from "net.minecraft.client.resources.SkinManager"
 import {$Thread} from "java.lang.Thread"
+import {$SkinManager} from "net.minecraft.client.resources.SkinManager"
 import {$MinecraftSessionService} from "com.mojang.authlib.minecraft.MinecraftSessionService"
 import {$Options, $Options$$Type} from "net.minecraft.client.Options"
 import {$Tutorial} from "net.minecraft.client.tutorial.Tutorial"
@@ -688,9 +697,9 @@ import {$TextureManager} from "net.minecraft.client.renderer.texture.TextureMana
 import {$MinecraftClientAccessor$$Interface as $MinecraftClientAccessor$0$$Interface} from "net.fabricmc.fabric.mixin.networking.client.accessor.MinecraftClientAccessor"
 import {$Window} from "com.mojang.blaze3d.platform.Window"
 import {$Music} from "net.minecraft.sounds.Music"
-import {$RegistryAccess$$Type} from "net.minecraft.core.RegistryAccess"
-import {$EntityModelSet} from "net.minecraft.client.model.geom.EntityModelSet"
 import {$ResourceManager} from "net.minecraft.server.packs.resources.ResourceManager"
+import {$EntityModelSet} from "net.minecraft.client.model.geom.EntityModelSet"
+import {$RegistryAccess$$Type} from "net.minecraft.core.RegistryAccess"
 import {$Screen, $Screen$$Type} from "net.minecraft.client.gui.screens.Screen"
 import {$DirectoryValidator} from "net.minecraft.world.level.validation.DirectoryValidator"
 import {$ReportingContext} from "net.minecraft.client.multiplayer.chat.report.ReportingContext"
@@ -698,9 +707,9 @@ import {$Font} from "net.minecraft.client.gui.Font"
 import {$IMinecraftExtension$$Interface} from "net.neoforged.neoforge.client.extensions.IMinecraftExtension"
 import {$Minecraft$GameLoadCookie$$Type} from "net.minecraft.client.Minecraft$GameLoadCookie"
 import {$DebugScreenOverlay} from "net.minecraft.client.gui.components.DebugScreenOverlay"
-import {$Function} from "java.util.function.Function"
 import {$WorldStem$$Type} from "net.minecraft.server.WorldStem"
 import {$SoundManager} from "net.minecraft.client.sounds.SoundManager"
+import {$Function} from "java.util.function.Function"
 import {$KeyboardHandler} from "net.minecraft.client.KeyboardHandler"
 import {$ReentrantBlockableEventLoop} from "net.minecraft.util.thread.ReentrantBlockableEventLoop"
 import {$RenderTarget} from "com.mojang.blaze3d.pipeline.RenderTarget"
@@ -715,10 +724,10 @@ import {$RealmsDataFetcher} from "com.mojang.realmsclient.gui.RealmsDataFetcher"
 import {$ParticleEngine} from "net.minecraft.client.particle.ParticleEngine"
 import {$ToastComponent} from "net.minecraft.client.gui.components.toasts.ToastComponent"
 import {$MinecraftAccessor$$Interface} from "com.simibubi.create.foundation.mixin.accessor.MinecraftAccessor"
-import {$ProfilerFiller} from "net.minecraft.util.profiling.ProfilerFiller"
-import {$ItemRenderer} from "net.minecraft.client.renderer.entity.ItemRenderer"
 import {$DataFixer} from "com.mojang.datafixers.DataFixer"
+import {$ItemRenderer} from "net.minecraft.client.renderer.entity.ItemRenderer"
 import {$Overlay, $Overlay$$Type} from "net.minecraft.client.gui.screens.Overlay"
+import {$ProfilerFiller} from "net.minecraft.util.profiling.ProfilerFiller"
 import {$VanillaPackResources} from "net.minecraft.server.packs.VanillaPackResources"
 import {$IWorldMapMinecraftClient$$Interface} from "xaero.map.core.IWorldMapMinecraftClient"
 import {$ReceivingLevelScreen$Reason$$Type} from "net.minecraft.client.gui.screens.ReceivingLevelScreen$Reason"
@@ -735,16 +744,15 @@ import {$Locale} from "java.util.Locale"
 import {$ModCheck} from "net.minecraft.util.ModCheck"
 import {$GameNarrator} from "net.minecraft.client.GameNarrator"
 import {$Consumer$$Type} from "java.util.function.Consumer"
+import {$BlockEntityRenderDispatcher} from "net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher"
 import {$ClientLevel, $ClientLevel$$Type} from "net.minecraft.client.multiplayer.ClientLevel"
 import {$HotbarManager} from "net.minecraft.client.HotbarManager"
-import {$BlockEntityRenderDispatcher} from "net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher"
-import {$IntegratedServer} from "net.minecraft.client.server.IntegratedServer"
 import {$GuiSpriteManager} from "net.minecraft.client.gui.GuiSpriteManager"
+import {$IntegratedServer} from "net.minecraft.client.server.IntegratedServer"
 import {$LevelStorageSource} from "net.minecraft.world.level.storage.LevelStorageSource"
-import {$StoringChunkProgressListener} from "net.minecraft.server.level.progress.StoringChunkProgressListener"
-import {$DownloadedPackSource} from "net.minecraft.client.resources.server.DownloadedPackSource"
 import {$BanDetails} from "com.mojang.authlib.minecraft.BanDetails"
-import {$DeltaTracker} from "net.minecraft.client.DeltaTracker"
+import {$DownloadedPackSource} from "net.minecraft.client.resources.server.DownloadedPackSource"
+import {$StoringChunkProgressListener} from "net.minecraft.server.level.progress.StoringChunkProgressListener"
 import {$Path} from "java.nio.file.Path"
 import {$BlockEntity$$Type} from "net.minecraft.world.level.block.entity.BlockEntity"
 import {$MinecraftClientAccessor$$Interface} from "traben.entity_model_features.mixin.accessor.MinecraftClientAccessor"
@@ -763,16 +771,16 @@ import {$TextureAtlasSprite} from "net.minecraft.client.renderer.texture.Texture
 import {$MapDecorationTextureManager} from "net.minecraft.client.resources.MapDecorationTextureManager"
 import {$QuickPlayLog} from "net.minecraft.client.quickplay.QuickPlayLog"
 import {$PackRepository, $PackRepository$$Type} from "net.minecraft.server.packs.repository.PackRepository"
-import {$LanguageManager, $LanguageManager$$Type} from "net.minecraft.client.resources.language.LanguageManager"
 import {$KeyMapping$$Type} from "net.minecraft.client.KeyMapping"
+import {$LanguageManager, $LanguageManager$$Type} from "net.minecraft.client.resources.language.LanguageManager"
 import {$ModelManager} from "net.minecraft.client.resources.model.ModelManager"
 import {$BlockColors} from "net.minecraft.client.color.block.BlockColors"
 import {$WorldOpenFlows} from "net.minecraft.client.gui.screens.worldselection.WorldOpenFlows"
 import {$ItemColors} from "net.minecraft.client.color.item.ItemColors"
 import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
 import {$EntityRenderDispatcher} from "net.minecraft.client.renderer.entity.EntityRenderDispatcher"
-import {$Connection} from "net.minecraft.network.Connection"
 import {$ReportEnvironment$$Type} from "net.minecraft.client.multiplayer.chat.report.ReportEnvironment"
+import {$Connection} from "net.minecraft.network.Connection"
 import {$ClientTelemetryManager} from "net.minecraft.client.telemetry.ClientTelemetryManager"
 
 export class $Minecraft extends $ReentrantBlockableEventLoop<($Runnable)> implements $WindowEventHandler$$Interface, $IMinecraftExtension$$Interface, $MinecraftClientAccessor$1$$Interface, $IXaeroMinimapMinecraftClient$$Interface, $IWorldMapMinecraftClient$$Interface, $MinecraftClientAccessor$$Interface, $MinecraftClientAccessor$0$$Interface, $MinecraftClientKJS$$Interface, $IMixinMinecraft$$Interface, $MinecraftAccessor$$Interface {
@@ -796,6 +804,7 @@ readonly "fontFilterFishy": $Font
  "missTime": integer
  "level": $ClientLevel
 readonly "gameDirectory": $File
+static readonly "$assertionsDisabled": boolean
  "gameThread": $Thread
  "sectionPath": boolean
 readonly "debugRenderer": $DebugRenderer
@@ -814,7 +823,10 @@ readonly "font": $Font
 
 constructor(arg0: $GameConfig$$Type)
 
-public "getConnection"(): $ClientPacketListener
+public "getConnection"(): $Connection
+public "isLocalServer"(): boolean
+public "quickPlayLog"(): $QuickPlayLog
+public "realmsDataFetcher"(): $RealmsDataFetcher
 public "run"(): void
 public static "getInstance"(): $Minecraft
 public "stop"(): void
@@ -823,277 +835,273 @@ public "close"(): void
 public "managedBlock"(pIsDone: $BooleanSupplier$$Type): void
 public "tick"(): void
 public "setLevel"(arg0: $ClientLevel$$Type, arg1: $ReceivingLevelScreen$Reason$$Type): void
+public "handler$enp000$bridgingmod$onItemUse"(info: $CallbackInfo$$Type): void
+public "getItemRenderer"(): $ItemRenderer
+public "getGuiSprites"(): $GuiSpriteManager
 public "getProxy"(): $Proxy
-public "handler$bia000$transition$fillReport"(theCrash: $CrashReport$$Type, ci: $CallbackInfoReturnable$$Type): void
-public "getCurrentServer"(): $ServerData
-public "pauseGame"(arg0: boolean): void
-public "getFps"(): integer
-public "isBlocked"(arg0: $UUID$$Type): boolean
-public "getUser"(): $User
 public "isDemo"(): boolean
 public "shouldRun"(arg0: $Runnable$$Type): boolean
-public "getOverlay"(): $Overlay
 public "isPaused"(): boolean
-public "setScreen"(arg0: $Screen$$Type): void
-public "getToasts"(): $ToastComponent
-public "delayCrash"(arg0: $CrashReport$$Type): void
-public static "fillReport"(arg0: $Minecraft$$Type, arg1: $LanguageManager$$Type, arg2: StringJS, arg3: $Options$$Type, arg4: $CrashReport$$Type): void
-public "fillReport"(arg0: $CrashReport$$Type): $CrashReport
+public "isBlocked"(arg0: $UUID$$Type): boolean
+public "getOverlay"(): $Overlay
+public "tell"(arg0: any): void
+public "disconnect"(arg0: $Screen$$Type, arg1: boolean): void
 public "disconnect"(): void
 public "disconnect"(arg0: $Screen$$Type): void
-public "disconnect"(arg0: $Screen$$Type, arg1: boolean): void
-public "getVanillaPackResources"(): $VanillaPackResources
-public "getCameraEntity"(): $Entity
-public "clearClientLevel"(arg0: $Screen$$Type): void
-public "forceSetScreen"(arg0: $Screen$$Type): void
-public "allowsTelemetry"(): boolean
-public "getGpuUtilization"(): double
-public "isNameBanned"(): boolean
-public "allowsRealms"(): boolean
-public "doWorldLoad"(arg0: $LevelStorageSource$LevelStorageAccess$$Type, arg1: $PackRepository$$Type, arg2: $WorldStem$$Type, arg3: boolean): void
-public "addCustomNbtData"(arg0: $ItemStack$$Type, arg1: $BlockEntity$$Type, arg2: $RegistryAccess$$Type): void
-public static "useFancyGraphics"(): boolean
-public "getGameProfile"(): $GameProfile
-public "getTextureAtlas"(arg0: $ResourceLocation$$Type): $Function<($ResourceLocation), ($TextureAtlasSprite)>
-public "getLanguageManager"(): $LanguageManager
-public static "renderNames"(): boolean
-public "isLocalPlayer"(arg0: $UUID$$Type): boolean
-public "getSoundManager"(): $SoundManager
-public "delayTextureReload"(): $CompletableFuture<(void)>
-public "isSingleplayer"(): boolean
-public static "getLauncherBrand"(): StringJS
-public "getResourceManager"(): $ResourceManager
-public "getLastInputType"(): $InputType
-public "setCameraEntity"(arg0: $Entity$$Type): void
-public "getSkinManager"(): $SkinManager
-public "getItemColors"(): $ItemColors
-public "getNarrator"(): $GameNarrator
-public "getRunningThread"(): $Thread
-public "isWindowActive"(): boolean
-public "getChatListener"(): $ChatListener
-public "getTutorial"(): $Tutorial
-public "updateMaxMipLevel"(arg0: integer): void
-public "getEntityModels"(): $EntityModelSet
-public "wrapRunnable"(arg0: $Runnable$$Type): $Runnable
-public "getHotbarManager"(): $HotbarManager
-public "getBlockColors"(): $BlockColors
-public "getSplashManager"(): $SplashManager
-public "getFixerUpper"(): $DataFixer
-public "getTitle"(): StringJS
-public "create$setMissTime"(arg0: integer): void
-public "handler$gcl000$fabric_events_interaction_v0$cancelItemPick"(arg0: $CallbackInfo$$Type): void
-public "handler$fef000$armorposer$shouldEntityAppearGlowing"(arg0: $Entity$$Type, arg1: $CallbackInfoReturnable$$Type): void
-public "getItemRenderer"(): $ItemRenderer
-public "quickPlayLog"(): $QuickPlayLog
-public "realmsDataFetcher"(): $RealmsDataFetcher
-public "renderBuffers"(): $RenderBuffers
-public "allowsMultiplayer"(): boolean
-public "isLocalServer"(): boolean
-public "getGuiSprites"(): $GuiSpriteManager
+public "fillReport"(arg0: $CrashReport$$Type): $CrashReport
+public static "fillReport"(arg0: $Minecraft$$Type, arg1: $LanguageManager$$Type, arg2: StringJS, arg3: $Options$$Type, arg4: $CrashReport$$Type): void
+public "delayCrash"(arg0: $CrashReport$$Type): void
+public "getToasts"(): $ToastComponent
+public "getFps"(): integer
+public "pauseGame"(arg0: boolean): void
+public "getUser"(): $User
 public static "crash"(arg0: $Minecraft$$Type, arg1: $File$$Type, arg2: $CrashReport$$Type): void
-public "isRunning"(): boolean
 public "getProfiler"(): $ProfilerFiller
-public "getLaunchedVersion"(): StringJS
-public "getVersionType"(): StringJS
-public "delayCrashRaw"(arg0: $CrashReport$$Type): void
-public "multiplayerBan"(): $BanDetails
-public "resizeDisplay"(): void
-public "isEnforceUnicode"(): boolean
-public "getModelManager"(): $ModelManager
-public "getDebugOverlay"(): $DebugScreenOverlay
-public static "checkModStatus"(): $ModCheck
-public "updateTitle"(): void
-public "isGameLoadFinished"(): boolean
-public "cursorEntered"(): void
-public "getFrameTimeNs"(): long
-public "getChatStatus"(): $Minecraft$ChatStatus
-public "getLevelSource"(): $LevelStorageSource
-public "setLastInputType"(arg0: $InputType$$Type): void
-public "getMusicManager"(): $MusicManager
-public "getBlockRenderer"(): $BlockRenderDispatcher
-public "commandHistory"(): $CommandHistory
-public "updateFontOptions"(): void
-public "directoryValidator"(): $DirectoryValidator
-public "setWindowActive"(arg0: boolean): void
-public "setOverlay"(arg0: $Overlay$$Type): void
-public "getWindow"(): $Window
-public "getTimer"(): $DeltaTracker
-public "getEntityRenderDispatcher"(): $EntityRenderDispatcher
-public "getMainRenderTarget"(): $RenderTarget
-public "reloadResourcePacks"(): $CompletableFuture<(void)>
-public "debugClientMetricsStart"(arg0: $Consumer$$Type<($Component)>): boolean
-public "getSingleplayerServer"(): $IntegratedServer
-public "debugFpsMeterKeyPress"(arg0: integer): void
-public "emergencySaveAndCrash"(arg0: $CrashReport$$Type): void
-public "hasSingleplayerServer"(): boolean
-public "clearResourcePacksOnError"(arg0: $Throwable$$Type, arg1: $Component$$Type, arg2: $Minecraft$GameLoadCookie$$Type): void
-public "handler$bai000$balm$run"(arg0: $CallbackInfo$$Type): void
-public "getResourcePackRepository"(): $PackRepository
-public "getSituationalMusic"(): $Music
-public "updateReportEnvironment"(arg0: $ReportEnvironment$$Type): void
-public "getGpuWarnlistManager"(): $GpuWarnlistManager
-public "createWorldOpenFlows"(): $WorldOpenFlows
-public "getTelemetryManager"(): $ClientTelemetryManager
-public static "useShaderTransparency"(): boolean
-public "getDownloadedPackSource"(): $DownloadedPackSource
-public "getProfileKeyPairManager"(): $ProfileKeyPairManager
-public "getResourcePackDirectory"(): $Path
-public "extraTelemetryAvailable"(): boolean
-public "telemetryOptInExtra"(): boolean
-public static "useAmbientOcclusion"(): boolean
-public "getProgressListener"(): $StoringChunkProgressListener
-public "showOnlyReducedInfo"(): boolean
-public "canValidateProfileKeys"(): boolean
-public "getScheduledEvents"(): $ScheduledEvents
-public "grabPanoramixScreenshot"(arg0: $File$$Type, arg1: integer, arg2: integer): $Component
-public "shouldEntityAppearGlowing"(arg0: $Entity$$Type): boolean
-public "getXaeroMinimap_fps"(): integer
-public "getMinecraftSessionService"(): $MinecraftSessionService
-public "prepareForMultiplayer"(): void
-public "getMapDecorationTextures"(): $MapDecorationTextureManager
-public "isTextFilteringEnabled"(): boolean
-public "getPaintingTextures"(): $PaintingTextureManager
-public "getMobEffectTextures"(): $MobEffectTextureManager
-public "getReportingContext"(): $ReportingContext
-public "getPlayerSocialManager"(): $PlayerSocialManager
-public "getXaeroWorldMap_fps"(): integer
-public "openChatScreenFancyMenu"(arg0: StringJS): void
-public "tell"(arg0: any): void
-public "localvar$gcl000$fabric_events_interaction_v0$modifyItemPick"(arg0: $ItemStack$$Type): $ItemStack
-public "handler$dbc000$xaeroworldmap$onRunTickStart"(arg0: $CallbackInfo$$Type): void
-public "handler$zjn000$iris$trackLastDimensionOnLeave"(arg0: $Screen$$Type, arg1: $CallbackInfo$$Type): void
-public "getReloadStateTrackerFancyMenu"(): $ResourceLoadStateTracker
-public static "getFPS$sodium_extra_$md$6d3b50$0"(): integer
-public "handler$egn006$bridgingmod$onTick"(ci: $CallbackInfo$$Type): void
-public "getBlockEntityRenderDispatcher"(): $BlockEntityRenderDispatcher
+public "getTimer"(): $DeltaTracker$Timer
+public "create$setMissTime"(arg0: integer): void
+public "getCurrentServer"(): $ServerData
+public "isRunning"(): boolean
 public "clearDownloadedResourcePacks"(): void
 public "getProfileKeySignatureValidator"(): $SignatureValidator
+public "getBlockEntityRenderDispatcher"(): $BlockEntityRenderDispatcher
+public "getMainRenderTarget"(): $RenderTarget
+public "reloadResourcePacks"(): $CompletableFuture<(void)>
+public "clearResourcePacksOnError"(arg0: $Throwable$$Type, arg1: $Component$$Type, arg2: $Minecraft$GameLoadCookie$$Type): void
+public "handler$bbf000$balm$run"(arg0: $CallbackInfo$$Type): void
+public "getEntityRenderDispatcher"(): $EntityRenderDispatcher
+public "emergencySaveAndCrash"(arg0: $CrashReport$$Type): void
+public "hasSingleplayerServer"(): boolean
+public "setScreen"(arg0: $Screen$$Type): void
+public "updateFontOptions"(): void
+public "getBlockRenderer"(): $BlockRenderDispatcher
+public "setWindowActive"(arg0: boolean): void
+public "getProfileKeyPairManager"(): $ProfileKeyPairManager
+public "getSingleplayerServer"(): $IntegratedServer
+public "debugClientMetricsStart"(arg0: $Consumer$$Type<($Component)>): boolean
+public "getTelemetryManager"(): $ClientTelemetryManager
+public "updateReportEnvironment"(arg0: $ReportEnvironment$$Type): void
+public "telemetryOptInExtra"(): boolean
+public "extraTelemetryAvailable"(): boolean
+public "createWorldOpenFlows"(): $WorldOpenFlows
+public static "useAmbientOcclusion"(): boolean
+public "debugFpsMeterKeyPress"(arg0: integer): void
+public static "useShaderTransparency"(): boolean
+public "showOnlyReducedInfo"(): boolean
+public "getPaintingTextures"(): $PaintingTextureManager
+public "isTextFilteringEnabled"(): boolean
+public "getResourcePackDirectory"(): $Path
+public "getMobEffectTextures"(): $MobEffectTextureManager
+public "shouldEntityAppearGlowing"(arg0: $Entity$$Type): boolean
+public "getMapDecorationTextures"(): $MapDecorationTextureManager
+public "getReportingContext"(): $ReportingContext
+public "canValidateProfileKeys"(): boolean
+public "getMinecraftSessionService"(): $MinecraftSessionService
+public "getSituationalMusic"(): $Music
+public "grabPanoramixScreenshot"(arg0: $File$$Type, arg1: integer, arg2: integer): $Component
+public "getDownloadedPackSource"(): $DownloadedPackSource
+public "getGpuWarnlistManager"(): $GpuWarnlistManager
+public "getResourcePackRepository"(): $PackRepository
+public "getProgressListener"(): $StoringChunkProgressListener
+public "prepareForMultiplayer"(): void
+public "getPlayerSocialManager"(): $PlayerSocialManager
+public "getXaeroWorldMap_fps"(): integer
+public "getScheduledEvents"(): $ScheduledEvents
+public "openChatScreenFancyMenu"(arg0: StringJS): void
+public "getXaeroMinimap_fps"(): integer
+public "getCameraEntity"(): $Entity
+public "getMusicManager"(): $MusicManager
+public "handler$fop000$distanthorizons$close"(ci: $CallbackInfo$$Type): void
+public "modify$dhf000$xaeroworldmap$onRenderCall"(arg0: boolean): boolean
+public "allowsMultiplayer"(): boolean
+public "renderBuffers"(): $RenderBuffers
+public "directoryValidator"(): $DirectoryValidator
+public "commandHistory"(): $CommandHistory
+public "handler$dhf000$xaeroworldmap$onRunTickStart"(arg0: $CallbackInfo$$Type): void
+public "handler$zkk000$iris$trackLastDimensionOnLeave"(arg0: $Screen$$Type, arg1: $CallbackInfo$$Type): void
+public "getVanillaPackResources"(): $VanillaPackResources
 public "getTextureManager"(): $TextureManager
-public "modify$dbc000$xaeroworldmap$onRenderCall"(arg0: boolean): boolean
-public "handler$fdd000$distanthorizons$close"(ci: $CallbackInfo$$Type): void
-public "handler$egn000$bridgingmod$onItemUse"(info: $CallbackInfo$$Type): void
+public static "getFPS$sodium_extra_$md$1ae6d3$0"(): integer
+public "getReloadStateTrackerFancyMenu"(): $ResourceLoadStateTracker
+public "handler$hcl000$fabric_events_interaction_v0$cancelItemPick"(arg0: $CallbackInfo$$Type): void
+public "handler$gaf000$armorposer$shouldEntityAppearGlowing"(arg0: $Entity$$Type, arg1: $CallbackInfoReturnable$$Type): void
+public "getSoundManager"(): $SoundManager
+public "setCameraEntity"(arg0: $Entity$$Type): void
+public "getResourceManager"(): $ResourceManager
+public "isWindowActive"(): boolean
+public "getHotbarManager"(): $HotbarManager
+public "getLanguageManager"(): $LanguageManager
+public "getTutorial"(): $Tutorial
+public "getTextureAtlas"(arg0: $ResourceLocation$$Type): $Function<($ResourceLocation), ($TextureAtlasSprite)>
+public "getRunningThread"(): $Thread
+public "wrapRunnable"(arg0: $Runnable$$Type): $Runnable
+public "getFixerUpper"(): $DataFixer
+public "getSkinManager"(): $SkinManager
+public "isSingleplayer"(): boolean
+public static "getLauncherBrand"(): StringJS
+public "getGameProfile"(): $GameProfile
+public "getBlockColors"(): $BlockColors
+public "delayTextureReload"(): $CompletableFuture<(void)>
+public "isLocalPlayer"(arg0: $UUID$$Type): boolean
+public "getChatStatus"(): $Minecraft$ChatStatus
+public "getLevelSource"(): $LevelStorageSource
+public "getLaunchedVersion"(): StringJS
+public "delayCrashRaw"(arg0: $CrashReport$$Type): void
+public "getVersionType"(): StringJS
+public "isEnforceUnicode"(): boolean
+public "getModelManager"(): $ModelManager
+public "setLastInputType"(arg0: $InputType$$Type): void
+public "getDebugOverlay"(): $DebugScreenOverlay
+public "handler$enp006$bridgingmod$onTick"(ci: $CallbackInfo$$Type): void
+public "multiplayerBan"(): $BanDetails
+public "updateTitle"(): void
+public static "checkModStatus"(): $ModCheck
+public "isGameLoadFinished"(): boolean
+public "resizeDisplay"(): void
+public "localvar$hcl000$fabric_events_interaction_v0$modifyItemPick"(arg0: $ItemStack$$Type): $ItemStack
+public "clearClientLevel"(arg0: $Screen$$Type): void
+public static "renderNames"(): boolean
+public "forceSetScreen"(arg0: $Screen$$Type): void
+public "addCustomNbtData"(arg0: $ItemStack$$Type, arg1: $BlockEntity$$Type, arg2: $RegistryAccess$$Type): void
+public static "useFancyGraphics"(): boolean
+public "allowsRealms"(): boolean
+public "allowsTelemetry"(): boolean
+public "isNameBanned"(): boolean
+public "getGpuUtilization"(): double
+public "doWorldLoad"(arg0: $LevelStorageSource$LevelStorageAccess$$Type, arg1: $PackRepository$$Type, arg2: $WorldStem$$Type, arg3: boolean): void
+public "getTitle"(): StringJS
+public "getItemColors"(): $ItemColors
+public "getLastInputType"(): $InputType
+public "getSplashManager"(): $SplashManager
+public "getNarrator"(): $GameNarrator
+public "getEntityModels"(): $EntityModelSet
+public "getChatListener"(): $ChatListener
+public "updateMaxMipLevel"(arg0: integer): void
+public "getWindow"(): $Window
+public "setOverlay"(arg0: $Overlay$$Type): void
+public "cursorEntered"(): void
+public "getFrameTimeNs"(): long
 public "getLocale"(): $Locale
-public "pushGuiLayer"(arg0: $Screen$$Type): void
 public "popGuiLayer"(): void
+public "pushGuiLayer"(arg0: $Screen$$Type): void
 public static "getFPS"(): integer
-public "runCommand"(command: StringJS): void
-public "getName"(): $Component
-public "isKeyDown"(keyName: StringJS): boolean
-public "isKeyDown"(key: integer): boolean
-public "isKeyBindDown"(id: StringJS): boolean
-public "isShiftDown"(): boolean
-public "isCtrlDown"(): boolean
-public "isAltDown"(): boolean
-public "setTitle"(t: StringJS): void
-public "getBlockTextureAtlas"(): $Function<($ResourceLocation), ($TextureAtlasSprite)>
-public "getCurrentScreen"(): $Screen
-public "getCurrentWorldName"(): StringJS
-public "setStatusMessage"(message: $Component$$Type): void
-public "runCommandSilent"(command: StringJS): void
-public "setActivePostShader"(id: $ResourceLocation$$Type): void
-public "setCurrentScreen"(gui: $Screen$$Type): void
-public "getKeyBindPressedTicks"(id: StringJS): integer
-public "isKeyMappingDown"(key: $KeyMapping$$Type): boolean
 public "self"(): $Minecraft
 public "tell"(message: $Component$$Type): void
+public "isKeyDown"(keyName: StringJS): boolean
+public "isKeyDown"(key: integer): boolean
+public "getName"(): $Component
+public "isKeyBindDown"(id: StringJS): boolean
+public "setTitle"(t: StringJS): void
+public "isShiftDown"(): boolean
+public "isAltDown"(): boolean
+public "isCtrlDown"(): boolean
+public "runCommand"(command: StringJS): void
 public "getParticleTextureAtlas"(): $Function<($ResourceLocation), ($TextureAtlasSprite)>
+public "setActivePostShader"(id: $ResourceLocation$$Type): void
+public "isKeyMappingDown"(key: $KeyMapping$$Type): boolean
+public "getCurrentScreen"(): $Screen
+public "setCurrentScreen"(gui: $Screen$$Type): void
+public "runCommandSilent"(command: StringJS): void
+public "getCurrentWorldName"(): StringJS
+public "setStatusMessage"(message: $Component$$Type): void
+public "getKeyBindPressedTicks"(id: StringJS): integer
+public "getBlockTextureAtlas"(): $Function<($ResourceLocation), ($TextureAtlasSprite)>
 public "schedule"(timer: $TemporalAmount$$Type, callback: $ScheduledEvents$Callback$$Type): $ScheduledEvents$ScheduledEvent
+public "scheduleRepeatingInTicks"(ticks: $TickDuration$$Type, callback: $ScheduledEvents$Callback$$Type): $ScheduledEvents$ScheduledEvent
 public "scheduleRepeating"(timer: $TemporalAmount$$Type, callback: $ScheduledEvents$Callback$$Type): $ScheduledEvents$ScheduledEvent
 public "scheduleInTicks"(ticks: $TickDuration$$Type, callback: $ScheduledEvents$Callback$$Type): $ScheduledEvents$ScheduledEvent
-public "scheduleRepeatingInTicks"(ticks: $TickDuration$$Type, callback: $ScheduledEvents$Callback$$Type): $ScheduledEvents$ScheduledEvent
 public "getDisplayName"(): $Component
 public static "of"<Msg>(arg0: StringJS, arg1: $Consumer$$Type<(Msg)>): $ProcessorHandle<(Msg)>
-get "connection"(): $ClientPacketListener
+get "connection"(): $Connection
+get "localServer"(): boolean
+get "itemRenderer"(): $ItemRenderer
+get "guiSprites"(): $GuiSpriteManager
 get "proxy"(): $Proxy
-get "currentServer"(): $ServerData
+get "demo"(): boolean
+get "paused"(): boolean
+get "overlay"(): $Overlay
+get "toasts"(): $ToastComponent
 get "fps"(): integer
 get "user"(): $User
-get "demo"(): boolean
-get "overlay"(): $Overlay
-get "paused"(): boolean
-get "toasts"(): $ToastComponent
+get "profiler"(): $ProfilerFiller
+get "timer"(): $DeltaTracker$Timer
+get "currentServer"(): $ServerData
+get "profileKeySignatureValidator"(): $SignatureValidator
+get "blockEntityRenderDispatcher"(): $BlockEntityRenderDispatcher
+get "mainRenderTarget"(): $RenderTarget
+get "entityRenderDispatcher"(): $EntityRenderDispatcher
+set "windowActive"(value: boolean)
+get "profileKeyPairManager"(): $ProfileKeyPairManager
+get "singleplayerServer"(): $IntegratedServer
+get "telemetryManager"(): $ClientTelemetryManager
+get "paintingTextures"(): $PaintingTextureManager
+get "textFilteringEnabled"(): boolean
+get "resourcePackDirectory"(): $Path
+get "mobEffectTextures"(): $MobEffectTextureManager
+get "mapDecorationTextures"(): $MapDecorationTextureManager
+get "reportingContext"(): $ReportingContext
+get "minecraftSessionService"(): $MinecraftSessionService
+get "situationalMusic"(): $Music
+get "downloadedPackSource"(): $DownloadedPackSource
+get "gpuWarnlistManager"(): $GpuWarnlistManager
+get "resourcePackRepository"(): $PackRepository
+get "progressListener"(): $StoringChunkProgressListener
+get "playerSocialManager"(): $PlayerSocialManager
+get "xaeroWorldMap_fps"(): integer
+get "scheduledEvents"(): $ScheduledEvents
+get "xaeroMinimap_fps"(): integer
+get "musicManager"(): $MusicManager
 get "vanillaPackResources"(): $VanillaPackResources
-get "gpuUtilization"(): double
-get "nameBanned"(): boolean
-get "gameProfile"(): $GameProfile
-get "languageManager"(): $LanguageManager
+get "textureManager"(): $TextureManager
+get "FPS$sodium_extra_$md$1ae6d3$0"(): integer
+get "reloadStateTrackerFancyMenu"(): $ResourceLoadStateTracker
 get "soundManager"(): $SoundManager
+get "resourceManager"(): $ResourceManager
+get "windowActive"(): boolean
+get "hotbarManager"(): $HotbarManager
+get "languageManager"(): $LanguageManager
+get "tutorial"(): $Tutorial
+get "runningThread"(): $Thread
+get "fixerUpper"(): $DataFixer
+get "skinManager"(): $SkinManager
 get "singleplayer"(): boolean
 get "launcherBrand"(): StringJS
-get "resourceManager"(): $ResourceManager
-get "lastInputType"(): $InputType
-get "skinManager"(): $SkinManager
-get "itemColors"(): $ItemColors
-get "narrator"(): $GameNarrator
-get "runningThread"(): $Thread
-get "windowActive"(): boolean
-get "chatListener"(): $ChatListener
-get "tutorial"(): $Tutorial
-get "entityModels"(): $EntityModelSet
-get "hotbarManager"(): $HotbarManager
+get "gameProfile"(): $GameProfile
 get "blockColors"(): $BlockColors
-get "splashManager"(): $SplashManager
-get "fixerUpper"(): $DataFixer
-get "title"(): StringJS
-get "itemRenderer"(): $ItemRenderer
-get "localServer"(): boolean
-get "guiSprites"(): $GuiSpriteManager
-get "profiler"(): $ProfilerFiller
+get "chatStatus"(): $Minecraft$ChatStatus
+get "levelSource"(): $LevelStorageSource
 get "launchedVersion"(): StringJS
 get "versionType"(): StringJS
 get "enforceUnicode"(): boolean
 get "modelManager"(): $ModelManager
+set "lastInputType"(value: $InputType$$Type)
 get "debugOverlay"(): $DebugScreenOverlay
 get "gameLoadFinished"(): boolean
-get "frameTimeNs"(): long
-get "chatStatus"(): $Minecraft$ChatStatus
-get "levelSource"(): $LevelStorageSource
-set "lastInputType"(value: $InputType$$Type)
-get "musicManager"(): $MusicManager
-set "windowActive"(value: boolean)
-set "overlay"(value: $Overlay$$Type)
+get "nameBanned"(): boolean
+get "gpuUtilization"(): double
+get "title"(): StringJS
+get "itemColors"(): $ItemColors
+get "lastInputType"(): $InputType
+get "splashManager"(): $SplashManager
+get "narrator"(): $GameNarrator
+get "entityModels"(): $EntityModelSet
+get "chatListener"(): $ChatListener
 get "window"(): $Window
-get "timer"(): $DeltaTracker
-get "entityRenderDispatcher"(): $EntityRenderDispatcher
-get "mainRenderTarget"(): $RenderTarget
-get "singleplayerServer"(): $IntegratedServer
-get "resourcePackRepository"(): $PackRepository
-get "situationalMusic"(): $Music
-get "gpuWarnlistManager"(): $GpuWarnlistManager
-get "telemetryManager"(): $ClientTelemetryManager
-get "downloadedPackSource"(): $DownloadedPackSource
-get "profileKeyPairManager"(): $ProfileKeyPairManager
-get "resourcePackDirectory"(): $Path
-get "progressListener"(): $StoringChunkProgressListener
-get "scheduledEvents"(): $ScheduledEvents
-get "xaeroMinimap_fps"(): integer
-get "minecraftSessionService"(): $MinecraftSessionService
-get "mapDecorationTextures"(): $MapDecorationTextureManager
-get "textFilteringEnabled"(): boolean
-get "paintingTextures"(): $PaintingTextureManager
-get "mobEffectTextures"(): $MobEffectTextureManager
-get "reportingContext"(): $ReportingContext
-get "playerSocialManager"(): $PlayerSocialManager
-get "xaeroWorldMap_fps"(): integer
-get "reloadStateTrackerFancyMenu"(): $ResourceLoadStateTracker
-get "FPS$sodium_extra_$md$6d3b50$0"(): integer
-get "blockEntityRenderDispatcher"(): $BlockEntityRenderDispatcher
-get "profileKeySignatureValidator"(): $SignatureValidator
-get "textureManager"(): $TextureManager
+set "overlay"(value: $Overlay$$Type)
+get "frameTimeNs"(): long
 get "locale"(): $Locale
 get "FPS"(): integer
 get "name"(): $Component
-get "shiftDown"(): boolean
-get "ctrlDown"(): boolean
-get "altDown"(): boolean
 set "title"(value: StringJS)
-get "blockTextureAtlas"(): $Function<($ResourceLocation), ($TextureAtlasSprite)>
+get "shiftDown"(): boolean
+get "altDown"(): boolean
+get "ctrlDown"(): boolean
+get "particleTextureAtlas"(): $Function<($ResourceLocation), ($TextureAtlasSprite)>
+set "activePostShader"(value: $ResourceLocation$$Type)
 get "currentScreen"(): $Screen
+set "currentScreen"(value: $Screen$$Type)
 get "currentWorldName"(): StringJS
 set "statusMessage"(value: $Component$$Type)
-set "activePostShader"(value: $ResourceLocation$$Type)
-set "currentScreen"(value: $Screen$$Type)
-get "particleTextureAtlas"(): $Function<($ResourceLocation), ($TextureAtlasSprite)>
+get "blockTextureAtlas"(): $Function<($ResourceLocation), ($TextureAtlasSprite)>
 get "displayName"(): $Component
 }
 /**
@@ -1113,13 +1121,14 @@ import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injecti
 import {$BlockGetter, $BlockGetter$$Type} from "net.minecraft.world.level.BlockGetter"
 import {$Vec3, $Vec3$$Type} from "net.minecraft.world.phys.Vec3"
 import {$CameraAccessor$$Interface} from "com.blackgear.platform.core.mixin.access.CameraAccessor"
+import {$CameraAccessorMixin$$Interface} from "com.pedrorok.hypertube.mixin.core.CameraAccessorMixin"
 import {$BlockPos} from "net.minecraft.core.BlockPos"
+import {$Quaternionf} from "org.joml.Quaternionf"
 import {$Camera$NearPlane} from "net.minecraft.client.Camera$NearPlane"
 import {$Entity, $Entity$$Type} from "net.minecraft.world.entity.Entity"
-import {$Quaternionf} from "org.joml.Quaternionf"
 import {$BlockState} from "net.minecraft.world.level.block.state.BlockState"
 
-export class $Camera implements $CameraAccessor$$Interface {
+export class $Camera implements $CameraAccessorMixin$$Interface, $CameraAccessor$$Interface {
 static readonly "FOG_DISTANCE_SCALE": float
 
 constructor()
@@ -1130,48 +1139,53 @@ public "setup"(arg0: $BlockGetter$$Type, arg1: $Entity$$Type, arg2: boolean, arg
 public "move"(arg0: float, arg1: float, arg2: float): void
 public "tick"(): void
 public "getLevel"(): $BlockGetter
-public "getXRot"(): float
-public "getYRot"(): float
+public "getEntity"(): $Entity
+public "getLeftVector"(): $Vector3f
+public "getBlockAtCamera"(): $BlockState
 /**
  * 
  * @deprecated
  */
 public "setRotation"(arg0: float, arg1: float): void
 public "setRotation"(arg0: float, arg1: float, arg2: float): void
-public "getUpVector"(): $Vector3f
-public "getLeftVector"(): $Vector3f
-public "getBlockAtCamera"(): $BlockState
-public "getNearPlane"(): $Camera$NearPlane
-public "handler$ffp000$freecam$onGetSubmersionType"(cir: $CallbackInfoReturnable$$Type): void
-public "setPosition"(arg0: $Vec3$$Type): void
-public "setPosition"(arg0: double, arg1: double, arg2: double): void
-public "getEntity"(): $Entity
-public "isDetached"(): boolean
 public "rotation"(): $Quaternionf
+public "getXRot"(): float
+public "getYRot"(): float
+public "handler$gck000$freecam$onGetSubmersionType"(cir: $CallbackInfoReturnable$$Type): void
+public "createHypertube$setDetachedExternal"(arg0: boolean): void
+public "isInitialized"(): boolean
+public "getBlockPosition"(): $BlockPos
+public "isDetached"(): boolean
 public "getFluidInCamera"(): $FogType
 public "getPartialTickTime"(): float
-public "isInitialized"(): boolean
 public "getRoll"(): float
-public "getBlockPosition"(): $BlockPos
-public "getLookVector"(): $Vector3f
+public "handler$gck000$freecam$onUpdate"(area: $BlockGetter$$Type, newFocusedEntity: $Entity$$Type, thirdPerson: boolean, inverseView: boolean, tickDelta: float, ci: $CallbackInfo$$Type): void
+public "createHypertube$callSetPosition"(arg0: double, arg1: double, arg2: double): void
+public "createHypertube$callGetMaxZoom"(arg0: float): float
+public "createHypertube$callSetRotation"(arg0: float, arg1: float): void
 public "handler$zbo000$sodium_extra$noLerp"(arg0: $CallbackInfo$$Type): void
-public "handler$ffp000$freecam$onUpdate"(area: $BlockGetter$$Type, newFocusedEntity: $Entity$$Type, thirdPerson: boolean, inverseView: boolean, tickDelta: float, ci: $CallbackInfo$$Type): void
+public "setPosition"(arg0: double, arg1: double, arg2: double): void
+public "setPosition"(arg0: $Vec3$$Type): void
+public "getUpVector"(): $Vector3f
+public "getNearPlane"(): $Camera$NearPlane
+public "getLookVector"(): $Vector3f
+public "createHypertube$callMove"(arg0: float, arg1: float, arg2: float): void
 get "position"(): $Vec3
 get "level"(): $BlockGetter
-get "XRot"(): float
-get "YRot"(): float
-get "upVector"(): $Vector3f
+get "entity"(): $Entity
 get "leftVector"(): $Vector3f
 get "blockAtCamera"(): $BlockState
-get "nearPlane"(): $Camera$NearPlane
-set "position"(value: $Vec3$$Type)
-get "entity"(): $Entity
+get "XRot"(): float
+get "YRot"(): float
+get "initialized"(): boolean
+get "blockPosition"(): $BlockPos
 get "detached"(): boolean
 get "fluidInCamera"(): $FogType
 get "partialTickTime"(): float
-get "initialized"(): boolean
 get "roll"(): float
-get "blockPosition"(): $BlockPos
+set "position"(value: $Vec3$$Type)
+get "upVector"(): $Vector3f
+get "nearPlane"(): $Camera$NearPlane
 get "lookVector"(): $Vector3f
 }
 /**
@@ -1192,16 +1206,16 @@ readonly "forward": $Vec3
 
 constructor(arg0: $Vec3$$Type, arg1: $Vec3$$Type, arg2: $Vec3$$Type)
 
-public "getTopRight"(): $Vec3
 public "getBottomRight"(): $Vec3
-public "getBottomLeft"(): $Vec3
-public "getForward"(): $Vec3
+public "getTopRight"(): $Vec3
 public "getTopLeft"(): $Vec3
 public "getPointOnPlane"(arg0: float, arg1: float): $Vec3
-get "topRight"(): $Vec3
+public "getForward"(): $Vec3
+public "getBottomLeft"(): $Vec3
 get "bottomRight"(): $Vec3
-get "bottomLeft"(): $Vec3
+get "topRight"(): $Vec3
 get "topLeft"(): $Vec3
+get "bottomLeft"(): $Vec3
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1215,23 +1229,23 @@ export type $Camera$NearPlane$$Original = $Camera$NearPlane;}
 declare module "net.minecraft.client.DeltaTracker$Timer" {
 import {$FloatUnaryOperator$$Type} from "it.unimi.dsi.fastutil.floats.FloatUnaryOperator"
 import {$DeltaTracker$$Interface} from "net.minecraft.client.DeltaTracker"
-import {$TimerAccessor$$Interface as $TimerAccessor$0$$Interface} from "com.simibubi.create.foundation.mixin.accessor.TimerAccessor"
-import {$TimerAccessor$$Interface} from "net.createmod.ponder.mixin.accessor.TimerAccessor"
+import {$TimerAccessor$$Interface as $TimerAccessor$0$$Interface} from "net.createmod.ponder.mixin.accessor.TimerAccessor"
+import {$TimerAccessor$$Interface} from "com.simibubi.create.foundation.mixin.accessor.TimerAccessor"
 
-export class $DeltaTracker$Timer implements $DeltaTracker$$Interface, $TimerAccessor$$Interface, $TimerAccessor$0$$Interface {
+export class $DeltaTracker$Timer implements $DeltaTracker$$Interface, $TimerAccessor$0$$Interface, $TimerAccessor$$Interface {
 constructor(arg0: float, arg1: long, arg2: $FloatUnaryOperator$$Type)
 
+public "catnip$getDeltaTickResidual"(): float
 public "getDeltaTickResidual"(): float
-public "getGameTimeDeltaTicks"(): float
 public "getRealtimeDeltaTicks"(): float
+public "getGameTimeDeltaTicks"(): float
 public "advanceTime"(arg0: long, arg1: boolean): integer
+public "getGameTimeDeltaPartialTick"(arg0: boolean): float
 public "updatePauseState"(arg0: boolean): void
 public "updateFrozenState"(arg0: boolean): void
-public "catnip$getDeltaTickResidual"(): float
-public "getGameTimeDeltaPartialTick"(arg0: boolean): float
 get "deltaTickResidual"(): float
-get "gameTimeDeltaTicks"(): float
 get "realtimeDeltaTicks"(): float
+get "gameTimeDeltaTicks"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1261,15 +1275,15 @@ constructor(arg0: $Minecraft$$Type)
 
 public "setup"(arg0: long): void
 public "tick"(): void
-public "handler$cig000$emi$onKey"(window: long, key: integer, scancode: integer, action: integer, modifiers: integer, info: $CallbackInfo$$Type): void
-public "handler$cig000$emi$onChar"(window: long, codePoint: integer, modifiers: integer, info: $CallbackInfo$$Type): void
 public "malilib$setF3KeyState"(value: boolean): void
+public "handler$cmi000$emi$onChar"(window: long, codePoint: integer, modifiers: integer, info: $CallbackInfo$$Type): void
+public "handler$cmi000$emi$onKey"(window: long, key: integer, scancode: integer, action: integer, modifiers: integer, info: $CallbackInfo$$Type): void
+public "setClipboard"(arg0: StringJS): void
 public "keyPress"(arg0: long, arg1: integer, arg2: integer, arg3: integer, arg4: integer): void
 public "getClipboard"(): StringJS
-public "setClipboard"(arg0: StringJS): void
 set "up"(value: long)
-get "clipboard"(): StringJS
 set "clipboard"(value: StringJS)
+get "clipboard"(): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1355,16 +1369,16 @@ export type $HotbarManager$$Original = $HotbarManager;}
 declare module "net.minecraft.client.DeltaTracker" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $DeltaTracker$$Interface {
-get "gameTimeDeltaTicks"(): float
 get "realtimeDeltaTicks"(): float
+get "gameTimeDeltaTicks"(): float
 }
 
 export class $DeltaTracker implements $DeltaTracker$$Interface {
 static readonly "ZERO": $DeltaTracker
 static readonly "ONE": $DeltaTracker
 
- "getGameTimeDeltaTicks"(): float
  "getRealtimeDeltaTicks"(): float
+ "getGameTimeDeltaTicks"(): float
  "getGameTimeDeltaPartialTick"(arg0: boolean): float
 }
 /**
@@ -1380,8 +1394,8 @@ declare module "net.minecraft.client.GuiMessage$Line" {
 import {$FormattedCharSequence, $FormattedCharSequence$$Type} from "net.minecraft.util.FormattedCharSequence"
 import {$CallbackInfo$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfo"
 import {$HeadData, $HeadData$$Type} from "dzwdz.chat_heads.HeadData"
-import {$GuiMessageTag, $GuiMessageTag$$Type} from "net.minecraft.client.GuiMessageTag"
 import {$HeadRenderable$$Interface} from "dzwdz.chat_heads.mixininterface.HeadRenderable"
+import {$GuiMessageTag, $GuiMessageTag$$Type} from "net.minecraft.client.GuiMessageTag"
 import {$Record} from "java.lang.Record"
 
 export class $GuiMessage$Line extends $Record implements $HeadRenderable$$Interface {
@@ -1394,17 +1408,17 @@ public "toString"(): StringJS
 public "hashCode"(): integer
 public "tag"(): $GuiMessageTag
 public "content"(): $FormattedCharSequence
-public "addedTime"(): integer
 public "endOfEntry"(): boolean
+public "addedTime"(): integer
 public "chatheads$getHeadData"(): $HeadData
-public "handler$bbg000$chat_heads$chatheads$setOwnerForFirstLine"(callbackInfo: $CallbackInfo$$Type): void
+public "handler$bcd000$chat_heads$chatheads$setOwnerForFirstLine"(callbackInfo: $CallbackInfo$$Type): void
 public "chatheads$setHeadData"(arg0: $HeadData$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $GuiMessage$Line$$Type = ({"tag"?: $GuiMessageTag$$Type, "content"?: $FormattedCharSequence$$Type, "endOfEntry"?: boolean, "addedTime"?: integer}) | ([tag?: $GuiMessageTag$$Type, content?: $FormattedCharSequence$$Type, endOfEntry?: boolean, addedTime?: integer]);
+export type $GuiMessage$Line$$Type = ({"addedTime"?: integer, "endOfEntry"?: boolean, "content"?: $FormattedCharSequence$$Type, "tag"?: $GuiMessageTag$$Type}) | ([addedTime?: integer, endOfEntry?: boolean, content?: $FormattedCharSequence$$Type, tag?: $GuiMessageTag$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -1431,8 +1445,8 @@ export type $OptionInstance$CaptionBasedToString$$Type<T> = ((arg0: $Component, 
 export type $OptionInstance$CaptionBasedToString$$Original<T> = $OptionInstance$CaptionBasedToString<(T)>;}
 declare module "net.minecraft.client.AttackIndicatorStatus" {
 import {$Enum} from "java.lang.Enum"
-import {$OptionEnum$$Interface} from "net.minecraft.util.OptionEnum"
 import {$Component} from "net.minecraft.network.chat.Component"
+import {$OptionEnum$$Interface} from "net.minecraft.util.OptionEnum"
 
 export class $AttackIndicatorStatus extends $Enum<($AttackIndicatorStatus)> implements $OptionEnum$$Interface {
 static readonly "CROSSHAIR": $AttackIndicatorStatus
@@ -1482,8 +1496,8 @@ export type $User$Type$$Type = (("legacy") | ("mojang") | ("msa"));
  */
 export type $User$Type$$Original = $User$Type;}
 declare module "net.minecraft.client.ResourceLoadStateTracker" {
-import {$List$$Type} from "java.util.List"
 import {$ResourceLoadStateTracker$ReloadReason$$Type} from "net.minecraft.client.ResourceLoadStateTracker$ReloadReason"
+import {$List$$Type} from "java.util.List"
 import {$CrashReport$$Type} from "net.minecraft.CrashReport"
 import {$PackResources$$Type} from "net.minecraft.server.packs.PackResources"
 import {$Throwable$$Type} from "java.lang.Throwable"
@@ -1492,9 +1506,9 @@ export class $ResourceLoadStateTracker {
 constructor()
 
 public "fillCrashReport"(arg0: $CrashReport$$Type): void
-public "finishReload"(): void
-public "startReload"(arg0: $ResourceLoadStateTracker$ReloadReason$$Type, arg1: $List$$Type<($PackResources$$Type)>): void
 public "startRecovery"(arg0: $Throwable$$Type): void
+public "startReload"(arg0: $ResourceLoadStateTracker$ReloadReason$$Type, arg1: $List$$Type<($PackResources$$Type)>): void
+public "finishReload"(): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1507,8 +1521,8 @@ export type $ResourceLoadStateTracker$$Type = ($ResourceLoadStateTracker);
 export type $ResourceLoadStateTracker$$Original = $ResourceLoadStateTracker;}
 declare module "net.minecraft.client.PrioritizeChunkUpdates" {
 import {$Enum} from "java.lang.Enum"
-import {$OptionEnum$$Interface} from "net.minecraft.util.OptionEnum"
 import {$Component} from "net.minecraft.network.chat.Component"
+import {$OptionEnum$$Interface} from "net.minecraft.util.OptionEnum"
 
 export class $PrioritizeChunkUpdates extends $Enum<($PrioritizeChunkUpdates)> implements $OptionEnum$$Interface {
 static readonly "NEARBY": $PrioritizeChunkUpdates
@@ -1536,8 +1550,8 @@ export type $PrioritizeChunkUpdates$$Type = (("none") | ("player_affected") | ("
 export type $PrioritizeChunkUpdates$$Original = $PrioritizeChunkUpdates;}
 declare module "net.minecraft.client.GraphicsStatus" {
 import {$Enum} from "java.lang.Enum"
-import {$OptionEnum$$Interface} from "net.minecraft.util.OptionEnum"
 import {$Component} from "net.minecraft.network.chat.Component"
+import {$OptionEnum$$Interface} from "net.minecraft.util.OptionEnum"
 
 export class $GraphicsStatus extends $Enum<($GraphicsStatus)> implements $OptionEnum$$Interface {
 static readonly "FANCY": $GraphicsStatus
@@ -1570,8 +1584,8 @@ import {$OptionInstance$CaptionBasedToString, $OptionInstance$CaptionBasedToStri
 import {$Codec, $Codec$$Type} from "com.mojang.serialization.Codec"
 import {$AbstractWidget} from "net.minecraft.client.gui.components.AbstractWidget"
 import {$OptionInstance$ValueSet, $OptionInstance$ValueSet$$Type} from "net.minecraft.client.OptionInstance$ValueSet"
-import {$OptionInstanceAccessor$$Interface} from "dev.isxander.yacl3.mixin.OptionInstanceAccessor"
 import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component"
+import {$OptionInstanceAccessor$$Interface} from "dev.isxander.yacl3.mixin.OptionInstanceAccessor"
 import {$OptionEnum} from "net.minecraft.util.OptionEnum"
 import {$Options$$Type} from "net.minecraft.client.Options"
 import {$OptionInstance$Enum} from "net.minecraft.client.OptionInstance$Enum"
@@ -1590,19 +1604,19 @@ public "get"(): T
 public "toString"(): StringJS
 public "values"(): $OptionInstance$ValueSet<(T)>
 public "set"(arg0: T): void
+public static "cachedConstantTooltip"<T>(arg0: $Component$$Type): $OptionInstance$TooltipSupplier<(T)>
 public static "noTooltip"<T>(): $OptionInstance$TooltipSupplier<(T)>
-public static "forOptionEnum"<T extends $OptionEnum>(): $OptionInstance$CaptionBasedToString<(T)>
-public "getInitialValue"(): any
-public "createButton"(arg0: $Options$$Type): $AbstractWidget
+public static "createBoolean"(arg0: StringJS, arg1: boolean): $OptionInstance<(boolean)>
+public static "createBoolean"(arg0: StringJS, arg1: $OptionInstance$TooltipSupplier$$Type<(boolean)>, arg2: boolean): $OptionInstance<(boolean)>
+public static "createBoolean"(arg0: StringJS, arg1: boolean, arg2: $Consumer$$Type<(boolean)>): $OptionInstance<(boolean)>
+public static "createBoolean"(arg0: StringJS, arg1: $OptionInstance$TooltipSupplier$$Type<(boolean)>, arg2: boolean, arg3: $Consumer$$Type<(boolean)>): $OptionInstance<(boolean)>
+public static "createBoolean"(arg0: StringJS, arg1: $OptionInstance$TooltipSupplier$$Type<(boolean)>, arg2: $OptionInstance$CaptionBasedToString$$Type<(boolean)>, arg3: boolean, arg4: $Consumer$$Type<(boolean)>): $OptionInstance<(boolean)>
+public "codec"(): $Codec<(T)>
 public "createButton"(arg0: $Options$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: $Consumer$$Type<(T)>): $AbstractWidget
 public "createButton"(arg0: $Options$$Type, arg1: integer, arg2: integer, arg3: integer): $AbstractWidget
-public "codec"(): $Codec<(T)>
-public static "createBoolean"(arg0: StringJS, arg1: $OptionInstance$TooltipSupplier$$Type<(boolean)>, arg2: boolean, arg3: $Consumer$$Type<(boolean)>): $OptionInstance<(boolean)>
-public static "createBoolean"(arg0: StringJS, arg1: $OptionInstance$TooltipSupplier$$Type<(boolean)>, arg2: boolean): $OptionInstance<(boolean)>
-public static "createBoolean"(arg0: StringJS, arg1: boolean): $OptionInstance<(boolean)>
-public static "createBoolean"(arg0: StringJS, arg1: boolean, arg2: $Consumer$$Type<(boolean)>): $OptionInstance<(boolean)>
-public static "createBoolean"(arg0: StringJS, arg1: $OptionInstance$TooltipSupplier$$Type<(boolean)>, arg2: $OptionInstance$CaptionBasedToString$$Type<(boolean)>, arg3: boolean, arg4: $Consumer$$Type<(boolean)>): $OptionInstance<(boolean)>
-public static "cachedConstantTooltip"<T>(arg0: $Component$$Type): $OptionInstance$TooltipSupplier<(T)>
+public "createButton"(arg0: $Options$$Type): $AbstractWidget
+public static "forOptionEnum"<T extends $OptionEnum>(): $OptionInstance$CaptionBasedToString<(T)>
+public "getInitialValue"(): any
 get "initialValue"(): any
 }
 /**
@@ -1645,10 +1659,10 @@ static readonly "KEYBOARD_ARROW": $InputType
 
 public static "values"(): ($InputType)[]
 public static "valueOf"(arg0: StringJS): $InputType
-public "isMouse"(): boolean
 public "isKeyboard"(): boolean
-get "mouse"(): boolean
+public "isMouse"(): boolean
 get "keyboard"(): boolean
+get "mouse"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1669,18 +1683,18 @@ constructor(arg0: StringJS, arg1: $UUID$$Type, arg2: StringJS, arg3: (StringJS)?
 
 public "getName"(): StringJS
 public "getType"(): $User$Type
-public "getXuid"(): $Optional<(StringJS)>
-public "getProfileId"(): $UUID
-public "getAccessToken"(): StringJS
-public "getSessionId"(): StringJS
 public "getClientId"(): $Optional<(StringJS)>
+public "getSessionId"(): StringJS
+public "getXuid"(): $Optional<(StringJS)>
+public "getAccessToken"(): StringJS
+public "getProfileId"(): $UUID
 get "name"(): StringJS
 get "type"(): $User$Type
-get "xuid"(): $Optional<(StringJS)>
-get "profileId"(): $UUID
-get "accessToken"(): StringJS
-get "sessionId"(): StringJS
 get "clientId"(): $Optional<(StringJS)>
+get "sessionId"(): StringJS
+get "xuid"(): $Optional<(StringJS)>
+get "accessToken"(): StringJS
+get "profileId"(): $UUID
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1704,10 +1718,10 @@ constructor(arg0: $Minecraft$$Type)
 public "clear"(): void
 public "destroy"(): void
 public "isActive"(): boolean
+public "sayNow"(arg0: $Component$$Type): void
+public "sayNow"(arg0: StringJS): void
 public "say"(arg0: $Component$$Type): void
 public "updateNarratorStatus"(arg0: $NarratorStatus$$Type): void
-public "sayNow"(arg0: StringJS): void
-public "sayNow"(arg0: $Component$$Type): void
 public "checkStatus"(arg0: boolean): void
 public "sayChat"(arg0: $Component$$Type): void
 get "active"(): boolean
@@ -1732,14 +1746,14 @@ constructor(realmsClient: $RealmsClient$$Type, quickPlayData: $GameConfig$QuickP
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public "quickPlayData"(): $GameConfig$QuickPlayData
 public "realmsClient"(): $RealmsClient
+public "quickPlayData"(): $GameConfig$QuickPlayData
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $Minecraft$GameLoadCookie$$Type = ({"quickPlayData"?: $GameConfig$QuickPlayData$$Type, "realmsClient"?: $RealmsClient$$Type}) | ([quickPlayData?: $GameConfig$QuickPlayData$$Type, realmsClient?: $RealmsClient$$Type]);
+export type $Minecraft$GameLoadCookie$$Type = ({"realmsClient"?: $RealmsClient$$Type, "quickPlayData"?: $GameConfig$QuickPlayData$$Type}) | ([realmsClient?: $RealmsClient$$Type, quickPlayData?: $GameConfig$QuickPlayData$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -1757,10 +1771,10 @@ public "toString"(): StringJS
 public "hashCode"(): integer
 public static "system"(): $GuiMessageTag
 public "text"(): $Component
-public "indicatorColor"(): integer
-public static "systemSinglePlayer"(): $GuiMessageTag
-public "icon"(): $GuiMessageTag$Icon
 public "logTag"(): StringJS
+public "icon"(): $GuiMessageTag$Icon
+public static "systemSinglePlayer"(): $GuiMessageTag
+public "indicatorColor"(): integer
 public static "chatError"(): $GuiMessageTag
 public static "chatModified"(arg0: StringJS): $GuiMessageTag
 public static "chatNotSecure"(): $GuiMessageTag
@@ -1769,7 +1783,7 @@ public static "chatNotSecure"(): $GuiMessageTag
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $GuiMessageTag$$Type = ({"icon"?: $GuiMessageTag$Icon$$Type, "logTag"?: StringJS, "text"?: $Component$$Type, "indicatorColor"?: integer}) | ([icon?: $GuiMessageTag$Icon$$Type, logTag?: StringJS, text?: $Component$$Type, indicatorColor?: integer]);
+export type $GuiMessageTag$$Type = ({"text"?: $Component$$Type, "logTag"?: StringJS, "icon"?: $GuiMessageTag$Icon$$Type, "indicatorColor"?: integer}) | ([text?: $Component$$Type, logTag?: StringJS, icon?: $GuiMessageTag$Icon$$Type, indicatorColor?: integer]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -1777,22 +1791,22 @@ export type $GuiMessageTag$$Original = $GuiMessageTag;}
 declare module "net.minecraft.client.KeyMapping" {
 import {$KeyMappingAccessor$$Interface as $KeyMappingAccessor$0$$Interface} from "net.blay09.mods.kuma.mixin.KeyMappingAccessor"
 import {$Map} from "java.util.Map"
-import {$KeyBindingAccessor$$Interface as $KeyBindingAccessor$0$$Interface} from "net.fabricmc.fabric.mixin.event.interaction.client.KeyBindingAccessor"
 import {$Comparable$$Interface} from "java.lang.Comparable"
+import {$KeyBindingAccessor$$Interface} from "net.fabricmc.fabric.mixin.event.interaction.client.KeyBindingAccessor"
 import {$IKeyConflictContext, $IKeyConflictContext$$Type} from "net.neoforged.neoforge.client.settings.IKeyConflictContext"
 import {$Component} from "net.minecraft.network.chat.Component"
 import {$KeyMappingAccessor$$Interface} from "net.blay09.mods.balm.mixin.KeyMappingAccessor"
 import {$AccessKeyMapping$$Interface} from "com.blamejared.controlling.mixin.AccessKeyMapping"
 import {$KeyModifier, $KeyModifier$$Type} from "net.neoforged.neoforge.client.settings.KeyModifier"
 import {$Supplier} from "java.util.function.Supplier"
-import {$KeyBindingAccessor$$Interface} from "net.fabricmc.fabric.mixin.client.keybinding.KeyBindingAccessor"
-import {$AccessorKeyMapping$$Interface as $AccessorKeyMapping$0$$Interface} from "com.railwayteam.railways.mixin.conductor_possession.AccessorKeyMapping"
-import {$AccessorKeyMapping$$Interface} from "vazkii.patchouli.mixin.client.AccessorKeyMapping"
+import {$KeyBindingAccessor$$Interface as $KeyBindingAccessor$0$$Interface} from "net.fabricmc.fabric.mixin.client.keybinding.KeyBindingAccessor"
+import {$AccessorKeyMapping$$Interface as $AccessorKeyMapping$0$$Interface} from "vazkii.patchouli.mixin.client.AccessorKeyMapping"
+import {$AccessorKeyMapping$$Interface} from "com.railwayteam.railways.mixin.conductor_possession.AccessorKeyMapping"
 import {$InputConstants$Key, $InputConstants$Key$$Type} from "com.mojang.blaze3d.platform.InputConstants$Key"
 import {$InputConstants$Type$$Type} from "com.mojang.blaze3d.platform.InputConstants$Type"
 import {$IKeyMappingExtension$$Interface} from "net.neoforged.neoforge.client.extensions.IKeyMappingExtension"
 
-export class $KeyMapping implements $Comparable$$Interface<($KeyMapping)>, $IKeyMappingExtension$$Interface, $KeyMappingAccessor$$Interface, $KeyMappingAccessor$0$$Interface, $AccessKeyMapping$$Interface, $AccessorKeyMapping$0$$Interface, $AccessorKeyMapping$$Interface, $KeyBindingAccessor$$Interface, $KeyBindingAccessor$0$$Interface {
+export class $KeyMapping implements $Comparable$$Interface<($KeyMapping)>, $IKeyMappingExtension$$Interface, $KeyMappingAccessor$$Interface, $KeyMappingAccessor$0$$Interface, $AccessKeyMapping$$Interface, $AccessorKeyMapping$$Interface, $AccessorKeyMapping$0$$Interface, $KeyBindingAccessor$0$$Interface, $KeyBindingAccessor$$Interface {
 static readonly "ALL": $Map<(StringJS), ($KeyMapping)>
 static readonly "CATEGORY_INTERFACE": StringJS
 static readonly "CATEGORY_MULTIPLAYER": StringJS
@@ -1803,12 +1817,12 @@ static readonly "CATEGORY_MISC": StringJS
  "key": $InputConstants$Key
 static readonly "CATEGORY_INVENTORY": StringJS
 
-constructor(arg0: StringJS, arg1: $IKeyConflictContext$$Type, arg2: $KeyModifier$$Type, arg3: $InputConstants$Type$$Type, arg4: integer, arg5: StringJS)
+constructor(arg0: StringJS, arg1: $IKeyConflictContext$$Type, arg2: $InputConstants$Key$$Type, arg3: StringJS)
 constructor(arg0: StringJS, arg1: integer, arg2: StringJS)
 constructor(arg0: StringJS, arg1: $InputConstants$Type$$Type, arg2: integer, arg3: StringJS)
-constructor(arg0: StringJS, arg1: $IKeyConflictContext$$Type, arg2: $KeyModifier$$Type, arg3: $InputConstants$Key$$Type, arg4: StringJS)
 constructor(arg0: StringJS, arg1: $IKeyConflictContext$$Type, arg2: $InputConstants$Type$$Type, arg3: integer, arg4: StringJS)
-constructor(arg0: StringJS, arg1: $IKeyConflictContext$$Type, arg2: $InputConstants$Key$$Type, arg3: StringJS)
+constructor(arg0: StringJS, arg1: $IKeyConflictContext$$Type, arg2: $KeyModifier$$Type, arg3: $InputConstants$Type$$Type, arg4: integer, arg5: StringJS)
+constructor(arg0: StringJS, arg1: $IKeyConflictContext$$Type, arg2: $KeyModifier$$Type, arg3: $InputConstants$Key$$Type, arg4: StringJS)
 
 public "getName"(): StringJS
 public "compareTo"(arg0: any): integer
@@ -1818,53 +1832,53 @@ public "getKey"(): $InputConstants$Key
 public static "set"(arg0: $InputConstants$Key$$Type, arg1: boolean): void
 public "isDefault"(): boolean
 public static "setAll"(): void
-public static "fabric_getCategoryMap$fabric_key_binding_api_v1_$md$6d3b50$1"(): $Map
-public "isDown"(): boolean
-public static "releaseAll"(): void
-public "setDown"(arg0: boolean): void
-public "consumeClick"(): boolean
-public static "click"(arg0: $InputConstants$Key$$Type): void
-public "getCategory"(): StringJS
-public "setKey"(arg0: $InputConstants$Key$$Type): void
-public static "createNameSupplier"(arg0: StringJS): $Supplier<($Component)>
-public static "resetToggleKeys"(): void
-public "matchesMouse"(arg0: integer): boolean
-public "setKeyConflictContext"(arg0: $IKeyConflictContext$$Type): void
-public "getTranslatedKeyMessage"(): $Component
-public "setKeyModifierAndCode"(arg0: $KeyModifier$$Type, arg1: $InputConstants$Key$$Type): void
-public "getKeyConflictContext"(): $IKeyConflictContext
 public "getDefaultKeyModifier"(): $KeyModifier
-public "fabric_getTimesPressed"(): integer
+public "getTranslatedKeyMessage"(): $Component
+public "getKeyConflictContext"(): $IKeyConflictContext
+public "setKeyConflictContext"(arg0: $IKeyConflictContext$$Type): void
+public "setKeyModifierAndCode"(arg0: $KeyModifier$$Type, arg1: $InputConstants$Key$$Type): void
+public "setKey"(arg0: $InputConstants$Key$$Type): void
 public "isUnbound"(): boolean
+public static "releaseAll"(): void
+public "isDown"(): boolean
+public static "getAllKeyMappings$patchouli_$md$1ae6d3$0"(): $Map
+public "getCategory"(): StringJS
+public "matchesMouse"(arg0: integer): boolean
 public "same"(arg0: $KeyMapping$$Type): boolean
-public "saveString"(): StringJS
-public static "getAllKeyMappings$patchouli_$md$6d3b50$0"(): $Map
-public "getDefaultKey"(): $InputConstants$Key
-public "controlling$getKey"(): $InputConstants$Key
+public static "fabric_getCategoryMap$fabric_key_binding_api_v1_$md$1ae6d3$1"(): $Map
+public "fabric_getTimesPressed"(): integer
+public "consumeClick"(): boolean
+public static "resetToggleKeys"(): void
+public static "createNameSupplier"(arg0: StringJS): $Supplier<($Component)>
 public "fabric_getBoundKey"(): $InputConstants$Key
-public static "resetMapping"(): void
 public "getKeyModifier"(): $KeyModifier
+public static "resetMapping"(): void
+public "controlling$getKey"(): $InputConstants$Key
+public static "click"(arg0: $InputConstants$Key$$Type): void
+public "setDown"(arg0: boolean): void
+public "saveString"(): StringJS
+public "getDefaultKey"(): $InputConstants$Key
 public "getDisplayName"(): $Component
+public "hasKeyModifierConflict"(arg0: $KeyMapping$$Type): boolean
 public "setToDefault"(): void
 public "isActiveAndMatches"(arg0: $InputConstants$Key$$Type): boolean
-public "hasKeyModifierConflict"(arg0: $KeyMapping$$Type): boolean
 public "isConflictContextAndModifierActive"(): boolean
 public static "getAllKeyMappings"(): $Map<(StringJS), ($KeyMapping)>
 public static "fabric_getCategoryMap"(): $Map<(StringJS), (integer)>
 get "name"(): StringJS
 get "default"(): boolean
 get "all"(): void
-get "down"(): boolean
-set "down"(value: boolean)
-get "category"(): StringJS
-set "keyConflictContext"(value: $IKeyConflictContext$$Type)
+get "defaultKeyModifier"(): $KeyModifier
 get "translatedKeyMessage"(): $Component
 get "keyConflictContext"(): $IKeyConflictContext
-get "defaultKeyModifier"(): $KeyModifier
+set "keyConflictContext"(value: $IKeyConflictContext$$Type)
 get "unbound"(): boolean
-get "allKeyMappings$patchouli_$md$6d3b50$0"(): $Map
-get "defaultKey"(): $InputConstants$Key
+get "down"(): boolean
+get "allKeyMappings$patchouli_$md$1ae6d3$0"(): $Map
+get "category"(): StringJS
 get "keyModifier"(): $KeyModifier
+set "down"(value: boolean)
+get "defaultKey"(): $InputConstants$Key
 get "displayName"(): $Component
 get "toDefault"(): void
 get "conflictContextAndModifierActive"(): boolean
@@ -1894,8 +1908,8 @@ export interface $OptionInstance$ValueSet$$Interface<T> {
 
 export class $OptionInstance$ValueSet<T> implements $OptionInstance$ValueSet$$Interface {
  "validateValue"(arg0: T): $Optional<(T)>
- "createButton"(arg0: $OptionInstance$TooltipSupplier$$Type<(T)>, arg1: $Options$$Type, arg2: integer, arg3: integer, arg4: integer, arg5: $Consumer$$Type<(T)>): $Function<($OptionInstance<(T)>), ($AbstractWidget)>
  "codec"(): $Codec<(T)>
+ "createButton"(arg0: $OptionInstance$TooltipSupplier$$Type<(T)>, arg1: $Options$$Type, arg2: integer, arg3: integer, arg4: integer, arg5: $Consumer$$Type<(T)>): $Function<($OptionInstance<(T)>), ($AbstractWidget)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1912,8 +1926,8 @@ import {$Codec} from "com.mojang.serialization.Codec"
 import {$Optional} from "java.util.Optional"
 import {$Function} from "java.util.function.Function"
 import {$AbstractWidget} from "net.minecraft.client.gui.components.AbstractWidget"
-import {$OptionInstance$ValueSet$$Interface} from "net.minecraft.client.OptionInstance$ValueSet"
 import {$OptionInstance} from "net.minecraft.client.OptionInstance"
+import {$OptionInstance$ValueSet$$Interface} from "net.minecraft.client.OptionInstance$ValueSet"
 import {$Options$$Type} from "net.minecraft.client.Options"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 
@@ -1922,8 +1936,8 @@ export interface $OptionInstance$CycleableValueSet$$Interface<T> extends $Option
 
 export class $OptionInstance$CycleableValueSet<T> implements $OptionInstance$CycleableValueSet$$Interface {
  "validateValue"(arg0: T): $Optional<(T)>
- "createButton"(arg0: $OptionInstance$TooltipSupplier$$Type<(T)>, arg1: $Options$$Type, arg2: integer, arg3: integer, arg4: integer, arg5: $Consumer$$Type<(T)>): $Function<($OptionInstance<(T)>), ($AbstractWidget)>
  "codec"(): $Codec<(T)>
+ "createButton"(arg0: $OptionInstance$TooltipSupplier$$Type<(T)>, arg1: $Options$$Type, arg2: integer, arg3: integer, arg4: integer, arg5: $Consumer$$Type<(T)>): $Function<($OptionInstance<(T)>), ($AbstractWidget)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1937,8 +1951,8 @@ export type $OptionInstance$CycleableValueSet$$Original<T> = $OptionInstance$Cyc
 declare module "net.minecraft.client.ToggleKeyMapping" {
 import {$Map} from "java.util.Map"
 import {$InputConstants$Key} from "com.mojang.blaze3d.platform.InputConstants$Key"
-import {$KeyMapping} from "net.minecraft.client.KeyMapping"
 import {$BooleanSupplier$$Type} from "java.util.function.BooleanSupplier"
+import {$KeyMapping} from "net.minecraft.client.KeyMapping"
 
 export class $ToggleKeyMapping extends $KeyMapping {
 static readonly "ALL": $Map<(StringJS), ($KeyMapping)>
@@ -1955,8 +1969,8 @@ constructor(arg0: StringJS, arg1: integer, arg2: StringJS, arg3: $BooleanSupplie
 
 public "reset"(): void
 public "isDown"(): boolean
+public "modifyReturnValue$cpn000$xaerominimap$onIsDown"(arg0: boolean): boolean
 public "setDown"(arg0: boolean): void
-public "modifyReturnValue$ckg000$xaerominimap$onIsDown"(arg0: boolean): boolean
 public static "getAllKeyMappings"(): $Map<(StringJS), ($KeyMapping)>
 public static "fabric_getCategoryMap"(): $Map<(StringJS), (integer)>
 get "down"(): boolean
@@ -1975,12 +1989,12 @@ export type $ToggleKeyMapping$$Original = $ToggleKeyMapping;}
 declare module "net.minecraft.client.CloudStatus" {
 import {$Keyable} from "com.mojang.serialization.Keyable"
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Enum, $Enum$$Type} from "java.lang.Enum"
-import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Function, $Function$$Type} from "java.util.function.Function"
-import {$Component} from "net.minecraft.network.chat.Component"
+import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$OptionEnum$$Interface} from "net.minecraft.util.OptionEnum"
+import {$Component} from "net.minecraft.network.chat.Component"
 import {$StringRepresentable, $StringRepresentable$$Type, $StringRepresentable$$Interface} from "net.minecraft.util.StringRepresentable"
 
 export class $CloudStatus extends $Enum<($CloudStatus)> implements $OptionEnum$$Interface, $StringRepresentable$$Interface {
@@ -1995,12 +2009,12 @@ public "getKey"(): StringJS
 public "getId"(): integer
 public "getSerializedName"(): StringJS
 public "getCaption"(): $Component
-public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
 public static "keys"(arg0: ($StringRepresentable$$Type)[]): $Keyable
+public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
+public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 public "getRemappedEnumConstantName"(): StringJS
 public static "fromEnum"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromValues"<T extends $StringRepresentable>(arg0: $Supplier$$Type<((T)[])>): $Codec<(T)>
-public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 get "key"(): StringJS
 get "id"(): integer
 get "serializedName"(): StringJS
@@ -2041,8 +2055,8 @@ import {$MessageSignature, $MessageSignature$$Type} from "net.minecraft.network.
 import {$GuiMessageTag$Icon} from "net.minecraft.client.GuiMessageTag$Icon"
 import {$HeadData, $HeadData$$Type} from "dzwdz.chat_heads.HeadData"
 import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component"
-import {$GuiMessageTag, $GuiMessageTag$$Type} from "net.minecraft.client.GuiMessageTag"
 import {$HeadRenderable$$Interface} from "dzwdz.chat_heads.mixininterface.HeadRenderable"
+import {$GuiMessageTag, $GuiMessageTag$$Type} from "net.minecraft.client.GuiMessageTag"
 import {$Record} from "java.lang.Record"
 
 export class $GuiMessage extends $Record implements $HeadRenderable$$Interface {
@@ -2056,8 +2070,8 @@ public "toString"(): StringJS
 public "hashCode"(): integer
 public "tag"(): $GuiMessageTag
 public "content"(): $Component
-public "icon"(): $GuiMessageTag$Icon
 public "addedTime"(): integer
+public "icon"(): $GuiMessageTag$Icon
 public "chatheads$getHeadData"(): $HeadData
 public "chatheads$setHeadData"(headData: $HeadData$$Type): void
 }
@@ -2065,7 +2079,7 @@ public "chatheads$setHeadData"(headData: $HeadData$$Type): void
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $GuiMessage$$Type = ({"tag"?: $GuiMessageTag$$Type, "content"?: $Component$$Type, "signature"?: $MessageSignature$$Type, "addedTime"?: integer}) | ([tag?: $GuiMessageTag$$Type, content?: $Component$$Type, signature?: $MessageSignature$$Type, addedTime?: integer]);
+export type $GuiMessage$$Type = ({"addedTime"?: integer, "signature"?: $MessageSignature$$Type, "content"?: $Component$$Type, "tag"?: $GuiMessageTag$$Type}) | ([addedTime?: integer, signature?: $MessageSignature$$Type, content?: $Component$$Type, tag?: $GuiMessageTag$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */

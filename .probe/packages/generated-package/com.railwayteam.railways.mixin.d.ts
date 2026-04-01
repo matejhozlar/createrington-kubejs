@@ -31,10 +31,10 @@ export interface $AccessorPartialModel$$Interface {
 }
 
 export class $AccessorPartialModel implements $AccessorPartialModel$$Interface {
-static "railways$getALL"(): $ConcurrentMap<($ResourceLocation), ($PartialModel)>
  "railways$setBakedModel"(arg0: $BakedModel$$Type): void
 static "railways$setPopulateOnInit"(arg0: boolean): void
 static "railways$getPopulateOnInit"(): boolean
+static "railways$getALL"(): $ConcurrentMap<($ResourceLocation), ($PartialModel)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -90,15 +90,15 @@ export type $AccessorBlockEntity$$Original = $AccessorBlockEntity;}
 declare module "com.railwayteam.railways.mixin.client.AccessorWalkAnimationState" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $AccessorWalkAnimationState$$Interface {
-set "position"(value: float)
-set "speedOld"(value: float)
 get "speedOld"(): float
+set "speedOld"(value: float)
+set "position"(value: float)
 }
 
 export class $AccessorWalkAnimationState implements $AccessorWalkAnimationState$$Interface {
- "setPosition"(arg0: float): void
- "setSpeedOld"(arg0: float): void
  "getSpeedOld"(): float
+ "setSpeedOld"(arg0: float): void
+ "setPosition"(arg0: float): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -109,20 +109,40 @@ export type $AccessorWalkAnimationState$$Type = ($AccessorWalkAnimationState);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $AccessorWalkAnimationState$$Original = $AccessorWalkAnimationState;}
+declare module "com.railwayteam.railways.mixin.conductor_possession.AccessorClientChunkCacheStorage" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export interface $AccessorClientChunkCacheStorage$$Interface {
+}
+
+export class $AccessorClientChunkCacheStorage implements $AccessorClientChunkCacheStorage$$Interface {
+ "railways$setViewCenterZ"(arg0: integer): void
+ "railways$setViewCenterX"(arg0: integer): void
+ "railways$getViewCenterX"(): integer
+ "railways$getViewCenterZ"(): integer
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $AccessorClientChunkCacheStorage$$Type = ($AccessorClientChunkCacheStorage);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $AccessorClientChunkCacheStorage$$Original = $AccessorClientChunkCacheStorage;}
 declare module "com.railwayteam.railways.mixin.client.AccessorEntity" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $AccessorEntity$$Interface {
 get "XRot"(): float
+get "YRot"(): float
 set "XRot"(value: float)
 set "YRot"(value: float)
-get "YRot"(): float
 }
 
 export class $AccessorEntity implements $AccessorEntity$$Interface {
  "getXRot"(): float
+ "getYRot"(): float
  "setXRot"(arg0: float): void
  "setYRot"(arg0: float): void
- "getYRot"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -158,13 +178,13 @@ declare module "com.railwayteam.railways.mixin.conductor_possession.ServerPlayer
 import {$Entity, $Entity$$Type} from "net.minecraft.world.entity.Entity"
 
 export interface $ServerPlayerAccessor$$Interface {
-get "camera"(): $Entity
 set "camera"(value: $Entity$$Type)
+get "camera"(): $Entity
 }
 
 export class $ServerPlayerAccessor implements $ServerPlayerAccessor$$Interface {
- "getCamera"(): $Entity
  "setCamera"(arg0: $Entity$$Type): void
+ "getCamera"(): $Entity
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -216,8 +236,8 @@ export type $AccessorTrain$$Type = ($AccessorTrain);
 export type $AccessorTrain$$Original = $AccessorTrain;}
 declare module "com.railwayteam.railways.mixin.AccessorTrackTargetingBehavior" {
 import {$Direction$AxisDirection, $Direction$AxisDirection$$Type} from "net.minecraft.core.Direction$AxisDirection"
-import {$Vec3, $Vec3$$Type} from "net.minecraft.world.phys.Vec3"
 import {$CompoundTag, $CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
+import {$Vec3, $Vec3$$Type} from "net.minecraft.world.phys.Vec3"
 import {$BezierTrackPointLocation, $BezierTrackPointLocation$$Type} from "com.simibubi.create.content.trains.track.BezierTrackPointLocation"
 import {$TrackEdgePoint$$Type} from "com.simibubi.create.content.trains.signal.TrackEdgePoint"
 import {$UUID, $UUID$$Type} from "java.util.UUID"
@@ -225,42 +245,42 @@ import {$BlockPos, $BlockPos$$Type} from "net.minecraft.core.BlockPos"
 
 export interface $AccessorTrackTargetingBehavior$$Interface {
 get "id"(): $UUID
-get "rotatedDirection"(): $Vec3
-set "rotatedDirection"(value: $Vec3$$Type)
 set "id"(value: $UUID$$Type)
 get "targetDirection"(): $Direction$AxisDirection
-get "orthogonal"(): boolean
-set "edgePoint"(value: $TrackEdgePoint$$Type)
-get "targetTrack"(): $BlockPos
-set "targetDirection"(value: $Direction$AxisDirection$$Type)
-set "targetTrack"(value: $BlockPos$$Type)
 get "targetBezier"(): $BezierTrackPointLocation
+set "prevDirection"(value: $Vec3$$Type)
 get "migrationData"(): $CompoundTag
-set "migrationData"(value: $CompoundTag$$Type)
+set "targetBezier"(value: $BezierTrackPointLocation$$Type)
 get "prevDirection"(): $Vec3
 set "orthogonal"(value: boolean)
-set "targetBezier"(value: $BezierTrackPointLocation$$Type)
-set "prevDirection"(value: $Vec3$$Type)
+set "migrationData"(value: $CompoundTag$$Type)
+set "rotatedDirection"(value: $Vec3$$Type)
+get "rotatedDirection"(): $Vec3
+get "targetTrack"(): $BlockPos
+set "edgePoint"(value: $TrackEdgePoint$$Type)
+get "orthogonal"(): boolean
+set "targetTrack"(value: $BlockPos$$Type)
+set "targetDirection"(value: $Direction$AxisDirection$$Type)
 }
 
 export class $AccessorTrackTargetingBehavior implements $AccessorTrackTargetingBehavior$$Interface {
  "getId"(): $UUID
- "getRotatedDirection"(): $Vec3
- "setRotatedDirection"(arg0: $Vec3$$Type): void
  "setId"(arg0: $UUID$$Type): void
  "getTargetDirection"(): $Direction$AxisDirection
- "isOrthogonal"(): boolean
- "setEdgePoint"(arg0: $TrackEdgePoint$$Type): void
- "getTargetTrack"(): $BlockPos
- "setTargetDirection"(arg0: $Direction$AxisDirection$$Type): void
- "setTargetTrack"(arg0: $BlockPos$$Type): void
  "getTargetBezier"(): $BezierTrackPointLocation
+ "setPrevDirection"(arg0: $Vec3$$Type): void
  "getMigrationData"(): $CompoundTag
- "setMigrationData"(arg0: $CompoundTag$$Type): void
+ "setTargetBezier"(arg0: $BezierTrackPointLocation$$Type): void
  "getPrevDirection"(): $Vec3
  "setOrthogonal"(arg0: boolean): void
- "setTargetBezier"(arg0: $BezierTrackPointLocation$$Type): void
- "setPrevDirection"(arg0: $Vec3$$Type): void
+ "setMigrationData"(arg0: $CompoundTag$$Type): void
+ "setRotatedDirection"(arg0: $Vec3$$Type): void
+ "getRotatedDirection"(): $Vec3
+ "getTargetTrack"(): $BlockPos
+ "setEdgePoint"(arg0: $TrackEdgePoint$$Type): void
+ "isOrthogonal"(): boolean
+ "setTargetTrack"(arg0: $BlockPos$$Type): void
+ "setTargetDirection"(arg0: $Direction$AxisDirection$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -299,8 +319,8 @@ export interface $AccessorLocalPlayer$$Interface {
 }
 
 export class $AccessorLocalPlayer implements $AccessorLocalPlayer$$Interface {
- "railways$getXRotLast"(): float
  "railways$getYRotLast"(): float
+ "railways$getXRotLast"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

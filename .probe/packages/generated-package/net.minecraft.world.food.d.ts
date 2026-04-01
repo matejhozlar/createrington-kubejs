@@ -14,55 +14,58 @@ static readonly "DIRECT_STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), 
 
 constructor(nutrition: integer, saturation: float, canAlwaysEat: boolean, eatSeconds: float, usingConvertsTo: ($ItemStack$$Type)?, effects: $List$$Type<($FoodProperties$PossibleEffect$$Type)>)
 
-public "eatSeconds"(): float
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public "usingConvertsTo"(): $Optional<($ItemStack)>
-public "nutrition"(): integer
 public "saturation"(): float
+public "eatSeconds"(): float
+public "effects"(): $List<($FoodProperties$PossibleEffect)>
 public "eatDurationTicks"(): integer
 public "canAlwaysEat"(): boolean
-public "effects"(): $List<($FoodProperties$PossibleEffect)>
+public "nutrition"(): integer
+public "usingConvertsTo"(): $Optional<($ItemStack)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $FoodProperties$$Type = ({"nutrition"?: integer, "canAlwaysEat"?: boolean, "usingConvertsTo"?: ($ItemStack$$Type)?, "eatSeconds"?: float, "effects"?: $List$$Type<($FoodProperties$PossibleEffect$$Type)>, "saturation"?: float}) | ([nutrition?: integer, canAlwaysEat?: boolean, usingConvertsTo?: ($ItemStack$$Type)?, eatSeconds?: float, effects?: $List$$Type<($FoodProperties$PossibleEffect$$Type)>, saturation?: float]);
+export type $FoodProperties$$Type = ({"effects"?: $List$$Type<($FoodProperties$PossibleEffect$$Type)>, "eatSeconds"?: float, "usingConvertsTo"?: ($ItemStack$$Type)?, "canAlwaysEat"?: boolean, "nutrition"?: integer, "saturation"?: float}) | ([effects?: $List$$Type<($FoodProperties$PossibleEffect$$Type)>, eatSeconds?: float, usingConvertsTo?: ($ItemStack$$Type)?, canAlwaysEat?: boolean, nutrition?: integer, saturation?: float]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $FoodProperties$$Original = $FoodProperties;}
 declare module "net.minecraft.world.food.FoodData" {
+import {$FoodDataEntityAccess$$Interface} from "umpaz.brewinandchewin.common.access.FoodDataEntityAccess"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
+import {$LivingEntity$$Type} from "net.minecraft.world.entity.LivingEntity"
 import {$FoodProperties$$Type} from "net.minecraft.world.food.FoodProperties"
 
-export class $FoodData {
+export class $FoodData implements $FoodDataEntityAccess$$Interface {
 constructor()
 
 public "tick"(arg0: $Player$$Type): void
-public "setSaturation"(arg0: float): void
-public "getFoodLevel"(): integer
-public "getSaturationLevel"(): float
-public "setFoodLevel"(arg0: integer): void
-public "addExhaustion"(arg0: float): void
+public "brewinandchewin$setEntity"(arg0: $LivingEntity$$Type): void
 public "addAdditionalSaveData"(arg0: $CompoundTag$$Type): void
 public "readAdditionalSaveData"(arg0: $CompoundTag$$Type): void
+public "needsFood"(): boolean
+public "setSaturation"(arg0: float): void
+public "getSaturationLevel"(): float
+public "setFoodLevel"(arg0: integer): void
+public "getFoodLevel"(): integer
+public "addExhaustion"(arg0: float): void
 public "eat"(arg0: $FoodProperties$$Type): void
 public "eat"(arg0: integer, arg1: float): void
-public "needsFood"(): boolean
 public "getExhaustionLevel"(): float
-public "setExhaustion"(arg0: float): void
 public "getLastFoodLevel"(): integer
+public "setExhaustion"(arg0: float): void
 set "saturation"(value: float)
-get "foodLevel"(): integer
 get "saturationLevel"(): float
 set "foodLevel"(value: integer)
+get "foodLevel"(): integer
 get "exhaustionLevel"(): float
-set "exhaustion"(value: float)
 get "lastFoodLevel"(): integer
+set "exhaustion"(value: float)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -90,8 +93,8 @@ constructor(effectSupplier: $Supplier$$Type<($MobEffectInstance$$Type)>, probabi
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public "effectSupplier"(): $Supplier<($MobEffectInstance)>
 public "effect"(): $MobEffectInstance
+public "effectSupplier"(): $Supplier<($MobEffectInstance)>
 public "probability"(): float
 }
 /**

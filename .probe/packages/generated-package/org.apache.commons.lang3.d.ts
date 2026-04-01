@@ -15,15 +15,13 @@ static readonly "ONE_THIRD": $Fraction
 static readonly "ONE_FIFTH": $Fraction
 static readonly "TWO_FIFTHS": $Fraction
 
-public "multiplyBy"(arg0: $Fraction$$Type): $Fraction
-public "divideBy"(arg0: $Fraction$$Type): $Fraction
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "abs"(): $Fraction
 public "pow"(arg0: integer): $Fraction
-public "compareTo"(arg0: any): integer
 public "compareTo"(arg0: $Fraction$$Type): integer
+public "compareTo"(arg0: any): integer
 public "intValue"(): integer
 public "longValue"(): long
 public "floatValue"(): float
@@ -32,21 +30,23 @@ public "add"(arg0: $Fraction$$Type): $Fraction
 public "reduce"(): $Fraction
 public "subtract"(arg0: $Fraction$$Type): $Fraction
 public "negate"(): $Fraction
+public "invert"(): $Fraction
+public "multiplyBy"(arg0: $Fraction$$Type): $Fraction
+public "divideBy"(arg0: $Fraction$$Type): $Fraction
+public static "getFraction"(arg0: double): $Fraction
+public static "getFraction"(arg0: StringJS): $Fraction
 public static "getFraction"(arg0: integer, arg1: integer): $Fraction
 public static "getFraction"(arg0: integer, arg1: integer, arg2: integer): $Fraction
-public static "getFraction"(arg0: StringJS): $Fraction
-public static "getFraction"(arg0: double): $Fraction
-public "getProperWhole"(): integer
+public "getDenominator"(): integer
+public "getNumerator"(): integer
 public static "getReducedFraction"(arg0: integer, arg1: integer): $Fraction
 public "getProperNumerator"(): integer
 public "toProperString"(): StringJS
-public "invert"(): $Fraction
-public "getNumerator"(): integer
-public "getDenominator"(): integer
-get "properWhole"(): integer
-get "properNumerator"(): integer
-get "numerator"(): integer
+public "getProperWhole"(): integer
 get "denominator"(): integer
+get "numerator"(): integer
+get "properNumerator"(): integer
+get "properWhole"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -100,16 +100,16 @@ public "setValue"(arg0: boolean): void
 public "toBoolean"(): boolean
 public "isTrue"(): boolean
 public "isFalse"(): boolean
-public "setTrue"(): void
 public "setFalse"(): void
+public "setTrue"(): void
 get "value"(): any
 set "value"(value: boolean)
 set "value"(value: any)
 set "value"(value: boolean)
 get "true"(): boolean
 get "false"(): boolean
-get "true"(): void
 get "false"(): void
+get "true"(): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

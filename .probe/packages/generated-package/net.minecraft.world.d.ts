@@ -36,8 +36,8 @@ import {$List} from "java.util.List"
 import {$Level$$Type} from "net.minecraft.world.level.Level"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$LithiumCooldownReceivingInventory$$Interface} from "net.caffeinemc.mods.lithium.api.inventory.LithiumCooldownReceivingInventory"
-import {$LevelBlock} from "dev.latvian.mods.kubejs.level.LevelBlock"
 import {$Clearable$$Interface} from "net.minecraft.world.Clearable"
+import {$LevelBlock} from "dev.latvian.mods.kubejs.level.LevelBlock"
 import {$ItemPredicate$$Type} from "dev.latvian.mods.kubejs.item.ItemPredicate"
 import {$LithiumTransferConditionInventory$$Interface} from "net.caffeinemc.mods.lithium.api.inventory.LithiumTransferConditionInventory"
 import {$Item$$Type} from "net.minecraft.world.item.Item"
@@ -47,15 +47,15 @@ import {$BlockEntity$$Type} from "net.minecraft.world.level.block.entity.BlockEn
 
 export interface $Container$$Interface extends $Clearable$$Interface, $LithiumCooldownReceivingInventory$$Interface, $ContainerMixin$$Interface, $LithiumTransferConditionInventory$$Interface, $ContainerKJS$$Interface {
 get "empty"(): boolean
+get "changed"(): void
 get "containerSize"(): integer
 get "maxStackSize"(): integer
-get "changed"(): void
 set "transferCooldown"(value: long)
-get "width"(): integer
 get "height"(): integer
-get "mutable"(): boolean
-get "slots"(): integer
 get "changed"(): void
+get "slots"(): integer
+get "width"(): integer
+get "mutable"(): boolean
 get "empty"(): boolean
 get "allItems"(): $List<($ItemStack)>
 }
@@ -65,53 +65,53 @@ static readonly "DEFAULT_DISTANCE_BUFFER": float
 
  "isEmpty"(): boolean
  "getItem"(arg0: integer): $ItemStack
- "canPlaceItem"(arg0: integer, arg1: $ItemStack$$Type): boolean
- "removeItemNoUpdate"(arg0: integer): $ItemStack
- "getContainerSize"(): integer
  "removeItem"(arg0: integer, arg1: integer): $ItemStack
- "getMaxStackSize"(): integer
- "getMaxStackSize"(arg0: $ItemStack$$Type): integer
+ "canPlaceItem"(arg0: integer, arg1: $ItemStack$$Type): boolean
  "hasAnyMatching"(arg0: $Predicate$$Type<($ItemStack)>): boolean
- "stillValid"(arg0: $Player$$Type): boolean
  "setChanged"(): void
- "setItem"(arg0: integer, arg1: $ItemStack$$Type): void
- "stopOpen"(arg0: $Player$$Type): void
- "hasAnyOf"(arg0: $Set$$Type<($Item$$Type)>): boolean
- "countItem"(arg0: $Item$$Type): integer
- "startOpen"(arg0: $Player$$Type): void
  "canTakeItem"(arg0: $Container$$Type, arg1: integer, arg2: $ItemStack$$Type): boolean
 static "stillValidBlockEntity"(arg0: $BlockEntity$$Type, arg1: $Player$$Type): boolean
 static "stillValidBlockEntity"(arg0: $BlockEntity$$Type, arg1: $Player$$Type, arg2: float): boolean
-static "tryClear"(arg0: any): void
+ "stillValid"(arg0: $Player$$Type): boolean
+ "getContainerSize"(): integer
+ "removeItemNoUpdate"(arg0: integer): $ItemStack
+ "stopOpen"(arg0: $Player$$Type): void
+ "startOpen"(arg0: $Player$$Type): void
+ "countItem"(arg0: $Item$$Type): integer
+ "hasAnyOf"(arg0: $Set$$Type<($Item$$Type)>): boolean
+ "getMaxStackSize"(arg0: $ItemStack$$Type): integer
+ "getMaxStackSize"(): integer
+ "setItem"(arg0: integer, arg1: $ItemStack$$Type): void
  "clearContent"(): void
+static "tryClear"(arg0: any): void
  "canReceiveTransferCooldown"(): boolean
  "setTransferCooldown"(arg0: long): void
  "lithium$itemInsertionTestRequiresStackSize1"(): boolean
+ "self"(): $Container
+ "clear"(): void
+ "getHeight"(): integer
+ "setChanged"(): void
  "insertItem"(slot: integer, stack: $ItemStack$$Type, simulate: boolean): $ItemStack
  "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
- "getWidth"(): integer
- "getHeight"(): integer
- "isMutable"(): boolean
- "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
+ "isItemValid"(slot: integer, stack: $ItemStack$$Type): boolean
  "getSlots"(): integer
  "getSlotLimit"(slot: integer): integer
- "isItemValid"(slot: integer, stack: $ItemStack$$Type): boolean
- "setChanged"(): void
  "getStackInSlot"(slot: integer): $ItemStack
+ "getWidth"(): integer
+ "isMutable"(): boolean
+ "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
  "asContainer"(): $Container
- "clear"(): void
- "self"(): $Container
  "getBlock"(level: $Level$$Type): $LevelBlock
  "isEmpty"(): boolean
+ "find"(match: $ItemPredicate$$Type): integer
+ "find"(): integer
+ "clear"(match: $ItemPredicate$$Type): void
+ "count"(match: $ItemPredicate$$Type): integer
+ "count"(): integer
  "insertItem"(stack: $ItemStack$$Type, simulate: boolean): $ItemStack
  "countNonEmpty"(): integer
  "countNonEmpty"(match: $ItemPredicate$$Type): integer
  "getAllItems"(): $List<($ItemStack)>
- "clear"(match: $ItemPredicate$$Type): void
- "find"(): integer
- "find"(match: $ItemPredicate$$Type): integer
- "count"(): integer
- "count"(match: $ItemPredicate$$Type): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -130,8 +130,8 @@ export interface $Clearable$$Interface {
 }
 
 export class $Clearable implements $Clearable$$Interface {
-static "tryClear"(arg0: any): void
  "clearContent"(): void
+static "tryClear"(arg0: any): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -180,11 +180,11 @@ static readonly "TAG_LOCK": StringJS
 
 constructor(arg0: StringJS)
 
-public "unlocksWith"(arg0: $ItemStack$$Type): boolean
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "key"(): StringJS
+public "unlocksWith"(arg0: $ItemStack$$Type): boolean
 public static "fromTag"(arg0: $CompoundTag$$Type): $LockCode
 public "addToTag"(arg0: $CompoundTag$$Type): void
 }
@@ -208,19 +208,19 @@ constructor()
 
 public "isFrozen"(): boolean
 public "tick"(): void
+public "setFrozenTicksToRun"(arg0: integer): void
+public "frozenTicksToRun"(): integer
 public "tickrate"(): float
+public "millisecondsPerTick"(): float
 public "runsNormally"(): boolean
 public "isEntityFrozen"(arg0: $Entity$$Type): boolean
-public "millisecondsPerTick"(): float
-public "setFrozen"(arg0: boolean): void
-public "setFrozenTicksToRun"(arg0: integer): void
-public "nanosecondsPerTick"(): long
 public "setTickRate"(arg0: float): void
+public "setFrozen"(arg0: boolean): void
+public "nanosecondsPerTick"(): long
 public "isSteppingForward"(): boolean
-public "frozenTicksToRun"(): integer
 get "frozen"(): boolean
-set "frozen"(value: boolean)
 set "tickRate"(value: float)
+set "frozen"(value: boolean)
 get "steppingForward"(): boolean
 }
 /**
@@ -245,10 +245,10 @@ static readonly "FAIL": $InteractionResult
 
 public static "values"(): ($InteractionResult)[]
 public static "valueOf"(arg0: StringJS): $InteractionResult
-public static "sidedSuccess"(arg0: boolean): $InteractionResult
-public "indicateItemUse"(): boolean
 public "consumesAction"(): boolean
 public "shouldSwing"(): boolean
+public "indicateItemUse"(): boolean
+public static "sidedSuccess"(arg0: boolean): $InteractionResult
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -261,8 +261,8 @@ export type $InteractionResult$$Type = (("success") | ("success_no_item_used") |
 export type $InteractionResult$$Original = $InteractionResult;}
 declare module "net.minecraft.world.SimpleContainer" {
 import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
-import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$SpecialLogicInventory$$Interface} from "net.fabricmc.fabric.impl.transfer.item.SpecialLogicInventory"
+import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$List} from "java.util.List"
 import {$StackedContentsCompatible$$Interface} from "net.minecraft.world.inventory.StackedContentsCompatible"
 import {$Level$$Type} from "net.minecraft.world.level.Level"
@@ -293,79 +293,79 @@ constructor(...arg0: ($ItemStack$$Type)[])
 public "toString"(): StringJS
 public "isEmpty"(): boolean
 public "getItem"(arg0: integer): $ItemStack
-public "removeItemType"(arg0: $Item$$Type, arg1: integer): $ItemStack
 public "addItem"(arg0: $ItemStack$$Type): $ItemStack
-public "removeItemNoUpdate"(arg0: integer): $ItemStack
-public "getContainerSize"(): integer
-public "getItems"(): $NonNullList<($ItemStack)>
 public "removeAllItems"(): $List<($ItemStack)>
 public "removeItem"(arg0: integer, arg1: integer): $ItemStack
+public "removeItemType"(arg0: $Item$$Type, arg1: integer): $ItemStack
 public "fillStackedContents"(arg0: $StackedContents$$Type): void
-public "canAddItem"(arg0: $ItemStack$$Type): boolean
 public "fabric_setSuppress"(arg0: boolean): void
+public "createTag"(arg0: $HolderLookup$Provider$$Type): $ListTag
+public "setChanged"(): void
 public "removeListener"(arg0: $ContainerListener$$Type): void
 public "addListener"(arg0: $ContainerListener$$Type): void
-public "createTag"(arg0: $HolderLookup$Provider$$Type): $ListTag
+public "clearContent"(): void
+public "redirect$fed000$fabric_transfer_api_v1$fabric_redirectMarkDirty"(arg0: $SimpleContainer$$Type): void
+public "fabric_onFinalCommit"(arg0: integer, arg1: $ItemStack$$Type, arg2: $ItemStack$$Type): void
 public "stillValid"(arg0: $Player$$Type): boolean
 public "fromTag"(arg0: $ListTag$$Type, arg1: $HolderLookup$Provider$$Type): void
-public "setChanged"(): void
-public "setItem"(arg0: integer, arg1: $ItemStack$$Type): void
-public "clearContent"(): void
+public "getItems"(): $NonNullList<($ItemStack)>
+public "getContainerSize"(): integer
+public "removeItemNoUpdate"(arg0: integer): $ItemStack
 public "malilib$getEntityOwner"(): $Entity
 public "malilib$setEntityOwner"(entityOwner: $Entity$$Type): void
-public "redirect$emm000$fabric_transfer_api_v1$fabric_redirectMarkDirty"(arg0: $SimpleContainer$$Type): void
-public "fabric_onFinalCommit"(arg0: integer, arg1: $ItemStack$$Type, arg2: $ItemStack$$Type): void
+public "setItem"(arg0: integer, arg1: $ItemStack$$Type): void
+public "canAddItem"(arg0: $ItemStack$$Type): boolean
 public "canPlaceItem"(arg0: integer, arg1: $ItemStack$$Type): boolean
-public "getMaxStackSize"(): integer
-public "getMaxStackSize"(arg0: $ItemStack$$Type): integer
 public "hasAnyMatching"(arg0: $Predicate$$Type<($ItemStack)>): boolean
-public "stopOpen"(arg0: $Player$$Type): void
-public "hasAnyOf"(arg0: $Set$$Type<($Item$$Type)>): boolean
-public "countItem"(arg0: $Item$$Type): integer
-public "startOpen"(arg0: $Player$$Type): void
 public "canTakeItem"(arg0: $Container$$Type, arg1: integer, arg2: $ItemStack$$Type): boolean
 public static "stillValidBlockEntity"(arg0: $BlockEntity$$Type, arg1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(arg0: $BlockEntity$$Type, arg1: $Player$$Type, arg2: float): boolean
+public "stopOpen"(arg0: $Player$$Type): void
+public "startOpen"(arg0: $Player$$Type): void
+public "countItem"(arg0: $Item$$Type): integer
+public "hasAnyOf"(arg0: $Set$$Type<($Item$$Type)>): boolean
+public "getMaxStackSize"(arg0: $ItemStack$$Type): integer
+public "getMaxStackSize"(): integer
 public "fabric_onTransfer"(arg0: integer, arg1: $TransactionContext$$Type): void
 public static "tryClear"(arg0: any): void
 public "canReceiveTransferCooldown"(): boolean
 public "setTransferCooldown"(arg0: long): void
 public "lithium$itemInsertionTestRequiresStackSize1"(): boolean
+public "self"(): $Container
+public "clear"(): void
+public "getHeight"(): integer
+public "setChanged"(): void
 public "insertItem"(slot: integer, stack: $ItemStack$$Type, simulate: boolean): $ItemStack
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
-public "getWidth"(): integer
-public "getHeight"(): integer
-public "isMutable"(): boolean
-public "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
+public "isItemValid"(slot: integer, stack: $ItemStack$$Type): boolean
 public "getSlots"(): integer
 public "getSlotLimit"(slot: integer): integer
-public "isItemValid"(slot: integer, stack: $ItemStack$$Type): boolean
-public "setChanged"(): void
 public "getStackInSlot"(slot: integer): $ItemStack
+public "getWidth"(): integer
+public "isMutable"(): boolean
+public "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
 public "asContainer"(): $Container
-public "clear"(): void
-public "self"(): $Container
 public "getBlock"(level: $Level$$Type): $LevelBlock
 public "isEmpty"(): boolean
+public "find"(match: $ItemPredicate$$Type): integer
+public "find"(): integer
+public "clear"(match: $ItemPredicate$$Type): void
+public "count"(match: $ItemPredicate$$Type): integer
+public "count"(): integer
 public "insertItem"(stack: $ItemStack$$Type, simulate: boolean): $ItemStack
 public "countNonEmpty"(): integer
 public "countNonEmpty"(match: $ItemPredicate$$Type): integer
 public "getAllItems"(): $List<($ItemStack)>
-public "clear"(match: $ItemPredicate$$Type): void
-public "find"(): integer
-public "find"(match: $ItemPredicate$$Type): integer
-public "count"(): integer
-public "count"(match: $ItemPredicate$$Type): integer
 get "empty"(): boolean
-get "containerSize"(): integer
 get "changed"(): void
+get "containerSize"(): integer
 get "maxStackSize"(): integer
 set "transferCooldown"(value: long)
-get "width"(): integer
 get "height"(): integer
-get "mutable"(): boolean
-get "slots"(): integer
 get "changed"(): void
+get "slots"(): integer
+get "width"(): integer
+get "mutable"(): boolean
 get "empty"(): boolean
 get "allItems"(): $List<($ItemStack)>
 }
@@ -381,8 +381,8 @@ export type $SimpleContainer$$Original = $SimpleContainer;}
 declare module "net.minecraft.world.RandomSequences" {
 import {$RandomSource} from "net.minecraft.util.RandomSource"
 import {$CompoundTag, $CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
-import {$RandomSequence$$Type} from "net.minecraft.world.RandomSequence"
 import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
+import {$RandomSequence$$Type} from "net.minecraft.world.RandomSequence"
 import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$SavedData} from "net.minecraft.world.level.saveddata.SavedData"
 import {$SavedData$Factory} from "net.minecraft.world.level.saveddata.SavedData$Factory"
@@ -398,8 +398,8 @@ public static "load"(arg0: long, arg1: $CompoundTag$$Type): $RandomSequences
 public "clear"(): integer
 public static "factory"(arg0: long): $SavedData$Factory<($RandomSequences)>
 public "save"(arg0: $CompoundTag$$Type, arg1: $HolderLookup$Provider$$Type): $CompoundTag
-public "setSeedDefaults"(arg0: integer, arg1: boolean, arg2: boolean): void
 public "forAllSequences"(arg0: $BiConsumer$$Type<($ResourceLocation), ($RandomSequence)>): void
+public "setSeedDefaults"(arg0: integer, arg1: boolean, arg2: boolean): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -451,17 +451,17 @@ public "getName"(): $Component
 public "setName"(arg0: $Component$$Type): void
 public "getId"(): $UUID
 public "setColor"(arg0: $BossEvent$BossBarColor$$Type): void
-public "getOverlay"(): $BossEvent$BossBarOverlay
-public "setDarkenScreen"(arg0: boolean): $BossEvent
-public "setPlayBossMusic"(arg0: boolean): $BossEvent
 public "setCreateWorldFog"(arg0: boolean): $BossEvent
-public "shouldCreateWorldFog"(): boolean
-public "shouldDarkenScreen"(): boolean
-public "setOverlay"(arg0: $BossEvent$BossBarOverlay$$Type): void
-public "getProgress"(): float
+public "setPlayBossMusic"(arg0: boolean): $BossEvent
+public "setDarkenScreen"(arg0: boolean): $BossEvent
+public "getOverlay"(): $BossEvent$BossBarOverlay
 public "setProgress"(arg0: float): void
 public "getColor"(): $BossEvent$BossBarColor
+public "getProgress"(): float
 public "shouldPlayBossMusic"(): boolean
+public "shouldDarkenScreen"(): boolean
+public "shouldCreateWorldFog"(): boolean
+public "setOverlay"(arg0: $BossEvent$BossBarOverlay$$Type): void
 get "id"(): $UUID
 }
 /**
@@ -476,11 +476,11 @@ export type $BossEvent$$Original = $BossEvent;}
 declare module "net.minecraft.world.MenuProvider" {
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$AbstractContainerMenu, $AbstractContainerMenu$$Type} from "net.minecraft.world.inventory.AbstractContainerMenu"
-import {$MenuConstructor$$Interface} from "net.minecraft.world.inventory.MenuConstructor"
 import {$RegistryFriendlyByteBuf$$Type} from "net.minecraft.network.RegistryFriendlyByteBuf"
+import {$MenuConstructor$$Interface} from "net.minecraft.world.inventory.MenuConstructor"
 import {$Component} from "net.minecraft.network.chat.Component"
-import {$FabricScreenHandlerFactory$$Interface} from "net.fabricmc.fabric.api.screenhandler.v1.FabricScreenHandlerFactory"
 import {$Inventory$$Type} from "net.minecraft.world.entity.player.Inventory"
+import {$FabricScreenHandlerFactory$$Interface} from "net.fabricmc.fabric.api.screenhandler.v1.FabricScreenHandlerFactory"
 import {$IMenuProviderExtension$$Interface} from "net.neoforged.neoforge.client.extensions.IMenuProviderExtension"
 
 export interface $MenuProvider$$Interface extends $MenuConstructor$$Interface, $IMenuProviderExtension$$Interface, $FabricScreenHandlerFactory$$Interface {
@@ -531,10 +531,10 @@ export type $BossEvent$BossBarOverlay$$Original = $BossEvent$BossBarOverlay;}
 declare module "net.minecraft.world.Difficulty" {
 import {$Keyable} from "com.mojang.serialization.Keyable"
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Enum, $Enum$$Type} from "java.lang.Enum"
-import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Function, $Function$$Type} from "java.util.function.Function"
+import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Component} from "net.minecraft.network.chat.Component"
 import {$StringRepresentable, $StringRepresentable$$Type, $StringRepresentable$$Interface} from "net.minecraft.util.StringRepresentable"
 
@@ -551,15 +551,15 @@ public "getKey"(): StringJS
 public "getId"(): integer
 public "getDisplayName"(): $Component
 public "getInfo"(): $Component
-public "getSerializedName"(): StringJS
 public static "byName"(arg0: StringJS): $Difficulty
 public static "byId"(arg0: integer): $Difficulty
-public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
+public "getSerializedName"(): StringJS
 public static "keys"(arg0: ($StringRepresentable$$Type)[]): $Keyable
+public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
+public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 public "getRemappedEnumConstantName"(): StringJS
 public static "fromEnum"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromValues"<T extends $StringRepresentable>(arg0: $Supplier$$Type<((T)[])>): $Codec<(T)>
-public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 get "key"(): StringJS
 get "id"(): integer
 get "displayName"(): $Component
@@ -591,8 +591,8 @@ static readonly "FAIL": $ItemInteractionResult
 public static "values"(): ($ItemInteractionResult)[]
 public static "valueOf"(arg0: StringJS): $ItemInteractionResult
 public "result"(): $InteractionResult
-public static "sidedSuccess"(arg0: boolean): $ItemInteractionResult
 public "consumesAction"(): boolean
+public static "sidedSuccess"(arg0: boolean): $ItemInteractionResult
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -613,6 +613,7 @@ import {$LootTable, $LootTable$$Type} from "net.minecraft.world.level.storage.lo
 import {$BlockGetter$$Type} from "net.minecraft.world.level.BlockGetter"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$RandomSource$$Type} from "net.minecraft.util.RandomSource"
+import {$Operation$$Type} from "com.llamalad7.mixinextras.injector.wrapoperation.Operation"
 import {$LevelBlock} from "dev.latvian.mods.kubejs.level.LevelBlock"
 import {$Container, $Container$$Type, $Container$$Interface} from "net.minecraft.world.Container"
 import {$ItemPredicate$$Type} from "dev.latvian.mods.kubejs.item.ItemPredicate"
@@ -624,21 +625,21 @@ import {$BlockEntity$$Type} from "net.minecraft.world.level.block.entity.BlockEn
 
 export interface $RandomizableContainer$$Interface extends $Container$$Interface {
 get "level"(): $Level
+set "lootTableSeed"(value: long)
+get "lootTableSeed"(): long
+get "lootTable"(): $ResourceKey<($LootTable)>
 set "lootTable"(value: $ResourceKey$$Type<($LootTable)>)
 get "blockPos"(): $BlockPos
-set "lootTableSeed"(value: long)
-get "lootTable"(): $ResourceKey<($LootTable)>
-get "lootTableSeed"(): long
 get "empty"(): boolean
+get "changed"(): void
 get "containerSize"(): integer
 get "maxStackSize"(): integer
-get "changed"(): void
 set "transferCooldown"(value: long)
-get "width"(): integer
 get "height"(): integer
-get "mutable"(): boolean
-get "slots"(): integer
 get "changed"(): void
+get "slots"(): integer
+get "width"(): integer
+get "mutable"(): boolean
 get "empty"(): boolean
 get "allItems"(): $List<($ItemStack)>
 }
@@ -648,65 +649,66 @@ static readonly "LOOT_TABLE_SEED_TAG": StringJS
 static readonly "LOOT_TABLE_TAG": StringJS
 
  "getLevel"(): $Level
- "tryLoadLootTable"(arg0: $CompoundTag$$Type): boolean
+ "setLootTableSeed"(arg0: long): void
+ "getLootTableSeed"(): long
+ "getLootTable"(): $ResourceKey<($LootTable)>
+static "setBlockEntityLootTable"(arg0: $BlockGetter$$Type, arg1: $RandomSource$$Type, arg2: $BlockPos$$Type, arg3: $ResourceKey$$Type<($LootTable)>): void
  "trySaveLootTable"(arg0: $CompoundTag$$Type): boolean
- "unpackLootTable"(arg0: $Player$$Type): void
+ "tryLoadLootTable"(arg0: $CompoundTag$$Type): boolean
  "setLootTable"(arg0: $ResourceKey$$Type<($LootTable)>): void
  "setLootTable"(arg0: $ResourceKey$$Type<($LootTable)>, arg1: long): void
+ "wrapOperation$dcc000$lootr$tryLoadLootTable"(instance: $RandomizableContainer$$Type, l: long, original: $Operation$$Type): void
+ "unpackLootTable"(arg0: $Player$$Type): void
  "getBlockPos"(): $BlockPos
- "setLootTableSeed"(arg0: long): void
- "getLootTable"(): $ResourceKey<($LootTable)>
- "getLootTableSeed"(): long
-static "setBlockEntityLootTable"(arg0: $BlockGetter$$Type, arg1: $RandomSource$$Type, arg2: $BlockPos$$Type, arg3: $ResourceKey$$Type<($LootTable)>): void
  "isEmpty"(): boolean
  "getItem"(arg0: integer): $ItemStack
- "canPlaceItem"(arg0: integer, arg1: $ItemStack$$Type): boolean
- "removeItemNoUpdate"(arg0: integer): $ItemStack
- "getContainerSize"(): integer
  "removeItem"(arg0: integer, arg1: integer): $ItemStack
- "getMaxStackSize"(): integer
- "getMaxStackSize"(arg0: $ItemStack$$Type): integer
+ "canPlaceItem"(arg0: integer, arg1: $ItemStack$$Type): boolean
  "hasAnyMatching"(arg0: $Predicate$$Type<($ItemStack)>): boolean
- "stillValid"(arg0: $Player$$Type): boolean
  "setChanged"(): void
- "setItem"(arg0: integer, arg1: $ItemStack$$Type): void
- "stopOpen"(arg0: $Player$$Type): void
- "hasAnyOf"(arg0: $Set$$Type<($Item$$Type)>): boolean
- "countItem"(arg0: $Item$$Type): integer
- "startOpen"(arg0: $Player$$Type): void
  "canTakeItem"(arg0: $Container$$Type, arg1: integer, arg2: $ItemStack$$Type): boolean
 static "stillValidBlockEntity"(arg0: $BlockEntity$$Type, arg1: $Player$$Type): boolean
 static "stillValidBlockEntity"(arg0: $BlockEntity$$Type, arg1: $Player$$Type, arg2: float): boolean
-static "tryClear"(arg0: any): void
+ "stillValid"(arg0: $Player$$Type): boolean
+ "getContainerSize"(): integer
+ "removeItemNoUpdate"(arg0: integer): $ItemStack
+ "stopOpen"(arg0: $Player$$Type): void
+ "startOpen"(arg0: $Player$$Type): void
+ "countItem"(arg0: $Item$$Type): integer
+ "hasAnyOf"(arg0: $Set$$Type<($Item$$Type)>): boolean
+ "getMaxStackSize"(arg0: $ItemStack$$Type): integer
+ "getMaxStackSize"(): integer
+ "setItem"(arg0: integer, arg1: $ItemStack$$Type): void
  "clearContent"(): void
+static "tryClear"(arg0: any): void
  "canReceiveTransferCooldown"(): boolean
  "setTransferCooldown"(arg0: long): void
  "lithium$itemInsertionTestRequiresStackSize1"(): boolean
+ "self"(): $Container
+ "clear"(): void
+ "getHeight"(): integer
+ "setChanged"(): void
  "insertItem"(slot: integer, stack: $ItemStack$$Type, simulate: boolean): $ItemStack
  "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
- "getWidth"(): integer
- "getHeight"(): integer
- "isMutable"(): boolean
- "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
+ "isItemValid"(slot: integer, stack: $ItemStack$$Type): boolean
  "getSlots"(): integer
  "getSlotLimit"(slot: integer): integer
- "isItemValid"(slot: integer, stack: $ItemStack$$Type): boolean
- "setChanged"(): void
  "getStackInSlot"(slot: integer): $ItemStack
+ "getWidth"(): integer
+ "isMutable"(): boolean
+ "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
  "asContainer"(): $Container
- "clear"(): void
- "self"(): $Container
  "getBlock"(level: $Level$$Type): $LevelBlock
  "isEmpty"(): boolean
+ "find"(match: $ItemPredicate$$Type): integer
+ "find"(): integer
+ "clear"(match: $ItemPredicate$$Type): void
+ "count"(match: $ItemPredicate$$Type): integer
+ "count"(): integer
  "insertItem"(stack: $ItemStack$$Type, simulate: boolean): $ItemStack
  "countNonEmpty"(): integer
  "countNonEmpty"(match: $ItemPredicate$$Type): integer
  "getAllItems"(): $List<($ItemStack)>
- "clear"(match: $ItemPredicate$$Type): void
- "find"(): integer
- "find"(match: $ItemPredicate$$Type): integer
- "count"(): integer
- "count"(match: $ItemPredicate$$Type): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -720,8 +722,8 @@ export type $RandomizableContainer$$Original = $RandomizableContainer;}
 declare module "net.minecraft.world.RandomSequence" {
 import {$RandomSource} from "net.minecraft.util.RandomSource"
 import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
-import {$Optional$$Type} from "java.util.Optional"
 import {$Codec} from "com.mojang.serialization.Codec"
+import {$Optional$$Type} from "java.util.Optional"
 import {$XoroshiroRandomSource$$Type} from "net.minecraft.world.level.levelgen.XoroshiroRandomSource"
 import {$RandomSupport$Seed128bit} from "net.minecraft.world.level.levelgen.RandomSupport$Seed128bit"
 
@@ -750,14 +752,14 @@ import {$Difficulty, $Difficulty$$Type} from "net.minecraft.world.Difficulty"
 export class $DifficultyInstance {
 constructor(arg0: $Difficulty$$Type, arg1: long, arg2: long, arg3: float)
 
+public "getSpecialMultiplier"(): float
 public "getEffectiveDifficulty"(): float
 public "isHarderThan"(arg0: float): boolean
 public "getDifficulty"(): $Difficulty
-public "getSpecialMultiplier"(): float
 public "isHard"(): boolean
+get "specialMultiplier"(): float
 get "effectiveDifficulty"(): float
 get "difficulty"(): $Difficulty
-get "specialMultiplier"(): float
 get "hard"(): boolean
 }
 /**
@@ -783,8 +785,8 @@ get "customName"(): $Component
 export class $Nameable implements $Nameable$$Interface {
  "getName"(): $Component
  "getDisplayName"(): $Component
- "getCustomName"(): $Component
  "hasCustomName"(): boolean
+ "getCustomName"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -830,72 +832,72 @@ import {$BlockEntity$$Type} from "net.minecraft.world.level.block.entity.BlockEn
 
 export interface $WorldlyContainer$$Interface extends $Container$$Interface {
 get "empty"(): boolean
+get "changed"(): void
 get "containerSize"(): integer
 get "maxStackSize"(): integer
-get "changed"(): void
 set "transferCooldown"(value: long)
-get "width"(): integer
 get "height"(): integer
-get "mutable"(): boolean
-get "slots"(): integer
 get "changed"(): void
+get "slots"(): integer
+get "width"(): integer
+get "mutable"(): boolean
 get "empty"(): boolean
 get "allItems"(): $List<($ItemStack)>
 }
 
 export class $WorldlyContainer implements $WorldlyContainer$$Interface {
- "canTakeItemThroughFace"(arg0: integer, arg1: $ItemStack$$Type, arg2: $Direction$$Type): boolean
  "canPlaceItemThroughFace"(arg0: integer, arg1: $ItemStack$$Type, arg2: $Direction$$Type): boolean
+ "canTakeItemThroughFace"(arg0: integer, arg1: $ItemStack$$Type, arg2: $Direction$$Type): boolean
  "getSlotsForFace"(arg0: $Direction$$Type): (integer)[]
  "isEmpty"(): boolean
  "getItem"(arg0: integer): $ItemStack
- "canPlaceItem"(arg0: integer, arg1: $ItemStack$$Type): boolean
- "removeItemNoUpdate"(arg0: integer): $ItemStack
- "getContainerSize"(): integer
  "removeItem"(arg0: integer, arg1: integer): $ItemStack
- "getMaxStackSize"(): integer
- "getMaxStackSize"(arg0: $ItemStack$$Type): integer
+ "canPlaceItem"(arg0: integer, arg1: $ItemStack$$Type): boolean
  "hasAnyMatching"(arg0: $Predicate$$Type<($ItemStack)>): boolean
- "stillValid"(arg0: $Player$$Type): boolean
  "setChanged"(): void
- "setItem"(arg0: integer, arg1: $ItemStack$$Type): void
- "stopOpen"(arg0: $Player$$Type): void
- "hasAnyOf"(arg0: $Set$$Type<($Item$$Type)>): boolean
- "countItem"(arg0: $Item$$Type): integer
- "startOpen"(arg0: $Player$$Type): void
  "canTakeItem"(arg0: $Container$$Type, arg1: integer, arg2: $ItemStack$$Type): boolean
 static "stillValidBlockEntity"(arg0: $BlockEntity$$Type, arg1: $Player$$Type): boolean
 static "stillValidBlockEntity"(arg0: $BlockEntity$$Type, arg1: $Player$$Type, arg2: float): boolean
-static "tryClear"(arg0: any): void
+ "stillValid"(arg0: $Player$$Type): boolean
+ "getContainerSize"(): integer
+ "removeItemNoUpdate"(arg0: integer): $ItemStack
+ "stopOpen"(arg0: $Player$$Type): void
+ "startOpen"(arg0: $Player$$Type): void
+ "countItem"(arg0: $Item$$Type): integer
+ "hasAnyOf"(arg0: $Set$$Type<($Item$$Type)>): boolean
+ "getMaxStackSize"(arg0: $ItemStack$$Type): integer
+ "getMaxStackSize"(): integer
+ "setItem"(arg0: integer, arg1: $ItemStack$$Type): void
  "clearContent"(): void
+static "tryClear"(arg0: any): void
  "canReceiveTransferCooldown"(): boolean
  "setTransferCooldown"(arg0: long): void
  "lithium$itemInsertionTestRequiresStackSize1"(): boolean
+ "self"(): $Container
+ "clear"(): void
+ "getHeight"(): integer
+ "setChanged"(): void
  "insertItem"(slot: integer, stack: $ItemStack$$Type, simulate: boolean): $ItemStack
  "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
- "getWidth"(): integer
- "getHeight"(): integer
- "isMutable"(): boolean
- "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
+ "isItemValid"(slot: integer, stack: $ItemStack$$Type): boolean
  "getSlots"(): integer
  "getSlotLimit"(slot: integer): integer
- "isItemValid"(slot: integer, stack: $ItemStack$$Type): boolean
- "setChanged"(): void
  "getStackInSlot"(slot: integer): $ItemStack
+ "getWidth"(): integer
+ "isMutable"(): boolean
+ "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
  "asContainer"(): $Container
- "clear"(): void
- "self"(): $Container
  "getBlock"(level: $Level$$Type): $LevelBlock
  "isEmpty"(): boolean
+ "find"(match: $ItemPredicate$$Type): integer
+ "find"(): integer
+ "clear"(match: $ItemPredicate$$Type): void
+ "count"(match: $ItemPredicate$$Type): integer
+ "count"(): integer
  "insertItem"(stack: $ItemStack$$Type, simulate: boolean): $ItemStack
  "countNonEmpty"(): integer
  "countNonEmpty"(match: $ItemPredicate$$Type): integer
  "getAllItems"(): $List<($ItemStack)>
- "clear"(match: $ItemPredicate$$Type): void
- "find"(): integer
- "find"(match: $ItemPredicate$$Type): integer
- "count"(): integer
- "count"(match: $ItemPredicate$$Type): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

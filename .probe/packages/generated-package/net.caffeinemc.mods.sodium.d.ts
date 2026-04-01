@@ -6,8 +6,8 @@ export interface $ClientChunkEventListener$$Interface {
 export class $ClientChunkEventListener implements $ClientChunkEventListener$$Interface {
  "onChunkStatusRemoved"(arg0: integer, arg1: integer, arg2: integer): void
  "onChunkStatusAdded"(arg0: integer, arg1: integer, arg2: integer): void
- "updateMapCenter"(arg0: integer, arg1: integer): void
  "updateLoadDistance"(arg0: integer): void
+ "updateMapCenter"(arg0: integer, arg1: integer): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -28,31 +28,31 @@ export interface $BakedQuadView$$Interface extends $ModelQuadView$$Interface {
 get "faceNormal"(): integer
 get "normalFace"(): $ModelQuadFacing
 get "flags"(): integer
-get "lightFace"(): $Direction
 get "colorIndex"(): integer
 get "sprite"(): $TextureAtlasSprite
+get "lightFace"(): $Direction
 }
 
 export class $BakedQuadView implements $BakedQuadView$$Interface {
  "getFaceNormal"(): integer
+ "hasShade"(): boolean
  "hasAO"(): boolean
  "getNormalFace"(): $ModelQuadFacing
- "hasShade"(): boolean
- "getLight"(arg0: integer): integer
- "hasColor"(): boolean
  "getFlags"(): integer
- "getX"(arg0: integer): float
- "getZ"(arg0: integer): float
  "getY"(arg0: integer): float
- "getAccurateNormal"(arg0: integer): integer
- "getLightFace"(): $Direction
- "calculateNormal"(): integer
- "getColorIndex"(): integer
- "getVertexNormal"(arg0: integer): integer
- "getSprite"(): $TextureAtlasSprite
  "getColor"(arg0: integer): integer
+ "getColorIndex"(): integer
+ "getSprite"(): $TextureAtlasSprite
+ "getVertexNormal"(arg0: integer): integer
+ "getAccurateNormal"(arg0: integer): integer
+ "calculateNormal"(): integer
+ "getLightFace"(): $Direction
+ "hasColor"(): boolean
  "getTexU"(arg0: integer): float
  "getTexV"(arg0: integer): float
+ "getLight"(arg0: integer): integer
+ "getX"(arg0: integer): float
+ "getZ"(arg0: integer): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -75,8 +75,8 @@ public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public static "from"(arg0: $PoseStack$$Type): $ChunkRenderMatrices
-public "projection"(): $Matrix4fc
 public "modelView"(): $Matrix4fc
+public "projection"(): $Matrix4fc
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -168,9 +168,9 @@ export interface $SpriteContentsExtension$$Interface {
 }
 
 export class $SpriteContentsExtension implements $SpriteContentsExtension$$Interface {
+ "sodium$hasAnimation"(): boolean
  "sodium$isActive"(): boolean
  "sodium$setActive"(arg0: boolean): void
- "sodium$hasAnimation"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -208,14 +208,14 @@ import {$SpriteContents$AnimatedTexture} from "net.minecraft.client.renderer.tex
 
 export interface $SpriteContentsTickerAccessor$$Interface {
 get "frameIndex"(): integer
-get "animationInfo"(): $SpriteContents$AnimatedTexture
 get "frameTicks"(): integer
+get "animationInfo"(): $SpriteContents$AnimatedTexture
 }
 
 export class $SpriteContentsTickerAccessor implements $SpriteContentsTickerAccessor$$Interface {
  "getFrameIndex"(): integer
- "getAnimationInfo"(): $SpriteContents$AnimatedTexture
  "getFrameTicks"(): integer
+ "getAnimationInfo"(): $SpriteContents$AnimatedTexture
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -275,12 +275,12 @@ export interface $ExtendedBlockEntityType$$Interface<T extends $BlockEntity> {
 }
 
 export class $ExtendedBlockEntityType<T extends $BlockEntity> implements $ExtendedBlockEntityType$$Interface {
- "sodium$removeRenderPredicate"(arg0: $BlockEntityRenderPredicate$$Type<(T)>): boolean
-static "shouldRender"<T extends $BlockEntity>(arg0: $BlockEntityType$$Type<(T)>, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: T): boolean
 static "removeRenderPredicate"<T extends $BlockEntity>(arg0: $BlockEntityType$$Type<(T)>, arg1: $BlockEntityRenderPredicate$$Type<(T)>): boolean
  "sodium$getRenderPredicates"(): ($BlockEntityRenderPredicate<(T)>)[]
  "sodium$addRenderPredicate"(arg0: $BlockEntityRenderPredicate$$Type<(T)>): void
+ "sodium$removeRenderPredicate"(arg0: $BlockEntityRenderPredicate$$Type<(T)>): boolean
 static "addRenderPredicate"<T extends $BlockEntity>(arg0: $BlockEntityType$$Type<(T)>, arg1: $BlockEntityRenderPredicate$$Type<(T)>): void
+static "shouldRender"<T extends $BlockEntity>(arg0: $BlockEntityType$$Type<(T)>, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: T): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -435,9 +435,9 @@ export type $SpriteContentsAccessor$$Type = (() => ($NativeImage$$Type)[]);
  */
 export type $SpriteContentsAccessor$$Original = $SpriteContentsAccessor;}
 declare module "net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer" {
-import {$LocalBooleanRef$$Type} from "com.llamalad7.mixinextras.sugar.ref.LocalBooleanRef"
-import {$BlockDestructionProgress$$Type} from "net.minecraft.server.level.BlockDestructionProgress"
 import {$RenderBuffers$$Type} from "net.minecraft.client.renderer.RenderBuffers"
+import {$BlockDestructionProgress$$Type} from "net.minecraft.server.level.BlockDestructionProgress"
+import {$LocalBooleanRef$$Type} from "com.llamalad7.mixinextras.sugar.ref.LocalBooleanRef"
 import {$Collection} from "java.util.Collection"
 import {$SortedSet$$Type} from "java.util.SortedSet"
 import {$PoseStack$$Type} from "com.mojang.blaze3d.vertex.PoseStack"
@@ -458,25 +458,25 @@ constructor(arg0: $Minecraft$$Type)
 public static "instance"(): $SodiumWorldRenderer
 public "reload"(): void
 public "setLevel"(arg0: $ClientLevel$$Type): void
+public "iterateVisibleBlockEntities"(arg0: $Consumer$$Type<($BlockEntity)>): void
 public "isBoxVisible"(arg0: double, arg1: double, arg2: double, arg3: double, arg4: double, arg5: double): boolean
+public "scheduleTerrainUpdate"(): void
+public "isTerrainRenderComplete"(): boolean
 public "renderBlockEntities"(arg0: $PoseStack$$Type, arg1: $RenderBuffers$$Type, arg2: $Long2ObjectMap$$Type<($SortedSet$$Type<($BlockDestructionProgress$$Type)>)>, arg3: $Camera$$Type, arg4: float, arg5: $LocalBooleanRef$$Type): void
+public "getChunksDebugString"(): StringJS
+public "getVisibleChunkCount"(): integer
 public "scheduleRebuildForChunk"(arg0: integer, arg1: integer, arg2: integer, arg3: boolean): void
 public "scheduleRebuildForChunks"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: boolean): void
-public "scheduleTerrainUpdate"(): void
-public "getChunksDebugString"(): StringJS
-public "isTerrainRenderComplete"(): boolean
-public "getVisibleChunkCount"(): integer
-public "isSectionReady"(arg0: integer, arg1: integer, arg2: integer): boolean
-public "drawChunkLayer"(arg0: $RenderType$$Type, arg1: $ChunkRenderMatrices$$Type, arg2: double, arg3: double, arg4: double): void
-public "setupTerrain"(arg0: $Camera$$Type, arg1: $Viewport$$Type, arg2: boolean, arg3: boolean): void
-public "iterateVisibleBlockEntities"(arg0: $Consumer$$Type<($BlockEntity)>): void
 public "scheduleRebuildForBlockArea"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: boolean): void
-public static "instanceNullable"(): $SodiumWorldRenderer
 public "isEntityVisible"(arg0: $Entity$$Type): boolean
+public static "instanceNullable"(): $SodiumWorldRenderer
+public "drawChunkLayer"(arg0: $RenderType$$Type, arg1: $ChunkRenderMatrices$$Type, arg2: double, arg3: double, arg4: double): void
+public "isSectionReady"(arg0: integer, arg1: integer, arg2: integer): boolean
+public "setupTerrain"(arg0: $Camera$$Type, arg1: $Viewport$$Type, arg2: boolean, arg3: boolean): void
 public "getDebugStrings"(): $Collection<(StringJS)>
 set "level"(value: $ClientLevel$$Type)
-get "chunksDebugString"(): StringJS
 get "terrainRenderComplete"(): boolean
+get "chunksDebugString"(): StringJS
 get "visibleChunkCount"(): integer
 get "debugStrings"(): $Collection<(StringJS)>
 }
@@ -566,8 +566,8 @@ export class $VertexBufferWriter implements $VertexBufferWriter$$Interface {
 static "of"(arg0: $VertexConsumer$$Type): $VertexBufferWriter
  "push"(arg0: $MemoryStack$$Type, arg1: long, arg2: integer, arg3: $VertexFormat$$Type): void
 static "copyInto"(arg0: $VertexBufferWriter$$Type, arg1: $MemoryStack$$Type, arg2: long, arg3: integer, arg4: $VertexFormat$$Type): void
- "canUseIntrinsics"(): boolean
 static "tryOf"(arg0: $VertexConsumer$$Type): $VertexBufferWriter
+ "canUseIntrinsics"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -614,8 +614,8 @@ export class $BufferBuilderExtension implements $BufferBuilderExtension$$Interfa
 static "of"(arg0: $VertexConsumer$$Type): $VertexBufferWriter
  "push"(arg0: $MemoryStack$$Type, arg1: long, arg2: integer, arg3: $VertexFormat$$Type): void
 static "copyInto"(arg0: $VertexBufferWriter$$Type, arg1: $MemoryStack$$Type, arg2: long, arg3: integer, arg4: $VertexFormat$$Type): void
- "canUseIntrinsics"(): boolean
 static "tryOf"(arg0: $VertexConsumer$$Type): $VertexBufferWriter
+ "canUseIntrinsics"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -653,21 +653,21 @@ static readonly "DIRECTIONS": integer
 
 public static "values"(): ($ModelQuadFacing)[]
 public static "valueOf"(arg0: StringJS): $ModelQuadFacing
+public static "fromDirection"(arg0: $Direction$$Type): $ModelQuadFacing
+public "getAxis"(): integer
 public "getSign"(): integer
 public "getOpposite"(): $ModelQuadFacing
-public static "fromDirection"(arg0: $Direction$$Type): $ModelQuadFacing
-public static "fromNormal"(arg0: float, arg1: float, arg2: float): $ModelQuadFacing
-public "isAligned"(): boolean
-public "getAxis"(): integer
 public static "fromPackedNormal"(arg0: integer): $ModelQuadFacing
-public "getPackedAlignedNormal"(): integer
+public "isAligned"(): boolean
+public static "fromNormal"(arg0: float, arg1: float, arg2: float): $ModelQuadFacing
 public static "bitmapIsOpposingAligned"(arg0: integer): boolean
+public "getPackedAlignedNormal"(): integer
 public static "bitmapHasUnassigned"(arg0: integer): boolean
 public "getAlignedNormal"(): $Vector3fc
+get "axis"(): integer
 get "sign"(): integer
 get "opposite"(): $ModelQuadFacing
 get "aligned"(): boolean
-get "axis"(): integer
 get "packedAlignedNormal"(): integer
 get "alignedNormal"(): $Vector3fc
 }
@@ -686,29 +686,29 @@ import {$Direction} from "net.minecraft.core.Direction"
 
 export interface $ModelQuadView$$Interface {
 get "flags"(): integer
-get "faceNormal"(): integer
-get "lightFace"(): $Direction
 get "colorIndex"(): integer
 get "sprite"(): $TextureAtlasSprite
+get "faceNormal"(): integer
+get "lightFace"(): $Direction
 }
 
 export class $ModelQuadView implements $ModelQuadView$$Interface {
- "getLight"(arg0: integer): integer
- "hasColor"(): boolean
  "getFlags"(): integer
- "getX"(arg0: integer): float
- "getZ"(arg0: integer): float
  "getY"(arg0: integer): float
- "getAccurateNormal"(arg0: integer): integer
- "getFaceNormal"(): integer
- "getLightFace"(): $Direction
- "calculateNormal"(): integer
- "getColorIndex"(): integer
- "getVertexNormal"(arg0: integer): integer
- "getSprite"(): $TextureAtlasSprite
  "getColor"(arg0: integer): integer
+ "getColorIndex"(): integer
+ "getSprite"(): $TextureAtlasSprite
+ "getFaceNormal"(): integer
+ "getVertexNormal"(arg0: integer): integer
+ "getAccurateNormal"(arg0: integer): integer
+ "calculateNormal"(): integer
+ "getLightFace"(): $Direction
+ "hasColor"(): boolean
  "getTexU"(arg0: integer): float
  "getTexV"(arg0: integer): float
+ "getLight"(arg0: integer): integer
+ "getX"(arg0: integer): float
+ "getZ"(arg0: integer): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -812,13 +812,13 @@ import {$Vector3d$$Type} from "org.joml.Vector3d"
 export class $Viewport {
 constructor(arg0: $Frustum$$Type, arg1: $Vector3d$$Type)
 
-public "getTransform"(): $CameraTransform
 public "isBoxVisible"(arg0: integer, arg1: integer, arg2: integer, arg3: float, arg4: float, arg5: float): boolean
-public "getChunkCoord"(): $SectionPos
+public "getTransform"(): $CameraTransform
 public "getBlockCoord"(): $BlockPos
+public "getChunkCoord"(): $SectionPos
 get "transform"(): $CameraTransform
-get "chunkCoord"(): $SectionPos
 get "blockCoord"(): $BlockPos
+get "chunkCoord"(): $SectionPos
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -856,13 +856,13 @@ import {$LongCollection, $LongCollection$$Type} from "it.unimi.dsi.fastutil.long
 export class $ChunkTracker implements $ClientChunkEventListener$$Interface {
 constructor()
 
-public "forEachEvent"(arg0: $ChunkTracker$ChunkEventHandler$$Type, arg1: $ChunkTracker$ChunkEventHandler$$Type): void
 public "getReadyChunks"(): $LongCollection
 public static "forEachChunk"(arg0: $LongCollection$$Type, arg1: $ChunkTracker$ChunkEventHandler$$Type): void
+public "forEachEvent"(arg0: $ChunkTracker$ChunkEventHandler$$Type, arg1: $ChunkTracker$ChunkEventHandler$$Type): void
 public "onChunkStatusRemoved"(arg0: integer, arg1: integer, arg2: integer): void
 public "onChunkStatusAdded"(arg0: integer, arg1: integer, arg2: integer): void
-public "updateMapCenter"(arg0: integer, arg1: integer): void
 public "updateLoadDistance"(arg0: integer): void
+public "updateMapCenter"(arg0: integer, arg1: integer): void
 get "readyChunks"(): $LongCollection
 }
 /**

@@ -10,9 +10,9 @@ public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "fallback"(): StringJS
-public static "trivial"(arg0: StringJS): $StructuresBecomeConfiguredFix$Conversion
 public "biomeMapping"(): $Map<(StringJS), (StringJS)>
 public static "biomeMapped"(arg0: $Map$$Type<($List$$Type<(StringJS)>), (StringJS)>, arg1: StringJS): $StructuresBecomeConfiguredFix$Conversion
+public static "trivial"(arg0: StringJS): $StructuresBecomeConfiguredFix$Conversion
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -24,15 +24,16 @@ export type $StructuresBecomeConfiguredFix$Conversion$$Type = ({"fallback"?: Str
  */
 export type $StructuresBecomeConfiguredFix$Conversion$$Original = $StructuresBecomeConfiguredFix$Conversion;}
 declare module "net.minecraft.util.datafix.DataFixTypes" {
+import {$DataFixTypesAccessor$$Interface} from "umpaz.brewinandchewin.common.mixin.DataFixTypesAccessor"
 import {$CompoundTag, $CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
-import {$Enum} from "java.lang.Enum"
 import {$Codec, $Codec$$Type} from "com.mojang.serialization.Codec"
+import {$Enum} from "java.lang.Enum"
 import {$DSL$TypeReference} from "com.mojang.datafixers.DSL$TypeReference"
 import {$Dynamic, $Dynamic$$Type} from "com.mojang.serialization.Dynamic"
 import {$Set} from "java.util.Set"
 import {$DataFixer$$Type} from "com.mojang.datafixers.DataFixer"
 
-export class $DataFixTypes extends $Enum<($DataFixTypes)> {
+export class $DataFixTypes extends $Enum<($DataFixTypes)> implements $DataFixTypesAccessor$$Interface {
 static readonly "SAVED_DATA_MAP_DATA": $DataFixTypes
 static readonly "WORLD_GEN_SETTINGS": $DataFixTypes
 static readonly "SAVED_DATA_MAP_INDEX": $DataFixTypes
@@ -55,13 +56,14 @@ static readonly "HOTBAR": $DataFixTypes
 static readonly "CHUNK": $DataFixTypes
 
 public static "values"(): ($DataFixTypes)[]
-public "update"<T>(arg0: $DataFixer$$Type, arg1: $Dynamic$$Type<(T)>, arg2: integer, arg3: integer): $Dynamic<(T)>
 public "update"(arg0: $DataFixer$$Type, arg1: $CompoundTag$$Type, arg2: integer, arg3: integer): $CompoundTag
+public "update"<T>(arg0: $DataFixer$$Type, arg1: $Dynamic$$Type<(T)>, arg2: integer, arg3: integer): $Dynamic<(T)>
 public static "valueOf"(arg0: StringJS): $DataFixTypes
-public "wrapCodec"<A>(arg0: $Codec$$Type<(A)>, arg1: $DataFixer$$Type, arg2: integer): $Codec<(A)>
 public "updateToCurrentVersion"(arg0: $DataFixer$$Type, arg1: $CompoundTag$$Type, arg2: integer): $CompoundTag
 public "updateToCurrentVersion"<T>(arg0: $DataFixer$$Type, arg1: $Dynamic$$Type<(T)>, arg2: integer): $Dynamic<(T)>
+public "brewinandchewin$getType"(): $DSL$TypeReference
 public static "currentVersion"(): integer
+public "wrapCodec"<A>(arg0: $Codec$$Type<(A)>, arg1: $DataFixer$$Type, arg2: integer): $Codec<(A)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

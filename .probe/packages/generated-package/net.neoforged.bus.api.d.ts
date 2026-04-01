@@ -1,13 +1,13 @@
 declare module "net.neoforged.bus.api.ICancellableEvent" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $ICancellableEvent$$Interface {
-get "canceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 
 export class $ICancellableEvent implements $ICancellableEvent$$Interface {
- "isCanceled"(): boolean
  "setCanceled"(arg0: boolean): void
+ "isCanceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

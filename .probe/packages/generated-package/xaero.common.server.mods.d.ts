@@ -40,8 +40,8 @@ export class $SupportOPACServer {
 constructor()
 
 public "getReceiveLocationsFromPartyConfigValue"(arg0: $ServerPlayer$$Type): boolean
-public "getReceiveLocationsFromMutualAlliesConfigValue"(arg0: $ServerPlayer$$Type): boolean
 public "isPositionSyncAllowed"(arg0: integer, arg1: $ServerPlayerData$$Type, arg2: boolean): boolean
+public "getReceiveLocationsFromMutualAlliesConfigValue"(arg0: $ServerPlayer$$Type): boolean
 public "updateShareLocationConfigValues"(arg0: $ServerPlayer$$Type, arg1: $ServerPlayerData$$Type): void
 }
 /**
@@ -82,18 +82,18 @@ export class $SupportServerMods {
 constructor()
 
 public "check"(arg0: $IXaeroMinimap$$Type): void
-public "getOpac"(): $SupportOPACServer
 public "hasOpac"(): boolean
-public "hasFtbTeams"(): boolean
-public "getArgonauts"(): $SupportArgonautsServer
-public "getWorldmap"(): $SupportWorldMapServer
-public "getFtbTeams"(): $SupportFTBTeamsServer
-public "hasArgonauts"(): boolean
+public "getOpac"(): $SupportOPACServer
 public "hasWorldmap"(): boolean
+public "hasFtbTeams"(): boolean
+public "hasArgonauts"(): boolean
+public "getFtbTeams"(): $SupportFTBTeamsServer
+public "getWorldmap"(): $SupportWorldMapServer
+public "getArgonauts"(): $SupportArgonautsServer
 get "opac"(): $SupportOPACServer
-get "argonauts"(): $SupportArgonautsServer
-get "worldmap"(): $SupportWorldMapServer
 get "ftbTeams"(): $SupportFTBTeamsServer
+get "worldmap"(): $SupportWorldMapServer
+get "argonauts"(): $SupportArgonautsServer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

@@ -14,8 +14,8 @@ public "toString"(): StringJS
 public "getId"(): StringJS
 public "cancel"(): void
 public "isCancelled"(): boolean
-public static "getCallInfoClassName"(arg0: $Type$$Type): StringJS
 public "isCancellable"(): boolean
+public static "getCallInfoClassName"(arg0: $Type$$Type): StringJS
 get "id"(): StringJS
 get "cancelled"(): boolean
 get "cancellable"(): boolean
@@ -49,26 +49,26 @@ constructor(arg0: StringJS, arg1: boolean, arg2: byte)
 constructor(arg0: StringJS, arg1: boolean, arg2: character)
 constructor(arg0: StringJS, arg1: boolean, arg2: double)
 
-public "getReturnValue"(): R
+public "getReturnValueJ"(): long
 public "getReturnValueZ"(): boolean
-public "getReturnValueC"(): character
-public "getReturnValueF"(): float
 public "getReturnValueD"(): double
 public "setReturnValue"(arg0: R): void
-public "getReturnValueS"(): short
 public "getReturnValueI"(): integer
 public "getReturnValueB"(): byte
-public "getReturnValueJ"(): long
-get "returnValue"(): R
+public "getReturnValueF"(): float
+public "getReturnValueS"(): short
+public "getReturnValueC"(): character
+public "getReturnValue"(): R
+get "returnValueJ"(): long
 get "returnValueZ"(): boolean
-get "returnValueC"(): character
-get "returnValueF"(): float
 get "returnValueD"(): double
 set "returnValue"(value: R)
-get "returnValueS"(): short
 get "returnValueI"(): integer
 get "returnValueB"(): byte
-get "returnValueJ"(): long
+get "returnValueF"(): float
+get "returnValueS"(): short
+get "returnValueC"(): character
+get "returnValue"(): R
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

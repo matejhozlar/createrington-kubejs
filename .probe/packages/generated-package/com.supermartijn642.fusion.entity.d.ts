@@ -8,8 +8,8 @@ import {$RandomSource} from "net.minecraft.util.RandomSource"
 import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
 import {$Entity$$Type} from "net.minecraft.world.entity.Entity"
 import {$ModelLayerLocation, $ModelLayerLocation$$Type} from "net.minecraft.client.model.geom.ModelLayerLocation"
-import {$Pair$$Type} from "com.supermartijn642.fusion.api.util.Pair"
 import {$ModelPart, $ModelPart$$Type} from "net.minecraft.client.model.geom.ModelPart"
+import {$Pair$$Type} from "com.supermartijn642.fusion.api.util.Pair"
 import {$EntityModelPredicate$$Type} from "com.supermartijn642.fusion.entity.model.predicates.EntityModelPredicate"
 
 export class $EntityLayerProperties {
@@ -17,8 +17,8 @@ static readonly "RANDOM": $RandomSource
 
 constructor(identifier: $ModelLayerLocation$$Type, defaultModel: $List$$Type<($EntityLayerProperties$ModelOption$$Type)>, conditionals: $List$$Type<($Pair$$Type<($EntityModelPredicate$$Type), ($List$$Type<($EntityLayerProperties$ModelOption$$Type)>)>)>)
 
-public "identifier"(): $ModelLayerLocation
 public "transformed"(properties: $VanillaModelLayerProperties$$Type): $EntityLayerProperties
+public "identifier"(): $ModelLayerLocation
 public "gatherModels"(output: $Consumer$$Type<($ModelPart)>): void
 public "chooseModel"(entity: $Entity$$Type): $Triple<($ModelPart), ($ResourceLocation), (float)>
 }
@@ -103,8 +103,8 @@ export type $FusionModelPart$$Type = ($FusionModelPart);
  */
 export type $FusionModelPart$$Original = $FusionModelPart;}
 declare module "com.supermartijn642.fusion.entity.model.SubModelPart" {
-import {$FusionModelPart$$Type} from "com.supermartijn642.fusion.entity.model.FusionModelPart"
 import {$PartPose} from "net.minecraft.client.model.geom.PartPose"
+import {$FusionModelPart$$Type} from "com.supermartijn642.fusion.entity.model.FusionModelPart"
 import {$Map} from "java.util.Map"
 import {$ModelPart$Cube} from "net.minecraft.client.model.geom.ModelPart$Cube"
 import {$EMFModel_ID} from "traben.entity_model_features.models.EMFModel_ID"
@@ -138,8 +138,8 @@ public "finish"(): void
 public "getChild"(name: StringJS): $ModelPart
 public "mirror"(target: $ModelPart$$Type): void
 public "render"(poseStack: $PoseStack$$Type, vertexConsumer: $VertexConsumer$$Type, i: integer, j: integer, k: integer): void
-public "hasChild"(name: StringJS): boolean
 public "validateModelHasImportantChildren"(model: $ModelPart$$Type, missingPartOutput: $Consumer$$Type<(StringJS)>): void
+public "hasChild"(name: StringJS): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -158,9 +158,9 @@ import {$ModelPart, $ModelPart$$Type} from "net.minecraft.client.model.geom.Mode
 export class $EntityLayerProperties$ModelOption {
 constructor(model: $ModelPart$$Type, isVanillaModel: boolean, textures: $List$$Type<($ResourceLocation$$Type)>, weight: double, scaling: float)
 
+public "textures"(): $List<($ResourceLocation)>
 public "weight"(): double
 public "model"(): $ModelPart
-public "textures"(): $List<($ResourceLocation)>
 public "scaling"(): float
 public "isVanillaModel"(): boolean
 get "vanillaModel"(): boolean
@@ -182,15 +182,15 @@ import {$ModelLayerLocation$$Type} from "net.minecraft.client.model.geom.ModelLa
 export class $VanillaModelLayerProperties {
 public static "get"(location: $ModelLayerLocation$$Type, renderer: $EntityRenderer$$Type<(never)>): $VanillaModelLayerProperties
 public "transform"(poseStack: $PoseStack$$Type): void
-public "getOffsetZ"(): float
 public "getOffsetX"(): float
 public "getOffsetY"(): float
-public "shouldFlipZ"(): boolean
+public "getOffsetZ"(): float
 public "shouldFlipX"(): boolean
+public "shouldFlipZ"(): boolean
 public "shouldFlipY"(): boolean
-get "offsetZ"(): float
 get "offsetX"(): float
 get "offsetY"(): float
+get "offsetZ"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

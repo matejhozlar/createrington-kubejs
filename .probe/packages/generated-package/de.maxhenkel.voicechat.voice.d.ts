@@ -1,12 +1,12 @@
 declare module "de.maxhenkel.voicechat.voice.client.ClientVoicechat" {
 import {$AudioRecorder} from "de.maxhenkel.voicechat.voice.client.AudioRecorder"
 import {$Map} from "java.util.Map"
-import {$InitializationData, $InitializationData$$Type} from "de.maxhenkel.voicechat.voice.client.InitializationData"
 import {$UUID, $UUID$$Type} from "java.util.UUID"
+import {$InitializationData, $InitializationData$$Type} from "de.maxhenkel.voicechat.voice.client.InitializationData"
 import {$ClientVoicechatConnection, $ClientVoicechatConnection$$Type} from "de.maxhenkel.voicechat.voice.client.ClientVoicechatConnection"
 import {$MicThread} from "de.maxhenkel.voicechat.voice.client.MicThread"
-import {$SoundPacket$$Type} from "de.maxhenkel.voicechat.voice.common.SoundPacket"
 import {$SoundManager} from "de.maxhenkel.voicechat.voice.client.SoundManager"
+import {$SoundPacket$$Type} from "de.maxhenkel.voicechat.voice.common.SoundPacket"
 import {$TalkCache} from "de.maxhenkel.voicechat.voice.client.TalkCache"
 import {$AudioChannel} from "de.maxhenkel.voicechat.voice.client.AudioChannel"
 
@@ -16,31 +16,31 @@ constructor()
 public "getConnection"(): $ClientVoicechatConnection
 public "connect"(arg0: $InitializationData$$Type): void
 public "close"(): void
-public "getAudioChannels"(): $Map<($UUID), ($AudioChannel)>
-public "getInitializationData"(): $InitializationData
 public "setRecording"(arg0: boolean): boolean
-public "getSoundManager"(): $SoundManager
 public "getRecorder"(): $AudioRecorder
 public "getStartTime"(): long
+public "toggleRecording"(): boolean
 public "onVoiceChatConnected"(arg0: $ClientVoicechatConnection$$Type): void
 public "onVoiceChatDisconnected"(): void
-public "toggleRecording"(): boolean
-public "closeAudioChannel"(arg0: $UUID$$Type): boolean
-public "processSoundPacket"(arg0: $SoundPacket$$Type): void
-public "getMicThread"(): $MicThread
+public "getSoundManager"(): $SoundManager
+public "getAudioChannels"(): $Map<($UUID), ($AudioChannel)>
 public "getTalkCache"(): $TalkCache
-public "reloadSoundManager"(): void
+public "getMicThread"(): $MicThread
+public "processSoundPacket"(arg0: $SoundPacket$$Type): void
+public "closeAudioChannel"(arg0: $UUID$$Type): boolean
+public "getInitializationData"(): $InitializationData
 public "reloadAudio"(): void
+public "reloadSoundManager"(): void
 public "closeMicThread"(): void
 get "connection"(): $ClientVoicechatConnection
-get "audioChannels"(): $Map<($UUID), ($AudioChannel)>
-get "initializationData"(): $InitializationData
 set "recording"(value: boolean)
-get "soundManager"(): $SoundManager
 get "recorder"(): $AudioRecorder
 get "startTime"(): long
-get "micThread"(): $MicThread
+get "soundManager"(): $SoundManager
+get "audioChannels"(): $Map<($UUID), ($AudioChannel)>
 get "talkCache"(): $TalkCache
+get "micThread"(): $MicThread
+get "initializationData"(): $InitializationData
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -53,8 +53,8 @@ export type $ClientVoicechat$$Type = ($ClientVoicechat);
 export type $ClientVoicechat$$Original = $ClientVoicechat;}
 declare module "de.maxhenkel.voicechat.voice.client.MicThread" {
 import {$ClientVoicechat$$Type} from "de.maxhenkel.voicechat.voice.client.ClientVoicechat"
-import {$ClientVoicechatConnection$$Type} from "de.maxhenkel.voicechat.voice.client.ClientVoicechatConnection"
 import {$MicrophoneException$$Type} from "de.maxhenkel.voicechat.voice.client.MicrophoneException"
+import {$ClientVoicechatConnection$$Type} from "de.maxhenkel.voicechat.voice.client.ClientVoicechatConnection"
 import {$Thread} from "java.lang.Thread"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 
@@ -65,17 +65,17 @@ static readonly "NORM_PRIORITY": integer
 
 constructor(arg0: $ClientVoicechat$$Type, arg1: $ClientVoicechatConnection$$Type, arg2: $Consumer$$Type<($MicrophoneException)>)
 
-public "isWhispering"(): boolean
 public "run"(): void
 public "close"(): void
-public "pollMic"(): (short)[]
 public "getError"(arg0: $Consumer$$Type<($MicrophoneException)>): void
-public "isTalking"(): boolean
-public "setMicrophoneLocked"(arg0: boolean): void
 public "denoiseIfEnabled"(arg0: (short)[]): (short)[]
-get "whispering"(): boolean
-get "talking"(): boolean
+public "setMicrophoneLocked"(arg0: boolean): void
+public "pollMic"(): (short)[]
+public "isTalking"(): boolean
+public "isWhispering"(): boolean
 set "microphoneLocked"(value: boolean)
+get "talking"(): boolean
+get "whispering"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -109,24 +109,24 @@ export type $Packet$$Type<T> = ($Packet<(T)>);
 export type $Packet$$Original<T> = $Packet<(T)>;}
 declare module "de.maxhenkel.voicechat.voice.server.ServerGroupManager" {
 import {$Map} from "java.util.Map"
-import {$Server$$Type} from "de.maxhenkel.voicechat.voice.server.Server"
 import {$UUID, $UUID$$Type} from "java.util.UUID"
+import {$Server$$Type} from "de.maxhenkel.voicechat.voice.server.Server"
 import {$Group, $Group$$Type} from "de.maxhenkel.voicechat.voice.server.Group"
 import {$ServerPlayer$$Type} from "net.minecraft.server.level.ServerPlayer"
 
 export class $ServerGroupManager {
 constructor(arg0: $Server$$Type)
 
-public "cleanupGroups"(): void
-public "getPlayerGroup"(arg0: $ServerPlayer$$Type): $Group
+public "removeGroup"(arg0: $UUID$$Type): boolean
 public "getGroups"(): $Map<($UUID), ($Group)>
+public "onPlayerLoggedOut"(arg0: $ServerPlayer$$Type): void
 public "onPlayerCompatibilityCheckSucceeded"(arg0: $ServerPlayer$$Type): void
 public "getGroup"(arg0: $UUID$$Type): $Group
-public "onPlayerLoggedOut"(arg0: $ServerPlayer$$Type): void
-public "removeGroup"(arg0: $UUID$$Type): boolean
 public "addGroup"(arg0: $Group$$Type, arg1: $ServerPlayer$$Type): void
-public "leaveGroup"(arg0: $ServerPlayer$$Type): void
 public "joinGroup"(arg0: $Group$$Type, arg1: $ServerPlayer$$Type, arg2: StringJS): void
+public "leaveGroup"(arg0: $ServerPlayer$$Type): void
+public "cleanupGroups"(): void
+public "getPlayerGroup"(arg0: $ServerPlayer$$Type): $Group
 get "groups"(): $Map<($UUID), ($Group)>
 }
 /**
@@ -169,38 +169,38 @@ public "run"(): void
 public "close"(): void
 public "getPort"(): integer
 public "broadcast"(arg0: $Collection$$Type<($ServerPlayer$$Type)>, arg1: $SoundPacket$$Type<(never)>, arg2: $ServerPlayer$$Type, arg3: $PlayerState$$Type, arg4: $UUID$$Type, arg5: StringJS): void
+public "getUnconnectedSender"(arg0: $NetworkMessage$$Type): $ClientConnection
 public "isClosed"(): boolean
-public "getPingManager"(): $PingManager
-public "getSocket"(): $VoicechatSocket
 public "sendPacket"(arg0: $Packet$$Type<(never)>, arg1: $ClientConnection$$Type): boolean
 public "onPlayerLoggedIn"(arg0: $ServerPlayer$$Type): void
-public "getUnconnectedSender"(arg0: $NetworkMessage$$Type): $ClientConnection
-public "getSecret"(arg0: $UUID$$Type): $UUID
-public "getPlayerStateManager"(): $PlayerStateManager
-public "hasSecret"(arg0: $UUID$$Type): boolean
-public "sendPacketRaw"(arg0: $Packet$$Type<(never)>, arg1: $ClientConnection$$Type): void
-public "disconnectClient"(arg0: $UUID$$Type): void
-public "onPlayerCompatibilityCheckSucceeded"(arg0: $ServerPlayer$$Type): void
-public "onPlayerLoggedOut"(arg0: $ServerPlayer$$Type): void
+public "getSocket"(): $VoicechatSocket
+public "onPlayerVoicechatDisconnect"(arg0: $UUID$$Type): void
 public "getBroadcastRange"(arg0: float): double
+public "getPlayerStateManager"(): $PlayerStateManager
 public "getConnections"(): $Map<($UUID), ($ClientConnection)>
+public "onPlayerLoggedOut"(arg0: $ServerPlayer$$Type): void
+public "onPlayerCompatibilityCheckSucceeded"(arg0: $ServerPlayer$$Type): void
 public "getServer"(): $MinecraftServer
+public "getSecret"(arg0: $UUID$$Type): $UUID
 public "getSender"(arg0: $NetworkMessage$$Type): $ClientConnection
-public "changePort"(arg0: integer): void
-public "onMicPacket"(arg0: $UUID$$Type, arg1: $MicPacket$$Type): void
-public "getGroupManager"(): $ServerGroupManager
 public "generateNewSecret"(arg0: $UUID$$Type): $UUID
+public "onPlayerVoicechatConnect"(arg0: $ServerPlayer$$Type): void
+public "getPingManager"(): $PingManager
+public "changePort"(arg0: integer): void
+public "getGroupManager"(): $ServerGroupManager
+public "onMicPacket"(arg0: $UUID$$Type, arg1: $MicPacket$$Type): void
 public "sendSoundPacket"(arg0: $ServerPlayer$$Type, arg1: $PlayerState$$Type, arg2: $ServerPlayer$$Type, arg3: $PlayerState$$Type, arg4: $ClientConnection$$Type, arg5: $SoundPacket$$Type<(never)>, arg6: StringJS): void
 public "getCategoryManager"(): $ServerCategoryManager
-public "onPlayerVoicechatConnect"(arg0: $ServerPlayer$$Type): void
-public "onPlayerVoicechatDisconnect"(arg0: $UUID$$Type): void
+public "disconnectClient"(arg0: $UUID$$Type): void
+public "sendPacketRaw"(arg0: $Packet$$Type<(never)>, arg1: $ClientConnection$$Type): void
+public "hasSecret"(arg0: $UUID$$Type): boolean
 get "port"(): integer
 get "closed"(): boolean
-get "pingManager"(): $PingManager
 get "socket"(): $VoicechatSocket
 get "playerStateManager"(): $PlayerStateManager
 get "connections"(): $Map<($UUID), ($ClientConnection)>
 get "server"(): $MinecraftServer
+get "pingManager"(): $PingManager
 get "groupManager"(): $ServerGroupManager
 get "categoryManager"(): $ServerCategoryManager
 }
@@ -221,11 +221,11 @@ import {$Entity$$Type} from "net.minecraft.world.entity.Entity"
 export class $TalkCache {
 constructor()
 
+public "isTalking"(arg0: $UUID$$Type): boolean
+public "isTalking"(arg0: $Entity$$Type): boolean
 public "isWhispering"(arg0: $Entity$$Type): boolean
 public "isWhispering"(arg0: $UUID$$Type): boolean
 public "setTimestampSupplier"(arg0: $Supplier$$Type<(long)>): void
-public "isTalking"(arg0: $Entity$$Type): boolean
-public "isTalking"(arg0: $UUID$$Type): boolean
 public "updateTalking"(arg0: $UUID$$Type, arg1: boolean): void
 set "timestampSupplier"(value: $Supplier$$Type<(long)>)
 }
@@ -247,28 +247,28 @@ export class $Group {
 constructor(arg0: $UUID$$Type, arg1: StringJS)
 constructor()
 constructor(arg0: $UUID$$Type, arg1: StringJS, arg2: StringJS, arg3: boolean, arg4: boolean, arg5: $Group$Type$$Type)
-constructor(arg0: $UUID$$Type, arg1: StringJS, arg2: StringJS)
 constructor(arg0: $UUID$$Type, arg1: StringJS, arg2: StringJS, arg3: boolean)
+constructor(arg0: $UUID$$Type, arg1: StringJS, arg2: StringJS)
 
 public "getName"(): StringJS
 public "isHidden"(): boolean
 public "isOpen"(): boolean
 public "getId"(): $UUID
 public "getType"(): $Group$Type
-public "getPassword"(): StringJS
-public "isPersistent"(): boolean
-public "isIsolated"(): boolean
-public "toClientGroup"(): $ClientGroup
 public "isNormal"(): boolean
+public "isPersistent"(): boolean
+public "getPassword"(): StringJS
+public "toClientGroup"(): $ClientGroup
+public "isIsolated"(): boolean
 get "name"(): StringJS
 get "hidden"(): boolean
 get "open"(): boolean
 get "id"(): $UUID
 get "type"(): $Group$Type
-get "password"(): StringJS
-get "persistent"(): boolean
-get "isolated"(): boolean
 get "normal"(): boolean
+get "persistent"(): boolean
+get "password"(): StringJS
+get "isolated"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -302,8 +302,8 @@ export type $ServerCategoryManager$$Type = ($ServerCategoryManager);
  */
 export type $ServerCategoryManager$$Original = $ServerCategoryManager;}
 declare module "de.maxhenkel.voicechat.voice.client.SoundManager" {
-import {$Executor$$Type} from "java.util.concurrent.Executor"
 import {$List} from "java.util.List"
+import {$Executor$$Type} from "java.util.concurrent.Executor"
 import {$Runnable$$Type} from "java.lang.Runnable"
 
 export class $SoundManager {
@@ -311,19 +311,19 @@ constructor(arg0: StringJS)
 
 public "close"(): void
 public "isClosed"(): boolean
-public static "getAllSpeakers"(): $List<(StringJS)>
-public static "checkAlcError"(arg0: long): boolean
-public "runInContext"(arg0: $Executor$$Type, arg1: $Runnable$$Type): void
-public "openContext"(): boolean
+public static "cleanDeviceName"(arg0: StringJS): StringJS
 public static "canEnumerate"(): boolean
 public "closeContext"(): void
-public static "checkAlError"(): boolean
+public "runInContext"(arg0: $Executor$$Type, arg1: $Runnable$$Type): void
 public static "getAlcError"(arg0: integer): StringJS
 public static "getDefaultSpeaker"(): StringJS
-public static "cleanDeviceName"(arg0: StringJS): StringJS
+public static "checkAlError"(): boolean
+public static "getAllSpeakers"(): $List<(StringJS)>
+public static "checkAlcError"(arg0: long): boolean
+public "openContext"(): boolean
 get "closed"(): boolean
-get "allSpeakers"(): $List<(StringJS)>
 get "defaultSpeaker"(): StringJS
+get "allSpeakers"(): $List<(StringJS)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -353,8 +353,8 @@ export type $MicrophoneException$$Original = $MicrophoneException;}
 declare module "de.maxhenkel.voicechat.voice.server.ClientConnection" {
 import {$NetworkMessage$$Type} from "de.maxhenkel.voicechat.voice.common.NetworkMessage"
 import {$SocketAddress, $SocketAddress$$Type} from "java.net.SocketAddress"
-import {$Server$$Type} from "de.maxhenkel.voicechat.voice.server.Server"
 import {$UUID, $UUID$$Type} from "java.util.UUID"
+import {$Server$$Type} from "de.maxhenkel.voicechat.voice.server.Server"
 
 export class $ClientConnection {
 constructor(arg0: $UUID$$Type, arg1: $SocketAddress$$Type)
@@ -405,8 +405,8 @@ export interface $PingManager$PingListener$$Interface {
 }
 
 export class $PingManager$PingListener implements $PingManager$PingListener$$Interface {
- "onTimeout"(arg0: integer): void
  "onPong"(arg0: integer, arg1: long): void
+ "onTimeout"(arg0: integer): void
  "onFailedAttempt"(arg0: integer): void
 }
 /**
@@ -435,22 +435,22 @@ static readonly "NORM_PRIORITY": integer
 
 constructor(arg0: $ClientVoicechat$$Type, arg1: $InitializationData$$Type, arg2: $UUID$$Type)
 
-public "getPacketBuffer"(): $AudioPacketBuffer
 public "run"(): void
 public "getQueue"(): $BlockingQueue<($SoundPacket<(never)>)>
 public "isClosed"(): boolean
-public "getLostPackets"(): long
 public "getUUID"(): $UUID
-public "canKill"(): boolean
 public "addToQueue"(arg0: $SoundPacket$$Type<(never)>): void
+public "getPacketBuffer"(): $AudioPacketBuffer
 public "closeAndKill"(): void
 public "getSpeaker"(): $Speaker
-get "packetBuffer"(): $AudioPacketBuffer
+public "canKill"(): boolean
+public "getLostPackets"(): long
 get "queue"(): $BlockingQueue<($SoundPacket<(never)>)>
 get "closed"(): boolean
-get "lostPackets"(): long
 get "UUID"(): $UUID
+get "packetBuffer"(): $AudioPacketBuffer
 get "speaker"(): $Speaker
+get "lostPackets"(): long
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -473,25 +473,25 @@ public "toString"(): StringJS
 public "toBytes"(arg0: $FriendlyByteBuf$$Type): void
 public "setName"(arg0: StringJS): void
 public "setGroup"(arg0: $UUID$$Type): void
-public "isDisconnected"(): boolean
-public "setDisconnected"(arg0: boolean): void
-public "getUuid"(): $UUID
 public "isDisabled"(): boolean
 public static "fromBytes"(arg0: $FriendlyByteBuf$$Type): $PlayerState
-public "getGroup"(): $UUID
-public "setUuid"(arg0: $UUID$$Type): void
 public "setDisabled"(arg0: boolean): void
+public "isDisconnected"(): boolean
+public "getGroup"(): $UUID
+public "getUuid"(): $UUID
+public "setUuid"(arg0: $UUID$$Type): void
 public "hasGroup"(): boolean
+public "setDisconnected"(arg0: boolean): void
 get "name"(): StringJS
 set "name"(value: StringJS)
 set "group"(value: $UUID$$Type)
-get "disconnected"(): boolean
-set "disconnected"(value: boolean)
-get "uuid"(): $UUID
 get "disabled"(): boolean
-get "group"(): $UUID
-set "uuid"(value: $UUID$$Type)
 set "disabled"(value: boolean)
+get "disconnected"(): boolean
+get "group"(): $UUID
+get "uuid"(): $UUID
+set "uuid"(value: $UUID$$Type)
+set "disconnected"(value: boolean)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -524,8 +524,8 @@ public "getAddress"(): $InetAddress
 public "getData"(): $InitializationData
 public "disconnect"(): void
 public "getSocket"(): $ClientVoicechatSocket
-public "sendToServer"(arg0: $NetworkMessage$$Type): boolean
 public "isInitialized"(): boolean
+public "sendToServer"(arg0: $NetworkMessage$$Type): boolean
 public "checkTimeout"(): void
 get "connected"(): boolean
 get "address"(): $InetAddress
@@ -584,8 +584,8 @@ export type $SoundPacket$$Original<T> = $SoundPacket<(T)>;}
 declare module "de.maxhenkel.voicechat.voice.common.NetworkMessage" {
 import {$RawUdpPacket$$Type} from "de.maxhenkel.voicechat.api.RawUdpPacket"
 import {$SocketAddress, $SocketAddress$$Type} from "java.net.SocketAddress"
-import {$Server$$Type} from "de.maxhenkel.voicechat.voice.server.Server"
 import {$UUID$$Type} from "java.util.UUID"
+import {$Server$$Type} from "de.maxhenkel.voicechat.voice.server.Server"
 import {$ClientConnection$$Type} from "de.maxhenkel.voicechat.voice.server.ClientConnection"
 import {$Packet, $Packet$$Type} from "de.maxhenkel.voicechat.voice.common.Packet"
 
@@ -598,11 +598,11 @@ constructor(arg0: long, arg1: $Packet$$Type<(never)>)
 public "write"(arg0: $UUID$$Type): (byte)[]
 public "getAddress"(): $SocketAddress
 public "getTimestamp"(): long
+public static "readFromBytes"(arg0: $SocketAddress$$Type, arg1: $UUID$$Type, arg2: (byte)[], arg3: long): $NetworkMessage
 public "getPacket"(): $Packet<($Packet<(object)>)>
-public static "readPacketServer"(arg0: $RawUdpPacket$$Type, arg1: $Server$$Type): $NetworkMessage
 public "getTTL"(): long
 public "writeServer"(arg0: $Server$$Type, arg1: $ClientConnection$$Type): (byte)[]
-public static "readFromBytes"(arg0: $SocketAddress$$Type, arg1: $UUID$$Type, arg2: (byte)[], arg3: long): $NetworkMessage
+public static "readPacketServer"(arg0: $RawUdpPacket$$Type, arg1: $Server$$Type): $NetworkMessage
 get "address"(): $SocketAddress
 get "timestamp"(): long
 get "packet"(): $Packet<($Packet<(object)>)>
@@ -619,24 +619,24 @@ export type $NetworkMessage$$Type = ($NetworkMessage);
 export type $NetworkMessage$$Original = $NetworkMessage;}
 declare module "de.maxhenkel.voicechat.voice.server.PlayerStateManager" {
 import {$Collection} from "java.util.Collection"
-import {$Server$$Type} from "de.maxhenkel.voicechat.voice.server.Server"
 import {$UUID$$Type} from "java.util.UUID"
-import {$PlayerState, $PlayerState$$Type} from "de.maxhenkel.voicechat.voice.common.PlayerState"
+import {$Server$$Type} from "de.maxhenkel.voicechat.voice.server.Server"
 import {$ServerPlayer$$Type} from "net.minecraft.server.level.ServerPlayer"
+import {$PlayerState, $PlayerState$$Type} from "de.maxhenkel.voicechat.voice.common.PlayerState"
 
 export class $PlayerStateManager {
 constructor(arg0: $Server$$Type)
 
 public "getState"(arg0: $UUID$$Type): $PlayerState
 public "setGroup"(arg0: $ServerPlayer$$Type, arg1: $UUID$$Type): void
-public "onPlayerLoggedIn"(arg0: $ServerPlayer$$Type): void
 public static "defaultDisconnectedState"(arg0: $ServerPlayer$$Type): $PlayerState
-public "broadcastState"(arg0: $PlayerState$$Type): void
-public "onPlayerCompatibilityCheckSucceeded"(arg0: $ServerPlayer$$Type): void
+public "onPlayerLoggedIn"(arg0: $ServerPlayer$$Type): void
+public "onPlayerVoicechatDisconnect"(arg0: $UUID$$Type): void
 public "getStates"(): $Collection<($PlayerState)>
 public "onPlayerLoggedOut"(arg0: $ServerPlayer$$Type): void
+public "onPlayerCompatibilityCheckSucceeded"(arg0: $ServerPlayer$$Type): void
 public "onPlayerVoicechatConnect"(arg0: $ServerPlayer$$Type): void
-public "onPlayerVoicechatDisconnect"(arg0: $UUID$$Type): void
+public "broadcastState"(arg0: $PlayerState$$Type): void
 get "states"(): $Collection<($PlayerState)>
 }
 /**
@@ -683,18 +683,18 @@ export class $MicPacket implements $Packet$$Interface<($MicPacket)> {
 constructor(arg0: (byte)[], arg1: boolean, arg2: long)
 constructor()
 
-public "isWhispering"(): boolean
 public "toBytes"(arg0: $FriendlyByteBuf$$Type): void
 public "getData"(): (byte)[]
 public "getSequenceNumber"(): long
 public "setData"(arg0: (byte)[]): void
 public "fromBytes"(arg0: $FriendlyByteBuf$$Type): $Packet
 public "getTTL"(): long
-get "whispering"(): boolean
+public "isWhispering"(): boolean
 get "data"(): (byte)[]
 get "sequenceNumber"(): long
 set "data"(value: (byte)[])
 get "TTL"(): long
+get "whispering"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -736,19 +736,19 @@ constructor(arg0: $Path$$Type, arg1: long)
 public "getLocation"(): $Path
 public "close"(): void
 public static "create"(): $AudioRecorder
-public "getDuration"(): StringJS
 public "getDuration"(arg0: long): StringJS
-public "getStorage"(arg0: long): StringJS
-public "getStorage"(): StringJS
-public "getStartTime"(): long
-public "saveAndClose"(): void
-public "getRecordedPlayerCount"(): integer
+public "getDuration"(): StringJS
 public "appendChunk"(arg0: $UUID$$Type, arg1: long, arg2: (short)[]): void
 public "flushChunkThreaded"(arg0: $UUID$$Type): void
+public "getStartTime"(): long
+public "getStorage"(arg0: long): StringJS
+public "getStorage"(): StringJS
+public "saveAndClose"(): void
+public "getRecordedPlayerCount"(): integer
 get "location"(): $Path
 get "duration"(): StringJS
-get "storage"(): StringJS
 get "startTime"(): long
+get "storage"(): StringJS
 get "recordedPlayerCount"(): integer
 }
 /**
@@ -768,24 +768,24 @@ import {$SecretPacket$$Type} from "de.maxhenkel.voicechat.net.SecretPacket"
 export class $InitializationData {
 constructor(arg0: StringJS, arg1: $SecretPacket$$Type)
 
-public "getServerPort"(): integer
-public "getMtuSize"(): integer
-public "getSecret"(): $UUID
-public "getVoiceChatDistance"(): double
-public "getKeepAlive"(): integer
 public "getCodec"(): $ServerConfig$Codec
+public "getKeepAlive"(): integer
 public "groupsEnabled"(): boolean
 public "allowRecording"(): boolean
 public "getPlayerUUID"(): $UUID
+public "getVoiceChatDistance"(): double
+public "getSecret"(): $UUID
 public "getServerIP"(): StringJS
+public "getServerPort"(): integer
+public "getMtuSize"(): integer
+get "codec"(): $ServerConfig$Codec
+get "keepAlive"(): integer
+get "playerUUID"(): $UUID
+get "voiceChatDistance"(): double
+get "secret"(): $UUID
+get "serverIP"(): StringJS
 get "serverPort"(): integer
 get "mtuSize"(): integer
-get "secret"(): $UUID
-get "voiceChatDistance"(): double
-get "keepAlive"(): integer
-get "codec"(): $ServerConfig$Codec
-get "playerUUID"(): $UUID
-get "serverIP"(): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -805,9 +805,9 @@ import {$PingPacket$$Type} from "de.maxhenkel.voicechat.voice.common.PingPacket"
 export class $PingManager {
 constructor(arg0: $Server$$Type)
 
+public "sendPing"(arg0: $ClientConnection$$Type, arg1: long, arg2: integer, arg3: $PingManager$PingListener$$Type): void
 public "onPongPacket"(arg0: $PingPacket$$Type): void
 public "checkTimeouts"(): void
-public "sendPing"(arg0: $ClientConnection$$Type, arg1: long, arg2: integer, arg3: $PingManager$PingListener$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

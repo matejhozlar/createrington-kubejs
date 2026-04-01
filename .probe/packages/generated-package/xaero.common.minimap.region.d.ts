@@ -13,36 +13,36 @@ constructor(arg0: integer, arg1: integer)
 public "reset"(arg0: integer, arg1: integer): void
 public "cleanup"(arg0: $MinimapInterface$$Type): void
 public "getBuffer"(arg0: integer): $IntBuffer
+public "setChanged"(arg0: boolean): void
+public "putColour"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: (integer)[], arg6: integer): void
+public "bindTexture"(arg0: integer): integer
 public "getX"(): integer
 public "getZ"(): integer
-public "bindTexture"(arg0: integer): integer
 public "getTile"(arg0: integer, arg1: integer): $MinimapTile
-public "setChanged"(arg0: boolean): void
+public "isChanged"(): boolean
 public "copyBuffer"(arg0: integer, arg1: $IntBuffer$$Type): void
 public "setTile"(arg0: integer, arg1: integer, arg2: $MinimapTile$$Type): void
-public "isChanged"(): boolean
-public "updateBuffers"(arg0: integer, arg1: ((integer)[])[]): void
-public "isHasSomething"(): boolean
 public "setGlTexture"(arg0: integer, arg1: integer): void
-public "recycleTiles"(): void
-public "isRefreshRequired"(arg0: integer): boolean
-public "setHasSomething"(arg0: boolean): void
-public "getGlTexture"(arg0: integer): integer
-public "getLevelsBuffered"(): integer
 public "setLevelsBuffered"(arg0: integer): void
+public "getLevelsBuffered"(): integer
+public "setHasSomething"(arg0: boolean): void
+public "isRefreshRequired"(arg0: integer): boolean
+public "getGlTexture"(arg0: integer): integer
+public "recycleTiles"(): void
+public "isHasSomething"(): boolean
 public "setRefreshRequired"(arg0: integer, arg1: boolean): void
+public "updateBuffers"(arg0: integer, arg1: ((integer)[])[]): void
 public "setBlockTextureUpload"(arg0: boolean): void
 public "getLevelToRefresh"(arg0: integer): integer
-public "putColour"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: (integer)[], arg6: integer): void
 public "isBlockTextureUpload"(): boolean
+set "changed"(value: boolean)
 get "x"(): integer
 get "z"(): integer
-set "changed"(value: boolean)
 get "changed"(): boolean
-get "hasSomething"(): boolean
-set "hasSomething"(value: boolean)
-get "levelsBuffered"(): integer
 set "levelsBuffered"(value: integer)
+get "levelsBuffered"(): integer
+set "hasSomething"(value: boolean)
+get "hasSomething"(): boolean
 set "blockTextureUpload"(value: boolean)
 get "blockTextureUpload"(): boolean
 }
@@ -66,42 +66,42 @@ static "recycled": $List<($MinimapTile)>
 constructor(arg0: $ModSettings$$Type, arg1: integer, arg2: integer, arg3: long)
 
 public "setHeight"(arg0: integer, arg1: integer, arg2: integer): void
-public "getX"(): integer
-public "getZ"(): integer
-public "getRed"(arg0: integer, arg1: integer, arg2: integer): integer
-public "getGreen"(arg0: integer, arg1: integer, arg2: integer): integer
-public "getBlue"(arg0: integer, arg1: integer, arg2: integer): integer
 public "isSuccess"(): boolean
-public "setRGB"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): void
-public "getHeight"(arg0: integer, arg1: integer): integer
-public "hasTerrain"(): boolean
-public "setSuccess"(arg0: boolean): void
-public "setCode"(arg0: integer, arg1: integer, arg2: long, arg3: byte, arg4: byte, arg5: byte, arg6: byte): void
 public "recycle"(): void
+public "setCode"(arg0: integer, arg1: integer, arg2: long, arg3: byte, arg4: byte, arg5: byte, arg6: byte): void
+public "getGreen"(arg0: integer, arg1: integer, arg2: integer): integer
+public "getRed"(arg0: integer, arg1: integer, arg2: integer): integer
+public "getBlue"(arg0: integer, arg1: integer, arg2: integer): integer
+public "setSuccess"(arg0: boolean): void
+public "getHeight"(arg0: integer, arg1: integer): integer
 public static "isSlimeChunk"(arg0: $ModSettings$$Type, arg1: integer, arg2: integer, arg3: long): boolean
 public "isSlimeChunk"(): boolean
 public "getHighlights"(): (integer)[]
-public "isHasSomething"(): boolean
-public "setHighlights"(arg0: (integer)[]): void
-public "setHasTerrain"(arg0: boolean): void
-public "setHasSomething"(arg0: boolean): void
+public "getX"(): integer
+public "getZ"(): integer
+public "setRGB"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): void
+public "hasTerrain"(): boolean
 public "pixelChanged"(arg0: integer, arg1: integer, arg2: long, arg3: byte, arg4: byte, arg5: byte, arg6: byte): boolean
-public "setWasTransfered"(arg0: boolean): void
 public static "getANewTile"(arg0: $ModSettings$$Type, arg1: integer, arg2: integer, arg3: long): $MinimapTile
+public "setHasSomething"(arg0: boolean): void
+public "setWasTransfered"(arg0: boolean): void
+public "setHasTerrain"(arg0: boolean): void
+public "setHighlights"(arg0: (integer)[]): void
+public "isHasSomething"(): boolean
 public "getHighlightVersion"(): integer
 public "setHighlightVersion"(arg0: integer): void
 public "isChunkGrid"(): boolean
 public "isWasTransfered"(): boolean
-get "x"(): integer
-get "z"(): integer
 get "success"(): boolean
 set "success"(value: boolean)
 get "slimeChunk"(): boolean
 get "highlights"(): (integer)[]
-get "hasSomething"(): boolean
-set "highlights"(value: (integer)[])
+get "x"(): integer
+get "z"(): integer
 set "hasSomething"(value: boolean)
 set "wasTransfered"(value: boolean)
+set "highlights"(value: (integer)[])
+get "hasSomething"(): boolean
 get "highlightVersion"(): integer
 set "highlightVersion"(value: integer)
 get "chunkGrid"(): boolean

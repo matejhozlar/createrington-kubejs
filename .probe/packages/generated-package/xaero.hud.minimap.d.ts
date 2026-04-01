@@ -1,9 +1,9 @@
 declare module "xaero.hud.minimap.Minimap" {
-import {$WaypointsIngameRenderer} from "xaero.common.minimap.waypoints.render.WaypointsIngameRenderer"
-import {$WaypointWorldRenderer} from "xaero.hud.minimap.waypoint.render.world.WaypointWorldRenderer"
 import {$MinimapElementOverMapRendererHandler} from "xaero.hud.minimap.element.render.over.MinimapElementOverMapRendererHandler"
-import {$HudMod, $HudMod$$Type} from "xaero.common.HudMod"
+import {$WaypointWorldRenderer} from "xaero.hud.minimap.waypoint.render.world.WaypointWorldRenderer"
+import {$WaypointsIngameRenderer} from "xaero.common.minimap.waypoints.render.WaypointsIngameRenderer"
 import {$CompassRenderer} from "xaero.hud.minimap.compass.render.CompassRenderer"
+import {$HudMod, $HudMod$$Type} from "xaero.common.HudMod"
 import {$WaypointsGuiRenderer} from "xaero.hud.minimap.waypoint.render.WaypointsGuiRenderer"
 import {$MinimapFBORenderer} from "xaero.common.minimap.render.MinimapFBORenderer"
 import {$InfoDisplays} from "xaero.hud.minimap.info.InfoDisplays"
@@ -18,45 +18,45 @@ constructor(arg0: $HudMod$$Type)
 
 public "setCrashedWith"(arg0: $Throwable$$Type): void
 public "getInfoDisplays"(): $InfoDisplays
-public "getMinimapSafeModeRenderer"(): $MinimapSafeModeRenderer
-public "getWaypointWorldRenderer"(): $WaypointWorldRenderer
-/**
- * 
- * @deprecated
- */
-public "getWaypointsGuiRenderer"(): $WaypointsGuiRenderer$0
+public "getCrashedWith"(): $Throwable
+public "getCompassRenderer"(): $CompassRenderer
+public "checkCrashes"(): void
+public "getWorldRendererHandler"(): $MinimapElementWorldRendererHandler
+public "getOverMapRendererHandler"(): $MinimapElementOverMapRendererHandler
 public "getMinimapFBORenderer"(): $MinimapFBORenderer
-/**
- * 
- * @deprecated
- */
-public "getWaypointGuiRenderer"(): $WaypointsGuiRenderer
+public "getWaypointWorldRenderer"(): $WaypointWorldRenderer
+public "getMinimapSafeModeRenderer"(): $MinimapSafeModeRenderer
 /**
  * 
  * @deprecated
  */
 public "getWaypointsIngameRenderer"(): $WaypointsIngameRenderer
+/**
+ * 
+ * @deprecated
+ */
+public "getWaypointsGuiRenderer"(): $WaypointsGuiRenderer$0
+/**
+ * 
+ * @deprecated
+ */
+public "getWaypointGuiRenderer"(): $WaypointsGuiRenderer
 public "getWaypointMapRenderer"(): $WaypointMapRenderer
-public "getWorldRendererHandler"(): $MinimapElementWorldRendererHandler
-public "getOverMapRendererHandler"(): $MinimapElementOverMapRendererHandler
-public "checkCrashes"(): void
-public "getCrashedWith"(): $Throwable
-public "getCompassRenderer"(): $CompassRenderer
-public "getModMain"(): $HudMod
 public "usingFBO"(): boolean
+public "getModMain"(): $HudMod
 set "crashedWith"(value: $Throwable$$Type)
 get "infoDisplays"(): $InfoDisplays
-get "minimapSafeModeRenderer"(): $MinimapSafeModeRenderer
-get "waypointWorldRenderer"(): $WaypointWorldRenderer
-get "waypointsGuiRenderer"(): $WaypointsGuiRenderer$0
-get "minimapFBORenderer"(): $MinimapFBORenderer
-get "waypointGuiRenderer"(): $WaypointsGuiRenderer
-get "waypointsIngameRenderer"(): $WaypointsIngameRenderer
-get "waypointMapRenderer"(): $WaypointMapRenderer
-get "worldRendererHandler"(): $MinimapElementWorldRendererHandler
-get "overMapRendererHandler"(): $MinimapElementOverMapRendererHandler
 get "crashedWith"(): $Throwable
 get "compassRenderer"(): $CompassRenderer
+get "worldRendererHandler"(): $MinimapElementWorldRendererHandler
+get "overMapRendererHandler"(): $MinimapElementOverMapRendererHandler
+get "minimapFBORenderer"(): $MinimapFBORenderer
+get "waypointWorldRenderer"(): $WaypointWorldRenderer
+get "minimapSafeModeRenderer"(): $MinimapSafeModeRenderer
+get "waypointsIngameRenderer"(): $WaypointsIngameRenderer
+get "waypointsGuiRenderer"(): $WaypointsGuiRenderer$0
+get "waypointGuiRenderer"(): $WaypointsGuiRenderer
+get "waypointMapRenderer"(): $WaypointMapRenderer
 get "modMain"(): $HudMod
 }
 /**

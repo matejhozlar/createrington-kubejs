@@ -1,9 +1,9 @@
 declare module "com.mojang.brigadier.tree.CommandNode" {
 import {$CommandContextBuilder$$Type} from "com.mojang.brigadier.context.CommandContextBuilder"
-import {$Collection} from "java.util.Collection"
 import {$Suggestions} from "com.mojang.brigadier.suggestion.Suggestions"
-import {$StringReader$$Type} from "com.mojang.brigadier.StringReader"
+import {$Collection} from "java.util.Collection"
 import {$Comparable$$Interface} from "java.lang.Comparable"
+import {$StringReader$$Type} from "com.mojang.brigadier.StringReader"
 import {$Predicate} from "java.util.function.Predicate"
 import {$SuggestionsBuilder$$Type} from "com.mojang.brigadier.suggestion.SuggestionsBuilder"
 import {$RedirectModifier} from "com.mojang.brigadier.RedirectModifier"
@@ -23,27 +23,27 @@ public "canUse"(arg0: S): boolean
 public "parse"(arg0: $StringReader$$Type, arg1: $CommandContextBuilder$$Type<(S)>): void
 public "getChild"(arg0: StringJS): $CommandNode<(S)>
 public "getChildren"(): $Collection<($CommandNode<(S)>)>
-public "getExamples"(): $Collection<(StringJS)>
-public "getRedirectModifier"(): $RedirectModifier<(S)>
 public "addChild"(arg0: $CommandNode$$Type<(S)>): void
 public "createBuilder"(): $ArgumentBuilder<(S), (never)>
-public "listSuggestions"(arg0: $CommandContext$$Type<(S)>, arg1: $SuggestionsBuilder$$Type): $CompletableFuture<($Suggestions)>
-public "getCommand"(): $Command<(S)>
-public "isFork"(): boolean
-public "getRedirect"(): $CommandNode<(S)>
-public "getUsageText"(): StringJS
+public "getExamples"(): $Collection<(StringJS)>
 public "getRelevantNodes"(arg0: $StringReader$$Type): $Collection<($CommandNode<(S)>)>
 public "findAmbiguities"(arg0: $AmbiguityConsumer$$Type<(S)>): void
+public "getRedirect"(): $CommandNode<(S)>
+public "getUsageText"(): StringJS
+public "getCommand"(): $Command<(S)>
+public "getRedirectModifier"(): $RedirectModifier<(S)>
 public "getRequirement"(): $Predicate<(S)>
+public "isFork"(): boolean
+public "listSuggestions"(arg0: $CommandContext$$Type<(S)>, arg1: $SuggestionsBuilder$$Type): $CompletableFuture<($Suggestions)>
 get "name"(): StringJS
 get "children"(): $Collection<($CommandNode<(S)>)>
 get "examples"(): $Collection<(StringJS)>
-get "redirectModifier"(): $RedirectModifier<(S)>
-get "command"(): $Command<(S)>
-get "fork"(): boolean
 get "redirect"(): $CommandNode<(S)>
 get "usageText"(): StringJS
+get "command"(): $Command<(S)>
+get "redirectModifier"(): $RedirectModifier<(S)>
 get "requirement"(): $Predicate<(S)>
+get "fork"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -72,11 +72,11 @@ public "getName"(): StringJS
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "parse"(arg0: $StringReader$$Type, arg1: $CommandContextBuilder$$Type<(S)>): void
-public "getExamples"(): $Collection<(StringJS)>
 public "createBuilder"(): $ArgumentBuilder<(S), (never)>
-public "listSuggestions"(arg0: $CommandContext$$Type<(S)>, arg1: $SuggestionsBuilder$$Type): $CompletableFuture<($Suggestions)>
+public "getExamples"(): $Collection<(StringJS)>
 public "getUsageText"(): StringJS
 public "isValidInput"(arg0: StringJS): boolean
+public "listSuggestions"(arg0: $CommandContext$$Type<(S)>, arg1: $SuggestionsBuilder$$Type): $CompletableFuture<($Suggestions)>
 get "name"(): StringJS
 get "examples"(): $Collection<(StringJS)>
 get "usageText"(): StringJS
@@ -92,8 +92,8 @@ export type $RootCommandNode$$Type<S> = ($RootCommandNode<(S)>);
 export type $RootCommandNode$$Original<S> = $RootCommandNode<(S)>;}
 declare module "com.mojang.brigadier.tree.LiteralCommandNode" {
 import {$CommandContextBuilder$$Type} from "com.mojang.brigadier.context.CommandContextBuilder"
-import {$Collection} from "java.util.Collection"
 import {$Suggestions} from "com.mojang.brigadier.suggestion.Suggestions"
+import {$Collection} from "java.util.Collection"
 import {$StringReader$$Type} from "com.mojang.brigadier.StringReader"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$SuggestionsBuilder$$Type} from "com.mojang.brigadier.suggestion.SuggestionsBuilder"
@@ -112,12 +112,12 @@ public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "parse"(arg0: $StringReader$$Type, arg1: $CommandContextBuilder$$Type<(S)>): void
-public "getExamples"(): $Collection<(StringJS)>
 public "createBuilder"(): $ArgumentBuilder
-public "listSuggestions"(arg0: $CommandContext$$Type<(S)>, arg1: $SuggestionsBuilder$$Type): $CompletableFuture<($Suggestions)>
+public "getExamples"(): $Collection<(StringJS)>
 public "getLiteral"(): StringJS
 public "getUsageText"(): StringJS
 public "isValidInput"(arg0: StringJS): boolean
+public "listSuggestions"(arg0: $CommandContext$$Type<(S)>, arg1: $SuggestionsBuilder$$Type): $CompletableFuture<($Suggestions)>
 get "name"(): StringJS
 get "examples"(): $Collection<(StringJS)>
 get "literal"(): StringJS
@@ -134,8 +134,8 @@ export type $LiteralCommandNode$$Type<S> = ($LiteralCommandNode<(S)>);
 export type $LiteralCommandNode$$Original<S> = $LiteralCommandNode<(S)>;}
 declare module "com.mojang.brigadier.tree.ArgumentCommandNode" {
 import {$CommandContextBuilder$$Type} from "com.mojang.brigadier.context.CommandContextBuilder"
-import {$Collection} from "java.util.Collection"
 import {$Suggestions} from "com.mojang.brigadier.suggestion.Suggestions"
+import {$Collection} from "java.util.Collection"
 import {$StringReader$$Type} from "com.mojang.brigadier.StringReader"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$SuggestionsBuilder$$Type} from "com.mojang.brigadier.suggestion.SuggestionsBuilder"
@@ -157,11 +157,11 @@ public "toString"(): StringJS
 public "hashCode"(): integer
 public "parse"(arg0: $StringReader$$Type, arg1: $CommandContextBuilder$$Type<(S)>): void
 public "getType"(): $ArgumentType<(T)>
-public "getExamples"(): $Collection<(StringJS)>
 public "createBuilder"(): $ArgumentBuilder
-public "listSuggestions"(arg0: $CommandContext$$Type<(S)>, arg1: $SuggestionsBuilder$$Type): $CompletableFuture<($Suggestions)>
+public "getExamples"(): $Collection<(StringJS)>
 public "getUsageText"(): StringJS
 public "isValidInput"(arg0: StringJS): boolean
+public "listSuggestions"(arg0: $CommandContext$$Type<(S)>, arg1: $SuggestionsBuilder$$Type): $CompletableFuture<($Suggestions)>
 public "getCustomSuggestions"(): $SuggestionProvider<(S)>
 get "name"(): StringJS
 get "type"(): $ArgumentType<(T)>

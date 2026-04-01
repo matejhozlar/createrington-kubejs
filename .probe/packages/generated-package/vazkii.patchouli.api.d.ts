@@ -26,18 +26,18 @@ import {$Event} from "net.neoforged.bus.api.Event"
 export class $BookDrawScreenEvent extends $Event {
 constructor(arg0: $ResourceLocation$$Type, arg1: $Screen$$Type, arg2: integer, arg3: integer, arg4: float, arg5: $GuiGraphics$$Type)
 
-public "getMouseY"(): integer
-public "getMouseX"(): integer
-public "getBook"(): $ResourceLocation
-public "getScreen"(): $Screen
 public "getPartialTicks"(): float
+public "getBook"(): $ResourceLocation
 public "getGraphics"(): $GuiGraphics
-get "mouseY"(): integer
-get "mouseX"(): integer
-get "book"(): $ResourceLocation
-get "screen"(): $Screen
+public "getMouseX"(): integer
+public "getMouseY"(): integer
+public "getScreen"(): $Screen
 get "partialTicks"(): float
+get "book"(): $ResourceLocation
 get "graphics"(): $GuiGraphics
+get "mouseX"(): integer
+get "mouseY"(): integer
+get "screen"(): $Screen
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

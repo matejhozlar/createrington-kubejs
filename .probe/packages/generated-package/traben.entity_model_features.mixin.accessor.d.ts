@@ -44,21 +44,21 @@ import {$ModelPart$Polygon$$Type} from "net.minecraft.client.model.geom.ModelPar
 
 export interface $CuboidAccessor$$Interface {
 set "polygons"(value: ($ModelPart$Polygon$$Type)[])
-set "minX"(value: float)
 set "minZ"(value: float)
 set "maxY"(value: float)
-set "maxZ"(value: float)
 set "maxX"(value: float)
+set "maxZ"(value: float)
+set "minX"(value: float)
 set "minY"(value: float)
 }
 
 export class $CuboidAccessor implements $CuboidAccessor$$Interface {
  "setPolygons"(arg0: ($ModelPart$Polygon$$Type)[]): void
- "setMinX"(arg0: float): void
  "setMinZ"(arg0: float): void
  "setMaxY"(arg0: float): void
- "setMaxZ"(arg0: float): void
  "setMaxX"(arg0: float): void
+ "setMaxZ"(arg0: float): void
+ "setMinX"(arg0: float): void
  "setMinY"(arg0: float): void
 }
 /**

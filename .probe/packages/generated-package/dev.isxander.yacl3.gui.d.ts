@@ -8,8 +8,8 @@ export interface $GuiRenderStateSink$$Interface {
 }
 
 export class $GuiRenderStateSink implements $GuiRenderStateSink$$Interface {
- "yacl$bufferSource"(): $MultiBufferSource
 static "bufferSource"(arg0: $GuiGraphics$$Type): $MultiBufferSource
+ "yacl$bufferSource"(): $MultiBufferSource
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

@@ -245,8 +245,8 @@ import {$TemporalUnit$$Type} from "java.time.temporal.TemporalUnit"
 import {$TemporalAccessor$$Interface} from "java.time.temporal.TemporalAccessor"
 import {$TemporalAmount$$Type} from "java.time.temporal.TemporalAmount"
 import {$ValueRange} from "java.time.temporal.ValueRange"
-import {$TemporalAdjuster$$Type} from "java.time.temporal.TemporalAdjuster"
 import {$TemporalQuery$$Type} from "java.time.temporal.TemporalQuery"
+import {$TemporalAdjuster$$Type} from "java.time.temporal.TemporalAdjuster"
 import {$TemporalField$$Type} from "java.time.temporal.TemporalField"
 
 export interface $Temporal$$Interface extends $TemporalAccessor$$Interface {
@@ -282,9 +282,9 @@ import {$Map$$Type} from "java.util.Map"
 import {$Enum} from "java.lang.Enum"
 import {$TemporalUnit} from "java.time.temporal.TemporalUnit"
 import {$TemporalAccessor, $TemporalAccessor$$Type} from "java.time.temporal.TemporalAccessor"
-import {$Locale$$Type} from "java.util.Locale"
-import {$ValueRange} from "java.time.temporal.ValueRange"
 import {$Temporal, $Temporal$$Type} from "java.time.temporal.Temporal"
+import {$ValueRange} from "java.time.temporal.ValueRange"
+import {$Locale$$Type} from "java.util.Locale"
 import {$TemporalField$$Type, $TemporalField$$Interface} from "java.time.temporal.TemporalField"
 
 export class $ChronoField extends $Enum<($ChronoField)> implements $TemporalField$$Interface {

@@ -41,20 +41,20 @@ readonly "allKnownStateVariants": $Int2ObjectOpenHashMap<($EMFModelPartWithState
 constructor(name: StringJS, vanillaPart: $ModelPart$$Type, optifinePartNames: $Collection$$Type<(StringJS)>, allVanillaParts: $Map$$Type<(StringJS), ($EMFModelPartVanilla$$Type)>)
 
 public "toString"(): StringJS
-public "getAllEMFCustomChildren"(): ($ModelPart)[]
 public "render"(matrices: $PoseStack$$Type, vertices: $VertexConsumer$$Type, light: integer, overlay: integer, k: integer): void
 public "toStringShort"(): StringJS
 public "setHideInTheseStates"(variant: integer): void
+public "getAllEMFCustomChildren"(): ($ModelPart)[]
 public "receiveRootAnimationRunnable"(variant: integer, run: $Runnable$$Type): void
-public "isVisible"(): boolean
 public "prepareTranslateAndRotate"(arg0: $PoseStack$$Type): void
-public "setInjectedMesh"(arg0: $Mesh$$Type, arg1: $OffsetProvider$$Type): void
-public "getOffsetProvider"(): $OffsetProvider
+public "isVisible"(): boolean
 public "getInjectedMesh"(): $Mesh
-get "allEMFCustomChildren"(): ($ModelPart)[]
+public "getOffsetProvider"(): $OffsetProvider
+public "setInjectedMesh"(arg0: $Mesh$$Type, arg1: $OffsetProvider$$Type): void
 set "hideInTheseStates"(value: integer)
-get "offsetProvider"(): $OffsetProvider
+get "allEMFCustomChildren"(): ($ModelPart)[]
 get "injectedMesh"(): $Mesh
+get "offsetProvider"(): $OffsetProvider
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -83,21 +83,21 @@ public "toString"(): StringJS
 public "hashCode"(): integer
 public static "copy"(copyFrom: $EMFModelPartWithState$EMFModelState$$Type): $EMFModelPartWithState$EMFModelState
 public "visible"(): boolean
+public "texture"(): $ResourceLocation
+public "yScale"(): float
+public "xScale"(): float
 public "animation"(): $EMFModelPart$Animator
 public "hidden"(): boolean
-public "texture"(): $ResourceLocation
-public "xScale"(): float
-public "yScale"(): float
 public "cuboids"(): $List<($ModelPart$Cube)>
+public "zScale"(): float
 public "variantChildren"(): $Map<(StringJS), ($ModelPart)>
 public "defaultTransform"(): $PartPose
-public "zScale"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $EMFModelPartWithState$EMFModelState$$Type = ({"visible"?: boolean, "cuboids"?: $List$$Type<($ModelPart$Cube$$Type)>, "defaultTransform"?: $PartPose$$Type, "zScale"?: float, "xScale"?: float, "variantChildren"?: $Map$$Type<(StringJS), ($ModelPart$$Type)>, "animation"?: $EMFModelPart$Animator$$Type, "texture"?: $ResourceLocation$$Type, "hidden"?: boolean, "yScale"?: float}) | ([visible?: boolean, cuboids?: $List$$Type<($ModelPart$Cube$$Type)>, defaultTransform?: $PartPose$$Type, zScale?: float, xScale?: float, variantChildren?: $Map$$Type<(StringJS), ($ModelPart$$Type)>, animation?: $EMFModelPart$Animator$$Type, texture?: $ResourceLocation$$Type, hidden?: boolean, yScale?: float]);
+export type $EMFModelPartWithState$EMFModelState$$Type = ({"yScale"?: float, "hidden"?: boolean, "texture"?: $ResourceLocation$$Type, "animation"?: $EMFModelPart$Animator$$Type, "variantChildren"?: $Map$$Type<(StringJS), ($ModelPart$$Type)>, "xScale"?: float, "zScale"?: float, "defaultTransform"?: $PartPose$$Type, "cuboids"?: $List$$Type<($ModelPart$Cube$$Type)>, "visible"?: boolean}) | ([yScale?: float, hidden?: boolean, texture?: $ResourceLocation$$Type, animation?: $EMFModelPart$Animator$$Type, variantChildren?: $Map$$Type<(StringJS), ($ModelPart$$Type)>, xScale?: float, zScale?: float, defaultTransform?: $PartPose$$Type, cuboids?: $List$$Type<($ModelPart$Cube$$Type)>, visible?: boolean]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -156,31 +156,31 @@ readonly "entitySuffixMap": $EntityIntLRU
 constructor(mobNameForFileAndMap: $EMFModel_ID$$Type, directoryContext: $EMFDirectoryHandler$$Type, vanillaRoot: $ModelPart$$Type, optifinePartNames: $Collection$$Type<(StringJS)>, mapForCreatedParts: $Map$$Type<(StringJS), ($EMFModelPartVanilla$$Type)>)
 
 public "toString"(): StringJS
+public "toStringShort"(): StringJS
+public "getAllVanillaPartsEMF"(): $Collection<($EMFModelPartVanilla)>
+public "getVanillaFormatRoot"(): $ModelPart
+public "checkIfShouldExpireEntity"(id: $UUID$$Type): void
+public "tryRenderVanillaRootNormally"(matrixStack: $PoseStack$$Type, vertexConsumer: $VertexConsumer$$Type, light: integer, overlay: integer): void
+public "resetVanillaPartsToDefaults"(): void
+public "doVariantCheck"(): void
+public "receiveAnimations"(variant: integer, animationList: $Collection$$Type<($EMFAnimation$$Type)>): void
+public "addVariantOfJem"(jemData: $EMFJemData$$Type, variant: integer): void
 public "discoverAndInitVariants"(fallbackPropertiesName: StringJS): void
 public "setVariant1ToVanilla0"(): void
-public "tryRenderVanillaRootNormally"(matrixStack: $PoseStack$$Type, vertexConsumer: $VertexConsumer$$Type, light: integer, overlay: integer): void
-public "toStringShort"(): StringJS
-public "doVariantCheck"(): void
 public "hasAnimation"(): boolean
 public "getTopLevelJemTexture"(): $ResourceLocation
 public "tryRenderVanillaFormatRoot"(matrixStack: $PoseStack$$Type, vertexConsumer: $VertexConsumer$$Type, light: integer, overlay: integer): void
-public "addVariantOfJem"(jemData: $EMFJemData$$Type, variant: integer): void
-public "receiveAnimations"(variant: integer, animationList: $Collection$$Type<($EMFAnimation$$Type)>): void
-public "getAllVanillaPartsEMF"(): $Collection<($EMFModelPartVanilla)>
-public "checkIfShouldExpireEntity"(id: $UUID$$Type): void
-public "getVanillaFormatRoot"(): $ModelPart
-public "resetVanillaPartsToDefaults"(): void
-public "isVisible"(): boolean
 public "prepareTranslateAndRotate"(arg0: $PoseStack$$Type): void
-public "setInjectedMesh"(arg0: $Mesh$$Type, arg1: $OffsetProvider$$Type): void
-public "getOffsetProvider"(): $OffsetProvider
+public "isVisible"(): boolean
 public "getInjectedMesh"(): $Mesh
-get "variant1ToVanilla0"(): void
-get "topLevelJemTexture"(): $ResourceLocation
+public "getOffsetProvider"(): $OffsetProvider
+public "setInjectedMesh"(arg0: $Mesh$$Type, arg1: $OffsetProvider$$Type): void
 get "allVanillaPartsEMF"(): $Collection<($EMFModelPartVanilla)>
 get "vanillaFormatRoot"(): $ModelPart
-get "offsetProvider"(): $OffsetProvider
+get "variant1ToVanilla0"(): void
+get "topLevelJemTexture"(): $ResourceLocation
 get "injectedMesh"(): $Mesh
+get "offsetProvider"(): $OffsetProvider
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -196,11 +196,11 @@ import {$Runnable, $Runnable$$Type, $Runnable$$Interface} from "java.lang.Runnab
 
 export class $EMFModelPart$Animator implements $Runnable$$Interface {
 public "run"(): void
+public "setAnimation"(animation: $Runnable$$Type): void
 public "getAnimation"(): $Runnable
 public "hasAnimation"(): boolean
-public "setAnimation"(animation: $Runnable$$Type): void
-get "animation"(): $Runnable
 set "animation"(value: $Runnable$$Type)
+get "animation"(): $Runnable
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -252,22 +252,22 @@ constructor(cuboids: $List$$Type<($ModelPart$Cube$$Type)>, children: $Map$$Type<
 
 public "toString"(): StringJS
 public "compile"(pose: $PoseStack$Pose$$Type, vertexConsumer: $VertexConsumer$$Type, i: integer, j: integer, k: integer): void
+public "render"(matrices: $PoseStack$$Type, vertices: $VertexConsumer$$Type, light: integer, overlay: integer, k: integer): void
+public "toStringShort"(): StringJS
+public "getVanillaModelPartsOfCurrentState"(): $ModelPart
+public "renderBoxes"(matrices: $PoseStack$$Type, vertices: $VertexConsumer$$Type): void
 public "renderBoxesNoChildren"(matrices: $PoseStack$$Type, vertices: $VertexConsumer$$Type, alpha: float): void
 public "simplePrintChildren"(depth: integer): StringJS
-public "render"(matrices: $PoseStack$$Type, vertices: $VertexConsumer$$Type, light: integer, overlay: integer, k: integer): void
 public "getAllChildPartsAsAnimationMap"(prefixableParents: StringJS, variantNum: integer, optifinePartNameMap: $Map$$Type<(StringJS), (StringJS)>): $Object2ReferenceOpenHashMap<(StringJS), ($EMFModelPart)>
-public "toStringShort"(): StringJS
-public "renderBoxes"(matrices: $PoseStack$$Type, vertices: $VertexConsumer$$Type): void
-public "handler$fdl001$skinlayers3d$render"(poseStack: $PoseStack$$Type, vertexConsumer: $VertexConsumer$$Type, light: integer, overlay: integer, color: integer, ci: $CallbackInfo$$Type): void
-public "getVanillaModelPartsOfCurrentState"(): $ModelPart
-public "isVisible"(): boolean
+public "handler$fph001$skinlayers3d$render"(poseStack: $PoseStack$$Type, vertexConsumer: $VertexConsumer$$Type, light: integer, overlay: integer, color: integer, ci: $CallbackInfo$$Type): void
 public "prepareTranslateAndRotate"(arg0: $PoseStack$$Type): void
-public "setInjectedMesh"(arg0: $Mesh$$Type, arg1: $OffsetProvider$$Type): void
-public "getOffsetProvider"(): $OffsetProvider
+public "isVisible"(): boolean
 public "getInjectedMesh"(): $Mesh
+public "getOffsetProvider"(): $OffsetProvider
+public "setInjectedMesh"(arg0: $Mesh$$Type, arg1: $OffsetProvider$$Type): void
 get "vanillaModelPartsOfCurrentState"(): $ModelPart
-get "offsetProvider"(): $OffsetProvider
 get "injectedMesh"(): $Mesh
+get "offsetProvider"(): $OffsetProvider
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -320,14 +320,14 @@ constructor(cuboids: $List$$Type<($ModelPart$Cube$$Type)>, children: $Map$$Type<
 
 public "render"(matrices: $PoseStack$$Type, vertices: $VertexConsumer$$Type, light: integer, overlay: integer, k: integer): void
 public "setVariantStateTo"(newVariant: integer): void
-public "isVisible"(): boolean
 public "prepareTranslateAndRotate"(arg0: $PoseStack$$Type): void
-public "setInjectedMesh"(arg0: $Mesh$$Type, arg1: $OffsetProvider$$Type): void
-public "getOffsetProvider"(): $OffsetProvider
+public "isVisible"(): boolean
 public "getInjectedMesh"(): $Mesh
+public "getOffsetProvider"(): $OffsetProvider
+public "setInjectedMesh"(arg0: $Mesh$$Type, arg1: $OffsetProvider$$Type): void
 set "variantStateTo"(value: integer)
-get "offsetProvider"(): $OffsetProvider
 get "injectedMesh"(): $Mesh
+get "offsetProvider"(): $OffsetProvider
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

@@ -1,6 +1,6 @@
 declare module "net.minecraft.tags.TagManager$LoadResult" {
-import {$Collection, $Collection$$Type} from "java.util.Collection"
 import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
+import {$Collection, $Collection$$Type} from "java.util.Collection"
 import {$Map, $Map$$Type} from "java.util.Map"
 import {$Registry, $Registry$$Type} from "net.minecraft.core.Registry"
 import {$ResourceKey, $ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
@@ -20,7 +20,7 @@ public "tags"(): $Map<($ResourceLocation), ($Collection<($Holder<(T)>)>)>
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $TagManager$LoadResult$$Type<T> = ({"tags"?: $Map$$Type<($ResourceLocation$$Type), ($Collection$$Type<($Holder$$Type<(T)>)>)>, "key"?: $ResourceKey$$Type<($Registry<(T)>)>}) | ([tags?: $Map$$Type<($ResourceLocation$$Type), ($Collection$$Type<($Holder$$Type<(T)>)>)>, key?: $ResourceKey$$Type<($Registry<(T)>)>]);
+export type $TagManager$LoadResult$$Type<T> = ({"key"?: $ResourceKey$$Type<($Registry<(T)>)>, "tags"?: $Map$$Type<($ResourceLocation$$Type), ($Collection$$Type<($Holder$$Type<(T)>)>)>}) | ([key?: $ResourceKey$$Type<($Registry<(T)>)>, tags?: $Map$$Type<($ResourceLocation$$Type), ($Collection$$Type<($Holder$$Type<(T)>)>)>]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -30,8 +30,8 @@ import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resource
 import {$Codec} from "com.mojang.serialization.Codec"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$TagEntry$Lookup$$Type} from "net.minecraft.tags.TagEntry$Lookup"
-import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$ExtraCodecs$TagOrElementLocation} from "net.minecraft.util.ExtraCodecs$TagOrElementLocation"
+import {$Consumer$$Type} from "java.util.function.Consumer"
 
 export class $TagEntry {
 static "CODEC": $Codec<($TagEntry)>
@@ -45,15 +45,15 @@ public "getId"(): $ResourceLocation
 public static "element"(arg0: $ResourceLocation$$Type): $TagEntry
 public "build"<T>(arg0: $TagEntry$Lookup$$Type<(T)>, arg1: $Consumer$$Type<(T)>): boolean
 public static "tag"(arg0: $ResourceLocation$$Type): $TagEntry
-public "elementOrTag"(): $ExtraCodecs$TagOrElementLocation
-public "withRequired"(arg0: boolean): $TagEntry
-public static "optionalTag"(arg0: $ResourceLocation$$Type): $TagEntry
-public "isRequired"(): boolean
-public static "optionalElement"(arg0: $ResourceLocation$$Type): $TagEntry
-public "isTag"(): boolean
-public "verifyIfPresent"(arg0: $Predicate$$Type<($ResourceLocation)>, arg1: $Predicate$$Type<($ResourceLocation)>): boolean
 public "visitRequiredDependencies"(arg0: $Consumer$$Type<($ResourceLocation)>): void
 public "visitOptionalDependencies"(arg0: $Consumer$$Type<($ResourceLocation)>): void
+public "verifyIfPresent"(arg0: $Predicate$$Type<($ResourceLocation)>, arg1: $Predicate$$Type<($ResourceLocation)>): boolean
+public static "optionalElement"(arg0: $ResourceLocation$$Type): $TagEntry
+public "isRequired"(): boolean
+public static "optionalTag"(arg0: $ResourceLocation$$Type): $TagEntry
+public "withRequired"(arg0: boolean): $TagEntry
+public "elementOrTag"(): $ExtraCodecs$TagOrElementLocation
+public "isTag"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -119,17 +119,17 @@ readonly "entries": $List<($TagEntry)>
 constructor()
 
 public "remove"(arg0: $TagEntry$$Type): $TagBuilder
-public "replace"(): $TagBuilder
 public "replace"(arg0: boolean): $TagBuilder
+public "replace"(): $TagBuilder
 public "add"(arg0: $TagEntry$$Type): $TagBuilder
 public static "create"(): $TagBuilder
 public "build"(): $List<($TagEntry)>
+public "addElement"(arg0: $ResourceLocation$$Type): $TagBuilder
+public "getRemoveEntries"(): $Stream<($TagEntry)>
 public "addOptionalTag"(arg0: $ResourceLocation$$Type): $TagBuilder
 public "addOptionalElement"(arg0: $ResourceLocation$$Type): $TagBuilder
-public "addElement"(arg0: $ResourceLocation$$Type): $TagBuilder
 public "addTag"(arg0: $ResourceLocation$$Type): $TagBuilder
 public "isReplace"(): boolean
-public "getRemoveEntries"(): $Stream<($TagEntry)>
 /**
  * 
  * @deprecated
@@ -141,13 +141,13 @@ public "remove"(arg0: $TagEntry$$Type, arg1: StringJS): $TagBuilder
  */
 public "removeElement"(arg0: $ResourceLocation$$Type, arg1: StringJS): $TagBuilder
 public "removeElement"(arg0: $ResourceLocation$$Type): $TagBuilder
-public "getRawBuilder"(): $TagBuilder
 /**
  * 
  * @deprecated
  */
 public "removeTag"(arg0: $ResourceLocation$$Type, arg1: StringJS): $TagBuilder
 public "removeTag"(arg0: $ResourceLocation$$Type): $TagBuilder
+public "getRawBuilder"(): $TagBuilder
 get "removeEntries"(): $Stream<($TagEntry)>
 get "rawBuilder"(): $TagBuilder
 }
@@ -168,8 +168,8 @@ import {$ReloadableServerResourcesKJS, $ReloadableServerResourcesKJS$$Type} from
 import {$PreparableReloadListener$$Interface} from "net.minecraft.server.packs.resources.PreparableReloadListener"
 import {$PreparableReloadListener$PreparationBarrier$$Type} from "net.minecraft.server.packs.resources.PreparableReloadListener$PreparationBarrier"
 import {$ProfilerFiller$$Type} from "net.minecraft.util.profiling.ProfilerFiller"
-import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
 import {$IdentifiableResourceReloadListener$$Interface} from "net.fabricmc.fabric.api.resource.IdentifiableResourceReloadListener"
+import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
 import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
 import {$Executor$$Type} from "java.util.concurrent.Executor"
 import {$TagManagerKJS$$Interface} from "dev.latvian.mods.kubejs.core.TagManagerKJS"
@@ -219,7 +219,7 @@ public "entry"(): $TagEntry
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $TagLoader$EntryWithSource$$Type = ({"remove"?: boolean, "source"?: StringJS, "entry"?: $TagEntry$$Type}) | ([remove?: boolean, source?: StringJS, entry?: $TagEntry$$Type]);
+export type $TagLoader$EntryWithSource$$Type = ({"entry"?: $TagEntry$$Type, "source"?: StringJS, "remove"?: boolean}) | ([entry?: $TagEntry$$Type, source?: StringJS, remove?: boolean]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -227,8 +227,8 @@ export type $TagLoader$EntryWithSource$$Original = $TagLoader$EntryWithSource;}
 declare module "net.minecraft.tags.TagNetworkSerialization$NetworkPayload" {
 import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
 import {$Map, $Map$$Type} from "java.util.Map"
-import {$Registry$$Type} from "net.minecraft.core.Registry"
 import {$FriendlyByteBuf$$Type} from "net.minecraft.network.FriendlyByteBuf"
+import {$Registry$$Type} from "net.minecraft.core.Registry"
 import {$IntList, $IntList$$Type} from "it.unimi.dsi.fastutil.ints.IntList"
 
 export class $TagNetworkSerialization$NetworkPayload {
@@ -251,8 +251,8 @@ export type $TagNetworkSerialization$NetworkPayload$$Type = ($TagNetworkSerializ
  */
 export type $TagNetworkSerialization$NetworkPayload$$Original = $TagNetworkSerialization$NetworkPayload;}
 declare module "net.minecraft.tags.TagEntry$Lookup" {
-import {$Collection} from "java.util.Collection"
 import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
+import {$Collection} from "java.util.Collection"
 
 export interface $TagEntry$Lookup$$Interface<T> {
 }

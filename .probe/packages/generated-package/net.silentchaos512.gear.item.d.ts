@@ -1,6 +1,6 @@
 declare module "net.silentchaos512.gear.item.CompoundPartItem" {
-import {$Map} from "java.util.Map"
 import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
+import {$Map} from "java.util.Map"
 import {$List, $List$$Type} from "java.util.List"
 import {$Block} from "net.minecraft.world.level.block.Block"
 import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component"
@@ -29,17 +29,17 @@ public "getName"(arg0: $ItemStack$$Type): $Component
 public "create"(arg0: $MaterialInstance$$Type, arg1: integer): $ItemStack
 public "create"(arg0: $MaterialInstance$$Type): $ItemStack
 public "create"(arg0: $List$$Type<($MaterialInstance$$Type)>): $ItemStack
-public static "getModelKey"(arg0: $ItemStack$$Type): StringJS
-public "getGearType"(): $GearType
-public static "getPrimaryMaterial"(arg0: $ItemStack$$Type): $MaterialInstance
-public "getColor"(arg0: $ItemStack$$Type, arg1: integer): integer
 public "appendHoverText"(arg0: $ItemStack$$Type, arg1: $Item$TooltipContext$$Type, arg2: $List$$Type<($Component$$Type)>, arg3: $TooltipFlag$$Type): void
-public "getColorWeight"(arg0: integer, arg1: integer): integer
-public "getPartType"(): $PartType
+public "getColor"(arg0: $ItemStack$$Type, arg1: integer): integer
 public static "getMaterials"(arg0: $ItemStack$$Type): $List<($MaterialInstance)>
+public "getPartType"(): $PartType
+public "getColorWeight"(arg0: integer, arg1: integer): integer
+public static "getModelKey"(arg0: $ItemStack$$Type): StringJS
+public static "getPrimaryMaterial"(arg0: $ItemStack$$Type): $MaterialInstance
+public "getGearType"(): $GearType
 public static "checkSpecialEquality"(arg1: any, arg2: any, arg3: boolean): boolean
-get "gearType"(): $GearType
 get "partType"(): $PartType
+get "gearType"(): $GearType
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

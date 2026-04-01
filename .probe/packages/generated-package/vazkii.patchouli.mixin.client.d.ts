@@ -70,13 +70,13 @@ import {$List} from "java.util.List"
 import {$Renderable} from "net.minecraft.client.gui.components.Renderable"
 
 export interface $AccessorScreen$$Interface {
-get "renderables"(): $List<($Renderable)>
 get "narratables"(): $List<($NarratableEntry)>
+get "renderables"(): $List<($Renderable)>
 }
 
 export class $AccessorScreen implements $AccessorScreen$$Interface {
- "getRenderables"(): $List<($Renderable)>
  "getNarratables"(): $List<($NarratableEntry)>
+ "getRenderables"(): $List<($Renderable)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

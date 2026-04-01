@@ -112,9 +112,9 @@ export type $Weight$$Type = ($Weight);
 export type $Weight$$Original = $Weight;}
 declare module "net.minecraft.util.random.SimpleWeightedRandomList" {
 import {$RandomSource$$Type} from "net.minecraft.util.RandomSource"
-import {$Optional} from "java.util.Optional"
 import {$Codec, $Codec$$Type} from "com.mojang.serialization.Codec"
 import {$WeightedEntry$Wrapper, $WeightedEntry$Wrapper$$Type} from "net.minecraft.util.random.WeightedEntry$Wrapper"
+import {$Optional} from "java.util.Optional"
 import {$List$$Type} from "java.util.List"
 import {$WeightedRandomList} from "net.minecraft.util.random.WeightedRandomList"
 import {$SimpleWeightedRandomList$Builder} from "net.minecraft.util.random.SimpleWeightedRandomList$Builder"
@@ -125,9 +125,9 @@ constructor(arg0: $List$$Type<($WeightedEntry$Wrapper$$Type<(E)>)>)
 public static "builder"<E>(): $SimpleWeightedRandomList$Builder<(E)>
 public static "single"<E>(arg0: E): $SimpleWeightedRandomList<(E)>
 public static "empty"<E>(): $SimpleWeightedRandomList<(E)>
-public static "wrappedCodec"<E>(arg0: $Codec$$Type<(E)>): $Codec<($SimpleWeightedRandomList<(E)>)>
 public "getRandomValue"(arg0: $RandomSource$$Type): $Optional<(E)>
 public static "wrappedCodecAllowingEmpty"<E>(arg0: $Codec$$Type<(E)>): $Codec<($SimpleWeightedRandomList<(E)>)>
+public static "wrappedCodec"<E>(arg0: $Codec$$Type<(E)>): $Codec<($SimpleWeightedRandomList<(E)>)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -141,8 +141,8 @@ export type $SimpleWeightedRandomList$$Original<E> = $SimpleWeightedRandomList<(
 declare module "net.minecraft.util.random.WeightedRandomList" {
 import {$RandomSource$$Type} from "net.minecraft.util.RandomSource"
 import {$WeightedEntry, $WeightedEntry$$Type} from "net.minecraft.util.random.WeightedEntry"
-import {$Optional} from "java.util.Optional"
 import {$Codec, $Codec$$Type} from "com.mojang.serialization.Codec"
+import {$Optional} from "java.util.Optional"
 import {$List, $List$$Type} from "java.util.List"
 
 export class $WeightedRandomList<E extends $WeightedEntry> {
@@ -155,8 +155,8 @@ public static "create"<E extends $WeightedEntry>(arg0: $List$$Type<(E)>): $Weigh
 public static "create"<E extends $WeightedEntry>(...arg0: (E)[]): $WeightedRandomList<(E)>
 public static "create"<E extends $WeightedEntry>(): $WeightedRandomList<(E)>
 public "unwrap"(): $List
-public "getRandom"(arg0: $RandomSource$$Type): $Optional<(E)>
 public static "codec"<E extends $WeightedEntry>(arg0: $Codec$$Type<(E)>): $Codec<($WeightedRandomList<(E)>)>
+public "getRandom"(arg0: $RandomSource$$Type): $Optional<(E)>
 get "empty"(): boolean
 }
 /**

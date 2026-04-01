@@ -10,11 +10,11 @@ public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public static "fromString"(arg0: StringJS): $MapConnectionNode
-public "getMw"(): StringJS
-public "getNamedString"(arg0: $MapWorld$$Type): StringJS
 public "getDimId"(): $ResourceKey<($Level)>
-get "mw"(): StringJS
+public "getNamedString"(arg0: $MapWorld$$Type): StringJS
+public "getMw"(): StringJS
 get "dimId"(): $ResourceKey<($Level)>
+get "mw"(): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -28,10 +28,10 @@ export type $MapConnectionNode$$Original = $MapConnectionNode;}
 declare module "xaero.map.world.MapDimension" {
 import {$Iterable} from "java.lang.Iterable"
 import {$DimensionSpecialEffects} from "net.minecraft.client.renderer.DimensionSpecialEffects"
-import {$MapConnectionNode} from "xaero.map.world.MapConnectionNode"
 import {$LeveledRegion} from "xaero.map.region.LeveledRegion"
-import {$MapProcessor$$Type} from "xaero.map.MapProcessor"
+import {$MapConnectionNode} from "xaero.map.world.MapConnectionNode"
 import {$ArrayList} from "java.util.ArrayList"
+import {$MapProcessor$$Type} from "xaero.map.MapProcessor"
 import {$Hashtable} from "java.util.Hashtable"
 import {$MapWorld, $MapWorld$$Type} from "xaero.map.world.MapWorld"
 import {$List} from "java.util.List"
@@ -43,10 +43,10 @@ import {$ClientLevel$$Type} from "net.minecraft.client.multiplayer.ClientLevel"
 import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
 import {$Registry$$Type} from "net.minecraft.core.Registry"
 import {$DimensionHighlighterHandler} from "xaero.map.highlight.DimensionHighlighterHandler"
-import {$ResourceKey, $ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
 import {$Minecraft$$Type} from "net.minecraft.client.Minecraft"
-import {$Path} from "java.nio.file.Path"
+import {$ResourceKey, $ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
 import {$HighlighterRegistry$$Type} from "xaero.map.highlight.HighlighterRegistry"
+import {$Path} from "java.nio.file.Path"
 import {$DimensionType, $DimensionType$$Type} from "net.minecraft.world.level.dimension.DimensionType"
 
 export class $MapDimension {
@@ -58,86 +58,86 @@ readonly "regionsToCache": $ArrayList<($LeveledRegion<(never)>)>
 constructor(arg0: $MapWorld$$Type, arg1: $ResourceKey$$Type<($Level)>, arg2: $HighlighterRegistry$$Type)
 
 public "clear"(): void
-public "getLayeredMapRegions"(): $LayeredRegionManager
-public "getSkyDarken"(arg0: float, arg1: $ClientLevel$$Type, arg2: $Registry$$Type<($DimensionType$$Type)>): float
 public "switchToFutureMultiworldWritableValueUnsynced"(): void
-public "toggleCaveModeType"(arg0: boolean): void
-public "onCreationUnsynced"(): void
-public "isAutoSelected"(): boolean
-public "isUsingUnknownDimensionType"(arg0: $Registry$$Type<($DimensionType$$Type)>): boolean
-public "startFullMapReload"(arg0: integer, arg1: boolean, arg2: $MapProcessor$$Type): void
-public "clearFullMapReload"(): void
-public static "getDimensionType"(arg0: $MapDimension$$Type, arg1: $ResourceKey$$Type<($Level)>, arg2: $Registry$$Type<($DimensionType$$Type)>): $DimensionType
-public "getDimensionType"(arg0: $Registry$$Type<($DimensionType$$Type)>): $DimensionType
-public "getDimensionTypeId"(): $ResourceLocation
-public "getFullReloader"(): $MapFullReloader
-public "calculateDimScale"(arg0: $Registry$$Type<($DimensionType$$Type)>): double
-public "pickDefaultCustomMultiworldUnsynced"(): void
 public "isCacheOnlyMode"(arg0: $Registry$$Type<($DimensionType$$Type)>): boolean
 public "getMapWorld"(): $MapWorld
 public "isUsingWorldSave"(): boolean
-public "calculateDimDiv"(arg0: $Registry$$Type<($DimensionType$$Type)>, arg1: $DimensionType$$Type): double
-public "preDetection"(): void
-public "getOldFolderPath"(): $Path
-public "getMainFolderPath"(): $Path
-public "setMultiworldName"(arg0: StringJS, arg1: StringJS): void
-public "saveConfigUnsynced"(): void
-public "getPlayerMapKey"(): $MapConnectionNode
-public "deleteMultiworldId"(arg0: StringJS): void
-public "isFutureMultiworldServerBased"(): boolean
-public "getMultiworldName"(arg0: StringJS): StringJS
-public "getCaveModeType"(): integer
-public "getShadowR"(): float
-public "getShadowB"(): float
-public "getShadowG"(): float
+public "getSkyDarken"(arg0: float, arg1: $ClientLevel$$Type, arg2: $Registry$$Type<($DimensionType$$Type)>): float
 public "getWorldSaveDetectedRegions"(): $Iterable<($Hashtable<(integer), ($RegionDetection)>)>
+public "isUsingUnknownDimensionType"(arg0: $Registry$$Type<($DimensionType$$Type)>): boolean
+public "pickDefaultCustomMultiworldUnsynced"(): void
+public "getLayeredMapRegions"(): $LayeredRegionManager
+public "getDimId"(): $ResourceKey<($Level)>
+public "getDimensionTypeId"(): $ResourceLocation
+public "getFullReloader"(): $MapFullReloader
+public "getDimensionType"(arg0: $Registry$$Type<($DimensionType$$Type)>): $DimensionType
+public static "getDimensionType"(arg0: $MapDimension$$Type, arg1: $ResourceKey$$Type<($Level)>, arg2: $Registry$$Type<($DimensionType$$Type)>): $DimensionType
+public "startFullMapReload"(arg0: integer, arg1: boolean, arg2: $MapProcessor$$Type): void
+public "clearFullMapReload"(): void
+public "calculateDimScale"(arg0: $Registry$$Type<($DimensionType$$Type)>): double
+public "calculateDimDiv"(arg0: $Registry$$Type<($DimensionType$$Type)>, arg1: $DimensionType$$Type): double
 public "getHighlightHandler"(): $DimensionHighlighterHandler
 public "getCurrentMultiworld"(): StringJS
-public "getMultiworldIdsCopy"(): $List<(StringJS)>
-public "switchToFutureUnsynced"(): void
 public "hasConfirmedMultiworld"(): boolean
 public "confirmMultiworldUnsynced"(): void
 public "setMultiworldUnsynced"(arg0: StringJS): void
 public "getSelectedMapKeyUnsynced"(): $MapConnectionNode
 public "hasDoneRegionDetection"(): boolean
-public "getDimensionEffects"(arg0: $Registry$$Type<($DimensionType$$Type)>): $DimensionSpecialEffects
-public "onClearCachedHighlightHash"(arg0: integer, arg1: integer): void
 public "onWorldChangeUnsynced"(arg0: $Level$$Type): void
+public "getDimensionEffects"(arg0: $Registry$$Type<($DimensionType$$Type)>): $DimensionSpecialEffects
+public "switchToFutureUnsynced"(): void
 public "addMultiworldChecked"(arg0: StringJS): boolean
-public "getDimId"(): $ResourceKey<($Level)>
-public "onClearCachedHighlightHashes"(): void
-public "deleteMultiworldMapDataUnsynced"(arg0: StringJS): void
-public "getFutureMultiworldUnsynced"(): StringJS
+public "onClearCachedHighlightHash"(arg0: integer, arg1: integer): void
+public "saveConfigUnsynced"(): void
+public "deleteMultiworldId"(arg0: StringJS): void
+public "getPlayerMapKey"(): $MapConnectionNode
+public "preDetection"(): void
+public "getOldFolderPath"(): $Path
+public "setMultiworldName"(arg0: StringJS, arg1: StringJS): void
+public "getMainFolderPath"(): $Path
+public "toggleCaveModeType"(arg0: boolean): void
+public "onCreationUnsynced"(): void
+public "isAutoSelected"(): boolean
+public "getShadowR"(): float
+public "getShadowG"(): float
+public "getShadowB"(): float
+public "getCaveModeType"(): integer
+public "getMultiworldName"(arg0: StringJS): StringJS
+public "getMultiworldIdsCopy"(): $List<(StringJS)>
 public "getFutureCustomSelectedMultiworld"(): StringJS
-public "updateFutureAutomaticUnsynced"(arg0: $Minecraft$$Type, arg1: any): void
+public "isFutureMultiworldServerBased"(): boolean
 public "resetCustomMultiworldUnsynced"(): void
+public "getWorldSaveRegionDetection"(arg0: integer, arg1: integer): $RegionDetection
+public "deleteMultiworldMapDataUnsynced"(arg0: StringJS): void
 public "isFutureUsingWorldSaveUnsynced"(): boolean
+public "onClearCachedHighlightHashes"(): void
+public "getFutureMultiworldUnsynced"(): StringJS
+public "updateFutureAutomaticUnsynced"(arg0: $Minecraft$$Type, arg1: any): void
 public "addWorldSaveRegionDetection"(arg0: $RegionDetection$$Type): void
 public "getLinkedWorldSaveDetectedRegions"(): $Iterable<($RegionDetection)>
-public "getWorldSaveRegionDetection"(arg0: integer, arg1: integer): $RegionDetection
-get "layeredMapRegions"(): $LayeredRegionManager
-get "autoSelected"(): boolean
-get "dimensionTypeId"(): $ResourceLocation
-get "fullReloader"(): $MapFullReloader
 get "mapWorld"(): $MapWorld
 get "usingWorldSave"(): boolean
-get "oldFolderPath"(): $Path
-get "mainFolderPath"(): $Path
-get "playerMapKey"(): $MapConnectionNode
-get "caveModeType"(): integer
-get "shadowR"(): float
-get "shadowB"(): float
-get "shadowG"(): float
 get "worldSaveDetectedRegions"(): $Iterable<($Hashtable<(integer), ($RegionDetection)>)>
+get "layeredMapRegions"(): $LayeredRegionManager
+get "dimId"(): $ResourceKey<($Level)>
+get "dimensionTypeId"(): $ResourceLocation
+get "fullReloader"(): $MapFullReloader
 get "highlightHandler"(): $DimensionHighlighterHandler
 get "currentMultiworld"(): StringJS
-get "multiworldIdsCopy"(): $List<(StringJS)>
 set "multiworldUnsynced"(value: StringJS)
 get "selectedMapKeyUnsynced"(): $MapConnectionNode
-get "dimId"(): $ResourceKey<($Level)>
-get "futureMultiworldUnsynced"(): StringJS
+get "playerMapKey"(): $MapConnectionNode
+get "oldFolderPath"(): $Path
+get "mainFolderPath"(): $Path
+get "autoSelected"(): boolean
+get "shadowR"(): float
+get "shadowG"(): float
+get "shadowB"(): float
+get "caveModeType"(): integer
+get "multiworldIdsCopy"(): $List<(StringJS)>
 get "futureCustomSelectedMultiworld"(): StringJS
 get "futureUsingWorldSaveUnsynced"(): boolean
+get "futureMultiworldUnsynced"(): StringJS
 get "linkedWorldSaveDetectedRegions"(): $Iterable<($RegionDetection)>
 }
 /**
@@ -157,10 +157,10 @@ export class $MapConnectionManager {
 constructor()
 
 public "isConnected"(arg0: $MapConnectionNode$$Type, arg1: $MapConnectionNode$$Type): boolean
-public "addConnection"(arg0: $MapConnectionNode$$Type, arg1: $MapConnectionNode$$Type): void
 public "isEmpty"(): boolean
 public "save"(arg0: $PrintWriter$$Type): void
 public "removeConnection"(arg0: $MapConnectionNode$$Type, arg1: $MapConnectionNode$$Type): void
+public "addConnection"(arg0: $MapConnectionNode$$Type, arg1: $MapConnectionNode$$Type): void
 public "renameDimension"(arg0: StringJS, arg1: StringJS): void
 get "empty"(): boolean
 }
@@ -189,94 +189,94 @@ constructor(arg0: StringJS, arg1: StringJS, arg2: $MapProcessor$$Type)
 public "load"(): void
 public "getDimensions"(arg0: $List$$Type<($MapDimension$$Type)>): void
 public "getDimension"(arg0: $ResourceKey$$Type<($Level)>): $MapDimension
-public "getCurrentDimensionId"(): $ResourceKey<($Level)>
-public "setTeleportCommandFormat"(arg0: StringJS): void
-public "setUseDefaultMapTeleport"(arg0: boolean): void
-public "getTeleportCommandFormat"(): StringJS
-public "getCurrentMultiworldType"(): integer
-public "isUsingDefaultMapTeleport"(): boolean
-public "getEffectivePlayerTeleportCommandFormat"(): StringJS
-public "getEffectiveDimensionTeleportCommandFormat"(): StringJS
 public "saveConfig"(): void
-public "isMultiplayer"(): boolean
+public "getTeleportCommandFormat"(): StringJS
+public "setTeleportCommandFormat"(arg0: StringJS): void
+public "getCurrentMultiworldType"(): integer
+public "setUseDefaultMapTeleport"(arg0: boolean): void
+public "isUsingDefaultMapTeleport"(): boolean
+public "getMapProcessor"(): $MapProcessor
+public "getPlayerTeleportCommandFormat"(): StringJS
+public "isUsingDefaultPlayerTeleport"(): boolean
+public "getDimensionTeleportCommandFormat"(): StringJS
+public "setPlayerTeleportCommandFormat"(arg0: StringJS): void
+public "setUseDefaultPlayerTeleport"(arg0: boolean): void
+public "isCurrentMultiworldTypeConfirmed"(): boolean
+public "unconfirmMultiworldTypeUnsynced"(): void
+public "getEffectiveTeleportCommandFormat"(): StringJS
+public "setDimensionTeleportCommandFormat"(arg0: StringJS): void
 public "getCurrentDimension"(): $MapDimension
+public "isCacheOnlyMode"(): boolean
+public "getFutureDimensionId"(): $ResourceKey<($Level)>
 public "isUsingUnknownDimensionType"(): boolean
 public "clearAllCachedHighlightHashes"(): void
+public static "convertWorldFolderToRootId"(arg0: integer, arg1: StringJS): StringJS
+public "switchToFutureMultiworldTypeUnsynced"(): void
+public "getCurrentDimensionId"(): $ResourceKey<($Level)>
 public "getFutureDimension"(): $MapDimension
 public "toggleDimension"(arg0: boolean): void
-public "isIgnoreHeightmaps"(): boolean
-public "switchToFutureMultiworldTypeUnsynced"(): void
-public "isCacheOnlyMode"(): boolean
-public "getMapProcessor"(): $MapProcessor
-public "setIgnoreHeightmaps"(arg0: boolean): void
-public static "convertWorldFolderToRootId"(arg0: integer, arg1: StringJS): StringJS
-public "getPotentialDimId"(): $ResourceKey<($Level)>
-public "getMapConnections"(): $MapConnectionManager
-public "getPlayerMapKey"(): $MapConnectionNode
-public "getDimensionsList"(): $List<($MapDimension)>
-public "getMainId"(): StringJS
-public "getFutureDimensionId"(): $ResourceKey<($Level)>
+public "getCurrentMultiworld"(): StringJS
 public "getCustomDimensionId"(): $ResourceKey<($Level)>
 public "isUsingCustomDimension"(): boolean
-public "getCurrentMultiworld"(): StringJS
-public "createDimensionUnsynced"(arg0: $ResourceKey$$Type<($Level)>): $MapDimension
+public "setIgnoreHeightmaps"(arg0: boolean): void
+public "isIgnoreHeightmaps"(): boolean
+public "getEffectivePlayerTeleportCommandFormat"(): StringJS
+public "getEffectiveDimensionTeleportCommandFormat"(): StringJS
 public "isIgnoreServerLevelId"(): boolean
-public "switchToFutureUnsynced"(): void
-public "getFutureMultiworldType"(arg0: $MapDimension$$Type): integer
 public "setCustomDimensionId"(arg0: $ResourceKey$$Type<($Level)>): void
+public "getFutureMultiworldType"(arg0: $MapDimension$$Type): integer
 public "setFutureDimensionId"(arg0: $ResourceKey$$Type<($Level)>): void
-public "onWorldChangeUnsynced"(arg0: $ClientLevel$$Type): void
 public "getOldUnfixedMainId"(): StringJS
-public "isUsingDefaultPlayerTeleport"(): boolean
-public "setUseDefaultPlayerTeleport"(arg0: boolean): void
-public "getEffectiveTeleportCommandFormat"(): StringJS
-public "unconfirmMultiworldTypeUnsynced"(): void
-public "setDimensionTeleportCommandFormat"(arg0: StringJS): void
-public "isCurrentMultiworldTypeConfirmed"(): boolean
-public "getPlayerTeleportCommandFormat"(): StringJS
-public "setPlayerTeleportCommandFormat"(arg0: StringJS): void
-public "getDimensionTeleportCommandFormat"(): StringJS
-public "getFutureMultiworldUnsynced"(): StringJS
+public "onWorldChangeUnsynced"(arg0: $ClientLevel$$Type): void
+public "switchToFutureUnsynced"(): void
+public "getDimensionsList"(): $List<($MapDimension)>
+public "getPlayerMapKey"(): $MapConnectionNode
+public "getMapConnections"(): $MapConnectionManager
+public "getPotentialDimId"(): $ResourceKey<($Level)>
+public "getMainId"(): StringJS
+public "isMultiplayer"(): boolean
+public "createDimensionUnsynced"(arg0: $ResourceKey$$Type<($Level)>): $MapDimension
 public "confirmMultiworldTypeUnsynced"(): void
-public "toggleMultiworldTypeUnsynced"(): void
 public "isFutureMultiworldTypeConfirmed"(arg0: $MapDimension$$Type): boolean
-get "currentDimensionId"(): $ResourceKey<($Level)>
-set "teleportCommandFormat"(value: StringJS)
-set "useDefaultMapTeleport"(value: boolean)
+public "toggleMultiworldTypeUnsynced"(): void
+public "getFutureMultiworldUnsynced"(): StringJS
 get "teleportCommandFormat"(): StringJS
+set "teleportCommandFormat"(value: StringJS)
 get "currentMultiworldType"(): integer
+set "useDefaultMapTeleport"(value: boolean)
 get "usingDefaultMapTeleport"(): boolean
-get "effectivePlayerTeleportCommandFormat"(): StringJS
-get "effectiveDimensionTeleportCommandFormat"(): StringJS
-get "multiplayer"(): boolean
-get "currentDimension"(): $MapDimension
-get "usingUnknownDimensionType"(): boolean
-get "futureDimension"(): $MapDimension
-get "ignoreHeightmaps"(): boolean
-get "cacheOnlyMode"(): boolean
 get "mapProcessor"(): $MapProcessor
-set "ignoreHeightmaps"(value: boolean)
-get "potentialDimId"(): $ResourceKey<($Level)>
-get "mapConnections"(): $MapConnectionManager
-get "playerMapKey"(): $MapConnectionNode
-get "dimensionsList"(): $List<($MapDimension)>
-get "mainId"(): StringJS
+get "playerTeleportCommandFormat"(): StringJS
+get "usingDefaultPlayerTeleport"(): boolean
+get "dimensionTeleportCommandFormat"(): StringJS
+set "playerTeleportCommandFormat"(value: StringJS)
+set "useDefaultPlayerTeleport"(value: boolean)
+get "currentMultiworldTypeConfirmed"(): boolean
+get "effectiveTeleportCommandFormat"(): StringJS
+set "dimensionTeleportCommandFormat"(value: StringJS)
+get "currentDimension"(): $MapDimension
+get "cacheOnlyMode"(): boolean
 get "futureDimensionId"(): $ResourceKey<($Level)>
+get "usingUnknownDimensionType"(): boolean
+get "currentDimensionId"(): $ResourceKey<($Level)>
+get "futureDimension"(): $MapDimension
+get "currentMultiworld"(): StringJS
 get "customDimensionId"(): $ResourceKey<($Level)>
 get "usingCustomDimension"(): boolean
-get "currentMultiworld"(): StringJS
+set "ignoreHeightmaps"(value: boolean)
+get "ignoreHeightmaps"(): boolean
+get "effectivePlayerTeleportCommandFormat"(): StringJS
+get "effectiveDimensionTeleportCommandFormat"(): StringJS
 get "ignoreServerLevelId"(): boolean
 set "customDimensionId"(value: $ResourceKey$$Type<($Level)>)
 set "futureDimensionId"(value: $ResourceKey$$Type<($Level)>)
 get "oldUnfixedMainId"(): StringJS
-get "usingDefaultPlayerTeleport"(): boolean
-set "useDefaultPlayerTeleport"(value: boolean)
-get "effectiveTeleportCommandFormat"(): StringJS
-set "dimensionTeleportCommandFormat"(value: StringJS)
-get "currentMultiworldTypeConfirmed"(): boolean
-get "playerTeleportCommandFormat"(): StringJS
-set "playerTeleportCommandFormat"(value: StringJS)
-get "dimensionTeleportCommandFormat"(): StringJS
+get "dimensionsList"(): $List<($MapDimension)>
+get "playerMapKey"(): $MapConnectionNode
+get "mapConnections"(): $MapConnectionManager
+get "potentialDimId"(): $ResourceKey<($Level)>
+get "mainId"(): StringJS
+get "multiplayer"(): boolean
 get "futureMultiworldUnsynced"(): StringJS
 }
 /**

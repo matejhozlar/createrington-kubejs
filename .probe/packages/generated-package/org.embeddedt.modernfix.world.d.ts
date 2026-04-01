@@ -5,8 +5,8 @@ import {$SavedData} from "net.minecraft.world.level.saveddata.SavedData"
 import {$ServerLevel$$Type} from "net.minecraft.server.level.ServerLevel"
 import {$SavedData$Factory} from "net.minecraft.world.level.saveddata.SavedData$Factory"
 import {$ChunkPos, $ChunkPos$$Type} from "net.minecraft.world.level.ChunkPos"
-import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$Holder$$Type} from "net.minecraft.core.Holder"
+import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$DimensionType$$Type} from "net.minecraft.world.level.dimension.DimensionType"
 
 export class $StrongholdLocationCache extends $SavedData {
@@ -16,10 +16,10 @@ public static "load"(arg: $CompoundTag$$Type, provider: $HolderLookup$Provider$$
 public static "factory"(serverLevel: $ServerLevel$$Type): $SavedData$Factory<($StrongholdLocationCache)>
 public "save"(compoundTag: $CompoundTag$$Type, provider: $HolderLookup$Provider$$Type): $CompoundTag
 public static "getFileId"(dimensionType: $Holder$$Type<($DimensionType)>): StringJS
-public "setChunkPosList"(positions: $List$$Type<($ChunkPos$$Type)>): void
 public "getChunkPosList"(): $List<($ChunkPos)>
-set "chunkPosList"(value: $List$$Type<($ChunkPos$$Type)>)
+public "setChunkPosList"(positions: $List$$Type<($ChunkPos$$Type)>): void
 get "chunkPosList"(): $List<($ChunkPos)>
+set "chunkPosList"(value: $List$$Type<($ChunkPos$$Type)>)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

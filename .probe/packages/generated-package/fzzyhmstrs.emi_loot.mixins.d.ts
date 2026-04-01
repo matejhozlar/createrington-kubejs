@@ -30,15 +30,15 @@ import {$NumberProvider} from "net.minecraft.world.level.storage.loot.providers.
 export interface $LootPoolAccessor$$Interface {
 get "entries"(): $List<($LootPoolEntryContainer)>
 get "conditions"(): $List<($LootItemCondition)>
-get "rolls"(): $NumberProvider
 get "functions"(): $List<($LootItemFunction)>
+get "rolls"(): $NumberProvider
 }
 
 export class $LootPoolAccessor implements $LootPoolAccessor$$Interface {
  "getEntries"(): $List<($LootPoolEntryContainer)>
  "getConditions"(): $List<($LootItemCondition)>
- "getRolls"(): $NumberProvider
  "getFunctions"(): $List<($LootItemFunction)>
+ "getRolls"(): $NumberProvider
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

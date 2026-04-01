@@ -17,7 +17,7 @@ public "interpolation"(): $AnimationChannel$Interpolation
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $Keyframe$$Type = ({"target"?: $Vector3f$$Type, "interpolation"?: $AnimationChannel$Interpolation$$Type, "timestamp"?: float}) | ([target?: $Vector3f$$Type, interpolation?: $AnimationChannel$Interpolation$$Type, timestamp?: float]);
+export type $Keyframe$$Type = ({"timestamp"?: float, "interpolation"?: $AnimationChannel$Interpolation$$Type, "target"?: $Vector3f$$Type}) | ([timestamp?: float, interpolation?: $AnimationChannel$Interpolation$$Type, target?: $Vector3f$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */

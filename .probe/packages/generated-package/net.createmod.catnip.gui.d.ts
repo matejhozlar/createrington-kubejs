@@ -4,17 +4,17 @@ import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
 
 export interface $TextureSheetSegment$$Interface extends $BindableTexture$$Interface {
 get "width"(): integer
-get "height"(): integer
 get "startX"(): integer
 get "startY"(): integer
+get "height"(): integer
 get "location"(): $ResourceLocation
 }
 
 export class $TextureSheetSegment implements $TextureSheetSegment$$Interface {
  "getWidth"(): integer
- "getHeight"(): integer
  "getStartX"(): integer
  "getStartY"(): integer
+ "getHeight"(): integer
  "getLocation"(): $ResourceLocation
  "bind"(): void
 }

@@ -8,6 +8,7 @@ import {$FuelType$$Type} from "com.lightning.northstar.contraption.FuelType"
 export class $NorthstarKubeDataEvent implements $KubeEvent$$Interface {
 constructor(generator: $KubeDataGenerator$$Type)
 
+public "fuel"(fuel: $FuelType$$Type): void
 /**
  * Defines a fuel type
  * 
@@ -15,7 +16,6 @@ constructor(generator: $KubeDataGenerator$$Type)
  * @param path - The name of the fuel type
  */
 public "fuel"(fuel: $FuelType$$Type, path: $ResourceLocation$$Type): void
-public "fuel"(fuel: $FuelType$$Type): void
 public "fuel"(): $FuelType$Builder
 /**
  * Defines a fuel type

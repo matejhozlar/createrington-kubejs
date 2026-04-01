@@ -16,14 +16,14 @@ public "close"(status: $WSCloseStatus$$Type, reason: StringJS): void
 public "protocol"(): StringJS
 public "onClose"(reason: $StatusCode$$Type, remote: boolean): void
 public "isClosed"(): boolean
-public "onOpen"(req: REQ): void
-public "send"(frame: $Frame$$Type): void
-public "onError"(error: $Throwable$$Type): void
+public "sendBinary"(payload: (byte)[]): void
 public "sendPing"(payload: (byte)[]): void
+public "sendText"(payload: StringJS): void
 public "onPing"(payload: (byte)[]): void
 public "onPong"(payload: (byte)[]): void
-public "sendText"(payload: StringJS): void
-public "sendBinary"(payload: (byte)[]): void
+public "onError"(error: $Throwable$$Type): void
+public "send"(frame: $Frame$$Type): void
+public "onOpen"(req: REQ): void
 public "onTextMessage"(message: StringJS): void
 public "onBinaryMessage"(message: (byte)[]): void
 get "closed"(): boolean
@@ -53,8 +53,8 @@ public "hashCode"(): integer
 public "info"(): $FrameInfo
 public "appendTo"(previous: $Frame$$Type): $Frame
 public static "text"(text: StringJS): $Frame
-public static "simple"(opcode: $Opcode$$Type, mask: integer, payload: (byte)[]): $Frame
 public static "ping"(buffer: (byte)[]): $Frame
+public static "simple"(opcode: $Opcode$$Type, mask: integer, payload: (byte)[]): $Frame
 public "applyMask"(): void
 }
 /**
@@ -86,6 +86,7 @@ static readonly "OPEN": $StatusCode
 
 constructor(server: $HTTPServer$$Type<(REQ)>, socketChannel: $SocketChannel$$Type, createdTime: $Instant$$Type)
 
+public "server"(): $HTTPServer<(REQ)>
 public "run"(): void
 public "toString"(): StringJS
 public "write"(buffer: $ByteBuffer$$Type): void
@@ -100,7 +101,6 @@ public "readByte"(): byte
 public "readShort"(): short
 public "readLong"(): long
 public "readDouble"(): double
-public "server"(): $HTTPServer<(REQ)>
 public "upgrade"(): $HTTPUpgrade<(REQ)>
 public "readCRLF"(): StringJS
 public "readDirectly"(buffer: $ByteBuffer$$Type): integer
@@ -138,7 +138,7 @@ public "path"(): $CompiledPath
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $HTTPPathHandler$$Type<REQ> = ({"method"?: $HTTPMethod$$Type, "handler"?: $HTTPHandler$$Type<(REQ)>, "path"?: $CompiledPath$$Type}) | ([method?: $HTTPMethod$$Type, handler?: $HTTPHandler$$Type<(REQ)>, path?: $CompiledPath$$Type]);
+export type $HTTPPathHandler$$Type<REQ> = ({"handler"?: $HTTPHandler$$Type<(REQ)>, "method"?: $HTTPMethod$$Type, "path"?: $CompiledPath$$Type}) | ([handler?: $HTTPHandler$$Type<(REQ)>, method?: $HTTPMethod$$Type, path?: $CompiledPath$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -170,8 +170,8 @@ export type $Opcode$$Type = (("continuous") | ("text") | ("binary") | ("closing"
 export type $Opcode$$Original = $Opcode;}
 declare module "dev.latvian.apps.tinyserver.content.ResponseContent" {
 import {$HTTPConnection$$Type} from "dev.latvian.apps.tinyserver.HTTPConnection"
-import {$HttpRequest$BodyPublisher} from "java.net.http.HttpRequest$BodyPublisher"
 import {$OutputStream, $OutputStream$$Type} from "java.io.OutputStream"
+import {$HttpRequest$BodyPublisher} from "java.net.http.HttpRequest$BodyPublisher"
 
 export interface $ResponseContent$$Interface {
 
@@ -184,8 +184,8 @@ export class $ResponseContent implements $ResponseContent$$Interface {
  "toBytes"(): (byte)[]
  "write"(out: $OutputStream$$Type): void
  "transferTo"(connection: $HTTPConnection$$Type<(never)>): void
- "hasData"(): boolean
  "bodyPublisher"(): $HttpRequest$BodyPublisher
+ "hasData"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -212,7 +212,7 @@ public "message"(): StringJS
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $StatusCode$$Type = ({"code"?: integer, "message"?: StringJS}) | ([code?: integer, message?: StringJS]);
+export type $StatusCode$$Type = ({"message"?: StringJS, "code"?: integer}) | ([message?: StringJS, code?: integer]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -236,7 +236,7 @@ public "is"(name: StringJS): boolean
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $Header$$Type = ({"value"?: $OptionalString$$Type, "key"?: StringJS}) | ([value?: $OptionalString$$Type, key?: StringJS]);
+export type $Header$$Type = ({"key"?: StringJS, "value"?: $OptionalString$$Type}) | ([key?: StringJS, value?: $OptionalString$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -271,8 +271,8 @@ export class $ServerRegistry<REQ extends $HTTPRequest> implements $ServerRegistr
  "singleFile"(path: StringJS, file: $Path$$Type, responseHandler: $FileResponseHandler$$Type): void
  "acceptPostString"(path: StringJS, handler: $Consumer$$Type<(StringJS)>): void
  "acceptPostTask"(path: StringJS, task: $Runnable$$Type): void
- "dynamicFiles"(path: StringJS, directory: $Path$$Type, responseHandler: $FileResponseHandler$$Type, autoIndex: boolean): void
  "staticFiles"(path: StringJS, directory: $Path$$Type, responseHandler: $FileResponseHandler$$Type, autoIndex: boolean): void
+ "dynamicFiles"(path: StringJS, directory: $Path$$Type, responseHandler: $FileResponseHandler$$Type, autoIndex: boolean): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -285,12 +285,12 @@ export type $ServerRegistry$$Type<REQ> = ((method: $HTTPMethod, path: StringJS, 
 export type $ServerRegistry$$Original<REQ> = $ServerRegistry<(REQ)>;}
 declare module "dev.latvian.apps.tinyserver.ws.WSHandler" {
 import {$Iterator} from "java.util.Iterator"
-import {$Frame$$Type} from "dev.latvian.apps.tinyserver.ws.Frame"
 import {$Iterable$$Interface} from "java.lang.Iterable"
+import {$Frame$$Type} from "dev.latvian.apps.tinyserver.ws.Frame"
 import {$WSSession} from "dev.latvian.apps.tinyserver.ws.WSSession"
 import {$Map, $Map$$Type} from "java.util.Map"
-import {$UUID, $UUID$$Type} from "java.util.UUID"
 import {$Spliterator} from "java.util.Spliterator"
+import {$UUID, $UUID$$Type} from "java.util.UUID"
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$HTTPRequest} from "dev.latvian.apps.tinyserver.http.HTTPRequest"
 import {$Consumer$$Type} from "java.util.function.Consumer"
@@ -374,11 +374,11 @@ declare module "dev.latvian.apps.tinyserver.HTTPServer" {
 import {$WSSession} from "dev.latvian.apps.tinyserver.ws.WSSession"
 import {$HTTPMethod$$Type} from "dev.latvian.apps.tinyserver.http.HTTPMethod"
 import {$IntStream$$Type} from "java.util.stream.IntStream"
-import {$ServerRegistry$$Interface} from "dev.latvian.apps.tinyserver.ServerRegistry"
-import {$HTTPHandler$$Type} from "dev.latvian.apps.tinyserver.http.HTTPHandler"
 import {$WSSessionFactory$$Type} from "dev.latvian.apps.tinyserver.ws.WSSessionFactory"
-import {$Duration$$Type} from "java.time.Duration"
+import {$HTTPHandler$$Type} from "dev.latvian.apps.tinyserver.http.HTTPHandler"
+import {$ServerRegistry$$Interface} from "dev.latvian.apps.tinyserver.ServerRegistry"
 import {$Runnable$$Type, $Runnable$$Interface} from "java.lang.Runnable"
+import {$Duration$$Type} from "java.time.Duration"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$HTTPConnection} from "dev.latvian.apps.tinyserver.HTTPConnection"
 import {$Supplier$$Type} from "java.util.function.Supplier"
@@ -387,8 +387,8 @@ import {$HTTPPathHandler} from "dev.latvian.apps.tinyserver.http.HTTPPathHandler
 import {$Set} from "java.util.Set"
 import {$HTTPRequest, $HTTPRequest$$Type} from "dev.latvian.apps.tinyserver.http.HTTPRequest"
 import {$WSHandler} from "dev.latvian.apps.tinyserver.ws.WSHandler"
-import {$Path$$Type} from "java.nio.file.Path"
 import {$HTTPPayload} from "dev.latvian.apps.tinyserver.http.response.HTTPPayload"
+import {$Path$$Type} from "java.nio.file.Path"
 import {$Stream} from "java.util.stream.Stream"
 
 export class $HTTPServer<REQ extends $HTTPRequest> implements $Runnable$$Interface, $ServerRegistry$$Interface<(REQ)> {
@@ -399,15 +399,15 @@ public "setDaemon"(daemon: boolean): void
 public "start"(): integer
 public "stop"(): void
 public "handlers"(): $Stream<($HTTPPathHandler<(REQ)>)>
-public "setBufferSize"(bufferSize: integer): void
 public "http"(method: $HTTPMethod$$Type, path: StringJS, handler: $HTTPHandler$$Type<(REQ)>): void
+public "setBufferSize"(bufferSize: integer): void
 public "createBuilder"(req: REQ, handler: $HTTPHandler$$Type<(REQ)>): $HTTPPayload
-public "setMaxKeepAliveConnections"(max: integer): void
-public "setKeepAliveTimeout"(duration: $Duration$$Type): void
-public "setPort"(port: integer): void
 public "setPort"(range: $IntStream$$Type): void
+public "setPort"(port: integer): void
 public "isRunning"(): boolean
 public "connections"(): $Set<($HTTPConnection<(REQ)>)>
+public "setMaxKeepAliveConnections"(max: integer): void
+public "setKeepAliveTimeout"(duration: $Duration$$Type): void
 public "setAddress"(address: StringJS): void
 public "setServerName"(name: StringJS): void
 public "get"(path: StringJS, handler: $HTTPHandler$$Type<(REQ)>): void
@@ -421,15 +421,15 @@ public "redirect"(path: StringJS, redirect: StringJS): void
 public "singleFile"(path: StringJS, file: $Path$$Type, responseHandler: $FileResponseHandler$$Type): void
 public "acceptPostString"(path: StringJS, handler: $Consumer$$Type<(StringJS)>): void
 public "acceptPostTask"(path: StringJS, task: $Runnable$$Type): void
-public "dynamicFiles"(path: StringJS, directory: $Path$$Type, responseHandler: $FileResponseHandler$$Type, autoIndex: boolean): void
 public "staticFiles"(path: StringJS, directory: $Path$$Type, responseHandler: $FileResponseHandler$$Type, autoIndex: boolean): void
+public "dynamicFiles"(path: StringJS, directory: $Path$$Type, responseHandler: $FileResponseHandler$$Type, autoIndex: boolean): void
 set "daemon"(value: boolean)
 set "bufferSize"(value: integer)
+set "port"(value: $IntStream$$Type)
+set "port"(value: integer)
+get "running"(): boolean
 set "maxKeepAliveConnections"(value: integer)
 set "keepAliveTimeout"(value: $Duration$$Type)
-set "port"(value: integer)
-set "port"(value: $IntStream$$Type)
-get "running"(): boolean
 set "address"(value: StringJS)
 set "serverName"(value: StringJS)
 }
@@ -463,39 +463,39 @@ import {$Instant, $Instant$$Type} from "java.time.Instant"
 export class $HTTPRequest {
 constructor()
 
+public "server"(): $HTTPServer<(never)>
 public "method"(): $HTTPMethod
 public "init"(path: StringJS, pathParts: (StringJS)[], compiledPath: $CompiledPath$$Type, headers: $List$$Type<($Header$$Type)>, queryString: StringJS, query: $Map$$Type<(StringJS), ($OptionalString$$Type)>): void
 public "startTime"(): $Instant
-public "query"(key: StringJS): $OptionalString
 public "query"(): $Map<(StringJS), ($OptionalString)>
+public "query"(key: StringJS): $OptionalString
 public "path"(): StringJS
 public "header"(name: StringJS): $OptionalString
 public "country"(): StringJS
 public "connection"(): $HTTPConnection<(never)>
 public "pathParts"(): (StringJS)[]
-public "cookies"(): $Map<(StringJS), ($OptionalString)>
-public "ip"(): StringJS
-public "server"(): $HTTPServer<(never)>
-public "cookie"(key: StringJS): $OptionalString
 public "headers"(): $List<($Header)>
-public "variable"(name: StringJS): $OptionalString
-public "preInit"(session: $HTTPConnection$$Type<(never)>, startTime: $Instant$$Type, method: $HTTPMethod$$Type): void
-public "userAgent"(): StringJS
 public "ipv6"(): StringJS
-public "variables"(): $Map<(StringJS), ($OptionalString)>
-public "mainBody"(): $Body
+public "cookie"(key: StringJS): $OptionalString
+public "ip"(): StringJS
+public "variable"(name: StringJS): $OptionalString
+public "fullPath"(): StringJS
+public "afterInit"(): void
+public "userAgent"(): StringJS
+public "cookies"(): $Map<(StringJS), ($OptionalString)>
+public "handleResponse"(payload: $HTTPPayload$$Type, response: $HTTPResponse$$Type, error: $Throwable$$Type): $HTTPResponse
+public "preInit"(session: $HTTPConnection$$Type<(never)>, startTime: $Instant$$Type, method: $HTTPMethod$$Type): void
 public "bodyList"(): $List<($Body)>
 public "formData"(): $Map<(StringJS), ($OptionalString)>
 public "formData"(key: StringJS): $OptionalString
 public "bodyBuffer"(): $ByteBuffer
-public "queryString"(): StringJS
+public "mainBody"(): $Body
+public "variables"(): $Map<(StringJS), ($OptionalString)>
 public "afterResponse"(payload: $HTTPPayload$$Type, response: $HTTPResponse$$Type, handler: $HTTPHandler$$Type<(never)>, error: $Throwable$$Type): void
 public "createPreResponse"(handler: $HTTPHandler$$Type<(never)>): $HTTPResponse
-public "fullPath"(): StringJS
-public "afterInit"(): void
-public "handleResponse"(payload: $HTTPPayload$$Type, response: $HTTPResponse$$Type, error: $Throwable$$Type): $HTTPResponse
-public "gitHubEvent"(): StringJS
+public "queryString"(): StringJS
 public "gitHubSignature"(): StringJS
+public "gitHubEvent"(): StringJS
 public "acceptedEncodings"(): $Set<(StringJS)>
 }
 /**
@@ -508,10 +508,10 @@ export type $HTTPRequest$$Type = ($HTTPRequest);
  */
 export type $HTTPRequest$$Original = $HTTPRequest;}
 declare module "dev.latvian.apps.tinyserver.http.response.HTTPResponse" {
-import {$ResponseContentEncoding$$Type} from "dev.latvian.apps.tinyserver.http.response.encoding.ResponseContentEncoding"
-import {$BufferedImage$$Type} from "java.awt.image.BufferedImage"
-import {$Iterable$$Type} from "java.lang.Iterable"
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
+import {$ResponseContentEncoding$$Type} from "dev.latvian.apps.tinyserver.http.response.encoding.ResponseContentEncoding"
+import {$Iterable$$Type} from "java.lang.Iterable"
+import {$BufferedImage$$Type} from "java.awt.image.BufferedImage"
 import {$CookieResponse$Builder$$Type} from "dev.latvian.apps.tinyserver.http.response.CookieResponse$Builder"
 import {$HTTPUpgrade$$Type} from "dev.latvian.apps.tinyserver.http.HTTPUpgrade"
 import {$HTTPStatus} from "dev.latvian.apps.tinyserver.http.response.HTTPStatus"
@@ -534,31 +534,31 @@ static "created"(): $HTTPResponse
  "text"(text: $Iterable$$Type<(StringJS)>): $HTTPResponse
 static "ok"(): $HTTPResponse
  "header"(header: StringJS, value: any): $HTTPResponse
- "content"(file: $Path$$Type, overrideType: StringJS): $HTTPResponse
  "content"(bytes: (byte)[], type: StringJS): $HTTPResponse
+ "content"(file: $Path$$Type): $HTTPResponse
  "content"(string: charseq, type: StringJS): $HTTPResponse
  "content"(content: $ResponseContent$$Type): $HTTPResponse
- "content"(file: $Path$$Type): $HTTPResponse
+ "content"(file: $Path$$Type, overrideType: StringJS): $HTTPResponse
 static "redirect"(location: StringJS): $HTTPResponse
- "cookie"(key: StringJS, value: StringJS): $HTTPResponse
  "cookie"(key: StringJS, value: StringJS, properties: $UnaryOperator$$Type<($CookieResponse$Builder)>): $HTTPResponse
-static "upgrade"(upgrade: $HTTPUpgrade$$Type<(never)>): $HTTPResponse
-static "redirectPermanently"(location: StringJS): $HTTPResponse
+ "cookie"(key: StringJS, value: StringJS): $HTTPResponse
  "json"(json: StringJS): $HTTPResponse
- "publicCache"(duration: $Duration$$Type): $HTTPResponse
+ "png"(img: $BufferedImage$$Type): $HTTPResponse
+ "cors"(): $HTTPResponse
+ "cors"(value: StringJS): $HTTPResponse
+ "gzip"(): $HTTPResponse
  "noCache"(): $HTTPResponse
  "jpeg"(img: $BufferedImage$$Type): $HTTPResponse
+static "upgrade"(upgrade: $HTTPUpgrade$$Type<(never)>): $HTTPResponse
  "html"(text: StringJS): $HTTPResponse
-static "noContent"(): $HTTPResponse
- "cors"(value: StringJS): $HTTPResponse
- "cors"(): $HTTPResponse
- "gzip"(): $HTTPResponse
 static "accepted"(): $HTTPResponse
+static "redirectPermanently"(location: StringJS): $HTTPResponse
+ "removeCookie"(key: StringJS): $HTTPResponse
+ "privateCache"(duration: $Duration$$Type): $HTTPResponse
 static "redirectTemporary"(location: StringJS): $HTTPResponse
 static "movedPermanently"(location: StringJS): $HTTPResponse
- "privateCache"(duration: $Duration$$Type): $HTTPResponse
- "removeCookie"(key: StringJS): $HTTPResponse
- "png"(img: $BufferedImage$$Type): $HTTPResponse
+static "noContent"(): $HTTPResponse
+ "publicCache"(duration: $Duration$$Type): $HTTPResponse
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -592,7 +592,7 @@ public "variables"(): integer
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $CompiledPath$$Type = ({"wildcard"?: boolean, "string"?: StringJS, "parts"?: ($CompiledPath$Part$$Type)[], "variables"?: integer}) | ([wildcard?: boolean, string?: StringJS, parts?: ($CompiledPath$Part$$Type)[], variables?: integer]);
+export type $CompiledPath$$Type = ({"variables"?: integer, "parts"?: ($CompiledPath$Part$$Type)[], "string"?: StringJS, "wildcard"?: boolean}) | ([variables?: integer, parts?: ($CompiledPath$Part$$Type)[], string?: StringJS, wildcard?: boolean]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -606,8 +606,8 @@ import {$DateTimeFormatter} from "java.time.format.DateTimeFormatter"
 import {$HTTPStatus, $HTTPStatus$$Type} from "dev.latvian.apps.tinyserver.http.response.HTTPStatus"
 import {$OptionalString} from "dev.latvian.apps.tinyserver.OptionalString"
 import {$HTTPRequest$$Type} from "dev.latvian.apps.tinyserver.http.HTTPRequest"
-import {$Instant$$Type} from "java.time.Instant"
 import {$ResponseContent, $ResponseContent$$Type} from "dev.latvian.apps.tinyserver.content.ResponseContent"
+import {$Instant$$Type} from "java.time.Instant"
 
 export class $HTTPPayload {
 static readonly "DATE_TIME_FORMATTER": $DateTimeFormatter
@@ -618,33 +618,33 @@ public "clear"(): void
 public "write"(connection: $HTTPConnection$$Type<(never)>, writeBody: boolean): void
 public "process"(req: $HTTPRequest$$Type, keepAliveTimeout: integer, maxKeepAliveConnections: integer): void
 public "getHeader"(header: StringJS): $OptionalString
-public "getBody"(): $ResponseContent
-public "setBody"(body: $ResponseContent$$Type): void
-public "setResponse"(response: $HTTPResponse$$Type): void
 public "getCookie"(key: StringJS): StringJS
 public "getStatus"(): $HTTPStatus
+public "setBody"(body: $ResponseContent$$Type): void
+public "getBody"(): $ResponseContent
 public "setUpgrade"(upgrade: $HTTPUpgrade$$Type<(never)>): void
-public "getUpgrade"(): $HTTPUpgrade<(never)>
 public "setHeader"(header: StringJS, value: any): void
-public "setStatus"(status: $HTTPStatus$$Type): void
-public "addHeader"(header: StringJS, value: any): void
 public "setCors"(cors: StringJS): void
 public "getCors"(): StringJS
 public "setCookie"(key: StringJS, value: StringJS): void
-public "setCacheControl"(cacheControl: StringJS): void
+public "setResponse"(response: $HTTPResponse$$Type): void
+public "getUpgrade"(): $HTTPUpgrade<(never)>
+public "addHeader"(header: StringJS, value: any): void
+public "setStatus"(status: $HTTPStatus$$Type): void
 public "getCacheControl"(): StringJS
+public "setCacheControl"(cacheControl: StringJS): void
 public "addEncoding"(encoding: $ResponseContentEncoding$$Type): void
-get "body"(): $ResponseContent
-set "body"(value: $ResponseContent$$Type)
-set "response"(value: $HTTPResponse$$Type)
 get "status"(): $HTTPStatus
+set "body"(value: $ResponseContent$$Type)
+get "body"(): $ResponseContent
 set "upgrade"(value: $HTTPUpgrade$$Type<(never)>)
-get "upgrade"(): $HTTPUpgrade<(never)>
-set "status"(value: $HTTPStatus$$Type)
 set "cors"(value: StringJS)
 get "cors"(): StringJS
-set "cacheControl"(value: StringJS)
+set "response"(value: $HTTPResponse$$Type)
+get "upgrade"(): $HTTPUpgrade<(never)>
+set "status"(value: $HTTPStatus$$Type)
 get "cacheControl"(): StringJS
+set "cacheControl"(value: StringJS)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -656,8 +656,8 @@ export type $HTTPPayload$$Type = ($HTTPPayload);
  */
 export type $HTTPPayload$$Original = $HTTPPayload;}
 declare module "dev.latvian.apps.tinyserver.http.response.HTTPStatus" {
-import {$Iterable$$Type} from "java.lang.Iterable"
 import {$ResponseContentEncoding$$Type} from "dev.latvian.apps.tinyserver.http.response.encoding.ResponseContentEncoding"
+import {$Iterable$$Type} from "java.lang.Iterable"
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
 import {$HTTPUpgrade$$Type} from "dev.latvian.apps.tinyserver.http.HTTPUpgrade"
 import {$Enum} from "java.lang.Enum"
@@ -725,9 +725,6 @@ static readonly "PRECONDITION_FAILED": $HTTPStatus
 static readonly "SERVICE_UNAVAILABLE": $HTTPStatus
 static readonly "INFORMATIONAL": $List<($HTTPStatus)>
 
-public "serverError"(): boolean
-public "informational"(): boolean
-public "clientError"(): boolean
 public "toString"(): StringJS
 public static "values"(): ($HTTPStatus)[]
 public static "valueOf"(name: StringJS): $HTTPStatus
@@ -741,6 +738,9 @@ public "redirect"(): boolean
 public static "fromCode"(code: integer): $HTTPStatus
 public "defaultResponse"(): $HTTPResponse
 public "responseBuffer"(): $ByteBuffer
+public "serverError"(): boolean
+public "clientError"(): boolean
+public "informational"(): boolean
 public "deflate"(): $HTTPResponse
 public "cache"(isPublic: boolean, duration: $Duration$$Type): $HTTPResponse
 public "encoding"(encoding: $ResponseContentEncoding$$Type): $HTTPResponse
@@ -749,31 +749,31 @@ public "text"(text: StringJS): $HTTPResponse
 public "text"(text: $Iterable$$Type<(StringJS)>): $HTTPResponse
 public static "ok"(): $HTTPResponse
 public "header"(header: StringJS, value: any): $HTTPResponse
-public "content"(file: $Path$$Type, overrideType: StringJS): $HTTPResponse
 public "content"(bytes: (byte)[], type: StringJS): $HTTPResponse
+public "content"(file: $Path$$Type): $HTTPResponse
 public "content"(string: charseq, type: StringJS): $HTTPResponse
 public "content"(content: $ResponseContent$$Type): $HTTPResponse
-public "content"(file: $Path$$Type): $HTTPResponse
+public "content"(file: $Path$$Type, overrideType: StringJS): $HTTPResponse
 public static "redirect"(location: StringJS): $HTTPResponse
-public "cookie"(key: StringJS, value: StringJS): $HTTPResponse
 public "cookie"(key: StringJS, value: StringJS, properties: $UnaryOperator$$Type<($CookieResponse$Builder)>): $HTTPResponse
-public static "upgrade"(upgrade: $HTTPUpgrade$$Type<(never)>): $HTTPResponse
-public static "redirectPermanently"(location: StringJS): $HTTPResponse
+public "cookie"(key: StringJS, value: StringJS): $HTTPResponse
 public "json"(json: StringJS): $HTTPResponse
-public "publicCache"(duration: $Duration$$Type): $HTTPResponse
+public "png"(img: $BufferedImage$$Type): $HTTPResponse
+public "cors"(): $HTTPResponse
+public "cors"(value: StringJS): $HTTPResponse
+public "gzip"(): $HTTPResponse
 public "noCache"(): $HTTPResponse
 public "jpeg"(img: $BufferedImage$$Type): $HTTPResponse
+public static "upgrade"(upgrade: $HTTPUpgrade$$Type<(never)>): $HTTPResponse
 public "html"(text: StringJS): $HTTPResponse
-public static "noContent"(): $HTTPResponse
-public "cors"(value: StringJS): $HTTPResponse
-public "cors"(): $HTTPResponse
-public "gzip"(): $HTTPResponse
 public static "accepted"(): $HTTPResponse
+public static "redirectPermanently"(location: StringJS): $HTTPResponse
+public "removeCookie"(key: StringJS): $HTTPResponse
+public "privateCache"(duration: $Duration$$Type): $HTTPResponse
 public static "redirectTemporary"(location: StringJS): $HTTPResponse
 public static "movedPermanently"(location: StringJS): $HTTPResponse
-public "privateCache"(duration: $Duration$$Type): $HTTPResponse
-public "removeCookie"(key: StringJS): $HTTPResponse
-public "png"(img: $BufferedImage$$Type): $HTTPResponse
+public static "noContent"(): $HTTPResponse
+public "publicCache"(duration: $Duration$$Type): $HTTPResponse
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -801,7 +801,7 @@ public "variable"(): boolean
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $CompiledPath$Part$$Type = ({"variable"?: boolean, "name"?: StringJS}) | ([variable?: boolean, name?: StringJS]);
+export type $CompiledPath$Part$$Type = ({"name"?: StringJS, "variable"?: boolean}) | ([name?: StringJS, variable?: boolean]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -817,9 +817,6 @@ static readonly "EMPTY": $OptionalString
 
 constructor(value: StringJS)
 
-public "asZoneId"(): $ZoneId
-public "asULong"(def: long): long
-public "asULong"(): long
 public "value"(): StringJS
 public "equals"(o: any): boolean
 public "toString"(): StringJS
@@ -828,20 +825,23 @@ public static "of"(str: StringJS): $OptionalString
 public "isPresent"(): boolean
 public "as"<T>(mapper: $Function$$Type<(StringJS), (T)>): T
 public "as"<T>(mapper: $Function$$Type<(StringJS), (T)>, def: T): T
-public "isMissing"(): boolean
-public "asInt"(def: integer): integer
-public "asInt"(): integer
 public "asString"(def: StringJS): StringJS
 public "asString"(): StringJS
-public "asDouble"(): double
-public "asDouble"(def: double): double
-public "asLong"(): long
+public "asInt"(): integer
+public "asInt"(def: integer): integer
 public "asLong"(def: long): long
-public "asBoolean"(): boolean
-public "asBoolean"(def: boolean): boolean
+public "asLong"(): long
+public "asULong"(def: long): long
+public "asULong"(): long
+public "asZoneId"(): $ZoneId
+public "asDouble"(def: double): double
+public "asDouble"(): double
+public "require"(): $OptionalString
 public "asFloat"(def: float): float
 public "asFloat"(): float
-public "require"(): $OptionalString
+public "asBoolean"(): boolean
+public "asBoolean"(def: boolean): boolean
+public "isMissing"(): boolean
 get "present"(): boolean
 get "missing"(): boolean
 }
@@ -885,11 +885,11 @@ public "domain"(domain: StringJS): $CookieResponse$Builder
 public "comment"(comment: StringJS): $CookieResponse$Builder
 public "path"(path: StringJS): $CookieResponse$Builder
 public "session"(): $CookieResponse$Builder
-public "maxAge"(maxAge: integer): $CookieResponse$Builder
 public "secure"(): $CookieResponse$Builder
+public "maxAge"(maxAge: integer): $CookieResponse$Builder
 public "httpOnly"(): $CookieResponse$Builder
-public "sameSite"(sameSite: StringJS): $CookieResponse$Builder
 public "maxAgeYear"(): $CookieResponse$Builder
+public "sameSite"(sameSite: StringJS): $CookieResponse$Builder
 public "partitioned"(partitioned: boolean): $CookieResponse$Builder
 }
 /**
@@ -994,18 +994,18 @@ public static "read"(connection: $HTTPConnection$$Type): $FrameInfo
 public "mask"(): boolean
 public "opcode"(): $Opcode
 public "fin"(): boolean
-public "maskKey"(): integer
 public "applyMask"(payload: (byte)[]): void
-public "rsv2"(): boolean
-public "rsv3"(): boolean
 public "rsv1"(): boolean
+public "rsv3"(): boolean
+public "rsv2"(): boolean
+public "maskKey"(): integer
 public "maskZero"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $FrameInfo$$Type = ({"maskKey"?: integer, "size"?: integer, "mask"?: boolean, "opcode"?: $Opcode$$Type, "rsv3"?: boolean, "rsv2"?: boolean, "rsv1"?: boolean, "fin"?: boolean}) | ([maskKey?: integer, size?: integer, mask?: boolean, opcode?: $Opcode$$Type, rsv3?: boolean, rsv2?: boolean, rsv1?: boolean, fin?: boolean]);
+export type $FrameInfo$$Type = ({"fin"?: boolean, "rsv1"?: boolean, "rsv2"?: boolean, "rsv3"?: boolean, "opcode"?: $Opcode$$Type, "mask"?: boolean, "size"?: integer, "maskKey"?: integer}) | ([fin?: boolean, rsv1?: boolean, rsv2?: boolean, rsv3?: boolean, opcode?: $Opcode$$Type, mask?: boolean, size?: integer, maskKey?: integer]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */

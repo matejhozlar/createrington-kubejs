@@ -25,13 +25,13 @@ import {$Level, $Level$$Type} from "net.minecraft.world.level.Level"
 import {$TimedoorEntity$Companion} from "earth.terrarium.tempad.common.entity.TimedoorEntity$Companion"
 import {$NamedGlobalVec3$$Type} from "earth.terrarium.tempad.api.locations.NamedGlobalVec3"
 import {$SynchedEntityData} from "net.minecraft.network.syncher.SynchedEntityData"
-import {$Vec3, $Vec3$$Type} from "net.minecraft.world.phys.Vec3"
 import {$Pose, $Pose$$Type} from "net.minecraft.world.entity.Pose"
+import {$Vec3, $Vec3$$Type} from "net.minecraft.world.phys.Vec3"
 import {$EntityDataAccessor} from "net.minecraft.network.syncher.EntityDataAccessor"
 import {$ScoreHolder} from "net.minecraft.world.scores.ScoreHolder"
 import {$ResourceKey, $ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
-import {$PortalProcessor} from "net.minecraft.world.entity.PortalProcessor"
 import {$BlockPos} from "net.minecraft.core.BlockPos"
+import {$PortalProcessor} from "net.minecraft.world.entity.PortalProcessor"
 import {$Entity} from "net.minecraft.world.entity.Entity"
 import {$FluidType} from "net.neoforged.neoforge.fluids.FluidType"
 import {$EntityType$$Type} from "net.minecraft.world.entity.EntityType"
@@ -39,15 +39,13 @@ import {$CompoundTag, $CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
 import {$EntityDimensions} from "net.minecraft.world.entity.EntityDimensions"
 import {$Color, $Color$$Type} from "com.teamresourceful.resourcefullib.common.color.Color"
 import {$Entity$RemovalReason, $Entity$RemovalReason$$Type} from "net.minecraft.world.entity.Entity$RemovalReason"
-import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$RandomSource} from "net.minecraft.util.RandomSource"
 import {$Fluid} from "net.minecraft.world.level.material.Fluid"
 import {$TagKey} from "net.minecraft.tags.TagKey"
-import {$TimedoorPlacementSettings, $TimedoorPlacementSettings$$Type} from "earth.terrarium.tempad.api.sizing.TimedoorPlacementSettings"
 import {$MutableComponent} from "net.minecraft.network.chat.MutableComponent"
-import {$Object2DoubleMap} from "it.unimi.dsi.fastutil.objects.Object2DoubleMap"
+import {$TimedoorPlacementSettings, $TimedoorPlacementSettings$$Type} from "earth.terrarium.tempad.api.sizing.TimedoorPlacementSettings"
 import {$AtomicInteger} from "java.util.concurrent.atomic.AtomicInteger"
-import {$Tag} from "net.minecraft.nbt.Tag"
+import {$Object2DoubleMap} from "it.unimi.dsi.fastutil.objects.Object2DoubleMap"
 import {$GameProfile$$Type} from "com.mojang.authlib.GameProfile"
 
 export class $TimedoorEntity extends $Entity {
@@ -75,7 +73,6 @@ static readonly "DELTA_AFFECTED_BY_BLOCKS_BELOW_1_0": double
  "xRotO": float
  "boardingCooldown": integer
  "zo": double
- "create_diesel_generators$turretPos": $BlockPos
 static readonly "DATA_POSE": $EntityDataAccessor<($Pose)>
  "walkDist": float
  "xOld": double
@@ -137,75 +134,70 @@ public "tick"(): void
 public "setColor"(arg0: $Color$$Type): void
 public "getDimensions"(arg0: $Pose$$Type): $EntityDimensions
 public "setLocation"(arg0: $NamedGlobalVec3$$Type): void
-public "isAlwaysTicking"(): boolean
-public "setAnimationOffset"(arg0: integer): void
 public "getColor"(): $Color
-public "getOriginal"(): boolean
-public "getSizing"(): $TimedoorPlacementSettings
-public "setSizing"(arg0: $TimedoorPlacementSettings$$Type): void
-public "setOriginal"(arg0: boolean): void
-public static "access$getPosFail$cp"(): $MutableComponent
-public static "access$getInterDimFail$cp"(): $MutableComponent
-public "getLinkedPortalEntity"(): $TimedoorEntity
-public static "access$getLeavingFail$cp"(): $MutableComponent
-public static "access$getEnteringFail$cp"(): $MutableComponent
-public static "access$getIntraDimFail$cp"(): $MutableComponent
 public "getTargetAngle"(): float
-public "setGlitching"(arg0: boolean): void
-public "getTargetPos"(): $Vec3
 public "fireImmune"(): boolean
-public "saveWithoutId"(arg0: $CompoundTag$$Type): $CompoundTag
+public "getOriginal"(): boolean
+public "setAnimationOffset"(arg0: integer): void
+public "isAlwaysTicking"(): boolean
 public "onAddedToLevel"(): void
+public "saveWithoutId"(arg0: $CompoundTag$$Type): $CompoundTag
+public "getTargetPos"(): $Vec3
+public "getGlitching"(): boolean
+public "setTargetPos"(arg0: $Vec3$$Type): void
+public "getBeganClosing"(): integer
+public "setLinkedPortalId"(arg0: $UUID$$Type): void
+public "setClosingTime"(arg0: integer): void
+public "getAnimationOffset"(): integer
+public "getLinkedPortalId"(): $UUID
+public "setBeganClosing"(arg0: integer): void
+public "setTargetDimension"(arg0: $ResourceKey$$Type<($Level)>): void
+public "getClosingTime"(): integer
+public "setTargetAngle"(arg0: float): void
+public static "access$getFail$cp"(): $MutableComponent
 public static "access$getIntraDimAllFail$cp"(): $MutableComponent
 public static "access$tryInitReceivingPortal"(arg0: $TimedoorEntity$$Type): void
 public static "access$getNoChrononsFail$cp"(): $MutableComponent
-public "getClosingTime"(): integer
-public "getGlitching"(): boolean
-public "getLinkedPortalId"(): $UUID
-public "getAnimationOffset"(): integer
-public static "access$getFail$cp"(): $MutableComponent
-public "getBeganClosing"(): integer
-public "setLinkedPortalId"(arg0: $UUID$$Type): void
-public "setTargetPos"(arg0: $Vec3$$Type): void
-public "setTargetAngle"(arg0: float): void
-public "setBeganClosing"(arg0: integer): void
+public static "access$getEnteringFail$cp"(): $MutableComponent
+public static "access$getPosFail$cp"(): $MutableComponent
+public "getLinkedPortalEntity"(): $TimedoorEntity
+public static "access$getInterDimFail$cp"(): $MutableComponent
+public static "access$getIntraDimFail$cp"(): $MutableComponent
+public static "access$getLeavingFail$cp"(): $MutableComponent
+public "setSizing"(arg0: $TimedoorPlacementSettings$$Type): void
+public "getSizing"(): $TimedoorPlacementSettings
+public "setGlitching"(arg0: boolean): void
 public "getTargetDimension"(): $ResourceKey<($Level)>
-public "setClosingTime"(arg0: integer): void
-public "setTargetDimension"(arg0: $ResourceKey$$Type<($Level)>): void
-public static "forNameOnly"(arg0: StringJS): $ScoreHolder
+public "setOriginal"(arg0: boolean): void
 public static "fromGameProfile"(arg0: $GameProfile$$Type): $ScoreHolder
-/**
- * 
- * @deprecated
- */
-public "serializeNBT"(arg0: $HolderLookup$Provider$$Type): $Tag
+public static "forNameOnly"(arg0: StringJS): $ScoreHolder
 get "owner"(): $UUID
 set "owner"(value: $UUID$$Type)
 set "color"(value: $Color$$Type)
 set "location"(value: $NamedGlobalVec3$$Type)
-get "alwaysTicking"(): boolean
-set "animationOffset"(value: integer)
 get "color"(): $Color
-get "original"(): boolean
-get "sizing"(): $TimedoorPlacementSettings
-set "sizing"(value: $TimedoorPlacementSettings$$Type)
-set "original"(value: boolean)
-get "linkedPortalEntity"(): $TimedoorEntity
 get "targetAngle"(): float
-set "glitching"(value: boolean)
+get "original"(): boolean
+set "animationOffset"(value: integer)
+get "alwaysTicking"(): boolean
 get "targetPos"(): $Vec3
-get "closingTime"(): integer
 get "glitching"(): boolean
-get "linkedPortalId"(): $UUID
-get "animationOffset"(): integer
+set "targetPos"(value: $Vec3$$Type)
 get "beganClosing"(): integer
 set "linkedPortalId"(value: $UUID$$Type)
-set "targetPos"(value: $Vec3$$Type)
-set "targetAngle"(value: float)
-set "beganClosing"(value: integer)
-get "targetDimension"(): $ResourceKey<($Level)>
 set "closingTime"(value: integer)
+get "animationOffset"(): integer
+get "linkedPortalId"(): $UUID
+set "beganClosing"(value: integer)
 set "targetDimension"(value: $ResourceKey$$Type<($Level)>)
+get "closingTime"(): integer
+set "targetAngle"(value: float)
+get "linkedPortalEntity"(): $TimedoorEntity
+set "sizing"(value: $TimedoorPlacementSettings$$Type)
+get "sizing"(): $TimedoorPlacementSettings
+set "glitching"(value: boolean)
+get "targetDimension"(): $ResourceKey<($Level)>
+set "original"(value: boolean)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -222,14 +214,14 @@ import {$UUID$$Type} from "java.util.UUID"
 import {$Unit$$Type} from "kotlin.Unit"
 import {$Level$$Type} from "net.minecraft.world.level.Level"
 import {$Component} from "net.minecraft.network.chat.Component"
-import {$SyncableContext$$Type} from "earth.terrarium.tempad.api.context.SyncableContext"
 import {$NamedGlobalVec3$$Type} from "earth.terrarium.tempad.api.locations.NamedGlobalVec3"
+import {$SyncableContext$$Type} from "earth.terrarium.tempad.api.context.SyncableContext"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
 import {$TimedoorEntity, $TimedoorEntity$$Type} from "earth.terrarium.tempad.common.entity.TimedoorEntity"
 import {$Either} from "com.mojang.datafixers.util.Either"
-import {$TimedoorPlacementSettings$$Type} from "earth.terrarium.tempad.api.sizing.TimedoorPlacementSettings"
 import {$MutableComponent} from "net.minecraft.network.chat.MutableComponent"
+import {$TimedoorPlacementSettings$$Type} from "earth.terrarium.tempad.api.sizing.TimedoorPlacementSettings"
 import {$GameProfile$$Type} from "com.mojang.authlib.GameProfile"
 import {$BlockEntity$$Type} from "net.minecraft.world.level.block.entity.BlockEntity"
 import {$Function1$$Type} from "kotlin.jvm.functions.Function1"
@@ -237,27 +229,27 @@ import {$Function1$$Type} from "kotlin.jvm.functions.Function1"
 export class $TimedoorEntity$Companion {
 constructor(arg0: $DefaultConstructorMarker$$Type)
 
-public static "openTimedoor$default"(arg0: $TimedoorEntity$Companion$$Type, arg1: $Player$$Type, arg2: $SyncableContext$$Type, arg3: $ResourceLocation$$Type, arg4: $UUID$$Type, arg5: $NamedGlobalVec3$$Type, arg6: $Function1$$Type, arg7: integer, arg8: any): $Component
-public static "openTimedoor$default"(arg0: $TimedoorEntity$Companion$$Type, arg1: $GameProfile$$Type, arg2: $BlockEntity$$Type, arg3: $ResourceLocation$$Type, arg4: $UUID$$Type, arg5: $NamedGlobalVec3$$Type, arg6: $TimedoorPlacementSettings$$Type, arg7: $Function1$$Type, arg8: integer, arg9: any): $Component
-public "getFail"(): $MutableComponent
 public "getPosFail"(): $MutableComponent
+public "getFail"(): $MutableComponent
+public "getTimedoor"(arg0: $Level$$Type, arg1: $NamedGlobalVec3$$Type, arg2: boolean): $Either<($TimedoorEntity), ($Component)>
 public "openTimedoor"(arg0: $Player$$Type, arg1: $SyncableContext$$Type<(never)>, arg2: $ResourceLocation$$Type, arg3: $UUID$$Type, arg4: $NamedGlobalVec3$$Type, arg5: $Function1$$Type<($TimedoorEntity$$Type), ($Unit$$Type)>): $Component
 public "openTimedoor"(arg0: $GameProfile$$Type, arg1: $BlockEntity$$Type, arg2: $ResourceLocation$$Type, arg3: $UUID$$Type, arg4: $NamedGlobalVec3$$Type, arg5: $TimedoorPlacementSettings$$Type, arg6: $Function1$$Type<($TimedoorEntity$$Type), ($Unit$$Type)>): $Component
-public "getTimedoor"(arg0: $Level$$Type, arg1: $NamedGlobalVec3$$Type, arg2: boolean): $Either<($TimedoorEntity), ($Component)>
-public "getIntraDimFail"(): $MutableComponent
+public static "openTimedoor$default"(arg0: $TimedoorEntity$Companion$$Type, arg1: $Player$$Type, arg2: $SyncableContext$$Type, arg3: $ResourceLocation$$Type, arg4: $UUID$$Type, arg5: $NamedGlobalVec3$$Type, arg6: $Function1$$Type, arg7: integer, arg8: any): $Component
+public static "openTimedoor$default"(arg0: $TimedoorEntity$Companion$$Type, arg1: $GameProfile$$Type, arg2: $BlockEntity$$Type, arg3: $ResourceLocation$$Type, arg4: $UUID$$Type, arg5: $NamedGlobalVec3$$Type, arg6: $TimedoorPlacementSettings$$Type, arg7: $Function1$$Type, arg8: integer, arg9: any): $Component
 public "getInterDimFail"(): $MutableComponent
-public "getNoChrononsFail"(): $MutableComponent
-public "getIntraDimAllFail"(): $MutableComponent
 public "getEnteringFail"(): $MutableComponent
+public "getNoChrononsFail"(): $MutableComponent
+public "getIntraDimFail"(): $MutableComponent
+public "getIntraDimAllFail"(): $MutableComponent
 public "getLeavingFail"(): $MutableComponent
 public static "getTimedoor$default"(arg0: $TimedoorEntity$Companion$$Type, arg1: $Level$$Type, arg2: $NamedGlobalVec3$$Type, arg3: boolean, arg4: integer, arg5: any): $Either
-get "fail"(): $MutableComponent
 get "posFail"(): $MutableComponent
-get "intraDimFail"(): $MutableComponent
+get "fail"(): $MutableComponent
 get "interDimFail"(): $MutableComponent
-get "noChrononsFail"(): $MutableComponent
-get "intraDimAllFail"(): $MutableComponent
 get "enteringFail"(): $MutableComponent
+get "noChrononsFail"(): $MutableComponent
+get "intraDimFail"(): $MutableComponent
+get "intraDimAllFail"(): $MutableComponent
 get "leavingFail"(): $MutableComponent
 }
 /**

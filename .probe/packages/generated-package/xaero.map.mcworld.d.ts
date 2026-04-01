@@ -11,13 +11,13 @@ export class $WorldMapClientWorldData {
 
 constructor(arg0: $ClientLevel$$Type)
 
+public "getSyncedRules"(): $ClientboundRulesPacket
 public "setSyncedRules"(arg0: $ClientboundRulesPacket$$Type): void
 public "setServerModNetworkVersion"(arg0: integer): void
-public "getSyncedRules"(): $ClientboundRulesPacket
 public "getServerModNetworkVersion"(): integer
+get "syncedRules"(): $ClientboundRulesPacket
 set "syncedRules"(value: $ClientboundRulesPacket$$Type)
 set "serverModNetworkVersion"(value: integer)
-get "syncedRules"(): $ClientboundRulesPacket
 get "serverModNetworkVersion"(): integer
 }
 /**
@@ -33,13 +33,13 @@ declare module "xaero.map.mcworld.IWorldMapClientWorld" {
 import {$WorldMapClientWorldData, $WorldMapClientWorldData$$Type} from "xaero.map.mcworld.WorldMapClientWorldData"
 
 export interface $IWorldMapClientWorld$$Interface {
-get "xaero_worldmapData"(): $WorldMapClientWorldData
 set "xaero_worldmapData"(value: $WorldMapClientWorldData$$Type)
+get "xaero_worldmapData"(): $WorldMapClientWorldData
 }
 
 export class $IWorldMapClientWorld implements $IWorldMapClientWorld$$Interface {
- "getXaero_worldmapData"(): $WorldMapClientWorldData
  "setXaero_worldmapData"(arg0: $WorldMapClientWorldData$$Type): void
+ "getXaero_worldmapData"(): $WorldMapClientWorldData
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

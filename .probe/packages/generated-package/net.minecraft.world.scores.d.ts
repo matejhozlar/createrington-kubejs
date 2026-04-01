@@ -34,8 +34,8 @@ export type $Score$$Type = ($Score);
  */
 export type $Score$$Original = $Score;}
 declare module "net.minecraft.world.scores.ScoreHolder" {
-import {$GameProfile$$Type} from "com.mojang.authlib.GameProfile"
 import {$Component} from "net.minecraft.network.chat.Component"
+import {$GameProfile$$Type} from "com.mojang.authlib.GameProfile"
 
 export interface $ScoreHolder$$Interface {
 
@@ -50,9 +50,9 @@ static readonly "WILDCARD": $ScoreHolder
 static readonly "WILDCARD_NAME": StringJS
 
  "getDisplayName"(): $Component
- "getFeedbackDisplayName"(): $Component
-static "forNameOnly"(arg0: StringJS): $ScoreHolder
 static "fromGameProfile"(arg0: $GameProfile$$Type): $ScoreHolder
+static "forNameOnly"(arg0: StringJS): $ScoreHolder
+ "getFeedbackDisplayName"(): $Component
  "getScoreboardName"(): StringJS
 }
 /**
@@ -67,8 +67,8 @@ export type $ScoreHolder$$Original = $ScoreHolder;}
 declare module "net.minecraft.world.scores.criteria.ObjectiveCriteria$RenderType" {
 import {$Keyable} from "com.mojang.serialization.Keyable"
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Enum, $Enum$$Type} from "java.lang.Enum"
+import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Function, $Function$$Type} from "java.util.function.Function"
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$StringRepresentable, $StringRepresentable$$Type, $StringRepresentable$$Interface} from "net.minecraft.util.StringRepresentable"
@@ -81,14 +81,14 @@ static readonly "INTEGER": $ObjectiveCriteria$RenderType
 public static "values"(): ($ObjectiveCriteria$RenderType)[]
 public static "valueOf"(arg0: StringJS): $ObjectiveCriteria$RenderType
 public "getId"(): StringJS
-public "getSerializedName"(): StringJS
 public static "byId"(arg0: StringJS): $ObjectiveCriteria$RenderType
-public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
+public "getSerializedName"(): StringJS
 public static "keys"(arg0: ($StringRepresentable$$Type)[]): $Keyable
+public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
+public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 public "getRemappedEnumConstantName"(): StringJS
 public static "fromEnum"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromValues"<T extends $StringRepresentable>(arg0: $Supplier$$Type<((T)[])>): $Codec<(T)>
-public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 get "id"(): StringJS
 get "serializedName"(): StringJS
 get "remappedEnumConstantName"(): StringJS
@@ -122,16 +122,16 @@ static readonly "TEAM_KILL": ($ObjectiveCriteria)[]
 static readonly "KILLED_BY_TEAM": ($ObjectiveCriteria)[]
 static readonly "FOOD": $ObjectiveCriteria
 
-constructor(arg0: StringJS)
 constructor(arg0: StringJS, arg1: boolean, arg2: $ObjectiveCriteria$RenderType$$Type)
+constructor(arg0: StringJS)
 
 public "getName"(): StringJS
 public "isReadOnly"(): boolean
-public static "registerCustom"(arg0: StringJS, arg1: boolean, arg2: $ObjectiveCriteria$RenderType$$Type): $ObjectiveCriteria
-public static "registerCustom"(arg0: StringJS): $ObjectiveCriteria
 public static "byName"(arg0: StringJS): $Optional<($ObjectiveCriteria)>
 public static "getCustomCriteriaNames"(): $Set<(StringJS)>
 public "getDefaultRenderType"(): $ObjectiveCriteria$RenderType
+public static "registerCustom"(arg0: StringJS): $ObjectiveCriteria
+public static "registerCustom"(arg0: StringJS, arg1: boolean, arg2: $ObjectiveCriteria$RenderType$$Type): $ObjectiveCriteria
 get "name"(): StringJS
 get "readOnly"(): boolean
 get "customCriteriaNames"(): $Set<(StringJS)>
@@ -160,8 +160,8 @@ static readonly "HIDE_FOR_OWN_TEAM": $Team$Visibility
 public static "values"(): ($Team$Visibility)[]
 public static "valueOf"(arg0: StringJS): $Team$Visibility
 public "getDisplayName"(): $Component
-public static "getAllNames"(): (StringJS)[]
 public static "byName"(arg0: StringJS): $Team$Visibility
+public static "getAllNames"(): (StringJS)[]
 get "displayName"(): $Component
 get "allNames"(): (StringJS)[]
 }
@@ -198,8 +198,8 @@ export type $ScoreboardSaveData$$Type = ($ScoreboardSaveData);
  */
 export type $ScoreboardSaveData$$Original = $ScoreboardSaveData;}
 declare module "net.minecraft.world.scores.PlayerTeam" {
-import {$Collection} from "java.util.Collection"
 import {$Team, $Team$$Type} from "net.minecraft.world.scores.Team"
+import {$Collection} from "java.util.Collection"
 import {$MutableComponent} from "net.minecraft.network.chat.MutableComponent"
 import {$Team$Visibility, $Team$Visibility$$Type} from "net.minecraft.world.scores.Team$Visibility"
 import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component"
@@ -213,50 +213,50 @@ constructor(arg0: $Scoreboard$$Type, arg1: StringJS)
 public "getName"(): StringJS
 public "getDisplayName"(): $Component
 public "setColor"(arg0: $ChatFormatting$$Type): void
-public "getPlayers"(): $Collection<(StringJS)>
-public "canSeeFriendlyInvisibles"(): boolean
-public "isAllowFriendlyFire"(): boolean
-public static "formatNameForTeam"(arg0: $Team$$Type, arg1: $Component$$Type): $MutableComponent
-public "getScoreboard"(): $Scoreboard
 public "getDeathMessageVisibility"(): $Team$Visibility
-public "setDisplayName"(arg0: $Component$$Type): void
 public "getColor"(): $ChatFormatting
-public "getFormattedDisplayName"(): $MutableComponent
-public "getNameTagVisibility"(): $Team$Visibility
-public "setSeeFriendlyInvisibles"(arg0: boolean): void
-public "setAllowFriendlyFire"(arg0: boolean): void
-public "setDeathMessageVisibility"(arg0: $Team$Visibility$$Type): void
-public "setNameTagVisibility"(arg0: $Team$Visibility$$Type): void
-public "getPlayerPrefix"(): $Component
-public "getPlayerSuffix"(): $Component
+public "isAllowFriendlyFire"(): boolean
+public "setDisplayName"(arg0: $Component$$Type): void
 public "getFormattedName"(arg0: $Component$$Type): $MutableComponent
 public "getCollisionRule"(): $Team$CollisionRule
-public "setPlayerSuffix"(arg0: $Component$$Type): void
-public "unpackOptions"(arg0: integer): void
-public "setPlayerPrefix"(arg0: $Component$$Type): void
-public "setCollisionRule"(arg0: $Team$CollisionRule$$Type): void
 public "packOptions"(): integer
+public "getPlayerPrefix"(): $Component
+public "setPlayerSuffix"(arg0: $Component$$Type): void
+public "getPlayerSuffix"(): $Component
+public "setPlayerPrefix"(arg0: $Component$$Type): void
+public "unpackOptions"(arg0: integer): void
+public "setCollisionRule"(arg0: $Team$CollisionRule$$Type): void
+public "getNameTagVisibility"(): $Team$Visibility
+public "getFormattedDisplayName"(): $MutableComponent
+public "setSeeFriendlyInvisibles"(arg0: boolean): void
+public "setNameTagVisibility"(arg0: $Team$Visibility$$Type): void
+public "setAllowFriendlyFire"(arg0: boolean): void
+public "setDeathMessageVisibility"(arg0: $Team$Visibility$$Type): void
+public "getPlayers"(): $Collection<(StringJS)>
+public static "formatNameForTeam"(arg0: $Team$$Type, arg1: $Component$$Type): $MutableComponent
+public "canSeeFriendlyInvisibles"(): boolean
+public "getScoreboard"(): $Scoreboard
 get "name"(): StringJS
 get "displayName"(): $Component
 set "color"(value: $ChatFormatting$$Type)
-get "players"(): $Collection<(StringJS)>
-get "allowFriendlyFire"(): boolean
-get "scoreboard"(): $Scoreboard
 get "deathMessageVisibility"(): $Team$Visibility
-set "displayName"(value: $Component$$Type)
 get "color"(): $ChatFormatting
-get "formattedDisplayName"(): $MutableComponent
-get "nameTagVisibility"(): $Team$Visibility
-set "seeFriendlyInvisibles"(value: boolean)
-set "allowFriendlyFire"(value: boolean)
-set "deathMessageVisibility"(value: $Team$Visibility$$Type)
-set "nameTagVisibility"(value: $Team$Visibility$$Type)
-get "playerPrefix"(): $Component
-get "playerSuffix"(): $Component
+get "allowFriendlyFire"(): boolean
+set "displayName"(value: $Component$$Type)
 get "collisionRule"(): $Team$CollisionRule
+get "playerPrefix"(): $Component
 set "playerSuffix"(value: $Component$$Type)
+get "playerSuffix"(): $Component
 set "playerPrefix"(value: $Component$$Type)
 set "collisionRule"(value: $Team$CollisionRule$$Type)
+get "nameTagVisibility"(): $Team$Visibility
+get "formattedDisplayName"(): $MutableComponent
+set "seeFriendlyInvisibles"(value: boolean)
+set "nameTagVisibility"(value: $Team$Visibility$$Type)
+set "allowFriendlyFire"(value: boolean)
+set "deathMessageVisibility"(value: $Team$Visibility$$Type)
+get "players"(): $Collection<(StringJS)>
+get "scoreboard"(): $Scoreboard
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -296,13 +296,13 @@ export type $Team$CollisionRule$$Original = $Team$CollisionRule;}
 declare module "net.minecraft.world.scores.DisplaySlot" {
 import {$Keyable} from "com.mojang.serialization.Keyable"
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Enum, $Enum$$Type} from "java.lang.Enum"
-import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Function, $Function$$Type} from "java.util.function.Function"
+import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$StringRepresentable, $StringRepresentable$$Type, $StringRepresentable$$Interface} from "net.minecraft.util.StringRepresentable"
-import {$IntFunction} from "java.util.function.IntFunction"
 import {$ChatFormatting$$Type} from "net.minecraft.ChatFormatting"
+import {$IntFunction} from "java.util.function.IntFunction"
 
 export class $DisplaySlot extends $Enum<($DisplaySlot)> implements $StringRepresentable$$Interface {
 static readonly "BELOW_NAME": $DisplaySlot
@@ -332,12 +332,12 @@ public static "valueOf"(arg0: StringJS): $DisplaySlot
 public "id"(): integer
 public "getSerializedName"(): StringJS
 public static "teamColorToSlot"(arg0: $ChatFormatting$$Type): $DisplaySlot
-public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
 public static "keys"(arg0: ($StringRepresentable$$Type)[]): $Keyable
+public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
+public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 public "getRemappedEnumConstantName"(): StringJS
 public static "fromEnum"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromValues"<T extends $StringRepresentable>(arg0: $Supplier$$Type<((T)[])>): $Codec<(T)>
-public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 get "serializedName"(): StringJS
 get "remappedEnumConstantName"(): StringJS
 }
@@ -386,22 +386,22 @@ export class $Team {
 constructor()
 
 public "getName"(): StringJS
-public "getPlayers"(): $Collection<(StringJS)>
-public "canSeeFriendlyInvisibles"(): boolean
-public "isAllowFriendlyFire"(): boolean
-public "isAlliedTo"(arg0: $Team$$Type): boolean
 public "getDeathMessageVisibility"(): $Team$Visibility
 public "getColor"(): $ChatFormatting
-public "getNameTagVisibility"(): $Team$Visibility
+public "isAllowFriendlyFire"(): boolean
+public "isAlliedTo"(arg0: $Team$$Type): boolean
 public "getFormattedName"(arg0: $Component$$Type): $MutableComponent
 public "getCollisionRule"(): $Team$CollisionRule
+public "getNameTagVisibility"(): $Team$Visibility
+public "getPlayers"(): $Collection<(StringJS)>
+public "canSeeFriendlyInvisibles"(): boolean
 get "name"(): StringJS
-get "players"(): $Collection<(StringJS)>
-get "allowFriendlyFire"(): boolean
 get "deathMessageVisibility"(): $Team$Visibility
 get "color"(): $ChatFormatting
-get "nameTagVisibility"(): $Team$Visibility
+get "allowFriendlyFire"(): boolean
 get "collisionRule"(): $Team$CollisionRule
+get "nameTagVisibility"(): $Team$Visibility
+get "players"(): $Collection<(StringJS)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -426,23 +426,23 @@ public "getName"(): StringJS
 public "getDisplayName"(): $Component
 public "numberFormat"(): $NumberFormat
 public "setNumberFormat"(arg0: $NumberFormat$$Type): void
-public "getScoreboard"(): $Scoreboard
 public "numberFormatOrDefault"(arg0: $NumberFormat$$Type): $NumberFormat
-public "getCriteria"(): $ObjectiveCriteria
 public "getRenderType"(): $ObjectiveCriteria$RenderType
 public "setDisplayName"(arg0: $Component$$Type): void
+public "getCriteria"(): $ObjectiveCriteria
 public "getFormattedDisplayName"(): $Component
 public "setRenderType"(arg0: $ObjectiveCriteria$RenderType$$Type): void
+public "getScoreboard"(): $Scoreboard
 public "setDisplayAutoUpdate"(arg0: boolean): void
 public "displayAutoUpdate"(): boolean
 get "name"(): StringJS
 get "displayName"(): $Component
-get "scoreboard"(): $Scoreboard
-get "criteria"(): $ObjectiveCriteria
 get "renderType"(): $ObjectiveCriteria$RenderType
 set "displayName"(value: $Component$$Type)
+get "criteria"(): $ObjectiveCriteria
 get "formattedDisplayName"(): $Component
 set "renderType"(value: $ObjectiveCriteria$RenderType$$Type)
+get "scoreboard"(): $Scoreboard
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -478,7 +478,7 @@ get "hidden"(): boolean
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $PlayerScoreEntry$$Type = ({"owner"?: StringJS, "display"?: $Component$$Type, "value"?: integer, "numberFormatOverride"?: $NumberFormat$$Type}) | ([owner?: StringJS, display?: $Component$$Type, value?: integer, numberFormatOverride?: $NumberFormat$$Type]);
+export type $PlayerScoreEntry$$Type = ({"value"?: integer, "display"?: $Component$$Type, "owner"?: StringJS, "numberFormatOverride"?: $NumberFormat$$Type}) | ([value?: integer, display?: $Component$$Type, owner?: StringJS, numberFormatOverride?: $NumberFormat$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -513,8 +513,8 @@ export type $ScoreAccess$$Type = ($ScoreAccess);
  */
 export type $ScoreAccess$$Original = $ScoreAccess;}
 declare module "net.minecraft.world.scores.Scoreboard" {
-import {$Collection} from "java.util.Collection"
 import {$ObjectiveCriteria$$Type} from "net.minecraft.world.scores.criteria.ObjectiveCriteria"
+import {$Collection} from "java.util.Collection"
 import {$Component$$Type} from "net.minecraft.network.chat.Component"
 import {$ListTag, $ListTag$$Type} from "net.minecraft.nbt.ListTag"
 import {$ObjectiveCriteria$RenderType$$Type} from "net.minecraft.world.scores.criteria.ObjectiveCriteria$RenderType"
@@ -537,48 +537,48 @@ static readonly "HIDDEN_SCORE_PREFIX": StringJS
 
 constructor()
 
-public "getPlayersTeam"(arg0: StringJS): $PlayerTeam
-public "getPlayerTeam"(arg0: StringJS): $PlayerTeam
-public "addPlayerToTeam"(arg0: StringJS, arg1: $PlayerTeam$$Type): boolean
-public "getObjective"(arg0: StringJS): $Objective
-public "onObjectiveAdded"(arg0: $Objective$$Type): void
-public "listPlayerScores"(arg0: $ScoreHolder$$Type): $Object2IntMap<($Objective)>
-public "listPlayerScores"(arg0: $Objective$$Type): $Collection<($PlayerScoreEntry)>
-public "getTrackedPlayers"(): $Collection<($ScoreHolder)>
-public "getPlayerScoreInfo"(arg0: $ScoreHolder$$Type, arg1: $Objective$$Type): $ReadOnlyScoreInfo
-public "removeObjective"(arg0: $Objective$$Type): void
-public "onObjectiveRemoved"(arg0: $Objective$$Type): void
-public "addObjective"(arg0: StringJS, arg1: $ObjectiveCriteria$$Type, arg2: $Component$$Type, arg3: $ObjectiveCriteria$RenderType$$Type, arg4: boolean, arg5: $NumberFormat$$Type): $Objective
-public "getObjectiveNames"(): $Collection<(StringJS)>
-public "onPlayerRemoved"(arg0: $ScoreHolder$$Type): void
-public "getObjectives"(): $Collection<($Objective)>
-public "getPlayerTeams"(): $Collection<($PlayerTeam)>
-public "onTeamAdded"(arg0: $PlayerTeam$$Type): void
-public "onScoreChanged"(arg0: $ScoreHolder$$Type, arg1: $Objective$$Type, arg2: $Score$$Type): void
-public "entityRemoved"(arg0: $Entity$$Type): void
-public "onObjectiveChanged"(arg0: $Objective$$Type): void
-public "addPlayerTeam"(arg0: StringJS): $PlayerTeam
-public "removePlayerTeam"(arg0: $PlayerTeam$$Type): void
-public "getTeamNames"(): $Collection<(StringJS)>
-public "onScoreLockChanged"(arg0: $ScoreHolder$$Type, arg1: $Objective$$Type): void
-public "onTeamRemoved"(arg0: $PlayerTeam$$Type): void
-public "savePlayerScores"(arg0: $HolderLookup$Provider$$Type): $ListTag
-public "loadPlayerScores"(arg0: $ListTag$$Type, arg1: $HolderLookup$Provider$$Type): void
-public "forAllObjectives"(arg0: $ObjectiveCriteria$$Type, arg1: $ScoreHolder$$Type, arg2: $Consumer$$Type<($ScoreAccess)>): void
-public "onTeamChanged"(arg0: $PlayerTeam$$Type): void
-public "resetAllPlayerScores"(arg0: $ScoreHolder$$Type): void
-public "removePlayerFromTeam"(arg0: StringJS, arg1: $PlayerTeam$$Type): void
+public "setDisplayObjective"(arg0: $DisplaySlot$$Type, arg1: $Objective$$Type): void
 public "removePlayerFromTeam"(arg0: StringJS): boolean
+public "removePlayerFromTeam"(arg0: StringJS, arg1: $PlayerTeam$$Type): void
 public "getDisplayObjective"(arg0: $DisplaySlot$$Type): $Objective
 public "onPlayerScoreRemoved"(arg0: $ScoreHolder$$Type, arg1: $Objective$$Type): void
 public "getOrCreatePlayerScore"(arg0: $ScoreHolder$$Type, arg1: $Objective$$Type): $ScoreAccess
 public "getOrCreatePlayerScore"(arg0: $ScoreHolder$$Type, arg1: $Objective$$Type, arg2: boolean): $ScoreAccess
+public "resetAllPlayerScores"(arg0: $ScoreHolder$$Type): void
 public "resetSinglePlayerScore"(arg0: $ScoreHolder$$Type, arg1: $Objective$$Type): void
-public "setDisplayObjective"(arg0: $DisplaySlot$$Type, arg1: $Objective$$Type): void
-get "trackedPlayers"(): $Collection<($ScoreHolder)>
-get "objectiveNames"(): $Collection<(StringJS)>
+public "forAllObjectives"(arg0: $ObjectiveCriteria$$Type, arg1: $ScoreHolder$$Type, arg2: $Consumer$$Type<($ScoreAccess)>): void
+public "entityRemoved"(arg0: $Entity$$Type): void
+public "savePlayerScores"(arg0: $HolderLookup$Provider$$Type): $ListTag
+public "getObjective"(arg0: StringJS): $Objective
+public "addObjective"(arg0: StringJS, arg1: $ObjectiveCriteria$$Type, arg2: $Component$$Type, arg3: $ObjectiveCriteria$RenderType$$Type, arg4: boolean, arg5: $NumberFormat$$Type): $Objective
+public "onObjectiveAdded"(arg0: $Objective$$Type): void
+public "getPlayerScoreInfo"(arg0: $ScoreHolder$$Type, arg1: $Objective$$Type): $ReadOnlyScoreInfo
+public "getObjectives"(): $Collection<($Objective)>
+public "getTrackedPlayers"(): $Collection<($ScoreHolder)>
+public "onPlayerRemoved"(arg0: $ScoreHolder$$Type): void
+public "removeObjective"(arg0: $Objective$$Type): void
+public "onTeamRemoved"(arg0: $PlayerTeam$$Type): void
+public "getPlayerTeams"(): $Collection<($PlayerTeam)>
+public "removePlayerTeam"(arg0: $PlayerTeam$$Type): void
+public "getObjectiveNames"(): $Collection<(StringJS)>
+public "onObjectiveChanged"(arg0: $Objective$$Type): void
+public "listPlayerScores"(arg0: $ScoreHolder$$Type): $Object2IntMap<($Objective)>
+public "listPlayerScores"(arg0: $Objective$$Type): $Collection<($PlayerScoreEntry)>
+public "onObjectiveRemoved"(arg0: $Objective$$Type): void
+public "addPlayerTeam"(arg0: StringJS): $PlayerTeam
+public "onTeamAdded"(arg0: $PlayerTeam$$Type): void
+public "getTeamNames"(): $Collection<(StringJS)>
+public "onScoreChanged"(arg0: $ScoreHolder$$Type, arg1: $Objective$$Type, arg2: $Score$$Type): void
+public "onScoreLockChanged"(arg0: $ScoreHolder$$Type, arg1: $Objective$$Type): void
+public "onTeamChanged"(arg0: $PlayerTeam$$Type): void
+public "getPlayersTeam"(arg0: StringJS): $PlayerTeam
+public "loadPlayerScores"(arg0: $ListTag$$Type, arg1: $HolderLookup$Provider$$Type): void
+public "getPlayerTeam"(arg0: StringJS): $PlayerTeam
+public "addPlayerToTeam"(arg0: StringJS, arg1: $PlayerTeam$$Type): boolean
 get "objectives"(): $Collection<($Objective)>
+get "trackedPlayers"(): $Collection<($ScoreHolder)>
 get "playerTeams"(): $Collection<($PlayerTeam)>
+get "objectiveNames"(): $Collection<(StringJS)>
 get "teamNames"(): $Collection<(StringJS)>
 }
 /**

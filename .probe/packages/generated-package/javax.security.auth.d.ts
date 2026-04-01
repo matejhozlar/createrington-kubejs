@@ -24,8 +24,8 @@ import {$Callable$$Type} from "java.util.concurrent.Callable"
 import {$PrivilegedExceptionAction$$Type} from "java.security.PrivilegedExceptionAction"
 import {$Serializable$$Interface} from "java.io.Serializable"
 import {$AccessControlContext$$Type} from "java.security.AccessControlContext"
-import {$Set, $Set$$Type} from "java.util.Set"
 import {$Class$$Type} from "java.lang.Class"
+import {$Set, $Set$$Type} from "java.util.Set"
 
 export class $Subject implements $Serializable$$Interface {
 constructor()
@@ -59,14 +59,14 @@ public static "callAs"<T>(arg0: $Subject$$Type, arg1: $Callable$$Type<(T)>): T
  * 
  * @deprecated
  */
-public static "doAsPrivileged"<T>(arg0: $Subject$$Type, arg1: $PrivilegedExceptionAction$$Type<(T)>, arg2: $AccessControlContext$$Type): T
+public static "doAsPrivileged"<T>(arg0: $Subject$$Type, arg1: $PrivilegedAction$$Type<(T)>, arg2: $AccessControlContext$$Type): T
 /**
  * 
  * @deprecated
  */
-public static "doAsPrivileged"<T>(arg0: $Subject$$Type, arg1: $PrivilegedAction$$Type<(T)>, arg2: $AccessControlContext$$Type): T
-public "getPublicCredentials"<T>(arg0: $Class$$Type<(T)>): $Set<(T)>
+public static "doAsPrivileged"<T>(arg0: $Subject$$Type, arg1: $PrivilegedExceptionAction$$Type<(T)>, arg2: $AccessControlContext$$Type): T
 public "getPublicCredentials"(): $Set<(any)>
+public "getPublicCredentials"<T>(arg0: $Class$$Type<(T)>): $Set<(T)>
 public "getPrivateCredentials"(): $Set<(any)>
 public "getPrivateCredentials"<T>(arg0: $Class$$Type<(T)>): $Set<(T)>
 get "readOnly"(): void

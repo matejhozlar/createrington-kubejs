@@ -1,7 +1,7 @@
 declare module "net.createmod.catnip.data.Couple" {
-import {$Iterable$$Interface} from "java.lang.Iterable"
 import {$Iterator} from "java.util.Iterator"
 import {$StreamCodec, $StreamCodec$$Type} from "net.minecraft.network.codec.StreamCodec"
+import {$Iterable$$Interface} from "java.lang.Iterable"
 import {$CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
 import {$Spliterator} from "java.util.Spliterator"
 import {$Predicate$$Type} from "java.util.function.Predicate"
@@ -23,25 +23,25 @@ public "map"<S>(arg0: $Function$$Type<(T), (S)>): $Couple<(S)>
 public "stream"(): $Stream<(T)>
 public "set"(arg0: boolean, arg1: T): void
 public "forEach"(arg0: $Consumer$$Type<(T)>): void
-public "copy"(): $Couple<(T)>
+public "copy"(): $Pair
 public static "create"<T>(arg0: T, arg1: T): $Couple<(T)>
 public static "create"<T>(arg0: $Supplier$$Type<(T)>): $Couple<(T)>
-public "swap"(): $Couple<(T)>
+public "swap"(): $Pair
 public static "createWithContext"<T>(arg0: $Function$$Type<(boolean), (T)>): $Couple<(T)>
-public "replaceWithContext"(arg0: $BiFunction$$Type<(T), (boolean), (T)>): void
-public "forEachWithParams"<S>(arg0: $BiConsumer$$Type<(T), (S)>, arg1: $Couple$$Type<(S)>): void
-public static "deserializeEach"<S>(arg0: $ListTag$$Type, arg1: $Function$$Type<($CompoundTag), (S)>): $Couple<(S)>
-public "serializeEach"(arg0: $Function$$Type<(T), ($CompoundTag$$Type)>): $ListTag
-public "mapWithContext"<S>(arg0: $BiFunction$$Type<(T), (boolean), (S)>): $Couple<(S)>
-public "replaceWithParams"<S>(arg0: $BiFunction$$Type<(T), (S), (T)>, arg1: $Couple$$Type<(S)>): void
-public "mapWithParams"<S, R>(arg0: $BiFunction$$Type<(T), (R), (S)>, arg1: $Couple$$Type<(R)>): $Couple<(S)>
-public "forEachWithContext"(arg0: $BiConsumer$$Type<(T), (boolean)>): void
-public static "codec"<T>(arg0: $Codec$$Type<(T)>): $Codec<($Couple<(T)>)>
-public "either"(arg0: $Predicate$$Type<(T)>): boolean
-public "mapNotNull"<S>(arg0: $Function$$Type<(T), (S)>): $Couple<(S)>
 public static "streamCodec"<B, T>(arg0: $StreamCodec$$Type<(B), (T)>): $StreamCodec<(B), ($Couple<(T)>)>
-public "both"(arg0: $Predicate$$Type<(T)>): boolean
+public "mapNotNull"<S>(arg0: $Function$$Type<(T), (S)>): $Couple<(S)>
+public "either"(arg0: $Predicate$$Type<(T)>): boolean
+public static "codec"<T>(arg0: $Codec$$Type<(T)>): $Codec<($Couple<(T)>)>
 public "mapNotNullWithParam"<S, R>(arg0: $BiFunction$$Type<(T), (R), (S)>, arg1: R): $Couple<(S)>
+public "serializeEach"(arg0: $Function$$Type<(T), ($CompoundTag$$Type)>): $ListTag
+public static "deserializeEach"<S>(arg0: $ListTag$$Type, arg1: $Function$$Type<($CompoundTag), (S)>): $Couple<(S)>
+public "both"(arg0: $Predicate$$Type<(T)>): boolean
+public "mapWithContext"<S>(arg0: $BiFunction$$Type<(T), (boolean), (S)>): $Couple<(S)>
+public "mapWithParams"<S, R>(arg0: $BiFunction$$Type<(T), (R), (S)>, arg1: $Couple$$Type<(R)>): $Couple<(S)>
+public "replaceWithContext"(arg0: $BiFunction$$Type<(T), (boolean), (T)>): void
+public "replaceWithParams"<S>(arg0: $BiFunction$$Type<(T), (S), (T)>, arg1: $Couple$$Type<(S)>): void
+public "forEachWithParams"<S>(arg0: $BiConsumer$$Type<(T), (S)>, arg1: $Couple$$Type<(S)>): void
+public "forEachWithContext"(arg0: $BiConsumer$$Type<(T), (boolean)>): void
 public "spliterator"(): $Spliterator<(T)>
 [Symbol.iterator](): IterableIterator<T>;
 }
@@ -67,14 +67,14 @@ public "copy"(): $Pair<(F), (S)>
 public "getFirst"(): F
 public "swap"(): $Pair<(S), (F)>
 public "getSecond"(): S
-public static "codec"<F, S>(arg0: $Codec$$Type<(F)>, arg1: $Codec$$Type<(S)>): $Codec<($Pair<(F), (S)>)>
 public static "streamCodec"<B, F, S>(arg0: $StreamCodec$$Type<(B), (F)>, arg1: $StreamCodec$$Type<(B), (S)>): $StreamCodec<(B), ($Pair<(F), (S)>)>
-public "setFirst"(arg0: F): void
+public static "codec"<F, S>(arg0: $Codec$$Type<(F)>, arg1: $Codec$$Type<(S)>): $Codec<($Pair<(F), (S)>)>
 public "setSecond"(arg0: S): void
+public "setFirst"(arg0: F): void
 get "first"(): F
 get "second"(): S
-set "first"(value: F)
 set "second"(value: S)
+set "first"(value: F)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

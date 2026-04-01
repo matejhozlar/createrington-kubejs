@@ -26,8 +26,8 @@ export type $PriorityProvider$SelectorCondition$$Type<C> = ((arg0: C) => boolean
 export type $PriorityProvider$SelectorCondition$$Original<C> = $PriorityProvider$SelectorCondition<(C)>;}
 declare module "com.blackgear.vanillabackport.common.api.variant.SpawnContext" {
 import {$ServerLevelAccessor, $ServerLevelAccessor$$Type} from "net.minecraft.world.level.ServerLevelAccessor"
-import {$BlockPos, $BlockPos$$Type} from "net.minecraft.core.BlockPos"
 import {$Biome, $Biome$$Type} from "net.minecraft.world.level.biome.Biome"
+import {$BlockPos, $BlockPos$$Type} from "net.minecraft.core.BlockPos"
 import {$Holder, $Holder$$Type} from "net.minecraft.core.Holder"
 import {$Record} from "java.lang.Record"
 
@@ -46,7 +46,7 @@ public "biome"(): $Holder<($Biome)>
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $SpawnContext$$Type = ({"pos"?: $BlockPos$$Type, "biome"?: $Holder$$Type<($Biome)>, "level"?: $ServerLevelAccessor$$Type}) | ([pos?: $BlockPos$$Type, biome?: $Holder$$Type<($Biome)>, level?: $ServerLevelAccessor$$Type]);
+export type $SpawnContext$$Type = ({"biome"?: $Holder$$Type<($Biome)>, "pos"?: $BlockPos$$Type, "level"?: $ServerLevelAccessor$$Type}) | ([biome?: $Holder$$Type<($Biome)>, pos?: $BlockPos$$Type, level?: $ServerLevelAccessor$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -55,14 +55,14 @@ declare module "com.blackgear.vanillabackport.common.api.bundle.IBundle" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $IBundle$$Interface {
 get "numberOfItemsToShow"(): integer
-set "selectedItem"(value: integer)
 get "selectedItem"(): integer
+set "selectedItem"(value: integer)
 }
 
 export class $IBundle implements $IBundle$$Interface {
  "getNumberOfItemsToShow"(): integer
- "setSelectedItem"(arg0: integer): void
  "getSelectedItem"(): integer
+ "setSelectedItem"(arg0: integer): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -132,8 +132,8 @@ export type $SpawnPrioritySelectors$$Original = $SpawnPrioritySelectors;}
 declare module "com.blackgear.vanillabackport.common.level.entities.animal.PigVariant$ModelType" {
 import {$Keyable} from "com.mojang.serialization.Keyable"
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Enum, $Enum$$Type} from "java.lang.Enum"
+import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Function, $Function$$Type} from "java.util.function.Function"
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$StringRepresentable, $StringRepresentable$$Type, $StringRepresentable$$Interface} from "net.minecraft.util.StringRepresentable"
@@ -146,12 +146,12 @@ static readonly "NORMAL": $PigVariant$ModelType
 public static "values"(): ($PigVariant$ModelType)[]
 public static "valueOf"(name: StringJS): $PigVariant$ModelType
 public "getSerializedName"(): StringJS
-public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
 public static "keys"(arg0: ($StringRepresentable$$Type)[]): $Keyable
+public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
+public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 public "getRemappedEnumConstantName"(): StringJS
 public static "fromEnum"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromValues"<T extends $StringRepresentable>(arg0: $Supplier$$Type<((T)[])>): $Codec<(T)>
-public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 get "serializedName"(): StringJS
 get "remappedEnumConstantName"(): StringJS
 }
@@ -190,7 +190,7 @@ public "path"(): $ResourceLocation
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $ClientAsset$$Type = ({"path"?: $ResourceLocation$$Type, "id"?: $ResourceLocation$$Type}) | ([path?: $ResourceLocation$$Type, id?: $ResourceLocation$$Type]);
+export type $ClientAsset$$Type = ({"id"?: $ResourceLocation$$Type, "path"?: $ResourceLocation$$Type}) | ([id?: $ResourceLocation$$Type, path?: $ResourceLocation$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -207,8 +207,8 @@ import {$PriorityProvider$SelectorCondition} from "com.blackgear.vanillabackport
 import {$RandomSource$$Type} from "net.minecraft.util.RandomSource"
 import {$ModelAndTexture, $ModelAndTexture$$Type} from "com.blackgear.vanillabackport.common.api.variant.ModelAndTexture"
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$PriorityProvider$Selector} from "com.blackgear.vanillabackport.common.api.variant.PriorityProvider$Selector"
+import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$Function$$Type} from "java.util.function.Function"
 import {$SpawnPrioritySelectors, $SpawnPrioritySelectors$$Type} from "com.blackgear.vanillabackport.common.api.variant.SpawnPrioritySelectors"
 import {$Stream, $Stream$$Type} from "java.util.stream.Stream"
@@ -235,7 +235,7 @@ public static "alwaysTrue"<Context, Condition extends $PriorityProvider$Selector
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $CowVariant$$Type = ({"modelAndTexture"?: $ModelAndTexture$$Type<($CowVariant$ModelType$$Type)>, "spawnConditions"?: $SpawnPrioritySelectors$$Type}) | ([modelAndTexture?: $ModelAndTexture$$Type<($CowVariant$ModelType$$Type)>, spawnConditions?: $SpawnPrioritySelectors$$Type]);
+export type $CowVariant$$Type = ({"spawnConditions"?: $SpawnPrioritySelectors$$Type, "modelAndTexture"?: $ModelAndTexture$$Type<($CowVariant$ModelType$$Type)>}) | ([spawnConditions?: $SpawnPrioritySelectors$$Type, modelAndTexture?: $ModelAndTexture$$Type<($CowVariant$ModelType$$Type)>]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -252,8 +252,8 @@ import {$PriorityProvider$SelectorCondition} from "com.blackgear.vanillabackport
 import {$RandomSource$$Type} from "net.minecraft.util.RandomSource"
 import {$ModelAndTexture, $ModelAndTexture$$Type} from "com.blackgear.vanillabackport.common.api.variant.ModelAndTexture"
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$PriorityProvider$Selector} from "com.blackgear.vanillabackport.common.api.variant.PriorityProvider$Selector"
+import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$Function$$Type} from "java.util.function.Function"
 import {$SpawnPrioritySelectors, $SpawnPrioritySelectors$$Type} from "com.blackgear.vanillabackport.common.api.variant.SpawnPrioritySelectors"
 import {$Stream, $Stream$$Type} from "java.util.stream.Stream"
@@ -280,7 +280,7 @@ public static "alwaysTrue"<Context, Condition extends $PriorityProvider$Selector
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $ChickenVariant$$Type = ({"modelAndTexture"?: $ModelAndTexture$$Type<($ChickenVariant$ModelType$$Type)>, "spawnConditions"?: $SpawnPrioritySelectors$$Type}) | ([modelAndTexture?: $ModelAndTexture$$Type<($ChickenVariant$ModelType$$Type)>, spawnConditions?: $SpawnPrioritySelectors$$Type]);
+export type $ChickenVariant$$Type = ({"spawnConditions"?: $SpawnPrioritySelectors$$Type, "modelAndTexture"?: $ModelAndTexture$$Type<($ChickenVariant$ModelType$$Type)>}) | ([spawnConditions?: $SpawnPrioritySelectors$$Type, modelAndTexture?: $ModelAndTexture$$Type<($ChickenVariant$ModelType$$Type)>]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -297,8 +297,8 @@ import {$PriorityProvider$SelectorCondition} from "com.blackgear.vanillabackport
 import {$RandomSource$$Type} from "net.minecraft.util.RandomSource"
 import {$ModelAndTexture, $ModelAndTexture$$Type} from "com.blackgear.vanillabackport.common.api.variant.ModelAndTexture"
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$PriorityProvider$Selector} from "com.blackgear.vanillabackport.common.api.variant.PriorityProvider$Selector"
+import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$Function$$Type} from "java.util.function.Function"
 import {$SpawnPrioritySelectors, $SpawnPrioritySelectors$$Type} from "com.blackgear.vanillabackport.common.api.variant.SpawnPrioritySelectors"
 import {$Stream, $Stream$$Type} from "java.util.stream.Stream"
@@ -325,7 +325,7 @@ public static "alwaysTrue"<Context, Condition extends $PriorityProvider$Selector
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $PigVariant$$Type = ({"modelAndTexture"?: $ModelAndTexture$$Type<($PigVariant$ModelType$$Type)>, "spawnConditions"?: $SpawnPrioritySelectors$$Type}) | ([modelAndTexture?: $ModelAndTexture$$Type<($PigVariant$ModelType$$Type)>, spawnConditions?: $SpawnPrioritySelectors$$Type]);
+export type $PigVariant$$Type = ({"spawnConditions"?: $SpawnPrioritySelectors$$Type, "modelAndTexture"?: $ModelAndTexture$$Type<($PigVariant$ModelType$$Type)>}) | ([spawnConditions?: $SpawnPrioritySelectors$$Type, modelAndTexture?: $ModelAndTexture$$Type<($PigVariant$ModelType$$Type)>]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -379,17 +379,17 @@ public "equals"(o: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "ambientSound"(): $Holder<($SoundEvent)>
-public "whineSound"(): $Holder<($SoundEvent)>
-public "pantSound"(): $Holder<($SoundEvent)>
 public "hurtSound"(): $Holder<($SoundEvent)>
-public "deathSound"(): $Holder<($SoundEvent)>
+public "whineSound"(): $Holder<($SoundEvent)>
 public "growlSound"(): $Holder<($SoundEvent)>
+public "deathSound"(): $Holder<($SoundEvent)>
+public "pantSound"(): $Holder<($SoundEvent)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $WolfSoundVariant$$Type = ({"ambientSound"?: $Holder$$Type<($SoundEvent)>, "growlSound"?: $Holder$$Type<($SoundEvent)>, "deathSound"?: $Holder$$Type<($SoundEvent)>, "whineSound"?: $Holder$$Type<($SoundEvent)>, "hurtSound"?: $Holder$$Type<($SoundEvent)>, "pantSound"?: $Holder$$Type<($SoundEvent)>}) | ([ambientSound?: $Holder$$Type<($SoundEvent)>, growlSound?: $Holder$$Type<($SoundEvent)>, deathSound?: $Holder$$Type<($SoundEvent)>, whineSound?: $Holder$$Type<($SoundEvent)>, hurtSound?: $Holder$$Type<($SoundEvent)>, pantSound?: $Holder$$Type<($SoundEvent)>]);
+export type $WolfSoundVariant$$Type = ({"pantSound"?: $Holder$$Type<($SoundEvent)>, "hurtSound"?: $Holder$$Type<($SoundEvent)>, "whineSound"?: $Holder$$Type<($SoundEvent)>, "deathSound"?: $Holder$$Type<($SoundEvent)>, "growlSound"?: $Holder$$Type<($SoundEvent)>, "ambientSound"?: $Holder$$Type<($SoundEvent)>}) | ([pantSound?: $Holder$$Type<($SoundEvent)>, hurtSound?: $Holder$$Type<($SoundEvent)>, whineSound?: $Holder$$Type<($SoundEvent)>, deathSound?: $Holder$$Type<($SoundEvent)>, growlSound?: $Holder$$Type<($SoundEvent)>, ambientSound?: $Holder$$Type<($SoundEvent)>]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -397,8 +397,8 @@ export type $WolfSoundVariant$$Original = $WolfSoundVariant;}
 declare module "com.blackgear.vanillabackport.common.level.entities.animal.ChickenVariant$ModelType" {
 import {$Keyable} from "com.mojang.serialization.Keyable"
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Enum, $Enum$$Type} from "java.lang.Enum"
+import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Function, $Function$$Type} from "java.util.function.Function"
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$StringRepresentable, $StringRepresentable$$Type, $StringRepresentable$$Interface} from "net.minecraft.util.StringRepresentable"
@@ -411,12 +411,12 @@ static readonly "NORMAL": $ChickenVariant$ModelType
 public static "values"(): ($ChickenVariant$ModelType)[]
 public static "valueOf"(name: StringJS): $ChickenVariant$ModelType
 public "getSerializedName"(): StringJS
-public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
 public static "keys"(arg0: ($StringRepresentable$$Type)[]): $Keyable
+public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
+public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 public "getRemappedEnumConstantName"(): StringJS
 public static "fromEnum"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromValues"<T extends $StringRepresentable>(arg0: $Supplier$$Type<((T)[])>): $Codec<(T)>
-public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 get "serializedName"(): StringJS
 get "remappedEnumConstantName"(): StringJS
 }
@@ -463,8 +463,8 @@ export type $SpawnCondition$$Original = $SpawnCondition;}
 declare module "com.blackgear.vanillabackport.common.level.entities.animal.CowVariant$ModelType" {
 import {$Keyable} from "com.mojang.serialization.Keyable"
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Enum, $Enum$$Type} from "java.lang.Enum"
+import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Function, $Function$$Type} from "java.util.function.Function"
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$StringRepresentable, $StringRepresentable$$Type, $StringRepresentable$$Interface} from "net.minecraft.util.StringRepresentable"
@@ -478,12 +478,12 @@ static readonly "NORMAL": $CowVariant$ModelType
 public static "values"(): ($CowVariant$ModelType)[]
 public static "valueOf"(name: StringJS): $CowVariant$ModelType
 public "getSerializedName"(): StringJS
-public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
 public static "keys"(arg0: ($StringRepresentable$$Type)[]): $Keyable
+public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
+public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 public "getRemappedEnumConstantName"(): StringJS
 public static "fromEnum"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromValues"<T extends $StringRepresentable>(arg0: $Supplier$$Type<((T)[])>): $Codec<(T)>
-public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 get "serializedName"(): StringJS
 get "remappedEnumConstantName"(): StringJS
 }
@@ -512,23 +512,23 @@ constructor(model: T, asset: $ClientAsset$$Type)
 public "equals"(o: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public "model"(): T
-public static "codec"<T>(codec: $Codec$$Type<(T)>, entry: T): $MapCodec<($ModelAndTexture<(T)>)>
 public static "streamCodec"<T>(modelCodec: $StreamCodec$$Type<($RegistryFriendlyByteBuf$$Type), (T)>): $StreamCodec<($RegistryFriendlyByteBuf), ($ModelAndTexture<(T)>)>
 public "asset"(): $ClientAsset
+public "model"(): T
+public static "codec"<T>(codec: $Codec$$Type<(T)>, entry: T): $MapCodec<($ModelAndTexture<(T)>)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $ModelAndTexture$$Type<T> = ({"model"?: T, "asset"?: $ClientAsset$$Type}) | ([model?: T, asset?: $ClientAsset$$Type]);
+export type $ModelAndTexture$$Type<T> = ({"asset"?: $ClientAsset$$Type, "model"?: T}) | ([asset?: $ClientAsset$$Type, model?: T]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ModelAndTexture$$Original<T> = $ModelAndTexture<(T)>;}
 declare module "com.blackgear.vanillabackport.common.api.variant.PriorityProvider$Selector" {
-import {$Optional, $Optional$$Type} from "java.util.Optional"
 import {$Codec, $Codec$$Type} from "com.mojang.serialization.Codec"
+import {$Optional, $Optional$$Type} from "java.util.Optional"
 import {$PriorityProvider$SelectorCondition, $PriorityProvider$SelectorCondition$$Type} from "com.blackgear.vanillabackport.common.api.variant.PriorityProvider$SelectorCondition"
 import {$Record} from "java.lang.Record"
 
@@ -548,7 +548,7 @@ public static "codec"<Context, Condition extends $PriorityProvider$SelectorCondi
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $PriorityProvider$Selector$$Type<Context, Condition> = ({"priority"?: integer, "condition"?: (Condition)?}) | ([priority?: integer, condition?: (Condition)?]);
+export type $PriorityProvider$Selector$$Type<Context, Condition> = ({"condition"?: (Condition)?, "priority"?: integer}) | ([condition?: (Condition)?, priority?: integer]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -566,8 +566,8 @@ public "toString"(): StringJS
 public "hashCode"(): integer
 public "scale"(factor: double): $LeashExtension$Wrench
 public "force"(): $Vec3
-public "torque"(): double
 public static "accumulate"(wrenches: $List$$Type<($LeashExtension$Wrench$$Type)>): $LeashExtension$Wrench
+public "torque"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -603,10 +603,10 @@ export interface $VariantHolder$$Interface<T> {
 }
 
 export class $VariantHolder<T> implements $VariantHolder$$Interface {
-static "vb$trySetOffspringVariant"(child: $LivingEntity$$Type, father: $LivingEntity$$Type, mother: $LivingEntity$$Type): void
 static "vb$getVariantHolder"<T>(entity: $LivingEntity$$Type): $VariantHolder<(T)>
- "vb$setVariant"(arg0: T): void
+static "vb$trySetOffspringVariant"(child: $LivingEntity$$Type, father: $LivingEntity$$Type, mother: $LivingEntity$$Type): void
  "vb$getVariant"(): T
+ "vb$setVariant"(arg0: T): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -639,25 +639,25 @@ static readonly "LEASHER_ATTACHMENT_POINT": $List<($Vec3)>
 static readonly "ENTITY_ATTACHMENT_POINT": $List<($Vec3)>
 static readonly "SHARED_QUAD_ATTACHMENT_POINTS": $List<($Vec3)>
 
- "vb$getQuadLeashHolderOffsets"(): ($Vec3)[]
-static "vb$computeElasticInteraction"<E extends $Entity>(entity: E, holder: $Entity$$Type, attachmentPoints: $List$$Type<($Vec3$$Type)>, holderAttachmentPoints: $List$$Type<($Vec3$$Type)>): $List<($LeashExtension$Wrench)>
- "vb$checkElasticInteractions"(entity: $Entity$$Type, data: $Leashable$LeashData$$Type): boolean
- "vb$supportQuadLeashAsHolder"(): boolean
- "vb$onElasticLeashPull"(): void
- "vb$canHaveALeashAttachedTo"(target: $Entity$$Type): boolean
+ "vb$leashSnapDistance"(): double
+static "vb$getPreciseBodyRotation"(entity: $Entity$$Type, partialTicks: float): float
  "vb$leashElasticDistance"(): double
+ "vb$onElasticLeashPull"(): void
  "vb$notifyLeashHolder"(leashable: $Leashable$$Type): void
+ "vb$resetAngularMomentum"(): void
+ "vb$canHaveALeashAttachedTo"(target: $Entity$$Type): boolean
  "vb$supportQuadLeash"(): boolean
+static "vb$getHolderMovement"(entity: $Entity$$Type): $Vec3
+static "vb$getKnownMovement"(entity: $Entity$$Type): $Vec3
  "vb$getQuadLeashOffsets"(): ($Vec3)[]
 static "vb$createQuadLeashOffsets"(entity: $Entity$$Type, forwardOffset: double, sideOffset: double, widthOffset: double, heightOffset: double): ($Vec3)[]
 static "vb$leashableLeashedTo"(entity: $Entity$$Type): $List<($Leashable)>
- "vb$resetAngularMomentum"(): void
-static "vb$getHolderMovement"(entity: $Entity$$Type): $Vec3
-static "vb$getPreciseBodyRotation"(entity: $Entity$$Type, partialTicks: float): float
- "vb$leashSnapDistance"(): double
-static "vb$getKnownMovement"(entity: $Entity$$Type): $Vec3
- "vb$leashDistanceTo"(entity: $Entity$$Type): double
+ "vb$getQuadLeashHolderOffsets"(): ($Vec3)[]
+ "vb$supportQuadLeashAsHolder"(): boolean
+ "vb$checkElasticInteractions"(entity: $Entity$$Type, data: $Leashable$LeashData$$Type): boolean
+static "vb$computeElasticInteraction"<E extends $Entity>(entity: E, holder: $Entity$$Type, attachmentPoints: $List$$Type<($Vec3$$Type)>, holderAttachmentPoints: $List$$Type<($Vec3$$Type)>): $List<($LeashExtension$Wrench)>
  "vb$whenLeashedTo"(entity: $Entity$$Type): void
+ "vb$leashDistanceTo"(entity: $Entity$$Type): double
 static "vb$angularFriction"<E extends $Entity>(entity: E): float
 static "vb$leashableInArea"(entity: $Entity$$Type, filter: $Predicate$$Type<($Leashable)>): $List<($Leashable)>
 static "vb$leashableInArea"(level: $Level$$Type, pos: $Vec3$$Type, filter: $Predicate$$Type<($Leashable)>): $List<($Leashable)>

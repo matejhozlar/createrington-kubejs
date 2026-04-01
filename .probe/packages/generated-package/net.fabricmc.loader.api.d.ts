@@ -73,9 +73,9 @@ import {$Version} from "net.fabricmc.loader.api.Version"
 export interface $VersionInterval$$Interface {
 get "min"(): $Version
 get "max"(): $Version
-get "minInclusive"(): boolean
-get "maxInclusive"(): boolean
 get "semantic"(): boolean
+get "maxInclusive"(): boolean
+get "minInclusive"(): boolean
 }
 
 export class $VersionInterval implements $VersionInterval$$Interface {
@@ -91,9 +91,9 @@ static "not"(intervals: $Collection$$Type<($VersionInterval$$Type)>): $List<($Ve
  "not"(): $List<($VersionInterval)>
  "getMin"(): $Version
  "getMax"(): $Version
- "isMinInclusive"(): boolean
- "isMaxInclusive"(): boolean
  "isSemantic"(): boolean
+ "isMaxInclusive"(): boolean
+ "isMinInclusive"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -131,17 +131,17 @@ import {$ModOrigin$Kind} from "net.fabricmc.loader.api.metadata.ModOrigin$Kind"
 import {$Path} from "java.nio.file.Path"
 
 export interface $ModOrigin$$Interface {
-get "parentSubLocation"(): StringJS
-get "parentModId"(): StringJS
 get "kind"(): $ModOrigin$Kind
+get "parentModId"(): StringJS
 get "paths"(): $List<($Path)>
+get "parentSubLocation"(): StringJS
 }
 
 export class $ModOrigin implements $ModOrigin$$Interface {
- "getParentSubLocation"(): StringJS
- "getParentModId"(): StringJS
  "getKind"(): $ModOrigin$Kind
+ "getParentModId"(): StringJS
  "getPaths"(): $List<($Path)>
+ "getParentSubLocation"(): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -190,18 +190,18 @@ get "name"(): StringJS
 get "id"(): StringJS
 get "type"(): StringJS
 get "version"(): $Version
-get "license"(): $Collection<(StringJS)>
+get "dependencies"(): $Collection<($ModDependency)>
+get "contact"(): $ContactInformation
 get "depends"(): $Collection<($ModDependency)>
 get "breaks"(): $Collection<($ModDependency)>
 get "authors"(): $Collection<($Person)>
-get "contact"(): $ContactInformation
-get "dependencies"(): $Collection<($ModDependency)>
+get "license"(): $Collection<(StringJS)>
+get "suggests"(): $Collection<($ModDependency)>
+get "contributors"(): $Collection<($Person)>
+get "recommends"(): $Collection<($ModDependency)>
 get "customValues"(): $Map<(StringJS), ($CustomValue)>
 get "conflicts"(): $Collection<($ModDependency)>
 get "provides"(): $Collection<(StringJS)>
-get "recommends"(): $Collection<($ModDependency)>
-get "suggests"(): $Collection<($ModDependency)>
-get "contributors"(): $Collection<($Person)>
 }
 
 export class $ModMetadata implements $ModMetadata$$Interface {
@@ -211,13 +211,8 @@ export class $ModMetadata implements $ModMetadata$$Interface {
  "getId"(): StringJS
  "getType"(): StringJS
  "getVersion"(): $Version
- "containsCustomValue"(arg0: StringJS): boolean
-/**
- * 
- * @deprecated
- */
- "containsCustomElement"(arg0: StringJS): boolean
- "getLicense"(): $Collection<(StringJS)>
+ "getDependencies"(): $Collection<($ModDependency)>
+ "getContact"(): $ContactInformation
 /**
  * 
  * @deprecated
@@ -229,10 +224,20 @@ export class $ModMetadata implements $ModMetadata$$Interface {
  */
  "getBreaks"(): $Collection<($ModDependency)>
  "getAuthors"(): $Collection<($Person)>
- "getContact"(): $ContactInformation
- "getDependencies"(): $Collection<($ModDependency)>
+ "getLicense"(): $Collection<(StringJS)>
+/**
+ * 
+ * @deprecated
+ */
+ "getSuggests"(): $Collection<($ModDependency)>
  "getCustomValue"(arg0: StringJS): $CustomValue
  "getIconPath"(arg0: integer): $Optional<(StringJS)>
+ "getContributors"(): $Collection<($Person)>
+/**
+ * 
+ * @deprecated
+ */
+ "getRecommends"(): $Collection<($ModDependency)>
  "getCustomValues"(): $Map<(StringJS), ($CustomValue)>
 /**
  * 
@@ -240,17 +245,12 @@ export class $ModMetadata implements $ModMetadata$$Interface {
  */
  "getConflicts"(): $Collection<($ModDependency)>
  "getProvides"(): $Collection<(StringJS)>
+ "containsCustomValue"(arg0: StringJS): boolean
 /**
  * 
  * @deprecated
  */
- "getRecommends"(): $Collection<($ModDependency)>
-/**
- * 
- * @deprecated
- */
- "getSuggests"(): $Collection<($ModDependency)>
- "getContributors"(): $Collection<($Person)>
+ "containsCustomElement"(arg0: StringJS): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -298,19 +298,19 @@ import {$CustomValue$CvObject} from "net.fabricmc.loader.api.metadata.CustomValu
 export interface $CustomValue$$Interface {
 get "type"(): $CustomValue$CvType
 get "asBoolean"(): boolean
-get "asString"(): StringJS
 get "asNumber"(): number
-get "asObject"(): $CustomValue$CvObject
+get "asString"(): StringJS
 get "asArray"(): $CustomValue$CvArray
+get "asObject"(): $CustomValue$CvObject
 }
 
 export class $CustomValue implements $CustomValue$$Interface {
  "getType"(): $CustomValue$CvType
  "getAsBoolean"(): boolean
- "getAsString"(): StringJS
  "getAsNumber"(): number
- "getAsObject"(): $CustomValue$CvObject
+ "getAsString"(): StringJS
  "getAsArray"(): $CustomValue$CvArray
+ "getAsObject"(): $CustomValue$CvObject
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -334,10 +334,10 @@ export interface $CustomValue$CvArray$$Interface extends $CustomValue$$Interface
 [Symbol.iterator](): IterableIterator<$CustomValue>;
 get "type"(): $CustomValue$CvType
 get "asBoolean"(): boolean
-get "asString"(): StringJS
 get "asNumber"(): number
-get "asObject"(): $CustomValue$CvObject
+get "asString"(): StringJS
 get "asArray"(): $CustomValue$CvArray
+get "asObject"(): $CustomValue$CvObject
 }
 
 export class $CustomValue$CvArray implements $CustomValue$CvArray$$Interface {
@@ -345,10 +345,10 @@ export class $CustomValue$CvArray implements $CustomValue$CvArray$$Interface {
  "get"(arg0: integer): $CustomValue
  "getType"(): $CustomValue$CvType
  "getAsBoolean"(): boolean
- "getAsString"(): StringJS
  "getAsNumber"(): number
- "getAsObject"(): $CustomValue$CvObject
+ "getAsString"(): StringJS
  "getAsArray"(): $CustomValue$CvArray
+ "getAsObject"(): $CustomValue$CvObject
  "iterator"(): $Iterator<($CustomValue)>
  "spliterator"(): $Spliterator<($CustomValue)>
  "forEach"(arg0: $Consumer$$Type<($CustomValue)>): void
@@ -370,15 +370,15 @@ import {$Version, $Version$$Type} from "net.fabricmc.loader.api.Version"
 import {$VersionPredicate$PredicateTerm} from "net.fabricmc.loader.api.metadata.version.VersionPredicate$PredicateTerm"
 
 export interface $VersionPredicate$$Interface extends $Predicate$$Interface<($Version)> {
-get "interval"(): $VersionInterval
 get "terms"(): $Collection<($VersionPredicate$PredicateTerm)>
+get "interval"(): $VersionInterval
 }
 
 export class $VersionPredicate implements $VersionPredicate$$Interface {
 static "parse"(predicates: $Collection$$Type<(StringJS)>): $Collection<($VersionPredicate)>
 static "parse"(predicate: StringJS): $VersionPredicate
- "getInterval"(): $VersionInterval
  "getTerms"(): $Collection<($VersionPredicate$PredicateTerm)>
+ "getInterval"(): $VersionInterval
  "test"(arg0: $Version$$Type): boolean
  "or"(arg0: $Predicate$$Type<($Version)>): $Predicate<($Version)>
  "negate"(): $Predicate<($Version)>
@@ -404,16 +404,16 @@ import {$Version$$Type} from "net.fabricmc.loader.api.Version"
 import {$ModDependency$Kind} from "net.fabricmc.loader.api.metadata.ModDependency$Kind"
 
 export interface $ModDependency$$Interface {
-get "kind"(): $ModDependency$Kind
 get "modId"(): StringJS
+get "kind"(): $ModDependency$Kind
 get "versionRequirements"(): $Collection<($VersionPredicate)>
 get "versionIntervals"(): $List<($VersionInterval)>
 }
 
 export class $ModDependency implements $ModDependency$$Interface {
  "matches"(arg0: $Version$$Type): boolean
- "getKind"(): $ModDependency$Kind
  "getModId"(): StringJS
+ "getKind"(): $ModDependency$Kind
  "getVersionRequirements"(): $Collection<($VersionPredicate)>
  "getVersionIntervals"(): $List<($VersionInterval)>
 }
@@ -461,10 +461,10 @@ export interface $CustomValue$CvObject$$Interface extends $CustomValue$$Interfac
 [Symbol.iterator](): IterableIterator<$Map$Entry<(StringJS), ($CustomValue)>>;
 get "type"(): $CustomValue$CvType
 get "asBoolean"(): boolean
-get "asString"(): StringJS
 get "asNumber"(): number
-get "asObject"(): $CustomValue$CvObject
+get "asString"(): StringJS
 get "asArray"(): $CustomValue$CvArray
+get "asObject"(): $CustomValue$CvObject
 }
 
 export class $CustomValue$CvObject implements $CustomValue$CvObject$$Interface {
@@ -473,10 +473,10 @@ export class $CustomValue$CvObject implements $CustomValue$CvObject$$Interface {
  "containsKey"(arg0: StringJS): boolean
  "getType"(): $CustomValue$CvType
  "getAsBoolean"(): boolean
- "getAsString"(): StringJS
  "getAsNumber"(): number
- "getAsObject"(): $CustomValue$CvObject
+ "getAsString"(): StringJS
  "getAsArray"(): $CustomValue$CvArray
+ "getAsObject"(): $CustomValue$CvObject
  "iterator"(): $Iterator<($Map$Entry<(StringJS), ($CustomValue)>)>
  "spliterator"(): $Spliterator<($Map$Entry<(StringJS), ($CustomValue)>)>
  "forEach"(arg0: $Consumer$$Type<($Map$Entry<(StringJS), ($CustomValue)>)>): void
@@ -501,11 +501,11 @@ import {$ModMetadata} from "net.fabricmc.loader.api.metadata.ModMetadata"
 export interface $ModContainer$$Interface {
 get "root"(): $Path
 get "rootPath"(): $Path
-get "containedMods"(): $Collection<($ModContainer)>
-get "rootPaths"(): $List<($Path)>
-get "containingMod"(): $Optional<($ModContainer)>
 get "origin"(): $ModOrigin
 get "metadata"(): $ModMetadata
+get "rootPaths"(): $List<($Path)>
+get "containingMod"(): $Optional<($ModContainer)>
+get "containedMods"(): $Collection<($ModContainer)>
 }
 
 export class $ModContainer implements $ModContainer$$Interface {
@@ -524,12 +524,12 @@ export class $ModContainer implements $ModContainer$$Interface {
  * @deprecated
  */
  "getRootPath"(): $Path
- "getContainedMods"(): $Collection<($ModContainer)>
+ "getOrigin"(): $ModOrigin
+ "findPath"(file: StringJS): $Optional<($Path)>
+ "getMetadata"(): $ModMetadata
  "getRootPaths"(): $List<($Path)>
  "getContainingMod"(): $Optional<($ModContainer)>
- "findPath"(file: StringJS): $Optional<($Path)>
- "getOrigin"(): $ModOrigin
- "getMetadata"(): $ModMetadata
+ "getContainedMods"(): $Collection<($ModContainer)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

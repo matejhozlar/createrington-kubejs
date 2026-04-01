@@ -6,9 +6,9 @@ import {$File$$Type} from "java.io.File"
 import {$Reader$$Type} from "java.io.Reader"
 import {$URL$$Type} from "java.net.URL"
 import {$Config, $Config$$Type} from "com.electronwill.nightconfig.core.Config"
+import {$InputStream$$Type} from "java.io.InputStream"
 import {$ConfigFormat} from "com.electronwill.nightconfig.core.ConfigFormat"
 import {$Path$$Type} from "java.nio.file.Path"
-import {$InputStream$$Type} from "java.io.InputStream"
 
 export interface $ConfigParser$$Interface<C extends $Config> {
 get "format"(): $ConfigFormat<(C)>
@@ -62,8 +62,8 @@ import {$UnmodifiableConfig, $UnmodifiableConfig$$Type, $UnmodifiableConfig$$Int
 import {$ConfigFormat, $ConfigFormat$$Type} from "com.electronwill.nightconfig.core.ConfigFormat"
 
 export interface $Config$$Interface extends $UnmodifiableConfig$$Interface {
-set "insertionOrderPreserved"(value: boolean)
 get "insertionOrderPreserved"(): boolean
+set "insertionOrderPreserved"(value: boolean)
 get "empty"(): boolean
 }
 
@@ -83,58 +83,58 @@ static "of"(arg0: $Supplier$$Type<($Map$$Type<(StringJS), (any)>)>, arg1: $Confi
  "putAll"(arg0: $UnmodifiableConfig$$Type): void
  "set"<T>(arg0: StringJS, arg1: any): T
  "set"<T>(arg0: $List$$Type<(StringJS)>, arg1: any): T
-static "copy"(arg0: $UnmodifiableConfig$$Type, arg1: $Supplier$$Type<($Map$$Type<(StringJS), (any)>)>): $Config
-static "copy"(arg0: $UnmodifiableConfig$$Type, arg1: $Supplier$$Type<($Map$$Type<(StringJS), (any)>)>, arg2: $ConfigFormat$$Type<(never)>): $Config
 static "copy"(arg0: $UnmodifiableConfig$$Type, arg1: $ConfigFormat$$Type<(never)>): $Config
 static "copy"(arg0: $UnmodifiableConfig$$Type): $Config
+static "copy"(arg0: $UnmodifiableConfig$$Type, arg1: $Supplier$$Type<($Map$$Type<(StringJS), (any)>)>): $Config
+static "copy"(arg0: $UnmodifiableConfig$$Type, arg1: $Supplier$$Type<($Map$$Type<(StringJS), (any)>)>, arg2: $ConfigFormat$$Type<(never)>): $Config
  "checked"(): $Config
  "removeAll"(arg0: $UnmodifiableConfig$$Type): void
-static "setInsertionOrderPreserved"(arg0: boolean): void
-/**
- * 
- * @deprecated
- */
-static "getDefaultMapCreator"<T>(arg0: boolean): $Supplier<($Map<(StringJS), (T)>)>
-/**
- * 
- * @deprecated
- */
-static "getDefaultMapCreator"<T>(arg0: boolean, arg1: boolean): $Supplier<($Map<(StringJS), (T)>)>
-static "isInsertionOrderPreserved"(): boolean
-/**
- * 
- * @deprecated
- */
-static "inMemoryUniversalConcurrent"(): $Config
-/**
- * 
- * @deprecated
- */
-static "concurrentCopy"(arg0: $UnmodifiableConfig$$Type): $Config
-/**
- * 
- * @deprecated
- */
-static "concurrentCopy"(arg0: $UnmodifiableConfig$$Type, arg1: $ConfigFormat$$Type<(never)>): $Config
- "unmodifiable"(): $UnmodifiableConfig
  "createSubConfig"(): $Config
 /**
  * 
  * @deprecated
  */
 static "ofConcurrent"(arg0: $ConfigFormat$$Type<($Config$$Type)>): $Config
-static "inMemoryUniversal"(): $Config
+ "unmodifiable"(): $UnmodifiableConfig
 /**
  * 
  * @deprecated
  */
 static "inMemoryConcurrent"(): $Config
-static "inMemory"(): $Config
+/**
+ * 
+ * @deprecated
+ */
+static "concurrentCopy"(arg0: $UnmodifiableConfig$$Type, arg1: $ConfigFormat$$Type<(never)>): $Config
+/**
+ * 
+ * @deprecated
+ */
+static "concurrentCopy"(arg0: $UnmodifiableConfig$$Type): $Config
+static "inMemoryUniversal"(): $Config
 /**
  * 
  * @deprecated
  */
  "valueMap"(): $Map<(StringJS), (any)>
+static "inMemory"(): $Config
+/**
+ * 
+ * @deprecated
+ */
+static "inMemoryUniversalConcurrent"(): $Config
+static "isInsertionOrderPreserved"(): boolean
+static "setInsertionOrderPreserved"(arg0: boolean): void
+/**
+ * 
+ * @deprecated
+ */
+static "getDefaultMapCreator"<T>(arg0: boolean, arg1: boolean): $Supplier<($Map<(StringJS), (T)>)>
+/**
+ * 
+ * @deprecated
+ */
+static "getDefaultMapCreator"<T>(arg0: boolean): $Supplier<($Map<(StringJS), (T)>)>
  "size"(): integer
  "get"<T>(arg0: StringJS): T
  "get"<T>(arg0: $List$$Type<(StringJS)>): T
@@ -151,53 +151,53 @@ static "inMemory"(): $Config
  "isEmpty"(): boolean
  "apply"<T>(arg0: StringJS): T
  "apply"<T>(arg0: $List$$Type<(StringJS)>): T
- "contains"(arg0: $List$$Type<(StringJS)>): boolean
  "contains"(arg0: StringJS): boolean
- "isNull"(arg0: $List$$Type<(StringJS)>): boolean
+ "contains"(arg0: $List$$Type<(StringJS)>): boolean
  "isNull"(arg0: StringJS): boolean
- "getOptionalEnum"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type): $Optional<(T)>
- "getCharOrElse"(arg0: StringJS, arg1: character): character
- "getCharOrElse"(arg0: $List$$Type<(StringJS)>, arg1: character): character
- "getByteOrElse"(arg0: StringJS, arg1: byte): byte
- "getByteOrElse"(arg0: $List$$Type<(StringJS)>, arg1: byte): byte
- "configFormat"(): $ConfigFormat<(never)>
- "getOptionalLong"(arg0: StringJS): $OptionalLong
- "getOptionalLong"(arg0: $List$$Type<(StringJS)>): $OptionalLong
- "getIntOrElse"(arg0: $List$$Type<(StringJS)>, arg1: $IntSupplier$$Type): integer
- "getIntOrElse"(arg0: StringJS, arg1: $IntSupplier$$Type): integer
- "getIntOrElse"(arg0: StringJS, arg1: integer): integer
+ "isNull"(arg0: $List$$Type<(StringJS)>): boolean
  "getIntOrElse"(arg0: $List$$Type<(StringJS)>, arg1: integer): integer
- "getShortOrElse"(arg0: $List$$Type<(StringJS)>, arg1: short): short
- "getShortOrElse"(arg0: StringJS, arg1: short): short
+ "getIntOrElse"(arg0: $List$$Type<(StringJS)>, arg1: $IntSupplier$$Type): integer
+ "getIntOrElse"(arg0: StringJS, arg1: integer): integer
+ "getIntOrElse"(arg0: StringJS, arg1: $IntSupplier$$Type): integer
  "getOptional"<T>(arg0: $List$$Type<(StringJS)>): $Optional<(T)>
  "getOptional"<T>(arg0: StringJS): $Optional<(T)>
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type, arg3: $Supplier$$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type, arg3: $Supplier$$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>, arg2: $Supplier$$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: T, arg2: $EnumGetMethod$$Type): T
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: T, arg2: $EnumGetMethod$$Type): T
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: T): T
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: T): T
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>, arg2: $Supplier$$Type<(T)>): T
+ "getByteOrElse"(arg0: StringJS, arg1: byte): byte
+ "getByteOrElse"(arg0: $List$$Type<(StringJS)>, arg1: byte): byte
  "getOptionalInt"(arg0: StringJS): $OptionalInt
  "getOptionalInt"(arg0: $List$$Type<(StringJS)>): $OptionalInt
- "getLongOrElse"(arg0: StringJS, arg1: long): long
+ "configFormat"(): $ConfigFormat<(never)>
+ "getShortOrElse"(arg0: StringJS, arg1: short): short
+ "getShortOrElse"(arg0: $List$$Type<(StringJS)>, arg1: short): short
+ "getOptionalLong"(arg0: $List$$Type<(StringJS)>): $OptionalLong
+ "getOptionalLong"(arg0: StringJS): $OptionalLong
+ "getOptionalEnum"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type): $Optional<(T)>
+ "getLongOrElse"(arg0: StringJS, arg1: $LongSupplier$$Type): long
  "getLongOrElse"(arg0: $List$$Type<(StringJS)>, arg1: $LongSupplier$$Type): long
  "getLongOrElse"(arg0: $List$$Type<(StringJS)>, arg1: long): long
- "getLongOrElse"(arg0: StringJS, arg1: $LongSupplier$$Type): long
- "getRaw"<T>(arg0: $List$$Type<(StringJS)>): T
+ "getLongOrElse"(arg0: StringJS, arg1: long): long
+ "getCharOrElse"(arg0: $List$$Type<(StringJS)>, arg1: character): character
+ "getCharOrElse"(arg0: StringJS, arg1: character): character
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>, arg2: $Supplier$$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: T, arg2: $EnumGetMethod$$Type): T
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: T, arg2: $EnumGetMethod$$Type): T
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: T): T
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type, arg3: $Supplier$$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: T): T
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type, arg3: $Supplier$$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>, arg2: $Supplier$$Type<(T)>): T
  "getRaw"<T>(arg0: StringJS): T
- "getOrElse"<T>(arg0: StringJS, arg1: T): T
- "getOrElse"<T>(arg0: $List$$Type<(StringJS)>, arg1: T): T
+ "getRaw"<T>(arg0: $List$$Type<(StringJS)>): T
  "getOrElse"<T>(arg0: StringJS, arg1: $Supplier$$Type<(T)>): T
+ "getOrElse"<T>(arg0: StringJS, arg1: T): T
  "getOrElse"<T>(arg0: $List$$Type<(StringJS)>, arg1: $Supplier$$Type<(T)>): T
- "getEnum"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>): T
+ "getOrElse"<T>(arg0: $List$$Type<(StringJS)>, arg1: T): T
  "getEnum"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type): T
- "getEnum"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>): T
+ "getEnum"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>): T
  "getEnum"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type): T
+ "getEnum"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>): T
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -244,9 +244,9 @@ get "long"(): long
 get "value"(): T
 get "key"(): StringJS
 get "null"(): boolean
-get "optionalLong"(): $OptionalLong
 get "optional"(): $Optional<(T)>
 get "optionalInt"(): $OptionalInt
+get "optionalLong"(): $OptionalLong
 get "rawValue"(): T
 }
 
@@ -260,16 +260,16 @@ export class $UnmodifiableCommentedConfig$Entry implements $UnmodifiableCommente
  "getValue"<T>(): T
  "getKey"(): StringJS
  "isNull"(): boolean
- "getCharOrElse"(arg0: character): character
- "getByteOrElse"(arg0: byte): byte
- "getOptionalLong"(): $OptionalLong
  "getIntOrElse"(arg0: integer): integer
- "getShortOrElse"(arg0: short): short
  "getOptional"<T>(): $Optional<(T)>
+ "getByteOrElse"(arg0: byte): byte
  "getOptionalInt"(): $OptionalInt
+ "getShortOrElse"(arg0: short): short
+ "getOptionalLong"(): $OptionalLong
  "getLongOrElse"(arg0: long): long
- "getRawValue"<T>(): T
+ "getCharOrElse"(arg0: character): character
  "getOrElse"<T>(arg0: T): T
+ "getRawValue"<T>(): T
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -317,26 +317,26 @@ import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$WriterSupplier$$Type} from "com.electronwill.nightconfig.core.utils.WriterSupplier"
 import {$Class$$Type} from "java.lang.Class"
 import {$Config} from "com.electronwill.nightconfig.core.Config"
-import {$Path$$Type} from "java.nio.file.Path"
 import {$ConfigParser} from "com.electronwill.nightconfig.core.io.ConfigParser"
+import {$Path$$Type} from "java.nio.file.Path"
 
 export interface $ConfigFormat$$Interface<C extends $Config> {
 get "inMemory"(): boolean
 }
 
 export class $ConfigFormat<C extends $Config> implements $ConfigFormat$$Interface {
- "createConcurrentConfig"(): C
- "createWriter"(): $ConfigWriter
- "createParser"(): $ConfigParser<(C)>
- "supportsType"(arg0: $Class$$Type<(never)>): boolean
- "supportsComments"(): boolean
- "createConfig"(): C
  "createConfig"(arg0: $Supplier$$Type<($Map$$Type<(StringJS), (any)>)>): C
- "initEmptyFile"(arg0: $Writer$$Type): void
+ "createConfig"(): C
+ "supportsType"(arg0: $Class$$Type<(never)>): boolean
+ "createParser"(): $ConfigParser<(C)>
  "initEmptyFile"(arg0: $Path$$Type): void
  "initEmptyFile"(arg0: $File$$Type): void
  "initEmptyFile"(arg0: $WriterSupplier$$Type): void
+ "initEmptyFile"(arg0: $Writer$$Type): void
+ "createWriter"(): $ConfigWriter
+ "supportsComments"(): boolean
  "isInMemory"(): boolean
+ "createConcurrentConfig"(): C
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -361,9 +361,9 @@ get "long"(): long
 get "value"(): T
 get "key"(): StringJS
 get "null"(): boolean
-get "optionalLong"(): $OptionalLong
 get "optional"(): $Optional<(T)>
 get "optionalInt"(): $OptionalInt
+get "optionalLong"(): $OptionalLong
 get "rawValue"(): T
 }
 
@@ -376,16 +376,16 @@ export class $UnmodifiableConfig$Entry implements $UnmodifiableConfig$Entry$$Int
  "getValue"<T>(): T
  "getKey"(): StringJS
  "isNull"(): boolean
- "getCharOrElse"(arg0: character): character
- "getByteOrElse"(arg0: byte): byte
- "getOptionalLong"(): $OptionalLong
  "getIntOrElse"(arg0: integer): integer
- "getShortOrElse"(arg0: short): short
  "getOptional"<T>(): $Optional<(T)>
+ "getByteOrElse"(arg0: byte): byte
  "getOptionalInt"(): $OptionalInt
+ "getShortOrElse"(arg0: short): short
+ "getOptionalLong"(): $OptionalLong
  "getLongOrElse"(arg0: long): long
- "getRawValue"<T>(): T
+ "getCharOrElse"(arg0: character): character
  "getOrElse"<T>(arg0: T): T
+ "getRawValue"<T>(): T
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -433,59 +433,59 @@ export class $UnmodifiableConfig implements $UnmodifiableConfig$$Interface {
  "isEmpty"(): boolean
  "apply"<T>(arg0: StringJS): T
  "apply"<T>(arg0: $List$$Type<(StringJS)>): T
- "contains"(arg0: $List$$Type<(StringJS)>): boolean
  "contains"(arg0: StringJS): boolean
+ "contains"(arg0: $List$$Type<(StringJS)>): boolean
  "entrySet"(): $Set<($UnmodifiableConfig$Entry)>
- "isNull"(arg0: $List$$Type<(StringJS)>): boolean
  "isNull"(arg0: StringJS): boolean
- "getOptionalEnum"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type): $Optional<(T)>
- "getCharOrElse"(arg0: StringJS, arg1: character): character
- "getCharOrElse"(arg0: $List$$Type<(StringJS)>, arg1: character): character
- "getByteOrElse"(arg0: StringJS, arg1: byte): byte
- "getByteOrElse"(arg0: $List$$Type<(StringJS)>, arg1: byte): byte
- "configFormat"(): $ConfigFormat<(never)>
- "getOptionalLong"(arg0: StringJS): $OptionalLong
- "getOptionalLong"(arg0: $List$$Type<(StringJS)>): $OptionalLong
- "getIntOrElse"(arg0: $List$$Type<(StringJS)>, arg1: $IntSupplier$$Type): integer
- "getIntOrElse"(arg0: StringJS, arg1: $IntSupplier$$Type): integer
- "getIntOrElse"(arg0: StringJS, arg1: integer): integer
+ "isNull"(arg0: $List$$Type<(StringJS)>): boolean
  "getIntOrElse"(arg0: $List$$Type<(StringJS)>, arg1: integer): integer
- "getShortOrElse"(arg0: $List$$Type<(StringJS)>, arg1: short): short
- "getShortOrElse"(arg0: StringJS, arg1: short): short
+ "getIntOrElse"(arg0: $List$$Type<(StringJS)>, arg1: $IntSupplier$$Type): integer
+ "getIntOrElse"(arg0: StringJS, arg1: integer): integer
+ "getIntOrElse"(arg0: StringJS, arg1: $IntSupplier$$Type): integer
  "getOptional"<T>(arg0: $List$$Type<(StringJS)>): $Optional<(T)>
  "getOptional"<T>(arg0: StringJS): $Optional<(T)>
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type, arg3: $Supplier$$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type, arg3: $Supplier$$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>, arg2: $Supplier$$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: T, arg2: $EnumGetMethod$$Type): T
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: T, arg2: $EnumGetMethod$$Type): T
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: T): T
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: T): T
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>, arg2: $Supplier$$Type<(T)>): T
+ "getByteOrElse"(arg0: StringJS, arg1: byte): byte
+ "getByteOrElse"(arg0: $List$$Type<(StringJS)>, arg1: byte): byte
  "getOptionalInt"(arg0: StringJS): $OptionalInt
  "getOptionalInt"(arg0: $List$$Type<(StringJS)>): $OptionalInt
- "getLongOrElse"(arg0: StringJS, arg1: long): long
+ "configFormat"(): $ConfigFormat<(never)>
+ "getShortOrElse"(arg0: StringJS, arg1: short): short
+ "getShortOrElse"(arg0: $List$$Type<(StringJS)>, arg1: short): short
+ "getOptionalLong"(arg0: $List$$Type<(StringJS)>): $OptionalLong
+ "getOptionalLong"(arg0: StringJS): $OptionalLong
+ "getOptionalEnum"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type): $Optional<(T)>
+ "getLongOrElse"(arg0: StringJS, arg1: $LongSupplier$$Type): long
  "getLongOrElse"(arg0: $List$$Type<(StringJS)>, arg1: $LongSupplier$$Type): long
  "getLongOrElse"(arg0: $List$$Type<(StringJS)>, arg1: long): long
- "getLongOrElse"(arg0: StringJS, arg1: $LongSupplier$$Type): long
- "getRaw"<T>(arg0: $List$$Type<(StringJS)>): T
- "getRaw"<T>(arg0: StringJS): T
- "getOrElse"<T>(arg0: StringJS, arg1: T): T
- "getOrElse"<T>(arg0: $List$$Type<(StringJS)>, arg1: T): T
- "getOrElse"<T>(arg0: StringJS, arg1: $Supplier$$Type<(T)>): T
- "getOrElse"<T>(arg0: $List$$Type<(StringJS)>, arg1: $Supplier$$Type<(T)>): T
- "getEnum"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>): T
- "getEnum"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type): T
- "getEnum"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>): T
- "getEnum"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type): T
+ "getLongOrElse"(arg0: StringJS, arg1: long): long
+ "getCharOrElse"(arg0: $List$$Type<(StringJS)>, arg1: character): character
+ "getCharOrElse"(arg0: StringJS, arg1: character): character
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>, arg2: $Supplier$$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: T, arg2: $EnumGetMethod$$Type): T
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: T, arg2: $EnumGetMethod$$Type): T
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: T): T
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type, arg3: $Supplier$$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: T): T
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type, arg3: $Supplier$$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>, arg2: $Supplier$$Type<(T)>): T
 /**
  * 
  * @deprecated
  */
  "valueMap"(): $Map<(StringJS), (any)>
+ "getRaw"<T>(arg0: StringJS): T
+ "getRaw"<T>(arg0: $List$$Type<(StringJS)>): T
+ "getOrElse"<T>(arg0: StringJS, arg1: $Supplier$$Type<(T)>): T
+ "getOrElse"<T>(arg0: StringJS, arg1: T): T
+ "getOrElse"<T>(arg0: $List$$Type<(StringJS)>, arg1: $Supplier$$Type<(T)>): T
+ "getOrElse"<T>(arg0: $List$$Type<(StringJS)>, arg1: T): T
+ "getEnum"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type): T
+ "getEnum"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>): T
+ "getEnum"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type): T
+ "getEnum"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>): T
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -510,16 +510,16 @@ import {$UnmodifiableCommentedConfig$CommentNode, $UnmodifiableCommentedConfig$C
 import {$LongSupplier$$Type} from "java.util.function.LongSupplier"
 import {$OptionalInt} from "java.util.OptionalInt"
 import {$Supplier, $Supplier$$Type} from "java.util.function.Supplier"
-import {$UnmodifiableConfig, $UnmodifiableConfig$$Type} from "com.electronwill.nightconfig.core.UnmodifiableConfig"
 import {$Class$$Type} from "java.lang.Class"
+import {$UnmodifiableConfig, $UnmodifiableConfig$$Type} from "com.electronwill.nightconfig.core.UnmodifiableConfig"
 import {$Set} from "java.util.Set"
 import {$CommentedConfig$Entry} from "com.electronwill.nightconfig.core.CommentedConfig$Entry"
 import {$ConfigFormat, $ConfigFormat$$Type} from "com.electronwill.nightconfig.core.ConfigFormat"
 
 export interface $CommentedConfig$$Interface extends $UnmodifiableCommentedConfig$$Interface, $Config$$Interface {
 get "comments"(): $Map<(StringJS), ($UnmodifiableCommentedConfig$CommentNode)>
-set "insertionOrderPreserved"(value: boolean)
 get "insertionOrderPreserved"(): boolean
+set "insertionOrderPreserved"(value: boolean)
 get "empty"(): boolean
 }
 
@@ -539,22 +539,25 @@ static "copy"(arg0: $UnmodifiableCommentedConfig$$Type): $CommentedConfig
  "checked"(): $Config
  "setComment"(arg0: StringJS, arg1: StringJS): StringJS
  "setComment"(arg0: $List$$Type<(StringJS)>, arg1: StringJS): StringJS
-static "fake"(arg0: $Config$$Type): $CommentedConfig
+ "createSubConfig"(): $CommentedConfig
+ "putAllComments"(arg0: $Map$$Type<(StringJS), ($UnmodifiableCommentedConfig$CommentNode$$Type)>): void
+ "putAllComments"(arg0: $UnmodifiableCommentedConfig$$Type): void
 /**
  * 
  * @deprecated
  */
- "commentMap"(): $Map<(StringJS), (StringJS)>
+static "ofConcurrent"(arg0: $ConfigFormat$$Type<($CommentedConfig$$Type)>): $CommentedConfig
+ "unmodifiable"(): $UnmodifiableConfig
 /**
  * 
  * @deprecated
  */
-static "concurrentCopy"(arg0: $UnmodifiableCommentedConfig$$Type, arg1: $ConfigFormat$$Type<(never)>): $CommentedConfig
+static "inMemoryConcurrent"(): $CommentedConfig
 /**
  * 
  * @deprecated
  */
-static "concurrentCopy"(arg0: $UnmodifiableCommentedConfig$$Type): $CommentedConfig
+static "concurrentCopy"(arg0: $UnmodifiableConfig$$Type): $CommentedConfig
 /**
  * 
  * @deprecated
@@ -564,34 +567,31 @@ static "concurrentCopy"(arg0: $UnmodifiableConfig$$Type, arg1: $ConfigFormat$$Ty
  * 
  * @deprecated
  */
-static "concurrentCopy"(arg0: $UnmodifiableConfig$$Type): $CommentedConfig
- "putAllComments"(arg0: $Map$$Type<(StringJS), ($UnmodifiableCommentedConfig$CommentNode$$Type)>): void
- "putAllComments"(arg0: $UnmodifiableCommentedConfig$$Type): void
- "unmodifiable"(): $UnmodifiableConfig
- "createSubConfig"(): $CommentedConfig
+static "concurrentCopy"(arg0: $UnmodifiableCommentedConfig$$Type): $CommentedConfig
 /**
  * 
  * @deprecated
  */
-static "ofConcurrent"(arg0: $ConfigFormat$$Type<($CommentedConfig$$Type)>): $CommentedConfig
-/**
- * 
- * @deprecated
- */
-static "inMemoryConcurrent"(): $CommentedConfig
+static "concurrentCopy"(arg0: $UnmodifiableCommentedConfig$$Type, arg1: $ConfigFormat$$Type<(never)>): $CommentedConfig
  "removeComment"(arg0: StringJS): StringJS
  "removeComment"(arg0: $List$$Type<(StringJS)>): StringJS
  "clearComments"(): void
+/**
+ * 
+ * @deprecated
+ */
+ "commentMap"(): $Map<(StringJS), (StringJS)>
 static "inMemory"(): $CommentedConfig
+static "fake"(arg0: $Config$$Type): $CommentedConfig
  "getComment"(arg0: StringJS): StringJS
  "getComment"(arg0: $List$$Type<(StringJS)>): StringJS
-static "fake"(arg0: $UnmodifiableConfig$$Type): $UnmodifiableCommentedConfig
- "getComments"(arg0: $Map$$Type<(StringJS), ($UnmodifiableCommentedConfig$CommentNode$$Type)>): void
- "getComments"(): $Map<(StringJS), ($UnmodifiableCommentedConfig$CommentNode)>
  "containsComment"(arg0: $List$$Type<(StringJS)>): boolean
  "containsComment"(arg0: StringJS): boolean
- "getOptionalComment"(arg0: StringJS): $Optional<(StringJS)>
  "getOptionalComment"(arg0: $List$$Type<(StringJS)>): $Optional<(StringJS)>
+ "getOptionalComment"(arg0: StringJS): $Optional<(StringJS)>
+ "getComments"(arg0: $Map$$Type<(StringJS), ($UnmodifiableCommentedConfig$CommentNode$$Type)>): void
+ "getComments"(): $Map<(StringJS), ($UnmodifiableCommentedConfig$CommentNode)>
+static "fake"(arg0: $UnmodifiableConfig$$Type): $UnmodifiableCommentedConfig
  "remove"<T>(arg0: $List$$Type<(StringJS)>): T
  "remove"<T>(arg0: StringJS): T
  "update"(arg0: StringJS, arg1: any): void
@@ -604,29 +604,29 @@ static "fake"(arg0: $UnmodifiableConfig$$Type): $UnmodifiableCommentedConfig
  "set"<T>(arg0: StringJS, arg1: any): T
  "set"<T>(arg0: $List$$Type<(StringJS)>, arg1: any): T
  "removeAll"(arg0: $UnmodifiableConfig$$Type): void
-static "setInsertionOrderPreserved"(arg0: boolean): void
-/**
- * 
- * @deprecated
- */
-static "getDefaultMapCreator"<T>(arg0: boolean): $Supplier<($Map<(StringJS), (T)>)>
-/**
- * 
- * @deprecated
- */
-static "getDefaultMapCreator"<T>(arg0: boolean, arg1: boolean): $Supplier<($Map<(StringJS), (T)>)>
-static "isInsertionOrderPreserved"(): boolean
-/**
- * 
- * @deprecated
- */
-static "inMemoryUniversalConcurrent"(): $Config
 static "inMemoryUniversal"(): $Config
 /**
  * 
  * @deprecated
  */
  "valueMap"(): $Map<(StringJS), (any)>
+/**
+ * 
+ * @deprecated
+ */
+static "inMemoryUniversalConcurrent"(): $Config
+static "isInsertionOrderPreserved"(): boolean
+static "setInsertionOrderPreserved"(arg0: boolean): void
+/**
+ * 
+ * @deprecated
+ */
+static "getDefaultMapCreator"<T>(arg0: boolean, arg1: boolean): $Supplier<($Map<(StringJS), (T)>)>
+/**
+ * 
+ * @deprecated
+ */
+static "getDefaultMapCreator"<T>(arg0: boolean): $Supplier<($Map<(StringJS), (T)>)>
  "size"(): integer
  "get"<T>(arg0: StringJS): T
  "get"<T>(arg0: $List$$Type<(StringJS)>): T
@@ -643,53 +643,53 @@ static "inMemoryUniversal"(): $Config
  "isEmpty"(): boolean
  "apply"<T>(arg0: StringJS): T
  "apply"<T>(arg0: $List$$Type<(StringJS)>): T
- "contains"(arg0: $List$$Type<(StringJS)>): boolean
  "contains"(arg0: StringJS): boolean
- "isNull"(arg0: $List$$Type<(StringJS)>): boolean
+ "contains"(arg0: $List$$Type<(StringJS)>): boolean
  "isNull"(arg0: StringJS): boolean
- "getOptionalEnum"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type): $Optional<(T)>
- "getCharOrElse"(arg0: StringJS, arg1: character): character
- "getCharOrElse"(arg0: $List$$Type<(StringJS)>, arg1: character): character
- "getByteOrElse"(arg0: StringJS, arg1: byte): byte
- "getByteOrElse"(arg0: $List$$Type<(StringJS)>, arg1: byte): byte
- "configFormat"(): $ConfigFormat<(never)>
- "getOptionalLong"(arg0: StringJS): $OptionalLong
- "getOptionalLong"(arg0: $List$$Type<(StringJS)>): $OptionalLong
- "getIntOrElse"(arg0: $List$$Type<(StringJS)>, arg1: $IntSupplier$$Type): integer
- "getIntOrElse"(arg0: StringJS, arg1: $IntSupplier$$Type): integer
- "getIntOrElse"(arg0: StringJS, arg1: integer): integer
+ "isNull"(arg0: $List$$Type<(StringJS)>): boolean
  "getIntOrElse"(arg0: $List$$Type<(StringJS)>, arg1: integer): integer
- "getShortOrElse"(arg0: $List$$Type<(StringJS)>, arg1: short): short
- "getShortOrElse"(arg0: StringJS, arg1: short): short
+ "getIntOrElse"(arg0: $List$$Type<(StringJS)>, arg1: $IntSupplier$$Type): integer
+ "getIntOrElse"(arg0: StringJS, arg1: integer): integer
+ "getIntOrElse"(arg0: StringJS, arg1: $IntSupplier$$Type): integer
  "getOptional"<T>(arg0: $List$$Type<(StringJS)>): $Optional<(T)>
  "getOptional"<T>(arg0: StringJS): $Optional<(T)>
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type, arg3: $Supplier$$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type, arg3: $Supplier$$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>, arg2: $Supplier$$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: T, arg2: $EnumGetMethod$$Type): T
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: T, arg2: $EnumGetMethod$$Type): T
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: T): T
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: T): T
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>, arg2: $Supplier$$Type<(T)>): T
+ "getByteOrElse"(arg0: StringJS, arg1: byte): byte
+ "getByteOrElse"(arg0: $List$$Type<(StringJS)>, arg1: byte): byte
  "getOptionalInt"(arg0: StringJS): $OptionalInt
  "getOptionalInt"(arg0: $List$$Type<(StringJS)>): $OptionalInt
- "getLongOrElse"(arg0: StringJS, arg1: long): long
+ "configFormat"(): $ConfigFormat<(never)>
+ "getShortOrElse"(arg0: StringJS, arg1: short): short
+ "getShortOrElse"(arg0: $List$$Type<(StringJS)>, arg1: short): short
+ "getOptionalLong"(arg0: $List$$Type<(StringJS)>): $OptionalLong
+ "getOptionalLong"(arg0: StringJS): $OptionalLong
+ "getOptionalEnum"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type): $Optional<(T)>
+ "getLongOrElse"(arg0: StringJS, arg1: $LongSupplier$$Type): long
  "getLongOrElse"(arg0: $List$$Type<(StringJS)>, arg1: $LongSupplier$$Type): long
  "getLongOrElse"(arg0: $List$$Type<(StringJS)>, arg1: long): long
- "getLongOrElse"(arg0: StringJS, arg1: $LongSupplier$$Type): long
- "getRaw"<T>(arg0: $List$$Type<(StringJS)>): T
+ "getLongOrElse"(arg0: StringJS, arg1: long): long
+ "getCharOrElse"(arg0: $List$$Type<(StringJS)>, arg1: character): character
+ "getCharOrElse"(arg0: StringJS, arg1: character): character
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>, arg2: $Supplier$$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: T, arg2: $EnumGetMethod$$Type): T
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: T, arg2: $EnumGetMethod$$Type): T
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: T): T
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type, arg3: $Supplier$$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: T): T
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type, arg3: $Supplier$$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>, arg2: $Supplier$$Type<(T)>): T
  "getRaw"<T>(arg0: StringJS): T
- "getOrElse"<T>(arg0: StringJS, arg1: T): T
- "getOrElse"<T>(arg0: $List$$Type<(StringJS)>, arg1: T): T
+ "getRaw"<T>(arg0: $List$$Type<(StringJS)>): T
  "getOrElse"<T>(arg0: StringJS, arg1: $Supplier$$Type<(T)>): T
+ "getOrElse"<T>(arg0: StringJS, arg1: T): T
  "getOrElse"<T>(arg0: $List$$Type<(StringJS)>, arg1: $Supplier$$Type<(T)>): T
- "getEnum"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>): T
+ "getOrElse"<T>(arg0: $List$$Type<(StringJS)>, arg1: T): T
  "getEnum"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type): T
- "getEnum"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>): T
+ "getEnum"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>): T
  "getEnum"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type): T
+ "getEnum"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>): T
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -705,8 +705,8 @@ import {$EnumGetMethod$$Type} from "com.electronwill.nightconfig.core.EnumGetMet
 import {$Map, $Map$$Type} from "java.util.Map"
 import {$Optional} from "java.util.Optional"
 import {$Enum, $Enum$$Type} from "java.lang.Enum"
-import {$List$$Type} from "java.util.List"
 import {$UnmodifiableCommentedConfig$Entry} from "com.electronwill.nightconfig.core.UnmodifiableCommentedConfig$Entry"
+import {$List$$Type} from "java.util.List"
 import {$OptionalLong} from "java.util.OptionalLong"
 import {$IntSupplier$$Type} from "java.util.function.IntSupplier"
 import {$UnmodifiableCommentedConfig$CommentNode, $UnmodifiableCommentedConfig$CommentNode$$Type} from "com.electronwill.nightconfig.core.UnmodifiableCommentedConfig$CommentNode"
@@ -727,18 +727,18 @@ export class $UnmodifiableCommentedConfig implements $UnmodifiableCommentedConfi
  "entrySet"(): $Set<($UnmodifiableCommentedConfig$Entry)>
  "getComment"(arg0: StringJS): StringJS
  "getComment"(arg0: $List$$Type<(StringJS)>): StringJS
-static "fake"(arg0: $UnmodifiableConfig$$Type): $UnmodifiableCommentedConfig
+ "containsComment"(arg0: $List$$Type<(StringJS)>): boolean
+ "containsComment"(arg0: StringJS): boolean
+ "getOptionalComment"(arg0: $List$$Type<(StringJS)>): $Optional<(StringJS)>
+ "getOptionalComment"(arg0: StringJS): $Optional<(StringJS)>
+ "getComments"(arg0: $Map$$Type<(StringJS), ($UnmodifiableCommentedConfig$CommentNode$$Type)>): void
+ "getComments"(): $Map<(StringJS), ($UnmodifiableCommentedConfig$CommentNode)>
 /**
  * 
  * @deprecated
  */
  "commentMap"(): $Map<(StringJS), (StringJS)>
- "getComments"(arg0: $Map$$Type<(StringJS), ($UnmodifiableCommentedConfig$CommentNode$$Type)>): void
- "getComments"(): $Map<(StringJS), ($UnmodifiableCommentedConfig$CommentNode)>
- "containsComment"(arg0: $List$$Type<(StringJS)>): boolean
- "containsComment"(arg0: StringJS): boolean
- "getOptionalComment"(arg0: StringJS): $Optional<(StringJS)>
- "getOptionalComment"(arg0: $List$$Type<(StringJS)>): $Optional<(StringJS)>
+static "fake"(arg0: $UnmodifiableConfig$$Type): $UnmodifiableCommentedConfig
  "size"(): integer
  "get"<T>(arg0: StringJS): T
  "get"<T>(arg0: $List$$Type<(StringJS)>): T
@@ -755,58 +755,58 @@ static "fake"(arg0: $UnmodifiableConfig$$Type): $UnmodifiableCommentedConfig
  "isEmpty"(): boolean
  "apply"<T>(arg0: StringJS): T
  "apply"<T>(arg0: $List$$Type<(StringJS)>): T
- "contains"(arg0: $List$$Type<(StringJS)>): boolean
  "contains"(arg0: StringJS): boolean
- "isNull"(arg0: $List$$Type<(StringJS)>): boolean
+ "contains"(arg0: $List$$Type<(StringJS)>): boolean
  "isNull"(arg0: StringJS): boolean
- "getOptionalEnum"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type): $Optional<(T)>
- "getCharOrElse"(arg0: StringJS, arg1: character): character
- "getCharOrElse"(arg0: $List$$Type<(StringJS)>, arg1: character): character
- "getByteOrElse"(arg0: StringJS, arg1: byte): byte
- "getByteOrElse"(arg0: $List$$Type<(StringJS)>, arg1: byte): byte
- "configFormat"(): $ConfigFormat<(never)>
- "getOptionalLong"(arg0: StringJS): $OptionalLong
- "getOptionalLong"(arg0: $List$$Type<(StringJS)>): $OptionalLong
- "getIntOrElse"(arg0: $List$$Type<(StringJS)>, arg1: $IntSupplier$$Type): integer
- "getIntOrElse"(arg0: StringJS, arg1: $IntSupplier$$Type): integer
- "getIntOrElse"(arg0: StringJS, arg1: integer): integer
+ "isNull"(arg0: $List$$Type<(StringJS)>): boolean
  "getIntOrElse"(arg0: $List$$Type<(StringJS)>, arg1: integer): integer
- "getShortOrElse"(arg0: $List$$Type<(StringJS)>, arg1: short): short
- "getShortOrElse"(arg0: StringJS, arg1: short): short
+ "getIntOrElse"(arg0: $List$$Type<(StringJS)>, arg1: $IntSupplier$$Type): integer
+ "getIntOrElse"(arg0: StringJS, arg1: integer): integer
+ "getIntOrElse"(arg0: StringJS, arg1: $IntSupplier$$Type): integer
  "getOptional"<T>(arg0: $List$$Type<(StringJS)>): $Optional<(T)>
  "getOptional"<T>(arg0: StringJS): $Optional<(T)>
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type, arg3: $Supplier$$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type, arg3: $Supplier$$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>, arg2: $Supplier$$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: T, arg2: $EnumGetMethod$$Type): T
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: T, arg2: $EnumGetMethod$$Type): T
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: T): T
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: T): T
- "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>, arg2: $Supplier$$Type<(T)>): T
+ "getByteOrElse"(arg0: StringJS, arg1: byte): byte
+ "getByteOrElse"(arg0: $List$$Type<(StringJS)>, arg1: byte): byte
  "getOptionalInt"(arg0: StringJS): $OptionalInt
  "getOptionalInt"(arg0: $List$$Type<(StringJS)>): $OptionalInt
- "getLongOrElse"(arg0: StringJS, arg1: long): long
+ "configFormat"(): $ConfigFormat<(never)>
+ "getShortOrElse"(arg0: StringJS, arg1: short): short
+ "getShortOrElse"(arg0: $List$$Type<(StringJS)>, arg1: short): short
+ "getOptionalLong"(arg0: $List$$Type<(StringJS)>): $OptionalLong
+ "getOptionalLong"(arg0: StringJS): $OptionalLong
+ "getOptionalEnum"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type): $Optional<(T)>
+ "getLongOrElse"(arg0: StringJS, arg1: $LongSupplier$$Type): long
  "getLongOrElse"(arg0: $List$$Type<(StringJS)>, arg1: $LongSupplier$$Type): long
  "getLongOrElse"(arg0: $List$$Type<(StringJS)>, arg1: long): long
- "getLongOrElse"(arg0: StringJS, arg1: $LongSupplier$$Type): long
- "getRaw"<T>(arg0: $List$$Type<(StringJS)>): T
- "getRaw"<T>(arg0: StringJS): T
- "getOrElse"<T>(arg0: StringJS, arg1: T): T
- "getOrElse"<T>(arg0: $List$$Type<(StringJS)>, arg1: T): T
- "getOrElse"<T>(arg0: StringJS, arg1: $Supplier$$Type<(T)>): T
- "getOrElse"<T>(arg0: $List$$Type<(StringJS)>, arg1: $Supplier$$Type<(T)>): T
- "getEnum"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>): T
- "getEnum"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type): T
- "getEnum"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>): T
- "getEnum"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type): T
+ "getLongOrElse"(arg0: StringJS, arg1: long): long
+ "getCharOrElse"(arg0: $List$$Type<(StringJS)>, arg1: character): character
+ "getCharOrElse"(arg0: StringJS, arg1: character): character
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>, arg2: $Supplier$$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: T, arg2: $EnumGetMethod$$Type): T
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: T, arg2: $EnumGetMethod$$Type): T
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: T): T
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type, arg3: $Supplier$$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: T): T
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type, arg3: $Supplier$$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>, arg2: $Supplier$$Type<(T)>): T
 /**
  * 
  * @deprecated
  */
  "valueMap"(): $Map<(StringJS), (any)>
+ "getRaw"<T>(arg0: StringJS): T
+ "getRaw"<T>(arg0: $List$$Type<(StringJS)>): T
+ "getOrElse"<T>(arg0: StringJS, arg1: $Supplier$$Type<(T)>): T
+ "getOrElse"<T>(arg0: StringJS, arg1: T): T
+ "getOrElse"<T>(arg0: $List$$Type<(StringJS)>, arg1: $Supplier$$Type<(T)>): T
+ "getOrElse"<T>(arg0: $List$$Type<(StringJS)>, arg1: T): T
+ "getEnum"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type): T
+ "getEnum"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>): T
+ "getEnum"<T extends $Enum<(object)>>(arg0: StringJS, arg1: $Class$$Type<(T)>, arg2: $EnumGetMethod$$Type): T
+ "getEnum"<T extends $Enum<(object)>>(arg0: $List$$Type<(StringJS)>, arg1: $Class$$Type<(T)>): T
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -856,9 +856,9 @@ get "long"(): long
 get "value"(): T
 get "key"(): StringJS
 get "null"(): boolean
-get "optionalLong"(): $OptionalLong
 get "optional"(): $Optional<(T)>
 get "optionalInt"(): $OptionalInt
+get "optionalLong"(): $OptionalLong
 get "rawValue"(): T
 }
 
@@ -875,16 +875,16 @@ export class $CommentedConfig$Entry implements $CommentedConfig$Entry$$Interface
  "getValue"<T>(): T
  "getKey"(): StringJS
  "isNull"(): boolean
- "getCharOrElse"(arg0: character): character
- "getByteOrElse"(arg0: byte): byte
- "getOptionalLong"(): $OptionalLong
  "getIntOrElse"(arg0: integer): integer
- "getShortOrElse"(arg0: short): short
  "getOptional"<T>(): $Optional<(T)>
+ "getByteOrElse"(arg0: byte): byte
  "getOptionalInt"(): $OptionalInt
+ "getShortOrElse"(arg0: short): short
+ "getOptionalLong"(): $OptionalLong
  "getLongOrElse"(arg0: long): long
- "getRawValue"<T>(): T
+ "getCharOrElse"(arg0: character): character
  "getOrElse"<T>(arg0: T): T
+ "getRawValue"<T>(): T
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -911,9 +911,9 @@ get "long"(): long
 get "value"(): T
 get "key"(): StringJS
 get "null"(): boolean
-get "optionalLong"(): $OptionalLong
 get "optional"(): $Optional<(T)>
 get "optionalInt"(): $OptionalInt
+get "optionalLong"(): $OptionalLong
 get "rawValue"(): T
 }
 
@@ -927,16 +927,16 @@ export class $Config$Entry implements $Config$Entry$$Interface {
  "getValue"<T>(): T
  "getKey"(): StringJS
  "isNull"(): boolean
- "getCharOrElse"(arg0: character): character
- "getByteOrElse"(arg0: byte): byte
- "getOptionalLong"(): $OptionalLong
  "getIntOrElse"(arg0: integer): integer
- "getShortOrElse"(arg0: short): short
  "getOptional"<T>(): $Optional<(T)>
+ "getByteOrElse"(arg0: byte): byte
  "getOptionalInt"(): $OptionalInt
+ "getShortOrElse"(arg0: short): short
+ "getOptionalLong"(): $OptionalLong
  "getLongOrElse"(arg0: long): long
- "getRawValue"<T>(): T
+ "getCharOrElse"(arg0: character): character
  "getOrElse"<T>(arg0: T): T
+ "getRawValue"<T>(): T
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -954,8 +954,8 @@ import {$Charset$$Type} from "java.nio.charset.Charset"
 import {$File$$Type} from "java.io.File"
 import {$URL$$Type} from "java.net.URL"
 import {$UnmodifiableConfig, $UnmodifiableConfig$$Type} from "com.electronwill.nightconfig.core.UnmodifiableConfig"
-import {$Path$$Type} from "java.nio.file.Path"
 import {$OutputStream$$Type} from "java.io.OutputStream"
+import {$Path$$Type} from "java.nio.file.Path"
 
 export interface $ConfigWriter$$Interface {
 

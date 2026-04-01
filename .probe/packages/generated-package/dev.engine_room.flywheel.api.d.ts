@@ -85,8 +85,8 @@ export type $Instancer$$Type<I> = ($Instancer<(I)>);
 export type $Instancer$$Original<I> = $Instancer<(I)>;}
 declare module "dev.engine_room.flywheel.api.visualization.VisualEmbedding" {
 import {$Matrix4fc$$Type} from "org.joml.Matrix4fc"
-import {$Vec3i, $Vec3i$$Type} from "net.minecraft.core.Vec3i"
 import {$Matrix3fc$$Type} from "org.joml.Matrix3fc"
+import {$Vec3i, $Vec3i$$Type} from "net.minecraft.core.Vec3i"
 import {$InstancerProvider} from "dev.engine_room.flywheel.api.instance.InstancerProvider"
 import {$VisualizationContext$$Interface} from "dev.engine_room.flywheel.api.visualization.VisualizationContext"
 
@@ -157,8 +157,8 @@ export type $InstanceType$$Type<I> = ($InstanceType<(I)>);
  */
 export type $InstanceType$$Original<I> = $InstanceType<(I)>;}
 declare module "dev.engine_room.flywheel.api.visualization.VisualizationContext" {
-import {$Vec3i, $Vec3i$$Type} from "net.minecraft.core.Vec3i"
 import {$VisualEmbedding} from "dev.engine_room.flywheel.api.visualization.VisualEmbedding"
+import {$Vec3i, $Vec3i$$Type} from "net.minecraft.core.Vec3i"
 import {$InstancerProvider} from "dev.engine_room.flywheel.api.instance.InstancerProvider"
 
 export interface $VisualizationContext$$Interface {
@@ -201,8 +201,8 @@ export type $EntityVisual$$Original<T> = $EntityVisual<(T)>;}
 declare module "dev.engine_room.flywheel.api.instance.InstancerProvider" {
 import {$InstanceType, $InstanceType$$Type} from "dev.engine_room.flywheel.api.instance.InstanceType"
 import {$Instancer, $Instancer$$Type} from "dev.engine_room.flywheel.api.instance.Instancer"
-import {$Model, $Model$$Type} from "dev.engine_room.flywheel.api.model.Model"
 import {$Instance} from "dev.engine_room.flywheel.api.instance.Instance"
+import {$Model, $Model$$Type} from "dev.engine_room.flywheel.api.model.Model"
 
 export interface $InstancerProvider$$Interface {
 
@@ -224,8 +224,8 @@ export type $InstancerProvider$$Type = ((arg0: $InstanceType<(I)>, arg1: $Model,
 export type $InstancerProvider$$Original = $InstancerProvider;}
 declare module "dev.engine_room.flywheel.api.visualization.EntityVisualizer" {
 import {$VisualizationContext$$Type} from "dev.engine_room.flywheel.api.visualization.VisualizationContext"
-import {$Entity, $Entity$$Type} from "net.minecraft.world.entity.Entity"
 import {$EntityVisual} from "dev.engine_room.flywheel.api.visual.EntityVisual"
+import {$Entity, $Entity$$Type} from "net.minecraft.world.entity.Entity"
 
 export interface $EntityVisualizer$$Interface<T extends $Entity> {
 }

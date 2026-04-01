@@ -55,8 +55,8 @@ readonly "sample": (long)[]
 constructor(arg0: integer, arg1: (long)[])
 
 public "resetSample"(): void
-public "logSample"(arg0: long): void
 public "useSample"(): void
+public "logSample"(arg0: long): void
 public "logPartialSample"(arg0: long, arg1: integer): void
 public "logFullSample"(arg0: (long)[]): void
 }

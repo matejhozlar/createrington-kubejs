@@ -2,20 +2,20 @@ declare module "xaero.map.gui.ExportScreen" {
 import {$MapProcessor$$Type} from "xaero.map.MapProcessor"
 import {$Screen$DeferredTooltipRendering} from "net.minecraft.client.gui.screens.Screen$DeferredTooltipRendering"
 import {$CycleButton} from "net.minecraft.client.gui.components.CycleButton"
-import {$ConfigOption$$Type} from "xaero.lib.common.config.option.ConfigOption"
 import {$MapTileSelection, $MapTileSelection$$Type} from "xaero.map.gui.MapTileSelection"
+import {$ConfigOption$$Type} from "xaero.lib.common.config.option.ConfigOption"
 import {$Screen, $Screen$$Type} from "net.minecraft.client.gui.screens.Screen"
 import {$List} from "java.util.List"
-import {$NarratorStatus} from "net.minecraft.client.NarratorStatus"
 import {$CubeMap} from "net.minecraft.client.renderer.CubeMap"
+import {$NarratorStatus} from "net.minecraft.client.NarratorStatus"
 import {$Font} from "net.minecraft.client.gui.Font"
 import {$ScreenExtensions} from "net.fabricmc.fabric.impl.client.screen.ScreenExtensions"
 import {$Component} from "net.minecraft.network.chat.Component"
 import {$PanoramaRenderer} from "net.minecraft.client.renderer.PanoramaRenderer"
 import {$ConfigOptionScreenEntry} from "xaero.lib.client.config.option.ui.ConfigOptionScreenEntry"
 import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
-import {$PNGExportResult$$Type} from "xaero.map.file.export.PNGExportResult"
 import {$GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
+import {$PNGExportResult$$Type} from "xaero.map.file.export.PNGExportResult"
 import {$NarratableEntry} from "net.minecraft.client.gui.narration.NarratableEntry"
 import {$GuiSettings} from "xaero.lib.client.gui.GuiSettings"
 import {$Executor} from "java.util.concurrent.Executor"
@@ -47,11 +47,13 @@ static readonly "HEADER_SEPARATOR": $ResourceLocation
 constructor(arg0: $Screen$$Type, arg1: $Screen$$Type, arg2: $MapProcessor$$Type, arg3: $MapTileSelection$$Type)
 
 public "init"(): void
-public "getSelection"(): $MapTileSelection
 public "render"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: float): void
+public "getSelection"(): $MapTileSelection
 public "primaryOptionEntry"<T>(arg0: $ConfigOption$$Type<(T)>): $ConfigOptionScreenEntry<(T)>
 public "onExportDone"(arg0: $PNGExportResult$$Type): void
 public static "getExtensions"(arg0: $Screen$$Type): $ScreenExtensions
+public static "owo$ROTATING_PANORAMA_RENDERER"(): $PanoramaRenderer
+public static "owo$PANORAMA_RENDERER"(): $CubeMap
 get "selection"(): $MapTileSelection
 }
 /**
@@ -68,23 +70,23 @@ export {} // Mark the file as a module, do not remove unless there are other imp
 export class $MapTileSelection {
 constructor(arg0: integer, arg1: integer)
 
-public "setEnd"(arg0: integer, arg1: integer): void
-public "getRight"(): integer
 public "getLeft"(): integer
-public "getBottom"(): integer
+public "getRight"(): integer
 public "getStartX"(): integer
+public "getTop"(): integer
+public "getBottom"(): integer
+public "setEnd"(arg0: integer, arg1: integer): void
 public "getStartZ"(): integer
 public "getEndZ"(): integer
 public "getEndX"(): integer
-public "getTop"(): integer
-get "right"(): integer
 get "left"(): integer
-get "bottom"(): integer
+get "right"(): integer
 get "startX"(): integer
+get "top"(): integer
+get "bottom"(): integer
 get "startZ"(): integer
 get "endZ"(): integer
 get "endX"(): integer
-get "top"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

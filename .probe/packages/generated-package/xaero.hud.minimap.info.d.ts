@@ -6,12 +6,12 @@ import {$InfoDisplayIO, $InfoDisplayIO$$Type} from "xaero.hud.minimap.info.InfoD
 export class $InfoDisplays {
 constructor(arg0: $InfoDisplayIO$$Type)
 
-public "getRenderer"(): $InfoDisplayRenderer
 public "getManager"(): $InfoDisplayManager
+public "getRenderer"(): $InfoDisplayRenderer
 public "clearStateCache"(): void
 public "getIo"(): $InfoDisplayIO
-get "renderer"(): $InfoDisplayRenderer
 get "manager"(): $InfoDisplayManager
+get "renderer"(): $InfoDisplayRenderer
 get "io"(): $InfoDisplayIO
 }
 /**

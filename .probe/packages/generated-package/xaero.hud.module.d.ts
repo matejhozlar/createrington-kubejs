@@ -29,12 +29,12 @@ import {$ModuleSession} from "xaero.hud.module.ModuleSession"
 import {$ClientPacketListener$$Type} from "net.minecraft.client.multiplayer.ClientPacketListener"
 import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component"
 import {$PushboxHandler$State} from "xaero.hud.pushbox.PushboxHandler$State"
-import {$TriFunction$$Type} from "org.apache.commons.lang3.function.TriFunction"
 import {$ClientConfigManager$$Type} from "xaero.lib.client.config.ClientConfigManager"
+import {$TriFunction$$Type} from "org.apache.commons.lang3.function.TriFunction"
 import {$IModuleRenderer, $IModuleRenderer$$Type} from "xaero.hud.render.module.IModuleRenderer"
 import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
-import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Function, $Function$$Type} from "java.util.function.Function"
+import {$Supplier$$Type} from "java.util.function.Supplier"
 
 export class $HudModule<MS extends $ModuleSession<(object)>> {
 constructor(arg0: $ResourceLocation$$Type, arg1: $Component$$Type, arg2: $TriFunction$$Type<($HudMod), ($HudModule<(MS)>), ($ClientPacketListener), (MS)>, arg3: $Supplier$$Type<($IModuleRenderer$$Type<(MS)>)>, arg4: $Function$$Type<($Screen), ($Screen$$Type)>, arg5: $BooleanConfigOption$$Type)
@@ -42,27 +42,27 @@ constructor(arg0: $ResourceLocation$$Type, arg1: $Component$$Type, arg2: $TriFun
 public "getId"(): $ResourceLocation
 public "isActive"(arg0: $ClientConfigManager$$Type): boolean
 public "getDisplayName"(): $Component
-public "getRenderer"(): $IModuleRenderer<(MS)>
 public "getCurrentSession"(): MS
 public "setActive"(arg0: $ClientConfigManager$$Type, arg1: boolean): void
-public "setTransform"(arg0: $ModuleTransform$$Type): void
-public "getConfirmedTransform"(): $ModuleTransform
-public "confirmTransform"(): void
-public "cancelTransform"(): void
-public "getUsedTransform"(): $ModuleTransform
+public "getRenderer"(): $IModuleRenderer<(MS)>
 public "getPushState"(): $PushboxHandler$State
+public "getUsedTransform"(): $ModuleTransform
+public "setTransform"(arg0: $ModuleTransform$$Type): void
 public "getConfigScreenFactory"(): $Function<($Screen), ($Screen)>
 public "getUnconfirmedTransform"(): $ModuleTransform
+public "cancelTransform"(): void
+public "confirmTransform"(): void
+public "getConfirmedTransform"(): $ModuleTransform
 get "id"(): $ResourceLocation
 get "displayName"(): $Component
-get "renderer"(): $IModuleRenderer<(MS)>
 get "currentSession"(): MS
-set "transform"(value: $ModuleTransform$$Type)
-get "confirmedTransform"(): $ModuleTransform
-get "usedTransform"(): $ModuleTransform
+get "renderer"(): $IModuleRenderer<(MS)>
 get "pushState"(): $PushboxHandler$State
+get "usedTransform"(): $ModuleTransform
+set "transform"(value: $ModuleTransform$$Type)
 get "configScreenFactory"(): $Function<($Screen), ($Screen)>
 get "unconfirmedTransform"(): $ModuleTransform
+get "confirmedTransform"(): $ModuleTransform
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -84,22 +84,22 @@ public "getModule"(): $HudModule<(MS)>
 public "close"(): void
 public "isActive"(): boolean
 public "getWidth"(arg0: double): integer
-public "getHeight"(arg0: double): integer
-public "getModMain"(): $HudMod
-public "shouldFlipVertically"(arg0: integer, arg1: double): boolean
 public "shouldFlipHorizontally"(arg0: integer, arg1: double): boolean
-public "prePotentialRender"(): void
-public "onPostGameOverlay"(): void
+public "shouldFlipVertically"(arg0: integer, arg1: double): boolean
+public "getEffectiveY"(arg0: integer, arg1: double): integer
 public "getEffectiveX"(arg0: integer, arg1: double): integer
 public "isFlippedHor"(): boolean
-public "getEffectiveY"(arg0: integer, arg1: double): integer
 public "isFlippedVer"(): boolean
+public "getHeight"(arg0: double): integer
+public "prePotentialRender"(): void
+public "getModMain"(): $HudMod
 public "isCentered"(): boolean
+public "onPostGameOverlay"(): void
 get "module"(): $HudModule<(MS)>
 get "active"(): boolean
-get "modMain"(): $HudMod
 get "flippedHor"(): boolean
 get "flippedVer"(): boolean
+get "modMain"(): $HudMod
 get "centered"(): boolean
 }
 /**
@@ -147,8 +147,8 @@ import {$HudModule$$Type} from "xaero.hud.module.HudModule"
 export class $ModuleSessionHandler {
 constructor(arg0: $ModuleManager$$Type)
 
-public "resetSessions"(arg0: $HudMod$$Type, arg1: $ClientPacketListener$$Type, arg2: $BiConsumer$$Type<($HudModule<(never)>), ($ModuleSession<(never)>)>): void
 public "closeSessions"(arg0: $HudMod$$Type): void
+public "resetSessions"(arg0: $HudMod$$Type, arg1: $ClientPacketListener$$Type, arg2: $BiConsumer$$Type<($HudModule<(never)>), ($ModuleSession<(never)>)>): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

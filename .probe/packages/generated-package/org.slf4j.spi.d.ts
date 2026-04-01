@@ -17,13 +17,13 @@ export class $LoggingEventBuilder implements $LoggingEventBuilder$$Interface {
  "log"(arg0: StringJS, ...arg1: (any)[]): void
  "log"(arg0: StringJS, arg1: any, arg2: any): void
  "setCause"(arg0: $Throwable$$Type): $LoggingEventBuilder
- "addMarker"(arg0: $Marker$$Type): $LoggingEventBuilder
+ "addArgument"(arg0: any): $LoggingEventBuilder
+ "addArgument"(arg0: $Supplier$$Type<(never)>): $LoggingEventBuilder
+ "addKeyValue"(arg0: StringJS, arg1: any): $LoggingEventBuilder
+ "addKeyValue"(arg0: StringJS, arg1: $Supplier$$Type<(any)>): $LoggingEventBuilder
  "setMessage"(arg0: $Supplier$$Type<(StringJS)>): $LoggingEventBuilder
  "setMessage"(arg0: StringJS): $LoggingEventBuilder
- "addArgument"(arg0: $Supplier$$Type<(never)>): $LoggingEventBuilder
- "addArgument"(arg0: any): $LoggingEventBuilder
- "addKeyValue"(arg0: StringJS, arg1: $Supplier$$Type<(any)>): $LoggingEventBuilder
- "addKeyValue"(arg0: StringJS, arg1: any): $LoggingEventBuilder
+ "addMarker"(arg0: $Marker$$Type): $LoggingEventBuilder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

@@ -57,36 +57,36 @@ public "getAsInt"(): integer
 public "getAsLong"(): long
 public "getAsBoolean"(): boolean
 public "isNumber"(): boolean
-public "deepCopy"(): $JsonElement
-public "getAsString"(): StringJS
 public "isBoolean"(): boolean
-public "getAsFloat"(): float
-public "getAsShort"(): short
-public "getAsByte"(): byte
 public "isString"(): boolean
-public "getAsNumber"(): number
+public "getAsFloat"(): float
+public "getAsByte"(): byte
+public "getAsShort"(): short
+public "deepCopy"(): $JsonElement
 /**
  * 
  * @deprecated
  */
 public "getAsCharacter"(): character
+public "getAsNumber"(): number
 public "getAsBigInteger"(): $BigInteger
 public "getAsBigDecimal"(): $BigDecimal
+public "getAsString"(): StringJS
 get "asDouble"(): double
 get "asInt"(): integer
 get "asLong"(): long
 get "asBoolean"(): boolean
 get "number"(): boolean
-get "asString"(): StringJS
 get "boolean"(): boolean
-get "asFloat"(): float
-get "asShort"(): short
-get "asByte"(): byte
 get "string"(): boolean
-get "asNumber"(): number
+get "asFloat"(): float
+get "asByte"(): byte
+get "asShort"(): short
 get "asCharacter"(): character
+get "asNumber"(): number
 get "asBigInteger"(): $BigInteger
 get "asBigDecimal"(): $BigDecimal
+get "asString"(): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -170,40 +170,40 @@ constructor()
 
 public "newBuilder"(): $GsonBuilder
 public "toString"(): StringJS
-public "getAdapter"<T>(arg0: $TypeToken$$Type<(T)>): $TypeAdapter<(T)>
 public "getAdapter"<T>(arg0: $Class$$Type<(T)>): $TypeAdapter<(T)>
+public "getAdapter"<T>(arg0: $TypeToken$$Type<(T)>): $TypeAdapter<(T)>
 public "fromJson"<T>(arg0: $Reader$$Type, arg1: $Type$$Type): T
-public "fromJson"<T>(arg0: StringJS, arg1: $Class$$Type<(T)>): T
 public "fromJson"<T>(arg0: $Reader$$Type, arg1: $Class$$Type<(T)>): T
-public "fromJson"<T>(arg0: StringJS, arg1: $Type$$Type): T
-public "fromJson"<T>(arg0: StringJS, arg1: $TypeToken$$Type<(T)>): T
 public "fromJson"<T>(arg0: $JsonElement$$Type, arg1: $TypeToken$$Type<(T)>): T
-public "fromJson"<T>(arg0: $JsonElement$$Type, arg1: $Type$$Type): T
+public "fromJson"<T>(arg0: StringJS, arg1: $TypeToken$$Type<(T)>): T
+public "fromJson"<T>(arg0: StringJS, arg1: $Type$$Type): T
+public "fromJson"<T>(arg0: StringJS, arg1: $Class$$Type<(T)>): T
 public "fromJson"<T>(arg0: $JsonElement$$Type, arg1: $Class$$Type<(T)>): T
+public "fromJson"<T>(arg0: $JsonReader$$Type, arg1: $TypeToken$$Type<(T)>): T
 public "fromJson"<T>(arg0: $JsonReader$$Type, arg1: $Type$$Type): T
 public "fromJson"<T>(arg0: $Reader$$Type, arg1: $TypeToken$$Type<(T)>): T
-public "fromJson"<T>(arg0: $JsonReader$$Type, arg1: $TypeToken$$Type<(T)>): T
+public "fromJson"<T>(arg0: $JsonElement$$Type, arg1: $Type$$Type): T
+public "htmlSafe"(): boolean
+public "toJson"(arg0: any, arg1: $Type$$Type, arg2: $JsonWriter$$Type): void
+public "toJson"(arg0: any, arg1: $Type$$Type, arg2: $Appendable$$Type): void
+public "toJson"(arg0: $JsonElement$$Type, arg1: $Appendable$$Type): void
+public "toJson"(arg0: $JsonElement$$Type, arg1: $JsonWriter$$Type): void
+public "toJson"(arg0: any, arg1: $Type$$Type): StringJS
+public "toJson"(arg0: $JsonElement$$Type): StringJS
+public "toJson"(arg0: any, arg1: $Appendable$$Type): void
+public "toJson"(arg0: any): StringJS
 /**
  * 
  * @deprecated
  */
 public "excluder"(): $Excluder
-public "htmlSafe"(): boolean
+public "fieldNamingStrategy"(): $FieldNamingStrategy
 public "toJsonTree"(arg0: any, arg1: $Type$$Type): $JsonElement
 public "toJsonTree"(arg0: any): $JsonElement
-public "toJson"(arg0: $JsonElement$$Type, arg1: $Appendable$$Type): void
-public "toJson"(arg0: $JsonElement$$Type, arg1: $JsonWriter$$Type): void
-public "toJson"(arg0: any, arg1: $Appendable$$Type): void
-public "toJson"(arg0: any, arg1: $Type$$Type): StringJS
-public "toJson"(arg0: any): StringJS
-public "toJson"(arg0: $JsonElement$$Type): StringJS
-public "toJson"(arg0: any, arg1: $Type$$Type, arg2: $Appendable$$Type): void
-public "toJson"(arg0: any, arg1: $Type$$Type, arg2: $JsonWriter$$Type): void
+public "getDelegateAdapter"<T>(arg0: $TypeAdapterFactory$$Type, arg1: $TypeToken$$Type<(T)>): $TypeAdapter<(T)>
+public "serializeNulls"(): boolean
 public "newJsonWriter"(arg0: $Writer$$Type): $JsonWriter
 public "newJsonReader"(arg0: $Reader$$Type): $JsonReader
-public "fieldNamingStrategy"(): $FieldNamingStrategy
-public "serializeNulls"(): boolean
-public "getDelegateAdapter"<T>(arg0: $TypeAdapterFactory$$Type, arg1: $TypeToken$$Type<(T)>): $TypeAdapter<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -217,57 +217,57 @@ export type $Gson$$Original = $Gson;}
 declare module "com.google.gson.GsonBuilder" {
 import {$ExclusionStrategy$$Type} from "com.google.gson.ExclusionStrategy"
 import {$LongSerializationPolicy$$Type} from "com.google.gson.LongSerializationPolicy"
-import {$Type$$Type} from "java.lang.reflect.Type"
 import {$ToNumberStrategy$$Type} from "com.google.gson.ToNumberStrategy"
+import {$Type$$Type} from "java.lang.reflect.Type"
 import {$Class$$Type} from "java.lang.Class"
 import {$TypeAdapterFactory$$Type} from "com.google.gson.TypeAdapterFactory"
 import {$Gson} from "com.google.gson.Gson"
 import {$ReflectionAccessFilter$$Type} from "com.google.gson.ReflectionAccessFilter"
-import {$FieldNamingStrategy$$Type} from "com.google.gson.FieldNamingStrategy"
 import {$FieldNamingPolicy$$Type} from "com.google.gson.FieldNamingPolicy"
+import {$FieldNamingStrategy$$Type} from "com.google.gson.FieldNamingStrategy"
 
 export class $GsonBuilder {
 constructor()
 
 public "create"(): $Gson
 public "setLenient"(): $GsonBuilder
-public "setVersion"(arg0: double): $GsonBuilder
-public "setPrettyPrinting"(): $GsonBuilder
-public "addSerializationExclusionStrategy"(arg0: $ExclusionStrategy$$Type): $GsonBuilder
-public "enableComplexMapKeySerialization"(): $GsonBuilder
-public "disableInnerClassSerialization"(): $GsonBuilder
-public "registerTypeHierarchyAdapter"(arg0: $Class$$Type<(never)>, arg1: any): $GsonBuilder
+public "addReflectionAccessFilter"(arg0: $ReflectionAccessFilter$$Type): $GsonBuilder
 public "setObjectToNumberStrategy"(arg0: $ToNumberStrategy$$Type): $GsonBuilder
+public "setNumberToNumberStrategy"(arg0: $ToNumberStrategy$$Type): $GsonBuilder
+public "disableHtmlEscaping"(): $GsonBuilder
 public "setExclusionStrategies"(...arg0: ($ExclusionStrategy$$Type)[]): $GsonBuilder
 public "setFieldNamingPolicy"(arg0: $FieldNamingPolicy$$Type): $GsonBuilder
-public "setNumberToNumberStrategy"(arg0: $ToNumberStrategy$$Type): $GsonBuilder
-public "setLongSerializationPolicy"(arg0: $LongSerializationPolicy$$Type): $GsonBuilder
-public "addReflectionAccessFilter"(arg0: $ReflectionAccessFilter$$Type): $GsonBuilder
-public "disableHtmlEscaping"(): $GsonBuilder
 public "setFieldNamingStrategy"(arg0: $FieldNamingStrategy$$Type): $GsonBuilder
 public "registerTypeAdapterFactory"(arg0: $TypeAdapterFactory$$Type): $GsonBuilder
-public "excludeFieldsWithoutExposeAnnotation"(): $GsonBuilder
-public "addDeserializationExclusionStrategy"(arg0: $ExclusionStrategy$$Type): $GsonBuilder
-public "serializeSpecialFloatingPointValues"(): $GsonBuilder
-public "setDateFormat"(arg0: integer): $GsonBuilder
+public "setVersion"(arg0: double): $GsonBuilder
+public "generateNonExecutableJson"(): $GsonBuilder
+public "registerTypeAdapter"(arg0: $Type$$Type, arg1: any): $GsonBuilder
+public "excludeFieldsWithModifiers"(...arg0: (integer)[]): $GsonBuilder
+public "setLongSerializationPolicy"(arg0: $LongSerializationPolicy$$Type): $GsonBuilder
 public "setDateFormat"(arg0: StringJS): $GsonBuilder
+public "setDateFormat"(arg0: integer): $GsonBuilder
 public "setDateFormat"(arg0: integer, arg1: integer): $GsonBuilder
 public "serializeNulls"(): $GsonBuilder
 public "disableJdkUnsafe"(): $GsonBuilder
-public "generateNonExecutableJson"(): $GsonBuilder
-public "excludeFieldsWithModifiers"(...arg0: (integer)[]): $GsonBuilder
-public "registerTypeAdapter"(arg0: $Type$$Type, arg1: any): $GsonBuilder
+public "setPrettyPrinting"(): $GsonBuilder
+public "excludeFieldsWithoutExposeAnnotation"(): $GsonBuilder
+public "serializeSpecialFloatingPointValues"(): $GsonBuilder
+public "addDeserializationExclusionStrategy"(arg0: $ExclusionStrategy$$Type): $GsonBuilder
+public "enableComplexMapKeySerialization"(): $GsonBuilder
+public "registerTypeHierarchyAdapter"(arg0: $Class$$Type<(never)>, arg1: any): $GsonBuilder
+public "addSerializationExclusionStrategy"(arg0: $ExclusionStrategy$$Type): $GsonBuilder
+public "disableInnerClassSerialization"(): $GsonBuilder
 get "lenient"(): $GsonBuilder
-set "version"(value: double)
-get "prettyPrinting"(): $GsonBuilder
 set "objectToNumberStrategy"(value: $ToNumberStrategy$$Type)
+set "numberToNumberStrategy"(value: $ToNumberStrategy$$Type)
 set "exclusionStrategies"(value: ($ExclusionStrategy$$Type)[])
 set "fieldNamingPolicy"(value: $FieldNamingPolicy$$Type)
-set "numberToNumberStrategy"(value: $ToNumberStrategy$$Type)
-set "longSerializationPolicy"(value: $LongSerializationPolicy$$Type)
 set "fieldNamingStrategy"(value: $FieldNamingStrategy$$Type)
-set "dateFormat"(value: integer)
+set "version"(value: double)
+set "longSerializationPolicy"(value: $LongSerializationPolicy$$Type)
 set "dateFormat"(value: StringJS)
+set "dateFormat"(value: integer)
+get "prettyPrinting"(): $GsonBuilder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -292,18 +292,18 @@ export class $JsonArray extends $JsonElement implements $Iterable$$Interface<($J
 constructor()
 constructor(arg0: integer)
 
-public "remove"(arg0: $JsonElement$$Type): boolean
 public "remove"(arg0: integer): $JsonElement
+public "remove"(arg0: $JsonElement$$Type): boolean
 public "size"(): integer
 public "get"(arg0: integer): $JsonElement
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public "isEmpty"(): boolean
-public "add"(arg0: character): void
+public "add"(arg0: number): void
 public "add"(arg0: boolean): void
 public "add"(arg0: StringJS): void
 public "add"(arg0: $JsonElement$$Type): void
-public "add"(arg0: number): void
+public "add"(arg0: character): void
 public "iterator"(): $Iterator<($JsonElement)>
 public "contains"(arg0: $JsonElement$$Type): boolean
 public "addAll"(arg0: $JsonArray$$Type): void
@@ -313,19 +313,19 @@ public "getAsDouble"(): double
 public "getAsInt"(): integer
 public "getAsLong"(): long
 public "getAsBoolean"(): boolean
-public "deepCopy"(): $JsonElement
-public "getAsString"(): StringJS
 public "getAsFloat"(): float
-public "getAsShort"(): short
 public "getAsByte"(): byte
-public "getAsNumber"(): number
+public "getAsShort"(): short
+public "deepCopy"(): $JsonArray
 /**
  * 
  * @deprecated
  */
 public "getAsCharacter"(): character
+public "getAsNumber"(): number
 public "getAsBigInteger"(): $BigInteger
 public "getAsBigDecimal"(): $BigDecimal
+public "getAsString"(): StringJS
 public "spliterator"(): $Spliterator<($JsonElement)>
 public "forEach"(arg0: $Consumer$$Type<($JsonElement)>): void
 [Symbol.iterator](): IterableIterator<$JsonElement>;
@@ -334,14 +334,14 @@ get "asDouble"(): double
 get "asInt"(): integer
 get "asLong"(): long
 get "asBoolean"(): boolean
-get "asString"(): StringJS
 get "asFloat"(): float
-get "asShort"(): short
 get "asByte"(): byte
-get "asNumber"(): number
+get "asShort"(): short
 get "asCharacter"(): character
+get "asNumber"(): number
 get "asBigInteger"(): $BigInteger
 get "asBigDecimal"(): $BigDecimal
+get "asString"(): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -410,9 +410,9 @@ public "toString"(): StringJS
 public "getDeclaringClass"(): $Class<(never)>
 public "getAnnotation"<T extends $Annotation>(arg0: $Class$$Type<(T)>): T
 public "getAnnotations"(): $Collection<($Annotation)>
+public "hasModifier"(arg0: integer): boolean
 public "getDeclaredType"(): $Type
 public "getDeclaredClass"(): $Class<(never)>
-public "hasModifier"(arg0: integer): boolean
 get "name"(): StringJS
 get "declaringClass"(): $Class<(never)>
 get "annotations"(): $Collection<($Annotation)>
@@ -429,8 +429,8 @@ export type $FieldAttributes$$Type = ($FieldAttributes);
  */
 export type $FieldAttributes$$Original = $FieldAttributes;}
 declare module "com.google.gson.JsonDeserializer" {
-import {$JsonElement, $JsonElement$$Type} from "com.google.gson.JsonElement"
 import {$Type, $Type$$Type} from "java.lang.reflect.Type"
+import {$JsonElement, $JsonElement$$Type} from "com.google.gson.JsonElement"
 import {$JsonDeserializationContext, $JsonDeserializationContext$$Type} from "com.google.gson.JsonDeserializationContext"
 
 export interface $JsonDeserializer$$Interface<T> {
@@ -451,8 +451,8 @@ export type $JsonDeserializer$$Type<T> = ((arg0: $JsonElement, arg1: $Type, arg2
  */
 export type $JsonDeserializer$$Original<T> = $JsonDeserializer<(T)>;}
 declare module "com.google.gson.TypeAdapter" {
-import {$Writer$$Type} from "java.io.Writer"
 import {$JsonReader$$Type} from "com.google.gson.stream.JsonReader"
+import {$Writer$$Type} from "java.io.Writer"
 import {$JsonWriter$$Type} from "com.google.gson.stream.JsonWriter"
 import {$Reader$$Type} from "java.io.Reader"
 import {$JsonElement, $JsonElement$$Type} from "com.google.gson.JsonElement"
@@ -464,10 +464,10 @@ public "write"(arg0: $JsonWriter$$Type, arg1: T): void
 public "read"(arg0: $JsonReader$$Type): T
 public "fromJson"(arg0: StringJS): T
 public "fromJson"(arg0: $Reader$$Type): T
-public "nullSafe"(): $TypeAdapter<(T)>
-public "toJsonTree"(arg0: T): $JsonElement
-public "toJson"(arg0: $Writer$$Type, arg1: T): void
 public "toJson"(arg0: T): StringJS
+public "toJson"(arg0: $Writer$$Type, arg1: T): void
+public "toJsonTree"(arg0: T): $JsonElement
+public "nullSafe"(): $TypeAdapter<(T)>
 public "fromJsonTree"(arg0: $JsonElement$$Type): T
 }
 /**
@@ -500,8 +500,8 @@ export type $ToNumberStrategy$$Type = ((arg0: $JsonReader) => number);
  */
 export type $ToNumberStrategy$$Original = $ToNumberStrategy;}
 declare module "com.google.gson.JsonDeserializationContext" {
-import {$JsonElement, $JsonElement$$Type} from "com.google.gson.JsonElement"
 import {$Type, $Type$$Type} from "java.lang.reflect.Type"
+import {$JsonElement, $JsonElement$$Type} from "com.google.gson.JsonElement"
 
 export interface $JsonDeserializationContext$$Interface {
 
@@ -560,47 +560,47 @@ public "getAsDouble"(): double
 public "getAsInt"(): integer
 public "getAsLong"(): long
 public "getAsBoolean"(): boolean
-public "deepCopy"(): $JsonElement
-public "getAsString"(): StringJS
-public "getAsFloat"(): float
-public "getAsShort"(): short
-public "getAsByte"(): byte
 public "isJsonNull"(): boolean
-public "isJsonArray"(): boolean
-public "isJsonObject"(): boolean
-public "isJsonPrimitive"(): boolean
+public "getAsFloat"(): float
+public "getAsByte"(): byte
+public "getAsShort"(): short
+public "deepCopy"(): $JsonElement
 public "getAsJsonArray"(): $JsonArray
-public "getAsJsonPrimitive"(): $JsonPrimitive
-public "getAsJsonNull"(): $JsonNull
-public "getAsNumber"(): number
 /**
  * 
  * @deprecated
  */
 public "getAsCharacter"(): character
-public "getAsBigInteger"(): $BigInteger
-public "getAsBigDecimal"(): $BigDecimal
 public "getAsJsonObject"(): $JsonObject
+public "getAsJsonPrimitive"(): $JsonPrimitive
+public "getAsNumber"(): number
+public "getAsBigInteger"(): $BigInteger
+public "isJsonObject"(): boolean
+public "getAsJsonNull"(): $JsonNull
+public "getAsBigDecimal"(): $BigDecimal
+public "isJsonArray"(): boolean
+public "isJsonPrimitive"(): boolean
+public "getAsString"(): StringJS
 get "asDouble"(): double
 get "asInt"(): integer
 get "asLong"(): long
 get "asBoolean"(): boolean
-get "asString"(): StringJS
-get "asFloat"(): float
-get "asShort"(): short
-get "asByte"(): byte
 get "jsonNull"(): boolean
-get "jsonArray"(): boolean
-get "jsonObject"(): boolean
-get "jsonPrimitive"(): boolean
+get "asFloat"(): float
+get "asByte"(): byte
+get "asShort"(): short
 get "asJsonArray"(): $JsonArray
-get "asJsonPrimitive"(): $JsonPrimitive
-get "asJsonNull"(): $JsonNull
-get "asNumber"(): number
 get "asCharacter"(): character
-get "asBigInteger"(): $BigInteger
-get "asBigDecimal"(): $BigDecimal
 get "asJsonObject"(): $JsonObject
+get "asJsonPrimitive"(): $JsonPrimitive
+get "asNumber"(): number
+get "asBigInteger"(): $BigInteger
+get "jsonObject"(): boolean
+get "asJsonNull"(): $JsonNull
+get "asBigDecimal"(): $BigDecimal
+get "jsonArray"(): boolean
+get "jsonPrimitive"(): boolean
+get "asString"(): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -658,15 +658,15 @@ public "add"(arg0: StringJS, arg1: $JsonElement$$Type): void
 public "entrySet"(): $Set<($Map$Entry<(StringJS), ($JsonElement)>)>
 public "keySet"(): $Set<(StringJS)>
 public "has"(arg0: StringJS): boolean
-public "addProperty"(arg0: StringJS, arg1: number): void
-public "addProperty"(arg0: StringJS, arg1: boolean): void
-public "addProperty"(arg0: StringJS, arg1: character): void
-public "addProperty"(arg0: StringJS, arg1: StringJS): void
 public "deepCopy"(): $JsonElement
-public "asMap"(): $Map<(StringJS), ($JsonElement)>
 public "getAsJsonArray"(arg0: StringJS): $JsonArray
-public "getAsJsonPrimitive"(arg0: StringJS): $JsonPrimitive
 public "getAsJsonObject"(arg0: StringJS): $JsonObject
+public "getAsJsonPrimitive"(arg0: StringJS): $JsonPrimitive
+public "addProperty"(arg0: StringJS, arg1: number): void
+public "addProperty"(arg0: StringJS, arg1: StringJS): void
+public "addProperty"(arg0: StringJS, arg1: character): void
+public "addProperty"(arg0: StringJS, arg1: boolean): void
+public "asMap"(): $Map<(StringJS), ($JsonElement)>
 get "empty"(): boolean
 }
 /**

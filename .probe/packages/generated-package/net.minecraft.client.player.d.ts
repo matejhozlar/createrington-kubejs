@@ -14,8 +14,8 @@ export class $Input {
 constructor()
 
 public "tick"(arg0: boolean, arg1: float): void
-public "hasForwardImpulse"(): boolean
 public "getMoveVector"(): $Vec2
+public "hasForwardImpulse"(): boolean
 get "moveVector"(): $Vec2
 }
 /**
@@ -30,24 +30,25 @@ export type $Input$$Original = $Input;}
 declare module "net.minecraft.client.player.AbstractClientPlayer" {
 import {$Iterable} from "java.lang.Iterable"
 import {$HumanoidArm} from "net.minecraft.world.entity.HumanoidArm"
-import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$Brain} from "net.minecraft.world.entity.ai.Brain"
+import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$Optional} from "java.util.Optional"
 import {$Inventory} from "net.minecraft.world.entity.player.Inventory"
 import {$EntityDataAccessor} from "net.minecraft.network.syncher.EntityDataAccessor"
+import {$EquipmentSlot$$Type} from "net.minecraft.world.entity.EquipmentSlot"
 import {$FluidType} from "net.neoforged.neoforge.fluids.FluidType"
-import {$BlockState} from "net.minecraft.world.level.block.state.BlockState"
 import {$EntityType} from "net.minecraft.world.entity.EntityType"
+import {$BlockState} from "net.minecraft.world.level.block.state.BlockState"
 import {$InteractionHand} from "net.minecraft.world.InteractionHand"
 import {$Entity$RemovalReason} from "net.minecraft.world.entity.Entity$RemovalReason"
 import {$PlayerEnderChestContainer} from "net.minecraft.world.inventory.PlayerEnderChestContainer"
-import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
+import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$ClientLevel, $ClientLevel$$Type} from "net.minecraft.client.multiplayer.ClientLevel"
 import {$RandomSource} from "net.minecraft.util.RandomSource"
 import {$Fluid} from "net.minecraft.world.level.material.Fluid"
 import {$AbstractContainerMenu} from "net.minecraft.world.inventory.AbstractContainerMenu"
 import {$Object2DoubleMap} from "it.unimi.dsi.fastutil.objects.Object2DoubleMap"
-import {$LivingEntity} from "net.minecraft.world.entity.LivingEntity"
+import {$LivingEntity, $LivingEntity$$Type} from "net.minecraft.world.entity.LivingEntity"
 import {$InventoryMenu} from "net.minecraft.world.inventory.InventoryMenu"
 import {$AbstractClientPlayerAccessor$$Interface} from "dev.engine_room.flywheel.backend.mixin.AbstractClientPlayerAccessor"
 import {$UUID} from "java.util.UUID"
@@ -63,24 +64,23 @@ import {$DamageContainer} from "net.neoforged.neoforge.common.damagesource.Damag
 import {$FishingHook} from "net.minecraft.world.entity.projectile.FishingHook"
 import {$WalkAnimationState} from "net.minecraft.world.entity.WalkAnimationState"
 import {$ScoreHolder} from "net.minecraft.world.scores.ScoreHolder"
-import {$Entity, $Entity$$Type} from "net.minecraft.world.entity.Entity"
 import {$PortalProcessor} from "net.minecraft.world.entity.PortalProcessor"
+import {$Entity, $Entity$$Type} from "net.minecraft.world.entity.Entity"
 import {$BlockPos} from "net.minecraft.core.BlockPos"
-import {$NotificationToastData$$Type} from "dev.latvian.mods.kubejs.util.NotificationToastData"
 import {$ClientPlayerKJS$$Interface} from "dev.latvian.mods.kubejs.core.ClientPlayerKJS"
+import {$NotificationToastData$$Type} from "dev.latvian.mods.kubejs.util.NotificationToastData"
 import {$CompoundTag, $CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
 import {$EntityDimensions} from "net.minecraft.world.entity.EntityDimensions"
 import {$LevelRenderer$$Type} from "net.minecraft.client.renderer.LevelRenderer"
 import {$PlayerInfo} from "net.minecraft.client.multiplayer.PlayerInfo"
 import {$ChangeSubscriber, $ChangeSubscriber$$Type} from "net.caffeinemc.mods.lithium.common.util.change_tracking.ChangeSubscriber"
-import {$PlayerSkin} from "net.minecraft.client.resources.PlayerSkin"
 import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
+import {$PlayerSkin} from "net.minecraft.client.resources.PlayerSkin"
 import {$PlayerStatsJS} from "dev.latvian.mods.kubejs.player.PlayerStatsJS"
 import {$Team} from "net.minecraft.world.scores.Team"
 import {$TagKey} from "net.minecraft.tags.TagKey"
-import {$AtomicInteger} from "java.util.concurrent.atomic.AtomicInteger"
 import {$Stack} from "java.util.Stack"
-import {$Tag} from "net.minecraft.nbt.Tag"
+import {$AtomicInteger} from "java.util.concurrent.atomic.AtomicInteger"
 import {$GameProfile$$Type} from "com.mojang.authlib.GameProfile"
 
 export class $AbstractClientPlayer extends $Player implements $ClientPlayerKJS$$Interface, $AbstractClientPlayerAccessor$$Interface {
@@ -244,7 +244,6 @@ static readonly "CONTENTS_SLOT_INDEX": integer
  "oRun": float
  "bob": float
  "experienceProgress": float
- "create_diesel_generators$turretPos": $BlockPos
  "totalExperience": integer
  "wasInPowderSnow": boolean
  "hurtMarked": boolean
@@ -288,73 +287,69 @@ constructor(arg0: $ClientLevel$$Type, arg1: $GameProfile$$Type)
 
 public "tick"(): void
 public "getSkin"(): $PlayerSkin
-public "handler$ffg000$create_sa$getSkinMixin"(arg0: $CallbackInfoReturnable$$Type): void
-public "isCreative"(): boolean
-public "isSpectator"(): boolean
-public "handler$fem000$platform$updateFov"(cir: $CallbackInfoReturnable$$Type, currentFov: float): void
-public "getPlayerInfo"(): $PlayerInfo
+public "getFieldOfViewModifier"(): float
 public "getDeltaMovementLerped"(arg0: float): $Vec3
 public "flywheel$getPlayerInfo"(): $PlayerInfo
-public "getFieldOfViewModifier"(): float
+public "isCreative"(): boolean
+public "isSpectator"(): boolean
+public "handler$gcb000$create_sa$getSkinMixin"(arg0: $CallbackInfoReturnable$$Type): void
+public "getPlayerInfo"(): $PlayerInfo
+public "handler$gap000$platform$updateFov"(cir: $CallbackInfoReturnable$$Type, currentFov: float): void
 public "isSelf"(): boolean
+public "self"(): $Entity
+public "notify"(notification: $NotificationToastData$$Type): void
+public "getStats"(): $PlayerStatsJS
 public "sendData"(channel: StringJS, data: $CompoundTag$$Type): void
 public "isMiningBlock"(): boolean
-public "getStats"(): $PlayerStatsJS
-public "notify"(notification: $NotificationToastData$$Type): void
-public "self"(): $Entity
-public "sdl$getDynamicLightY"(): double
-public "sdl$getDynamicLightLevel"(): $Level
-public "sdl$resetDynamicLight"(): void
-public "sdl$getDynamicLightX"(): double
-public "sdl$getDynamicLightZ"(): double
+public "sodiumdynamiclights$scheduleTrackedChunksRebuild"(arg0: $LevelRenderer$$Type): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "sodiumdynamiclights$updateDynamicLight"(arg0: $LevelRenderer$$Type): boolean
-public "sodiumdynamiclights$scheduleTrackedChunksRebuild"(arg0: $LevelRenderer$$Type): void
-public "etf$getScoreboardTeam"(): $Team
-public "etf$getItemsEquipped"(): $Iterable<($ItemStack)>
+public "sdl$getDynamicLightX"(): double
+public "sdl$getDynamicLightY"(): double
+public "sdl$getDynamicLightZ"(): double
+public "sdl$getDynamicLightLevel"(): $Level
+public "sdl$resetDynamicLight"(): void
 public "etf$getType"(): $EntityType<(never)>
-public "etf$getHandItems"(): $Iterable<($ItemStack)>
 public "etf$hasCustomName"(): boolean
+public "etf$getBlockY"(): integer
 public "etf$getCustomName"(): $Component
+public "etf$getHandItems"(): $Iterable<($ItemStack)>
+public "etf$getArmorItems"(): $Iterable<($ItemStack)>
+public "etf$getUuid"(): $UUID
+public "etf$getOptifineId"(): integer
+public "etf$canBeBright"(): boolean
+public "etf$isBlockEntity"(): boolean
+public "etf$getVelocity"(): $Vec3
+public "etf$distanceTo"(arg0: $Entity$$Type): float
 /**
  * 
  * @deprecated
  */
 public "etf$getPose"(): $Pose
-public "etf$distanceTo"(arg0: $Entity$$Type): float
-public "etf$getVelocity"(): $Vec3
-public "etf$getUuid"(): $UUID
-public "etf$getOptifineId"(): integer
-public "etf$getArmorItems"(): $Iterable<($ItemStack)>
-public "etf$canBeBright"(): boolean
-public "etf$isBlockEntity"(): boolean
-public "etf$getBlockY"(): integer
-public "etf$getNbt"(): $CompoundTag
-public "etf$getBlockPos"(): $BlockPos
 public "etf$getEntityKey"(): StringJS
 public "etf$getWorld"(): $Level
+public "etf$getBlockPos"(): $BlockPos
+public "etf$getItemsEquipped"(): $Iterable<($ItemStack)>
+public "etf$getScoreboardTeam"(): $Team
+public "etf$getNbt"(): $CompoundTag
+public static "getAlternativeStack"(livingEntity: $LivingEntity$$Type, equipmentSlot: $EquipmentSlot$$Type, consumer: $Consumer$$Type<($ItemStack)>): void
 public "lithium$getCachedFeetBlockState"(): $BlockState
-/**
- * 
- * @deprecated
- */
-public "serializeNBT"(arg0: $HolderLookup$Provider$$Type): $Tag
-public static "combine"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: integer, arg2: $ChangeSubscriber$$Type<(T)>, arg3: integer): $ChangeSubscriber<(T)>
 public static "without"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: $ChangeSubscriber$$Type<(T)>, arg2: integer, arg3: boolean): $ChangeSubscriber<(T)>
 public static "without"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: $ChangeSubscriber$$Type<(T)>): $ChangeSubscriber<(T)>
+public static "combine"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: integer, arg2: $ChangeSubscriber$$Type<(T)>, arg3: integer): $ChangeSubscriber<(T)>
 public static "dataOf"(arg0: $ChangeSubscriber$$Type<(never)>, arg1: $ChangeSubscriber$$Type<(never)>, arg2: integer): integer
-public static "containsSubscriber"(arg0: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg1: integer, arg2: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg3: integer): boolean
 public static "dataWithout"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: $ChangeSubscriber$$Type<(T)>, arg2: integer, arg3: integer, arg4: boolean): integer
 public static "dataWithout"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: $ChangeSubscriber$$Type<(T)>, arg2: integer): integer
-public static "forNameOnly"(arg0: StringJS): $ScoreHolder
+public static "containsSubscriber"(arg0: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg1: integer, arg2: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg3: integer): boolean
 public static "fromGameProfile"(arg0: $GameProfile$$Type): $ScoreHolder
+public static "forNameOnly"(arg0: StringJS): $ScoreHolder
 get "skin"(): $PlayerSkin
+get "fieldOfViewModifier"(): float
 get "creative"(): boolean
 get "spectator"(): boolean
 get "playerInfo"(): $PlayerInfo
-get "fieldOfViewModifier"(): float
-get "miningBlock"(): boolean
 get "stats"(): $PlayerStatsJS
+get "miningBlock"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -368,45 +363,47 @@ export type $AbstractClientPlayer$$Original = $AbstractClientPlayer;}
 declare module "net.minecraft.client.player.LocalPlayer" {
 import {$Iterable} from "java.lang.Iterable"
 import {$HumanoidArm} from "net.minecraft.world.entity.HumanoidArm"
-import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$Brain} from "net.minecraft.world.entity.ai.Brain"
+import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$Optional} from "java.util.Optional"
 import {$Portal$Transition} from "net.minecraft.world.level.block.Portal$Transition"
 import {$CallbackInfo$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfo"
-import {$SignBlockEntity$$Type} from "net.minecraft.world.level.block.entity.SignBlockEntity"
 import {$ClientPacketListener, $ClientPacketListener$$Type} from "net.minecraft.client.multiplayer.ClientPacketListener"
+import {$SignBlockEntity$$Type} from "net.minecraft.world.level.block.entity.SignBlockEntity"
 import {$JigsawBlockEntity$$Type} from "net.minecraft.world.level.block.entity.JigsawBlockEntity"
 import {$SoundEvent$$Type} from "net.minecraft.sounds.SoundEvent"
 import {$Inventory} from "net.minecraft.world.entity.player.Inventory"
 import {$Holder$$Type} from "net.minecraft.core.Holder"
-import {$MoverType$$Type} from "net.minecraft.world.entity.MoverType"
 import {$CommandBlockEntity$$Type} from "net.minecraft.world.level.block.entity.CommandBlockEntity"
+import {$MoverType$$Type} from "net.minecraft.world.entity.MoverType"
 import {$ClickAction$$Type} from "net.minecraft.world.inventory.ClickAction"
 import {$SoundSource$$Type} from "net.minecraft.sounds.SoundSource"
 import {$EntityDataAccessor, $EntityDataAccessor$$Type} from "net.minecraft.network.syncher.EntityDataAccessor"
+import {$EquipmentSlot$$Type} from "net.minecraft.world.entity.EquipmentSlot"
 import {$FluidType} from "net.neoforged.neoforge.fluids.FluidType"
 import {$Logger} from "org.slf4j.Logger"
-import {$BlockState} from "net.minecraft.world.level.block.state.BlockState"
 import {$EntityType} from "net.minecraft.world.entity.EntityType"
+import {$BlockState} from "net.minecraft.world.level.block.state.BlockState"
 import {$Input} from "net.minecraft.client.player.Input"
 import {$InteractionHand, $InteractionHand$$Type} from "net.minecraft.world.InteractionHand"
 import {$IMixinLocalPlayer$$Interface} from "de.keksuccino.konkrete.mixin.mixins.client.IMixinLocalPlayer"
 import {$Entity$RemovalReason} from "net.minecraft.world.entity.Entity$RemovalReason"
 import {$PlayerEnderChestContainer} from "net.minecraft.world.inventory.PlayerEnderChestContainer"
-import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
+import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$ClientLevel, $ClientLevel$$Type} from "net.minecraft.client.multiplayer.ClientLevel"
 import {$RandomSource} from "net.minecraft.util.RandomSource"
 import {$PlayerRideableJumping} from "net.minecraft.world.entity.PlayerRideableJumping"
 import {$Fluid} from "net.minecraft.world.level.material.Fluid"
 import {$DamageSource$$Type} from "net.minecraft.world.damagesource.DamageSource"
 import {$AbstractContainerMenu} from "net.minecraft.world.inventory.AbstractContainerMenu"
-import {$RecipeHolder$$Type} from "net.minecraft.world.item.crafting.RecipeHolder"
 import {$BaseCommandBlock$$Type} from "net.minecraft.world.level.BaseCommandBlock"
+import {$RecipeHolder$$Type} from "net.minecraft.world.item.crafting.RecipeHolder"
 import {$Object2DoubleMap} from "it.unimi.dsi.fastutil.objects.Object2DoubleMap"
-import {$LivingEntity} from "net.minecraft.world.entity.LivingEntity"
+import {$LivingEntity, $LivingEntity$$Type} from "net.minecraft.world.entity.LivingEntity"
 import {$InventoryMenu} from "net.minecraft.world.inventory.InventoryMenu"
 import {$MobEffectInstance} from "net.minecraft.world.effect.MobEffectInstance"
 import {$UUID} from "java.util.UUID"
+import {$Screen$$Type} from "net.minecraft.client.gui.screens.Screen"
 import {$Level} from "net.minecraft.world.level.Level"
 import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component"
 import {$SynchedEntityData} from "net.minecraft.network.syncher.SynchedEntityData"
@@ -418,13 +415,14 @@ import {$Vec3, $Vec3$$Type} from "net.minecraft.world.phys.Vec3"
 import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
 import {$Abilities} from "net.minecraft.world.entity.player.Abilities"
 import {$DamageContainer} from "net.neoforged.neoforge.common.damagesource.DamageContainer"
+import {$CloseContainerTransfer$$Interface} from "io.wispforest.accessories.pond.CloseContainerTransfer"
 import {$FishingHook} from "net.minecraft.world.entity.projectile.FishingHook"
 import {$WalkAnimationState} from "net.minecraft.world.entity.WalkAnimationState"
 import {$ScoreHolder} from "net.minecraft.world.scores.ScoreHolder"
 import {$Minecraft, $Minecraft$$Type} from "net.minecraft.client.Minecraft"
 import {$GameType$$Type} from "net.minecraft.world.level.GameType"
-import {$Entity, $Entity$$Type} from "net.minecraft.world.entity.Entity"
 import {$PortalProcessor} from "net.minecraft.world.entity.PortalProcessor"
+import {$Entity, $Entity$$Type} from "net.minecraft.world.entity.Entity"
 import {$BlockPos} from "net.minecraft.core.BlockPos"
 import {$StatsCounter, $StatsCounter$$Type} from "net.minecraft.stats.StatsCounter"
 import {$NotificationToastData$$Type} from "dev.latvian.mods.kubejs.util.NotificationToastData"
@@ -438,15 +436,14 @@ import {$MobEffect$$Type} from "net.minecraft.world.effect.MobEffect"
 import {$PlayerStatsJS} from "dev.latvian.mods.kubejs.player.PlayerStatsJS"
 import {$Team} from "net.minecraft.world.scores.Team"
 import {$ClientRecipeBook, $ClientRecipeBook$$Type} from "net.minecraft.client.ClientRecipeBook"
+import {$StructureBlockEntity$$Type} from "net.minecraft.world.level.block.entity.StructureBlockEntity"
 import {$TagKey} from "net.minecraft.tags.TagKey"
 import {$LocalPlayerInterface$$Interface} from "net.irisshaders.iris.mixinterface.LocalPlayerInterface"
-import {$StructureBlockEntity$$Type} from "net.minecraft.world.level.block.entity.StructureBlockEntity"
-import {$AtomicInteger} from "java.util.concurrent.atomic.AtomicInteger"
 import {$Stack} from "java.util.Stack"
-import {$Tag} from "net.minecraft.nbt.Tag"
+import {$AtomicInteger} from "java.util.concurrent.atomic.AtomicInteger"
 import {$GameProfile$$Type} from "com.mojang.authlib.GameProfile"
 
-export class $LocalPlayer extends $AbstractClientPlayer implements $LocalPlayerInterface$$Interface, $AccessorLocalPlayer$$Interface, $IMixinLocalPlayer$$Interface, $LocalClientPlayerKJS$$Interface {
+export class $LocalPlayer extends $AbstractClientPlayer implements $LocalPlayerInterface$$Interface, $CloseContainerTransfer$$Interface, $AccessorLocalPlayer$$Interface, $IMixinLocalPlayer$$Interface, $LocalClientPlayerKJS$$Interface {
  "lerpYRot": double
 static readonly "USE_ITEM_INTERVAL": integer
  "lerpYHeadRot": double
@@ -617,7 +614,6 @@ static readonly "CONTENTS_SLOT_INDEX": integer
  "oRun": float
  "bob": float
  "experienceProgress": float
- "create_diesel_generators$turretPos": $BlockPos
  "totalExperience": integer
  "wasInPowderSnow": boolean
 static readonly "LOGGER": $Logger
@@ -661,173 +657,170 @@ static readonly "DATA_SHOULDER_RIGHT": $EntityDataAccessor<($CompoundTag)>
 constructor(arg0: $Minecraft$$Type, arg1: $ClientLevel$$Type, arg2: $ClientPacketListener$$Type, arg3: $StatsCounter$$Type, arg4: $ClientRecipeBook$$Type, arg5: boolean, arg6: boolean)
 
 public "drop"(arg0: boolean): boolean
-public "getActivePortalLocalTransition"(): $Portal$Transition
-public "handler$cca000$caelus$checkFlight"(arg0: $CallbackInfo$$Type): void
 public "move"(arg0: $MoverType$$Type, arg1: $Vec3$$Type): void
 public "tick"(): void
-public "aiStep"(): void
-public "updateTutorialInventoryAction"(arg0: $ItemStack$$Type, arg1: $ItemStack$$Type, arg2: $ClickAction$$Type): void
-public "swing"(arg0: $InteractionHand$$Type): void
-public "respawn"(): void
-public "isHorizontalCollisionMinor"(arg0: $Vec3$$Type): boolean
 public "canSpawnSprintParticle"(): boolean
-public "getRopeHoldPosition"(arg0: float): $Vec3
-public "removeEffectNoUpdate"(arg0: $Holder$$Type<($MobEffect)>): $MobEffectInstance
-public "onSyncedDataUpdated"(arg0: $EntityDataAccessor$$Type<(never)>): void
-public "openMinecartCommandBlock"(arg0: $BaseCommandBlock$$Type): void
-public "sendOpenInventory"(): void
-public "isLocalPlayer"(): boolean
-public "isUnderWater"(): boolean
-public "isCrouching"(): boolean
-public "getViewXRot"(arg0: float): float
-public "startRiding"(arg0: $Entity$$Type, arg1: boolean): boolean
-public "removeVehicle"(): void
-public "getPermissionLevel"(): integer
-public "updateIsUnderwater"(): boolean
-public "playNotifySound"(arg0: $SoundEvent$$Type, arg1: $SoundSource$$Type, arg2: float, arg3: float): void
-public "closeMenu"(): void
-public "openTextEdit"(arg0: $SignBlockEntity$$Type, arg1: boolean): void
-public "openCommandBlock"(arg0: $CommandBlockEntity$$Type): void
-public "openStructureBlock"(arg0: $StructureBlockEntity$$Type): void
-public "openJigsawBlock"(arg0: $JigsawBlockEntity$$Type): void
-public "onUpdateAbilities"(): void
-public "openItemGui"(arg0: $ItemStack$$Type, arg1: $InteractionHand$$Type): void
-public "clientSideCloseContainer"(): void
+public "magicCrit"(arg0: $Entity$$Type): void
+public "crit"(arg0: $Entity$$Type): void
+public "resetPos"(): void
+public "hurtTo"(arg0: float): void
+public "getVisualRotationYInDegrees"(): float
+public "isSuppressingSlidingDownLadder"(): boolean
+public "heal"(arg0: float): void
 public "setExperienceValues"(arg0: float, arg1: integer, arg2: integer): void
-public "setDoLimitedCrafting"(arg0: boolean): void
+public "railways$getYRotLast"(): float
 public "removeRecipeHighlight"(arg0: $RecipeHolder$$Type<(never)>): void
 public "railways$getXRotLast"(): float
 public "getCurrentConstantMood"(): float
+public "setDoLimitedCrafting"(arg0: boolean): void
 public "getDoLimitedCrafting"(): boolean
-public "railways$getYRotLast"(): float
 public "getPermissionLevelKonkrete"(): integer
-public "resetPos"(): void
-public "hurtTo"(arg0: float): void
-public "isUsingItem"(): boolean
-public "isHandsBusy"(): boolean
-public "isMovingSlowly"(): boolean
-public "getRecipeBook"(): $ClientRecipeBook
-public "jumpableVehicle"(): $PlayerRideableJumping
-public "setPermissionLevel"(arg0: integer): void
-public "isControlledCamera"(): boolean
-public "setShowDeathScreen"(arg0: boolean): void
-public "getCurrentMood"(): float
-public "getJumpRidingScale"(): float
-public "sendRidingJump"(): void
-public "getMinecraft"(): $Minecraft
-public "isAutoJumpEnabled"(): boolean
-public "updateAutoJump"(arg0: float, arg1: float): void
-public "getWaterVision"(): float
-public "onGameModeChanged"(arg0: $GameType$$Type): void
+public "clientSideCloseContainer"(): void
+public "respawn"(): void
+public "swing"(arg0: $InteractionHand$$Type): void
 public "getStatsCounter"(): $StatsCounter
-public "handler$cjn000$xaerominimap$onTickStart"(arg0: $CallbackInfo$$Type): void
-public "localvar$cca000$caelus$affixEmptyStack"(arg0: $ItemStack$$Type): $ItemStack
-public "magicCrit"(arg0: $Entity$$Type): void
-public "crit"(arg0: $Entity$$Type): void
 public "shouldShowDeathScreen"(): boolean
+public "handleEntityEvent"(arg0: byte): void
+public "actuallyHurt"(arg0: $DamageSource$$Type, arg1: float): void
+public "openMinecartCommandBlock"(arg0: $BaseCommandBlock$$Type): void
+public "aiStep"(): void
 public "displayClientMessage"(arg0: $Component$$Type, arg1: boolean): void
 public "isTextFilteringEnabled"(): boolean
-public "getVisualRotationYInDegrees"(): float
-public "isSuppressingSlidingDownLadder"(): boolean
-public "rideTick"(): void
-public "attack"(arg0: $DamageSource$$Type, arg1: float): boolean
-public "tickDeath"(): void
-public "heal"(arg0: float): void
-public "playSound"(arg0: $SoundEvent$$Type, arg1: float, arg2: float): void
-public "sendSystemMessage"(arg0: $Component$$Type): void
-public "actuallyHurt"(arg0: $DamageSource$$Type, arg1: float): void
-public "handleEntityEvent"(arg0: byte): void
-public "stopUsingItem"(): void
-public "isEffectiveAi"(): boolean
+public "isHandsBusy"(): boolean
+public "getUsedItemHand"(): $InteractionHand
+public "isShiftKeyDown"(): boolean
 public "startUsingItem"(arg0: $InteractionHand$$Type): void
 public "serverAiStep"(): void
 public "getViewYRot"(arg0: float): float
-public "getUsedItemHand"(): $InteractionHand
-public "isShiftKeyDown"(): boolean
-public "runCommand"(command: StringJS): void
+public "isEffectiveAi"(): boolean
+public "stopUsingItem"(): void
+public "updateTutorialInventoryAction"(arg0: $ItemStack$$Type, arg1: $ItemStack$$Type, arg2: $ClickAction$$Type): void
+public "getMinecraft"(): $Minecraft
+public "isControlledCamera"(): boolean
+public "getRecipeBook"(): $ClientRecipeBook
+public "jumpableVehicle"(): $PlayerRideableJumping
+public "setPermissionLevel"(arg0: integer): void
+public "updateAutoJump"(arg0: float, arg1: float): void
+public "getJumpRidingScale"(): float
+public "setShowDeathScreen"(arg0: boolean): void
+public "getCurrentMood"(): float
+public "isMovingSlowly"(): boolean
+public "sendRidingJump"(): void
+public "isAutoJumpEnabled"(): boolean
+public "getWaterVision"(): float
+public "onGameModeChanged"(arg0: $GameType$$Type): void
+public "removeEffectNoUpdate"(arg0: $Holder$$Type<($MobEffect)>): $MobEffectInstance
+public "isHorizontalCollisionMinor"(arg0: $Vec3$$Type): boolean
+public "attack"(arg0: $DamageSource$$Type, arg1: float): boolean
+public "tickDeath"(): void
+public "handler$cpe000$xaerominimap$onTickStart"(arg0: $CallbackInfo$$Type): void
+public "localvar$cgd000$caelus$affixEmptyStack"(arg0: $ItemStack$$Type): $ItemStack
+public "updateIsUnderwater"(): boolean
+public "openStructureBlock"(arg0: $StructureBlockEntity$$Type): void
+public "openTextEdit"(arg0: $SignBlockEntity$$Type, arg1: boolean): void
+public "closeMenu"(): void
+public "openCommandBlock"(arg0: $CommandBlockEntity$$Type): void
+public "openJigsawBlock"(arg0: $JigsawBlockEntity$$Type): void
+public "playNotifySound"(arg0: $SoundEvent$$Type, arg1: $SoundSource$$Type, arg2: float, arg3: float): void
+public "openItemGui"(arg0: $ItemStack$$Type, arg1: $InteractionHand$$Type): void
+public "onUpdateAbilities"(): void
+public "isLocalPlayer"(): boolean
+public "isUnderWater"(): boolean
+public "onSyncedDataUpdated"(arg0: $EntityDataAccessor$$Type<(never)>): void
+public "playSound"(arg0: $SoundEvent$$Type, arg1: float, arg2: float): void
+public "removeVehicle"(): void
+public "getViewXRot"(arg0: float): float
+public "startRiding"(arg0: $Entity$$Type, arg1: boolean): boolean
+public "getPermissionLevel"(): integer
+public "getRopeHoldPosition"(arg0: float): $Vec3
+public "rideTick"(): void
+public "handler$cgd000$caelus$checkFlight"(arg0: $CallbackInfo$$Type): void
+public "getActivePortalLocalTransition"(): $Portal$Transition
+public "accessories$setScreenTransfer"(screen: $Screen$$Type): void
+public "sendOpenInventory"(): void
+public "isCrouching"(): boolean
+public "sendSystemMessage"(arg0: $Component$$Type): void
+public "isUsingItem"(): boolean
 public "isSelf"(): boolean
+public "self"(): $LivingEntity
+public "notify"(notification: $NotificationToastData$$Type): void
+public "runCommand"(command: StringJS): void
+public "getStats"(): $PlayerStatsJS
 public "sendData"(channel: StringJS, data: $CompoundTag$$Type): void
 public "isMiningBlock"(): boolean
-public "getStats"(): $PlayerStatsJS
-public "notify"(notification: $NotificationToastData$$Type): void
-public "runCommandSilent"(command: StringJS): void
 public "setActivePostShader"(id: $ResourceLocation$$Type): void
-public "self"(): $Entity
-public "sdl$getDynamicLightY"(): double
-public "sdl$getDynamicLightLevel"(): $Level
-public "sdl$resetDynamicLight"(): void
-public "sdl$getDynamicLightX"(): double
-public "sdl$getDynamicLightZ"(): double
+public "runCommandSilent"(command: StringJS): void
+public "sodiumdynamiclights$scheduleTrackedChunksRebuild"(arg0: $LevelRenderer$$Type): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "sodiumdynamiclights$updateDynamicLight"(arg0: $LevelRenderer$$Type): boolean
-public "sodiumdynamiclights$scheduleTrackedChunksRebuild"(arg0: $LevelRenderer$$Type): void
-public "etf$getScoreboardTeam"(): $Team
-public "etf$getItemsEquipped"(): $Iterable<($ItemStack)>
+public "sdl$getDynamicLightX"(): double
+public "sdl$getDynamicLightY"(): double
+public "sdl$getDynamicLightZ"(): double
+public "sdl$getDynamicLightLevel"(): $Level
+public "sdl$resetDynamicLight"(): void
 public "etf$getType"(): $EntityType<(never)>
-public "etf$getHandItems"(): $Iterable<($ItemStack)>
 public "etf$hasCustomName"(): boolean
+public "etf$getBlockY"(): integer
 public "etf$getCustomName"(): $Component
+public "etf$getHandItems"(): $Iterable<($ItemStack)>
+public "etf$getArmorItems"(): $Iterable<($ItemStack)>
+public "etf$getUuid"(): $UUID
+public "etf$getOptifineId"(): integer
+public "etf$canBeBright"(): boolean
+public "etf$isBlockEntity"(): boolean
+public "etf$getVelocity"(): $Vec3
+public "etf$distanceTo"(arg0: $Entity$$Type): float
 /**
  * 
  * @deprecated
  */
 public "etf$getPose"(): $Pose
-public "etf$distanceTo"(arg0: $Entity$$Type): float
-public "etf$getVelocity"(): $Vec3
-public "etf$getUuid"(): $UUID
-public "etf$getOptifineId"(): integer
-public "etf$getArmorItems"(): $Iterable<($ItemStack)>
-public "etf$canBeBright"(): boolean
-public "etf$isBlockEntity"(): boolean
-public "etf$getBlockY"(): integer
-public "etf$getNbt"(): $CompoundTag
-public "etf$getBlockPos"(): $BlockPos
 public "etf$getEntityKey"(): StringJS
 public "etf$getWorld"(): $Level
+public "etf$getBlockPos"(): $BlockPos
+public "etf$getItemsEquipped"(): $Iterable<($ItemStack)>
+public "etf$getScoreboardTeam"(): $Team
+public "etf$getNbt"(): $CompoundTag
+public static "getAlternativeStack"(livingEntity: $LivingEntity$$Type, equipmentSlot: $EquipmentSlot$$Type, consumer: $Consumer$$Type<($ItemStack)>): void
 public "lithium$getCachedFeetBlockState"(): $BlockState
-/**
- * 
- * @deprecated
- */
-public "serializeNBT"(arg0: $HolderLookup$Provider$$Type): $Tag
-public static "combine"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: integer, arg2: $ChangeSubscriber$$Type<(T)>, arg3: integer): $ChangeSubscriber<(T)>
 public static "without"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: $ChangeSubscriber$$Type<(T)>, arg2: integer, arg3: boolean): $ChangeSubscriber<(T)>
 public static "without"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: $ChangeSubscriber$$Type<(T)>): $ChangeSubscriber<(T)>
+public static "combine"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: integer, arg2: $ChangeSubscriber$$Type<(T)>, arg3: integer): $ChangeSubscriber<(T)>
 public static "dataOf"(arg0: $ChangeSubscriber$$Type<(never)>, arg1: $ChangeSubscriber$$Type<(never)>, arg2: integer): integer
-public static "containsSubscriber"(arg0: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg1: integer, arg2: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg3: integer): boolean
 public static "dataWithout"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: $ChangeSubscriber$$Type<(T)>, arg2: integer, arg3: integer, arg4: boolean): integer
 public static "dataWithout"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: $ChangeSubscriber$$Type<(T)>, arg2: integer): integer
-public static "forNameOnly"(arg0: StringJS): $ScoreHolder
+public static "containsSubscriber"(arg0: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg1: integer, arg2: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg3: integer): boolean
 public static "fromGameProfile"(arg0: $GameProfile$$Type): $ScoreHolder
-get "activePortalLocalTransition"(): $Portal$Transition
-get "localPlayer"(): boolean
-get "underWater"(): boolean
-get "crouching"(): boolean
-get "permissionLevel"(): integer
-set "doLimitedCrafting"(value: boolean)
-get "currentConstantMood"(): float
-get "doLimitedCrafting"(): boolean
-get "permissionLevelKonkrete"(): integer
-get "usingItem"(): boolean
-get "handsBusy"(): boolean
-get "movingSlowly"(): boolean
-get "recipeBook"(): $ClientRecipeBook
-set "permissionLevel"(value: integer)
-get "controlledCamera"(): boolean
-set "showDeathScreen"(value: boolean)
-get "currentMood"(): float
-get "jumpRidingScale"(): float
-get "autoJumpEnabled"(): boolean
-get "waterVision"(): float
-get "statsCounter"(): $StatsCounter
-get "textFilteringEnabled"(): boolean
+public static "forNameOnly"(arg0: StringJS): $ScoreHolder
 get "visualRotationYInDegrees"(): float
 get "suppressingSlidingDownLadder"(): boolean
-get "effectiveAi"(): boolean
+get "currentConstantMood"(): float
+set "doLimitedCrafting"(value: boolean)
+get "doLimitedCrafting"(): boolean
+get "permissionLevelKonkrete"(): integer
+get "statsCounter"(): $StatsCounter
+get "textFilteringEnabled"(): boolean
+get "handsBusy"(): boolean
 get "usedItemHand"(): $InteractionHand
 get "shiftKeyDown"(): boolean
-get "miningBlock"(): boolean
+get "effectiveAi"(): boolean
+get "controlledCamera"(): boolean
+get "recipeBook"(): $ClientRecipeBook
+set "permissionLevel"(value: integer)
+get "jumpRidingScale"(): float
+set "showDeathScreen"(value: boolean)
+get "currentMood"(): float
+get "movingSlowly"(): boolean
+get "autoJumpEnabled"(): boolean
+get "waterVision"(): float
+get "localPlayer"(): boolean
+get "underWater"(): boolean
+get "permissionLevel"(): integer
+get "activePortalLocalTransition"(): $Portal$Transition
+get "crouching"(): boolean
+get "usingItem"(): boolean
 get "stats"(): $PlayerStatsJS
+get "miningBlock"(): boolean
 set "activePostShader"(value: $ResourceLocation$$Type)
 }
 /**

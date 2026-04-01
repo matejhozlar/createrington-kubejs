@@ -60,11 +60,11 @@ import {$Ops} from "com.mojang.realmsclient.dto.Ops"
 import {$RealmsClient$Environment} from "com.mojang.realmsclient.client.RealmsClient$Environment"
 import {$RealmsNotification} from "com.mojang.realmsclient.dto.RealmsNotification"
 import {$ServerActivityList} from "com.mojang.realmsclient.dto.ServerActivityList"
-import {$WorldDownload} from "com.mojang.realmsclient.dto.WorldDownload"
 import {$RealmsServerPlayerLists} from "com.mojang.realmsclient.dto.RealmsServerPlayerLists"
+import {$WorldDownload} from "com.mojang.realmsclient.dto.WorldDownload"
 import {$RealmsNews} from "com.mojang.realmsclient.dto.RealmsNews"
-import {$Minecraft$$Type} from "net.minecraft.client.Minecraft"
 import {$PingResult$$Type} from "com.mojang.realmsclient.dto.PingResult"
+import {$Minecraft$$Type} from "net.minecraft.client.Minecraft"
 import {$RealmsServer$WorldType$$Type} from "com.mojang.realmsclient.dto.RealmsServer$WorldType"
 
 export class $RealmsClient {
@@ -79,45 +79,45 @@ public "close"(arg0: long): boolean
 public "open"(arg0: long): boolean
 public static "create"(): $RealmsClient
 public static "create"(arg0: $Minecraft$$Type): $RealmsClient
-public "listRealms"(): $RealmsServerList
-public "getNews"(): $RealmsNews
-public "resetWorldWithSeed"(arg0: long, arg1: $WorldGenerationInfo$$Type): boolean
-public "pendingInvites"(): $PendingInvitesList
-public "subscriptionFor"(arg0: long): $Subscription
-public "getOwnRealm"(arg0: long): $RealmsServer
-public "clientCompatible"(): $RealmsClient$CompatibleVersionResponse
-public "uninviteMyselfFrom"(arg0: long): void
-public "restoreWorld"(arg0: long, arg1: StringJS): void
 public "initializeRealm"(arg0: long, arg1: StringJS, arg2: StringJS): void
 public "hasParentalConsent"(): boolean
-public "acceptInvitation"(arg0: StringJS): void
-public "deleteRealm"(arg0: long): void
+public "clientCompatible"(): $RealmsClient$CompatibleVersionResponse
+public "restoreWorld"(arg0: long, arg1: StringJS): void
+public "getOwnRealm"(arg0: long): $RealmsServer
+public "uninviteMyselfFrom"(arg0: long): void
 public "requestUploadInfo"(arg0: long, arg1: StringJS): $UploadInfo
+public "pendingInvites"(): $PendingInvitesList
+public "resetWorldWithSeed"(arg0: long, arg1: $WorldGenerationInfo$$Type): boolean
+public "subscriptionFor"(arg0: long): $Subscription
+public "acceptInvitation"(arg0: StringJS): void
 public "rejectInvitation"(arg0: StringJS): void
+public "deleteRealm"(arg0: long): void
 public "getNotifications"(): $List<($RealmsNotification)>
 public "getActivity"(arg0: long): $ServerActivityList
-public "backupsFor"(arg0: long): $BackupList
-public "deop"(arg0: long, arg1: $UUID$$Type): $Ops
-public "switchSlot"(arg0: long, arg1: integer): boolean
+public "getLiveStats"(): $RealmsServerPlayerLists
+public "trialAvailable"(): boolean
+public "notificationsDismiss"(arg0: $List$$Type<($UUID$$Type)>): void
 public "uninvite"(arg0: long, arg1: $UUID$$Type): void
 public "agreeToTos"(): void
+public "deop"(arg0: long, arg1: $UUID$$Type): $Ops
+public "backupsFor"(arg0: long): $BackupList
+public "switchSlot"(arg0: long, arg1: integer): boolean
+public "createSnapshotRealm"(arg0: long): $RealmsServer
+public "resetWorldWithTemplate"(arg0: long, arg1: StringJS): boolean
+public "fetchWorldTemplates"(arg0: integer, arg1: integer, arg2: $RealmsServer$WorldType$$Type): $WorldTemplatePaginatedList
+public "requestDownloadInfo"(arg0: long, arg1: integer): $WorldDownload
+public "putIntoMinigameMode"(arg0: long, arg1: StringJS): boolean
 public "sendPingResults"(arg0: $PingResult$$Type): void
 public "notificationsSeen"(arg0: $List$$Type<($UUID$$Type)>): void
-public "notificationsDismiss"(arg0: $List$$Type<($UUID$$Type)>): void
-public "updateSlot"(arg0: long, arg1: integer, arg2: $RealmsWorldOptions$$Type): void
-public "invite"(arg0: long, arg1: StringJS): $RealmsServer
-public "trialAvailable"(): boolean
-public "getLiveStats"(): $RealmsServerPlayerLists
-public "createSnapshotRealm"(arg0: long): $RealmsServer
-public "fetchWorldTemplates"(arg0: integer, arg1: integer, arg2: $RealmsServer$WorldType$$Type): $WorldTemplatePaginatedList
-public "putIntoMinigameMode"(arg0: long, arg1: StringJS): boolean
-public "resetWorldWithTemplate"(arg0: long, arg1: StringJS): boolean
-public "requestDownloadInfo"(arg0: long, arg1: integer): $WorldDownload
-public "listSnapshotEligibleRealms"(): $List<($RealmsServer)>
 public "pendingInvitesCount"(): integer
-get "news"(): $RealmsNews
+public "listSnapshotEligibleRealms"(): $List<($RealmsServer)>
+public "getNews"(): $RealmsNews
+public "listRealms"(): $RealmsServerList
+public "invite"(arg0: long, arg1: StringJS): $RealmsServer
+public "updateSlot"(arg0: long, arg1: integer, arg2: $RealmsWorldOptions$$Type): void
 get "notifications"(): $List<($RealmsNotification)>
 get "liveStats"(): $RealmsServerPlayerLists
+get "news"(): $RealmsNews
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

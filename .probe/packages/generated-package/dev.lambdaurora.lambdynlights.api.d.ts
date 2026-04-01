@@ -9,11 +9,11 @@ export interface $DynamicLightHandler$$Interface<T> {
 }
 
 export class $DynamicLightHandler<T> implements $DynamicLightHandler$$Interface {
-static "makeHandler"<T extends $LivingEntity>(luminance: $Function$$Type<(T), (integer)>, waterSensitive: $Function$$Type<(T), (boolean)>): $DynamicLightHandler<(T)>
  "getLuminance"(arg0: T): integer
+static "makeHandler"<T extends $LivingEntity>(luminance: $Function$$Type<(T), (integer)>, waterSensitive: $Function$$Type<(T), (boolean)>): $DynamicLightHandler<(T)>
+static "makeCreeperEntityHandler"<T extends $Creeper>(handler: $DynamicLightHandler$$Type<(T)>): $DynamicLightHandler<(T)>
 static "makeLivingEntityHandler"<T extends $LivingEntity>(handler: $DynamicLightHandler$$Type<(T)>): $DynamicLightHandler<(T)>
  "isWaterSensitive"(lightSource: T): boolean
-static "makeCreeperEntityHandler"<T extends $Creeper>(handler: $DynamicLightHandler$$Type<(T)>): $DynamicLightHandler<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

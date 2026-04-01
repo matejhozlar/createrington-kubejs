@@ -3,8 +3,8 @@ import {$Attributes} from "java.util.jar.Attributes"
 import {$JarContents$$Type} from "cpw.mods.jarhandling.JarContents"
 import {$SecureJar$ModuleDataProvider} from "cpw.mods.jarhandling.SecureJar$ModuleDataProvider"
 import {$SecureJar$Status} from "cpw.mods.jarhandling.SecureJar$Status"
-import {$Path, $Path$$Type} from "java.nio.file.Path"
 import {$JarMetadata$$Type} from "cpw.mods.jarhandling.JarMetadata"
+import {$Path, $Path$$Type} from "java.nio.file.Path"
 import {$CodeSigner} from "java.security.CodeSigner"
 
 export interface $SecureJar$$Interface {
@@ -14,19 +14,19 @@ get "rootPath"(): $Path
 }
 
 export class $SecureJar implements $SecureJar$$Interface {
- "verifyPath"(arg0: $Path$$Type): $SecureJar$Status
- "getPrimaryPath"(): $Path
- "moduleDataProvider"(): $SecureJar$ModuleDataProvider
  "name"(): StringJS
-static "from"(...arg0: ($Path$$Type)[]): $SecureJar
 static "from"(arg0: $JarContents$$Type, arg1: $JarMetadata$$Type): $SecureJar
 static "from"(arg0: $JarContents$$Type): $SecureJar
+static "from"(...arg0: ($Path$$Type)[]): $SecureJar
  "close"(): void
  "getPath"(arg0: StringJS, ...arg1: (StringJS)[]): $Path
- "hasSecurityData"(): boolean
+ "getPrimaryPath"(): $Path
+ "moduleDataProvider"(): $SecureJar$ModuleDataProvider
  "getFileStatus"(arg0: StringJS): $SecureJar$Status
  "getManifestSigners"(): ($CodeSigner)[]
+ "hasSecurityData"(): boolean
  "getTrustedManifestEntries"(arg0: StringJS): $Attributes
+ "verifyPath"(arg0: $Path$$Type): $SecureJar$Status
  "getRootPath"(): $Path
 }
 /**

@@ -9,18 +9,18 @@ import {$ModuleSessionHandler, $ModuleSessionHandler$$Type} from "xaero.hud.modu
 export class $Hud {
 constructor(arg0: $ModuleManager$$Type, arg1: $PushboxManager$$Type, arg2: $HudPresetManager$$Type, arg3: $HudEventHandler$$Type, arg4: $ModuleSessionHandler$$Type, arg5: $OldSystemCompatibility$$Type)
 
-public "getEventHandler"(): $HudEventHandler
 public "getPushboxManager"(): $PushboxManager
-public "getModuleManager"(): $ModuleManager
-public "getPresetManager"(): $HudPresetManager
 public "getSessionHandler"(): $ModuleSessionHandler
+public "getPresetManager"(): $HudPresetManager
+public "getModuleManager"(): $ModuleManager
 public "getOldSystemCompatibility"(): $OldSystemCompatibility
-get "eventHandler"(): $HudEventHandler
+public "getEventHandler"(): $HudEventHandler
 get "pushboxManager"(): $PushboxManager
-get "moduleManager"(): $ModuleManager
-get "presetManager"(): $HudPresetManager
 get "sessionHandler"(): $ModuleSessionHandler
+get "presetManager"(): $HudPresetManager
+get "moduleManager"(): $ModuleManager
 get "oldSystemCompatibility"(): $OldSystemCompatibility
+get "eventHandler"(): $HudEventHandler
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -32,9 +32,9 @@ export type $Hud$$Type = ($Hud);
  */
 export type $Hud$$Original = $Hud;}
 declare module "xaero.hud.HudSession" {
-import {$HudMod, $HudMod$$Type} from "xaero.common.HudMod"
-import {$MultiTextureRenderTypeRendererProvider} from "xaero.common.graphics.renderer.multitexture.MultiTextureRenderTypeRendererProvider"
 import {$LocalPlayer$$Type} from "net.minecraft.client.player.LocalPlayer"
+import {$MultiTextureRenderTypeRendererProvider} from "xaero.common.graphics.renderer.multitexture.MultiTextureRenderTypeRendererProvider"
+import {$HudMod, $HudMod$$Type} from "xaero.common.HudMod"
 import {$ModuleSession} from "xaero.hud.module.ModuleSession"
 import {$ControlsHandler} from "xaero.common.controls.ControlsHandler"
 import {$ClientPacketListener$$Type} from "net.minecraft.client.multiplayer.ClientPacketListener"
@@ -51,21 +51,21 @@ public static "getCurrentSession"(): $HudSession
  * @deprecated
  */
 public "getControls"(): $ControlsHandler
-public "getKeyMappingTickHandler"(): $KeyMappingTickHandler
-public "getSession"<MS extends $ModuleSession<(object)>>(arg0: $HudModule$$Type<(MS)>): MS
 public static "getForPlayer"(arg0: $LocalPlayer$$Type): $HudSession
+public "getSession"<MS extends $ModuleSession<(object)>>(arg0: $HudModule$$Type<(MS)>): MS
 /**
  * 
  * @deprecated
  */
 public "getMultiTextureRenderTypeRenderers"(): $MultiTextureRenderTypeRendererProvider
-public "tryCleanup"(): void
 public "getHudMod"(): $HudMod
+public "tryCleanup"(): void
+public "getKeyMappingTickHandler"(): $KeyMappingTickHandler
 get "currentSession"(): $HudSession
 get "controls"(): $ControlsHandler
-get "keyMappingTickHandler"(): $KeyMappingTickHandler
 get "multiTextureRenderTypeRenderers"(): $MultiTextureRenderTypeRendererProvider
 get "hudMod"(): $HudMod
+get "keyMappingTickHandler"(): $KeyMappingTickHandler
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

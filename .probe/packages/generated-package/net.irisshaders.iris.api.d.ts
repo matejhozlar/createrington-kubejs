@@ -9,8 +9,8 @@ export interface $IrisItemLightProvider$$Interface {
 export class $IrisItemLightProvider implements $IrisItemLightProvider$$Interface {
 static readonly "DEFAULT_LIGHT_COLOR": $Vector3f
 
- "getLightEmission"(arg0: $Player$$Type, arg1: $ItemStack$$Type): integer
  "getLightColor"(arg0: $Player$$Type, arg1: $ItemStack$$Type): $Vector3f
+ "getLightEmission"(arg0: $Player$$Type, arg1: $ItemStack$$Type): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

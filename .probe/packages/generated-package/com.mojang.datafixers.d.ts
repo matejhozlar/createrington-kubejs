@@ -6,21 +6,21 @@ import {$Record} from "java.lang.Record"
 export class $TypedOptic$Element<S, T, A, B> extends $Record {
 constructor(sType: $Type$$Type<(S)>, tType: $Type$$Type<(T)>, aType: $Type$$Type<(A)>, bType: $Type$$Type<(B)>, optic: $Optic$$Type<(never), (S), (T), (A), (B)>)
 
+public "sType"(): $Type<(S)>
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "tType"(): $Type<(T)>
 public "aType"(): $Type<(A)>
-public "sType"(): $Type<(S)>
-public "optic"(): $Optic<(never), (S), (T), (A), (B)>
 public "bType"(): $Type<(B)>
 public "castOuterUnchecked"<S2, T2>(arg0: $Type$$Type<(S2)>, arg1: $Type$$Type<(T2)>): $TypedOptic$Element<(S2), (T2), (A), (B)>
+public "optic"(): $Optic<(never), (S), (T), (A), (B)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $TypedOptic$Element$$Type<S, T, A, B> = ({"tType"?: $Type$$Type<(T)>, "sType"?: $Type$$Type<(S)>, "optic"?: $Optic$$Type<(never), (S), (T), (A), (B)>, "bType"?: $Type$$Type<(B)>, "aType"?: $Type$$Type<(A)>}) | ([tType?: $Type$$Type<(T)>, sType?: $Type$$Type<(S)>, optic?: $Optic$$Type<(never), (S), (T), (A), (B)>, bType?: $Type$$Type<(B)>, aType?: $Type$$Type<(A)>]);
+export type $TypedOptic$Element$$Type<S, T, A, B> = ({"bType"?: $Type$$Type<(B)>, "optic"?: $Optic$$Type<(never), (S), (T), (A), (B)>, "sType"?: $Type$$Type<(S)>, "tType"?: $Type$$Type<(T)>, "aType"?: $Type$$Type<(A)>}) | ([bType?: $Type$$Type<(B)>, optic?: $Optic$$Type<(never), (S), (T), (A), (B)>, sType?: $Type$$Type<(S)>, tType?: $Type$$Type<(T)>, aType?: $Type$$Type<(A)>]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -29,8 +29,8 @@ declare module "com.mojang.datafixers.TypeRewriteRule" {
 import {$RewriteResult, $RewriteResult$$Type} from "com.mojang.datafixers.RewriteResult"
 import {$Type, $Type$$Type} from "com.mojang.datafixers.types.Type"
 import {$Optional, $Optional$$Type} from "java.util.Optional"
-import {$List$$Type} from "java.util.List"
 import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$List$$Type} from "java.util.List"
 import {$PointFreeRule$$Type} from "com.mojang.datafixers.functions.PointFreeRule"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 
@@ -46,12 +46,12 @@ static "seq"(arg0: $TypeRewriteRule$$Type, arg1: $TypeRewriteRule$$Type): $TypeR
 static "seq"(arg0: $TypeRewriteRule$$Type, ...arg1: ($TypeRewriteRule$$Type)[]): $TypeRewriteRule
 static "seq"(arg0: $List$$Type<($TypeRewriteRule$$Type)>): $TypeRewriteRule
 static "all"(arg0: $TypeRewriteRule$$Type, arg1: boolean, arg2: boolean): $TypeRewriteRule
-static "checkOnce"(arg0: $TypeRewriteRule$$Type, arg1: $Consumer$$Type<($Type<(never)>)>): $TypeRewriteRule
+static "one"(arg0: $TypeRewriteRule$$Type): $TypeRewriteRule
+static "once"(arg0: $TypeRewriteRule$$Type): $TypeRewriteRule
+ "rewrite"<A>(arg0: $Type$$Type<(A)>): $Optional<($RewriteResult<(A), (never)>)>
 static "ifSame"<B>(arg0: $Type$$Type<(B)>, arg1: $RewriteResult$$Type<(B), (never)>): $TypeRewriteRule
 static "everywhere"(arg0: $TypeRewriteRule$$Type, arg1: $PointFreeRule$$Type, arg2: boolean, arg3: boolean): $TypeRewriteRule
-static "one"(arg0: $TypeRewriteRule$$Type): $TypeRewriteRule
- "rewrite"<A>(arg0: $Type$$Type<(A)>): $Optional<($RewriteResult<(A), (never)>)>
-static "once"(arg0: $TypeRewriteRule$$Type): $TypeRewriteRule
+static "checkOnce"(arg0: $TypeRewriteRule$$Type, arg1: $Consumer$$Type<($Type<(never)>)>): $TypeRewriteRule
 static "nop"(): $TypeRewriteRule
 }
 /**
@@ -66,8 +66,8 @@ export type $TypeRewriteRule$$Original = $TypeRewriteRule;}
 declare module "com.mojang.datafixers.TypedOptic" {
 import {$App$$Type} from "com.mojang.datafixers.kinds.App"
 import {$Collection$$Type} from "java.util.Collection"
-import {$Optional} from "java.util.Optional"
 import {$Type, $Type$$Type} from "com.mojang.datafixers.types.Type"
+import {$Optional} from "java.util.Optional"
 import {$Pair} from "com.mojang.datafixers.util.Pair"
 import {$List, $List$$Type} from "java.util.List"
 import {$TypeToken, $TypeToken$$Type} from "com.google.common.reflect.TypeToken"
@@ -83,9 +83,10 @@ import {$Record} from "java.lang.Record"
 
 export class $TypedOptic<S, T, A, B> extends $Record {
 constructor(arg0: $TypeToken$$Type<($K1$$Type)>, arg1: $Type$$Type<(S)>, arg2: $Type$$Type<(T)>, arg3: $Type$$Type<(A)>, arg4: $Type$$Type<(B)>, arg5: $Optic$$Type<(never), (S), (T), (A), (B)>)
-constructor(arg0: $Set$$Type<($TypeToken$$Type<($K1$$Type)>)>, arg1: $Type$$Type<(S)>, arg2: $Type$$Type<(T)>, arg3: $Type$$Type<(A)>, arg4: $Type$$Type<(B)>, arg5: $Optic$$Type<(never), (S), (T), (A), (B)>)
 constructor(bounds: $Set$$Type<($TypeToken$$Type<($K1$$Type)>)>, elements: $List$$Type<($TypedOptic$Element$$Type<(never), (never), (never), (never)>)>)
+constructor(arg0: $Set$$Type<($TypeToken$$Type<($K1$$Type)>)>, arg1: $Type$$Type<(S)>, arg2: $Type$$Type<(T)>, arg3: $Type$$Type<(A)>, arg4: $Type$$Type<(B)>, arg5: $Optic$$Type<(never), (S), (T), (A), (B)>)
 
+public "sType"(): $Type<(S)>
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
@@ -98,26 +99,25 @@ public "compose"<A1, B1>(arg0: $TypedOptic$$Type<(A), (B), (A1), (B1)>): $TypedO
 public static "adapter"<S, T>(arg0: $Type$$Type<(S)>, arg1: $Type$$Type<(T)>): $TypedOptic<(S), (T), (S), (T)>
 public "tType"(): $Type<(T)>
 public "aType"(): $Type<(A)>
+public "outermost"(): $Optic<(never), (S), (T), (never), (never)>
 public static "tagged"<K, A, B>(arg0: $TaggedChoice$TaggedChoiceType$$Type<(K)>, arg1: K, arg2: $Type$$Type<(A)>, arg3: $Type$$Type<(B)>): $TypedOptic<($Pair<(K), (never)>), ($Pair<(K), (never)>), (A), (B)>
-public static "compoundListKeys"<K, V, K2>(arg0: $Type$$Type<(K)>, arg1: $Type$$Type<(K2)>, arg2: $Type$$Type<(V)>): $TypedOptic<($List<($Pair<(K), (V)>)>), ($List<($Pair<(K2), (V)>)>), (K), (K2)>
-public static "compoundListElements"<K, V, V2>(arg0: $Type$$Type<(K)>, arg1: $Type$$Type<(V)>, arg2: $Type$$Type<(V2)>): $TypedOptic<($List<($Pair<(K), (V)>)>), ($List<($Pair<(K), (V2)>)>), (V), (V2)>
-public "sType"(): $Type<(S)>
-public static "instanceOf"<Proof2 extends $K1>(arg0: $Collection$$Type<($TypeToken$$Type<($K1$$Type)>)>, arg1: $TypeToken$$Type<(Proof2)>): boolean
+public "castOuter"(arg0: $Type$$Type<(S)>, arg1: $Type$$Type<(T)>): $TypedOptic<(S), (T), (A), (B)>
+public "bType"(): $Type<(B)>
 public static "inj2"<F, G, G2>(arg0: $Type$$Type<(F)>, arg1: $Type$$Type<(G)>, arg2: $Type$$Type<(G2)>): $TypedOptic<($Either<(F), (G)>), ($Either<(F), (G2)>), (G), (G2)>
-public static "proj2"<F, G, G2>(arg0: $Type$$Type<(F)>, arg1: $Type$$Type<(G)>, arg2: $Type$$Type<(G2)>): $TypedOptic<($Pair<(F), (G)>), ($Pair<(F), (G2)>), (G), (G2)>
+public static "proj1"<F, G, F2>(arg0: $Type$$Type<(F)>, arg1: $Type$$Type<(G)>, arg2: $Type$$Type<(F2)>): $TypedOptic<($Pair<(F), (G)>), ($Pair<(F2), (G)>), (F), (F2)>
 public "upCast"<Proof2 extends $K1>(arg0: $TypeToken$$Type<(Proof2)>): $Optional<($Optic<(Proof2), (S), (T), (A), (B)>)>
 public static "inj1"<F, G, F2>(arg0: $Type$$Type<(F)>, arg1: $Type$$Type<(G)>, arg2: $Type$$Type<(F2)>): $TypedOptic<($Either<(F), (G)>), ($Either<(F2), (G)>), (F), (F2)>
-public "bType"(): $Type<(B)>
-public static "proj1"<F, G, F2>(arg0: $Type$$Type<(F)>, arg1: $Type$$Type<(G)>, arg2: $Type$$Type<(F2)>): $TypedOptic<($Pair<(F), (G)>), ($Pair<(F2), (G)>), (F), (F2)>
-public "castOuter"(arg0: $Type$$Type<(S)>, arg1: $Type$$Type<(T)>): $TypedOptic<(S), (T), (A), (B)>
+public static "proj2"<F, G, G2>(arg0: $Type$$Type<(F)>, arg1: $Type$$Type<(G)>, arg2: $Type$$Type<(G2)>): $TypedOptic<($Pair<(F), (G)>), ($Pair<(F), (G2)>), (G), (G2)>
+public static "instanceOf"<Proof2 extends $K1>(arg0: $Collection$$Type<($TypeToken$$Type<($K1$$Type)>)>, arg1: $TypeToken$$Type<(Proof2)>): boolean
 public "castOuterUnchecked"<S2, T2>(arg0: $Type$$Type<(S2)>, arg1: $Type$$Type<(T2)>): $TypedOptic<(S2), (T2), (A), (B)>
-public "outermost"(): $Optic<(never), (S), (T), (never), (never)>
+public static "compoundListKeys"<K, V, K2>(arg0: $Type$$Type<(K)>, arg1: $Type$$Type<(K2)>, arg2: $Type$$Type<(V)>): $TypedOptic<($List<($Pair<(K), (V)>)>), ($List<($Pair<(K2), (V)>)>), (K), (K2)>
+public static "compoundListElements"<K, V, V2>(arg0: $Type$$Type<(K)>, arg1: $Type$$Type<(V)>, arg2: $Type$$Type<(V2)>): $TypedOptic<($List<($Pair<(K), (V)>)>), ($List<($Pair<(K), (V2)>)>), (V), (V2)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $TypedOptic$$Type<S, T, A, B> = ({"bounds"?: $Set$$Type<($TypeToken$$Type<($K1$$Type)>)>, "elements"?: $List$$Type<($TypedOptic$Element$$Type<(never), (never), (never), (never)>)>}) | ([bounds?: $Set$$Type<($TypeToken$$Type<($K1$$Type)>)>, elements?: $List$$Type<($TypedOptic$Element$$Type<(never), (never), (never), (never)>)>]);
+export type $TypedOptic$$Type<S, T, A, B> = ({"elements"?: $List$$Type<($TypedOptic$Element$$Type<(never), (never), (never), (never)>)>, "bounds"?: $Set$$Type<($TypeToken$$Type<($K1$$Type)>)>}) | ([elements?: $List$$Type<($TypedOptic$Element$$Type<(never), (never), (never), (never)>)>, bounds?: $Set$$Type<($TypeToken$$Type<($K1$$Type)>)>]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -181,10 +181,10 @@ public static "create"<A, B>(arg0: $PointFree$$Type<($Function$$Type<(A), (B)>)>
 public static "create"<A, B>(arg0: StringJS, arg1: $Type$$Type<(A)>, arg2: $Type$$Type<(B)>, arg3: $Function$$Type<($DynamicOps<(never)>), ($Function$$Type<(A), (B)>)>): $View<(A), (B)>
 public "compose"<C>(arg0: $View$$Type<(C), (A)>): $View<(C), (B)>
 public "rewrite"(arg0: $PointFreeRule$$Type): $Optional<($View<(A), (B)>)>
-public static "nopView"<A>(arg0: $Type$$Type<(A)>): $View<(A), (A)>
 public "funcType"(): $Type<($Function<(A), (B)>)>
-public "isNop"(): boolean
+public static "nopView"<A>(arg0: $Type$$Type<(A)>): $View<(A), (A)>
 public "rewriteOrNop"(arg0: $PointFreeRule$$Type): $View<(A), (B)>
+public "isNop"(): boolean
 get "nop"(): boolean
 }
 /**
@@ -353,10 +353,10 @@ public "t1"(): $App<(F), (T1)>
 public "t2"(): $App<(F), (T2)>
 public "and"<T8>(arg0: $App$$Type<(F), (T8)>): $Products$P8<(F), (T1), (T2), (T3), (T4), (T5), (T6), (T7), (T8)>
 public "t3"(): $App<(F), (T3)>
-public "t6"(): $App<(F), (T6)>
-public "t4"(): $App<(F), (T4)>
 public "t7"(): $App<(F), (T7)>
 public "t5"(): $App<(F), (T5)>
+public "t4"(): $App<(F), (T4)>
+public "t6"(): $App<(F), (T6)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -369,8 +369,8 @@ export type $Products$P7$$Type<F, T1, T2, T3, T4, T5, T6, T7> = ($Products$P7<(F
 export type $Products$P7$$Original<F, T1, T2, T3, T4, T5, T6, T7> = $Products$P7<(F), (T1), (T2), (T3), (T4), (T5), (T6), (T7)>;}
 declare module "com.mojang.datafixers.Products$P8" {
 import {$App, $App$$Type} from "com.mojang.datafixers.kinds.App"
-import {$K1} from "com.mojang.datafixers.kinds.K1"
 import {$Function8$$Type} from "com.mojang.datafixers.util.Function8"
+import {$K1} from "com.mojang.datafixers.kinds.K1"
 import {$Applicative$$Type} from "com.mojang.datafixers.kinds.Applicative"
 
 export class $Products$P8<F extends $K1, T1, T2, T3, T4, T5, T6, T7, T8> {
@@ -381,11 +381,11 @@ public "apply"<R>(arg0: $Applicative$$Type<(F), (never)>, arg1: $App$$Type<(F), 
 public "t1"(): $App<(F), (T1)>
 public "t2"(): $App<(F), (T2)>
 public "t3"(): $App<(F), (T3)>
-public "t6"(): $App<(F), (T6)>
-public "t4"(): $App<(F), (T4)>
-public "t8"(): $App<(F), (T8)>
 public "t7"(): $App<(F), (T7)>
+public "t8"(): $App<(F), (T8)>
 public "t5"(): $App<(F), (T5)>
+public "t4"(): $App<(F), (T4)>
+public "t6"(): $App<(F), (T6)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -418,8 +418,8 @@ public "and"<T6>(arg0: $App$$Type<(F), (T6)>): $Products$P6<(F), (T1), (T2), (T3
 public "and"<T6, T7, T8>(arg0: $Products$P3$$Type<(F), (T6), (T7), (T8)>): $Products$P8<(F), (T1), (T2), (T3), (T4), (T5), (T6), (T7), (T8)>
 public "and"<T6, T7>(arg0: $Products$P2$$Type<(F), (T6), (T7)>): $Products$P7<(F), (T1), (T2), (T3), (T4), (T5), (T6), (T7)>
 public "t3"(): $App<(F), (T3)>
-public "t4"(): $App<(F), (T4)>
 public "t5"(): $App<(F), (T5)>
+public "t4"(): $App<(F), (T4)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -449,9 +449,9 @@ public "t2"(): $App<(F), (T2)>
 public "and"<T7, T8>(arg0: $Products$P2$$Type<(F), (T7), (T8)>): $Products$P8<(F), (T1), (T2), (T3), (T4), (T5), (T6), (T7), (T8)>
 public "and"<T7>(arg0: $App$$Type<(F), (T7)>): $Products$P7<(F), (T1), (T2), (T3), (T4), (T5), (T6), (T7)>
 public "t3"(): $App<(F), (T3)>
-public "t6"(): $App<(F), (T6)>
-public "t4"(): $App<(F), (T4)>
 public "t5"(): $App<(F), (T5)>
+public "t4"(): $App<(F), (T4)>
+public "t6"(): $App<(F), (T6)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -568,8 +568,8 @@ export type $Products$P14$$Type<F, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11,
  */
 export type $Products$P14$$Original<F, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14> = $Products$P14<(F), (T1), (T2), (T3), (T4), (T5), (T6), (T7), (T8), (T9), (T10), (T11), (T12), (T13), (T14)>;}
 declare module "com.mojang.datafixers.Products$P15" {
-import {$Function15$$Type} from "com.mojang.datafixers.util.Function15"
 import {$App, $App$$Type} from "com.mojang.datafixers.kinds.App"
+import {$Function15$$Type} from "com.mojang.datafixers.util.Function15"
 import {$K1} from "com.mojang.datafixers.kinds.K1"
 import {$Applicative$$Type} from "com.mojang.datafixers.kinds.Applicative"
 
@@ -638,8 +638,8 @@ import {$Type, $Type$$Type} from "com.mojang.datafixers.types.Type"
 import {$Pair} from "com.mojang.datafixers.util.Pair"
 import {$Function$$Type} from "java.util.function.Function"
 import {$Either} from "com.mojang.datafixers.util.Either"
-import {$DataResult} from "com.mojang.serialization.DataResult"
 import {$List} from "java.util.List"
+import {$DataResult} from "com.mojang.serialization.DataResult"
 import {$Dynamic} from "com.mojang.serialization.Dynamic"
 import {$OpticFinder$$Type} from "com.mojang.datafixers.OpticFinder"
 
@@ -649,8 +649,8 @@ constructor(arg0: $Type$$Type<(A)>, arg1: $DynamicOps$$Type<(never)>, arg2: A)
 public "getOrCreate"<FT>(arg0: $OpticFinder$$Type<(FT)>): FT
 public "get"<FT>(arg0: $OpticFinder$$Type<(FT)>): FT
 public "toString"(): StringJS
-public "update"<FT, FR>(arg0: $OpticFinder$$Type<(FT)>, arg1: $Type$$Type<(FR)>, arg2: $Function$$Type<(FT), (FR)>): $Typed<(never)>
 public "update"<FT>(arg0: $OpticFinder$$Type<(FT)>, arg1: $Function$$Type<(FT), (FT)>): $Typed<(never)>
+public "update"<FT, FR>(arg0: $OpticFinder$$Type<(FT)>, arg1: $Type$$Type<(FR)>, arg2: $Function$$Type<(FT), (FR)>): $Typed<(never)>
 public "getValue"(): A
 public "out"(): $Typed<(A)>
 public "set"<FT, FR>(arg0: $OpticFinder$$Type<(FT)>, arg1: $Typed$$Type<(FR)>): $Typed<(never)>
@@ -661,20 +661,20 @@ public "getOrDefault"<FT>(arg0: $OpticFinder$$Type<(FT)>, arg1: FT): FT
 public "getType"(): $Type<(A)>
 public static "pair"<A, B>(arg0: $Typed$$Type<(A)>, arg1: $Typed$$Type<(B)>): $Typed<($Pair<(A), (B)>)>
 public "getAll"<FT>(arg0: $TypedOptic$$Type<(A), (never), (FT), (never)>): $List<(FT)>
-public "getOrCreateTyped"<FT>(arg0: $OpticFinder$$Type<(FT)>): $Typed<(FT)>
 public "getOptional"<FT>(arg0: $OpticFinder$$Type<(FT)>): $Optional<(FT)>
-public "updateRecursiveTyped"<FT, FR>(arg0: $OpticFinder$$Type<(FT)>, arg1: $Type$$Type<(FR)>, arg2: $Function$$Type<($Typed<(never)>), ($Typed$$Type<(never)>)>): $Typed<(never)>
-public "updateRecursiveTyped"<FT>(arg0: $OpticFinder$$Type<(FT)>, arg1: $Function$$Type<($Typed<(never)>), ($Typed$$Type<(never)>)>): $Typed<(never)>
-public "getTyped"<FT>(arg0: $OpticFinder$$Type<(FT)>): $Typed<(FT)>
 public "getAllTyped"<FT>(arg0: $OpticFinder$$Type<(FT)>): $List<($Typed<(FT)>)>
 public "getOps"(): $DynamicOps<(never)>
-public "updateTyped"<FT, FR>(arg0: $OpticFinder$$Type<(FT)>, arg1: $Type$$Type<(FR)>, arg2: $Function$$Type<($Typed<(never)>), ($Typed$$Type<(never)>)>): $Typed<(never)>
-public "updateTyped"<FT>(arg0: $OpticFinder$$Type<(FT)>, arg1: $Function$$Type<($Typed<(never)>), ($Typed$$Type<(never)>)>): $Typed<(never)>
-public "updateRecursive"<FT>(arg0: $OpticFinder$$Type<(FT)>, arg1: $Function$$Type<(FT), (FT)>): $Typed<(never)>
-public "updateRecursive"<FT, FR>(arg0: $OpticFinder$$Type<(FT)>, arg1: $Type$$Type<(FR)>, arg2: $Function$$Type<(FT), (FR)>): $Typed<(never)>
 public "inj2"<B>(arg0: $Type$$Type<(B)>): $Typed<($Either<(B), (A)>)>
 public "inj1"<B>(arg0: $Type$$Type<(B)>): $Typed<($Either<(A), (B)>)>
 public "getOptionalTyped"<FT>(arg0: $OpticFinder$$Type<(FT)>): $Optional<($Typed<(FT)>)>
+public "getOrCreateTyped"<FT>(arg0: $OpticFinder$$Type<(FT)>): $Typed<(FT)>
+public "updateRecursive"<FT>(arg0: $OpticFinder$$Type<(FT)>, arg1: $Function$$Type<(FT), (FT)>): $Typed<(never)>
+public "updateRecursive"<FT, FR>(arg0: $OpticFinder$$Type<(FT)>, arg1: $Type$$Type<(FR)>, arg2: $Function$$Type<(FT), (FR)>): $Typed<(never)>
+public "getTyped"<FT>(arg0: $OpticFinder$$Type<(FT)>): $Typed<(FT)>
+public "updateRecursiveTyped"<FT>(arg0: $OpticFinder$$Type<(FT)>, arg1: $Function$$Type<($Typed<(never)>), ($Typed$$Type<(never)>)>): $Typed<(never)>
+public "updateRecursiveTyped"<FT, FR>(arg0: $OpticFinder$$Type<(FT)>, arg1: $Type$$Type<(FR)>, arg2: $Function$$Type<($Typed<(never)>), ($Typed$$Type<(never)>)>): $Typed<(never)>
+public "updateTyped"<FT>(arg0: $OpticFinder$$Type<(FT)>, arg1: $Function$$Type<($Typed<(never)>), ($Typed$$Type<(never)>)>): $Typed<(never)>
+public "updateTyped"<FT, FR>(arg0: $OpticFinder$$Type<(FT)>, arg1: $Type$$Type<(FR)>, arg2: $Function$$Type<($Typed<(never)>), ($Typed$$Type<(never)>)>): $Typed<(never)>
 get "value"(): A
 get "type"(): $Type<(A)>
 get "ops"(): $DynamicOps<(never)>
@@ -699,9 +699,9 @@ export interface $OpticFinder$$Interface<FT> {
 
 export class $OpticFinder<FT> implements $OpticFinder$$Interface {
  "type"(): $Type<(FT)>
- "findType"<A>(arg0: $Type$$Type<(A)>, arg1: boolean): $Either<($TypedOptic<(A), (never), (FT), (FT)>), ($Type$FieldNotFoundException)>
- "findType"<A, FR>(arg0: $Type$$Type<(A)>, arg1: $Type$$Type<(FR)>, arg2: boolean): $Either<($TypedOptic<(A), (never), (FT), (FR)>), ($Type$FieldNotFoundException)>
  "inField"<GT>(arg0: StringJS, arg1: $Type$$Type<(GT)>): $OpticFinder<(FT)>
+ "findType"<A, FR>(arg0: $Type$$Type<(A)>, arg1: $Type$$Type<(FR)>, arg2: boolean): $Either<($TypedOptic<(A), (never), (FT), (FR)>), ($Type$FieldNotFoundException)>
+ "findType"<A>(arg0: $Type$$Type<(A)>, arg1: boolean): $Either<($TypedOptic<(A), (never), (FT), (FT)>), ($Type$FieldNotFoundException)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

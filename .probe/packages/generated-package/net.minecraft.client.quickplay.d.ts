@@ -1,8 +1,8 @@
 declare module "net.minecraft.client.quickplay.QuickPlayLog$Type" {
 import {$Keyable} from "com.mojang.serialization.Keyable"
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Enum, $Enum$$Type} from "java.lang.Enum"
+import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Function, $Function$$Type} from "java.util.function.Function"
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$StringRepresentable, $StringRepresentable$$Type, $StringRepresentable$$Interface} from "net.minecraft.util.StringRepresentable"
@@ -16,12 +16,12 @@ static readonly "REALMS": $QuickPlayLog$Type
 public static "values"(): ($QuickPlayLog$Type)[]
 public static "valueOf"(arg0: StringJS): $QuickPlayLog$Type
 public "getSerializedName"(): StringJS
-public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
 public static "keys"(arg0: ($StringRepresentable$$Type)[]): $Keyable
+public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
+public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 public "getRemappedEnumConstantName"(): StringJS
 public static "fromEnum"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromValues"<T extends $StringRepresentable>(arg0: $Supplier$$Type<((T)[])>): $Codec<(T)>
-public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 get "serializedName"(): StringJS
 get "remappedEnumConstantName"(): StringJS
 }
@@ -35,8 +35,8 @@ export type $QuickPlayLog$Type$$Type = (("singleplayer") | ("multiplayer") | ("r
  */
 export type $QuickPlayLog$Type$$Original = $QuickPlayLog$Type;}
 declare module "net.minecraft.client.quickplay.QuickPlayLog" {
-import {$Minecraft$$Type} from "net.minecraft.client.Minecraft"
 import {$QuickPlayLog$Type$$Type} from "net.minecraft.client.quickplay.QuickPlayLog$Type"
+import {$Minecraft$$Type} from "net.minecraft.client.Minecraft"
 
 export class $QuickPlayLog {
 constructor(arg0: StringJS)

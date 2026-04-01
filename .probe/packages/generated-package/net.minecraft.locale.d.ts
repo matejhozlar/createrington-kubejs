@@ -18,11 +18,11 @@ public "getOrDefault"(arg0: StringJS, arg1: StringJS): StringJS
 public "has"(arg0: StringJS): boolean
 public "getVisualOrder"(arg0: $List$$Type<($FormattedText$$Type)>): $List<($FormattedCharSequence)>
 public "getVisualOrder"(arg0: $FormattedText$$Type): $FormattedCharSequence
-public "isDefaultRightToLeft"(): boolean
 public static "inject"(arg0: $Language$$Type): void
 public "getComponent"(arg0: StringJS): $Component
-public static "loadFromJson"(arg0: $InputStream$$Type, arg1: $BiConsumer$$Type<(StringJS), (StringJS)>, arg2: $BiConsumer$$Type<(StringJS), ($Component)>): void
+public "isDefaultRightToLeft"(): boolean
 public static "loadFromJson"(arg0: $InputStream$$Type, arg1: $BiConsumer$$Type<(StringJS), (StringJS)>): void
+public static "loadFromJson"(arg0: $InputStream$$Type, arg1: $BiConsumer$$Type<(StringJS), (StringJS)>, arg2: $BiConsumer$$Type<(StringJS), ($Component)>): void
 public "getLanguageData"(): $Map<(StringJS), (StringJS)>
 get "instance"(): $Language
 get "defaultRightToLeft"(): boolean

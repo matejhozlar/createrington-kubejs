@@ -83,7 +83,7 @@ public "levelType"(): $LevelType
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $WorldGenerationInfo$$Type = ({"seed"?: StringJS, "experiments"?: $Set$$Type<(StringJS)>, "levelType"?: $LevelType$$Type, "generateStructures"?: boolean}) | ([seed?: StringJS, experiments?: $Set$$Type<(StringJS)>, levelType?: $LevelType$$Type, generateStructures?: boolean]);
+export type $WorldGenerationInfo$$Type = ({"generateStructures"?: boolean, "levelType"?: $LevelType$$Type, "experiments"?: $Set$$Type<(StringJS)>, "seed"?: StringJS}) | ([generateStructures?: boolean, levelType?: $LevelType$$Type, experiments?: $Set$$Type<(StringJS)>, seed?: StringJS]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */

@@ -56,8 +56,8 @@ export type $CommandSyntaxException$$Type = ($CommandSyntaxException);
 export type $CommandSyntaxException$$Original = $CommandSyntaxException;}
 declare module "com.mojang.brigadier.exceptions.DynamicCommandExceptionType" {
 import {$ImmutableStringReader$$Type} from "com.mojang.brigadier.ImmutableStringReader"
-import {$CommandSyntaxException} from "com.mojang.brigadier.exceptions.CommandSyntaxException"
 import {$CommandExceptionType$$Interface} from "com.mojang.brigadier.exceptions.CommandExceptionType"
+import {$CommandSyntaxException} from "com.mojang.brigadier.exceptions.CommandSyntaxException"
 import {$Function$$Type} from "java.util.function.Function"
 import {$Message$$Type} from "com.mojang.brigadier.Message"
 
@@ -78,8 +78,8 @@ export type $DynamicCommandExceptionType$$Type = ($DynamicCommandExceptionType);
 export type $DynamicCommandExceptionType$$Original = $DynamicCommandExceptionType;}
 declare module "com.mojang.brigadier.exceptions.Dynamic2CommandExceptionType" {
 import {$ImmutableStringReader$$Type} from "com.mojang.brigadier.ImmutableStringReader"
-import {$CommandSyntaxException} from "com.mojang.brigadier.exceptions.CommandSyntaxException"
 import {$CommandExceptionType$$Interface} from "com.mojang.brigadier.exceptions.CommandExceptionType"
+import {$CommandSyntaxException} from "com.mojang.brigadier.exceptions.CommandSyntaxException"
 import {$Dynamic2CommandExceptionType$Function$$Type} from "com.mojang.brigadier.exceptions.Dynamic2CommandExceptionType$Function"
 
 export class $Dynamic2CommandExceptionType implements $CommandExceptionType$$Interface {
@@ -122,33 +122,33 @@ export interface $BuiltInExceptionProvider$$Interface {
 }
 
 export class $BuiltInExceptionProvider implements $BuiltInExceptionProvider$$Interface {
- "longTooHigh"(): $Dynamic2CommandExceptionType
- "readerInvalidBool"(): $DynamicCommandExceptionType
+ "longTooLow"(): $Dynamic2CommandExceptionType
+ "readerInvalidFloat"(): $DynamicCommandExceptionType
  "doubleTooLow"(): $Dynamic2CommandExceptionType
  "doubleTooHigh"(): $Dynamic2CommandExceptionType
- "integerTooHigh"(): $Dynamic2CommandExceptionType
- "readerInvalidInt"(): $DynamicCommandExceptionType
- "integerTooLow"(): $Dynamic2CommandExceptionType
- "readerInvalidLong"(): $DynamicCommandExceptionType
- "readerExpectedLong"(): $SimpleCommandExceptionType
- "readerInvalidFloat"(): $DynamicCommandExceptionType
- "literalIncorrect"(): $DynamicCommandExceptionType
- "readerExpectedBool"(): $SimpleCommandExceptionType
- "floatTooHigh"(): $Dynamic2CommandExceptionType
- "floatTooLow"(): $Dynamic2CommandExceptionType
+ "longTooHigh"(): $Dynamic2CommandExceptionType
  "readerExpectedInt"(): $SimpleCommandExceptionType
+ "readerInvalidBool"(): $DynamicCommandExceptionType
+ "integerTooLow"(): $Dynamic2CommandExceptionType
+ "floatTooHigh"(): $Dynamic2CommandExceptionType
+ "readerInvalidInt"(): $DynamicCommandExceptionType
+ "readerExpectedLong"(): $SimpleCommandExceptionType
+ "literalIncorrect"(): $DynamicCommandExceptionType
+ "readerInvalidLong"(): $DynamicCommandExceptionType
+ "integerTooHigh"(): $Dynamic2CommandExceptionType
+ "floatTooLow"(): $Dynamic2CommandExceptionType
+ "readerExpectedBool"(): $SimpleCommandExceptionType
  "dispatcherExpectedArgumentSeparator"(): $SimpleCommandExceptionType
- "longTooLow"(): $Dynamic2CommandExceptionType
- "readerExpectedEndOfQuote"(): $SimpleCommandExceptionType
- "dispatcherParseException"(): $DynamicCommandExceptionType
- "readerExpectedDouble"(): $SimpleCommandExceptionType
+ "readerExpectedSymbol"(): $DynamicCommandExceptionType
  "dispatcherUnknownCommand"(): $SimpleCommandExceptionType
  "dispatcherUnknownArgument"(): $SimpleCommandExceptionType
- "readerExpectedSymbol"(): $DynamicCommandExceptionType
  "readerExpectedStartOfQuote"(): $SimpleCommandExceptionType
- "readerExpectedFloat"(): $SimpleCommandExceptionType
+ "readerExpectedEndOfQuote"(): $SimpleCommandExceptionType
  "readerInvalidEscape"(): $DynamicCommandExceptionType
  "readerInvalidDouble"(): $DynamicCommandExceptionType
+ "readerExpectedDouble"(): $SimpleCommandExceptionType
+ "readerExpectedFloat"(): $SimpleCommandExceptionType
+ "dispatcherParseException"(): $DynamicCommandExceptionType
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -161,8 +161,8 @@ export type $BuiltInExceptionProvider$$Type = ($BuiltInExceptionProvider);
 export type $BuiltInExceptionProvider$$Original = $BuiltInExceptionProvider;}
 declare module "com.mojang.brigadier.exceptions.SimpleCommandExceptionType" {
 import {$ImmutableStringReader$$Type} from "com.mojang.brigadier.ImmutableStringReader"
-import {$CommandSyntaxException} from "com.mojang.brigadier.exceptions.CommandSyntaxException"
 import {$CommandExceptionType$$Interface} from "com.mojang.brigadier.exceptions.CommandExceptionType"
+import {$CommandSyntaxException} from "com.mojang.brigadier.exceptions.CommandSyntaxException"
 import {$Message$$Type} from "com.mojang.brigadier.Message"
 
 export class $SimpleCommandExceptionType implements $CommandExceptionType$$Interface {

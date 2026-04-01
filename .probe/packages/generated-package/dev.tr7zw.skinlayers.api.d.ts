@@ -58,20 +58,20 @@ declare module "dev.tr7zw.skinlayers.api.PlayerData" {
 import {$Mesh} from "dev.tr7zw.skinlayers.api.Mesh"
 
 export interface $PlayerData$$Interface {
-get "torsoMesh"(): $Mesh
 get "headMesh"(): $Mesh
+get "leftLegMesh"(): $Mesh
+get "torsoMesh"(): $Mesh
 get "leftArmMesh"(): $Mesh
 get "rightArmMesh"(): $Mesh
-get "leftLegMesh"(): $Mesh
 get "rightLegMesh"(): $Mesh
 }
 
 export class $PlayerData implements $PlayerData$$Interface {
- "getTorsoMesh"(): $Mesh
  "getHeadMesh"(): $Mesh
+ "getLeftLegMesh"(): $Mesh
+ "getTorsoMesh"(): $Mesh
  "getLeftArmMesh"(): $Mesh
  "getRightArmMesh"(): $Mesh
- "getLeftLegMesh"(): $Mesh
  "getRightLegMesh"(): $Mesh
 }
 /**
@@ -101,12 +101,12 @@ static readonly "EMPTY": $Mesh
  "copyFrom"(arg0: $ModelPart$$Type): void
  "setRotation"(arg0: float, arg1: float, arg2: float): void
  "setVisible"(arg0: boolean): void
- "setPosition"(arg0: float, arg1: float, arg2: float): void
+ "render"(poseStack: $PoseStack$$Type, vertexConsumer: $VertexConsumer$$Type, light: integer, overlay: integer): void
  "render"(arg0: $ModelPart$$Type, arg1: $PoseStack$$Type, arg2: $VertexConsumer$$Type, arg3: integer, arg4: integer, arg5: integer): void
  "render"(vanillaModel: $ModelPart$$Type, poseStack: $PoseStack$$Type, vertexConsumer: $VertexConsumer$$Type, light: integer, overlay: integer, red: float, green: float, blue: float, alpha: float): void
- "render"(poseStack: $PoseStack$$Type, vertexConsumer: $VertexConsumer$$Type, light: integer, overlay: integer): void
- "isVisible"(): boolean
+ "setPosition"(arg0: float, arg1: float, arg2: float): void
  "loadPose"(arg0: $PartPose$$Type): void
+ "isVisible"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

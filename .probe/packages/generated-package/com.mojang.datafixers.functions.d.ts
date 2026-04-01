@@ -35,13 +35,13 @@ export class $PointFreeRule implements $PointFreeRule$$Interface {
 static "seq"(...arg0: ($PointFreeRule$$Type)[]): $PointFreeRule
 static "all"(arg0: $PointFreeRule$$Type): $PointFreeRule
 static "choice"(...arg0: ($PointFreeRule$$Type)[]): $PointFreeRule
-static "everywhere"(arg0: $PointFreeRule$$Type, arg1: $PointFreeRule$$Type): $PointFreeRule
 static "one"(arg0: $PointFreeRule$$Type): $PointFreeRule
- "rewrite"<A>(arg0: $PointFree$$Type<(A)>): $Optional<($PointFree<(A)>)>
-static "many"(arg0: $PointFreeRule$$Type): $PointFreeRule
 static "once"(arg0: $PointFreeRule$$Type): $PointFreeRule
-static "nop"(): $PointFreeRule
+static "many"(arg0: $PointFreeRule$$Type): $PointFreeRule
+ "rewrite"<A>(arg0: $PointFree$$Type<(A)>): $Optional<($PointFree<(A)>)>
+static "everywhere"(arg0: $PointFreeRule$$Type, arg1: $PointFreeRule$$Type): $PointFreeRule
  "rewriteOrNop"<A>(arg0: $PointFree$$Type<(A)>): $PointFree<(A)>
+static "nop"(): $PointFreeRule
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

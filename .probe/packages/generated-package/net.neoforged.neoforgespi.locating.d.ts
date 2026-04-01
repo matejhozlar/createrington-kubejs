@@ -1,7 +1,7 @@
 declare module "net.neoforged.neoforgespi.locating.ModFileDiscoveryAttributes" {
 import {$IDependencyLocator, $IDependencyLocator$$Type} from "net.neoforged.neoforgespi.locating.IDependencyLocator"
-import {$IModFile, $IModFile$$Type} from "net.neoforged.neoforgespi.locating.IModFile"
 import {$IModFileCandidateLocator, $IModFileCandidateLocator$$Type} from "net.neoforged.neoforgespi.locating.IModFileCandidateLocator"
+import {$IModFile, $IModFile$$Type} from "net.neoforged.neoforgespi.locating.IModFile"
 import {$IModFileReader, $IModFileReader$$Type} from "net.neoforged.neoforgespi.locating.IModFileReader"
 import {$Record} from "java.lang.Record"
 
@@ -16,18 +16,18 @@ public "toString"(): StringJS
 public "hashCode"(): integer
 public "merge"(arg0: $ModFileDiscoveryAttributes$$Type): $ModFileDiscoveryAttributes
 public "reader"(): $IModFileReader
+public "dependencyLocator"(): $IDependencyLocator
 public "locator"(): $IModFileCandidateLocator
+public "withDependencyLocator"(arg0: $IDependencyLocator$$Type): $ModFileDiscoveryAttributes
 public "withReader"(arg0: $IModFileReader$$Type): $ModFileDiscoveryAttributes
 public "withParent"(arg0: $IModFile$$Type): $ModFileDiscoveryAttributes
-public "withDependencyLocator"(arg0: $IDependencyLocator$$Type): $ModFileDiscoveryAttributes
 public "withLocator"(arg0: $IModFileCandidateLocator$$Type): $ModFileDiscoveryAttributes
-public "dependencyLocator"(): $IDependencyLocator
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $ModFileDiscoveryAttributes$$Type = ({"dependencyLocator"?: $IDependencyLocator$$Type, "parent"?: $IModFile$$Type, "locator"?: $IModFileCandidateLocator$$Type, "reader"?: $IModFileReader$$Type}) | ([dependencyLocator?: $IDependencyLocator$$Type, parent?: $IModFile$$Type, locator?: $IModFileCandidateLocator$$Type, reader?: $IModFileReader$$Type]);
+export type $ModFileDiscoveryAttributes$$Type = ({"locator"?: $IModFileCandidateLocator$$Type, "parent"?: $IModFile$$Type, "dependencyLocator"?: $IDependencyLocator$$Type, "reader"?: $IModFileReader$$Type}) | ([locator?: $IModFileCandidateLocator$$Type, parent?: $IModFile$$Type, dependencyLocator?: $IDependencyLocator$$Type, reader?: $IModFileReader$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -43,15 +43,15 @@ public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "bound"<T>(): T
-public "modInfo"(): $IModInfo
 public "featureBound"(): StringJS
+public "modInfo"(): $IModInfo
 public "featureName"(): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $ForgeFeature$Bound$$Type = ({"modInfo"?: $IModInfo$$Type, "featureName"?: StringJS, "featureBound"?: StringJS}) | ([modInfo?: $IModInfo$$Type, featureName?: StringJS, featureBound?: StringJS]);
+export type $ForgeFeature$Bound$$Type = ({"featureBound"?: StringJS, "featureName"?: StringJS, "modInfo"?: $IModInfo$$Type}) | ([featureBound?: StringJS, featureName?: StringJS, modInfo?: $IModInfo$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -114,14 +114,14 @@ import {$ModFileDiscoveryAttributes, $ModFileDiscoveryAttributes$$Type} from "ne
 export interface $IModFile$$Interface {
 get "type"(): $IModFile$Type
 get "fileName"(): StringJS
-get "discoveryAttributes"(): $ModFileDiscoveryAttributes
-get "filePath"(): $Path
-get "modInfos"(): $List<($IModInfo)>
-get "scanResult"(): $ModFileScanData
 get "modFileInfo"(): $IModFileInfo
 get "secureJar"(): $SecureJar
-get "substitutionMap"(): $Supplier<($Map<(StringJS), (any)>)>
 set "securityStatus"(value: $SecureJar$Status$$Type)
+get "scanResult"(): $ModFileScanData
+get "substitutionMap"(): $Supplier<($Map<(StringJS), (any)>)>
+get "filePath"(): $Path
+get "modInfos"(): $List<($IModInfo)>
+get "discoveryAttributes"(): $ModFileDiscoveryAttributes
 }
 
 export class $IModFile implements $IModFile$$Interface {
@@ -131,14 +131,14 @@ static "create"(arg0: $SecureJar$$Type, arg1: $ModFileInfoParser$$Type): $IModFi
 static "create"(arg0: $SecureJar$$Type, arg1: $ModFileInfoParser$$Type, arg2: $ModFileDiscoveryAttributes$$Type): $IModFile
 static "create"(arg0: $SecureJar$$Type, arg1: $ModFileInfoParser$$Type, arg2: $IModFile$Type$$Type, arg3: $ModFileDiscoveryAttributes$$Type): $IModFile
  "getFileName"(): StringJS
- "getDiscoveryAttributes"(): $ModFileDiscoveryAttributes
- "getFilePath"(): $Path
- "getModInfos"(): $List<($IModInfo)>
- "getScanResult"(): $ModFileScanData
  "getModFileInfo"(): $IModFileInfo
  "getSecureJar"(): $SecureJar
- "getSubstitutionMap"(): $Supplier<($Map<(StringJS), (any)>)>
  "setSecurityStatus"(arg0: $SecureJar$Status$$Type): void
+ "getScanResult"(): $ModFileScanData
+ "getSubstitutionMap"(): $Supplier<($Map<(StringJS), (any)>)>
+ "getFilePath"(): $Path
+ "getModInfos"(): $List<($IModInfo)>
+ "getDiscoveryAttributes"(): $ModFileDiscoveryAttributes
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

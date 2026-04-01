@@ -15,11 +15,11 @@ public "isPositive"(): boolean
 public "isAfter"(arg0: integer, arg1: integer): boolean
 public "isBefore"(arg0: integer, arg1: integer): boolean
 public "coordinateValueComparator"(): $IntComparator
-public "getOpposite"(): $ScreenDirection
 public "getAxis"(): $ScreenAxis
+public "getOpposite"(): $ScreenDirection
 get "positive"(): boolean
-get "opposite"(): $ScreenDirection
 get "axis"(): $ScreenAxis
+get "opposite"(): $ScreenDirection
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -31,238 +31,348 @@ export type $ScreenDirection$$Type = (("up") | ("down") | ("left") | ("right"));
  */
 export type $ScreenDirection$$Original = $ScreenDirection;}
 declare module "net.minecraft.client.gui.components.AbstractWidget" {
+import {$EventSource} from "io.wispforest.owo.util.EventSource"
+import {$PositionedRectangle, $PositionedRectangle$$Type} from "io.wispforest.owo.ui.core.PositionedRectangle"
+import {$UniqueWidget$$Interface} from "de.keksuccino.fancymenu.util.rendering.ui.widget.UniqueWidget"
+import {$ClickableWidgetAccessor$$Interface} from "io.wispforest.owo.mixin.ui.access.ClickableWidgetAccessor"
+import {$IMixinAbstractWidget$$Interface as $IMixinAbstractWidget$0$$Interface} from "de.keksuccino.konkrete.mixin.mixins.client.IMixinAbstractWidget"
+import {$ComponentExtension$$Interface} from "io.wispforest.accessories.pond.owo.ComponentExtension"
+import {$OwoUIDrawContext$$Type} from "io.wispforest.owo.ui.core.OwoUIDrawContext"
+import {$LayoutElement$$Interface} from "net.minecraft.client.gui.layouts.LayoutElement"
+import {$ParentComponent, $ParentComponent$$Type} from "io.wispforest.owo.ui.core.ParentComponent"
+import {$Component as $Component$0, $Component$$Type as $Component$0$$Type} from "io.wispforest.owo.ui.core.Component"
+import {$CustomizableWidget$$Interface} from "de.keksuccino.fancymenu.util.rendering.ui.widget.CustomizableWidget"
+import {$Positioning$$Type} from "io.wispforest.owo.ui.core.Positioning"
+import {$AnimatableProperty} from "io.wispforest.owo.ui.core.AnimatableProperty"
+import {$Renderable$$Interface} from "net.minecraft.client.gui.components.Renderable"
+import {$Insets$$Type} from "io.wispforest.owo.ui.core.Insets"
+import {$Element$$Type} from "org.w3c.dom.Element"
+import {$Duration$$Type} from "java.time.Duration"
+import {$Consumer$$Type} from "java.util.function.Consumer"
+import {$ScreenRectangle} from "net.minecraft.client.gui.navigation.ScreenRectangle"
+import {$ComponentStub$$Interface} from "io.wispforest.owo.ui.inject.ComponentStub"
+import {$Sizing$$Type} from "io.wispforest.owo.ui.core.Sizing"
+import {$ComponentPath} from "net.minecraft.client.gui.ComponentPath"
+import {$VanillaWidgetComponent} from "io.wispforest.owo.ui.component.VanillaWidgetComponent"
+import {$Size, $Size$$Type} from "io.wispforest.owo.ui.core.Size"
 import {$CustomizableWidget$CustomBackgroundResetBehavior, $CustomizableWidget$CustomBackgroundResetBehavior$$Type} from "de.keksuccino.fancymenu.util.rendering.ui.widget.CustomizableWidget$CustomBackgroundResetBehavior"
 import {$FocusNavigationEvent$$Type} from "net.minecraft.client.gui.navigation.FocusNavigationEvent"
-import {$UniqueWidget$$Interface} from "de.keksuccino.fancymenu.util.rendering.ui.widget.UniqueWidget"
-import {$IMixinAbstractWidget$$Interface} from "de.keksuccino.konkrete.mixin.mixins.client.IMixinAbstractWidget"
-import {$List} from "java.util.List"
+import {$List, $List$$Type} from "java.util.List"
 import {$Font$$Type} from "net.minecraft.client.gui.Font"
 import {$Runnable$$Type} from "java.lang.Runnable"
 import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component"
 import {$IAudio, $IAudio$$Type} from "de.keksuccino.fancymenu.util.resource.resources.audio.IAudio"
-import {$LayoutElement$$Interface} from "net.minecraft.client.gui.layouts.LayoutElement"
 import {$WidgetTooltipHolder} from "net.minecraft.client.gui.components.WidgetTooltipHolder"
-import {$CustomizableWidget$$Interface} from "de.keksuccino.fancymenu.util.rendering.ui.widget.CustomizableWidget"
 import {$SoundManager$$Type} from "net.minecraft.client.sounds.SoundManager"
-import {$IMixinAbstractWidget$$Interface as $IMixinAbstractWidget$0$$Interface} from "de.keksuccino.fancymenu.mixin.mixins.common.client.IMixinAbstractWidget"
-import {$Renderable$$Interface} from "net.minecraft.client.gui.components.Renderable"
+import {$IMixinAbstractWidget$$Interface} from "de.keksuccino.fancymenu.mixin.mixins.common.client.IMixinAbstractWidget"
 import {$NarrationElementOutput$$Type} from "net.minecraft.client.gui.narration.NarrationElementOutput"
-import {$Duration$$Type} from "java.time.Duration"
-import {$Consumer$$Type} from "java.util.function.Consumer"
+import {$CursorStyle, $CursorStyle$$Type} from "io.wispforest.owo.ui.core.CursorStyle"
+import {$Collection$$Type} from "java.util.Collection"
+import {$Map$$Type} from "java.util.Map"
+import {$UIModel$$Type} from "io.wispforest.owo.ui.parsing.UIModel"
+import {$Component$FocusSource$$Type} from "io.wispforest.owo.ui.core.Component$FocusSource"
 import {$Tooltip, $Tooltip$$Type} from "net.minecraft.client.gui.components.Tooltip"
+import {$Component$DismountReason$$Type} from "io.wispforest.owo.ui.core.Component$DismountReason"
 import {$GuiEventListener$$Interface} from "net.minecraft.client.gui.components.events.GuiEventListener"
 import {$RenderableResource, $RenderableResource$$Type} from "de.keksuccino.fancymenu.util.resource.RenderableResource"
-import {$ScreenRectangle} from "net.minecraft.client.gui.navigation.ScreenRectangle"
+import {$AbstractWidgetAccessor$$Interface} from "it.hurts.octostudios.octolib.mixin.AbstractWidgetAccessor"
+import {$FocusHandler} from "io.wispforest.owo.ui.util.FocusHandler"
 import {$GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
 import {$NarratableEntry$$Interface} from "net.minecraft.client.gui.narration.NarratableEntry"
 import {$MutableComponent} from "net.minecraft.network.chat.MutableComponent"
-import {$ComponentPath} from "net.minecraft.client.gui.ComponentPath"
 import {$IAbstractWidgetExtension$$Interface} from "net.neoforged.neoforge.client.extensions.IAbstractWidgetExtension"
-import {$AbstractWidgetAccessor$$Interface} from "de.mrjulsen.mcdragonlib.mixin.AbstractWidgetAccessor"
+import {$Animatable, $Animatable$$Type} from "io.wispforest.owo.ui.core.Animatable"
+import {$AbstractWidgetAccessor$$Interface as $AbstractWidgetAccessor$0$$Interface} from "de.mrjulsen.mcdragonlib.mixin.AbstractWidgetAccessor"
 import {$NarratableEntry$NarrationPriority} from "net.minecraft.client.gui.narration.NarratableEntry$NarrationPriority"
 
-export class $AbstractWidget implements $Renderable$$Interface, $GuiEventListener$$Interface, $LayoutElement$$Interface, $NarratableEntry$$Interface, $IAbstractWidgetExtension$$Interface, $IMixinAbstractWidget$$Interface, $AbstractWidgetAccessor$$Interface, $IMixinAbstractWidget$0$$Interface, $UniqueWidget$$Interface, $CustomizableWidget$$Interface {
+export class $AbstractWidget implements $Renderable$$Interface, $GuiEventListener$$Interface, $LayoutElement$$Interface, $NarratableEntry$$Interface, $IAbstractWidgetExtension$$Interface, $ComponentStub$$Interface, $ComponentExtension$$Interface, $IMixinAbstractWidget$0$$Interface, $ClickableWidgetAccessor$$Interface, $AbstractWidgetAccessor$$Interface, $AbstractWidgetAccessor$0$$Interface, $IMixinAbstractWidget$$Interface, $UniqueWidget$$Interface, $CustomizableWidget$$Interface {
  "packedFGColor": integer
 static readonly "UNSET_FG_COLOR": integer
  "visible": boolean
  "alpha": float
- "width": integer
- "x": integer
- "tooltip": $WidgetTooltipHolder
- "y": integer
  "active": boolean
- "height": integer
+ "owo$wrapper": $VanillaWidgetComponent
 
 constructor(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: $Component$$Type)
 
+public "parent"(): $ParentComponent
+public "inflate"(space: $Size$$Type): void
+public "update"(delta: float, mouseX: integer, mouseY: integer): void
+public "x"(): integer
 public "getMessage"(): $Component
+public "id"(): StringJS
+public "id"(id: StringJS): $Component$0
+public "mount"(parent: $ParentComponent$$Type, x: integer, y: integer): void
 public "isActive"(): boolean
+public "y"(): integer
+public "width"(): integer
 public "setSize"(arg0: integer, arg1: integer): void
-public "setAlpha"(arg0: float): void
-public "getHoverStateListenersFancyMenu"(): $List
-public "getWidth"(): integer
-public "setY"(arg0: integer): void
-public "setX"(arg0: integer): void
-public "isHovered"(): boolean
-public "resetWidgetCustomizationsFancyMenu"(): void
-public "addFocusStateListenerFancyMenu"(arg0: $Consumer$$Type): void
+public "configure"(closure: $Consumer$$Type): $Component$0
+public "getY"(): integer
+public "height"(): integer
+public "getRight"(): integer
 public "setWidth"(arg0: integer): void
 public "setHeight"(arg0: integer): void
+public "clicked"(arg0: double, arg1: double): boolean
+public "draw"(context: $OwoUIDrawContext$$Type, mouseX: integer, mouseY: integer, partialTicks: float, delta: float): void
+public "allowIndividualOverdraw"(): boolean
+public "allowIndividualOverdraw"(value: boolean): $Component$0
+public "setCustomXFancyMenu"(arg0: integer): void
+public "setCustomLabelFancyMenu"(arg0: $Component$$Type): void
+public "getCustomWidthFancyMenu"(): integer
+public "defaultButtonNarrationText"(arg0: $NarrationElementOutput$$Type): void
+public "setHoverSoundFancyMenu"(arg0: $IAudio$$Type): void
+public "getHoverLabelFancyMenu"(): $Component
+public "setCustomWidthFancyMenu"(arg0: integer): void
+public "createNarrationMessage"(): $MutableComponent
+public "getLastHoverStateFancyMenu"(): boolean
+public "setLastHoverStateFancyMenu"(arg0: boolean): void
+public "setCustomHeightFancyMenu"(arg0: integer): void
+public "getHoverSoundFancyMenu"(): $IAudio
+public "getCustomYFancyMenu"(): integer
+public "getCustomHeightFancyMenu"(): integer
+public "dragonlib$setHeight"(arg0: integer): void
+public "setHoverLabelFancyMenu"(arg0: $Component$$Type): void
+public "getCustomLabelFancyMenu"(): $Component
+public "getCustomXFancyMenu"(): integer
+public "setLastFocusStateFancyMenu"(arg0: boolean): void
+public "setCustomYFancyMenu"(arg0: integer): void
+public "updateWidgetNarration"(arg0: $NarrationElementOutput$$Type): void
+public "setMessageFieldFancyMenu"(arg0: $Component$$Type): void
+public "owo$preferredCursorStyle"(): $CursorStyle
+public "getLastFocusStateFancyMenu"(): boolean
+public "getWidth"(): integer
+public "getCustomClickSoundFancyMenu"(): $IAudio
+public "getWidgetIdentifierFancyMenu"(): StringJS
+public "setCustomClickSoundFancyMenu"(arg0: $IAudio$$Type): void
+public "setCustomBackgroundNormalFancyMenu"(arg0: $RenderableResource$$Type): void
+public "setCustomBackgroundHoverFancyMenu"(arg0: $RenderableResource$$Type): void
+public "setNineSliceBorderX_FancyMenu"(arg0: integer): void
+public "setNineSliceBorderY_FancyMenu"(arg0: integer): void
+public "setMessage"(arg0: $Component$$Type): void
+public "render"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: float): void
+public "isHovered"(): boolean
 public "renderScrollingString"(arg0: $GuiGraphics$$Type, arg1: $Font$$Type, arg2: integer, arg3: integer): void
 public static "renderScrollingString"(arg0: $GuiGraphics$$Type, arg1: $Font$$Type, arg2: $Component$$Type, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer): void
 public static "renderScrollingString"(arg0: $GuiGraphics$$Type, arg1: $Font$$Type, arg2: $Component$$Type, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer): void
-public "setMessage"(arg0: $Component$$Type): void
-public "getX"(): integer
-public "clicked"(arg0: double, arg1: double): boolean
-public "getCustomBackgroundResetBehaviorFancyMenu"(): $CustomizableWidget$CustomBackgroundResetBehavior
-public "setNineSliceCustomBackground_FancyMenu"(arg0: boolean): void
-public "getRight"(): integer
-public "setCustomLabelFancyMenu"(arg0: $Component$$Type): void
-public "defaultButtonNarrationText"(arg0: $NarrationElementOutput$$Type): void
-public "setMessageFieldFancyMenu"(arg0: $Component$$Type): void
-public "getLastHoverStateFancyMenu"(): boolean
-public "setCustomWidthFancyMenu"(arg0: integer): void
-public "updateWidgetNarration"(arg0: $NarrationElementOutput$$Type): void
-public "getHoverLabelFancyMenu"(): $Component
-public "getCustomWidthFancyMenu"(): integer
-public "getCustomXFancyMenu"(): integer
-public "setHoverLabelFancyMenu"(arg0: $Component$$Type): void
-public "setLastHoverStateFancyMenu"(arg0: boolean): void
-public "setCustomHeightFancyMenu"(arg0: integer): void
-public "setCustomXFancyMenu"(arg0: integer): void
-public "setCustomYFancyMenu"(arg0: integer): void
-public "getLastFocusStateFancyMenu"(): boolean
-public "getCustomHeightFancyMenu"(): integer
-public "getCustomLabelFancyMenu"(): $Component
-public "getHoverSoundFancyMenu"(): $IAudio
-public "setHoverSoundFancyMenu"(arg0: $IAudio$$Type): void
-public "getCustomYFancyMenu"(): integer
-public "dragonlib$setHeight"(arg0: integer): void
-public "createNarrationMessage"(): $MutableComponent
-public "setLastFocusStateFancyMenu"(arg0: boolean): void
-public "onRelease"(arg0: double, arg1: double): void
-public "getFGColor"(): integer
-public "getBottom"(): integer
+public "getTooltip"(): $Tooltip
+public "setTooltipDelay"(arg0: $Duration$$Type): void
+public "visitWidgets"(arg0: $Consumer$$Type<($AbstractWidget)>): void
+public "setRectangle"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
+public "setX"(arg0: integer): void
+public "setY"(arg0: integer): void
+public "resetWidgetCustomizationsFancyMenu"(): void
+public "widthOffset"(): integer
+public "heightOffset"(): integer
+public "nextFocusPath"(arg0: $FocusNavigationEvent$$Type): $ComponentPath
+public "narrationPriority"(): $NarratableEntry$NarrationPriority
+public "getRectangle"(): $ScreenRectangle
+public "isMouseOver"(arg0: double, arg1: double): boolean
+public "updateNarration"(arg0: $NarrationElementOutput$$Type): void
+public "getTabOrderGroup"(): integer
+public "xOffset"(): integer
+public "tooltip"(): $List
+public "tooltip"(tooltip: $List$$Type): $Component$0
+public "charTyped"(): $EventSource
+public "setFocused"(arg0: boolean): void
+public "isFocused"(): boolean
+public "setTooltip"(arg0: $Tooltip$$Type): void
+public "owo$setX"(arg0: integer): void
+public "owo$setY"(arg0: integer): void
+public "setLastHoverOrFocusStateFancyMenu"(arg0: boolean): void
+public "getCustomBackgroundHoverFancyMenu"(): $RenderableResource
+public "getCustomBackgroundNormalFancyMenu"(): $RenderableResource
+public static "wrapDefaultNarrationMessage"(arg0: $Component$$Type): $MutableComponent
+public "addFocusStateListenerFancyMenu"(arg0: $Consumer$$Type): void
+public "getHoverStateListenersFancyMenu"(): $List
+public "getFocusStateListenersFancyMenu"(): $List
+public "getLastHoverOrFocusStateFancyMenu"(): boolean
+public "addHoverStateListenerFancyMenu"(arg0: $Consumer$$Type): void
+public "yOffset"(): integer
+public "dismount"(reason: $Component$DismountReason$$Type): void
+public "mouseLeave"(): $EventSource
+public "onKeyPress"(keyCode: integer, scanCode: integer, modifiers: integer): boolean
 public "setFGColor"(arg0: integer): void
+public "getFGColor"(): integer
+public "keyPress"(): $EventSource
 public "onDrag"(arg0: double, arg1: double, arg2: double, arg3: double): void
+public "getBottom"(): integer
 /**
  * 
  * @deprecated
  */
 public "onClick"(arg0: double, arg1: double): void
-public "addHoverStateListenerFancyMenu"(arg0: $Consumer$$Type): void
-public "addResetCustomizationsListenerFancyMenu"(arg0: $Runnable$$Type): void
-public "getHoverOrFocusStateListenersFancyMenu"(): $List
-public "getCustomBackgroundInactiveFancyMenu"(): $RenderableResource
-public "addHoverOrFocusStateListenerFancyMenu"(arg0: $Consumer$$Type): void
-public "setCustomBackgroundResetBehaviorFancyMenu"(arg0: $CustomizableWidget$CustomBackgroundResetBehavior$$Type): void
-public "resetWidgetSizeAndPositionFancyMenu"(): void
-public "setCustomBackgroundInactiveFancyMenu"(arg0: $RenderableResource$$Type): void
-public "getResetCustomizationsListenersFancyMenu"(): $List
-public "getFocusStateListenersFancyMenu"(): $List
-public "getY"(): integer
-public static "wrapDefaultNarrationMessage"(arg0: $Component$$Type): $MutableComponent
-public "setTooltip"(arg0: $Tooltip$$Type): void
-public "render"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: float): void
-public "nextFocusPath"(arg0: $FocusNavigationEvent$$Type): $ComponentPath
-public "setTooltipDelay"(arg0: $Duration$$Type): void
-public "visitWidgets"(arg0: $Consumer$$Type<($AbstractWidget)>): void
-public "setWidgetIdentifierFancyMenu"(arg0: StringJS): $AbstractWidget
+public "margins"(): $AnimatableProperty
+public "margins"(margins: $Insets$$Type): $Component$0
+public "canFocus"(source: $Component$FocusSource$$Type): boolean
+public "zIndex"(zIndex: integer): $Component$0
+public "zIndex"(): integer
+public "onMouseUp"(mouseX: double, mouseY: double, button: integer): boolean
+public "onRelease"(arg0: double, arg1: double): void
+public "getLocalX"(): integer
+public "getLocalY"(): integer
+public "updateX"(x: integer): void
+public "updateY"(y: integer): void
 public "getHeight"(): integer
-public "getNineSliceCustomBackgroundBorderX_FancyMenu"(): integer
+public "setAlpha"(arg0: float): void
 public "isNineSliceCustomBackgroundTexture_FancyMenu"(): boolean
+public "getNineSliceCustomBackgroundBorderX_FancyMenu"(): integer
 public "getNineSliceCustomBackgroundBorderY_FancyMenu"(): integer
-public "mouseClicked"(arg0: double, arg1: double, arg2: integer): boolean
-public "isHiddenFancyMenu"(): boolean
-public "setHeightFancyMenu"(arg0: integer): void
-public "setHeightKonkrete"(arg0: integer): void
-public "playDownSound"(arg0: $SoundManager$$Type): void
-public "clearFGColor"(): void
-public "getAlphaFancyMenu"(): float
-public "setTabOrderGroup"(arg0: integer): void
+public "getCustomBackgroundInactiveFancyMenu"(): $RenderableResource
+public "resetWidgetSizeAndPositionFancyMenu"(): void
+public "getResetCustomizationsListenersFancyMenu"(): $List
+public "getHoverOrFocusStateListenersFancyMenu"(): $List
+public "setNineSliceCustomBackground_FancyMenu"(arg0: boolean): void
+public "setCustomBackgroundResetBehaviorFancyMenu"(arg0: $CustomizableWidget$CustomBackgroundResetBehavior$$Type): void
+public "getCustomBackgroundResetBehaviorFancyMenu"(): $CustomizableWidget$CustomBackgroundResetBehavior
+public "setCustomBackgroundInactiveFancyMenu"(arg0: $RenderableResource$$Type): void
+public "addResetCustomizationsListenerFancyMenu"(arg0: $Runnable$$Type): void
+public "addHoverOrFocusStateListenerFancyMenu"(arg0: $Consumer$$Type): void
 public "renderWidget"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: float): void
-public "isHoveredOrFocused"(): boolean
+public "onMouseDown"(mouseX: double, mouseY: double, button: integer): boolean
+public "horizontalSizing"(horizontalSizing: $Sizing$$Type): $Component$0
+public "horizontalSizing"(): $AnimatableProperty
+public "isHiddenFancyMenu"(): boolean
+public "parseProperties"(spec: $UIModel$$Type, element: $Element$$Type, children: $Map$$Type): void
 public "isValidClickButton"(arg0: integer): boolean
+public "onCharTyped"(chr: character, modifiers: integer): boolean
+public "widgetWrapper"(): $VanillaWidgetComponent
+public "onFocusLost"(): void
+public "positioning"(positioning: $Positioning$$Type): $Component$0
+public "positioning"(): $AnimatableProperty
 public "setHiddenFancyMenu"(arg0: boolean): void
+public "mouseScroll"(): $EventSource
+public "onMouseScroll"(mouseX: double, mouseY: double, amount: double): boolean
+public "owo$setHeight"(arg0: integer): void
+public "clearFGColor"(): void
+public "cursorStyle"(style: $CursorStyle$$Type): $Component$0
+public "cursorStyle"(): $CursorStyle
+public "setHeightFancyMenu"(arg0: integer): void
+public "onMouseDrag"(mouseX: double, mouseY: double, deltaX: double, deltaY: double, button: integer): boolean
+public "owo$setWidth"(arg0: integer): void
+public "focusHandler"(): $FocusHandler
+public "playDownSound"(arg0: $SoundManager$$Type): void
+public "shouldDrawTooltip"(mouseX: double, mouseY: double): boolean
+public "verticalSizing"(verticalSizing: $Sizing$$Type): $Component$0
+public "verticalSizing"(): $AnimatableProperty
+public "getAlphaFancyMenu"(): float
+public "setHeightKonkrete"(arg0: integer): void
+public "owo$getTooltip"(): $WidgetTooltipHolder
+public "owo$getWrapper"(): $VanillaWidgetComponent
+public "isHoveredOrFocused"(): boolean
+public "onFocusGained"(source: $Component$FocusSource$$Type): void
+public "setTabOrderGroup"(arg0: integer): void
+public "mouseClicked"(arg0: double, arg1: double, arg2: integer): boolean
+public "getX"(): integer
+public "setWidgetIdentifierFancyMenu"(arg0: StringJS): $AbstractWidget
+public "focusGained"(): $EventSource
+public "focusLost"(): $EventSource
 public "mouseReleased"(arg0: double, arg1: double, arg2: integer): boolean
 public "mouseDragged"(arg0: double, arg1: double, arg2: integer, arg3: double, arg4: double): boolean
-public "setRectangle"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
-public "updateNarration"(arg0: $NarrationElementOutput$$Type): void
-public "getTabOrderGroup"(): integer
-public "getRectangle"(): $ScreenRectangle
-public "narrationPriority"(): $NarratableEntry$NarrationPriority
-public "isMouseOver"(arg0: double, arg1: double): boolean
-public "setFocused"(arg0: boolean): void
-public "isFocused"(): boolean
-public "getTooltip"(): $Tooltip
-public "setCustomClickSoundFancyMenu"(arg0: $IAudio$$Type): void
-public "setCustomBackgroundNormalFancyMenu"(arg0: $RenderableResource$$Type): void
-public "getWidgetIdentifierFancyMenu"(): StringJS
-public "setLastHoverOrFocusStateFancyMenu"(arg0: boolean): void
-public "getCustomBackgroundNormalFancyMenu"(): $RenderableResource
-public "getCustomClickSoundFancyMenu"(): $IAudio
-public "getLastHoverOrFocusStateFancyMenu"(): boolean
-public "setNineSliceBorderX_FancyMenu"(arg0: integer): void
-public "getCustomBackgroundHoverFancyMenu"(): $RenderableResource
-public "setCustomBackgroundHoverFancyMenu"(arg0: $RenderableResource$$Type): void
-public "setNineSliceBorderY_FancyMenu"(arg0: integer): void
+public "mouseEnter"(): $EventSource
+public "mouseDown"(): $EventSource
+public "mouseDrag"(): $EventSource
+public "mouseUp"(): $EventSource
+public "mouseScrolled"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
 public "getCurrentFocusPath"(): $ComponentPath
+public "charTyped"(arg0: character, arg1: integer): boolean
 public "keyPressed"(arg0: integer, arg1: integer, arg2: integer): boolean
 public "keyReleased"(arg0: integer, arg1: integer, arg2: integer): boolean
-public "mouseScrolled"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
-public "charTyped"(arg0: character, arg1: integer): boolean
 public "mouseMoved"(arg0: double, arg1: double): void
 public "setPosition"(arg0: integer, arg1: integer): void
 public "onClick"(arg0: double, arg1: double, arg2: integer): void
+public static "bypassCheck"(component: $Component$0$$Type, runnable: $Runnable$$Type): void
 public "stopHoverSoundFancyMenu"(): void
-public "tickHoverOrFocusStateListenersFancyMenu"(arg0: boolean): void
-public "tickHoverStateListenersFancyMenu"(arg0: boolean): void
-public "tickFocusStateListenersFancyMenu"(arg0: boolean): void
-public "getOriginalMessageFancyMenu"(): $Component
 public "renderCustomBackgroundFancyMenu"(arg0: $AbstractWidget$$Type, arg1: $GuiGraphics$$Type, arg2: integer, arg3: integer, arg4: integer, arg5: integer): boolean
 public "stopCustomClickSoundFancyMenu"(): void
+public "getOriginalMessageFancyMenu"(): $Component
+public "tickHoverStateListenersFancyMenu"(arg0: boolean): void
+public "tickFocusStateListenersFancyMenu"(arg0: boolean): void
+public "tickHoverOrFocusStateListenersFancyMenu"(arg0: boolean): void
+public "remove"(): void
+public "root"(): $ParentComponent
+public "moveTo"(x: integer, y: integer): void
+public "baseY"(): integer
+public "baseX"(): integer
+public "tooltip"(tooltip: $Collection$$Type<($Component$$Type)>): $Component$0
+public "tooltip"(tooltip: $Component$$Type): $Component$0
+public "sizing"(sizing: $Sizing$$Type): $Component$0
+public "sizing"(horizontalSizing: $Sizing$$Type, verticalSizing: $Sizing$$Type): $Component$0
+public "fullSize"(): $Size
+public "hasParent"(): boolean
+public "isInBoundingBox"(x: double, y: double): boolean
+public "drawFocusHighlight"(context: $OwoUIDrawContext$$Type, mouseX: integer, mouseY: integer, partialTicks: float, delta: float): void
+public "drawTooltip"(context: $OwoUIDrawContext$$Type, mouseX: integer, mouseY: integer, partialTicks: float, delta: float): void
+public static "of"(x: integer, y: integer, width: integer, height: integer): $PositionedRectangle
+public static "of"(x: integer, y: integer, size: $Size$$Type): $PositionedRectangle
+public "intersection"(other: $PositionedRectangle$$Type): $PositionedRectangle
+public "intersects"(other: $PositionedRectangle$$Type): boolean
+public "interpolate"(arg0: $Animatable$$Type, arg1: float): $Animatable
+public "interpolate"(next: $PositionedRectangle$$Type, delta: float): $PositionedRectangle
 get "message"(): $Component
-get "hoverStateListenersFancyMenu"(): $List
-get "hovered"(): boolean
-set "message"(value: $Component$$Type)
-get "customBackgroundResetBehaviorFancyMenu"(): $CustomizableWidget$CustomBackgroundResetBehavior
-set "nineSliceCustomBackground_FancyMenu"(value: boolean)
 get "right"(): integer
+set "customXFancyMenu"(value: integer)
 set "customLabelFancyMenu"(value: $Component$$Type)
-set "messageFieldFancyMenu"(value: $Component$$Type)
-get "lastHoverStateFancyMenu"(): boolean
-set "customWidthFancyMenu"(value: integer)
-get "hoverLabelFancyMenu"(): $Component
 get "customWidthFancyMenu"(): integer
-get "customXFancyMenu"(): integer
-set "hoverLabelFancyMenu"(value: $Component$$Type)
+set "hoverSoundFancyMenu"(value: $IAudio$$Type)
+get "hoverLabelFancyMenu"(): $Component
+set "customWidthFancyMenu"(value: integer)
+get "lastHoverStateFancyMenu"(): boolean
 set "lastHoverStateFancyMenu"(value: boolean)
 set "customHeightFancyMenu"(value: integer)
-set "customXFancyMenu"(value: integer)
-set "customYFancyMenu"(value: integer)
-get "lastFocusStateFancyMenu"(): boolean
-get "customHeightFancyMenu"(): integer
-get "customLabelFancyMenu"(): $Component
 get "hoverSoundFancyMenu"(): $IAudio
-set "hoverSoundFancyMenu"(value: $IAudio$$Type)
 get "customYFancyMenu"(): integer
+get "customHeightFancyMenu"(): integer
+set "hoverLabelFancyMenu"(value: $Component$$Type)
+get "customLabelFancyMenu"(): $Component
+get "customXFancyMenu"(): integer
 set "lastFocusStateFancyMenu"(value: boolean)
-get "FGColor"(): integer
-get "bottom"(): integer
-set "FGColor"(value: integer)
-get "hoverOrFocusStateListenersFancyMenu"(): $List
-get "customBackgroundInactiveFancyMenu"(): $RenderableResource
-set "customBackgroundResetBehaviorFancyMenu"(value: $CustomizableWidget$CustomBackgroundResetBehavior$$Type)
-set "customBackgroundInactiveFancyMenu"(value: $RenderableResource$$Type)
-get "resetCustomizationsListenersFancyMenu"(): $List
-get "focusStateListenersFancyMenu"(): $List
-set "tooltipDelay"(value: $Duration$$Type)
-set "widgetIdentifierFancyMenu"(value: StringJS)
-get "nineSliceCustomBackgroundBorderX_FancyMenu"(): integer
-get "nineSliceCustomBackgroundTexture_FancyMenu"(): boolean
-get "nineSliceCustomBackgroundBorderY_FancyMenu"(): integer
-get "hiddenFancyMenu"(): boolean
-set "heightFancyMenu"(value: integer)
-set "heightKonkrete"(value: integer)
-get "alphaFancyMenu"(): float
-set "tabOrderGroup"(value: integer)
-get "hoveredOrFocused"(): boolean
-set "hiddenFancyMenu"(value: boolean)
-get "tabOrderGroup"(): integer
-get "rectangle"(): $ScreenRectangle
-set "focused"(value: boolean)
-get "focused"(): boolean
+set "customYFancyMenu"(value: integer)
+set "messageFieldFancyMenu"(value: $Component$$Type)
+get "lastFocusStateFancyMenu"(): boolean
+get "customClickSoundFancyMenu"(): $IAudio
+get "widgetIdentifierFancyMenu"(): StringJS
 set "customClickSoundFancyMenu"(value: $IAudio$$Type)
 set "customBackgroundNormalFancyMenu"(value: $RenderableResource$$Type)
-get "widgetIdentifierFancyMenu"(): StringJS
-set "lastHoverOrFocusStateFancyMenu"(value: boolean)
-get "customBackgroundNormalFancyMenu"(): $RenderableResource
-get "customClickSoundFancyMenu"(): $IAudio
-get "lastHoverOrFocusStateFancyMenu"(): boolean
-set "nineSliceBorderX_FancyMenu"(value: integer)
-get "customBackgroundHoverFancyMenu"(): $RenderableResource
 set "customBackgroundHoverFancyMenu"(value: $RenderableResource$$Type)
+set "nineSliceBorderX_FancyMenu"(value: integer)
 set "nineSliceBorderY_FancyMenu"(value: integer)
+set "message"(value: $Component$$Type)
+get "hovered"(): boolean
+set "tooltipDelay"(value: $Duration$$Type)
+get "rectangle"(): $ScreenRectangle
+get "tabOrderGroup"(): integer
+set "focused"(value: boolean)
+get "focused"(): boolean
+set "lastHoverOrFocusStateFancyMenu"(value: boolean)
+get "customBackgroundHoverFancyMenu"(): $RenderableResource
+get "customBackgroundNormalFancyMenu"(): $RenderableResource
+get "hoverStateListenersFancyMenu"(): $List
+get "focusStateListenersFancyMenu"(): $List
+get "lastHoverOrFocusStateFancyMenu"(): boolean
+set "FGColor"(value: integer)
+get "FGColor"(): integer
+get "bottom"(): integer
+get "localX"(): integer
+get "localY"(): integer
+get "nineSliceCustomBackgroundTexture_FancyMenu"(): boolean
+get "nineSliceCustomBackgroundBorderX_FancyMenu"(): integer
+get "nineSliceCustomBackgroundBorderY_FancyMenu"(): integer
+get "customBackgroundInactiveFancyMenu"(): $RenderableResource
+get "resetCustomizationsListenersFancyMenu"(): $List
+get "hoverOrFocusStateListenersFancyMenu"(): $List
+set "nineSliceCustomBackground_FancyMenu"(value: boolean)
+set "customBackgroundResetBehaviorFancyMenu"(value: $CustomizableWidget$CustomBackgroundResetBehavior$$Type)
+get "customBackgroundResetBehaviorFancyMenu"(): $CustomizableWidget$CustomBackgroundResetBehavior
+set "customBackgroundInactiveFancyMenu"(value: $RenderableResource$$Type)
+get "hiddenFancyMenu"(): boolean
+set "hiddenFancyMenu"(value: boolean)
+set "heightFancyMenu"(value: integer)
+get "alphaFancyMenu"(): float
+set "heightKonkrete"(value: integer)
+get "hoveredOrFocused"(): boolean
+set "tabOrderGroup"(value: integer)
+set "widgetIdentifierFancyMenu"(value: StringJS)
 get "currentFocusPath"(): $ComponentPath
 get "originalMessageFancyMenu"(): $Component
 }
@@ -305,17 +415,17 @@ import {$RegistryAccess, $RegistryAccess$$Type} from "net.minecraft.core.Registr
 export class $RecipeCollection {
 constructor(arg0: $RegistryAccess$$Type, arg1: $List$$Type<($RecipeHolder$$Type<(never)>)>)
 
-public "canCraft"(arg0: $StackedContents$$Type, arg1: integer, arg2: integer, arg3: $RecipeBook$$Type): void
-public "registryAccess"(): $RegistryAccess
-public "hasCraftable"(): boolean
-public "hasKnownRecipes"(): boolean
 public "isCraftable"(arg0: $RecipeHolder$$Type<(never)>): boolean
+public "hasKnownRecipes"(): boolean
+public "hasCraftable"(): boolean
+public "hasFitting"(): boolean
+public "hasSingleResultItem"(): boolean
 public "getDisplayRecipes"(arg0: boolean): $List<($RecipeHolder<(never)>)>
+public "updateKnownRecipes"(arg0: $RecipeBook$$Type): void
 public "getRecipes"(arg0: boolean): $List<($RecipeHolder<(never)>)>
 public "getRecipes"(): $List<($RecipeHolder<(never)>)>
-public "hasSingleResultItem"(): boolean
-public "hasFitting"(): boolean
-public "updateKnownRecipes"(arg0: $RecipeBook$$Type): void
+public "registryAccess"(): $RegistryAccess
+public "canCraft"(arg0: $StackedContents$$Type, arg1: integer, arg2: integer, arg3: $RecipeBook$$Type): void
 get "recipes"(): $List<($RecipeHolder<(never)>)>
 }
 /**
@@ -418,15 +528,15 @@ constructor(arg0: $GlyphRenderTypes$$Type, arg1: float, arg2: float, arg3: float
 
 public "renderType"(arg0: $Font$DisplayMode$$Type): $RenderType
 public "render"(arg0: boolean, arg1: float, arg2: float, arg3: $Matrix4f$$Type, arg4: $VertexConsumer$$Type, arg5: float, arg6: float, arg7: float, arg8: float, arg9: integer): void
-public "renderEffect"(arg0: $BakedGlyph$Effect$$Type, arg1: $Matrix4f$$Type, arg2: $VertexConsumer$$Type, arg3: integer): void
-public "dragonlib$setU0"(arg0: float): void
-public "dragonlib$getU0"(): float
-public "dragonlib$setU1"(arg0: float): void
-public "dragonlib$getU1"(): float
 public "dragonlib$setV0"(arg0: float): void
-public "dragonlib$getV0"(): float
 public "dragonlib$setV1"(arg0: float): void
+public "dragonlib$setU0"(arg0: float): void
 public "dragonlib$getV1"(): float
+public "dragonlib$setU1"(arg0: float): void
+public "renderEffect"(arg0: $BakedGlyph$Effect$$Type, arg1: $Matrix4f$$Type, arg2: $VertexConsumer$$Type, arg3: integer): void
+public "dragonlib$getV0"(): float
+public "dragonlib$getU0"(): float
+public "dragonlib$getU1"(): float
 public "bits_n_bobs$renderReverse"(arg0: boolean, arg1: float, arg2: float, arg3: $Matrix4f$$Type, arg4: $VertexConsumer$$Type, arg5: float, arg6: float, arg7: float, arg8: float, arg9: integer): void
 }
 /**
@@ -498,53 +608,53 @@ public "clear"(): void
 public "setTimes"(arg0: integer, arg1: integer, arg2: integer): void
 public "tick"(arg0: boolean): void
 public "clearCache"(): void
-public "renderSavingIndicator"(arg0: $GuiGraphics$$Type, arg1: $DeltaTracker$$Type): void
-public "getFont"(): $Font
-public "setTitle"(arg0: $Component$$Type): void
-public "getSpectatorGui"(): $SpectatorGui
-public "onDisconnected"(): void
-public "getBossOverlay"(): $BossHealthOverlay
 public "getChat"(): $ChatComponent
+public "renderSavingIndicator"(arg0: $GuiGraphics$$Type, arg1: $DeltaTracker$$Type): void
 public "render"(arg0: $GuiGraphics$$Type, arg1: $DeltaTracker$$Type): void
-public "getDebugOverlay"(): $DebugScreenOverlay
-public "setOverlayMessage"(arg0: $Component$$Type, arg1: boolean): void
+public "wrapMethod$zmg000$iris$handleHudHidingScreens"(arg0: $GuiGraphics$$Type, arg1: $DeltaTracker$$Type, arg2: $Operation$$Type): void
+public "setTitle"(arg0: $Component$$Type): void
 public "setNowPlaying"(arg0: $Component$$Type): void
-public "getGuiTicks"(): integer
-public "getTabList"(): $PlayerTabOverlay
-public "wrapMethod$zlj000$iris$handleHudHidingScreens"(arg0: $GuiGraphics$$Type, arg1: $DeltaTracker$$Type, arg2: $Operation$$Type): void
 public "setChatDisabledByPlayerShown"(arg0: boolean): void
 public "isShowingChatDisabledByPlayer"(): boolean
+public "getSpectatorGui"(): $SpectatorGui
+public "handler$eno000$bridgingmod$renderPlacementAssistMarker"(gui: $GuiGraphics$$Type, deltaTracker: $DeltaTracker$$Type, ci: $CallbackInfo$$Type): void
+public "getBossOverlay"(): $BossHealthOverlay
 public "resetTitleTimes"(): void
 public "setSubtitle"(arg0: $Component$$Type): void
-public "getPlayerVehicleWithHealth"(): $LivingEntity
-public "renderSelectedItemName"(arg0: $GuiGraphics$$Type, arg1: integer): void
-public "getVehicleMaxHearts"(arg0: $LivingEntity$$Type): integer
-public "get_subtitle_FancyMenu"(): $Component
-public "get_title_FancyMenu"(): $Component
-public "create$getSubtitleOverlay"(): $SubtitleOverlay
-public "handler$egm000$bridgingmod$renderPlacementAssistMarker"(gui: $GuiGraphics$$Type, deltaTracker: $DeltaTracker$$Type, ci: $CallbackInfo$$Type): void
-public "create$getToolHighlightTimer"(): integer
-public "handler$efm000$collective$render"(arg0: $GuiGraphics$$Type, arg1: $DeltaTracker$$Type, arg2: $CallbackInfo$$Type): void
-public "malilib$setOverlayRemaining"(ticks: integer): void
-public "create$renderTextureOverlay"(arg0: $GuiGraphics$$Type, arg1: $ResourceLocation$$Type, arg2: float): void
-public "getLayerCount"(): integer
+public "getGuiTicks"(): integer
+public "setOverlayMessage"(arg0: $Component$$Type, arg1: boolean): void
+public "getDebugOverlay"(): $DebugScreenOverlay
+public "getTabList"(): $PlayerTabOverlay
+public "onDisconnected"(): void
+public "getFont"(): $Font
 public "initModdedOverlays"(): void
-get "font"(): $Font
-set "title"(value: $Component$$Type)
-get "spectatorGui"(): $SpectatorGui
-get "bossOverlay"(): $BossHealthOverlay
+public "getLayerCount"(): integer
+public "getVehicleMaxHearts"(arg0: $LivingEntity$$Type): integer
+public "renderSelectedItemName"(arg0: $GuiGraphics$$Type, arg1: integer): void
+public "getPlayerVehicleWithHealth"(): $LivingEntity
+public "get_subtitle_FancyMenu"(): $Component
+public "create$getSubtitleOverlay"(): $SubtitleOverlay
+public "get_title_FancyMenu"(): $Component
+public "create$renderTextureOverlay"(arg0: $GuiGraphics$$Type, arg1: $ResourceLocation$$Type, arg2: float): void
+public "create$getToolHighlightTimer"(): integer
+public "malilib$setOverlayRemaining"(ticks: integer): void
+public "handler$emd000$collective$render"(arg0: $GuiGraphics$$Type, arg1: $DeltaTracker$$Type, arg2: $CallbackInfo$$Type): void
 get "chat"(): $ChatComponent
-get "debugOverlay"(): $DebugScreenOverlay
+set "title"(value: $Component$$Type)
 set "nowPlaying"(value: $Component$$Type)
-get "guiTicks"(): integer
-get "tabList"(): $PlayerTabOverlay
 set "chatDisabledByPlayerShown"(value: boolean)
 get "showingChatDisabledByPlayer"(): boolean
+get "spectatorGui"(): $SpectatorGui
+get "bossOverlay"(): $BossHealthOverlay
 set "subtitle"(value: $Component$$Type)
+get "guiTicks"(): integer
+get "debugOverlay"(): $DebugScreenOverlay
+get "tabList"(): $PlayerTabOverlay
+get "font"(): $Font
+get "layerCount"(): integer
 get "playerVehicleWithHealth"(): $LivingEntity
 get "_subtitle_FancyMenu"(): $Component
 get "_title_FancyMenu"(): $Component
-get "layerCount"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -559,20 +669,25 @@ declare module "net.minecraft.client.gui.components.Button" {
 import {$IMixinButton$$Interface} from "de.keksuccino.fancymenu.mixin.mixins.common.client.IMixinButton"
 import {$Button$CreateNarration, $Button$CreateNarration$$Type} from "net.minecraft.client.gui.components.Button$CreateNarration"
 import {$NarrationElementOutput$$Type} from "net.minecraft.client.gui.narration.NarrationElementOutput"
-import {$WidgetSprites} from "net.minecraft.client.gui.components.WidgetSprites"
-import {$WidgetTooltipHolder} from "net.minecraft.client.gui.components.WidgetTooltipHolder"
-import {$MutableComponent} from "net.minecraft.network.chat.MutableComponent"
+import {$PositionedRectangle} from "io.wispforest.owo.ui.core.PositionedRectangle"
 import {$Button$Builder, $Button$Builder$$Type} from "net.minecraft.client.gui.components.Button$Builder"
 import {$Button$OnPress$$Type} from "net.minecraft.client.gui.components.Button$OnPress"
-import {$Component$$Type} from "net.minecraft.network.chat.Component"
+import {$Runnable$$Type} from "java.lang.Runnable"
+import {$Component$$Type as $Component$0$$Type} from "net.minecraft.network.chat.Component"
 import {$AbstractButton} from "net.minecraft.client.gui.components.AbstractButton"
+import {$Component$$Type} from "io.wispforest.owo.ui.core.Component"
+import {$WidgetSprites} from "net.minecraft.client.gui.components.WidgetSprites"
+import {$MutableComponent} from "net.minecraft.network.chat.MutableComponent"
+import {$VanillaWidgetComponent} from "io.wispforest.owo.ui.component.VanillaWidgetComponent"
+import {$ButtonWidgetAccessor$$Interface} from "io.wispforest.owo.mixin.ui.access.ButtonWidgetAccessor"
+import {$Size$$Type} from "io.wispforest.owo.ui.core.Size"
 
-export class $Button extends $AbstractButton implements $IMixinButton$$Interface {
+export class $Button extends $AbstractButton implements $ButtonWidgetAccessor$$Interface, $IMixinButton$$Interface {
 static readonly "SPRITES": $WidgetSprites
  "visible": boolean
 readonly "createNarration": $Button$CreateNarration
- "tooltip": $WidgetTooltipHolder
  "active": boolean
+ "owo$wrapper": $VanillaWidgetComponent
 static readonly "DEFAULT_WIDTH": integer
 static readonly "TEXT_MARGIN": integer
  "packedFGColor": integer
@@ -581,21 +696,21 @@ static readonly "UNSET_FG_COLOR": integer
 static readonly "DEFAULT_HEIGHT": integer
 static readonly "SMALL_WIDTH": integer
  "alpha": float
- "width": integer
- "x": integer
- "y": integer
 static readonly "BIG_WIDTH": integer
 static readonly "DEFAULT_SPACING": integer
- "height": integer
 
 constructor(arg0: $Button$Builder$$Type)
-constructor(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: $Component$$Type, arg5: $Button$OnPress$$Type, arg6: $Button$CreateNarration$$Type)
+constructor(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: $Component$0$$Type, arg5: $Button$OnPress$$Type, arg6: $Button$CreateNarration$$Type)
 
-public static "builder"(arg0: $Component$$Type, arg1: $Button$OnPress$$Type): $Button$Builder
+public static "builder"(arg0: $Component$0$$Type, arg1: $Button$OnPress$$Type): $Button$Builder
 public "setPressActionFancyMenu"(arg0: $Button$OnPress$$Type): void
-public "updateWidgetNarration"(arg0: $NarrationElementOutput$$Type): void
 public "createNarrationMessage"(): $MutableComponent
+public "updateWidgetNarration"(arg0: $NarrationElementOutput$$Type): void
 public "onPress"(): void
+public "owo$setOnPress"(arg0: $Button$OnPress$$Type): void
+public static "bypassCheck"(component: $Component$$Type, runnable: $Runnable$$Type): void
+public static "of"(x: integer, y: integer, width: integer, height: integer): $PositionedRectangle
+public static "of"(x: integer, y: integer, size: $Size$$Type): $PositionedRectangle
 set "pressActionFancyMenu"(value: $Button$OnPress$$Type)
 }
 /**
@@ -636,12 +751,12 @@ import {$List} from "java.util.List"
 import {$ComponentPath} from "net.minecraft.client.gui.ComponentPath"
 
 export interface $ContainerEventHandler$$Interface extends $GuiEventListener$$Interface {
-get "currentFocusPath"(): $ComponentPath
 set "dragging"(value: boolean)
+get "currentFocusPath"(): $ComponentPath
+get "dragging"(): boolean
 get "focused"(): $GuiEventListener
 set "focused"(value: boolean)
 set "focused"(value: $GuiEventListener$$Type)
-get "dragging"(): boolean
 get "focused"(): boolean
 get "rectangle"(): $ScreenRectangle
 get "tabOrderGroup"(): integer
@@ -649,22 +764,22 @@ get "tabOrderGroup"(): integer
 
 export class $ContainerEventHandler implements $ContainerEventHandler$$Interface {
  "children"(): $List<($GuiEventListener)>
- "getCurrentFocusPath"(): $ComponentPath
- "keyPressed"(arg0: integer, arg1: integer, arg2: integer): boolean
- "nextFocusPath"(arg0: $FocusNavigationEvent$$Type): $ComponentPath
- "mouseClicked"(arg0: double, arg1: double, arg2: integer): boolean
- "mouseReleased"(arg0: double, arg1: double, arg2: integer): boolean
- "mouseDragged"(arg0: double, arg1: double, arg2: integer, arg3: double, arg4: double): boolean
- "keyReleased"(arg0: integer, arg1: integer, arg2: integer): boolean
+ "getChildAt"(arg0: double, arg1: double): $Optional<($GuiEventListener)>
  "setDragging"(arg0: boolean): void
  "mouseScrolled"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
+ "getCurrentFocusPath"(): $ComponentPath
+ "nextFocusPath"(arg0: $FocusNavigationEvent$$Type): $ComponentPath
+ "charTyped"(arg0: character, arg1: integer): boolean
+ "isDragging"(): boolean
  "getFocused"(): $GuiEventListener
- "getChildAt"(arg0: double, arg1: double): $Optional<($GuiEventListener)>
  "setFocused"(arg0: boolean): void
  "setFocused"(arg0: $GuiEventListener$$Type): void
- "isDragging"(): boolean
  "isFocused"(): boolean
- "charTyped"(arg0: character, arg1: integer): boolean
+ "mouseClicked"(arg0: double, arg1: double, arg2: integer): boolean
+ "keyPressed"(arg0: integer, arg1: integer, arg2: integer): boolean
+ "keyReleased"(arg0: integer, arg1: integer, arg2: integer): boolean
+ "mouseReleased"(arg0: double, arg1: double, arg2: integer): boolean
+ "mouseDragged"(arg0: double, arg1: double, arg2: integer, arg3: double, arg4: double): boolean
  "getRectangle"(): $ScreenRectangle
  "isMouseOver"(arg0: double, arg1: double): boolean
  "mouseMoved"(arg0: double, arg1: double): void
@@ -696,9 +811,9 @@ static readonly "SLOT_HEIGHT": integer
 
  "slotCount"(): integer
  "width"(): integer
- "render"(arg0: $GuiGraphics$$Type, arg1: $ToastComponent$$Type, arg2: long): $Toast$Visibility
- "getToken"(): any
  "height"(): integer
+ "getToken"(): any
+ "render"(arg0: $GuiGraphics$$Type, arg1: $ToastComponent$$Type, arg2: long): $Toast$Visibility
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -781,42 +896,42 @@ export class $ChatComponent {
 constructor(arg0: $Minecraft$$Type)
 
 public "tick"(): void
+public "getScale"(): double
+public "scrollChat"(arg0: integer): void
+public static "defaultUnfocusedPct"(): double
+public "handleChatQueueClicked"(arg0: double, arg1: double): boolean
+public "getClickedComponentStyleAt"(arg0: double, arg1: double): $Style
 public "getWidth"(): integer
 public static "getWidth"(arg0: double): integer
-public "scrollChat"(arg0: integer): void
-public "modifyExpressionValue$bao000$chat_heads$chatheads$fixTextOverflow"(original: integer): integer
-public "rescaleChat"(): void
-public "handler$bao000$chat_heads$chatheads$forgetRenderData"(guiGraphics: $GuiGraphics$$Type, tickCount: integer, mouseX: integer, mouseY: integer, focused: boolean, ci: $CallbackInfo$$Type): void
-public "localvar$bao000$chat_heads$chatheads$captureGuiMessage"(guiMessage: $GuiMessage$Line$$Type, guiMessageRef: $LocalRef$$Type): $GuiMessage$Line
-public "resetChatScroll"(): void
-public "addMessage"(arg0: $Component$$Type): void
-public "addMessage"(arg0: $Component$$Type, arg1: $MessageSignature$$Type, arg2: $GuiMessageTag$$Type): void
-public "getScale"(): double
-public "clearMessages"(arg0: boolean): void
-public "isChatFocused"(): boolean
 public "render"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: boolean): void
-public "modify$bao000$chat_heads$chatheads$correctClickPosition"(x: integer, chatOffsetRef: $LocalIntRef$$Type): integer
-public "localvar$bao000$chat_heads$chatheads$updateChatOffset"(guiMessage: $GuiMessage$Line$$Type, chatOffsetRef: $LocalIntRef$$Type): $GuiMessage$Line
-public "getClickedComponentStyleAt"(arg0: double, arg1: double): $Style
-public "handleChatQueueClicked"(arg0: double, arg1: double): boolean
+public "addMessage"(arg0: $Component$$Type, arg1: $MessageSignature$$Type, arg2: $GuiMessageTag$$Type): void
+public "addMessage"(arg0: $Component$$Type): void
+public "modifyExpressionValue$bbl000$chat_heads$chatheads$fixTextOverflow"(original: integer): integer
+public "restoreState"(arg0: $ChatComponent$State$$Type): void
+public "handler$bbl000$chat_heads$chatheads$renderChatHead"(guiGraphics: $GuiGraphics$$Type, tickCount: integer, mouseX: integer, mouseY: integer, focused: boolean, ci: $CallbackInfo$$Type, guiMessage: $LocalRef$$Type, yRef: $LocalIntRef$$Type, opacityRef: $LocalFloatRef$$Type): void
+public "modify$bbl000$chat_heads$chatheads$moveText"(font: $Font$$Type, formattedCharSequence: $FormattedCharSequence$$Type, x: integer, y: integer, color: integer, yRef: $LocalIntRef$$Type, opacityRef: $LocalFloatRef$$Type): integer
 public static "getHeight"(arg0: double): integer
 public "getHeight"(): integer
-public "getRecentChat"(): $ArrayListDeque<(StringJS)>
-public "addRecentChat"(arg0: StringJS): void
-public "getLinesPerPage"(): integer
-public "getMessageTagAt"(arg0: double, arg1: double): $GuiMessageTag
-public "modify$bao000$chat_heads$chatheads$moveText"(font: $Font$$Type, formattedCharSequence: $FormattedCharSequence$$Type, x: integer, y: integer, color: integer, yRef: $LocalIntRef$$Type, opacityRef: $LocalFloatRef$$Type): integer
-public "handler$bao000$chat_heads$chatheads$renderChatHead"(guiGraphics: $GuiGraphics$$Type, tickCount: integer, mouseX: integer, mouseY: integer, focused: boolean, ci: $CallbackInfo$$Type, guiMessage: $LocalRef$$Type, yRef: $LocalIntRef$$Type, opacityRef: $LocalFloatRef$$Type): void
-public "restoreState"(arg0: $ChatComponent$State$$Type): void
-public "storeState"(): $ChatComponent$State
-public static "defaultUnfocusedPct"(): double
 public "deleteMessage"(arg0: $MessageSignature$$Type): void
-get "width"(): integer
+public "rescaleChat"(): void
+public "getMessageTagAt"(arg0: double, arg1: double): $GuiMessageTag
+public "addRecentChat"(arg0: StringJS): void
+public "getRecentChat"(): $ArrayListDeque<(StringJS)>
+public "resetChatScroll"(): void
+public "getLinesPerPage"(): integer
+public "storeState"(): $ChatComponent$State
+public "isChatFocused"(): boolean
+public "clearMessages"(arg0: boolean): void
+public "handler$bbl000$chat_heads$chatheads$forgetRenderData"(guiGraphics: $GuiGraphics$$Type, tickCount: integer, mouseX: integer, mouseY: integer, focused: boolean, ci: $CallbackInfo$$Type): void
+public "modify$bbl000$chat_heads$chatheads$correctClickPosition"(x: integer, chatOffsetRef: $LocalIntRef$$Type): integer
+public "localvar$bbl000$chat_heads$chatheads$captureGuiMessage"(guiMessage: $GuiMessage$Line$$Type, guiMessageRef: $LocalRef$$Type): $GuiMessage$Line
+public "localvar$bbl000$chat_heads$chatheads$updateChatOffset"(guiMessage: $GuiMessage$Line$$Type, chatOffsetRef: $LocalIntRef$$Type): $GuiMessage$Line
 get "scale"(): double
-get "chatFocused"(): boolean
+get "width"(): integer
 get "height"(): integer
 get "recentChat"(): $ArrayListDeque<(StringJS)>
 get "linesPerPage"(): integer
+get "chatFocused"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -865,20 +980,20 @@ get "tabOrderGroup"(): integer
 export class $GuiEventListener implements $GuiEventListener$$Interface {
 static readonly "DOUBLE_CLICK_THRESHOLD_MS": long
 
- "getCurrentFocusPath"(): $ComponentPath
- "keyPressed"(arg0: integer, arg1: integer, arg2: integer): boolean
- "nextFocusPath"(arg0: $FocusNavigationEvent$$Type): $ComponentPath
- "mouseClicked"(arg0: double, arg1: double, arg2: integer): boolean
- "mouseReleased"(arg0: double, arg1: double, arg2: integer): boolean
- "mouseDragged"(arg0: double, arg1: double, arg2: integer, arg3: double, arg4: double): boolean
- "keyReleased"(arg0: integer, arg1: integer, arg2: integer): boolean
  "mouseScrolled"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
+ "getCurrentFocusPath"(): $ComponentPath
+ "nextFocusPath"(arg0: $FocusNavigationEvent$$Type): $ComponentPath
  "getRectangle"(): $ScreenRectangle
  "isMouseOver"(arg0: double, arg1: double): boolean
+ "charTyped"(arg0: character, arg1: integer): boolean
  "setFocused"(arg0: boolean): void
  "isFocused"(): boolean
- "charTyped"(arg0: character, arg1: integer): boolean
+ "mouseClicked"(arg0: double, arg1: double, arg2: integer): boolean
+ "keyPressed"(arg0: integer, arg1: integer, arg2: integer): boolean
+ "keyReleased"(arg0: integer, arg1: integer, arg2: integer): boolean
+ "mouseReleased"(arg0: double, arg1: double, arg2: integer): boolean
  "mouseMoved"(arg0: double, arg1: double): void
+ "mouseDragged"(arg0: double, arg1: double, arg2: integer, arg3: double, arg4: double): boolean
  "getTabOrderGroup"(): integer
 }
 /**
@@ -928,11 +1043,11 @@ get "height"(): integer
 }
 
 export class $ClientTooltipComponent implements $ClientTooltipComponent$$Interface {
+ "renderText"(arg0: $Font$$Type, arg1: integer, arg2: integer, arg3: $Matrix4f$$Type, arg4: $MultiBufferSource$BufferSource$$Type): void
 static "create"(arg0: $FormattedCharSequence$$Type): $ClientTooltipComponent
 static "create"(arg0: $TooltipComponent$$Type): $ClientTooltipComponent
  "getWidth"(arg0: $Font$$Type): integer
  "renderImage"(arg0: $Font$$Type, arg1: integer, arg2: integer, arg3: $GuiGraphics$$Type): void
- "renderText"(arg0: $Font$$Type, arg1: integer, arg2: integer, arg3: $Matrix4f$$Type, arg4: $MultiBufferSource$BufferSource$$Type): void
  "getHeight"(): integer
 }
 /**
@@ -963,10 +1078,10 @@ constructor(arg0: $Component$$Type, arg1: $Component$$Type)
 
 public static "create"(arg0: $Component$$Type): $Tooltip
 public static "create"(arg0: $Component$$Type, arg1: $Component$$Type): $Tooltip
-public "toCharSequence"(arg0: $Minecraft$$Type): $List<($FormattedCharSequence)>
 public "setCachedTooltip"(arg0: $List$$Type): void
-public "updateNarration"(arg0: $NarrationElementOutput$$Type): void
+public "toCharSequence"(arg0: $Minecraft$$Type): $List<($FormattedCharSequence)>
 public static "splitTooltip"(arg0: $Minecraft$$Type, arg1: $Component$$Type): $List<($FormattedCharSequence)>
+public "updateNarration"(arg0: $NarrationElementOutput$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -978,38 +1093,38 @@ export type $Tooltip$$Type = ($Tooltip);
  */
 export type $Tooltip$$Original = $Tooltip;}
 declare module "net.minecraft.client.gui.screens.worldselection.WorldOpenFlows" {
-import {$LevelSettings, $LevelSettings$$Type} from "net.minecraft.world.level.LevelSettings"
 import {$LevelStorageSource$LevelStorageAccess$$Type} from "net.minecraft.world.level.storage.LevelStorageSource$LevelStorageAccess"
-import {$Pair} from "com.mojang.datafixers.util.Pair"
+import {$LevelSettings, $LevelSettings$$Type} from "net.minecraft.world.level.LevelSettings"
 import {$Screen$$Type} from "net.minecraft.client.gui.screens.Screen"
+import {$Pair} from "com.mojang.datafixers.util.Pair"
 import {$LayeredRegistryAccess$$Type} from "net.minecraft.core.LayeredRegistryAccess"
 import {$Dynamic$$Type} from "com.mojang.serialization.Dynamic"
 import {$PackRepository$$Type} from "net.minecraft.server.packs.repository.PackRepository"
 import {$WorldDimensions$$Type} from "net.minecraft.world.level.levelgen.WorldDimensions"
-import {$ReloadableServerResources$$Type} from "net.minecraft.server.ReloadableServerResources"
 import {$Runnable$$Type} from "java.lang.Runnable"
+import {$ReloadableServerResources$$Type} from "net.minecraft.server.ReloadableServerResources"
 import {$WorldOptions$$Type} from "net.minecraft.world.level.levelgen.WorldOptions"
-import {$WorldCreationContext} from "net.minecraft.client.gui.screens.worldselection.WorldCreationContext"
 import {$RegistryLayer$$Type} from "net.minecraft.server.RegistryLayer"
+import {$WorldCreationContext} from "net.minecraft.client.gui.screens.worldselection.WorldCreationContext"
 import {$Function$$Type} from "java.util.function.Function"
 import {$WorldStem} from "net.minecraft.server.WorldStem"
 import {$LevelStorageSource$$Type} from "net.minecraft.world.level.storage.LevelStorageSource"
 import {$Lifecycle$$Type} from "com.mojang.serialization.Lifecycle"
-import {$Minecraft$$Type} from "net.minecraft.client.Minecraft"
 import {$WorldData$$Type} from "net.minecraft.world.level.storage.WorldData"
+import {$Minecraft$$Type} from "net.minecraft.client.Minecraft"
 import {$CreateWorldScreen$$Type} from "net.minecraft.client.gui.screens.worldselection.CreateWorldScreen"
 import {$RegistryAccess$$Type} from "net.minecraft.core.RegistryAccess"
 
 export class $WorldOpenFlows {
 constructor(arg0: $Minecraft$$Type, arg1: $LevelStorageSource$$Type)
 
-public "openWorld"(arg0: StringJS, arg1: $Runnable$$Type): void
 public "createFreshLevel"(arg0: StringJS, arg1: $LevelSettings$$Type, arg2: $WorldOptions$$Type, arg3: $Function$$Type<($RegistryAccess), ($WorldDimensions$$Type)>, arg4: $Screen$$Type): void
-public "createLevelFromExistingSettings"(arg0: $LevelStorageSource$LevelStorageAccess$$Type, arg1: $ReloadableServerResources$$Type, arg2: $LayeredRegistryAccess$$Type<($RegistryLayer$$Type)>, arg3: $WorldData$$Type): void
-public "recreateWorldData"(arg0: $LevelStorageSource$LevelStorageAccess$$Type): $Pair<($LevelSettings), ($WorldCreationContext)>
+public "openWorld"(arg0: StringJS, arg1: $Runnable$$Type): void
 public "loadWorldStem"(arg0: $Dynamic$$Type<(never)>, arg1: boolean, arg2: $PackRepository$$Type): $WorldStem
+public "recreateWorldData"(arg0: $LevelStorageSource$LevelStorageAccess$$Type): $Pair<($LevelSettings), ($WorldCreationContext)>
+public "createLevelFromExistingSettings"(arg0: $LevelStorageSource$LevelStorageAccess$$Type, arg1: $ReloadableServerResources$$Type, arg2: $LayeredRegistryAccess$$Type<($RegistryLayer$$Type)>, arg3: $WorldData$$Type): void
+public "localvar$emf000$collective$loadLevel_bl2"(arg0: boolean): boolean
 public static "confirmWorldCreation"(arg0: $Minecraft$$Type, arg1: $CreateWorldScreen$$Type, arg2: $Lifecycle$$Type, arg3: $Runnable$$Type, arg4: boolean): void
-public "localvar$efo000$collective$loadLevel_bl2"(arg0: boolean): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1044,17 +1159,17 @@ constructor(arg0: $SpectatorMenuListener$$Type)
 public "exit"(): void
 public "getItem"(arg0: integer): $SpectatorMenuItem
 public "getCurrentPage"(): $SpectatorPage
-public "getItems"(): $List<($SpectatorMenuItem)>
-public "getSelectedItem"(): $SpectatorMenuItem
-public "selectSlot"(arg0: integer): void
 public "getSelectedSlot"(): integer
+public "getSelectedItem"(): $SpectatorMenuItem
 public "getSelectedCategory"(): $SpectatorMenuCategory
 public "selectCategory"(arg0: $SpectatorMenuCategory$$Type): void
+public "getItems"(): $List<($SpectatorMenuItem)>
+public "selectSlot"(arg0: integer): void
 get "currentPage"(): $SpectatorPage
-get "items"(): $List<($SpectatorMenuItem)>
-get "selectedItem"(): $SpectatorMenuItem
 get "selectedSlot"(): integer
+get "selectedItem"(): $SpectatorMenuItem
 get "selectedCategory"(): $SpectatorMenuCategory
+get "items"(): $List<($SpectatorMenuItem)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1074,8 +1189,8 @@ import {$WorldCreationContext$DimensionsUpdater$$Type} from "net.minecraft.clien
 import {$LevelStem, $LevelStem$$Type} from "net.minecraft.world.level.dimension.LevelStem"
 import {$WorldCreationContext$OptionsModifier$$Type} from "net.minecraft.client.gui.screens.worldselection.WorldCreationContext$OptionsModifier"
 import {$RegistryAccess$Frozen} from "net.minecraft.core.RegistryAccess$Frozen"
-import {$Registry, $Registry$$Type} from "net.minecraft.core.Registry"
 import {$RegistryLayer, $RegistryLayer$$Type} from "net.minecraft.server.RegistryLayer"
+import {$Registry, $Registry$$Type} from "net.minecraft.core.Registry"
 import {$WorldGenSettings$$Type} from "net.minecraft.world.level.levelgen.WorldGenSettings"
 import {$WorldDataConfiguration, $WorldDataConfiguration$$Type} from "net.minecraft.world.level.WorldDataConfiguration"
 import {$Record} from "java.lang.Record"
@@ -1090,22 +1205,22 @@ public "toString"(): StringJS
 public "hashCode"(): integer
 public "validate"(): void
 public "options"(): $WorldOptions
-public "withOptions"(arg0: $WorldCreationContext$OptionsModifier$$Type): $WorldCreationContext
 public "dataPackResources"(): $ReloadableServerResources
 public "worldgenLoadContext"(): $RegistryAccess$Frozen
 public "withDataConfiguration"(arg0: $WorldDataConfiguration$$Type): $WorldCreationContext
-public "dataConfiguration"(): $WorldDataConfiguration
+public "withOptions"(arg0: $WorldCreationContext$OptionsModifier$$Type): $WorldCreationContext
 public "datapackDimensions"(): $Registry<($LevelStem)>
-public "withDimensions"(arg0: $WorldCreationContext$DimensionsUpdater$$Type): $WorldCreationContext
+public "dataConfiguration"(): $WorldDataConfiguration
 public "worldgenRegistries"(): $LayeredRegistryAccess<($RegistryLayer)>
 public "selectedDimensions"(): $WorldDimensions
+public "withDimensions"(arg0: $WorldCreationContext$DimensionsUpdater$$Type): $WorldCreationContext
 public "withSettings"(arg0: $WorldOptions$$Type, arg1: $WorldDimensions$$Type): $WorldCreationContext
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $WorldCreationContext$$Type = ({"dataConfiguration"?: $WorldDataConfiguration$$Type, "dataPackResources"?: $ReloadableServerResources$$Type, "datapackDimensions"?: $Registry$$Type<($LevelStem$$Type)>, "worldgenRegistries"?: $LayeredRegistryAccess$$Type<($RegistryLayer$$Type)>, "selectedDimensions"?: $WorldDimensions$$Type, "options"?: $WorldOptions$$Type}) | ([dataConfiguration?: $WorldDataConfiguration$$Type, dataPackResources?: $ReloadableServerResources$$Type, datapackDimensions?: $Registry$$Type<($LevelStem$$Type)>, worldgenRegistries?: $LayeredRegistryAccess$$Type<($RegistryLayer$$Type)>, selectedDimensions?: $WorldDimensions$$Type, options?: $WorldOptions$$Type]);
+export type $WorldCreationContext$$Type = ({"selectedDimensions"?: $WorldDimensions$$Type, "worldgenRegistries"?: $LayeredRegistryAccess$$Type<($RegistryLayer$$Type)>, "datapackDimensions"?: $Registry$$Type<($LevelStem$$Type)>, "dataPackResources"?: $ReloadableServerResources$$Type, "dataConfiguration"?: $WorldDataConfiguration$$Type, "options"?: $WorldOptions$$Type}) | ([selectedDimensions?: $WorldDimensions$$Type, worldgenRegistries?: $LayeredRegistryAccess$$Type<($RegistryLayer$$Type)>, datapackDimensions?: $Registry$$Type<($LevelStem$$Type)>, dataPackResources?: $ReloadableServerResources$$Type, dataConfiguration?: $WorldDataConfiguration$$Type, options?: $WorldOptions$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -1113,8 +1228,8 @@ export type $WorldCreationContext$$Original = $WorldCreationContext;}
 declare module "net.minecraft.client.gui.font.FontOption" {
 import {$Keyable} from "com.mojang.serialization.Keyable"
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Enum, $Enum$$Type} from "java.lang.Enum"
+import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Function, $Function$$Type} from "java.util.function.Function"
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$StringRepresentable, $StringRepresentable$$Type, $StringRepresentable$$Interface} from "net.minecraft.util.StringRepresentable"
@@ -1127,12 +1242,12 @@ static readonly "JAPANESE_VARIANTS": $FontOption
 public static "values"(): ($FontOption)[]
 public static "valueOf"(arg0: StringJS): $FontOption
 public "getSerializedName"(): StringJS
-public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
 public static "keys"(arg0: ($StringRepresentable$$Type)[]): $Keyable
+public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
+public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 public "getRemappedEnumConstantName"(): StringJS
 public static "fromEnum"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromValues"<T extends $StringRepresentable>(arg0: $Supplier$$Type<((T)[])>): $Codec<(T)>
-public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 get "serializedName"(): StringJS
 get "remappedEnumConstantName"(): StringJS
 }
@@ -1148,8 +1263,8 @@ export type $FontOption$$Original = $FontOption;}
 declare module "net.minecraft.client.gui.components.PlayerTabOverlay" {
 import {$GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
 import {$Objective$$Type} from "net.minecraft.world.scores.Objective"
-import {$Minecraft$$Type} from "net.minecraft.client.Minecraft"
 import {$PlayerInfo$$Type} from "net.minecraft.client.multiplayer.PlayerInfo"
+import {$Minecraft$$Type} from "net.minecraft.client.Minecraft"
 import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component"
 import {$Scoreboard$$Type} from "net.minecraft.world.scores.Scoreboard"
 import {$Gui$$Type} from "net.minecraft.client.gui.Gui"
@@ -1161,15 +1276,15 @@ static readonly "MAX_ROWS_PER_COL": integer
 constructor(arg0: $Minecraft$$Type, arg1: $Gui$$Type)
 
 public "reset"(): void
-public "setVisible"(arg0: boolean): void
-public "getNameForDisplay"(arg0: $PlayerInfo$$Type): $Component
 public "renderPingIcon"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: $PlayerInfo$$Type): void
-public "redirect$fjo000$watut$renderPingIcon"(arg0: $PlayerTabOverlay$$Type, arg1: $GuiGraphics$$Type, arg2: integer, arg3: integer, arg4: integer, arg5: $PlayerInfo$$Type): void
+public "getNameForDisplay"(arg0: $PlayerInfo$$Type): $Component
+public "setVisible"(arg0: boolean): void
+public "redirect$ggj000$watut$renderPingIcon"(arg0: $PlayerTabOverlay$$Type, arg1: $GuiGraphics$$Type, arg2: integer, arg3: integer, arg4: integer, arg5: $PlayerInfo$$Type): void
 public "render"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: $Scoreboard$$Type, arg3: $Objective$$Type): void
-public "setHeader"(arg0: $Component$$Type): void
 public "setFooter"(arg0: $Component$$Type): void
-set "header"(value: $Component$$Type)
+public "setHeader"(arg0: $Component$$Type): void
 set "footer"(value: $Component$$Type)
+set "header"(value: $Component$$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1182,54 +1297,57 @@ export type $PlayerTabOverlay$$Type = ($PlayerTabOverlay);
 export type $PlayerTabOverlay$$Original = $PlayerTabOverlay;}
 declare module "net.minecraft.client.gui.components.CycleButton" {
 import {$NarrationElementOutput$$Type} from "net.minecraft.client.gui.narration.NarrationElementOutput"
+import {$PositionedRectangle} from "io.wispforest.owo.ui.core.PositionedRectangle"
 import {$CycleButton$ValueListSupplier$$Type} from "net.minecraft.client.gui.components.CycleButton$ValueListSupplier"
+import {$Runnable$$Type} from "java.lang.Runnable"
 import {$BooleanSupplier} from "java.util.function.BooleanSupplier"
 import {$AbstractButton} from "net.minecraft.client.gui.components.AbstractButton"
 import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component"
 import {$UniqueLabeledSwitchCycleButton$$Interface} from "de.keksuccino.fancymenu.util.rendering.ui.widget.UniqueLabeledSwitchCycleButton"
 import {$CycleButton$Builder} from "net.minecraft.client.gui.components.CycleButton$Builder"
-import {$WidgetSprites} from "net.minecraft.client.gui.components.WidgetSprites"
+import {$Component$$Type as $Component$0$$Type} from "io.wispforest.owo.ui.core.Component"
 import {$OptionInstance$TooltipSupplier$$Type} from "net.minecraft.client.OptionInstance$TooltipSupplier"
-import {$WidgetTooltipHolder} from "net.minecraft.client.gui.components.WidgetTooltipHolder"
+import {$WidgetSprites} from "net.minecraft.client.gui.components.WidgetSprites"
 import {$Function$$Type} from "java.util.function.Function"
 import {$CycleButton$OnValueChange, $CycleButton$OnValueChange$$Type} from "net.minecraft.client.gui.components.CycleButton$OnValueChange"
 import {$MutableComponent, $MutableComponent$$Type} from "net.minecraft.network.chat.MutableComponent"
+import {$VanillaWidgetComponent} from "io.wispforest.owo.ui.component.VanillaWidgetComponent"
+import {$Size$$Type} from "io.wispforest.owo.ui.core.Size"
 
 export class $CycleButton<T> extends $AbstractButton implements $UniqueLabeledSwitchCycleButton$$Interface {
 static readonly "SPRITES": $WidgetSprites
  "visible": boolean
 readonly "onValueChange": $CycleButton$OnValueChange<(T)>
- "tooltip": $WidgetTooltipHolder
  "active": boolean
+ "owo$wrapper": $VanillaWidgetComponent
 static readonly "TEXT_MARGIN": integer
  "packedFGColor": integer
 static readonly "DEFAULT_ALT_LIST_SELECTOR": $BooleanSupplier
 static readonly "UNSET_FG_COLOR": integer
  "alpha": float
- "width": integer
- "x": integer
- "y": integer
- "height": integer
 
 constructor(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: $Component$$Type, arg5: $Component$$Type, arg6: integer, arg7: T, arg8: $CycleButton$ValueListSupplier$$Type<(T)>, arg9: $Function$$Type<(T), ($Component$$Type)>, arg10: $Function$$Type<($CycleButton<(T)>), ($MutableComponent$$Type)>, arg11: $CycleButton$OnValueChange$$Type<(T)>, arg12: $OptionInstance$TooltipSupplier$$Type<(T)>, arg13: boolean)
 
 public "getValue"(): T
 public static "builder"<T>(arg0: $Function$$Type<(T), ($Component$$Type)>): $CycleButton$Builder<(T)>
 public "setValue"(arg0: T): void
-public "updateWidgetNarration"(arg0: $NarrationElementOutput$$Type): void
 public "createNarrationMessage"(): $MutableComponent
-public static "booleanBuilder"(arg0: $Component$$Type, arg1: $Component$$Type): $CycleButton$Builder<(boolean)>
-public static "onOffBuilder"(): $CycleButton$Builder<(boolean)>
-public static "onOffBuilder"(arg0: boolean): $CycleButton$Builder<(boolean)>
+public "updateWidgetNarration"(arg0: $NarrationElementOutput$$Type): void
+public "createDefaultNarrationMessage"(): $MutableComponent
 public "mouseScrolled"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
 public "onPress"(): void
-public "setLabeledSwitchComponentLabel_FancyMenu"(arg0: $Component$$Type): void
 public "getLabeledSwitchComponentLabel_FancyMenu"(): $Component
-public "createDefaultNarrationMessage"(): $MutableComponent
+public "setLabeledSwitchComponentLabel_FancyMenu"(arg0: $Component$$Type): void
+public static "onOffBuilder"(): $CycleButton$Builder<(boolean)>
+public static "onOffBuilder"(arg0: boolean): $CycleButton$Builder<(boolean)>
+public static "booleanBuilder"(arg0: $Component$$Type, arg1: $Component$$Type): $CycleButton$Builder<(boolean)>
+public static "bypassCheck"(component: $Component$0$$Type, runnable: $Runnable$$Type): void
+public static "of"(x: integer, y: integer, width: integer, height: integer): $PositionedRectangle
+public static "of"(x: integer, y: integer, size: $Size$$Type): $PositionedRectangle
 get "value"(): T
 set "value"(value: T)
-set "labeledSwitchComponentLabel_FancyMenu"(value: $Component$$Type)
 get "labeledSwitchComponentLabel_FancyMenu"(): $Component
+set "labeledSwitchComponentLabel_FancyMenu"(value: $Component$$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1251,9 +1369,9 @@ get "enabled"(): boolean
 }
 
 export class $SpectatorMenuItem implements $SpectatorMenuItem$$Interface {
- "selectItem"(arg0: $SpectatorMenu$$Type): void
  "getName"(): $Component
  "isEnabled"(): boolean
+ "selectItem"(arg0: $SpectatorMenu$$Type): void
  "renderIcon"(arg0: $GuiGraphics$$Type, arg1: float, arg2: integer): void
 }
 /**
@@ -1288,20 +1406,20 @@ public "step"(arg0: $ScreenDirection$$Type): $ScreenRectangle
 public "left"(): integer
 public "right"(): integer
 public "width"(): integer
-public "getBoundInDirection"(arg0: $ScreenDirection$$Type): integer
-public "containsPoint"(arg0: integer, arg1: integer): boolean
-public "overlaps"(arg0: $ScreenRectangle$$Type): boolean
-public "intersection"(arg0: $ScreenRectangle$$Type): $ScreenRectangle
 public "height"(): integer
+public "intersection"(arg0: $ScreenRectangle$$Type): $ScreenRectangle
+public "containsPoint"(arg0: integer, arg1: integer): boolean
+public "getBorder"(arg0: $ScreenDirection$$Type): $ScreenRectangle
+public "overlaps"(arg0: $ScreenRectangle$$Type): boolean
 public "overlapsInAxis"(arg0: $ScreenRectangle$$Type, arg1: $ScreenAxis$$Type): boolean
 public "getCenterInAxis"(arg0: $ScreenAxis$$Type): integer
-public "getBorder"(arg0: $ScreenDirection$$Type): $ScreenRectangle
+public "getBoundInDirection"(arg0: $ScreenDirection$$Type): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $ScreenRectangle$$Type = ({"height"?: integer, "width"?: integer, "position"?: $ScreenPosition$$Type}) | ([height?: integer, width?: integer, position?: $ScreenPosition$$Type]);
+export type $ScreenRectangle$$Type = ({"width"?: integer, "height"?: integer, "position"?: $ScreenPosition$$Type}) | ([width?: integer, height?: integer, position?: $ScreenPosition$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -1385,11 +1503,11 @@ constructor(arg0: $Minecraft$$Type)
 
 public "reset"(): void
 public "update"(arg0: $ClientboundBossEventPacket$$Type): void
-public "shouldPlayMusic"(): boolean
-public "shouldCreateWorldFog"(): boolean
-public "shouldDarkenScreen"(): boolean
 public "render"(arg0: $GuiGraphics$$Type): void
 public "get_events_FancyMenu"(): $Map
+public "shouldDarkenScreen"(): boolean
+public "shouldPlayMusic"(): boolean
+public "shouldCreateWorldFog"(): boolean
 get "_events_FancyMenu"(): $Map
 }
 /**
@@ -1448,13 +1566,13 @@ import {$List} from "java.util.List"
 import {$Component} from "net.minecraft.network.chat.Component"
 
 export interface $SpectatorMenuCategory$$Interface {
-get "items"(): $List<($SpectatorMenuItem)>
 get "prompt"(): $Component
+get "items"(): $List<($SpectatorMenuItem)>
 }
 
 export class $SpectatorMenuCategory implements $SpectatorMenuCategory$$Interface {
- "getItems"(): $List<($SpectatorMenuItem)>
  "getPrompt"(): $Component
+ "getItems"(): $List<($SpectatorMenuItem)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1470,9 +1588,9 @@ import {$OptionInstance$TooltipSupplier$$Type} from "net.minecraft.client.Option
 import {$Collection$$Type} from "java.util.Collection"
 import {$CycleButton, $CycleButton$$Type} from "net.minecraft.client.gui.components.CycleButton"
 import {$CycleButton$ValueListSupplier$$Type} from "net.minecraft.client.gui.components.CycleButton$ValueListSupplier"
-import {$List$$Type} from "java.util.List"
-import {$CycleButton$OnValueChange$$Type} from "net.minecraft.client.gui.components.CycleButton$OnValueChange"
 import {$Function$$Type} from "java.util.function.Function"
+import {$CycleButton$OnValueChange$$Type} from "net.minecraft.client.gui.components.CycleButton$OnValueChange"
+import {$List$$Type} from "java.util.List"
 import {$MutableComponent$$Type} from "net.minecraft.network.chat.MutableComponent"
 import {$BooleanSupplier$$Type} from "java.util.function.BooleanSupplier"
 import {$Component$$Type} from "net.minecraft.network.chat.Component"
@@ -1483,15 +1601,15 @@ constructor(arg0: $Function$$Type<(T), ($Component$$Type)>)
 public "create"(arg0: $Component$$Type, arg1: $CycleButton$OnValueChange$$Type<(T)>): $CycleButton<(T)>
 public "create"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: $Component$$Type): $CycleButton<(T)>
 public "create"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: $Component$$Type, arg5: $CycleButton$OnValueChange$$Type<(T)>): $CycleButton<(T)>
-public "withTooltip"(arg0: $OptionInstance$TooltipSupplier$$Type<(T)>): $CycleButton$Builder<(T)>
-public "withInitialValue"(arg0: T): $CycleButton$Builder<(T)>
-public "withCustomNarration"(arg0: $Function$$Type<($CycleButton<(T)>), ($MutableComponent$$Type)>): $CycleButton$Builder<(T)>
-public "displayOnlyValue"(): $CycleButton$Builder<(T)>
 public "withValues"(arg0: $Collection$$Type<(T)>): $CycleButton$Builder<(T)>
-public "withValues"(arg0: $CycleButton$ValueListSupplier$$Type<(T)>): $CycleButton$Builder<(T)>
 public "withValues"(...arg0: (T)[]): $CycleButton$Builder<(T)>
 public "withValues"(arg0: $List$$Type<(T)>, arg1: $List$$Type<(T)>): $CycleButton$Builder<(T)>
+public "withValues"(arg0: $CycleButton$ValueListSupplier$$Type<(T)>): $CycleButton$Builder<(T)>
 public "withValues"(arg0: $BooleanSupplier$$Type, arg1: $List$$Type<(T)>, arg2: $List$$Type<(T)>): $CycleButton$Builder<(T)>
+public "withTooltip"(arg0: $OptionInstance$TooltipSupplier$$Type<(T)>): $CycleButton$Builder<(T)>
+public "withInitialValue"(arg0: T): $CycleButton$Builder<(T)>
+public "displayOnlyValue"(): $CycleButton$Builder<(T)>
+public "withCustomNarration"(arg0: $Function$$Type<($CycleButton<(T)>), ($MutableComponent$$Type)>): $CycleButton$Builder<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1508,25 +1626,25 @@ import {$AbstractWidget$$Type} from "net.minecraft.client.gui.components.Abstrac
 import {$Consumer$$Type} from "java.util.function.Consumer"
 
 export interface $LayoutElement$$Interface {
-get "width"(): integer
-set "y"(value: integer)
-set "x"(value: integer)
-get "x"(): integer
 get "y"(): integer
-get "height"(): integer
+get "width"(): integer
+set "x"(value: integer)
+set "y"(value: integer)
 get "rectangle"(): $ScreenRectangle
+get "height"(): integer
+get "x"(): integer
 }
 
 export class $LayoutElement implements $LayoutElement$$Interface {
- "getWidth"(): integer
- "setY"(arg0: integer): void
- "setX"(arg0: integer): void
- "getX"(): integer
- "setPosition"(arg0: integer, arg1: integer): void
  "getY"(): integer
+ "getWidth"(): integer
  "visitWidgets"(arg0: $Consumer$$Type<($AbstractWidget)>): void
- "getHeight"(): integer
+ "setX"(arg0: integer): void
+ "setY"(arg0: integer): void
  "getRectangle"(): $ScreenRectangle
+ "getHeight"(): integer
+ "setPosition"(arg0: integer, arg1: integer): void
+ "getX"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1564,13 +1682,13 @@ import {$FormattedText, $FormattedText$$Type} from "net.minecraft.network.chat.F
 import {$List} from "java.util.List"
 import {$Font$DisplayMode$$Type} from "net.minecraft.client.gui.Font$DisplayMode"
 import {$VertexConsumer$$Type} from "com.mojang.blaze3d.vertex.VertexConsumer"
-import {$StringSplitter} from "net.minecraft.client.StringSplitter"
 import {$Component$$Type} from "net.minecraft.network.chat.Component"
+import {$StringSplitter} from "net.minecraft.client.StringSplitter"
 import {$IFontExtension$$Interface} from "net.neoforged.neoforge.client.extensions.IFontExtension"
 import {$Matrix4f$$Type} from "org.joml.Matrix4f"
+import {$BakedGlyph$$Type} from "net.minecraft.client.gui.font.glyphs.BakedGlyph"
 import {$RandomSource} from "net.minecraft.util.RandomSource"
 import {$FontSet, $FontSet$$Type} from "net.minecraft.client.gui.font.FontSet"
-import {$BakedGlyph$$Type} from "net.minecraft.client.gui.font.glyphs.BakedGlyph"
 import {$FormattedCharSequence, $FormattedCharSequence$$Type} from "net.minecraft.util.FormattedCharSequence"
 import {$MultiBufferSource$$Type} from "net.minecraft.client.renderer.MultiBufferSource"
 import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
@@ -1589,33 +1707,33 @@ readonly "lineHeight": integer
 
 constructor(arg0: $Function$$Type<($ResourceLocation), ($FontSet$$Type)>, arg1: boolean)
 
+public "renderText"(arg0: StringJS, arg1: float, arg2: float, arg3: integer, arg4: boolean, arg5: $Matrix4f$$Type, arg6: $MultiBufferSource$$Type, arg7: $Font$DisplayMode$$Type, arg8: integer, arg9: integer): float
 public "split"(arg0: $FormattedText$$Type, arg1: integer): $List<($FormattedCharSequence)>
 public "self"(): $Font
-public "width"(arg0: StringJS): integer
 public "width"(arg0: $FormattedText$$Type): integer
 public "width"(arg0: $FormattedCharSequence$$Type): integer
-public "substrByWidth"(arg0: $FormattedText$$Type, arg1: integer): $FormattedText
-public "isBidirectional"(): boolean
-public "drawInBatch"(arg0: $Component$$Type, arg1: float, arg2: float, arg3: integer, arg4: boolean, arg5: $Matrix4f$$Type, arg6: $MultiBufferSource$$Type, arg7: $Font$DisplayMode$$Type, arg8: integer, arg9: integer): integer
-public "drawInBatch"(arg0: StringJS, arg1: float, arg2: float, arg3: integer, arg4: boolean, arg5: $Matrix4f$$Type, arg6: $MultiBufferSource$$Type, arg7: $Font$DisplayMode$$Type, arg8: integer, arg9: integer, arg10: boolean): integer
-public "drawInBatch"(arg0: StringJS, arg1: float, arg2: float, arg3: integer, arg4: boolean, arg5: $Matrix4f$$Type, arg6: $MultiBufferSource$$Type, arg7: $Font$DisplayMode$$Type, arg8: integer, arg9: integer): integer
+public "width"(arg0: StringJS): integer
 public "drawInBatch"(arg0: $FormattedCharSequence$$Type, arg1: float, arg2: float, arg3: integer, arg4: boolean, arg5: $Matrix4f$$Type, arg6: $MultiBufferSource$$Type, arg7: $Font$DisplayMode$$Type, arg8: integer, arg9: integer): integer
-public "renderText"(arg0: StringJS, arg1: float, arg2: float, arg3: integer, arg4: boolean, arg5: $Matrix4f$$Type, arg6: $MultiBufferSource$$Type, arg7: $Font$DisplayMode$$Type, arg8: integer, arg9: integer): float
+public "drawInBatch"(arg0: StringJS, arg1: float, arg2: float, arg3: integer, arg4: boolean, arg5: $Matrix4f$$Type, arg6: $MultiBufferSource$$Type, arg7: $Font$DisplayMode$$Type, arg8: integer, arg9: integer): integer
+public "drawInBatch"(arg0: StringJS, arg1: float, arg2: float, arg3: integer, arg4: boolean, arg5: $Matrix4f$$Type, arg6: $MultiBufferSource$$Type, arg7: $Font$DisplayMode$$Type, arg8: integer, arg9: integer, arg10: boolean): integer
+public "drawInBatch"(arg0: $Component$$Type, arg1: float, arg2: float, arg3: integer, arg4: boolean, arg5: $Matrix4f$$Type, arg6: $MultiBufferSource$$Type, arg7: $Font$DisplayMode$$Type, arg8: integer, arg9: integer): integer
+public "isBidirectional"(): boolean
 public "getSplitter"(): $StringSplitter
-public "jade$setGlint"(arg0: float, arg1: float): void
-public "getFontSet"(arg0: $ResourceLocation$$Type): $FontSet
+public "substrByWidth"(arg0: $FormattedText$$Type, arg1: integer): $FormattedText
 public "wordWrapHeight"(arg0: StringJS, arg1: integer): integer
 public "wordWrapHeight"(arg0: $FormattedText$$Type, arg1: integer): integer
 public "plainSubstrByWidth"(arg0: StringJS, arg1: integer): StringJS
 public "plainSubstrByWidth"(arg0: StringJS, arg1: integer, arg2: boolean): StringJS
-public "dragonlib$invokeGetFontSet"(arg0: $ResourceLocation$$Type): $FontSet
-public "bits_n_bobs$getFontSet"(arg0: $ResourceLocation$$Type): $FontSet
-public "dragonlib$getSplitter"(): $StringSplitter
-public "bidirectionalShaping"(arg0: StringJS): StringJS
-public "drawInBatch8xOutline"(arg0: $FormattedCharSequence$$Type, arg1: float, arg2: float, arg3: integer, arg4: integer, arg5: $Matrix4f$$Type, arg6: $MultiBufferSource$$Type, arg7: integer): void
-public "jade$setGlintStrength"(arg0: float, arg1: float): void
-public "create$getFonts"(): $Function
+public "jade$setGlint"(arg0: float, arg1: float): void
 public "renderChar"(arg0: $BakedGlyph$$Type, arg1: boolean, arg2: boolean, arg3: float, arg4: float, arg5: float, arg6: $Matrix4f$$Type, arg7: $VertexConsumer$$Type, arg8: float, arg9: float, arg10: float, arg11: float, arg12: integer): void
+public "getFontSet"(arg0: $ResourceLocation$$Type): $FontSet
+public "create$getFonts"(): $Function
+public "jade$setGlintStrength"(arg0: float, arg1: float): void
+public "bidirectionalShaping"(arg0: StringJS): StringJS
+public "dragonlib$invokeGetFontSet"(arg0: $ResourceLocation$$Type): $FontSet
+public "dragonlib$getSplitter"(): $StringSplitter
+public "drawInBatch8xOutline"(arg0: $FormattedCharSequence$$Type, arg1: float, arg2: float, arg3: integer, arg4: integer, arg5: $Matrix4f$$Type, arg6: $MultiBufferSource$$Type, arg7: integer): void
+public "bits_n_bobs$getFontSet"(arg0: $ResourceLocation$$Type): $FontSet
 public "ellipsize"(arg0: $FormattedText$$Type, arg1: integer): $FormattedText
 get "bidirectional"(): boolean
 }
@@ -1677,22 +1795,22 @@ declare module "net.minecraft.client.gui.screens.social.PlayerSocialManager" {
 import {$UserApiService$$Type} from "com.mojang.authlib.minecraft.UserApiService"
 import {$UUID, $UUID$$Type} from "java.util.UUID"
 import {$Set} from "java.util.Set"
-import {$Minecraft$$Type} from "net.minecraft.client.Minecraft"
 import {$PlayerInfo$$Type} from "net.minecraft.client.multiplayer.PlayerInfo"
+import {$Minecraft$$Type} from "net.minecraft.client.Minecraft"
 
 export class $PlayerSocialManager {
 constructor(arg0: $Minecraft$$Type, arg1: $UserApiService$$Type)
 
 public "isHidden"(arg0: $UUID$$Type): boolean
-public "addPlayer"(arg0: $PlayerInfo$$Type): void
 public "isBlocked"(arg0: $UUID$$Type): boolean
+public "removePlayer"(arg0: $UUID$$Type): void
+public "getHiddenPlayers"(): $Set<($UUID)>
+public "addPlayer"(arg0: $PlayerInfo$$Type): void
+public "showPlayer"(arg0: $UUID$$Type): void
+public "shouldHideMessageFrom"(arg0: $UUID$$Type): boolean
 public "stopOnlineMode"(): void
 public "startOnlineMode"(): void
 public "hidePlayer"(arg0: $UUID$$Type): void
-public "showPlayer"(arg0: $UUID$$Type): void
-public "getHiddenPlayers"(): $Set<($UUID)>
-public "removePlayer"(arg0: $UUID$$Type): void
-public "shouldHideMessageFrom"(arg0: $UUID$$Type): boolean
 public "getDiscoveredUUID"(arg0: StringJS): $UUID
 get "hiddenPlayers"(): $Set<($UUID)>
 }
@@ -1786,8 +1904,8 @@ export type $FontOption$Filter$$Type = ($FontOption$Filter);
 export type $FontOption$Filter$$Original = $FontOption$Filter;}
 declare module "net.minecraft.client.gui.screens.worldselection.WorldCreationUiState$SelectedGameMode" {
 import {$Enum} from "java.lang.Enum"
-import {$GameType} from "net.minecraft.world.level.GameType"
 import {$Component} from "net.minecraft.network.chat.Component"
+import {$GameType} from "net.minecraft.world.level.GameType"
 
 export class $WorldCreationUiState$SelectedGameMode extends $Enum<($WorldCreationUiState$SelectedGameMode)> {
 static readonly "SURVIVAL": $WorldCreationUiState$SelectedGameMode
@@ -1891,17 +2009,17 @@ public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "normal"(): $RenderType
-public "polygonOffset"(): $RenderType
 public "select"(arg0: $Font$DisplayMode$$Type): $RenderType
+public "polygonOffset"(): $RenderType
 public "seeThrough"(): $RenderType
-public static "createForIntensityTexture"(arg0: $ResourceLocation$$Type): $GlyphRenderTypes
 public static "createForColorTexture"(arg0: $ResourceLocation$$Type): $GlyphRenderTypes
+public static "createForIntensityTexture"(arg0: $ResourceLocation$$Type): $GlyphRenderTypes
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $GlyphRenderTypes$$Type = ({"seeThrough"?: $RenderType$$Type, "polygonOffset"?: $RenderType$$Type, "normal"?: $RenderType$$Type}) | ([seeThrough?: $RenderType$$Type, polygonOffset?: $RenderType$$Type, normal?: $RenderType$$Type]);
+export type $GlyphRenderTypes$$Type = ({"polygonOffset"?: $RenderType$$Type, "seeThrough"?: $RenderType$$Type, "normal"?: $RenderType$$Type}) | ([polygonOffset?: $RenderType$$Type, seeThrough?: $RenderType$$Type, normal?: $RenderType$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -2009,12 +2127,12 @@ import {$Record} from "java.lang.Record"
 export class $WorldCreationUiState$WorldTypeEntry extends $Record {
 constructor(preset: $Holder$$Type<($WorldPreset)>)
 
-public "isAmplified"(): boolean
-public "describePreset"(): $Component
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "preset"(): $Holder<($WorldPreset)>
+public "isAmplified"(): boolean
+public "describePreset"(): $Component
 get "amplified"(): boolean
 }
 /**
@@ -2051,8 +2169,8 @@ import {$Screen$DeferredTooltipRendering} from "net.minecraft.client.gui.screens
 import {$CycleButton} from "net.minecraft.client.gui.components.CycleButton"
 import {$Screen, $Screen$$Type} from "net.minecraft.client.gui.screens.Screen"
 import {$List} from "java.util.List"
-import {$NarratorStatus} from "net.minecraft.client.NarratorStatus"
 import {$CubeMap} from "net.minecraft.client.renderer.CubeMap"
+import {$NarratorStatus} from "net.minecraft.client.NarratorStatus"
 import {$Font} from "net.minecraft.client.gui.Font"
 import {$BooleanSupplier$$Type} from "java.util.function.BooleanSupplier"
 import {$ScreenExtensions} from "net.fabricmc.fabric.impl.client.screen.ScreenExtensions"
@@ -2091,13 +2209,15 @@ constructor(arg0: $BooleanSupplier$$Type, arg1: $ReceivingLevelScreen$Reason$$Ty
 public "init"(): void
 public "onClose"(): void
 public "tick"(): void
-public "shouldNarrateNavigation"(): boolean
-public "setCreatedAtFancyMenu"(arg0: long): void
 public "render"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: float): void
+public "shouldNarrateNavigation"(): boolean
 public "shouldCloseOnEsc"(): boolean
-public "isPauseScreen"(): boolean
 public "renderBackground"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: float): void
+public "setCreatedAtFancyMenu"(arg0: long): void
+public "isPauseScreen"(): boolean
 public static "getExtensions"(arg0: $Screen$$Type): $ScreenExtensions
+public static "owo$ROTATING_PANORAMA_RENDERER"(): $PanoramaRenderer
+public static "owo$PANORAMA_RENDERER"(): $CubeMap
 set "createdAtFancyMenu"(value: long)
 get "pauseScreen"(): boolean
 }
@@ -2143,8 +2263,8 @@ constructor()
 public "get"(): $Tooltip
 public "set"(arg0: $Tooltip$$Type): void
 public "setDelay"(arg0: $Duration$$Type): void
-public "refreshTooltipForNextRenderPass"(arg0: boolean, arg1: boolean, arg2: $ScreenRectangle$$Type): void
 public "updateNarration"(arg0: $NarrationElementOutput$$Type): void
+public "refreshTooltipForNextRenderPass"(arg0: boolean, arg1: boolean, arg2: $ScreenRectangle$$Type): void
 public "createTooltipPositioner"(arg0: $ScreenRectangle$$Type, arg1: boolean, arg2: boolean): $ClientTooltipPositioner
 set "delay"(value: $Duration$$Type)
 }
@@ -2158,54 +2278,58 @@ export type $WidgetTooltipHolder$$Type = ($WidgetTooltipHolder);
  */
 export type $WidgetTooltipHolder$$Original = $WidgetTooltipHolder;}
 declare module "net.minecraft.client.gui.screens.Screen" {
-import {$IMixinScreen$$Interface as $IMixinScreen$0$$Interface} from "de.keksuccino.konkrete.mixin.mixins.client.IMixinScreen"
-import {$ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
+import {$IMixinScreen$$Interface} from "de.keksuccino.konkrete.mixin.mixins.client.IMixinScreen"
 import {$CycleButton} from "net.minecraft.client.gui.components.CycleButton"
-import {$ScreenAccessor$$Interface as $ScreenAccessor$3$$Interface} from "de.mrjulsen.mcdragonlib.mixin.ScreenAccessor"
+import {$ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
+import {$ScreenAccessor$$Interface as $ScreenAccessor$0$$Interface} from "de.mrjulsen.mcdragonlib.mixin.ScreenAccessor"
 import {$CallbackInfo$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfo"
-import {$List, $List$$Type} from "java.util.List"
-import {$NarratorStatus} from "net.minecraft.client.NarratorStatus"
-import {$ScreenAccessor$$Interface as $ScreenAccessor$5$$Interface} from "com.blackgear.platform.core.mixin.access.ScreenAccessor"
-import {$CubeMap} from "net.minecraft.client.renderer.CubeMap"
-import {$ScreenAccessor$$Interface as $ScreenAccessor$2$$Interface} from "net.fabricmc.fabric.mixin.screen.ScreenAccessor"
-import {$Font, $Font$$Type} from "net.minecraft.client.gui.Font"
-import {$Runnable$$Type} from "java.lang.Runnable"
-import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component"
 import {$ScreenExtensions, $ScreenExtensions$$Interface} from "net.fabricmc.fabric.impl.client.screen.ScreenExtensions"
-import {$PanoramaRenderer} from "net.minecraft.client.renderer.PanoramaRenderer"
-import {$AccessorScreen$$Interface} from "vazkii.patchouli.mixin.client.AccessorScreen"
 import {$ScreenDirection$$Type} from "net.minecraft.client.gui.navigation.ScreenDirection"
-import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
-import {$ScreenAccessor$$Interface as $ScreenAccessor$0$$Interface} from "com.mrcrayfish.furniture.refurbished.mixin.client.ScreenAccessor"
-import {$Executor} from "java.util.concurrent.Executor"
-import {$ScreenAccessor$$Interface as $ScreenAccessor$4$$Interface} from "dev.tr7zw.trender.gui.impl.mixin.client.ScreenAccessor"
-import {$ClientTooltipPositioner$$Type} from "net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipPositioner"
-import {$Minecraft, $Minecraft$$Type} from "net.minecraft.client.Minecraft"
+import {$Layer$$Type} from "io.wispforest.owo.ui.layers.Layer"
+import {$ScreenAccessor$$Interface as $ScreenAccessor$1$$Interface} from "com.mrcrayfish.furniture.refurbished.mixin.client.ScreenAccessor"
 import {$Renderable, $Renderable$$Type, $Renderable$$Interface} from "net.minecraft.client.gui.components.Renderable"
-import {$CustomizableScreen$$Interface} from "de.keksuccino.fancymenu.util.rendering.ui.screen.CustomizableScreen"
 import {$AbstractContainerEventHandler} from "net.minecraft.client.gui.components.events.AbstractContainerEventHandler"
 import {$FocusNavigationEvent$TabNavigation} from "net.minecraft.client.gui.navigation.FocusNavigationEvent$TabNavigation"
-import {$NarrationElementOutput$$Type} from "net.minecraft.client.gui.narration.NarrationElementOutput"
-import {$Screen$DeferredTooltipRendering} from "net.minecraft.client.gui.screens.Screen$DeferredTooltipRendering"
-import {$Style$$Type} from "net.minecraft.network.chat.Style"
-import {$ScreenAccessor$$Interface as $ScreenAccessor$1$$Interface} from "net.blay09.mods.balm.mixin.ScreenAccessor"
+import {$ScreenAccessor$$Interface} from "net.blay09.mods.balm.mixin.ScreenAccessor"
 import {$ScreenWidgetAdder$$Interface} from "net.dawson.adorablehamsterpets.mixin.accessor.ScreenWidgetAdder"
+import {$ScreenAccessor$$Interface as $ScreenAccessor$6$$Interface} from "net.createmod.ponder.mixin.client.accessor.ScreenAccessor"
 import {$Event} from "net.fabricmc.fabric.api.event.Event"
-import {$Screen$NarratableSearchResult} from "net.minecraft.client.gui.screens.Screen$NarratableSearchResult"
-import {$ScreenAccessor$$Interface} from "net.createmod.ponder.mixin.client.accessor.ScreenAccessor"
-import {$IMixinScreen$$Interface} from "de.keksuccino.fancymenu.mixin.mixins.common.client.IMixinScreen"
-import {$Tooltip$$Type} from "net.minecraft.client.gui.components.Tooltip"
-import {$FormattedCharSequence$$Type} from "net.minecraft.util.FormattedCharSequence"
-import {$GuiEventListener, $GuiEventListener$$Type} from "net.minecraft.client.gui.components.events.GuiEventListener"
-import {$GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
+import {$Layer$Instance} from "io.wispforest.owo.ui.layers.Layer$Instance"
 import {$ScreenRectangle} from "net.minecraft.client.gui.navigation.ScreenRectangle"
-import {$NarratableEntry, $NarratableEntry$$Type} from "net.minecraft.client.gui.narration.NarratableEntry"
 import {$FocusNavigationEvent$ArrowNavigation} from "net.minecraft.client.gui.navigation.FocusNavigationEvent$ArrowNavigation"
 import {$ComponentPath$$Type} from "net.minecraft.client.gui.ComponentPath"
 import {$Path$$Type} from "java.nio.file.Path"
 import {$Music} from "net.minecraft.sounds.Music"
+import {$List, $List$$Type} from "java.util.List"
+import {$ScreenAccessor$$Interface as $ScreenAccessor$5$$Interface} from "com.blackgear.platform.core.mixin.access.ScreenAccessor"
+import {$NarratorStatus} from "net.minecraft.client.NarratorStatus"
+import {$CubeMap} from "net.minecraft.client.renderer.CubeMap"
+import {$ScreenAccessor$$Interface as $ScreenAccessor$3$$Interface} from "net.fabricmc.fabric.mixin.screen.ScreenAccessor"
+import {$Font, $Font$$Type} from "net.minecraft.client.gui.Font"
+import {$Runnable$$Type} from "java.lang.Runnable"
+import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component"
+import {$PanoramaRenderer} from "net.minecraft.client.renderer.PanoramaRenderer"
+import {$AccessorScreen$$Interface} from "vazkii.patchouli.mixin.client.AccessorScreen"
+import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
+import {$Executor} from "java.util.concurrent.Executor"
+import {$ScreenAccessor$$Interface as $ScreenAccessor$2$$Interface} from "dev.tr7zw.trender.gui.impl.mixin.client.ScreenAccessor"
+import {$ClientTooltipPositioner$$Type} from "net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipPositioner"
+import {$Minecraft, $Minecraft$$Type} from "net.minecraft.client.Minecraft"
+import {$CustomizableScreen$$Interface} from "de.keksuccino.fancymenu.util.rendering.ui.screen.CustomizableScreen"
+import {$OwoScreenExtension$$Interface} from "io.wispforest.owo.util.pond.OwoScreenExtension"
+import {$NarrationElementOutput$$Type} from "net.minecraft.client.gui.narration.NarrationElementOutput"
+import {$Screen$DeferredTooltipRendering} from "net.minecraft.client.gui.screens.Screen$DeferredTooltipRendering"
+import {$Style$$Type} from "net.minecraft.network.chat.Style"
+import {$ScreenAccessor$$Interface as $ScreenAccessor$4$$Interface} from "io.wispforest.owo.mixin.ScreenAccessor"
+import {$Screen$NarratableSearchResult} from "net.minecraft.client.gui.screens.Screen$NarratableSearchResult"
+import {$IMixinScreen$$Interface as $IMixinScreen$0$$Interface} from "de.keksuccino.fancymenu.mixin.mixins.common.client.IMixinScreen"
+import {$Tooltip$$Type} from "net.minecraft.client.gui.components.Tooltip"
+import {$FormattedCharSequence$$Type} from "net.minecraft.util.FormattedCharSequence"
+import {$GuiEventListener, $GuiEventListener$$Type} from "net.minecraft.client.gui.components.events.GuiEventListener"
+import {$GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
+import {$NarratableEntry, $NarratableEntry$$Type} from "net.minecraft.client.gui.narration.NarratableEntry"
 
-export class $Screen extends $AbstractContainerEventHandler implements $Renderable$$Interface, $ScreenExtensions$$Interface, $ScreenAccessor$1$$Interface, $ScreenAccessor$2$$Interface, $IMixinScreen$0$$Interface, $AccessorScreen$$Interface, $ScreenWidgetAdder$$Interface, $ScreenAccessor$0$$Interface, $ScreenAccessor$4$$Interface, $ScreenAccessor$3$$Interface, $ScreenAccessor$5$$Interface, $IMixinScreen$$Interface, $CustomizableScreen$$Interface, $ScreenAccessor$$Interface {
+export class $Screen extends $AbstractContainerEventHandler implements $Renderable$$Interface, $ScreenExtensions$$Interface, $ScreenAccessor$$Interface, $ScreenAccessor$3$$Interface, $IMixinScreen$$Interface, $AccessorScreen$$Interface, $ScreenWidgetAdder$$Interface, $ScreenAccessor$1$$Interface, $ScreenAccessor$4$$Interface, $ScreenAccessor$2$$Interface, $ScreenAccessor$0$$Interface, $ScreenAccessor$5$$Interface, $IMixinScreen$0$$Interface, $CustomizableScreen$$Interface, $ScreenAccessor$6$$Interface, $OwoScreenExtension$$Interface {
 static readonly "MENU_BACKGROUND": $ResourceLocation
  "minecraft": $Minecraft
 static readonly "INWORLD_FOOTER_SEPARATOR": $ResourceLocation
@@ -2226,8 +2350,8 @@ static readonly "HEADER_SEPARATOR": $ResourceLocation
 
 constructor(arg0: $Component$$Type)
 
-public "init"(arg0: $Minecraft$$Type, arg1: integer, arg2: integer): void
 public "init"(): void
+public "init"(arg0: $Minecraft$$Type, arg1: integer, arg2: integer): void
 public "added"(): void
 public "removed"(): void
 public "resize"(arg0: $Minecraft$$Type, arg1: integer, arg2: integer): void
@@ -2235,131 +2359,139 @@ public "onClose"(): void
 public "tick"(): void
 public "children"(): $List<($GuiEventListener)>
 public "getChildren"(): $List
-public "updateNarratedWidget"(arg0: $NarrationElementOutput$$Type): void
-public static "findNarratableWidget"(arg0: $List$$Type<($NarratableEntry$$Type)>, arg1: $NarratableEntry$$Type): $Screen$NarratableSearchResult
-public "renderMenuBackground"(arg0: $GuiGraphics$$Type): void
-public "renderMenuBackground"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer): void
-public "getNarrationMessage"(): $Component
-public "renderBlurredBackground"(arg0: float): void
-public "updateNarrationState"(arg0: $NarrationElementOutput$$Type): void
-public "handleDelayedNarration"(): void
-public "fabric_getBeforeTickEvent"(): $Event
-public "triggerImmediateNarration"(arg0: boolean): void
-public "fabric_getRemoveEvent"(): $Event
-public "isValidCharacterForName"(arg0: StringJS, arg1: character, arg2: integer): boolean
-public "handleComponentClicked"(arg0: $Style$$Type): boolean
-public "afterKeyboardAction"(): void
-public "updateNarratorStatus"(arg0: boolean): void
-public "shouldNarrateNavigation"(): boolean
-public "dragonlib$clearFocus"(): void
-public "callAddRenderableWidget"(arg0: $GuiEventListener$$Type): $GuiEventListener
-public "dragonlib$createTabEvent"(): $FocusNavigationEvent$TabNavigation
-public "get_initialized_FancyMenu"(): boolean
-public "dragonlib$createArrowEvent"(arg0: $ScreenDirection$$Type): $FocusNavigationEvent$ArrowNavigation
-public "getRenderablesKonkrete"(): $List
-public "balm_getRenderables"(): $List
-public "getChildrenKonkrete"(): $List
-public "fabric_getAfterRenderEvent"(): $Event
-public "invokeAddWidgetKonkrete"(arg0: $GuiEventListener$$Type): $GuiEventListener
-public "catnip$getRenderables"(): $List
-public "fabric_getAfterTickEvent"(): $Event
-public "balm_getNarratables"(): $List
-public "callAddRenderableOnly"(arg0: $Renderable$$Type): $Renderable
-public "getFont"(): $Font
-public "getRenderablesFancyMenu"(): $List
-public "getChildrenFancyMenu"(): $List
-public "addRenderableWidget"<T extends $GuiEventListener>(arg0: T): T
-public "getNarratablesFancyMenu"(): $List
-public static "hasControlDown"(): boolean
-public "getBackgroundMusic"(): $Music
+public static "ROTATING_PANORAMA_RENDERER$owo_$md$1ae6d3$1"(): $PanoramaRenderer
+public static "isCopy"(arg0: integer): boolean
+public static "hasAltDown"(): boolean
 public static "hasShiftDown"(): boolean
-public "keyPressed"(arg0: integer, arg1: integer, arg2: integer): boolean
-public "addWidget"<T extends $GuiEventListener>(arg0: T): T
-public static "getTooltipFromItem"(arg0: $Minecraft$$Type, arg1: $ItemStack$$Type): $List<($Component)>
 public "getTitle"(): $Component
 public "render"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: float): void
-public static "isCopy"(arg0: integer): boolean
+public "fabric_getBeforeMouseClickEvent"(): $Event
+public "fabric_getAllowMouseReleaseEvent"(): $Event
+public "fabric_getBeforeMouseReleaseEvent"(): $Event
+public "fabric_getAfterMouseReleaseEvent"(): $Event
+public "removeOnInitChildrenFancyMenu"(): $List
+public "fabric_getBeforeKeyPressEvent"(): $Event
+public "fabric_getAllowKeyReleaseEvent"(): $Event
+public "renderTransparentBackground"(arg0: $GuiGraphics$$Type): void
+public "fabric_getAllowKeyPressEvent"(): $Event
+public "fabric_getAfterKeyReleaseEvent"(): $Event
+public "fabric_getBeforeRenderEvent"(): $Event
+public static "renderMenuBackgroundTexture"(arg0: $GuiGraphics$$Type, arg1: $ResourceLocation$$Type, arg2: integer, arg3: integer, arg4: float, arg5: float, arg6: integer, arg7: integer): void
+public "handler$fpn000$dragonlib$render"(ci: $CallbackInfo$$Type): void
+public "fabric_getAfterKeyPressEvent"(): $Event
+public "setTooltipForNextRenderPass"(arg0: $Tooltip$$Type, arg1: $ClientTooltipPositioner$$Type, arg2: boolean): void
+public "setTooltipForNextRenderPass"(arg0: $List$$Type<($FormattedCharSequence$$Type)>): void
+public "setTooltipForNextRenderPass"(arg0: $Component$$Type): void
+public "setTooltipForNextRenderPass"(arg0: $List$$Type<($FormattedCharSequence$$Type)>, arg1: $ClientTooltipPositioner$$Type, arg2: boolean): void
+public "fabric_getBeforeKeyReleaseEvent"(): $Event
+public "fabric_getAllowMouseClickEvent"(): $Event
+public "fabric_getAfterMouseClickEvent"(): $Event
+public "clearTooltipForNextRenderPass"(): void
+public static "PANORAMA_RENDERER$owo_$md$1ae6d3$0"(): $CubeMap
+public "invokeAddRenderableWidgetKonkrete"(arg0: $GuiEventListener$$Type): $GuiEventListener
+public "fabric_getBeforeMouseScrollEvent"(): $Event
+public "fabric_getAfterMouseScrollEvent"(): $Event
+public "adorablehamsterpets$addWidget"(arg0: $GuiEventListener$$Type): $GuiEventListener
+public "fabric_getAllowMouseScrollEvent"(): $Event
+public "invokeRemoveWidgetFancyMenu"(arg0: $GuiEventListener$$Type): void
+public "fabric_getRemoveEvent"(): $Event
+public "balm_getRenderables"(): $List
+public "invokeAddWidgetKonkrete"(arg0: $GuiEventListener$$Type): $GuiEventListener
+public "handleComponentClicked"(arg0: $Style$$Type): boolean
+public "fabric_getBeforeTickEvent"(): $Event
+public "owo$addDrawableChild"(arg0: $GuiEventListener$$Type): $GuiEventListener
+public "renderMenuBackground"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer): void
+public "renderMenuBackground"(arg0: $GuiGraphics$$Type): void
+public "getNarrationMessage"(): $Component
+public "updateNarrationState"(arg0: $NarrationElementOutput$$Type): void
+public "balm_getNarratables"(): $List
+public "getRenderablesKonkrete"(): $List
+public "getChildrenKonkrete"(): $List
+public "handleDelayedNarration"(): void
+public "triggerImmediateNarration"(arg0: boolean): void
+public "fabric_getAfterTickEvent"(): $Event
+public "dragonlib$createTabEvent"(): $FocusNavigationEvent$TabNavigation
+public static "findNarratableWidget"(arg0: $List$$Type<($NarratableEntry$$Type)>, arg1: $NarratableEntry$$Type): $Screen$NarratableSearchResult
+public "dragonlib$createArrowEvent"(arg0: $ScreenDirection$$Type): $FocusNavigationEvent$ArrowNavigation
+public "callAddRenderableWidget"(arg0: $GuiEventListener$$Type): $GuiEventListener
+public "isValidCharacterForName"(arg0: StringJS, arg1: character, arg2: integer): boolean
+public "owo$getInstancesView"(): $List
+public "renderBlurredBackground"(arg0: float): void
+public "updateNarratorStatus"(arg0: boolean): void
+public "afterKeyboardAction"(): void
+public "dragonlib$clearFocus"(): void
+public "shouldNarrateNavigation"(): boolean
+public "updateNarratedWidget"(arg0: $NarrationElementOutput$$Type): void
+public "fabric_getAfterRenderEvent"(): $Event
+public "callAddRenderableOnly"(arg0: $Renderable$$Type): $Renderable
+public "catnip$getRenderables"(): $List
+public "get_initialized_FancyMenu"(): boolean
 public static "wrapScreenError"(arg0: $Runnable$$Type, arg1: StringJS, arg2: StringJS): void
 public "shouldCloseOnEsc"(): boolean
 public "createTabEvent"(): $FocusNavigationEvent$TabNavigation
-public "renderWithTooltip"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: float): void
 public "createArrowEvent"(arg0: $ScreenDirection$$Type): $FocusNavigationEvent$ArrowNavigation
-public "changeFocus"(arg0: $ComponentPath$$Type): void
-public "fabric_getAfterMouseClickEvent"(): $Event
-public "fabric_getAllowMouseReleaseEvent"(): $Event
-public "fabric_getAfterMouseReleaseEvent"(): $Event
-public "fabric_getBeforeMouseReleaseEvent"(): $Event
-public "fabric_getAllowMouseScrollEvent"(): $Event
-public "fabric_getBeforeMouseScrollEvent"(): $Event
-public "fabric_getAfterMouseScrollEvent"(): $Event
-public static "hasAltDown"(): boolean
-public "renderTransparentBackground"(arg0: $GuiGraphics$$Type): void
-public "clearTooltipForNextRenderPass"(): void
-public "fabric_getBeforeRenderEvent"(): $Event
-public "fabric_getAllowKeyPressEvent"(): $Event
-public "handler$fdn000$dragonlib$render"(ci: $CallbackInfo$$Type): void
-public "fabric_getBeforeKeyPressEvent"(): $Event
-public "fabric_getAfterKeyPressEvent"(): $Event
-public "fabric_getBeforeKeyReleaseEvent"(): $Event
-public "fabric_getAfterKeyReleaseEvent"(): $Event
-public "fabric_getAllowMouseClickEvent"(): $Event
-public "fabric_getAllowKeyReleaseEvent"(): $Event
-public "removeOnInitChildrenFancyMenu"(): $List
-public static "renderMenuBackgroundTexture"(arg0: $GuiGraphics$$Type, arg1: $ResourceLocation$$Type, arg2: integer, arg3: integer, arg4: float, arg5: float, arg6: integer, arg7: integer): void
-public "setTooltipForNextRenderPass"(arg0: $Component$$Type): void
-public "setTooltipForNextRenderPass"(arg0: $List$$Type<($FormattedCharSequence$$Type)>, arg1: $ClientTooltipPositioner$$Type, arg2: boolean): void
-public "setTooltipForNextRenderPass"(arg0: $Tooltip$$Type, arg1: $ClientTooltipPositioner$$Type, arg2: boolean): void
-public "setTooltipForNextRenderPass"(arg0: $List$$Type<($FormattedCharSequence$$Type)>): void
-public "fabric_getBeforeMouseClickEvent"(): $Event
-public "getRenderables"(): $List
-public "getNarratables"(): $List
-public "isPauseScreen"(): boolean
-public "afterMouseMove"(): void
-public "getUsageNarration"(): $Component
-public "balm_getChildren"(): $List
-public "renderBackground"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: float): void
-public "renderPanorama"(arg0: $GuiGraphics$$Type, arg1: float): void
-public static "isSelectAll"(arg0: integer): boolean
-public "setInitialFocus"(): void
-public "setInitialFocus"(arg0: $GuiEventListener$$Type): void
-public "libgui$getChildren"(): $List
-public "rebuildWidgets"(): void
-public "onFilesDrop"(arg0: $List$$Type<($Path$$Type)>): void
-public "callAddWidget"(arg0: $GuiEventListener$$Type): $GuiEventListener
-public "repositionElements"(): void
-public "fabric_getButtons"(): $List
-public "addRenderableOnly"<T extends $Renderable>(arg0: T): T
-public "getMinecraft"(): $Minecraft
-public "getRectangle"(): $ScreenRectangle
-public "setFontKonkrete"(arg0: $Font$$Type): void
-public "afterMouseAction"(): void
+public "renderWithTooltip"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: float): void
 public "removeWidget"(arg0: $GuiEventListener$$Type): void
+public "getUsageNarration"(): $Component
 public "clearWidgets"(): void
+public "owo$getInstance"(layer: $Layer$$Type): $Layer$Instance
+public "libgui$getChildren"(): $List
+public "afterMouseAction"(): void
+public "afterMouseMove"(): void
+public "getRectangle"(): $ScreenRectangle
+public "balm_getChildren"(): $List
+public "rebuildWidgets"(): void
 public "isMouseOver"(arg0: double, arg1: double): boolean
-public static "isPaste"(arg0: integer): boolean
+public "renderBackground"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: float): void
+public static "isSelectAll"(arg0: integer): boolean
+public "owo$updateLayers"(): void
+public "setFontKonkrete"(arg0: $Font$$Type): void
+public "fabric_getButtons"(): $List
+public "setInitialFocus"(arg0: $GuiEventListener$$Type): void
+public "setInitialFocus"(): void
+public "repositionElements"(): void
+public "onFilesDrop"(arg0: $List$$Type<($Path$$Type)>): void
+public "addRenderableOnly"<T extends $Renderable>(arg0: T): T
+public "changeFocus"(arg0: $ComponentPath$$Type): void
+public "callAddWidget"(arg0: $GuiEventListener$$Type): $GuiEventListener
+public "renderPanorama"(arg0: $GuiGraphics$$Type, arg1: float): void
 public "clearFocus"(): void
 public static "isCut"(arg0: integer): boolean
+public static "isPaste"(arg0: integer): boolean
 public "insertText"(arg0: StringJS, arg1: boolean): void
-public "invokeAddRenderableWidgetKonkrete"(arg0: $GuiEventListener$$Type): $GuiEventListener
-public "invokeRemoveWidgetFancyMenu"(arg0: $GuiEventListener$$Type): void
-public "adorablehamsterpets$addWidget"(arg0: $GuiEventListener$$Type): $GuiEventListener
+public "getRenderablesFancyMenu"(): $List
+public "addRenderableWidget"<T extends $GuiEventListener>(arg0: T): T
+public "getChildrenFancyMenu"(): $List
+public "getNarratablesFancyMenu"(): $List
+public static "getTooltipFromItem"(arg0: $Minecraft$$Type, arg1: $ItemStack$$Type): $List<($Component)>
+public "getBackgroundMusic"(): $Music
+public "getNarratables"(): $List
+public "isPauseScreen"(): boolean
+public "getRenderables"(): $List
+public "addWidget"<T extends $GuiEventListener>(arg0: T): T
+public "keyPressed"(arg0: integer, arg1: integer, arg2: integer): boolean
+public static "hasControlDown"(): boolean
+public "getMinecraft"(): $Minecraft
+public "getFont"(): $Font
 public static "getExtensions"(arg0: $Screen$$Type): $ScreenExtensions
+public static "owo$ROTATING_PANORAMA_RENDERER"(): $PanoramaRenderer
+public static "owo$PANORAMA_RENDERER"(): $CubeMap
+set "tooltipForNextRenderPass"(value: $List$$Type<($FormattedCharSequence$$Type)>)
+set "tooltipForNextRenderPass"(value: $Component$$Type)
 get "narrationMessage"(): $Component
-get "_initialized_FancyMenu"(): boolean
 get "renderablesKonkrete"(): $List
 get "childrenKonkrete"(): $List
+get "_initialized_FancyMenu"(): boolean
+get "usageNarration"(): $Component
+get "rectangle"(): $ScreenRectangle
+set "fontKonkrete"(value: $Font$$Type)
+set "initialFocus"(value: $GuiEventListener$$Type)
+get "initialFocus"(): void
 get "renderablesFancyMenu"(): $List
 get "childrenFancyMenu"(): $List
 get "narratablesFancyMenu"(): $List
 get "backgroundMusic"(): $Music
-set "tooltipForNextRenderPass"(value: $Component$$Type)
-set "tooltipForNextRenderPass"(value: $List$$Type<($FormattedCharSequence$$Type)>)
 get "pauseScreen"(): boolean
-get "usageNarration"(): $Component
-get "initialFocus"(): void
-set "initialFocus"(value: $GuiEventListener$$Type)
-get "rectangle"(): $ScreenRectangle
-set "fontKonkrete"(value: $Font$$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2402,9 +2534,9 @@ static readonly "HORIZONTAL": $ScreenAxis
 public static "values"(): ($ScreenAxis)[]
 public static "valueOf"(arg0: StringJS): $ScreenAxis
 public "getNegative"(): $ScreenDirection
-public "getDirection"(arg0: boolean): $ScreenDirection
 public "getPositive"(): $ScreenDirection
 public "orthogonal"(): $ScreenAxis
+public "getDirection"(arg0: boolean): $ScreenDirection
 get "negative"(): $ScreenDirection
 get "positive"(): $ScreenDirection
 }
@@ -2427,13 +2559,13 @@ import {$SpectatorMenu$$Type} from "net.minecraft.client.gui.spectator.Spectator
 export class $SpectatorGui implements $SpectatorMenuListener$$Interface {
 constructor(arg0: $Minecraft$$Type)
 
+public "onSpectatorMenuClosed"(arg0: $SpectatorMenu$$Type): void
+public "renderPage"(arg0: $GuiGraphics$$Type, arg1: float, arg2: integer, arg3: integer, arg4: $SpectatorPage$$Type): void
 public "onHotbarSelected"(arg0: integer): void
 public "renderTooltip"(arg0: $GuiGraphics$$Type): void
-public "renderPage"(arg0: $GuiGraphics$$Type, arg1: float, arg2: integer, arg3: integer, arg4: $SpectatorPage$$Type): void
 public "onMouseScrolled"(arg0: integer): void
 public "isMenuActive"(): boolean
 public "onMouseMiddleClick"(): void
-public "onSpectatorMenuClosed"(arg0: $SpectatorMenu$$Type): void
 public "renderHotbar"(arg0: $GuiGraphics$$Type): void
 get "menuActive"(): boolean
 }
@@ -2466,8 +2598,8 @@ export class $LerpingBossEvent extends $BossEvent {
 
 constructor(arg0: $UUID$$Type, arg1: $Component$$Type, arg2: float, arg3: $BossEvent$BossBarColor$$Type, arg4: $BossEvent$BossBarOverlay$$Type, arg5: boolean, arg6: boolean, arg7: boolean)
 
-public "getProgress"(): float
 public "setProgress"(arg0: float): void
+public "getProgress"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2478,6 +2610,25 @@ export type $LerpingBossEvent$$Type = ($LerpingBossEvent);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $LerpingBossEvent$$Original = $LerpingBossEvent;}
+declare module "net.minecraft.client.gui.GuiGraphics$ScissorStack" {
+import {$ScreenRectangle, $ScreenRectangle$$Type} from "net.minecraft.client.gui.navigation.ScreenRectangle"
+
+export class $GuiGraphics$ScissorStack {
+constructor()
+
+public "push"(arg0: $ScreenRectangle$$Type): $ScreenRectangle
+public "pop"(): $ScreenRectangle
+public "containsPoint"(arg0: integer, arg1: integer): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $GuiGraphics$ScissorStack$$Type = ($GuiGraphics$ScissorStack);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $GuiGraphics$ScissorStack$$Original = $GuiGraphics$ScissorStack;}
 declare module "net.minecraft.client.gui.screens.worldselection.WorldCreationUiState" {
 import {$Optional$$Type} from "java.util.Optional"
 import {$List} from "java.util.List"
@@ -2498,62 +2649,62 @@ import {$WorldDataConfiguration$$Type} from "net.minecraft.world.level.WorldData
 export class $WorldCreationUiState {
 constructor(arg0: $Path$$Type, arg1: $WorldCreationContext$$Type, arg2: ($ResourceKey$$Type<($WorldPreset$$Type)>)?, arg3: $OptionalLong$$Type)
 
-public "setWorldType"(arg0: $WorldCreationUiState$WorldTypeEntry$$Type): void
-public "getPresetEditor"(): $PresetEditor
-public "getAltPresetList"(): $List<($WorldCreationUiState$WorldTypeEntry)>
-public "isBonusChest"(): boolean
-public "setBonusChest"(arg0: boolean): void
 public "getName"(): StringJS
 public "setName"(arg0: StringJS): void
 public "isDebug"(): boolean
 public "setSeed"(arg0: StringJS): void
 public "getSeed"(): StringJS
-public "setSettings"(arg0: $WorldCreationContext$$Type): void
-public "setGameMode"(arg0: $WorldCreationUiState$SelectedGameMode$$Type): void
 public "isHardcore"(): boolean
+public "setSettings"(arg0: $WorldCreationContext$$Type): void
 public "getSettings"(): $WorldCreationContext
-public "getNormalPresetList"(): $List<($WorldCreationUiState$WorldTypeEntry)>
-public "setGenerateStructures"(arg0: boolean): void
-public "isGenerateStructures"(): boolean
 public "addListener"(arg0: $Consumer$$Type<($WorldCreationUiState)>): void
-public "setDifficulty"(arg0: $Difficulty$$Type): void
-public "isAllowCommands"(): boolean
-public "onChanged"(): void
-public "getWorldType"(): $WorldCreationUiState$WorldTypeEntry
-public "setAllowCommands"(arg0: boolean): void
-public "getDifficulty"(): $Difficulty
 public "getGameRules"(): $GameRules
+public "isAllowCommands"(): boolean
+public "setDifficulty"(arg0: $Difficulty$$Type): void
+public "setAllowCommands"(arg0: boolean): void
+public "setGameMode"(arg0: $WorldCreationUiState$SelectedGameMode$$Type): void
+public "onChanged"(): void
 public "getGameMode"(): $WorldCreationUiState$SelectedGameMode
+public "getWorldType"(): $WorldCreationUiState$WorldTypeEntry
 public "tryUpdateDataConfiguration"(arg0: $WorldDataConfiguration$$Type): boolean
+public "getDifficulty"(): $Difficulty
 public "getTargetFolder"(): StringJS
 public "updateDimensions"(arg0: $WorldCreationContext$DimensionsUpdater$$Type): void
+public "isGenerateStructures"(): boolean
+public "setGenerateStructures"(arg0: boolean): void
 public "setGameRules"(arg0: $GameRules$$Type): void
-set "worldType"(value: $WorldCreationUiState$WorldTypeEntry$$Type)
-get "presetEditor"(): $PresetEditor
-get "altPresetList"(): $List<($WorldCreationUiState$WorldTypeEntry)>
-get "bonusChest"(): boolean
-set "bonusChest"(value: boolean)
+public "getAltPresetList"(): $List<($WorldCreationUiState$WorldTypeEntry)>
+public "getNormalPresetList"(): $List<($WorldCreationUiState$WorldTypeEntry)>
+public "isBonusChest"(): boolean
+public "setBonusChest"(arg0: boolean): void
+public "getPresetEditor"(): $PresetEditor
+public "setWorldType"(arg0: $WorldCreationUiState$WorldTypeEntry$$Type): void
 get "name"(): StringJS
 set "name"(value: StringJS)
 get "debug"(): boolean
 set "seed"(value: StringJS)
 get "seed"(): StringJS
-set "settings"(value: $WorldCreationContext$$Type)
-set "gameMode"(value: $WorldCreationUiState$SelectedGameMode$$Type)
 get "hardcore"(): boolean
+set "settings"(value: $WorldCreationContext$$Type)
 get "settings"(): $WorldCreationContext
-get "normalPresetList"(): $List<($WorldCreationUiState$WorldTypeEntry)>
-set "generateStructures"(value: boolean)
-get "generateStructures"(): boolean
-set "difficulty"(value: $Difficulty$$Type)
-get "allowCommands"(): boolean
-get "worldType"(): $WorldCreationUiState$WorldTypeEntry
-set "allowCommands"(value: boolean)
-get "difficulty"(): $Difficulty
 get "gameRules"(): $GameRules
+get "allowCommands"(): boolean
+set "difficulty"(value: $Difficulty$$Type)
+set "allowCommands"(value: boolean)
+set "gameMode"(value: $WorldCreationUiState$SelectedGameMode$$Type)
 get "gameMode"(): $WorldCreationUiState$SelectedGameMode
+get "worldType"(): $WorldCreationUiState$WorldTypeEntry
+get "difficulty"(): $Difficulty
 get "targetFolder"(): StringJS
+get "generateStructures"(): boolean
+set "generateStructures"(value: boolean)
 set "gameRules"(value: $GameRules$$Type)
+get "altPresetList"(): $List<($WorldCreationUiState$WorldTypeEntry)>
+get "normalPresetList"(): $List<($WorldCreationUiState$WorldTypeEntry)>
+get "bonusChest"(): boolean
+set "bonusChest"(value: boolean)
+get "presetEditor"(): $PresetEditor
+set "worldType"(value: $WorldCreationUiState$WorldTypeEntry$$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2637,40 +2788,49 @@ export type $SubtitleOverlay$$Type = ($SubtitleOverlay);
  */
 export type $SubtitleOverlay$$Original = $SubtitleOverlay;}
 declare module "net.minecraft.client.gui.components.AbstractButton" {
-import {$IClickableWidget$$Interface} from "xaero.lib.client.gui.widget.IClickableWidget"
-import {$WidgetSprites} from "net.minecraft.client.gui.components.WidgetSprites"
-import {$GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
-import {$WidgetTooltipHolder} from "net.minecraft.client.gui.components.WidgetTooltipHolder"
-import {$Supplier, $Supplier$$Type} from "java.util.function.Supplier"
+import {$PositionedRectangle} from "io.wispforest.owo.ui.core.PositionedRectangle"
 import {$AbstractWidget} from "net.minecraft.client.gui.components.AbstractWidget"
 import {$Font$$Type} from "net.minecraft.client.gui.Font"
-import {$Component$$Type} from "net.minecraft.network.chat.Component"
+import {$Runnable$$Type} from "java.lang.Runnable"
+import {$ButtonEvents$AdjustRendering$$Type} from "io.wispforest.accessories.client.gui.ButtonEvents$AdjustRendering"
+import {$Component$$Type as $Component$0$$Type} from "net.minecraft.network.chat.Component"
+import {$Event} from "net.fabricmc.fabric.api.event.Event"
+import {$IClickableWidget$$Interface} from "xaero.lib.client.gui.widget.IClickableWidget"
+import {$Component$$Type} from "io.wispforest.owo.ui.core.Component"
+import {$WidgetSprites} from "net.minecraft.client.gui.components.WidgetSprites"
+import {$AbstractButtonExtension$$Interface} from "io.wispforest.accessories.client.gui.AbstractButtonExtension"
+import {$GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
+import {$Supplier, $Supplier$$Type} from "java.util.function.Supplier"
+import {$VanillaWidgetComponent} from "io.wispforest.owo.ui.component.VanillaWidgetComponent"
+import {$Size$$Type} from "io.wispforest.owo.ui.core.Size"
 
-export class $AbstractButton extends $AbstractWidget implements $IClickableWidget$$Interface {
+export class $AbstractButton extends $AbstractWidget implements $AbstractButtonExtension$$Interface, $IClickableWidget$$Interface {
 static readonly "SPRITES": $WidgetSprites
  "visible": boolean
- "tooltip": $WidgetTooltipHolder
  "active": boolean
+ "owo$wrapper": $VanillaWidgetComponent
 static readonly "TEXT_MARGIN": integer
  "packedFGColor": integer
 static readonly "UNSET_FG_COLOR": integer
  "alpha": float
- "width": integer
- "x": integer
- "y": integer
- "height": integer
 
-constructor(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: $Component$$Type)
+constructor(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: $Component$0$$Type)
 
-public "keyPressed"(arg0: integer, arg1: integer, arg2: integer): boolean
-public "onClick"(arg0: double, arg1: double): void
-public "renderString"(arg0: $GuiGraphics$$Type, arg1: $Font$$Type, arg2: integer): void
 public "getXaero_tooltip"(): $Supplier
 public "setXaero_tooltip"(arg0: $Supplier$$Type): void
-public "renderWidget"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: float): void
 public "onPress"(): void
+public "renderString"(arg0: $GuiGraphics$$Type, arg1: $Font$$Type, arg2: integer): void
+public "getRenderingEvent"(): $Event
+public "onClick"(arg0: double, arg1: double): void
+public "renderWidget"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: float): void
+public "keyPressed"(arg0: integer, arg1: integer, arg2: integer): boolean
+public "adjustRendering"<B extends $AbstractButton>(event: $ButtonEvents$AdjustRendering$$Type): B
+public static "bypassCheck"(component: $Component$$Type, runnable: $Runnable$$Type): void
+public static "of"(x: integer, y: integer, width: integer, height: integer): $PositionedRectangle
+public static "of"(x: integer, y: integer, size: $Size$$Type): $PositionedRectangle
 get "xaero_tooltip"(): $Supplier
 set "xaero_tooltip"(value: $Supplier$$Type)
+get "renderingEvent"(): $Event
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2682,6 +2842,7 @@ export type $AbstractButton$$Type = ($AbstractButton);
  */
 export type $AbstractButton$$Original = $AbstractButton;}
 declare module "net.minecraft.client.gui.GuiGraphics" {
+import {$GuiGraphics$ScissorStack, $GuiGraphics$ScissorStack$$Type} from "net.minecraft.client.gui.GuiGraphics$ScissorStack"
 import {$ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$Optional$$Type} from "java.util.Optional"
 import {$FormattedText$$Type} from "net.minecraft.network.chat.FormattedText"
@@ -2691,6 +2852,7 @@ import {$PoseStack, $PoseStack$$Type} from "com.mojang.blaze3d.vertex.PoseStack"
 import {$Font$$Type} from "net.minecraft.client.gui.Font"
 import {$Runnable$$Type} from "java.lang.Runnable"
 import {$Component$$Type} from "net.minecraft.network.chat.Component"
+import {$Matrix4f$$Type} from "org.joml.Matrix4f"
 import {$TooltipComponent$$Type} from "net.minecraft.world.inventory.tooltip.TooltipComponent"
 import {$DrawContextAccessor$$Interface as $DrawContextAccessor$0$$Interface} from "dev.tr7zw.trender.gui.impl.mixin.client.DrawContextAccessor"
 import {$MultiBufferSource} from "net.minecraft.client.renderer.MultiBufferSource"
@@ -2698,24 +2860,28 @@ import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
 import {$NorthstarGuiGraphics$$Interface} from "com.lightning.northstar.accessor.NorthstarGuiGraphics"
 import {$Either$$Type} from "com.mojang.datafixers.util.Either"
 import {$ClientTooltipPositioner$$Type} from "net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipPositioner"
+import {$DrawContextInvoker$$Interface} from "io.wispforest.owo.mixin.ui.DrawContextInvoker"
 import {$Minecraft, $Minecraft$$Type} from "net.minecraft.client.Minecraft"
+import {$Quaternionf$$Type} from "org.joml.Quaternionf"
 import {$IGuiGraphicsExtension$$Interface} from "net.neoforged.neoforge.client.extensions.IGuiGraphicsExtension"
 import {$GuiRenderStateSink$$Interface} from "dev.isxander.yacl3.gui.render.GuiRenderStateSink"
 import {$TextureAtlasSprite$$Type} from "net.minecraft.client.renderer.texture.TextureAtlasSprite"
 import {$MultiBufferSource$BufferSource, $MultiBufferSource$BufferSource$$Type} from "net.minecraft.client.renderer.MultiBufferSource$BufferSource"
-import {$Style$$Type} from "net.minecraft.network.chat.Style"
+import {$MatrixStackTransformer, $MatrixStackTransformer$$Interface} from "io.wispforest.owo.ui.util.MatrixStackTransformer"
 import {$DrawContextAccessor$$Interface} from "dev.emi.emi.mixin.accessor.DrawContextAccessor"
-import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
+import {$Style$$Type} from "net.minecraft.network.chat.Style"
 import {$TilingAnchor$$Type} from "com.lightning.northstar.client.TilingAnchor"
+import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
 import {$ClientTooltipComponent$$Type} from "net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent"
 import {$FormattedCharSequence$$Type} from "net.minecraft.util.FormattedCharSequence"
 import {$GuiSpriteScaling$NineSlice$$Type} from "net.minecraft.client.resources.metadata.gui.GuiSpriteScaling$NineSlice"
-import {$LivingEntity$$Type} from "net.minecraft.world.entity.LivingEntity"
-import {$GuiGraphicsAccessor$$Interface} from "com.blackgear.vanillabackport.core.mixin.access.GuiGraphicsAccessor"
+import {$GuiGraphicsAccessor$$Interface as $GuiGraphicsAccessor$0$$Interface} from "com.blackgear.vanillabackport.core.mixin.access.GuiGraphicsAccessor"
 import {$IMixinGuiGraphics$$Interface} from "de.keksuccino.fancymenu.mixin.mixins.common.client.IMixinGuiGraphics"
+import {$LivingEntity$$Type} from "net.minecraft.world.entity.LivingEntity"
 import {$RenderType$$Type} from "net.minecraft.client.renderer.RenderType"
+import {$GuiGraphicsAccessor$$Interface} from "io.wispforest.accessories.mixin.client.GuiGraphicsAccessor"
 
-export class $GuiGraphics implements $IGuiGraphicsExtension$$Interface, $GuiGraphicsAccessor$$Interface, $DrawContextAccessor$$Interface, $DrawContextAccessor$0$$Interface, $IMixinGuiGraphics$$Interface, $GuiRenderStateSink$$Interface, $NorthstarGuiGraphics$$Interface {
+export class $GuiGraphics implements $IGuiGraphicsExtension$$Interface, $GuiGraphicsAccessor$0$$Interface, $GuiGraphicsAccessor$$Interface, $DrawContextAccessor$$Interface, $MatrixStackTransformer$$Interface, $DrawContextInvoker$$Interface, $DrawContextAccessor$0$$Interface, $IMixinGuiGraphics$$Interface, $GuiRenderStateSink$$Interface, $NorthstarGuiGraphics$$Interface {
  "minecraft": $Minecraft
 static readonly "MIN_GUI_Z": float
 static readonly "MAX_GUI_Z": float
@@ -2724,97 +2890,113 @@ constructor(arg0: $Minecraft$$Type, arg1: $PoseStack$$Type, arg2: $MultiBufferSo
 constructor(arg0: $Minecraft$$Type, arg1: $MultiBufferSource$BufferSource$$Type)
 
 public "flush"(): void
-public "fill"(arg0: $RenderType$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer): void
-public "fill"(arg0: $RenderType$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): void
 public "fill"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): void
 public "fill"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer): void
+public "fill"(arg0: $RenderType$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): void
+public "fill"(arg0: $RenderType$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer): void
 public "setColor"(arg0: float, arg1: float, arg2: float, arg3: float): void
-public "handler$gjb000$northstar$onRenderItemDecorations"(font: $Font$$Type, stack: $ItemStack$$Type, x: integer, y: integer, text: StringJS, ci: $CallbackInfo$$Type): void
-public "renderItem"(arg0: $LivingEntity$$Type, arg1: $ItemStack$$Type, arg2: integer, arg3: integer, arg4: integer): void
-public "renderItem"(arg0: $ItemStack$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer): void
-public "renderItem"(arg0: $ItemStack$$Type, arg1: integer, arg2: integer): void
-public "renderItem"(arg0: $ItemStack$$Type, arg1: integer, arg2: integer, arg3: integer): void
-public "containsPointInScissor"(arg0: integer, arg1: integer): boolean
-public "blitNineSlicedSprite"(arg0: $TextureAtlasSprite$$Type, arg1: $GuiSpriteScaling$NineSlice$$Type, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer): void
-public "drawStringWithBackdrop"(arg0: $Font$$Type, arg1: $Component$$Type, arg2: integer, arg3: integer, arg4: integer, arg5: integer): integer
-public "renderItemDecorations"(arg0: $Font$$Type, arg1: $ItemStack$$Type, arg2: integer, arg3: integer): void
-public "renderItemDecorations"(arg0: $Font$$Type, arg1: $ItemStack$$Type, arg2: integer, arg3: integer, arg4: StringJS): void
-public "renderComponentHoverEffect"(arg0: $Font$$Type, arg1: $Style$$Type, arg2: integer, arg3: integer): void
-public "renderComponentTooltip"(arg0: $Font$$Type, arg1: $List$$Type<($Component$$Type)>, arg2: integer, arg3: integer): void
-public "renderComponentTooltip"(arg0: $Font$$Type, arg1: $List$$Type<($FormattedText$$Type)>, arg2: integer, arg3: integer, arg4: $ItemStack$$Type): void
-public "getBufferSource_FancyMenu"(): $MultiBufferSource$BufferSource
-public "libgui$getVertexConsumers"(): $MultiBufferSource$BufferSource
-public "renderTooltipInternal"(arg0: $Font$$Type, arg1: $List$$Type<($ClientTooltipComponent$$Type)>, arg2: integer, arg3: integer, arg4: $ClientTooltipPositioner$$Type): void
-public "callBlitNineSlicedSprite"(arg0: $TextureAtlasSprite$$Type, arg1: $GuiSpriteScaling$NineSlice$$Type, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer): void
-public "pose"(): $PoseStack
-public "drawString"(arg0: $Font$$Type, arg1: $Component$$Type, arg2: integer, arg3: integer, arg4: integer, arg5: boolean): integer
-public "drawString"(arg0: $Font$$Type, arg1: $Component$$Type, arg2: integer, arg3: integer, arg4: integer): integer
-public "drawString"(arg0: $Font$$Type, arg1: $FormattedCharSequence$$Type, arg2: float, arg3: float, arg4: integer, arg5: boolean): integer
-public "drawString"(arg0: $Font$$Type, arg1: StringJS, arg2: integer, arg3: integer, arg4: integer): integer
-public "drawString"(arg0: $Font$$Type, arg1: StringJS, arg2: integer, arg3: integer, arg4: integer, arg5: boolean): integer
-public "drawString"(arg0: $Font$$Type, arg1: StringJS, arg2: float, arg3: float, arg4: integer, arg5: boolean): integer
-public "drawString"(arg0: $Font$$Type, arg1: $FormattedCharSequence$$Type, arg2: integer, arg3: integer, arg4: integer, arg5: boolean): integer
-public "drawString"(arg0: $Font$$Type, arg1: $FormattedCharSequence$$Type, arg2: integer, arg3: integer, arg4: integer): integer
-public "vLine"(arg0: $RenderType$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer): void
-public "vLine"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
-public "hLine"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
-public "hLine"(arg0: $RenderType$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer): void
-public "blitSprite"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer, arg9: integer): void
-public "blitSprite"(arg0: $TextureAtlasSprite$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer, arg9: integer): void
-public "blitSprite"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer): void
-public "blitSprite"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): void
-public "blitSprite"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer): void
-public "innerBlit"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: float, arg7: float, arg8: float, arg9: float): void
-public "innerBlit"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: float, arg7: float, arg8: float, arg9: float, arg10: float, arg11: float, arg12: float, arg13: float): void
-public "invokeDrawTooltip"(arg0: $Font$$Type, arg1: $List$$Type, arg2: integer, arg3: integer, arg4: $ClientTooltipPositioner$$Type): void
-public "renderFakeItem"(arg0: $ItemStack$$Type, arg1: integer, arg2: integer): void
-public "renderFakeItem"(arg0: $ItemStack$$Type, arg1: integer, arg2: integer, arg3: integer): void
-public "blitTiledSprite"(arg0: $TextureAtlasSprite$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer, arg9: integer, arg10: integer, arg11: integer): void
-public "renderTooltip"(arg0: $Font$$Type, arg1: $List$$Type<($FormattedCharSequence$$Type)>, arg2: $ClientTooltipPositioner$$Type, arg3: integer, arg4: integer): void
-public "renderTooltip"(arg0: $Font$$Type, arg1: $List$$Type<($FormattedCharSequence$$Type)>, arg2: integer, arg3: integer): void
-public "renderTooltip"(arg0: $Font$$Type, arg1: $ItemStack$$Type, arg2: integer, arg3: integer): void
-public "renderTooltip"(arg0: $Font$$Type, arg1: $List$$Type<($Component$$Type)>, arg2: ($TooltipComponent$$Type)?, arg3: $ItemStack$$Type, arg4: integer, arg5: integer): void
-public "renderTooltip"(arg0: $Font$$Type, arg1: $Component$$Type, arg2: integer, arg3: integer): void
-public "renderTooltip"(arg0: $Font$$Type, arg1: $List$$Type<($Component$$Type)>, arg2: ($TooltipComponent$$Type)?, arg3: integer, arg4: integer): void
-public "yacl$bufferSource"(): $MultiBufferSource
+public "bufferSource"(): $MultiBufferSource$BufferSource
+public "fillRenderType"(arg0: $RenderType$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): void
 public "renderOutline"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer): void
+public "enableScissor"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
+public "disableScissor"(): void
 /**
  * 
  * @deprecated
  */
 public "drawManaged"(arg0: $Runnable$$Type): void
-public "bufferSource"(): $MultiBufferSource$BufferSource
-public "drawWordWrap"(arg0: $Font$$Type, arg1: $FormattedText$$Type, arg2: integer, arg3: integer, arg4: integer, arg5: integer): void
-public "enableScissor"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
-public "disableScissor"(): void
-public "fillRenderType"(arg0: $RenderType$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): void
+public "renderFakeItem"(arg0: $ItemStack$$Type, arg1: integer, arg2: integer): void
+public "renderFakeItem"(arg0: $ItemStack$$Type, arg1: integer, arg2: integer, arg3: integer): void
+public "fillGradient"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): void
+public "fillGradient"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer): void
+public "fillGradient"(arg0: $RenderType$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer): void
 public "drawCenteredString"(arg0: $Font$$Type, arg1: StringJS, arg2: integer, arg3: integer, arg4: integer): void
 public "drawCenteredString"(arg0: $Font$$Type, arg1: $FormattedCharSequence$$Type, arg2: integer, arg3: integer, arg4: integer): void
 public "drawCenteredString"(arg0: $Font$$Type, arg1: $Component$$Type, arg2: integer, arg3: integer, arg4: integer): void
-public "fillGradient"(arg0: $RenderType$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer): void
-public "fillGradient"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer): void
-public "fillGradient"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): void
+public "drawWordWrap"(arg0: $Font$$Type, arg1: $FormattedText$$Type, arg2: integer, arg3: integer, arg4: integer, arg5: integer): void
+public "blitTiledSprite"(arg0: $TextureAtlasSprite$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer, arg9: integer, arg10: integer, arg11: integer): void
+public "renderItemDecorations"(arg0: $Font$$Type, arg1: $ItemStack$$Type, arg2: integer, arg3: integer, arg4: StringJS): void
+public "renderItemDecorations"(arg0: $Font$$Type, arg1: $ItemStack$$Type, arg2: integer, arg3: integer): void
+public "renderComponentTooltip"(arg0: $Font$$Type, arg1: $List$$Type<($FormattedText$$Type)>, arg2: integer, arg3: integer, arg4: $ItemStack$$Type): void
+public "renderComponentTooltip"(arg0: $Font$$Type, arg1: $List$$Type<($Component$$Type)>, arg2: integer, arg3: integer): void
+public "blitNineSlicedSprite"(arg0: $TextureAtlasSprite$$Type, arg1: $GuiSpriteScaling$NineSlice$$Type, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer): void
+public "drawStringWithBackdrop"(arg0: $Font$$Type, arg1: $Component$$Type, arg2: integer, arg3: integer, arg4: integer, arg5: integer): integer
+public "renderTooltipInternal"(arg0: $Font$$Type, arg1: $List$$Type<($ClientTooltipComponent$$Type)>, arg2: integer, arg3: integer, arg4: $ClientTooltipPositioner$$Type): void
+public "containsPointInScissor"(arg0: integer, arg1: integer): boolean
+public "renderComponentHoverEffect"(arg0: $Font$$Type, arg1: $Style$$Type, arg2: integer, arg3: integer): void
+public "callBlitNineSlicedSprite"(arg0: $TextureAtlasSprite$$Type, arg1: $GuiSpriteScaling$NineSlice$$Type, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer): void
+public "owo$getScissorStack"(): $GuiGraphics$ScissorStack
+public "owo$setScissorStack"(arg0: $GuiGraphics$ScissorStack$$Type): void
+public "getBufferSource_FancyMenu"(): $MultiBufferSource$BufferSource
+public "libgui$getVertexConsumers"(): $MultiBufferSource$BufferSource
+public "vLine"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
+public "vLine"(arg0: $RenderType$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer): void
+public "hLine"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
+public "hLine"(arg0: $RenderType$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer): void
+public "blitSprite"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer): void
+public "blitSprite"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer): void
+public "blitSprite"(arg0: $TextureAtlasSprite$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer, arg9: integer): void
+public "blitSprite"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): void
+public "blitSprite"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer, arg9: integer): void
+public "innerBlit"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: float, arg7: float, arg8: float, arg9: float, arg10: float, arg11: float, arg12: float, arg13: float): void
+public "innerBlit"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: float, arg7: float, arg8: float, arg9: float): void
+public "handler$hij000$northstar$onRenderItemDecorations"(font: $Font$$Type, stack: $ItemStack$$Type, x: integer, y: integer, text: StringJS, ci: $CallbackInfo$$Type): void
+public "handler$foc000$discord_chat_mod$drawString"(font: $Font$$Type, text: StringJS, x: integer, y: integer, color: integer, dropShadow: boolean, cir: $CallbackInfoReturnable$$Type): void
+public "handler$foc000$discord_chat_mod$drawString"(font: $Font$$Type, text: $FormattedCharSequence$$Type, x: integer, y: integer, color: integer, dropShadow: boolean, cir: $CallbackInfoReturnable$$Type): void
+public "renderTooltip"(arg0: $Font$$Type, arg1: $ItemStack$$Type, arg2: integer, arg3: integer): void
+public "renderTooltip"(arg0: $Font$$Type, arg1: $List$$Type<($FormattedCharSequence$$Type)>, arg2: $ClientTooltipPositioner$$Type, arg3: integer, arg4: integer): void
+public "renderTooltip"(arg0: $Font$$Type, arg1: $List$$Type<($FormattedCharSequence$$Type)>, arg2: integer, arg3: integer): void
+public "renderTooltip"(arg0: $Font$$Type, arg1: $Component$$Type, arg2: integer, arg3: integer): void
+public "renderTooltip"(arg0: $Font$$Type, arg1: $List$$Type<($Component$$Type)>, arg2: ($TooltipComponent$$Type)?, arg3: integer, arg4: integer): void
+public "renderTooltip"(arg0: $Font$$Type, arg1: $List$$Type<($Component$$Type)>, arg2: ($TooltipComponent$$Type)?, arg3: $ItemStack$$Type, arg4: integer, arg5: integer): void
+public "owo$setMatrices"(arg0: $PoseStack$$Type): void
+public "invokeDrawTooltip"(arg0: $Font$$Type, arg1: $List$$Type, arg2: integer, arg3: integer, arg4: $ClientTooltipPositioner$$Type): void
+public "callBlitSprite"(arg0: $TextureAtlasSprite$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): void
+public "getMatrixStack"(): $PoseStack
+public "yacl$bufferSource"(): $MultiBufferSource
+public "owo$getMatrices"(): $PoseStack
+public "owo$renderTooltipFromComponents"(arg0: $Font$$Type, arg1: $List$$Type, arg2: integer, arg3: integer, arg4: $ClientTooltipPositioner$$Type): void
+public "renderComponentTooltipFromElements"(arg0: $Font$$Type, arg1: $List$$Type<($Either$$Type<($FormattedText$$Type), ($TooltipComponent$$Type)>)>, arg2: integer, arg3: integer, arg4: $ItemStack$$Type): void
+public "guiWidth"(): integer
+public "drawString"(arg0: $Font$$Type, arg1: $Component$$Type, arg2: integer, arg3: integer, arg4: integer, arg5: boolean): integer
+public "drawString"(arg0: $Font$$Type, arg1: StringJS, arg2: float, arg3: float, arg4: integer, arg5: boolean): integer
+public "drawString"(arg0: $Font$$Type, arg1: StringJS, arg2: integer, arg3: integer, arg4: integer): integer
+public "drawString"(arg0: $Font$$Type, arg1: StringJS, arg2: integer, arg3: integer, arg4: integer, arg5: boolean): integer
+public "drawString"(arg0: $Font$$Type, arg1: $FormattedCharSequence$$Type, arg2: integer, arg3: integer, arg4: integer): integer
+public "drawString"(arg0: $Font$$Type, arg1: $FormattedCharSequence$$Type, arg2: integer, arg3: integer, arg4: integer, arg5: boolean): integer
+public "drawString"(arg0: $Font$$Type, arg1: $FormattedCharSequence$$Type, arg2: float, arg3: float, arg4: integer, arg5: boolean): integer
+public "drawString"(arg0: $Font$$Type, arg1: $Component$$Type, arg2: integer, arg3: integer, arg4: integer): integer
+public "blit"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer): void
+public "blit"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: float, arg6: float, arg7: integer, arg8: integer, arg9: integer, arg10: integer): void
+public "blit"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: float, arg5: float, arg6: integer, arg7: integer, arg8: integer, arg9: integer): void
+public "blit"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: float, arg4: float, arg5: integer, arg6: integer, arg7: integer, arg8: integer): void
 public "blit"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: $TextureAtlasSprite$$Type): void
 public "blit"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: $TextureAtlasSprite$$Type, arg6: float, arg7: float, arg8: float, arg9: float): void
-public "blit"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: float, arg4: float, arg5: integer, arg6: integer, arg7: integer, arg8: integer): void
-public "blit"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: float, arg6: float, arg7: integer, arg8: integer, arg9: integer, arg10: integer): void
-public "blit"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer): void
-public "blit"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: float, arg5: float, arg6: integer, arg7: integer, arg8: integer, arg9: integer): void
 public "blit"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: float, arg9: float, arg10: integer, arg11: integer): void
 public "guiHeight"(): integer
-public "guiWidth"(): integer
-public "handler$fch000$discord_chat_mod$drawString"(font: $Font$$Type, text: StringJS, x: integer, y: integer, color: integer, dropShadow: boolean, cir: $CallbackInfoReturnable$$Type): void
-public "handler$fch000$discord_chat_mod$drawString"(font: $Font$$Type, text: $FormattedCharSequence$$Type, x: integer, y: integer, color: integer, dropShadow: boolean, cir: $CallbackInfoReturnable$$Type): void
-public "renderComponentTooltipFromElements"(arg0: $Font$$Type, arg1: $List$$Type<($Either$$Type<($FormattedText$$Type), ($TooltipComponent$$Type)>)>, arg2: integer, arg3: integer, arg4: $ItemStack$$Type): void
+public "pose"(): $PoseStack
+public "renderItem"(arg0: $LivingEntity$$Type, arg1: $ItemStack$$Type, arg2: integer, arg3: integer, arg4: integer): void
+public "renderItem"(arg0: $ItemStack$$Type, arg1: integer, arg2: integer): void
+public "renderItem"(arg0: $ItemStack$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer): void
+public "renderItem"(arg0: $ItemStack$$Type, arg1: integer, arg2: integer, arg3: integer): void
 public "drawScrollingString"(arg0: $Font$$Type, arg1: $Component$$Type, arg2: integer, arg3: integer, arg4: integer, arg5: integer): integer
-public "blitInscribed"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: boolean, arg8: boolean): void
-public "blitInscribed"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer): void
-public "blitWithBorder"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer, arg9: integer): void
 public "blitWithBorder"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer, arg9: integer, arg10: integer, arg11: integer, arg12: integer): void
+public "blitWithBorder"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer, arg9: integer): void
+public "blitInscribed"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer): void
+public "blitInscribed"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: boolean, arg8: boolean): void
 public "getColorFromFormattingCharacter"(arg0: character, arg1: boolean): integer
+public "scale"(x: float, y: float, z: float): $MatrixStackTransformer
+public "multiply"(quaternion: $Quaternionf$$Type): $MatrixStackTransformer
+public "multiply"(quaternion: $Quaternionf$$Type, originX: float, originY: float, originZ: float): $MatrixStackTransformer
+public "push"(): $MatrixStackTransformer
+public "pop"(): $MatrixStackTransformer
+public "multiplyPositionMatrix"(matrix: $Matrix4f$$Type): $MatrixStackTransformer
+public "translate"(x: double, y: double, z: double): $MatrixStackTransformer
+public "translate"(x: float, y: float, z: float): $MatrixStackTransformer
 public static "bufferSource"(arg0: $GuiGraphics$$Type): $MultiBufferSource
 public "northstar$blitRepeating"(sprite: $TextureAtlasSprite$$Type, x: integer, y: integer, w: integer, h: integer, anchor: $TilingAnchor$$Type): void
 get "bufferSource_FancyMenu"(): $MultiBufferSource$BufferSource
+get "matrixStack"(): $PoseStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2867,8 +3049,8 @@ public "render"(arg0: $GuiGraphics$$Type, arg1: $ToastComponent$$Type, arg2: lon
 public "hide"(): void
 public "slotCount"(): integer
 public "width"(): integer
-public "getToken"(): any
 public "height"(): integer
+public "getToken"(): any
 get "token"(): any
 }
 /**
@@ -2890,28 +3072,28 @@ export class $ChatComponent$DelayedMessageDeletion extends $Record {
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $ChatComponent$DelayedMessageDeletion$$Type = ({"deletableAfter"?: integer, "signature"?: $MessageSignature$$Type}) | ([deletableAfter?: integer, signature?: $MessageSignature$$Type]);
+export type $ChatComponent$DelayedMessageDeletion$$Type = ({"signature"?: $MessageSignature$$Type, "deletableAfter"?: integer}) | ([signature?: $MessageSignature$$Type, deletableAfter?: integer]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ChatComponent$DelayedMessageDeletion$$Original = $ChatComponent$DelayedMessageDeletion;}
 declare module "net.minecraft.client.gui.screens.worldselection.CreateWorldScreen" {
 import {$LevelSettings$$Type} from "net.minecraft.world.level.LevelSettings"
-import {$Screen$DeferredTooltipRendering} from "net.minecraft.client.gui.screens.Screen$DeferredTooltipRendering"
 import {$CycleButton} from "net.minecraft.client.gui.components.CycleButton"
+import {$Screen$DeferredTooltipRendering} from "net.minecraft.client.gui.screens.Screen$DeferredTooltipRendering"
 import {$Screen, $Screen$$Type} from "net.minecraft.client.gui.screens.Screen"
 import {$List} from "java.util.List"
 import {$NarratorStatus} from "net.minecraft.client.NarratorStatus"
 import {$CubeMap} from "net.minecraft.client.renderer.CubeMap"
 import {$Font} from "net.minecraft.client.gui.Font"
-import {$Component} from "net.minecraft.network.chat.Component"
 import {$ScreenExtensions} from "net.fabricmc.fabric.impl.client.screen.ScreenExtensions"
+import {$Component} from "net.minecraft.network.chat.Component"
 import {$PanoramaRenderer} from "net.minecraft.client.renderer.PanoramaRenderer"
 import {$WorldCreationUiState} from "net.minecraft.client.gui.screens.worldselection.WorldCreationUiState"
 import {$GuiEventListener, $GuiEventListener$$Type} from "net.minecraft.client.gui.components.events.GuiEventListener"
 import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
-import {$GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
 import {$WorldCreationContext$$Type} from "net.minecraft.client.gui.screens.worldselection.WorldCreationContext"
+import {$GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
 import {$NarratableEntry} from "net.minecraft.client.gui.narration.NarratableEntry"
 import {$Executor} from "java.util.concurrent.Executor"
 import {$Minecraft, $Minecraft$$Type} from "net.minecraft.client.Minecraft"
@@ -2946,29 +3128,31 @@ static readonly "HEADER_SEPARATOR": $ResourceLocation
 
 public "init"(): void
 public "onClose"(): void
-public "renderMenuBackground"(arg0: $GuiGraphics$$Type): void
-public "addRenderableWidget"<T extends $GuiEventListener>(arg0: T): T
-public "keyPressed"(arg0: integer, arg1: integer, arg2: integer): boolean
-public "addWidget"<T extends $GuiEventListener>(arg0: T): T
 public static "access$000"(arg0: $CreateWorldScreen$$Type): $Font
-public static "access$200"(arg0: $CreateWorldScreen$$Type): $Font
-public static "access$300"(arg0: $CreateWorldScreen$$Type): $Minecraft
 public static "access$100"(arg0: $CreateWorldScreen$$Type, arg1: $GuiEventListener$$Type): void
-public static "access$400"(arg0: $CreateWorldScreen$$Type): $Minecraft
+public static "access$300"(arg0: $CreateWorldScreen$$Type): $Minecraft
+public static "access$200"(arg0: $CreateWorldScreen$$Type): $Font
 public static "access$500"(arg0: $CreateWorldScreen$$Type): $Font
 public static "access$700"(arg0: $CreateWorldScreen$$Type): $Minecraft
 public static "access$600"(arg0: $CreateWorldScreen$$Type): $Font
+public static "access$400"(arg0: $CreateWorldScreen$$Type): $Minecraft
 public "render"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: float): void
-public static "createTempDataPackDirFromExistingWorld"(arg0: $Path$$Type, arg1: $Minecraft$$Type): $Path
-public static "openFresh"(arg0: $Minecraft$$Type, arg1: $Screen$$Type): void
-public "popScreen"(): void
-public "getUiState"(): $WorldCreationUiState
+public "renderMenuBackground"(arg0: $GuiGraphics$$Type): void
 public "setInitialFocus"(): void
 public "repositionElements"(): void
-public "openExperimentsScreen"(arg0: $WorldDataConfiguration$$Type): void
+public "addRenderableWidget"<T extends $GuiEventListener>(arg0: T): T
 public "openDataPackSelectionScreen"(arg0: $WorldDataConfiguration$$Type): void
+public static "openFresh"(arg0: $Minecraft$$Type, arg1: $Screen$$Type): void
+public "popScreen"(): void
+public "addWidget"<T extends $GuiEventListener>(arg0: T): T
+public "keyPressed"(arg0: integer, arg1: integer, arg2: integer): boolean
+public "openExperimentsScreen"(arg0: $WorldDataConfiguration$$Type): void
+public "getUiState"(): $WorldCreationUiState
+public static "createTempDataPackDirFromExistingWorld"(arg0: $Path$$Type, arg1: $Minecraft$$Type): $Path
 public static "createFromExisting"(arg0: $Minecraft$$Type, arg1: $Screen$$Type, arg2: $LevelSettings$$Type, arg3: $WorldCreationContext$$Type, arg4: $Path$$Type): $CreateWorldScreen
 public static "getExtensions"(arg0: $Screen$$Type): $ScreenExtensions
+public static "owo$ROTATING_PANORAMA_RENDERER"(): $PanoramaRenderer
+public static "owo$PANORAMA_RENDERER"(): $CubeMap
 get "initialFocus"(): void
 }
 /**
@@ -3001,7 +3185,7 @@ public "getCoordinate"(arg0: $ScreenAxis$$Type): integer
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $ScreenPosition$$Type = ({"y"?: integer, "x"?: integer}) | ([y?: integer, x?: integer]);
+export type $ScreenPosition$$Type = ({"x"?: integer, "y"?: integer}) | ([x?: integer, y?: integer]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -3043,30 +3227,30 @@ export class $AbstractContainerEventHandler implements $ContainerEventHandler$$I
 constructor()
 
 public "setDragging"(arg0: boolean): void
+public "isDragging"(): boolean
 public "getFocused"(): $GuiEventListener
 public "setFocused"(arg0: $GuiEventListener$$Type): void
-public "isDragging"(): boolean
 public "children"(): $List<($GuiEventListener)>
-public "getCurrentFocusPath"(): $ComponentPath
-public "keyPressed"(arg0: integer, arg1: integer, arg2: integer): boolean
-public "nextFocusPath"(arg0: $FocusNavigationEvent$$Type): $ComponentPath
-public "mouseClicked"(arg0: double, arg1: double, arg2: integer): boolean
-public "mouseReleased"(arg0: double, arg1: double, arg2: integer): boolean
-public "mouseDragged"(arg0: double, arg1: double, arg2: integer, arg3: double, arg4: double): boolean
-public "keyReleased"(arg0: integer, arg1: integer, arg2: integer): boolean
-public "mouseScrolled"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
 public "getChildAt"(arg0: double, arg1: double): $Optional<($GuiEventListener)>
+public "mouseScrolled"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
+public "getCurrentFocusPath"(): $ComponentPath
+public "nextFocusPath"(arg0: $FocusNavigationEvent$$Type): $ComponentPath
+public "charTyped"(arg0: character, arg1: integer): boolean
 public "setFocused"(arg0: boolean): void
 public "isFocused"(): boolean
-public "charTyped"(arg0: character, arg1: integer): boolean
+public "mouseClicked"(arg0: double, arg1: double, arg2: integer): boolean
+public "keyPressed"(arg0: integer, arg1: integer, arg2: integer): boolean
+public "keyReleased"(arg0: integer, arg1: integer, arg2: integer): boolean
+public "mouseReleased"(arg0: double, arg1: double, arg2: integer): boolean
+public "mouseDragged"(arg0: double, arg1: double, arg2: integer, arg3: double, arg4: double): boolean
 public "getRectangle"(): $ScreenRectangle
 public "isMouseOver"(arg0: double, arg1: double): boolean
 public "mouseMoved"(arg0: double, arg1: double): void
 public "getTabOrderGroup"(): integer
 set "dragging"(value: boolean)
+get "dragging"(): boolean
 get "focused"(): $GuiEventListener
 set "focused"(value: $GuiEventListener$$Type)
-get "dragging"(): boolean
 get "currentFocusPath"(): $ComponentPath
 set "focused"(value: boolean)
 get "focused"(): boolean
@@ -3083,6 +3267,7 @@ export type $AbstractContainerEventHandler$$Type = ($AbstractContainerEventHandl
  */
 export type $AbstractContainerEventHandler$$Original = $AbstractContainerEventHandler;}
 declare module "net.minecraft.client.gui.screens.inventory.AbstractContainerScreen" {
+import {$ContainerScreenExtension$$Interface} from "io.wispforest.accessories.pond.ContainerScreenExtension"
 import {$CycleButton} from "net.minecraft.client.gui.components.CycleButton"
 import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$Screen, $Screen$$Type} from "net.minecraft.client.gui.screens.Screen"
@@ -3091,29 +3276,31 @@ import {$List} from "java.util.List"
 import {$NarratorStatus} from "net.minecraft.client.NarratorStatus"
 import {$CubeMap} from "net.minecraft.client.renderer.CubeMap"
 import {$Font} from "net.minecraft.client.gui.Font"
+import {$ScreenExtensions} from "net.fabricmc.fabric.impl.client.screen.ScreenExtensions"
 import {$MenuAccess$$Interface} from "net.minecraft.client.gui.screens.inventory.MenuAccess"
 import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component"
-import {$ScreenExtensions} from "net.fabricmc.fabric.impl.client.screen.ScreenExtensions"
 import {$PanoramaRenderer} from "net.minecraft.client.renderer.PanoramaRenderer"
 import {$Inventory$$Type} from "net.minecraft.world.entity.player.Inventory"
 import {$Slot, $Slot$$Type} from "net.minecraft.world.inventory.Slot"
 import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
 import {$Executor} from "java.util.concurrent.Executor"
-import {$AbstractContainerScreenAccessor$$Interface} from "yalter.mousetweaks.mixin.AbstractContainerScreenAccessor"
+import {$AbstractContainerScreenAccessor$$Interface as $AbstractContainerScreenAccessor$1$$Interface} from "yalter.mousetweaks.mixin.AbstractContainerScreenAccessor"
 import {$Set} from "java.util.Set"
-import {$ClickType$$Type} from "net.minecraft.world.inventory.ClickType"
 import {$Minecraft} from "net.minecraft.client.Minecraft"
+import {$ClickType$$Type} from "net.minecraft.world.inventory.ClickType"
+import {$HandledScreenAccessor$$Interface as $HandledScreenAccessor$1$$Interface} from "dev.emi.emi.mixin.accessor.HandledScreenAccessor"
 import {$Renderable} from "net.minecraft.client.gui.components.Renderable"
-import {$HandledScreenAccessor$$Interface as $HandledScreenAccessor$0$$Interface} from "dev.emi.emi.mixin.accessor.HandledScreenAccessor"
 import {$Screen$DeferredTooltipRendering} from "net.minecraft.client.gui.screens.Screen$DeferredTooltipRendering"
-import {$HandledScreenAccessor$$Interface} from "net.dawson.adorablehamsterpets.mixin.client.accessor.HandledScreenAccessor"
+import {$HandledScreenAccessor$$Interface as $HandledScreenAccessor$0$$Interface} from "net.dawson.adorablehamsterpets.mixin.client.accessor.HandledScreenAccessor"
 import {$AbstractContainerScreenAccessor$$Interface as $AbstractContainerScreenAccessor$0$$Interface} from "net.blay09.mods.balm.mixin.AbstractContainerScreenAccessor"
 import {$IMixinHandledScreen$$Interface} from "fi.dy.masa.malilib.mixin.screen.IMixinHandledScreen"
+import {$HandledScreenAccessor$$Interface} from "io.wispforest.owo.mixin.ui.layers.HandledScreenAccessor"
 import {$GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
 import {$AbstractContainerMenu, $AbstractContainerMenu$$Type} from "net.minecraft.world.inventory.AbstractContainerMenu"
 import {$NarratableEntry} from "net.minecraft.client.gui.narration.NarratableEntry"
+import {$AbstractContainerScreenAccessor$$Interface} from "io.wispforest.accessories.mixin.client.AbstractContainerScreenAccessor"
 
-export class $AbstractContainerScreen<T extends $AbstractContainerMenu> extends $Screen implements $MenuAccess$$Interface<(T)>, $AbstractContainerScreenAccessor$0$$Interface, $IMixinHandledScreen$$Interface, $HandledScreenAccessor$0$$Interface, $AbstractContainerScreenAccessor$$Interface, $HandledScreenAccessor$$Interface {
+export class $AbstractContainerScreen<T extends $AbstractContainerMenu> extends $Screen implements $MenuAccess$$Interface<(T)>, $AbstractContainerScreenAccessor$0$$Interface, $IMixinHandledScreen$$Interface, $AbstractContainerScreenAccessor$$Interface, $ContainerScreenExtension$$Interface, $HandledScreenAccessor$1$$Interface, $AbstractContainerScreenAccessor$1$$Interface, $HandledScreenAccessor$0$$Interface, $HandledScreenAccessor$$Interface {
  "leftPos": integer
 static readonly "MENU_BACKGROUND": $ResourceLocation
  "minecraft": $Minecraft
@@ -3166,73 +3353,89 @@ public "init"(): void
 public "removed"(): void
 public "onClose"(): void
 public "tick"(): void
-public static "renderSlotHighlight"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer): void
-public static "renderSlotHighlight"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: integer): void
-public "renderSlotHighlight"(arg0: $GuiGraphics$$Type, arg1: $Slot$$Type, arg2: integer, arg3: integer, arg4: float): void
-public "handleSlotStateChanged"(arg0: integer, arg1: integer, arg2: boolean): void
+public "getY"(): integer
+public "handler$fpm002$dragonlib$render"(guiGraphics: $GuiGraphics$$Type, mouseX: integer, mouseY: integer, partialTick: float, ci: $CallbackInfo$$Type): void
+public "getTooltipFromContainerItem"(arg0: $ItemStack$$Type): $List<($Component)>
+public "recalculateQuickCraftRemaining"(): void
+public "accessories$getQuickCraftingType"(): integer
+public "accessories$getDraggingItem"(): $ItemStack
+public "accessories$isSplittingStack"(): boolean
+public "mousetweaks$invokeSlotClicked"(arg0: $Slot$$Type, arg1: integer, arg2: integer, arg3: $ClickType$$Type): void
+public "mousetweaks$getIsQuickCrafting"(): boolean
+public "mousetweaks$setIsQuickCrafting"(arg0: boolean): void
+public "mousetweaks$getQuickCraftingButton"(): integer
+public "mousetweaks$setSkipNextRelease"(arg0: boolean): void
+public "render"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: float): void
+public "containerTick"(): void
+public "renderLabels"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer): void
+public "hasClickedOutside"(arg0: double, arg1: double, arg2: integer, arg3: integer, arg4: integer): boolean
+public "slotClicked"(arg0: $Slot$$Type, arg1: integer, arg2: integer, arg3: $ClickType$$Type): void
+public "clearDraggingState"(): void
+public "renderFloatingItem"(arg0: $GuiGraphics$$Type, arg1: $ItemStack$$Type, arg2: integer, arg3: integer, arg4: StringJS): void
+public "getSlotColor"(arg0: integer): integer
+public "forceRenderSlot"(context: $GuiGraphics$$Type, slot: $Slot$$Type): void
+public "renderSlotContents"(arg0: $GuiGraphics$$Type, arg1: $ItemStack$$Type, arg2: $Slot$$Type, arg3: StringJS): void
+public "getSlotUnderMouse"(): $Slot
+public "owo$getRootX"(): integer
+public "getFocusedSlot"(): $Slot
+public "callRenderSlot"(arg0: $GuiGraphics$$Type, arg1: $Slot$$Type): void
+public "callIsHovering"(arg0: $Slot$$Type, arg1: double, arg2: double): boolean
+public "getImageHeight"(): integer
+public "getBackgroundWidth"(): integer
+public "getImageWidth"(): integer
+public "getHoveredSlot"(): $Slot
+public "accessories$topPos"(): integer
+public "owo$getRootY"(): integer
+public "invokeGetSlotAt"(arg0: double, arg1: double): $Slot
 public "renderBg"(arg0: $GuiGraphics$$Type, arg1: float, arg2: integer, arg3: integer): void
 public "isHovering"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: double, arg5: double): boolean
 public "isHovering"(arg0: $Slot$$Type, arg1: double, arg2: double): boolean
-public "renderSlot"(arg0: $GuiGraphics$$Type, arg1: $Slot$$Type): void
 public "findSlot"(arg0: double, arg1: double): $Slot
-public "getMenu"(): T
+public "renderSlot"(arg0: $GuiGraphics$$Type, arg1: $Slot$$Type): void
 public "getLeftPos"(): integer
-public "getTopPos"(): integer
-public "getYSize"(): integer
 public "getXSize"(): integer
-public "mousetweaks$getIsQuickCrafting"(): boolean
-public "mousetweaks$getQuickCraftingButton"(): integer
-public "mousetweaks$setIsQuickCrafting"(arg0: boolean): void
-public "recalculateQuickCraftRemaining"(): void
-public "mousetweaks$setSkipNextRelease"(arg0: boolean): void
-public "handler$fdm001$dragonlib$render"(guiGraphics: $GuiGraphics$$Type, mouseX: integer, mouseY: integer, partialTick: float, ci: $CallbackInfo$$Type): void
-public "mousetweaks$invokeSlotClicked"(arg0: $Slot$$Type, arg1: integer, arg2: integer, arg3: $ClickType$$Type): void
-public "getTooltipFromContainerItem"(arg0: $ItemStack$$Type): $List<($Component)>
-public "keyPressed"(arg0: integer, arg1: integer, arg2: integer): boolean
-public "getX"(): integer
-public "renderTooltip"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer): void
-public "getY"(): integer
-public "checkHotbarKeyPressed"(arg0: integer, arg1: integer): boolean
-public "malilib_getFocusedSlot"(): $Slot
-public "mousetweaks$invokeFindSlot"(arg0: double, arg1: double): $Slot
+public "getMenu"(): T
+public "getYSize"(): integer
+public "getTopPos"(): integer
+public "renderBackground"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: float): void
 public "getBackgroundHeight"(): integer
-public "render"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: float): void
-public "containerTick"(): void
-public "hasClickedOutside"(arg0: double, arg1: double, arg2: integer, arg3: integer, arg4: integer): boolean
-public "slotClicked"(arg0: $Slot$$Type, arg1: integer, arg2: integer, arg3: $ClickType$$Type): void
-public "renderFloatingItem"(arg0: $GuiGraphics$$Type, arg1: $ItemStack$$Type, arg2: integer, arg3: integer, arg4: StringJS): void
-public "getSlotColor"(arg0: integer): integer
-public "renderLabels"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer): void
-public "renderSlotContents"(arg0: $GuiGraphics$$Type, arg1: $ItemStack$$Type, arg2: $Slot$$Type, arg3: StringJS): void
-public "getFocusedSlot"(): $Slot
-public "getSlotUnderMouse"(): $Slot
-public "clearDraggingState"(): void
-public "getBackgroundWidth"(): integer
-public "callIsHovering"(arg0: $Slot$$Type, arg1: double, arg2: double): boolean
-public "getImageHeight"(): integer
-public "getImageWidth"(): integer
-public "callRenderSlot"(arg0: $GuiGraphics$$Type, arg1: $Slot$$Type): void
-public "getHoveredSlot"(): $Slot
-public "invokeGetSlotAt"(arg0: double, arg1: double): $Slot
-public "getGuiTop"(): integer
+public "mousetweaks$invokeFindSlot"(arg0: double, arg1: double): $Slot
+public "accessories$leftPos"(): integer
+public "malilib_getFocusedSlot"(): $Slot
+public "accessories$getClickedSlot"(): $Slot
+public "handleSlotStateChanged"(arg0: integer, arg1: integer, arg2: boolean): void
+public static "renderSlotHighlight"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: integer): void
+public "renderSlotHighlight"(arg0: $GuiGraphics$$Type, arg1: $Slot$$Type, arg2: integer, arg3: integer, arg4: float): void
+public static "renderSlotHighlight"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer): void
+public "checkHotbarKeyPressed"(arg0: integer, arg1: integer): boolean
+public "accessories$recalculateQuickCraftRemaining"(): void
+public "renderTooltip"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer): void
 public "getGuiLeft"(): integer
-public "mouseClicked"(arg0: double, arg1: double, arg2: integer): boolean
+public "getGuiTop"(): integer
 public "isPauseScreen"(): boolean
+public "mouseClicked"(arg0: double, arg1: double, arg2: integer): boolean
+public "getX"(): integer
+public "keyPressed"(arg0: integer, arg1: integer, arg2: integer): boolean
 public "mouseReleased"(arg0: double, arg1: double, arg2: integer): boolean
 public "mouseDragged"(arg0: double, arg1: double, arg2: integer, arg3: double, arg4: double): boolean
-public "renderBackground"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: float): void
+public "isHovering_Logical"(slot: $Slot$$Type, mouseX: double, mouseY: double): boolean
+public "hoverStackOffset"(): integer
+public "shouldRenderSlot"(slot: $Slot$$Type): boolean
+public "isHovering_Rendering"(slot: $Slot$$Type, mouseX: double, mouseY: double): boolean
 public static "getExtensions"(arg0: $Screen$$Type): $ScreenExtensions
-get "YSize"(): integer
-get "XSize"(): integer
-get "x"(): integer
+public static "owo$ROTATING_PANORAMA_RENDERER"(): $PanoramaRenderer
+public static "owo$PANORAMA_RENDERER"(): $CubeMap
 get "y"(): integer
-get "backgroundHeight"(): integer
-get "focusedSlot"(): $Slot
 get "slotUnderMouse"(): $Slot
+get "focusedSlot"(): $Slot
 get "backgroundWidth"(): integer
-get "guiTop"(): integer
+get "XSize"(): integer
+get "YSize"(): integer
+get "backgroundHeight"(): integer
 get "guiLeft"(): integer
+get "guiTop"(): integer
 get "pauseScreen"(): boolean
+get "x"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3303,12 +3506,12 @@ constructor(arg0: $Minecraft$$Type)
 
 public "clear"(): void
 public "addToast"(arg0: $Toast$$Type): void
+public "handler$zdj000$sodium_extra$goodByeToasts"(arg0: $Toast$$Type, arg1: $CallbackInfo$$Type): void
+public "getNotificationDisplayTimeMultiplier"(): double
 public "render"(arg0: $GuiGraphics$$Type): void
 public "freeSlots"(): integer
 public "getToast"<T extends $Toast>(arg0: $Class$$Type<(T)>, arg1: any): T
 public "getMinecraft"(): $Minecraft
-public "handler$zdj000$sodium_extra$goodByeToasts"(arg0: $Toast$$Type, arg1: $CallbackInfo$$Type): void
-public "getNotificationDisplayTimeMultiplier"(): double
 get "notificationDisplayTimeMultiplier"(): double
 }
 /**
@@ -3336,12 +3539,12 @@ constructor(arg0: $TextureManager$$Type, arg1: $ResourceLocation$$Type)
 
 public "name"(): $ResourceLocation
 public "close"(): void
-public "reload"(arg0: $Set$$Type<($FontOption$$Type)>): void
 public "reload"(arg0: $List$$Type<($GlyphProvider$Conditional$$Type)>, arg1: $Set$$Type<($FontOption$$Type)>): void
-public "whiteGlyph"(): $BakedGlyph
-public "getRandomGlyph"(arg0: $GlyphInfo$$Type): $BakedGlyph
-public "getGlyphInfo"(arg0: integer, arg1: boolean): $GlyphInfo
+public "reload"(arg0: $Set$$Type<($FontOption$$Type)>): void
 public "getGlyph"(arg0: integer): $BakedGlyph
+public "whiteGlyph"(): $BakedGlyph
+public "getGlyphInfo"(arg0: integer, arg1: boolean): $GlyphInfo
+public "getRandomGlyph"(arg0: $GlyphInfo$$Type): $BakedGlyph
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3411,26 +3614,26 @@ public "toString"(): StringJS
 public "hashCode"(): integer
 public "enabled"(): $ResourceLocation
 public "disabled"(): $ResourceLocation
-public "enabledFocused"(): $ResourceLocation
 public "disabledFocused"(): $ResourceLocation
+public "enabledFocused"(): $ResourceLocation
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $WidgetSprites$$Type = ({"disabledFocused"?: $ResourceLocation$$Type, "enabled"?: $ResourceLocation$$Type, "enabledFocused"?: $ResourceLocation$$Type, "disabled"?: $ResourceLocation$$Type}) | ([disabledFocused?: $ResourceLocation$$Type, enabled?: $ResourceLocation$$Type, enabledFocused?: $ResourceLocation$$Type, disabled?: $ResourceLocation$$Type]);
+export type $WidgetSprites$$Type = ({"enabledFocused"?: $ResourceLocation$$Type, "enabled"?: $ResourceLocation$$Type, "disabledFocused"?: $ResourceLocation$$Type, "disabled"?: $ResourceLocation$$Type}) | ([enabledFocused?: $ResourceLocation$$Type, enabled?: $ResourceLocation$$Type, disabledFocused?: $ResourceLocation$$Type, disabled?: $ResourceLocation$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $WidgetSprites$$Original = $WidgetSprites;}
 declare module "net.minecraft.client.gui.components.DebugScreenOverlay" {
 import {$GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
-import {$CallbackInfo$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfo"
 import {$LocalSampleLogger} from "net.minecraft.util.debugchart.LocalSampleLogger"
+import {$CallbackInfo$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfo"
 import {$List, $List$$Type} from "java.util.List"
 import {$Minecraft$$Type} from "net.minecraft.client.Minecraft"
-import {$RemoteDebugSampleType$$Type} from "net.minecraft.util.debugchart.RemoteDebugSampleType"
 import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
+import {$RemoteDebugSampleType$$Type} from "net.minecraft.util.debugchart.RemoteDebugSampleType"
 
 export class $DebugScreenOverlay {
 constructor(arg0: $Minecraft$$Type)
@@ -3439,33 +3642,33 @@ public "reset"(): void
 public "toggleProfilerChart"(): void
 public "toggleNetworkCharts"(): void
 public "render"(arg0: $GuiGraphics$$Type): void
-public "showProfilerChart"(): boolean
-public "showDebugScreen"(): boolean
-public "logFrameDuration"(arg0: long): void
-public "getPingLogger"(): $LocalSampleLogger
 public "clearChunkCache"(): void
-public "collectSystemInformationText"(): $List<(StringJS)>
-public "getTickTimeLogger"(): $LocalSampleLogger
+public "handler$zdh000$sodium_extra$preRender"(arg0: $GuiGraphics$$Type, arg1: $CallbackInfo$$Type): void
+public "handler$dan000$entityculling$getLeftText"(callback: $CallbackInfoReturnable$$Type): $List
 public "toggleOverlay"(): void
 public "toggleFpsCharts"(): void
-public "showNetworkCharts"(): boolean
+public "getPingLogger"(): $LocalSampleLogger
 public "logRemoteSample"(arg0: (long)[], arg1: $RemoteDebugSampleType$$Type): void
-public "getBandwidthLogger"(): $LocalSampleLogger
-public "showFpsCharts"(): boolean
-public "getGameInformation"(): $List<(StringJS)>
-public "drawGameInformation"(arg0: $GuiGraphics$$Type): void
-public "drawSystemInformation"(arg0: $GuiGraphics$$Type): void
-public "collectGameInformationText"(): $List<(StringJS)>
-public "getSystemInformation"(): $List<(StringJS)>
-public "handler$cpk000$fabric_renderer_api_v1$getLeftText"(arg0: $CallbackInfoReturnable$$Type): void
-public "handler$zdh000$sodium_extra$preRender"(arg0: $GuiGraphics$$Type, arg1: $CallbackInfo$$Type): void
-public "handler$clg000$entityculling$getLeftText"(callback: $CallbackInfoReturnable$$Type): $List
-public "redirect$zdh000$sodium_extra$sodiumExtra$redirectDrawRightText"(arg0: $DebugScreenOverlay$$Type, arg1: $GuiGraphics$$Type, arg2: $List$$Type, arg3: boolean): void
+public "showNetworkCharts"(): boolean
+public "showProfilerChart"(): boolean
+public "getTickTimeLogger"(): $LocalSampleLogger
+public "showDebugScreen"(): boolean
+public "logFrameDuration"(arg0: long): void
 public "redirect$zdh000$sodium_extra$sodiumExtra$redirectDrawLeftText"(arg0: $DebugScreenOverlay$$Type, arg1: $GuiGraphics$$Type, arg2: $List$$Type, arg3: boolean): void
+public "redirect$zdh000$sodium_extra$sodiumExtra$redirectDrawRightText"(arg0: $DebugScreenOverlay$$Type, arg1: $GuiGraphics$$Type, arg2: $List$$Type, arg3: boolean): void
+public "getGameInformation"(): $List<(StringJS)>
+public "showFpsCharts"(): boolean
+public "getBandwidthLogger"(): $LocalSampleLogger
+public "collectSystemInformationText"(): $List<(StringJS)>
+public "getSystemInformation"(): $List<(StringJS)>
+public "collectGameInformationText"(): $List<(StringJS)>
+public "drawSystemInformation"(arg0: $GuiGraphics$$Type): void
+public "drawGameInformation"(arg0: $GuiGraphics$$Type): void
+public "handler$dfh000$fabric_renderer_api_v1$getLeftText"(arg0: $CallbackInfoReturnable$$Type): void
 get "pingLogger"(): $LocalSampleLogger
 get "tickTimeLogger"(): $LocalSampleLogger
-get "bandwidthLogger"(): $LocalSampleLogger
 get "gameInformation"(): $List<(StringJS)>
+get "bandwidthLogger"(): $LocalSampleLogger
 get "systemInformation"(): $List<(StringJS)>
 }
 /**
@@ -3478,13 +3681,13 @@ export type $DebugScreenOverlay$$Type = ($DebugScreenOverlay);
  */
 export type $DebugScreenOverlay$$Original = $DebugScreenOverlay;}
 declare module "net.minecraft.client.gui.screens.inventory.EffectRenderingInventoryScreen" {
+import {$ItemStack} from "net.minecraft.world.item.ItemStack"
 import {$Screen$DeferredTooltipRendering} from "net.minecraft.client.gui.screens.Screen$DeferredTooltipRendering"
 import {$CycleButton} from "net.minecraft.client.gui.components.CycleButton"
-import {$ItemStack} from "net.minecraft.world.item.ItemStack"
 import {$Screen$$Type} from "net.minecraft.client.gui.screens.Screen"
 import {$List} from "java.util.List"
-import {$NarratorStatus} from "net.minecraft.client.NarratorStatus"
 import {$CubeMap} from "net.minecraft.client.renderer.CubeMap"
+import {$NarratorStatus} from "net.minecraft.client.NarratorStatus"
 import {$Font} from "net.minecraft.client.gui.Font"
 import {$ScreenExtensions} from "net.fabricmc.fabric.impl.client.screen.ScreenExtensions"
 import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component"
@@ -3553,6 +3756,8 @@ constructor(arg0: T, arg1: $Inventory$$Type, arg2: $Component$$Type)
 public "render"(arg0: $GuiGraphics$$Type, arg1: integer, arg2: integer, arg3: float): void
 public "canSeeEffects"(): boolean
 public static "getExtensions"(arg0: $Screen$$Type): $ScreenExtensions
+public static "owo$ROTATING_PANORAMA_RENDERER"(): $PanoramaRenderer
+public static "owo$PANORAMA_RENDERER"(): $CubeMap
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3580,8 +3785,8 @@ public "pos"(arg0: integer, arg1: integer): $Button$Builder
 public "build"(): $Button
 public "build"(arg0: $Function$$Type<($Button$Builder), ($Button$$Type)>): $Button
 public "width"(arg0: integer): $Button$Builder
-public "createNarration"(arg0: $Button$CreateNarration$$Type): $Button$Builder
 public "tooltip"(arg0: $Tooltip$$Type): $Button$Builder
+public "createNarration"(arg0: $Button$CreateNarration$$Type): $Button$Builder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

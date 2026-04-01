@@ -24,33 +24,33 @@ static readonly "FLAGS": integer
 
 constructor(arg0: $ByteBuffer$$Type)
 
-public static "nabi"(arg0: long): integer
-public static "nnargs"(arg0: long): integer
-public static "narg_types"(arg0: long, arg1: integer): $PointerBuffer
-public static "nflags"(arg0: long): integer
-public "arg_types"(arg0: integer): $PointerBuffer
 public "flags"(): integer
 public "bytes"(): integer
-public static "create"(arg0: long): $FFICIF
 public static "create"(arg0: integer): $FFICIF$Buffer
 public static "create"(arg0: long, arg1: integer): $FFICIF$Buffer
+public static "create"(arg0: long): $FFICIF
 public static "create"(): $FFICIF
 public "rtype"(): $FFIType
 public "nargs"(): integer
 public static "nrtype"(arg0: long): $FFIType
 public "abi"(): integer
+public static "nnargs"(arg0: long): integer
+public static "nflags"(arg0: long): integer
+public static "nabi"(arg0: long): integer
+public static "narg_types"(arg0: long, arg1: integer): $PointerBuffer
+public "arg_types"(arg0: integer): $PointerBuffer
+public static "malloc"(arg0: integer): $FFICIF$Buffer
+public static "malloc"(arg0: integer, arg1: $MemoryStack$$Type): $FFICIF$Buffer
+public static "malloc"(): $FFICIF
+public static "malloc"(arg0: $MemoryStack$$Type): $FFICIF
 public static "nbytes"(arg0: long): integer
+public "sizeof"(): integer
 public static "createSafe"(arg0: long, arg1: integer): $FFICIF$Buffer
 public static "createSafe"(arg0: long): $FFICIF
-public static "calloc"(): $FFICIF
-public static "calloc"(arg0: $MemoryStack$$Type): $FFICIF
 public static "calloc"(arg0: integer, arg1: $MemoryStack$$Type): $FFICIF$Buffer
 public static "calloc"(arg0: integer): $FFICIF$Buffer
-public "sizeof"(): integer
-public static "malloc"(): $FFICIF
-public static "malloc"(arg0: integer): $FFICIF$Buffer
-public static "malloc"(arg0: $MemoryStack$$Type): $FFICIF
-public static "malloc"(arg0: integer, arg1: $MemoryStack$$Type): $FFICIF$Buffer
+public static "calloc"(): $FFICIF
+public static "calloc"(arg0: $MemoryStack$$Type): $FFICIF
 public "close"(): void
 public "free"(): void
 }

@@ -66,14 +66,14 @@ public "getId"(): $ResourceLocation
 public "ifPresent"(arg0: $Consumer$$Type<(T)>): void
 public static "part"(arg0: $ResourceLocation$$Type): $DataResource<($GearPart)>
 public static "part"(arg0: StringJS): $DataResource<($GearPart)>
+public "getNullable"(): T
+public static "material"(arg0: $MaterialInstance$$Type): $DataResource<($Material)>
 public static "material"(arg0: $Material$$Type): $DataResource<($Material)>
 public static "material"(arg0: $ResourceLocation$$Type): $DataResource<($Material)>
 public static "material"(arg0: StringJS): $DataResource<($Material)>
-public static "material"(arg0: $MaterialInstance$$Type): $DataResource<($Material)>
 public static "trait"(arg0: $ResourceLocation$$Type): $DataResource<($Trait)>
 public static "trait"(arg0: StringJS): $DataResource<($Trait)>
 public "toOptional"(): $Optional<($DataResource<(T)>)>
-public "getNullable"(): T
 get "present"(): boolean
 get "id"(): $ResourceLocation
 get "nullable"(): T
@@ -94,10 +94,10 @@ import {$Collection} from "java.util.Collection"
 import {$PropertyKey$$Type} from "net.silentchaos512.gear.api.util.PropertyKey"
 import {$Ingredient} from "net.minecraft.world.item.crafting.Ingredient"
 import {$Supplier$$Type} from "java.util.function.Supplier"
-import {$GearPropertyValue} from "net.silentchaos512.gear.api.property.GearPropertyValue"
 import {$Component} from "net.minecraft.network.chat.Component"
-import {$PartType$$Type} from "net.silentchaos512.gear.api.part.PartType"
+import {$GearPropertyValue} from "net.silentchaos512.gear.api.property.GearPropertyValue"
 import {$PropertyProvider$$Interface} from "net.silentchaos512.gear.api.util.PropertyProvider"
+import {$PartType$$Type} from "net.silentchaos512.gear.api.part.PartType"
 
 export interface $GearComponent$$Interface<D> extends $PropertyProvider$$Interface<(D)> {
 get "ingredient"(): $Ingredient
@@ -105,9 +105,9 @@ get "ingredient"(): $Ingredient
 
 export class $GearComponent<D> implements $GearComponent$$Interface {
  "getDisplayName"(arg0: D, arg1: $PartType$$Type): $Component
- "isCraftingAllowed"(arg0: D, arg1: $PartType$$Type, arg2: $GearType$$Type): boolean
- "isCraftingAllowed"(arg0: D, arg1: $PartType$$Type, arg2: $GearType$$Type, arg3: $CraftingInput$$Type): boolean
  "getIngredient"(): $Ingredient
+ "isCraftingAllowed"(arg0: D, arg1: $PartType$$Type, arg2: $GearType$$Type, arg3: $CraftingInput$$Type): boolean
+ "isCraftingAllowed"(arg0: D, arg1: $PartType$$Type, arg2: $GearType$$Type): boolean
  "getProperty"<T, V extends $GearPropertyValue<(object)>>(arg0: D, arg1: $Supplier$$Type<($PartType$$Type)>, arg2: $PropertyKey$$Type<(T), (V)>): T
  "getProperty"<T, V extends $GearPropertyValue<(object)>>(arg0: D, arg1: $PartType$$Type, arg2: $PropertyKey$$Type<(T), (V)>): T
  "getPropertyModifiers"<T, V extends $GearPropertyValue<(object)>>(arg0: D, arg1: $PartType$$Type, arg2: $PropertyKey$$Type<(T), (V)>): $Collection<(V)>
@@ -125,8 +125,8 @@ export type $GearComponent$$Type<D> = ($GearComponent<(D)>);
  */
 export type $GearComponent$$Original<D> = $GearComponent<(D)>;}
 declare module "net.silentchaos512.gear.api.property.GearProperty$Builder" {
-import {$GearPropertyGroup$$Type} from "net.silentchaos512.gear.api.property.GearPropertyGroup"
 import {$Color$$Type} from "net.silentchaos512.lib.util.Color"
+import {$GearPropertyGroup$$Type} from "net.silentchaos512.gear.api.property.GearPropertyGroup"
 
 export class $GearProperty$Builder<T> {
 constructor(arg0: T, arg1: T, arg2: T, arg3: T)
@@ -136,10 +136,10 @@ constructor(arg0: T)
 public "group"(arg0: $GearPropertyGroup$$Type): $GearProperty$Builder<(T)>
 public "validate"(): void
 public "visible"(arg0: boolean): $GearProperty$Builder<(T)>
-public "affectedBySynergy"(arg0: boolean): $GearProperty$Builder<(T)>
-public "forMaterialsOnly"(arg0: boolean): $GearProperty$Builder<(T)>
-public "affectedByGrades"(arg0: boolean): $GearProperty$Builder<(T)>
 public "nameColor"(arg0: $Color$$Type): $GearProperty$Builder<(T)>
+public "affectedByGrades"(arg0: boolean): $GearProperty$Builder<(T)>
+public "forMaterialsOnly"(arg0: boolean): $GearProperty$Builder<(T)>
+public "affectedBySynergy"(arg0: boolean): $GearProperty$Builder<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -153,58 +153,58 @@ export type $GearProperty$Builder$$Original<T> = $GearProperty$Builder<(T)>;}
 declare module "net.silentchaos512.gear.api.part.GearPart" {
 import {$CraftingInput$$Type} from "net.minecraft.world.item.crafting.CraftingInput"
 import {$PartInstance, $PartInstance$$Type} from "net.silentchaos512.gear.gear.part.PartInstance"
+import {$PropertyKey$$Type} from "net.silentchaos512.gear.api.util.PropertyKey"
 import {$Collection} from "java.util.Collection"
 import {$ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
-import {$PropertyKey$$Type} from "net.silentchaos512.gear.api.util.PropertyKey"
 import {$Ingredient} from "net.minecraft.world.item.crafting.Ingredient"
 import {$List, $List$$Type} from "java.util.List"
 import {$GearPropertyValue} from "net.silentchaos512.gear.api.property.GearPropertyValue"
 import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component"
 import {$TooltipFlag$$Type} from "net.minecraft.world.item.TooltipFlag"
-import {$MaterialInstance} from "net.silentchaos512.gear.gear.material.MaterialInstance"
 import {$PartSerializer} from "net.silentchaos512.gear.api.part.PartSerializer"
-import {$GearComponent$$Interface} from "net.silentchaos512.gear.api.util.GearComponent"
+import {$MaterialInstance} from "net.silentchaos512.gear.gear.material.MaterialInstance"
 import {$GearType, $GearType$$Type} from "net.silentchaos512.gear.api.item.GearType"
+import {$GearComponent$$Interface} from "net.silentchaos512.gear.api.util.GearComponent"
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$PartType, $PartType$$Type} from "net.silentchaos512.gear.api.part.PartType"
 
 export interface $GearPart$$Interface extends $GearComponent$$Interface<($PartInstance)> {
 get "type"(): $PartType
-get "gearType"(): $GearType
 get "packName"(): StringJS
 get "serializer"(): $PartSerializer<(never)>
 get "visible"(): boolean
+get "gearType"(): $GearType
 get "ingredient"(): $Ingredient
 }
 
 export class $GearPart implements $GearPart$$Interface {
  "getType"(): $PartType
  "getDisplayName"(arg0: $PartInstance$$Type): $Component
- "isCraftingAllowed"(arg0: $PartInstance$$Type, arg1: $PartType$$Type, arg2: $GearType$$Type, arg3: $CraftingInput$$Type): boolean
- "isCraftingAllowed"(arg0: $PartInstance$$Type, arg1: $GearType$$Type): boolean
- "isCraftingAllowed"(arg0: any, arg1: $PartType$$Type, arg2: $GearType$$Type, arg3: $CraftingInput$$Type): boolean
- "getModelKey"(arg0: $PartInstance$$Type): StringJS
- "onRemoveFromGear"(arg0: $ItemStack$$Type, arg1: $PartInstance$$Type): void
- "getMaterialName"(arg0: $PartInstance$$Type, arg1: $ItemStack$$Type): $Component
- "onGearDamaged"(arg0: $PartInstance$$Type, arg1: $ItemStack$$Type, arg2: integer): void
- "canAddToGear"(arg0: $ItemStack$$Type, arg1: $PartInstance$$Type): boolean
- "onAddToGear"(arg0: $ItemStack$$Type, arg1: $PartInstance$$Type): void
- "getGearType"(): $GearType
- "getPrimaryMaterial"(arg0: $PartInstance$$Type): $MaterialInstance
- "getSalvageLossRate"(arg0: $PartInstance$$Type, arg1: $ItemStack$$Type, arg2: double): double
- "randomizeData"(arg0: $GearType$$Type, arg1: integer): $PartInstance
- "getPackName"(): StringJS
- "getColor"(arg0: $PartInstance$$Type, arg1: $GearType$$Type, arg2: integer, arg3: integer): integer
  "addInformation"(arg0: $PartInstance$$Type, arg1: $ItemStack$$Type, arg2: $List$$Type<($Component$$Type)>, arg3: $TooltipFlag$$Type): void
- "getDisplayNamePrefix"(arg0: $PartInstance$$Type, arg1: $ItemStack$$Type): $Component
- "getSerializer"(): $PartSerializer<(never)>
  "retainData"(arg0: $GearPart$$Type): void
- "isVisible"(): boolean
+ "getColor"(arg0: $PartInstance$$Type, arg1: $GearType$$Type, arg2: integer, arg3: integer): integer
+ "getDisplayNamePrefix"(arg0: $PartInstance$$Type, arg1: $ItemStack$$Type): $Component
+ "getPackName"(): StringJS
  "replacesExistingInPosition"(arg0: $PartInstance$$Type): boolean
  "getMaterials"(arg0: $PartInstance$$Type): $List<($MaterialInstance)>
+ "getSerializer"(): $PartSerializer<(never)>
+ "isCraftingAllowed"(arg0: any, arg1: $PartType$$Type, arg2: $GearType$$Type, arg3: $CraftingInput$$Type): boolean
+ "isCraftingAllowed"(arg0: $PartInstance$$Type, arg1: $PartType$$Type, arg2: $GearType$$Type, arg3: $CraftingInput$$Type): boolean
+ "isCraftingAllowed"(arg0: $PartInstance$$Type, arg1: $GearType$$Type): boolean
+ "getModelKey"(arg0: $PartInstance$$Type): StringJS
+ "isVisible"(): boolean
+ "canAddToGear"(arg0: $ItemStack$$Type, arg1: $PartInstance$$Type): boolean
+ "randomizeData"(arg0: $GearType$$Type, arg1: integer): $PartInstance
+ "getMaterialName"(arg0: $PartInstance$$Type, arg1: $ItemStack$$Type): $Component
+ "getPrimaryMaterial"(arg0: $PartInstance$$Type): $MaterialInstance
+ "getSalvageLossRate"(arg0: $PartInstance$$Type, arg1: $ItemStack$$Type, arg2: double): double
+ "onGearDamaged"(arg0: $PartInstance$$Type, arg1: $ItemStack$$Type, arg2: integer): void
+ "onRemoveFromGear"(arg0: $ItemStack$$Type, arg1: $PartInstance$$Type): void
+ "onAddToGear"(arg0: $ItemStack$$Type, arg1: $PartInstance$$Type): void
+ "getGearType"(): $GearType
  "getDisplayName"(arg0: $PartInstance$$Type, arg1: $PartType$$Type): $Component
- "isCraftingAllowed"(arg0: $PartInstance$$Type, arg1: $PartType$$Type, arg2: $GearType$$Type): boolean
  "getIngredient"(): $Ingredient
+ "isCraftingAllowed"(arg0: $PartInstance$$Type, arg1: $PartType$$Type, arg2: $GearType$$Type): boolean
  "getProperty"<T, V extends $GearPropertyValue<(object)>>(arg0: $PartInstance$$Type, arg1: $Supplier$$Type<($PartType$$Type)>, arg2: $PropertyKey$$Type<(T), (V)>): T
  "getProperty"<T, V extends $GearPropertyValue<(object)>>(arg0: $PartInstance$$Type, arg1: $PartType$$Type, arg2: $PropertyKey$$Type<(T), (V)>): T
  "getPropertyModifiers"<T, V extends $GearPropertyValue<(object)>>(arg0: $PartInstance$$Type, arg1: $PartType$$Type, arg2: $PropertyKey$$Type<(T), (V)>): $Collection<(V)>
@@ -236,15 +236,15 @@ public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "player"(): $Player
-public "gear"(): $ItemStack
 public "traitLevel"(): integer
+public "gear"(): $ItemStack
 public "trait"(): $Trait
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $TraitActionContext$$Type = ({"player"?: $Player$$Type, "gear"?: $ItemStack$$Type, "trait"?: $Trait$$Type, "traitLevel"?: integer}) | ([player?: $Player$$Type, gear?: $ItemStack$$Type, trait?: $Trait$$Type, traitLevel?: integer]);
+export type $TraitActionContext$$Type = ({"traitLevel"?: integer, "trait"?: $Trait$$Type, "gear"?: $ItemStack$$Type, "player"?: $Player$$Type}) | ([traitLevel?: integer, trait?: $Trait$$Type, gear?: $ItemStack$$Type, player?: $Player$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -256,8 +256,8 @@ import {$Codec} from "com.mojang.serialization.Codec"
 import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$List$$Type} from "java.util.List"
 import {$MutableComponent} from "net.minecraft.network.chat.MutableComponent"
-import {$GearComponentInstance$$Type} from "net.silentchaos512.gear.api.util.GearComponentInstance"
 import {$Trait$$Type} from "net.silentchaos512.gear.gear.trait.Trait"
+import {$GearComponentInstance$$Type} from "net.silentchaos512.gear.api.util.GearComponentInstance"
 import {$PartGearKey$$Type} from "net.silentchaos512.gear.api.util.PartGearKey"
 
 export interface $ITraitCondition$$Interface {
@@ -315,10 +315,10 @@ export class $NumberPropertyValue extends $GearPropertyValue<(float)> {
 constructor(arg0: float, arg1: $NumberProperty$Operation$$Type)
 
 public static "average"(arg0: float): $NumberPropertyValue
-public "operation"(): $NumberProperty$Operation
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
+public "operation"(): $NumberProperty$Operation
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -360,8 +360,8 @@ export type $TraitEffectType$$Type<T> = (Special.SilentgearTraitEffectType);
 export type $TraitEffectType$$Original<T> = $TraitEffectType<(T)>;}
 declare module "net.silentchaos512.gear.api.event.GearNamePrefixesEvent" {
 import {$PartInstance$$Type} from "net.silentchaos512.gear.gear.part.PartInstance"
-import {$ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$Collection, $Collection$$Type} from "java.util.Collection"
+import {$ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$GearItemEvent} from "net.silentchaos512.gear.api.event.GearItemEvent"
 import {$Component} from "net.minecraft.network.chat.Component"
 
@@ -381,12 +381,12 @@ export type $GearNamePrefixesEvent$$Type = ($GearNamePrefixesEvent);
  */
 export type $GearNamePrefixesEvent$$Original = $GearNamePrefixesEvent;}
 declare module "net.silentchaos512.gear.api.property.GearPropertyMap$Immutable" {
-import {$Iterable$$Type} from "java.lang.Iterable"
 import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
 import {$GearProperty$$Type} from "net.silentchaos512.gear.api.property.GearProperty"
+import {$Iterable$$Type} from "java.lang.Iterable"
 import {$GearType$$Type} from "net.silentchaos512.gear.api.item.GearType"
-import {$Collection} from "java.util.Collection"
 import {$PropertyKey$$Type} from "net.silentchaos512.gear.api.util.PropertyKey"
+import {$Collection} from "java.util.Collection"
 import {$Codec} from "com.mojang.serialization.Codec"
 import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$Multimap$$Type} from "com.google.common.collect.Multimap"
@@ -437,8 +437,8 @@ import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
 import {$Codec} from "com.mojang.serialization.Codec"
 import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$MutableComponent} from "net.minecraft.network.chat.MutableComponent"
-import {$GearComponentInstance$$Type} from "net.silentchaos512.gear.api.util.GearComponentInstance"
 import {$Trait, $Trait$$Type} from "net.silentchaos512.gear.gear.trait.Trait"
+import {$GearComponentInstance$$Type} from "net.silentchaos512.gear.api.util.GearComponentInstance"
 import {$GearProperty$FormatContext$$Type} from "net.silentchaos512.gear.api.property.GearProperty$FormatContext"
 import {$Record} from "java.lang.Record"
 
@@ -459,14 +459,14 @@ public "getDisplayName"(): $MutableComponent
 public "getDisplayName"(arg0: $GearProperty$FormatContext$$Type): $MutableComponent
 public "isValid"(): boolean
 public "getLevel"(): integer
-public "conditionsMatch"(arg0: $PartGearKey$$Type, arg1: $List$$Type<($GearComponentInstance$$Type<(never)>)>): boolean
-public "getTraitId"(): $ResourceLocation
-public "getConditions"(): $Collection<($ITraitCondition)>
-public "trait"(): $DataResource<($Trait)>
-public "conditions"(): $ImmutableList<($ITraitCondition)>
 public "addInformation"(arg0: $List$$Type<($Component$$Type)>, arg1: $TooltipFlag$$Type): void
-public "getConditionsText"(): $MutableComponent
+public "getConditions"(): $Collection<($ITraitCondition)>
+public "conditions"(): $ImmutableList<($ITraitCondition)>
+public "getTraitId"(): $ResourceLocation
 public "getTrait"(): $Trait
+public "conditionsMatch"(arg0: $PartGearKey$$Type, arg1: $List$$Type<($GearComponentInstance$$Type<(never)>)>): boolean
+public "trait"(): $DataResource<($Trait)>
+public "getConditionsText"(): $MutableComponent
 get "description"(): $MutableComponent
 get "displayName"(): $MutableComponent
 get "valid"(): boolean
@@ -477,15 +477,15 @@ get "conditionsText"(): $MutableComponent
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $TraitInstance$$Type = ({"level"?: integer, "conditions"?: $ImmutableList$$Type<($ITraitCondition$$Type)>, "trait"?: $DataResource$$Type<($Trait$$Type)>}) | ([level?: integer, conditions?: $ImmutableList$$Type<($ITraitCondition$$Type)>, trait?: $DataResource$$Type<($Trait$$Type)>]);
+export type $TraitInstance$$Type = ({"conditions"?: $ImmutableList$$Type<($ITraitCondition$$Type)>, "level"?: integer, "trait"?: $DataResource$$Type<($Trait$$Type)>}) | ([conditions?: $ImmutableList$$Type<($ITraitCondition$$Type)>, level?: integer, trait?: $DataResource$$Type<($Trait$$Type)>]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $TraitInstance$$Original = $TraitInstance;}
 declare module "net.silentchaos512.gear.api.event.GetTraitsEvent" {
 import {$PartList$$Type} from "net.silentchaos512.gear.api.part.PartList"
-import {$ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$Map, $Map$$Type} from "java.util.Map"
+import {$ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$GearItemEvent} from "net.silentchaos512.gear.api.event.GearItemEvent"
 import {$Trait, $Trait$$Type} from "net.silentchaos512.gear.gear.trait.Trait"
 
@@ -521,8 +521,8 @@ get "type"(): $IMaterialModifierType<(never)>
 
 export class $IMaterialModifier implements $IMaterialModifier$$Interface {
  "getType"(): $IMaterialModifierType<(never)>
- "modifyMaterialName"(arg0: $MutableComponent$$Type): $MutableComponent
  "modifyStats"<T, V extends $GearPropertyValue<(object)>>(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type, arg2: $PropertyKey$$Type<(T), (V)>, arg3: $Collection$$Type<(V)>): $Collection<(V)>
+ "modifyMaterialName"(arg0: $MutableComponent$$Type): $MutableComponent
  "appendTooltip"(arg0: $List$$Type<($Component$$Type)>): void
 }
 /**
@@ -544,8 +544,8 @@ import {$MaterialInstance$$Type} from "net.silentchaos512.gear.gear.material.Mat
 import {$GearType, $GearType$$Type} from "net.silentchaos512.gear.api.item.GearType"
 import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$CompoundPartItem, $CompoundPartItem$$Type} from "net.silentchaos512.gear.item.CompoundPartItem"
+import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$Function, $Function$$Type} from "java.util.function.Function"
 import {$MutableComponent} from "net.minecraft.network.chat.MutableComponent"
 import {$Material$$Type} from "net.silentchaos512.gear.api.material.Material"
@@ -562,15 +562,15 @@ public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "getDisplayName"(): $MutableComponent
+public "getCompoundPartItem"(arg0: $GearType$$Type): $Optional<($CompoundPartItem)>
 public "maxPerItem"(): integer
 public "isUpgrade"(): boolean
-public "getCompoundPartItem"(arg0: $GearType$$Type): $Optional<($CompoundPartItem)>
-public static "getToolHeadItem"(arg0: $GearType$$Type): $Optional<($CompoundPartItem)>
 public "isRemovable"(): boolean
-public "makeCompoundPart"(arg0: $GearType$$Type, arg1: $MaterialInstance$$Type): $Optional<($PartInstance)>
-public "makeCompoundPart"(arg0: $GearType$$Type, arg1: $DataResource$$Type<($Material$$Type)>): $Optional<($PartInstance)>
-public "compoundParts"(): $Function<($GearType), ($Optional<($CompoundPartItem)>)>
+public static "getToolHeadItem"(arg0: $GearType$$Type): $Optional<($CompoundPartItem)>
 public "getCompoundPartId"(arg0: $GearType$$Type): $ResourceLocation
+public "makeCompoundPart"(arg0: $GearType$$Type, arg1: $DataResource$$Type<($Material$$Type)>): $Optional<($PartInstance)>
+public "makeCompoundPart"(arg0: $GearType$$Type, arg1: $MaterialInstance$$Type): $Optional<($PartInstance)>
+public "compoundParts"(): $Function<($GearType), ($Optional<($CompoundPartItem)>)>
 get "displayName"(): $MutableComponent
 get "upgrade"(): boolean
 get "removable"(): boolean
@@ -587,17 +587,17 @@ get "removable"(): boolean
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $PartType$$Type = (Special.SilentgearPartType) | ({"isUpgrade"?: boolean, "isRemovable"?: boolean, "compoundParts"?: $Function$$Type<($GearType$$Type), (($CompoundPartItem$$Type)?)>, "maxPerItem"?: integer}) | ([isUpgrade?: boolean, isRemovable?: boolean, compoundParts?: $Function$$Type<($GearType$$Type), (($CompoundPartItem$$Type)?)>, maxPerItem?: integer]);
+export type $PartType$$Type = (Special.SilentgearPartType) | ({"compoundParts"?: $Function$$Type<($GearType$$Type), (($CompoundPartItem$$Type)?)>, "isRemovable"?: boolean, "isUpgrade"?: boolean, "maxPerItem"?: integer}) | ([compoundParts?: $Function$$Type<($GearType$$Type), (($CompoundPartItem$$Type)?)>, isRemovable?: boolean, isUpgrade?: boolean, maxPerItem?: integer]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $PartType$$Original = $PartType;}
 declare module "net.silentchaos512.gear.api.property.GearPropertyMap" {
-import {$Iterable$$Type} from "java.lang.Iterable"
 import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
 import {$GearProperty, $GearProperty$$Type} from "net.silentchaos512.gear.api.property.GearProperty"
-import {$Collection, $Collection$$Type} from "java.util.Collection"
+import {$Iterable$$Type} from "java.lang.Iterable"
 import {$PropertyKey, $PropertyKey$$Type} from "net.silentchaos512.gear.api.util.PropertyKey"
+import {$Collection, $Collection$$Type} from "java.util.Collection"
 import {$Map} from "java.util.Map"
 import {$Multimap$$Type, $Multimap$$Interface} from "com.google.common.collect.Multimap"
 import {$Component} from "net.minecraft.network.chat.Component"
@@ -607,8 +607,8 @@ import {$Map$Entry} from "java.util.Map$Entry"
 import {$GearType$$Type} from "net.silentchaos512.gear.api.item.GearType"
 import {$Codec} from "com.mojang.serialization.Codec"
 import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
-import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$MutableComponent} from "net.minecraft.network.chat.MutableComponent"
+import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$Set} from "java.util.Set"
 import {$Multiset} from "com.google.common.collect.Multiset"
 
@@ -622,8 +622,8 @@ constructor(arg0: $GearPropertyMap$$Type)
 
 public "remove"(arg0: any, arg1: any): boolean
 public "size"(): integer
-public "get"(arg0: any): $Collection
 public "get"(arg0: $PropertyKey$$Type<(never), (never)>): $Collection<($GearPropertyValue<(never)>)>
+public "get"(arg0: any): $Collection
 public "put"(arg0: $PropertyKey$$Type<(never), (never)>, arg1: $GearPropertyValue$$Type<(never)>): boolean
 public "put"<V, I extends $GearPropertyValue<(object)>>(arg0: $GearProperty$$Type<(V), (I)>, arg1: $GearType$$Type, arg2: I): boolean
 public "put"(arg0: any, arg1: any): boolean
@@ -632,8 +632,8 @@ public "values"(): $Collection<($GearPropertyValue<(never)>)>
 public "hashCode"(): integer
 public "clear"(): void
 public "isEmpty"(): boolean
-public "putAll"(arg0: $Multimap$$Type<($PropertyKey$$Type<(never), (never)>), ($GearPropertyValue$$Type<(never)>)>): boolean
 public "putAll"(arg0: $PropertyKey$$Type<(never), (never)>, arg1: $Iterable$$Type<($GearPropertyValue$$Type<(never)>)>): boolean
+public "putAll"(arg0: $Multimap$$Type<($PropertyKey$$Type<(never), (never)>), ($GearPropertyValue$$Type<(never)>)>): boolean
 public "putAll"(arg0: any, arg1: $Iterable$$Type): boolean
 public "containsKey"(arg0: any): boolean
 public "keys"(): $Multiset<($PropertyKey<(never), (never)>)>
@@ -641,19 +641,19 @@ public "keySet"(): $Set<($PropertyKey<(never), (never)>)>
 public "containsValue"(arg0: any): boolean
 public "entries"(): $Collection<($Map$Entry<($PropertyKey<(never), (never)>), ($GearPropertyValue<(never)>)>)>
 public "removeAll"(arg0: any): $Collection<($GearPropertyValue<(never)>)>
-public "getValues"<T, V extends $GearPropertyValue<(object)>>(arg0: $GearProperty$$Type<(T), (V)>, arg1: $GearType$$Type): $Collection<(V)>
-public "getValues"<T, V extends $GearPropertyValue<(object)>>(arg0: $PropertyKey$$Type<(T), (V)>): $Collection<(V)>
+public static "formatTextUnchecked"(arg0: $Collection$$Type<($GearPropertyValue$$Type<(never)>)>, arg1: $GearProperty$$Type<(never), (never)>, arg2: boolean): $Component
+public "replaceValues"(arg0: any, arg1: $Iterable$$Type): $Collection
+public "replaceValues"(arg0: $PropertyKey$$Type<(never), (never)>, arg1: $Iterable$$Type<($GearPropertyValue$$Type<(never)>)>): $Collection<($GearPropertyValue<(never)>)>
+public "containsEntry"(arg0: any, arg1: any): boolean
 public "toImmutable"(): $GearPropertyMap$Immutable
+public "asMap"(): $Map<($PropertyKey<(never), (never)>), ($Collection<($GearPropertyValue<(never)>)>)>
 public static "formatText"<T, V extends $GearPropertyValue<(object)>, P extends $GearProperty<(object), (object)>>(arg0: $Collection$$Type<(V)>, arg1: P, arg2: integer, arg3: boolean): $MutableComponent
 public static "formatText"<T, V extends $GearPropertyValue<(object)>, P extends $GearProperty<(object), (object)>>(arg0: $Collection$$Type<(V)>, arg1: P, arg2: integer): $MutableComponent
-public "containsEntry"(arg0: any, arg1: any): boolean
-public "replaceValues"(arg0: $PropertyKey$$Type<(never), (never)>, arg1: $Iterable$$Type<($GearPropertyValue$$Type<(never)>)>): $Collection<($GearPropertyValue<(never)>)>
-public "replaceValues"(arg0: any, arg1: $Iterable$$Type): $Collection
-public static "formatTextUnchecked"(arg0: $Collection$$Type<($GearPropertyValue$$Type<(never)>)>, arg1: $GearProperty$$Type<(never), (never)>, arg2: boolean): $Component
-public "asMap"(): $Map<($PropertyKey<(never), (never)>), ($Collection<($GearPropertyValue<(never)>)>)>
-public "toMutable"(): $GearPropertyMap
-public "getPropertyTypes"(): $Set<($GearProperty<(never), (never)>)>
+public "getValues"<T, V extends $GearPropertyValue<(object)>>(arg0: $GearProperty$$Type<(T), (V)>, arg1: $GearType$$Type): $Collection<(V)>
+public "getValues"<T, V extends $GearPropertyValue<(object)>>(arg0: $PropertyKey$$Type<(T), (V)>): $Collection<(V)>
 public "getMostSpecificKey"(arg0: $PropertyKey$$Type<(never), (never)>): $PropertyKey<(never), (never)>
+public "getPropertyTypes"(): $Set<($GearProperty<(never), (never)>)>
+public "toMutable"(): $GearPropertyMap
 public "forEach"(action: $BiConsumer$$Type<($PropertyKey<(never), (never)>), ($GearPropertyValue<(never)>)>): void
 get "empty"(): boolean
 get "propertyTypes"(): $Set<($GearProperty<(never), (never)>)>
@@ -689,9 +689,9 @@ export type $NumberProperty$DisplayFormat$$Type = (("unit") | ("multiplier") | (
 export type $NumberProperty$DisplayFormat$$Original = $NumberProperty$DisplayFormat;}
 declare module "net.silentchaos512.gear.api.material.Material" {
 import {$CraftingInput$$Type} from "net.minecraft.world.item.crafting.CraftingInput"
-import {$Collection} from "java.util.Collection"
-import {$PropertyKey, $PropertyKey$$Type} from "net.silentchaos512.gear.api.util.PropertyKey"
 import {$ItemStack} from "net.minecraft.world.item.ItemStack"
+import {$PropertyKey, $PropertyKey$$Type} from "net.silentchaos512.gear.api.util.PropertyKey"
+import {$Collection} from "java.util.Collection"
 import {$Optional} from "java.util.Optional"
 import {$Ingredient} from "net.minecraft.world.item.crafting.Ingredient"
 import {$GearPropertyValue} from "net.silentchaos512.gear.api.property.GearPropertyValue"
@@ -699,8 +699,8 @@ import {$Component} from "net.minecraft.network.chat.Component"
 import {$MaterialSerializer} from "net.silentchaos512.gear.api.material.MaterialSerializer"
 import {$MaterialInstance, $MaterialInstance$$Type} from "net.silentchaos512.gear.gear.material.MaterialInstance"
 import {$TextureType} from "net.silentchaos512.gear.api.material.TextureType"
-import {$GearComponent$$Interface} from "net.silentchaos512.gear.api.util.GearComponent"
 import {$GearType$$Type} from "net.silentchaos512.gear.api.item.GearType"
+import {$GearComponent$$Interface} from "net.silentchaos512.gear.api.util.GearComponent"
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Set} from "java.util.Set"
 import {$IMaterialCategory, $IMaterialCategory$$Type} from "net.silentchaos512.gear.api.material.IMaterialCategory"
@@ -710,9 +710,9 @@ export interface $Material$$Interface extends $GearComponent$$Interface<($Materi
 get "parent"(): $Material
 get "valid"(): boolean
 get "simple"(): boolean
-get "parentOptional"(): $Optional<($Material)>
-get "serializer"(): $MaterialSerializer<(never)>
 get "categories"(): $Collection<($IMaterialCategory)>
+get "serializer"(): $MaterialSerializer<(never)>
+get "parentOptional"(): $Optional<($Material)>
 get "ingredient"(): $Ingredient
 }
 
@@ -720,35 +720,35 @@ export class $Material implements $Material$$Interface {
  "getParent"(): $Material
  "isValid"(): boolean
  "isSimple"(): boolean
- "canRepair"(arg0: $MaterialInstance$$Type): boolean
- "getDisplayItem"(arg0: $PartType$$Type, arg1: integer): $ItemStack
  "onSalvage"(arg0: $MaterialInstance$$Type): $MaterialInstance
- "getMainTextureType"(arg0: $MaterialInstance$$Type): $TextureType
- "getNameColor"(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type, arg2: $GearType$$Type): integer
- "isAllowedInPart"(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type): boolean
- "getPartTypes"(arg0: $MaterialInstance$$Type): $Set<($PartType)>
- "getParentOptional"(): $Optional<($Material)>
- "getPartSubstitute"(arg0: $PartType$$Type): $Optional<($Ingredient)>
- "hasPartSubstitutes"(): boolean
- "getPropertyKeys"(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type): $Collection<($PropertyKey<(never), (never)>)>
- "getModelKey"(arg0: $MaterialInstance$$Type): StringJS
- "isInCategory"(arg0: $IMaterialCategory$$Type): boolean
+ "canSalvage"(): boolean
+ "retainData"(arg0: $Material$$Type): void
  "getColor"(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type, arg2: $GearType$$Type): integer
  "getBaseMaterialName"(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type): $Component
  "getDisplayNamePrefix"(arg0: $PartType$$Type): $Component
- "getSerializer"(): $MaterialSerializer<(never)>
- "retainData"(arg0: $Material$$Type): void
- "canSalvage"(): boolean
- "getCategories"(arg0: $MaterialInstance$$Type): $Collection<($IMaterialCategory)>
+ "getDisplayItem"(arg0: $PartType$$Type, arg1: integer): $ItemStack
 /**
  * 
  * @deprecated
  */
  "getCategories"(): $Collection<($IMaterialCategory)>
+ "getCategories"(arg0: $MaterialInstance$$Type): $Collection<($IMaterialCategory)>
+ "getSerializer"(): $MaterialSerializer<(never)>
+ "getPropertyKeys"(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type): $Collection<($PropertyKey<(never), (never)>)>
+ "getNameColor"(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type, arg2: $GearType$$Type): integer
+ "getPartTypes"(arg0: $MaterialInstance$$Type): $Set<($PartType)>
+ "isAllowedInPart"(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type): boolean
+ "getParentOptional"(): $Optional<($Material)>
+ "getMainTextureType"(arg0: $MaterialInstance$$Type): $TextureType
+ "getPartSubstitute"(arg0: $PartType$$Type): $Optional<($Ingredient)>
+ "getModelKey"(arg0: $MaterialInstance$$Type): StringJS
+ "isInCategory"(arg0: $IMaterialCategory$$Type): boolean
+ "hasPartSubstitutes"(): boolean
+ "canRepair"(arg0: $MaterialInstance$$Type): boolean
  "getDisplayName"(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type): $Component
- "isCraftingAllowed"(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type, arg2: $GearType$$Type): boolean
- "isCraftingAllowed"(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type, arg2: $GearType$$Type, arg3: $CraftingInput$$Type): boolean
  "getIngredient"(): $Ingredient
+ "isCraftingAllowed"(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type, arg2: $GearType$$Type, arg3: $CraftingInput$$Type): boolean
+ "isCraftingAllowed"(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type, arg2: $GearType$$Type): boolean
  "getProperty"<T, V extends $GearPropertyValue<(object)>>(arg0: $MaterialInstance$$Type, arg1: $Supplier$$Type<($PartType$$Type)>, arg2: $PropertyKey$$Type<(T), (V)>): T
  "getProperty"<T, V extends $GearPropertyValue<(object)>>(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type, arg2: $PropertyKey$$Type<(T), (V)>): T
  "getPropertyModifiers"<T, V extends $GearPropertyValue<(object)>>(arg0: $MaterialInstance$$Type, arg1: $PartType$$Type, arg2: $PropertyKey$$Type<(T), (V)>): $Collection<(V)>
@@ -793,30 +793,30 @@ constructor(arg0: $NumberProperty$Operation$$Type, arg1: $NumberProperty$Display
 
 public "valueOf"(arg0: float): $NumberPropertyValue
 public "valueOf"(arg0: any): $GearPropertyValue
-public "compute"(arg0: any, arg1: boolean, arg2: $GearType$$Type, arg3: $GearType$$Type, arg4: $Collection$$Type): any
 public "compute"(arg0: float, arg1: boolean, arg2: $GearType$$Type, arg3: $GearType$$Type, arg4: $Collection$$Type<($NumberPropertyValue$$Type)>): float
-public "isZero"(arg0: float): boolean
+public "compute"(arg0: any, arg1: boolean, arg2: $GearType$$Type, arg3: $GearType$$Type, arg4: $Collection$$Type): any
 public "isZero"(arg0: any): boolean
-public "getDisplayFormat"(): $NumberProperty$DisplayFormat
-public "compressModifiers"(arg0: $Collection$$Type<($NumberPropertyValue$$Type)>, arg1: $PartGearKey$$Type, arg2: $List$$Type<($GearComponentInstance$$Type<(never)>)>): $List<($NumberPropertyValue)>
+public "isZero"(arg0: float): boolean
+public "formatValue"(arg0: $NumberPropertyValue$$Type, arg1: $GearProperty$FormatContext$$Type): $Component
+public "formatValue"(arg0: $GearPropertyValue$$Type, arg1: $GearProperty$FormatContext$$Type): $Component
+public "streamCodec"(): $StreamCodec<($RegistryFriendlyByteBuf), ($NumberPropertyValue)>
+public "clampValue"(arg0: float): float
+public "codec"(): $Codec<($NumberPropertyValue)>
 public "getZeroValue"(): float
-public "isDisplayAsInt"(): boolean
-public static "getWeightedAverage"(arg0: $Collection$$Type<($NumberPropertyValue$$Type)>, arg1: $NumberProperty$Operation$$Type): float
-public "sortForDisplay"(arg0: $Collection$$Type<($NumberPropertyValue$$Type)>): $List<($NumberPropertyValue)>
 public "applySynergy"(arg0: $GearPropertyValue$$Type, arg1: float): $GearPropertyValue
 public "applySynergy"(arg0: $NumberPropertyValue$$Type, arg1: float): $NumberPropertyValue
-public "clampValue"(arg0: float): float
-public "formatValueWithColor"(arg0: $NumberPropertyValue$$Type, arg1: boolean, arg2: $GearProperty$FormatContext$$Type): $MutableComponent
+public static "getWeightedAverage"(arg0: $Collection$$Type<($NumberPropertyValue$$Type)>, arg1: $NumberProperty$Operation$$Type): float
+public "compressModifiers"(arg0: $Collection$$Type<($NumberPropertyValue$$Type)>, arg1: $PartGearKey$$Type, arg2: $List$$Type<($GearComponentInstance$$Type<(never)>)>): $List<($NumberPropertyValue)>
+public "isDisplayAsInt"(): boolean
+public "sortForDisplay"(arg0: $Collection$$Type<($NumberPropertyValue$$Type)>): $List<($NumberPropertyValue)>
 public "formatValueWithColor"(arg0: $GearPropertyValue$$Type, arg1: boolean, arg2: $GearProperty$FormatContext$$Type): $MutableComponent
+public "formatValueWithColor"(arg0: $NumberPropertyValue$$Type, arg1: boolean, arg2: $GearProperty$FormatContext$$Type): $MutableComponent
 public "getPreferredDecimalPlaces"(arg0: $GearPropertyValue$$Type): integer
 public "getPreferredDecimalPlaces"(arg0: $NumberPropertyValue$$Type): integer
-public "formatValue"(arg0: $GearPropertyValue$$Type, arg1: $GearProperty$FormatContext$$Type): $Component
-public "formatValue"(arg0: $NumberPropertyValue$$Type, arg1: $GearProperty$FormatContext$$Type): $Component
-public "codec"(): $Codec<($NumberPropertyValue)>
-public "streamCodec"(): $StreamCodec<($RegistryFriendlyByteBuf), ($NumberPropertyValue)>
-get "displayFormat"(): $NumberProperty$DisplayFormat
+public "getDisplayFormat"(): $NumberProperty$DisplayFormat
 get "zeroValue"(): float
 get "displayAsInt"(): boolean
+get "displayFormat"(): $NumberProperty$DisplayFormat
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -831,8 +831,8 @@ declare module "net.silentchaos512.gear.api.part.PartType$Builder" {
 import {$GearType$$Type} from "net.silentchaos512.gear.api.item.GearType"
 import {$Optional$$Type} from "java.util.Optional"
 import {$CompoundPartItem$$Type} from "net.silentchaos512.gear.item.CompoundPartItem"
-import {$Function$$Type} from "java.util.function.Function"
 import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$Function$$Type} from "java.util.function.Function"
 
 export class $PartType$Builder {
 public static "builder"(): $PartType$Builder
@@ -867,24 +867,24 @@ export interface $GearItem$$Interface extends $ItemLike$$Interface {
 
 (): $GearType$$Type
 get "itemColors"(): $ItemColor
-get "gearType"(): $GearType
-get "requiredParts"(): $Collection<($PartType)>
 get "durabilityStat"(): $Supplier<($NumberProperty)>
+get "requiredParts"(): $Collection<($PartType)>
+get "gearType"(): $GearType
 }
 
 export class $GearItem implements $GearItem$$Interface {
 static readonly "REQUIRED_PARTS": $Supplier<($Collection<($PartType)>)>
 
- "getItemColors"(): $ItemColor
  "construct"(arg0: $Collection$$Type<($PartInstance$$Type)>): $ItemStack
  "asItem"(): $Item
- "getGearType"(): $GearType
- "getRequiredParts"(): $Collection<($PartType)>
- "requiresPartOfType"(arg0: $PartType$$Type): boolean
- "getDurabilityStat"(): $Supplier<($NumberProperty)>
+ "getItemColors"(): $ItemColor
  "supportsPart"(arg0: $ItemStack$$Type, arg1: $PartInstance$$Type): boolean
  "getRepairModifier"(arg0: $ItemStack$$Type): float
+ "getDurabilityStat"(): $Supplier<($NumberProperty)>
+ "getRequiredParts"(): $Collection<($PartType)>
  "isValidSlot"(arg0: StringJS): boolean
+ "requiresPartOfType"(arg0: $PartType$$Type): boolean
+ "getGearType"(): $GearType
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -909,8 +909,8 @@ import {$ItemAttributeModifiers$Builder$$Type} from "net.minecraft.world.item.co
 import {$Codec} from "com.mojang.serialization.Codec"
 import {$DamageSource$$Type} from "net.minecraft.world.damagesource.DamageSource"
 import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
-import {$UseOnContext$$Type} from "net.minecraft.world.item.context.UseOnContext"
 import {$LivingEntity$$Type} from "net.minecraft.world.entity.LivingEntity"
+import {$UseOnContext$$Type} from "net.minecraft.world.item.context.UseOnContext"
 import {$BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
 
 export class $TraitEffect {
@@ -920,21 +920,21 @@ static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($Trait
 constructor()
 
 public "type"(): $TraitEffectType<(never)>
-public "onEntityIncomingDamage"(arg0: $ItemStack$$Type, arg1: integer, arg2: $LivingEntity$$Type, arg3: $DamageSource$$Type, arg4: float, arg5: float): float
-public "onItemUse"(arg0: $UseOnContext$$Type, arg1: integer): $InteractionResult
-public "onUpdate"(arg0: $TraitActionContext$$Type, arg1: boolean): void
-public "onGetAttributeModifiers"(arg0: $TraitActionContext$$Type, arg1: $ItemAttributeModifiers$Builder$$Type): void
-public "getMiningSpeedModifier"(arg0: integer, arg1: $BlockState$$Type): float
-public "onCalculateSynergy"(arg0: double, arg1: integer): double
-public "onDurabilityDamage"(arg0: $TraitActionContext$$Type, arg1: integer): integer
-public "onGearCrafted"(arg0: $TraitActionContext$$Type): void
-public "onAttackEntity"(arg0: $TraitActionContext$$Type, arg1: $LivingEntity$$Type, arg2: float): float
-public "onRecalculatePre"(arg0: $ItemStack$$Type, arg1: integer): void
-public "onRecalculatePost"(arg0: $ItemStack$$Type, arg1: integer): void
-public "getBonusProperties"(arg0: integer, arg1: $Player$$Type, arg2: $GearProperty$$Type<(never), (never)>, arg3: $GearPropertyValue$$Type<(never)>, arg4: float): $Collection<($GearPropertyValue<(never)>)>
 public "onItemSwing"(arg0: $ItemStack$$Type, arg1: $LivingEntity$$Type, arg2: integer): void
+public "getBonusProperties"(arg0: integer, arg1: $Player$$Type, arg2: $GearProperty$$Type<(never), (never)>, arg3: $GearPropertyValue$$Type<(never)>, arg4: float): $Collection<($GearPropertyValue<(never)>)>
+public "onGearCrafted"(arg0: $TraitActionContext$$Type): void
 public "addLootDrops"(arg0: $TraitActionContext$$Type, arg1: $ItemStack$$Type): $ItemStack
 public "getExtraWikiLines"(): $Collection<(StringJS)>
+public "onDurabilityDamage"(arg0: $TraitActionContext$$Type, arg1: integer): integer
+public "onRecalculatePost"(arg0: $ItemStack$$Type, arg1: integer): void
+public "onRecalculatePre"(arg0: $ItemStack$$Type, arg1: integer): void
+public "onCalculateSynergy"(arg0: double, arg1: integer): double
+public "onUpdate"(arg0: $TraitActionContext$$Type, arg1: boolean): void
+public "onAttackEntity"(arg0: $TraitActionContext$$Type, arg1: $LivingEntity$$Type, arg2: float): float
+public "onGetAttributeModifiers"(arg0: $TraitActionContext$$Type, arg1: $ItemAttributeModifiers$Builder$$Type): void
+public "getMiningSpeedModifier"(arg0: integer, arg1: $BlockState$$Type): float
+public "onEntityIncomingDamage"(arg0: $ItemStack$$Type, arg1: integer, arg2: $LivingEntity$$Type, arg3: $DamageSource$$Type, arg4: float, arg5: float): float
+public "onItemUse"(arg0: $UseOnContext$$Type, arg1: integer): $InteractionResult
 get "extraWikiLines"(): $Collection<(StringJS)>
 }
 /**
@@ -986,8 +986,8 @@ constructor(arg0: T)
 public "value"(): T
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
-public static "createSimpleStreamCodec"<T, V extends $GearPropertyValue<(object)>, B extends $FriendlyByteBuf>(arg0: $StreamCodec$$Type<(B), (T)>, arg1: $Function$$Type<(T), (V)>): $StreamCodec<(B), (V)>
 public static "createSimpleValueCodec"<T, V extends $GearPropertyValue<(object)>>(arg0: $Codec$$Type<(T)>, arg1: $Function$$Type<(T), (V)>): $Codec<(V)>
+public static "createSimpleStreamCodec"<T, V extends $GearPropertyValue<(object)>, B extends $FriendlyByteBuf>(arg0: $StreamCodec$$Type<(B), (T)>, arg1: $Function$$Type<(T), (V)>): $StreamCodec<(B), (V)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1000,8 +1000,8 @@ export type $GearPropertyValue$$Type<T> = ($GearPropertyValue<(T)>);
 export type $GearPropertyValue$$Original<T> = $GearPropertyValue<(T)>;}
 declare module "net.silentchaos512.gear.api.material.modifier.IMaterialModifierType" {
 import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
-import {$ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
+import {$ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$IMaterialModifier, $IMaterialModifier$$Type} from "net.silentchaos512.gear.api.material.modifier.IMaterialModifier"
 import {$Optional} from "java.util.Optional"
 import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
@@ -1021,10 +1021,10 @@ get "id"(): $ResourceLocation
 
 export class $IMaterialModifierType<T extends $IMaterialModifier> implements $IMaterialModifierType$$Interface {
  "getId"(): $ResourceLocation
- "removeModifier"(arg0: $ItemStack$$Type): void
- "codec"(): $MapCodec<(T)>
- "streamCodec"(): $StreamCodec<($RegistryFriendlyByteBuf), (T)>
  "addModifier"(arg0: T, arg1: $ItemStack$$Type): void
+ "streamCodec"(): $StreamCodec<($RegistryFriendlyByteBuf), (T)>
+ "codec"(): $MapCodec<(T)>
+ "removeModifier"(arg0: $ItemStack$$Type): void
  "readModifier"(arg0: $ItemStack$$Type): $Optional<(T)>
 }
 /**
@@ -1099,15 +1099,15 @@ import {$Collection$$Type} from "java.util.Collection"
 import {$ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$FriendlyByteBuf} from "net.minecraft.network.FriendlyByteBuf"
 import {$List, $List$$Type} from "java.util.List"
-import {$GearPropertyValue, $GearPropertyValue$$Type} from "net.silentchaos512.gear.api.property.GearPropertyValue"
 import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component"
+import {$GearPropertyValue, $GearPropertyValue$$Type} from "net.silentchaos512.gear.api.property.GearPropertyValue"
 import {$GearPropertyGroup} from "net.silentchaos512.gear.api.property.GearPropertyGroup"
 import {$TextListBuilder$$Type} from "net.silentchaos512.gear.client.util.TextListBuilder"
 import {$PartGearKey$$Type} from "net.silentchaos512.gear.api.util.PartGearKey"
 import {$GearType$$Type} from "net.silentchaos512.gear.api.item.GearType"
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$GearTooltipFlag$$Type} from "net.silentchaos512.gear.client.util.GearTooltipFlag"
+import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$MutableComponent} from "net.minecraft.network.chat.MutableComponent"
 import {$GearComponentInstance$$Type} from "net.silentchaos512.gear.api.util.GearComponentInstance"
 import {$GearProperty$FormatContext$$Type} from "net.silentchaos512.gear.api.property.GearProperty$FormatContext"
@@ -1117,62 +1117,62 @@ public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public "isHidden"(arg0: V, arg1: $GearTooltipFlag$$Type): boolean
 public "valueOf"(arg0: T): V
-public "compute"(arg0: T, arg1: $Collection$$Type<(V)>): T
-public "compute"(arg0: T, arg1: boolean, arg2: $GearType$$Type, arg3: $GearType$$Type, arg4: $Collection$$Type<(V)>): T
 public "compute"(arg0: T, arg1: boolean, arg2: $GearType$$Type, arg3: $Collection$$Type<(V)>): T
+public "compute"(arg0: T, arg1: boolean, arg2: $GearType$$Type, arg3: $GearType$$Type, arg4: $Collection$$Type<(V)>): T
+public "compute"(arg0: T, arg1: $Collection$$Type<(V)>): T
 public "compute"(arg0: $Collection$$Type<(V)>): T
 public "getDefaultValue"(): T
 public "isZero"(arg0: T): boolean
 public "getDisplayName"(): $MutableComponent
 public "formatModifiersWithColorUnchecked"(arg0: $Collection$$Type<($GearPropertyValue$$Type<(never)>)>, arg1: boolean, arg2: $GearProperty$FormatContext$$Type): $MutableComponent
-/**
- * 
- * @deprecated
- */
-public "getTooltipLines"(arg0: V, arg1: $GearTooltipFlag$$Type): $List<($Component)>
-public "buildTooltip"(arg0: $TextListBuilder$$Type, arg1: V, arg2: $ItemStack$$Type, arg3: $GearTooltipFlag$$Type): void
-public "compressModifiers"(arg0: $Collection$$Type<(V)>, arg1: $PartGearKey$$Type, arg2: $List$$Type<($GearComponentInstance$$Type<(never)>)>): $List<(V)>
-public "isForMaterialsOnly"(): boolean
-public "computeForGear"(arg0: T, arg1: boolean, arg2: $GearType$$Type, arg3: $GearType$$Type, arg4: $Collection$$Type<(V)>, arg5: $List$$Type<($PartInstance$$Type)>): T
-public "rawStreamCodec"(): $StreamCodec<($FriendlyByteBuf), ($GearPropertyValue<(never)>)>
-public "isHiddenUnchecked"(arg0: $GearPropertyValue$$Type<(never)>, arg1: $GearTooltipFlag$$Type): boolean
-public "isAffectedByGrades"(): boolean
-public "computeUnchecked"(arg0: boolean, arg1: $GearType$$Type, arg2: $GearType$$Type, arg3: $Collection$$Type<($GearPropertyValue$$Type<(never)>)>): V
-public "formatModifiers"(arg0: $Collection$$Type<(V)>, arg1: boolean, arg2: $GearProperty$FormatContext$$Type): $Component
-public "getZeroValue"(): T
-public "getMinimumValue"(): T
-public "sortForDisplay"(arg0: $Collection$$Type<(V)>): $List<(V)>
-public "getMaximumValue"(): T
-public "applySynergy"(arg0: V, arg1: float): V
-public "formatText"(arg0: V, arg1: $GearTooltipFlag$$Type): $Component
-public "formatText"(arg0: $Component$$Type): $Component
-public "formatValueWithColor"(arg0: V, arg1: boolean, arg2: $GearProperty$FormatContext$$Type): $MutableComponent
-public "getPreferredDecimalPlaces"(arg0: V): integer
-public "isAffectedBySynergy"(): boolean
+public "formatValue"(arg0: V, arg1: $GearProperty$FormatContext$$Type): $Component
+public "formatTextUnchecked"(arg0: $GearPropertyValue$$Type<(never)>, arg1: $GearTooltipFlag$$Type): $Component
 public "formatModifiersUnchecked"(arg0: $Collection$$Type<($GearPropertyValue$$Type<(never)>)>, arg1: boolean, arg2: $GearProperty$FormatContext$$Type): $Component
+public "buildTooltipUnchecked"(arg0: $TextListBuilder$$Type, arg1: $GearPropertyValue$$Type<(never)>, arg2: $ItemStack$$Type, arg3: $GearTooltipFlag$$Type): void
 /**
  * 
  * @deprecated
  */
 public "getTooltipLinesUnchecked"(arg0: $GearPropertyValue$$Type<(never)>, arg1: $GearTooltipFlag$$Type): $List<($Component)>
 public "computeUncheckedForGear"(arg0: $GearType$$Type, arg1: $GearType$$Type, arg2: $Collection$$Type<($GearPropertyValue$$Type<(never)>)>, arg3: $List$$Type<($PartInstance$$Type)>): V
-public "formatTextUnchecked"(arg0: $GearPropertyValue$$Type<(never)>, arg1: $GearTooltipFlag$$Type): $Component
-public "buildTooltipUnchecked"(arg0: $TextListBuilder$$Type, arg1: $GearPropertyValue$$Type<(never)>, arg2: $ItemStack$$Type, arg3: $GearTooltipFlag$$Type): void
-public "formatValue"(arg0: V, arg1: $GearProperty$FormatContext$$Type): $Component
-public "getGroup"(): $GearPropertyGroup
-public "codec"(): $Codec<(V)>
+public "isAffectedBySynergy"(): boolean
 public "streamCodec"(): $StreamCodec<($RegistryFriendlyByteBuf), (V)>
+public "codec"(): $Codec<(V)>
+public "formatText"(arg0: V, arg1: $GearTooltipFlag$$Type): $Component
+public "formatText"(arg0: $Component$$Type): $Component
+public "computeForGear"(arg0: T, arg1: boolean, arg2: $GearType$$Type, arg3: $GearType$$Type, arg4: $Collection$$Type<(V)>, arg5: $List$$Type<($PartInstance$$Type)>): T
+public "buildTooltip"(arg0: $TextListBuilder$$Type, arg1: V, arg2: $ItemStack$$Type, arg3: $GearTooltipFlag$$Type): void
+public "getMinimumValue"(): T
+public "getMaximumValue"(): T
+public "isForMaterialsOnly"(): boolean
+public "isHiddenUnchecked"(arg0: $GearPropertyValue$$Type<(never)>, arg1: $GearTooltipFlag$$Type): boolean
+public "formatModifiers"(arg0: $Collection$$Type<(V)>, arg1: boolean, arg2: $GearProperty$FormatContext$$Type): $Component
+public "rawStreamCodec"(): $StreamCodec<($FriendlyByteBuf), ($GearPropertyValue<(never)>)>
+public "computeUnchecked"(arg0: boolean, arg1: $GearType$$Type, arg2: $GearType$$Type, arg3: $Collection$$Type<($GearPropertyValue$$Type<(never)>)>): V
+public "isAffectedByGrades"(): boolean
+public "getZeroValue"(): T
+public "applySynergy"(arg0: V, arg1: float): V
+public "compressModifiers"(arg0: $Collection$$Type<(V)>, arg1: $PartGearKey$$Type, arg2: $List$$Type<($GearComponentInstance$$Type<(never)>)>): $List<(V)>
+public "sortForDisplay"(arg0: $Collection$$Type<(V)>): $List<(V)>
+public "formatValueWithColor"(arg0: V, arg1: boolean, arg2: $GearProperty$FormatContext$$Type): $MutableComponent
+public "getPreferredDecimalPlaces"(arg0: V): integer
 public "getBaseValue"(): T
+public "getGroup"(): $GearPropertyGroup
+/**
+ * 
+ * @deprecated
+ */
+public "getTooltipLines"(arg0: V, arg1: $GearTooltipFlag$$Type): $List<($Component)>
 get "defaultValue"(): T
 get "displayName"(): $MutableComponent
+get "affectedBySynergy"(): boolean
+get "minimumValue"(): T
+get "maximumValue"(): T
 get "forMaterialsOnly"(): boolean
 get "affectedByGrades"(): boolean
 get "zeroValue"(): T
-get "minimumValue"(): T
-get "maximumValue"(): T
-get "affectedBySynergy"(): boolean
-get "group"(): $GearPropertyGroup
 get "baseValue"(): T
+get "group"(): $GearPropertyGroup
 /**
  * This field is a type stub generated by ProbeJS and shall not be used in any sense.
  */
@@ -1192,13 +1192,13 @@ export type $GearProperty$$Type<T, V> = (Special.SilentgearProperty);
  */
 export type $GearProperty$$Original<T, V> = $GearProperty<(T), (V)>;}
 declare module "net.silentchaos512.gear.api.part.PartList$Immutable" {
-import {$PartList} from "net.silentchaos512.gear.api.part.PartList"
 import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
+import {$PartList} from "net.silentchaos512.gear.api.part.PartList"
 import {$PartInstance, $PartInstance$$Type} from "net.silentchaos512.gear.gear.part.PartInstance"
 import {$Collection$$Type} from "java.util.Collection"
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$SequencedCollection} from "java.util.SequencedCollection"
+import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$List} from "java.util.List"
 
 export class $PartList$Immutable extends $PartList {
@@ -1246,8 +1246,8 @@ export type $PartList$Immutable$$Type = ($PartList$Immutable);
  */
 export type $PartList$Immutable$$Original = $PartList$Immutable;}
 declare module "net.silentchaos512.gear.api.event.GetMaterialPropertiesEvent" {
-import {$MaterialInstance, $MaterialInstance$$Type} from "net.silentchaos512.gear.gear.material.MaterialInstance"
 import {$GearProperty, $GearProperty$$Type} from "net.silentchaos512.gear.api.property.GearProperty"
+import {$MaterialInstance, $MaterialInstance$$Type} from "net.silentchaos512.gear.gear.material.MaterialInstance"
 import {$Collection$$Type} from "java.util.Collection"
 import {$List} from "java.util.List"
 import {$Event} from "net.neoforged.bus.api.Event"
@@ -1301,8 +1301,8 @@ export type $GearItemEvent$$Type = ($GearItemEvent);
 export type $GearItemEvent$$Original = $GearItemEvent;}
 declare module "net.silentchaos512.gear.api.util.GearComponentInstance" {
 import {$GearProperty$$Type} from "net.silentchaos512.gear.api.property.GearProperty"
-import {$Collection} from "java.util.Collection"
 import {$PropertyKey$$Type} from "net.silentchaos512.gear.api.util.PropertyKey"
+import {$Collection} from "java.util.Collection"
 import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$TraitInstance} from "net.silentchaos512.gear.api.traits.TraitInstance"
 import {$GearPropertyValue} from "net.silentchaos512.gear.api.property.GearPropertyValue"
@@ -1328,10 +1328,10 @@ export class $GearComponentInstance<A extends $GearComponent<(object)>> implemen
  "getDisplayName"(arg0: $PartType$$Type): $Component
  "getDisplayName"(arg0: $PartType$$Type, arg1: $ItemStack$$Type): $Component
  "getItem"(): $ItemStack
- "getNameColor"(arg0: $PartType$$Type, arg1: $GearType$$Type): integer
  "getPropertyModifiers"<T, V extends $GearPropertyValue<(object)>>(arg0: $PartType$$Type, arg1: $PropertyKey$$Type<(T), (V)>): $Collection<(V)>
  "getPropertyModifiers"<T, V extends $GearPropertyValue<(object)>>(arg0: $Supplier$$Type<($PartType$$Type)>, arg1: $PropertyKey$$Type<(T), (V)>): $Collection<(V)>
  "getTraits"(arg0: $PartGearKey$$Type): $Collection<($TraitInstance)>
+ "getNameColor"(arg0: $PartType$$Type, arg1: $GearType$$Type): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1427,12 +1427,12 @@ public static "of"(arg0: $GearType$$Type, arg1: $PartType$$Type): $PartGearKey
 public static "of"(arg0: $Supplier$$Type<($GearType$$Type)>, arg1: $Supplier$$Type<($PartType$$Type)>): $PartGearKey
 public "getParent"(): $PartGearKey
 public "getDisplayName"(): $Component
-public "gearType"(): $GearType
-public "getGearType"(): $GearType
-public "getPartType"(): $PartType
 public "partType"(): $PartType
-public static "ofAll"(arg0: $Supplier$$Type<($PartType$$Type)>): $PartGearKey
+public "gearType"(): $GearType
 public static "ofAll"(arg0: $PartType$$Type): $PartGearKey
+public static "ofAll"(arg0: $Supplier$$Type<($PartType$$Type)>): $PartGearKey
+public "getPartType"(): $PartType
+public "getGearType"(): $GearType
 public static "ofMain"(arg0: $Supplier$$Type<($GearType$$Type)>): $PartGearKey
 public static "ofMain"(arg0: $GearType$$Type): $PartGearKey
 get "parent"(): $PartGearKey
@@ -1452,8 +1452,8 @@ import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
 import {$GearType, $GearType$$Type} from "net.silentchaos512.gear.api.item.GearType"
 import {$Codec} from "com.mojang.serialization.Codec"
 import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
-import {$List$$Type} from "java.util.List"
 import {$Predicate, $Predicate$$Type, $Predicate$$Interface} from "java.util.function.Predicate"
+import {$List$$Type} from "java.util.List"
 
 export class $GearTypeMatcher implements $Predicate$$Interface<($GearType)> {
 static readonly "ALL": $GearTypeMatcher
@@ -1561,8 +1561,8 @@ import {$GearPropertyGroup, $GearPropertyGroup$$Type} from "net.silentchaos512.g
 import {$GearTypeMatcher} from "net.silentchaos512.gear.api.item.GearTypeMatcher"
 import {$Codec} from "com.mojang.serialization.Codec"
 import {$GearPropertiesData$$Type} from "net.silentchaos512.gear.core.component.GearPropertiesData"
-import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$GearItem} from "net.silentchaos512.gear.api.item.GearItem"
+import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$Supplier, $Supplier$$Type} from "java.util.function.Supplier"
 import {$NumberProperty, $NumberProperty$$Type} from "net.silentchaos512.gear.api.property.NumberProperty"
 import {$Set, $Set$$Type} from "java.util.Set"
@@ -1582,20 +1582,20 @@ public "matches"(arg0: $GearType$$Type): boolean
 public "matches"(arg0: $GearType$$Type, arg1: boolean): boolean
 public "getDisplayName"(): $Component
 public static "getItem"(arg0: $GearType$$Type): $GearItem
-public "isArmor"(): boolean
-public "armorDurabilityMultiplier"(): float
-public "durabilityStat"(): $Supplier<($NumberProperty)>
 public "isGear"(): boolean
+public "isArmor"(): boolean
+public "getMatcher"(arg0: boolean): $GearTypeMatcher
+public "relevantPropertyGroups"(): $Set<($GearPropertyGroup)>
+public "armorDurabilityMultiplier"(): float
+public "canPerformAction"(arg0: $ItemAbility$$Type): boolean
+public "itemAbilities"(): $Set<($ItemAbility)>
+public "animationFrames"(): integer
 public "isPropertyRelevant"(arg0: $GearProperty$$Type<(never), (never)>): boolean
 public "getBaseDurability"(arg0: $GearPropertiesData$$Type): integer
-public "animationFrames"(): integer
-public "relevantPropertyGroups"(): $Set<($GearPropertyGroup)>
-public "itemAbilities"(): $Set<($ItemAbility)>
-public "canPerformAction"(arg0: $ItemAbility$$Type): boolean
-public "getMatcher"(arg0: boolean): $GearTypeMatcher
+public "durabilityStat"(): $Supplier<($NumberProperty)>
 get "displayName"(): $Component
-get "armor"(): boolean
 get "gear"(): boolean
+get "armor"(): boolean
 /**
  * This field is a type stub generated by ProbeJS and shall not be used in any sense.
  */
@@ -1609,7 +1609,7 @@ get "gear"(): boolean
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $GearType$$Type = (Special.SilentgearGearType) | ({"itemAbilities"?: $Set$$Type<($ItemAbility$$Type)>, "durabilityStat"?: $Supplier$$Type<($NumberProperty$$Type)>, "parent"?: $Supplier$$Type<($GearType$$Type)>, "armorDurabilityMultiplier"?: float, "animationFrames"?: integer, "relevantPropertyGroups"?: $Set$$Type<($GearPropertyGroup$$Type)>}) | ([itemAbilities?: $Set$$Type<($ItemAbility$$Type)>, durabilityStat?: $Supplier$$Type<($NumberProperty$$Type)>, parent?: $Supplier$$Type<($GearType$$Type)>, armorDurabilityMultiplier?: float, animationFrames?: integer, relevantPropertyGroups?: $Set$$Type<($GearPropertyGroup$$Type)>]);
+export type $GearType$$Type = (Special.SilentgearGearType) | ({"animationFrames"?: integer, "armorDurabilityMultiplier"?: float, "parent"?: $Supplier$$Type<($GearType$$Type)>, "durabilityStat"?: $Supplier$$Type<($NumberProperty$$Type)>, "itemAbilities"?: $Set$$Type<($ItemAbility$$Type)>, "relevantPropertyGroups"?: $Set$$Type<($GearPropertyGroup$$Type)>}) | ([animationFrames?: integer, armorDurabilityMultiplier?: float, parent?: $Supplier$$Type<($GearType$$Type)>, durabilityStat?: $Supplier$$Type<($NumberProperty$$Type)>, itemAbilities?: $Set$$Type<($ItemAbility$$Type)>, relevantPropertyGroups?: $Set$$Type<($GearPropertyGroup$$Type)>]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -1644,8 +1644,8 @@ export type $MaterialSerializer$$Type<T> = (Special.SilentgearMaterialSerializer
 export type $MaterialSerializer$$Original<T> = $MaterialSerializer<(T)>;}
 declare module "net.silentchaos512.gear.api.part.PartList" {
 import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
-import {$Iterator} from "java.util.Iterator"
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
+import {$Iterator} from "java.util.Iterator"
 import {$PartInstance, $PartInstance$$Type} from "net.silentchaos512.gear.gear.part.PartInstance"
 import {$Collection$$Type} from "java.util.Collection"
 import {$SequencedCollection} from "java.util.SequencedCollection"
@@ -1653,8 +1653,8 @@ import {$Comparator$$Type} from "java.util.Comparator"
 import {$Spliterator} from "java.util.Spliterator"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$List, $List$$Interface} from "java.util.List"
-import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$IntFunction$$Type} from "java.util.function.IntFunction"
+import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$GearType$$Type} from "net.silentchaos512.gear.api.item.GearType"
 import {$ListIterator} from "java.util.ListIterator"
 import {$Codec} from "com.mojang.serialization.Codec"
@@ -1700,15 +1700,15 @@ public "retainAll"(arg0: $Collection$$Type<(never)>): boolean
 public "listIterator"(): $ListIterator<($PartInstance)>
 public "listIterator"(arg0: integer): $ListIterator<($PartInstance)>
 public "containsAll"(arg0: $Collection$$Type<(never)>): boolean
-public "getParts"(arg0: $Predicate$$Type<($PartInstance)>): $List<($PartInstance)>
-public "toSortedList"(): $List<($PartInstance)>
 public static "immutable"(...arg0: ($PartInstance$$Type)[]): $PartList$Immutable
 public static "immutable"(arg0: $Collection$$Type<($PartInstance$$Type)>): $PartList$Immutable
 public "getPartsOfType"(arg0: $PartType$$Type): $List<($PartInstance)>
-public "getMains"(): $List<($PartInstance)>
-public "getTips"(): $List<($PartInstance)>
-public "getRods"(): $List<($PartInstance)>
+public "getParts"(arg0: $Predicate$$Type<($PartInstance)>): $List<($PartInstance)>
+public "toSortedList"(): $List<($PartInstance)>
 public "getPropertyModifiersFromParts"(arg0: $GearType$$Type): $GearPropertyMap
+public "getRods"(): $List<($PartInstance)>
+public "getTips"(): $List<($PartInstance)>
+public "getMains"(): $List<($PartInstance)>
 public static "copyOf"<E>(arg0: $Collection$$Type<($PartInstance$$Type)>): $List<($PartInstance)>
 public "replaceAll"(arg0: $UnaryOperator$$Type<($PartInstance)>): void
 public static "of"<E>(arg0: $PartInstance$$Type, arg1: $PartInstance$$Type, arg2: $PartInstance$$Type): $List<($PartInstance)>
@@ -1739,9 +1739,9 @@ public "parallelStream"(): $Stream<($PartInstance)>
 public "forEach"(arg0: $Consumer$$Type<($PartInstance)>): void
 [Symbol.iterator](): IterableIterator<$PartInstance>;
 [index: number]: $PartInstance
-get "mains"(): $List<($PartInstance)>
-get "tips"(): $List<($PartInstance)>
 get "rods"(): $List<($PartInstance)>
+get "tips"(): $List<($PartInstance)>
+get "mains"(): $List<($PartInstance)>
 get "first"(): $PartInstance
 get "last"(): $PartInstance
 }

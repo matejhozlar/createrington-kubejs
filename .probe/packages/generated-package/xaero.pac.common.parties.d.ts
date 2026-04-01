@@ -47,15 +47,15 @@ import {$IPartyPlayerInfoAPI$$Interface} from "xaero.pac.common.parties.party.ap
 
 export interface $IPartyMemberAPI$$Interface extends $IPartyPlayerInfoAPI$$Interface {
 get "UUID"(): $UUID
-get "username"(): StringJS
 get "rank"(): $PartyMemberRank
+get "username"(): StringJS
 get "owner"(): boolean
 }
 
 export class $IPartyMemberAPI implements $IPartyMemberAPI$$Interface {
  "getUUID"(): $UUID
- "getUsername"(): StringJS
  "getRank"(): $PartyMemberRank
+ "getUsername"(): StringJS
  "isOwner"(): boolean
 }
 /**
@@ -71,8 +71,8 @@ declare module "xaero.pac.common.parties.party.api.IPartyAPI" {
 import {$PartyMemberRank$$Type} from "xaero.pac.common.parties.party.member.PartyMemberRank"
 import {$UUID, $UUID$$Type} from "java.util.UUID"
 import {$IPartyAllyAPI} from "xaero.pac.common.parties.party.ally.api.IPartyAllyAPI"
-import {$Stream} from "java.util.stream.Stream"
 import {$IPartyPlayerInfoAPI} from "xaero.pac.common.parties.party.api.IPartyPlayerInfoAPI"
+import {$Stream} from "java.util.stream.Stream"
 import {$IPartyMemberAPI, $IPartyMemberAPI$$Type} from "xaero.pac.common.parties.party.member.api.IPartyMemberAPI"
 
 export interface $IPartyAPI$$Interface {
@@ -81,11 +81,11 @@ get "owner"(): $IPartyMemberAPI
 get "defaultName"(): StringJS
 get "allyPartiesStream"(): $Stream<($IPartyAllyAPI)>
 get "nonStaffInfoStream"(): $Stream<($IPartyMemberAPI)>
-get "invitedPlayersStream"(): $Stream<($IPartyPlayerInfoAPI)>
 get "memberInfoStream"(): $Stream<($IPartyMemberAPI)>
+get "invitedPlayersStream"(): $Stream<($IPartyPlayerInfoAPI)>
 get "allyCount"(): integer
-get "memberCount"(): integer
 get "staffInfoStream"(): $Stream<($IPartyMemberAPI)>
+get "memberCount"(): integer
 get "inviteCount"(): integer
 }
 
@@ -93,17 +93,17 @@ export class $IPartyAPI implements $IPartyAPI$$Interface {
  "getId"(): $UUID
  "getOwner"(): $IPartyMemberAPI
  "getDefaultName"(): StringJS
- "setRank"(arg0: $IPartyMemberAPI$$Type, arg1: $PartyMemberRank$$Type): boolean
+ "isInvited"(arg0: $UUID$$Type): boolean
  "getAllyPartiesStream"(): $Stream<($IPartyAllyAPI)>
  "getNonStaffInfoStream"(): $Stream<($IPartyMemberAPI)>
- "getInvitedPlayersStream"(): $Stream<($IPartyPlayerInfoAPI)>
  "getMemberInfoStream"(): $Stream<($IPartyMemberAPI)>
- "getMemberInfo"(arg0: $UUID$$Type): $IPartyMemberAPI
+ "getInvitedPlayersStream"(): $Stream<($IPartyPlayerInfoAPI)>
  "getAllyCount"(): integer
- "getMemberCount"(): integer
  "getStaffInfoStream"(): $Stream<($IPartyMemberAPI)>
+ "getMemberCount"(): integer
+ "getMemberInfo"(arg0: $UUID$$Type): $IPartyMemberAPI
  "getInviteCount"(): integer
- "isInvited"(arg0: $UUID$$Type): boolean
+ "setRank"(arg0: $IPartyMemberAPI$$Type, arg1: $PartyMemberRank$$Type): boolean
  "isAlly"(arg0: $UUID$$Type): boolean
 }
 /**

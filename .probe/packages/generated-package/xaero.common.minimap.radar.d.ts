@@ -26,8 +26,8 @@ export type $IPlayerTrackerSystem$$Type<P> = ($IPlayerTrackerSystem<(P)>);
  */
 export type $IPlayerTrackerSystem$$Original<P> = $IPlayerTrackerSystem<(P)>;}
 declare module "xaero.common.minimap.radar.tracker.system.PlayerTrackerSystemManager" {
-import {$Iterable} from "java.lang.Iterable"
 import {$IPlayerTrackerSystem, $IPlayerTrackerSystem$$Type} from "xaero.common.minimap.radar.tracker.system.IPlayerTrackerSystem"
+import {$Iterable} from "java.lang.Iterable"
 import {$RenderedPlayerTrackerManager} from "xaero.hud.minimap.player.tracker.system.RenderedPlayerTrackerManager"
 import {$IRenderedPlayerTracker$$Type} from "xaero.hud.minimap.player.tracker.system.IRenderedPlayerTracker"
 
@@ -85,15 +85,15 @@ public "getEntities"(): $Iterable
  * 
  * @deprecated
  */
-public "getClientCategory"(): $EntityRadarCategory
+public "setClientCategory"(arg0: $EntityRadarCategory$$Type): $MinimapRadarList
 /**
  * 
  * @deprecated
  */
-public "setClientCategory"(arg0: $EntityRadarCategory$$Type): $MinimapRadarList
+public "getClientCategory"(): $EntityRadarCategory
 get "entities"(): $Iterable
-get "clientCategory"(): $EntityRadarCategory
 set "clientCategory"(value: $EntityRadarCategory$$Type)
+get "clientCategory"(): $EntityRadarCategory
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -151,11 +151,11 @@ export type $ClientSyncedTrackedPlayerManager$$Type = ($ClientSyncedTrackedPlaye
  */
 export type $ClientSyncedTrackedPlayerManager$$Original = $ClientSyncedTrackedPlayerManager;}
 declare module "xaero.common.minimap.radar.MinimapRadar" {
-import {$MinimapProcessor$$Type} from "xaero.common.minimap.MinimapProcessor"
 import {$Iterator} from "java.util.Iterator"
-import {$MinimapRadarList} from "xaero.common.minimap.radar.MinimapRadarList"
-import {$ClientLevel$$Type} from "net.minecraft.client.multiplayer.ClientLevel"
+import {$MinimapProcessor$$Type} from "xaero.common.minimap.MinimapProcessor"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
+import {$ClientLevel$$Type} from "net.minecraft.client.multiplayer.ClientLevel"
+import {$MinimapRadarList} from "xaero.common.minimap.radar.MinimapRadarList"
 import {$EntityRadarCategory$$Type} from "xaero.hud.minimap.radar.category.EntityRadarCategory"
 import {$Entity$$Type} from "net.minecraft.world.entity.Entity"
 import {$RadarSession} from "xaero.hud.minimap.radar.RadarSession"
@@ -176,17 +176,17 @@ constructor(arg0: $EntityRadarCategoryManager$$Type)
  * 
  * @deprecated
  */
-public "getRadarListsIterator"(): $Iterator<($MinimapRadarList)>
+public "updateRadar"(arg0: $ClientLevel$$Type, arg1: $Player$$Type, arg2: $Entity$$Type, arg3: $MinimapProcessor$$Type): void
 /**
  * 
  * @deprecated
  */
-public "getEntityCategoryManager"(): $EntityRadarCategoryManager
+public "getEntityColour"(arg0: $Player$$Type, arg1: $Entity$$Type, arg2: float, arg3: boolean, arg4: $EntityRadarCategory$$Type, arg5: integer, arg6: integer, arg7: boolean, arg8: integer): integer
 /**
  * 
  * @deprecated
  */
-public "getEntityBrightness"(arg0: float, arg1: integer, arg2: integer, arg3: boolean): float
+public "setLastRenderViewEntity"(arg0: $Entity$$Type): void
 /**
  * 
  * @deprecated
@@ -196,7 +196,7 @@ public "getMaxDistance"(arg0: $MinimapProcessor$$Type, arg1: boolean): double
  * 
  * @deprecated
  */
-public "getTeamColour"(arg0: $Entity$$Type): integer
+public "getEntityX"(arg0: $Entity$$Type, arg1: float): double
 /**
  * 
  * @deprecated
@@ -211,25 +211,25 @@ public "getEntityZ"(arg0: $Entity$$Type, arg1: float): double
  * 
  * @deprecated
  */
-public "getEntityX"(arg0: $Entity$$Type, arg1: float): double
+public "getTeamColour"(arg0: $Entity$$Type): integer
 /**
  * 
  * @deprecated
  */
-public "setLastRenderViewEntity"(arg0: $Entity$$Type): void
+public "getEntityBrightness"(arg0: float, arg1: integer, arg2: integer, arg3: boolean): float
 /**
  * 
  * @deprecated
  */
-public "updateRadar"(arg0: $ClientLevel$$Type, arg1: $Player$$Type, arg2: $Entity$$Type, arg3: $MinimapProcessor$$Type): void
+public "getEntityCategoryManager"(): $EntityRadarCategoryManager
 /**
  * 
  * @deprecated
  */
-public "getEntityColour"(arg0: $Player$$Type, arg1: $Entity$$Type, arg2: float, arg3: boolean, arg4: $EntityRadarCategory$$Type, arg5: integer, arg6: integer, arg7: boolean, arg8: integer): integer
-get "radarListsIterator"(): $Iterator<($MinimapRadarList)>
-get "entityCategoryManager"(): $EntityRadarCategoryManager
+public "getRadarListsIterator"(): $Iterator<($MinimapRadarList)>
 set "lastRenderViewEntity"(value: $Entity$$Type)
+get "entityCategoryManager"(): $EntityRadarCategoryManager
+get "radarListsIterator"(): $Iterator<($MinimapRadarList)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

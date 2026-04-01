@@ -47,10 +47,10 @@ static readonly "AUDIO": $ServerConfig$Codec
 
 public static "values"(): ($ServerConfig$Codec)[]
 public static "valueOf"(arg0: StringJS): $ServerConfig$Codec
-public "getApplication"(): $OpusEncoder$Application
 public "getMode"(): $OpusEncoderMode
-get "application"(): $OpusEncoder$Application
+public "getApplication"(): $OpusEncoder$Application
 get "mode"(): $OpusEncoderMode
+get "application"(): $OpusEncoder$Application
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

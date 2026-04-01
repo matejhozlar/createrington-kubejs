@@ -5,13 +5,13 @@ export interface $ColorwheelBufferBuilder$$Interface extends $BlockSensitiveBuff
 }
 
 export class $ColorwheelBufferBuilder implements $ColorwheelBufferBuilder$$Interface {
- "clrwlBeginBlock"(block: integer, renderType: byte, lightEmission: byte, isTerrain: boolean, posX: integer, posY: integer, posZ: integer): void
  "clrwlEndBlock"(): void
- "restoreBlock"(): void
- "ignoreMidBlock"(arg0: boolean): void
+ "clrwlBeginBlock"(block: integer, renderType: byte, lightEmission: byte, isTerrain: boolean, posX: integer, posY: integer, posZ: integer): void
  "overrideBlock"(arg0: integer): void
- "endBlock"(): void
+ "ignoreMidBlock"(arg0: boolean): void
+ "restoreBlock"(): void
  "beginBlock"(arg0: integer, arg1: byte, arg2: byte, arg3: integer, arg4: integer, arg5: integer): void
+ "endBlock"(): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

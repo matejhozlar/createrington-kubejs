@@ -9,15 +9,15 @@ import {$Holder, $Holder$$Type} from "net.minecraft.core.Holder"
 export class $ComputeEnchantedLootBonusEvent extends $LivingEvent {
 constructor(entity: $LivingEntity$$Type, damageSource: $DamageSource$$Type, enchantment: $Holder$$Type<($Enchantment)>, enchantmentLevel: integer)
 
-public "getEnchantment"(): $Holder<($Enchantment)>
 public "getEnchantmentLevel"(): integer
-public static "onComputeEnchantedLootBonus"(enchantment: $Holder$$Type<($Enchantment)>, enchantmentLevel: integer, livingEntity: $LivingEntity$$Type, damageSource: $DamageSource$$Type): integer
-public static "onComputeEnchantedLootBonus"(enchantment: $Holder$$Type<($Enchantment)>, enchantmentLevel: integer, lootContext: $LootContext$$Type): integer
 public "getDamageSource"(): $DamageSource
+public "getEnchantment"(): $Holder<($Enchantment)>
+public static "onComputeEnchantedLootBonus"(enchantment: $Holder$$Type<($Enchantment)>, enchantmentLevel: integer, lootContext: $LootContext$$Type): integer
+public static "onComputeEnchantedLootBonus"(enchantment: $Holder$$Type<($Enchantment)>, enchantmentLevel: integer, livingEntity: $LivingEntity$$Type, damageSource: $DamageSource$$Type): integer
 public "setEnchantmentLevel"(enchantmentLevel: integer): void
-get "enchantment"(): $Holder<($Enchantment)>
 get "enchantmentLevel"(): integer
 get "damageSource"(): $DamageSource
+get "enchantment"(): $Holder<($Enchantment)>
 set "enchantmentLevel"(value: integer)
 }
 /**

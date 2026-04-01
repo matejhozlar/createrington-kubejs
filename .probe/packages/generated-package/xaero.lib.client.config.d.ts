@@ -24,22 +24,22 @@ export type $ClientConfigOptionManager$$Type = ($ClientConfigOptionManager);
 export type $ClientConfigOptionManager$$Original = $ClientConfigOptionManager;}
 declare module "xaero.lib.client.config.option.value.redirect.ClientOptionValueRedirectorManager" {
 import {$ConfigChannel$$Type} from "xaero.lib.common.config.channel.ConfigChannel"
-import {$ConfigOption$$Type} from "xaero.lib.common.config.option.ConfigOption"
 import {$Screen, $Screen$$Type} from "net.minecraft.client.gui.screens.Screen"
+import {$ConfigOption$$Type} from "xaero.lib.common.config.option.ConfigOption"
 import {$Function$$Type} from "java.util.function.Function"
-import {$OptionValueRedirectorManager} from "xaero.lib.common.config.option.value.redirect.OptionValueRedirectorManager"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$OptionValueRedirectorManager} from "xaero.lib.common.config.option.value.redirect.OptionValueRedirectorManager"
 import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component"
 
 export class $ClientOptionValueRedirectorManager extends $OptionValueRedirectorManager {
 public "getName"(arg0: $ConfigOption$$Type<(never)>): $Component
 public "register"<T>(arg0: $ConfigOption$$Type<(T)>, arg1: $Supplier$$Type<(T)>, arg2: $Predicate$$Type<($ConfigChannel)>, arg3: $Function$$Type<($Screen), ($Screen$$Type)>, arg4: $Component$$Type, arg5: $Supplier$$Type<($Component$$Type)>): void
 public "register"<T>(arg0: $ConfigOption$$Type<(T)>, arg1: $Supplier$$Type<(T)>, arg2: $Predicate$$Type<($ConfigChannel)>): void
-public "shouldDeactivateWidget"(arg0: $ConfigOption$$Type<(never)>): boolean
-public "redirectScreen"(arg0: $ConfigOption$$Type<(never)>, arg1: $Screen$$Type): $Screen
-public "redirectScreen"(arg0: $ConfigOption$$Type<(never)>): boolean
 public "getTooltip"(arg0: $ConfigOption$$Type<(never)>): $Component
+public "shouldDeactivateWidget"(arg0: $ConfigOption$$Type<(never)>): boolean
+public "redirectScreen"(arg0: $ConfigOption$$Type<(never)>): boolean
+public "redirectScreen"(arg0: $ConfigOption$$Type<(never)>, arg1: $Screen$$Type): $Screen
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -52,8 +52,8 @@ export type $ClientOptionValueRedirectorManager$$Type = ($ClientOptionValueRedir
 export type $ClientOptionValueRedirectorManager$$Original = $ClientOptionValueRedirectorManager;}
 declare module "xaero.lib.client.config.listener.ClientConfigChangeListener" {
 import {$ConfigOption$$Type} from "xaero.lib.common.config.option.ConfigOption"
-import {$Config$$Type} from "xaero.lib.common.config.Config"
 import {$HandlerBasedConfigChangeListener} from "xaero.lib.common.config.listener.handler.HandlerBasedConfigChangeListener"
+import {$Config$$Type} from "xaero.lib.common.config.Config"
 import {$ClientConfigManager} from "xaero.lib.client.config.ClientConfigManager"
 
 export class $ClientConfigChangeListener extends $HandlerBasedConfigChangeListener {
@@ -71,8 +71,8 @@ export type $ClientConfigChangeListener$$Type = ($ClientConfigChangeListener);
  */
 export type $ClientConfigChangeListener$$Original = $ClientConfigChangeListener;}
 declare module "xaero.lib.client.config.ClientConfigManager" {
-import {$ConfigProfileManager} from "xaero.lib.common.config.profile.ConfigProfileManager"
 import {$ConfigChannel, $ConfigChannel$$Type} from "xaero.lib.common.config.channel.ConfigChannel"
+import {$ConfigProfileManager} from "xaero.lib.common.config.profile.ConfigProfileManager"
 import {$ConfigProfile, $ConfigProfile$$Type} from "xaero.lib.common.config.profile.ConfigProfile"
 import {$ClientConfigChangeListener} from "xaero.lib.client.config.listener.ClientConfigChangeListener"
 import {$ConfigOption$$Type} from "xaero.lib.common.config.option.ConfigOption"
@@ -83,28 +83,28 @@ import {$SyncedConfigManager} from "xaero.lib.client.config.sync.SyncedConfigMan
 
 export class $ClientConfigManager {
 public "getChannel"(): $ConfigChannel
-public "postLoad"(): void
-public "getChangeListener"(): $ClientConfigChangeListener
-public "getCurrentProfile"(): $ConfigProfile
-public "getRaw"<T>(arg0: $ConfigProfile$$Type, arg1: $ConfigOption$$Type<(T)>): T
-public "getRaw"<T>(arg0: $ConfigOption$$Type<(T)>): T
-public "getRedirectorManager"(): $ClientOptionValueRedirectorManager
-public "setChannel"(arg0: $ConfigChannel$$Type): void
-public "getServerSynced"(): $SyncedConfigManager
-public "getProfileManager"(): $ConfigProfileManager
-public "getPrimaryConfigManager"(): $SingleConfigManager<($Config)>
-public "getEffective"<T>(arg0: $ConfigProfile$$Type, arg1: $ConfigOption$$Type<(T)>): T
-public "getEffective"<T>(arg0: $ConfigOption$$Type<(T)>): T
 public "shouldIgnoreServerEnforcement"<T>(arg0: $ConfigProfile$$Type, arg1: $ConfigOption$$Type<(T)>): boolean
 public "shouldIgnoreServerEnforcement"<T>(arg0: $ConfigOption$$Type<(T)>): boolean
+public "getCurrentProfile"(): $ConfigProfile
+public "postLoad"(): void
+public "getRaw"<T>(arg0: $ConfigProfile$$Type, arg1: $ConfigOption$$Type<(T)>): T
+public "getRaw"<T>(arg0: $ConfigOption$$Type<(T)>): T
+public "getEffective"<T>(arg0: $ConfigOption$$Type<(T)>): T
+public "getEffective"<T>(arg0: $ConfigProfile$$Type, arg1: $ConfigOption$$Type<(T)>): T
+public "getServerSynced"(): $SyncedConfigManager
+public "getChangeListener"(): $ClientConfigChangeListener
+public "setChannel"(arg0: $ConfigChannel$$Type): void
+public "getPrimaryConfigManager"(): $SingleConfigManager<($Config)>
+public "getRedirectorManager"(): $ClientOptionValueRedirectorManager
+public "getProfileManager"(): $ConfigProfileManager
 get "channel"(): $ConfigChannel
-get "changeListener"(): $ClientConfigChangeListener
 get "currentProfile"(): $ConfigProfile
-get "redirectorManager"(): $ClientOptionValueRedirectorManager
-set "channel"(value: $ConfigChannel$$Type)
 get "serverSynced"(): $SyncedConfigManager
-get "profileManager"(): $ConfigProfileManager
+get "changeListener"(): $ClientConfigChangeListener
+set "channel"(value: $ConfigChannel$$Type)
 get "primaryConfigManager"(): $SingleConfigManager<($Config)>
+get "redirectorManager"(): $ClientOptionValueRedirectorManager
+get "profileManager"(): $ConfigProfileManager
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -123,8 +123,8 @@ import {$ConfigProfileInfoPacket$Entry$$Type} from "xaero.lib.common.packet.conf
 import {$List$$Type} from "java.util.List"
 import {$ConfigOptionManager$$Type} from "xaero.lib.common.config.option.ConfigOptionManager"
 import {$Logger, $Logger$$Type} from "org.apache.logging.log4j.Logger"
-import {$SyncedConfigManager$$Type} from "xaero.lib.client.config.sync.SyncedConfigManager"
 import {$AbstractConfigPacket$OptionEntry$$Type} from "xaero.lib.common.packet.config.AbstractConfigPacket$OptionEntry"
+import {$SyncedConfigManager$$Type} from "xaero.lib.client.config.sync.SyncedConfigManager"
 
 export class $ClientConfigChannelSynchronizer extends $CommonConfigChannelSynchronizer {
 readonly "logger": $Logger
@@ -132,15 +132,15 @@ readonly "logger": $Logger
 constructor(arg0: $ConfigOptionManager$$Type, arg1: $SyncedConfigManager$$Type, arg2: $Logger$$Type)
 
 public "reset"(): void
-public "deleteProfile"(arg0: StringJS): void
 public "createProfile"(arg0: StringJS, arg1: StringJS, arg2: StringJS): void
+public "syncDirtyOptions"(arg0: $ConfigProfile$$Type): void
+public "requestProfile"(arg0: StringJS): void
 public "changeDefaultEnforcedProfileId"(arg0: StringJS): void
 public "onDeleteConfigProfilePacket"(arg0: StringJS): void
-public "onConfigProfileInfoPacket"(arg0: $List$$Type<($ConfigProfileInfoPacket$Entry$$Type)>, arg1: StringJS, arg2: boolean): void
-public "onEnforcedConfigPacket"(arg0: boolean, arg1: $Iterable$$Type<($AbstractConfigPacket$OptionEntry$$Type)>): void
 public "onEditProfilePacket"(arg0: StringJS, arg1: $Iterable$$Type<($AbstractConfigPacket$OptionEntry$$Type)>): void
-public "requestProfile"(arg0: StringJS): void
-public "syncDirtyOptions"(arg0: $ConfigProfile$$Type): void
+public "onEnforcedConfigPacket"(arg0: boolean, arg1: $Iterable$$Type<($AbstractConfigPacket$OptionEntry$$Type)>): void
+public "onConfigProfileInfoPacket"(arg0: $List$$Type<($ConfigProfileInfoPacket$Entry$$Type)>, arg1: StringJS, arg2: boolean): void
+public "deleteProfile"(arg0: StringJS): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -164,28 +164,28 @@ export class $SyncedConfigManager extends $SingleConfigManager<($Config)> {
 readonly "logger": $Logger
 
 public "reset"(): void
-public "setSynchronizer"(arg0: $ClientConfigChannelSynchronizer$$Type): void
-public "setChannel"(arg0: $ConfigChannel$$Type): void
-public "confirmChannelPresenceOnServer"(): void
-public "resetEdit"(): void
-public "setSyncingEditedProfile"(arg0: boolean): void
-public "getProfileInfoManager"(): $SyncedConfigProfileInfoManager
-public "setDesiredEditedProfileId"(arg0: StringJS): void
-public "receiveEditedProfile"(arg0: $ConfigProfile$$Type): void
 public "isSyncingEditedProfile"(): boolean
 public "isChannelPresentOnServer"(): boolean
+public "receiveEditedProfile"(arg0: $ConfigProfile$$Type): void
+public "getProfileInfoManager"(): $SyncedConfigProfileInfoManager
+public "setDesiredEditedProfileId"(arg0: StringJS): void
 public "getDesiredEditedProfileId"(): StringJS
+public "setSyncingEditedProfile"(arg0: boolean): void
+public "setChannel"(arg0: $ConfigChannel$$Type): void
 public "getEditedProfile"(): $ConfigProfile
 public "confirmEdit"(arg0: $ConfigProfile$$Type): void
-set "synchronizer"(value: $ClientConfigChannelSynchronizer$$Type)
-set "channel"(value: $ConfigChannel$$Type)
-set "syncingEditedProfile"(value: boolean)
-get "profileInfoManager"(): $SyncedConfigProfileInfoManager
-set "desiredEditedProfileId"(value: StringJS)
+public "setSynchronizer"(arg0: $ClientConfigChannelSynchronizer$$Type): void
+public "resetEdit"(): void
+public "confirmChannelPresenceOnServer"(): void
 get "syncingEditedProfile"(): boolean
 get "channelPresentOnServer"(): boolean
+get "profileInfoManager"(): $SyncedConfigProfileInfoManager
+set "desiredEditedProfileId"(value: StringJS)
 get "desiredEditedProfileId"(): StringJS
+set "syncingEditedProfile"(value: boolean)
+set "channel"(value: $ConfigChannel$$Type)
 get "editedProfile"(): $ConfigProfile
+set "synchronizer"(value: $ClientConfigChannelSynchronizer$$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -207,9 +207,9 @@ export interface $IConfigChannelClientRegistryHandler$$Interface {
 
 export class $IConfigChannelClientRegistryHandler implements $IConfigChannelClientRegistryHandler$$Interface {
  "registerClientOptionChangeHandlers"(arg0: $ClientConfigChangeListener$$Type): void
- "registerPrimaryClientOptions"(arg0: $ClientConfigOptionManager$$Type): void
- "registerConfigOptionUITypes"(arg0: $ConfigOptionUITypeManager$$Type): void
  "registerOptionClientRedirectors"(arg0: $ClientOptionValueRedirectorManager$$Type): void
+ "registerConfigOptionUITypes"(arg0: $ConfigOptionUITypeManager$$Type): void
+ "registerPrimaryClientOptions"(arg0: $ClientConfigOptionManager$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

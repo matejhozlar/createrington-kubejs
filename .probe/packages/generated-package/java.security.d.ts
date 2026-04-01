@@ -66,6 +66,22 @@ import {$SignatureSpi} from "java.security.SignatureSpi"
 import {$AlgorithmParameterSpec$$Type} from "java.security.spec.AlgorithmParameterSpec"
 
 export class $Signature extends $SignatureSpi {
+public "toString"(): StringJS
+public "clone"(): any
+public "update"(arg0: (byte)[]): void
+public "update"(arg0: (byte)[], arg1: integer, arg2: integer): void
+public "update"(arg0: byte): void
+public "update"(arg0: $ByteBuffer$$Type): void
+public static "getInstance"(arg0: StringJS): $Signature
+public static "getInstance"(arg0: StringJS, arg1: StringJS): $Signature
+public static "getInstance"(arg0: StringJS, arg1: $Provider$$Type): $Signature
+public "getParameters"(): $AlgorithmParameters
+public "sign"(arg0: (byte)[], arg1: integer, arg2: integer): integer
+public "sign"(): (byte)[]
+public "verify"(arg0: (byte)[]): boolean
+public "verify"(arg0: (byte)[], arg1: integer, arg2: integer): boolean
+public "getProvider"(): $Provider
+public "getAlgorithm"(): StringJS
 public "initVerify"(arg0: $PublicKey$$Type): void
 public "initVerify"(arg0: $Certificate$$Type): void
 public "initSign"(arg0: $PrivateKey$$Type): void
@@ -74,33 +90,17 @@ public "initSign"(arg0: $PrivateKey$$Type, arg1: $SecureRandom$$Type): void
  * 
  * @deprecated
  */
-public "setParameter"(arg0: StringJS, arg1: any): void
-public "setParameter"(arg0: $AlgorithmParameterSpec$$Type): void
-public "toString"(): StringJS
-public "clone"(): any
-public "update"(arg0: byte): void
-public "update"(arg0: (byte)[]): void
-public "update"(arg0: (byte)[], arg1: integer, arg2: integer): void
-public "update"(arg0: $ByteBuffer$$Type): void
-public static "getInstance"(arg0: StringJS, arg1: StringJS): $Signature
-public static "getInstance"(arg0: StringJS): $Signature
-public static "getInstance"(arg0: StringJS, arg1: $Provider$$Type): $Signature
-public "getParameters"(): $AlgorithmParameters
-public "sign"(): (byte)[]
-public "sign"(arg0: (byte)[], arg1: integer, arg2: integer): integer
-public "verify"(arg0: (byte)[], arg1: integer, arg2: integer): boolean
-public "verify"(arg0: (byte)[]): boolean
-public "getProvider"(): $Provider
-public "getAlgorithm"(): StringJS
+public "getParameter"(arg0: StringJS): any
 /**
  * 
  * @deprecated
  */
-public "getParameter"(arg0: StringJS): any
-set "parameter"(value: $AlgorithmParameterSpec$$Type)
+public "setParameter"(arg0: StringJS, arg1: any): void
+public "setParameter"(arg0: $AlgorithmParameterSpec$$Type): void
 get "parameters"(): $AlgorithmParameters
 get "provider"(): $Provider
 get "algorithm"(): StringJS
+set "parameter"(value: $AlgorithmParameterSpec$$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -530,16 +530,16 @@ import {$Random} from "java.util.Random"
 import {$SecureRandomParameters, $SecureRandomParameters$$Type} from "java.security.SecureRandomParameters"
 
 export class $SecureRandom extends $Random {
-constructor()
 constructor(arg0: (byte)[])
+constructor()
 
 public "toString"(): StringJS
 public static "getInstance"(arg0: StringJS, arg1: $SecureRandomParameters$$Type, arg2: StringJS): $SecureRandom
 public static "getInstance"(arg0: StringJS, arg1: $SecureRandomParameters$$Type): $SecureRandom
 public static "getInstance"(arg0: StringJS, arg1: $SecureRandomParameters$$Type, arg2: $Provider$$Type): $SecureRandom
-public static "getInstance"(arg0: StringJS, arg1: $Provider$$Type): $SecureRandom
-public static "getInstance"(arg0: StringJS, arg1: StringJS): $SecureRandom
 public static "getInstance"(arg0: StringJS): $SecureRandom
+public static "getInstance"(arg0: StringJS, arg1: StringJS): $SecureRandom
+public static "getInstance"(arg0: StringJS, arg1: $Provider$$Type): $SecureRandom
 public "getParameters"(): $SecureRandomParameters
 public "nextBytes"(arg0: (byte)[]): void
 public "nextBytes"(arg0: (byte)[], arg1: $SecureRandomParameters$$Type): void

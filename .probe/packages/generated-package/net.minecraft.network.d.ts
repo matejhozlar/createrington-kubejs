@@ -1,14 +1,14 @@
 declare module "net.minecraft.network.TickablePacketListener" {
 import {$PacketFlow} from "net.minecraft.network.protocol.PacketFlow"
 import {$Exception$$Type} from "java.lang.Exception"
-import {$PacketListener$$Interface} from "net.minecraft.network.PacketListener"
 import {$ConnectionProtocol} from "net.minecraft.network.ConnectionProtocol"
 import {$CrashReport$$Type} from "net.minecraft.CrashReport"
+import {$PacketListener$$Interface} from "net.minecraft.network.PacketListener"
 import {$Packet$$Type} from "net.minecraft.network.protocol.Packet"
 import {$Throwable$$Type} from "java.lang.Throwable"
 import {$Component$$Type} from "net.minecraft.network.chat.Component"
-import {$CrashReportCategory$$Type} from "net.minecraft.CrashReportCategory"
 import {$DisconnectionDetails, $DisconnectionDetails$$Type} from "net.minecraft.network.DisconnectionDetails"
+import {$CrashReportCategory$$Type} from "net.minecraft.CrashReportCategory"
 
 export interface $TickablePacketListener$$Interface extends $PacketListener$$Interface {
 get "acceptingMessages"(): boolean
@@ -17,14 +17,14 @@ get "acceptingMessages"(): boolean
 export class $TickablePacketListener implements $TickablePacketListener$$Interface {
  "tick"(): void
  "protocol"(): $ConnectionProtocol
+ "isAcceptingMessages"(): boolean
+ "shouldHandleMessage"(arg0: $Packet$$Type<(never)>): boolean
+ "createDisconnectionInfo"(arg0: $Component$$Type, arg1: $Throwable$$Type): $DisconnectionDetails
+ "onPacketError"(arg0: $Packet$$Type, arg1: $Exception$$Type): void
+ "flow"(): $PacketFlow
  "fillListenerSpecificCrashDetails"(arg0: $CrashReport$$Type, arg1: $CrashReportCategory$$Type): void
  "fillCrashReport"(arg0: $CrashReport$$Type): void
  "onDisconnect"(arg0: $DisconnectionDetails$$Type): void
- "createDisconnectionInfo"(arg0: $Component$$Type, arg1: $Throwable$$Type): $DisconnectionDetails
- "isAcceptingMessages"(): boolean
- "shouldHandleMessage"(arg0: $Packet$$Type<(never)>): boolean
- "onPacketError"(arg0: $Packet$$Type, arg1: $Exception$$Type): void
- "flow"(): $PacketFlow
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -71,10 +71,10 @@ export interface $PacketSendListener$$Interface {
 }
 
 export class $PacketSendListener implements $PacketSendListener$$Interface {
- "onFailure"(): $Packet<(never)>
- "onSuccess"(): void
 static "thenRun"(arg0: $Runnable$$Type): $PacketSendListener
 static "exceptionallySend"(arg0: $Supplier$$Type<($Packet$$Type<(never)>)>): $PacketSendListener
+ "onFailure"(): $Packet<(never)>
+ "onSuccess"(): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -89,8 +89,8 @@ declare module "net.minecraft.network.ProtocolInfo" {
 import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
 import {$BundlerInfo} from "net.minecraft.network.protocol.BundlerInfo"
 import {$PacketFlow} from "net.minecraft.network.protocol.PacketFlow"
-import {$ConnectionProtocol} from "net.minecraft.network.ConnectionProtocol"
 import {$PacketListener} from "net.minecraft.network.PacketListener"
+import {$ConnectionProtocol} from "net.minecraft.network.ConnectionProtocol"
 import {$Packet} from "net.minecraft.network.protocol.Packet"
 import {$ByteBuf} from "io.netty.buffer.ByteBuf"
 
@@ -100,8 +100,8 @@ export interface $ProtocolInfo$$Interface<T extends $PacketListener> {
 export class $ProtocolInfo<T extends $PacketListener> implements $ProtocolInfo$$Interface {
  "id"(): $ConnectionProtocol
  "codec"(): $StreamCodec<($ByteBuf), ($Packet<(T)>)>
- "bundlerInfo"(): $BundlerInfo
  "flow"(): $PacketFlow
+ "bundlerInfo"(): $BundlerInfo
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -115,14 +115,14 @@ export type $ProtocolInfo$$Original<T> = $ProtocolInfo<(T)>;}
 declare module "net.minecraft.network.ClientboundPacketListener" {
 import {$PacketFlow} from "net.minecraft.network.protocol.PacketFlow"
 import {$Exception$$Type} from "java.lang.Exception"
-import {$PacketListener$$Interface} from "net.minecraft.network.PacketListener"
 import {$ConnectionProtocol} from "net.minecraft.network.ConnectionProtocol"
 import {$CrashReport$$Type} from "net.minecraft.CrashReport"
+import {$PacketListener$$Interface} from "net.minecraft.network.PacketListener"
 import {$Packet$$Type} from "net.minecraft.network.protocol.Packet"
 import {$Throwable$$Type} from "java.lang.Throwable"
 import {$Component$$Type} from "net.minecraft.network.chat.Component"
-import {$CrashReportCategory$$Type} from "net.minecraft.CrashReportCategory"
 import {$DisconnectionDetails, $DisconnectionDetails$$Type} from "net.minecraft.network.DisconnectionDetails"
+import {$CrashReportCategory$$Type} from "net.minecraft.CrashReportCategory"
 
 export interface $ClientboundPacketListener$$Interface extends $PacketListener$$Interface {
 get "acceptingMessages"(): boolean
@@ -131,13 +131,13 @@ get "acceptingMessages"(): boolean
 export class $ClientboundPacketListener implements $ClientboundPacketListener$$Interface {
  "flow"(): $PacketFlow
  "protocol"(): $ConnectionProtocol
+ "isAcceptingMessages"(): boolean
+ "shouldHandleMessage"(arg0: $Packet$$Type<(never)>): boolean
+ "createDisconnectionInfo"(arg0: $Component$$Type, arg1: $Throwable$$Type): $DisconnectionDetails
+ "onPacketError"(arg0: $Packet$$Type, arg1: $Exception$$Type): void
  "fillListenerSpecificCrashDetails"(arg0: $CrashReport$$Type, arg1: $CrashReportCategory$$Type): void
  "fillCrashReport"(arg0: $CrashReport$$Type): void
  "onDisconnect"(arg0: $DisconnectionDetails$$Type): void
- "createDisconnectionInfo"(arg0: $Component$$Type, arg1: $Throwable$$Type): $DisconnectionDetails
- "isAcceptingMessages"(): boolean
- "shouldHandleMessage"(arg0: $Packet$$Type<(never)>): boolean
- "onPacketError"(arg0: $Packet$$Type, arg1: $Exception$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -154,6 +154,7 @@ import {$CallbackInfo$$Type} from "org.spongepowered.asm.mixin.injection.callbac
 import {$DefaultEventLoopGroup} from "io.netty.channel.DefaultEventLoopGroup"
 import {$PacketListener, $PacketListener$$Type} from "net.minecraft.network.PacketListener"
 import {$ClientLoginPacketListener$$Type} from "net.minecraft.network.protocol.login.ClientLoginPacketListener"
+import {$OwoClientConnectionExtension$$Interface} from "io.wispforest.owo.network.OwoClientConnectionExtension"
 import {$Component$$Type} from "net.minecraft.network.chat.Component"
 import {$ProtocolInfo, $ProtocolInfo$$Type} from "net.minecraft.network.ProtocolInfo"
 import {$SupportedAttachmentsClientConnection$$Interface} from "net.fabricmc.fabric.impl.attachment.sync.SupportedAttachmentsClientConnection"
@@ -181,7 +182,7 @@ import {$Packet, $Packet$$Type} from "net.minecraft.network.protocol.Packet"
 import {$Marker} from "org.slf4j.Marker"
 import {$InetSocketAddress$$Type} from "java.net.InetSocketAddress"
 
-export class $Connection extends $SimpleChannelInboundHandler<($Packet<(never)>)> implements $SupportedAttachmentsClientConnection$$Interface {
+export class $Connection extends $SimpleChannelInboundHandler<($Packet<(never)>)> implements $SupportedAttachmentsClientConnection$$Interface, $OwoClientConnectionExtension$$Interface {
 static readonly "PACKET_MARKER": $Marker
  "bandwidthDebugMonitor": $BandwidthDebugMonitor
 static readonly "PACKET_SENT_MARKER": $Marker
@@ -199,67 +200,69 @@ public static "connect"(arg0: $InetSocketAddress$$Type, arg1: boolean, arg2: $Co
 public "setReadOnly"(): void
 public "channel"(): $Channel
 public "tick"(): void
+public "handler$zzh000$connectivity$on"(arg0: $ChannelHandlerContext$$Type, arg1: $Throwable$$Type, arg2: $CallbackInfo$$Type): void
+public "fabric_getSupportedAttachments"(): $Set
+public "setListenerForServerboundHandshake"(arg0: $PacketListener$$Type): void
+public "fabric_setSupportedAttachments"(arg0: $Set$$Type): void
+public "getAverageReceivedPackets"(): float
+public static "configureInMemoryPipeline"(arg0: $ChannelPipeline$$Type, arg1: $PacketFlow$$Type): void
+public "getDisconnectionDetails"(): $DisconnectionDetails
+public "getAverageSentPackets"(): float
+public static "configureSerialization"(arg0: $ChannelPipeline$$Type, arg1: $PacketFlow$$Type, arg2: boolean, arg3: $BandwidthDebugMonitor$$Type): void
+public "configurePacketHandler"(arg0: $ChannelPipeline$$Type): void
+public "setupOutboundProtocol"(arg0: $ProtocolInfo$$Type<(never)>): void
+public "setupInboundProtocol"<T extends $PacketListener>(arg0: $ProtocolInfo$$Type<(T)>, arg1: T): void
+public "handleDisconnection"(): void
 public "disconnect"(arg0: $Component$$Type): void
 public "disconnect"(arg0: $DisconnectionDetails$$Type): void
+public "exceptionCaught"(arg0: $ChannelHandlerContext$$Type, arg1: $Throwable$$Type): void
+public "getInboundProtocol"(): $ProtocolInfo<(never)>
+public "send"(arg0: $Packet$$Type<(never)>): void
+public "send"(arg0: $Packet$$Type<(never)>, arg1: $PacketSendListener$$Type, arg2: boolean): void
+public "send"(arg0: $Packet$$Type<(never)>, arg1: $PacketSendListener$$Type): void
+public "initiateServerboundPlayConnection"(arg0: StringJS, arg1: integer, arg2: $ClientLoginPacketListener$$Type): void
+public "initiateServerboundPlayConnection"<S extends $ServerboundPacketListener, C extends $ClientboundPacketListener>(arg0: StringJS, arg1: integer, arg2: $ProtocolInfo$$Type<(S)>, arg3: $ProtocolInfo$$Type<(C)>, arg4: C, arg5: boolean): void
+public "initiateServerboundStatusConnection"(arg0: StringJS, arg1: integer, arg2: $ClientStatusPacketListener$$Type): void
 public "getSending"(): $PacketFlow
 public "tickSecond"(): void
-public "send"(arg0: $Packet$$Type<(never)>, arg1: $PacketSendListener$$Type): void
-public "send"(arg0: $Packet$$Type<(never)>, arg1: $PacketSendListener$$Type, arg2: boolean): void
-public "send"(arg0: $Packet$$Type<(never)>): void
-public "handleDisconnection"(): void
+public "channelInactive"(arg0: $ChannelHandlerContext$$Type): void
 public "channelRead0"(arg0: $ChannelHandlerContext$$Type, arg1: $Packet$$Type<(never)>): void
 public "channelRead0"(arg0: $ChannelHandlerContext$$Type, arg1: any): void
 public "channelActive"(arg0: $ChannelHandlerContext$$Type): void
-public "channelInactive"(arg0: $ChannelHandlerContext$$Type): void
-public "getReceiving"(): $PacketFlow
-public "setBandwidthLogger"(arg0: $LocalSampleLogger$$Type): void
-public "getPacketListener"(): $PacketListener
-public "setupCompression"(arg0: integer, arg1: boolean): void
-public "runOnceConnected"(arg0: $Consumer$$Type<($Connection)>): void
-public static "connectToServer"(arg0: $InetSocketAddress$$Type, arg1: boolean, arg2: $LocalSampleLogger$$Type): $Connection
-public "setEncryptionKey"(arg0: $Cipher$$Type, arg1: $Cipher$$Type): void
-public "flushChannel"(): void
 public "getLoggableAddress"(arg0: boolean): StringJS
 public "isConnecting"(): boolean
+public "owo$getChannelSet"(): $Set
+public "setBandwidthLogger"(arg0: $LocalSampleLogger$$Type): void
+public "runOnceConnected"(arg0: $Consumer$$Type<($Connection)>): void
+public "owo$setChannelSet"(channels: $Set$$Type): void
+public static "connectToServer"(arg0: $InetSocketAddress$$Type, arg1: boolean, arg2: $LocalSampleLogger$$Type): $Connection
+public "setEncryptionKey"(arg0: $Cipher$$Type, arg1: $Cipher$$Type): void
+public "setupCompression"(arg0: integer, arg1: boolean): void
+public "flushChannel"(): void
+public "getReceiving"(): $PacketFlow
+public "getPacketListener"(): $PacketListener
 public static "connectToLocalServer"(arg0: $SocketAddress$$Type): $Connection
-public "setupOutboundProtocol"(arg0: $ProtocolInfo$$Type<(never)>): void
-public "setupInboundProtocol"<T extends $PacketListener>(arg0: $ProtocolInfo$$Type<(T)>, arg1: T): void
-public "handler$zzh000$connectivity$on"(arg0: $ChannelHandlerContext$$Type, arg1: $Throwable$$Type, arg2: $CallbackInfo$$Type): void
-public "exceptionCaught"(arg0: $ChannelHandlerContext$$Type, arg1: $Throwable$$Type): void
-public "getInboundProtocol"(): $ProtocolInfo<(never)>
-public "initiateServerboundStatusConnection"(arg0: StringJS, arg1: integer, arg2: $ClientStatusPacketListener$$Type): void
-public "initiateServerboundPlayConnection"<S extends $ServerboundPacketListener, C extends $ClientboundPacketListener>(arg0: StringJS, arg1: integer, arg2: $ProtocolInfo$$Type<(S)>, arg3: $ProtocolInfo$$Type<(C)>, arg4: C, arg5: boolean): void
-public "initiateServerboundPlayConnection"(arg0: StringJS, arg1: integer, arg2: $ClientLoginPacketListener$$Type): void
-public "getDirection"(): $PacketFlow
-public "fabric_setSupportedAttachments"(arg0: $Set$$Type): void
-public "setListenerForServerboundHandshake"(arg0: $PacketListener$$Type): void
-public "fabric_getSupportedAttachments"(): $Set
-public "handler$bbd000$chat_heads$chatheads$resetServerKnowledge"(ci: $CallbackInfo$$Type): void
-public "getDisconnectionDetails"(): $DisconnectionDetails
-public "getAverageReceivedPackets"(): float
-public "getAverageSentPackets"(): float
-public "configurePacketHandler"(arg0: $ChannelPipeline$$Type): void
-public static "configureSerialization"(arg0: $ChannelPipeline$$Type, arg1: $PacketFlow$$Type, arg2: boolean, arg3: $BandwidthDebugMonitor$$Type): void
-public static "configureInMemoryPipeline"(arg0: $ChannelPipeline$$Type, arg1: $PacketFlow$$Type): void
+public "handler$bca000$chat_heads$chatheads$resetServerKnowledge"(ci: $CallbackInfo$$Type): void
 public "isEncrypted"(): boolean
 public "isMemoryConnection"(): boolean
+public "getDirection"(): $PacketFlow
 get "connected"(): boolean
 get "remoteAddress"(): $SocketAddress
 get "readOnly"(): void
-get "sending"(): $PacketFlow
-get "receiving"(): $PacketFlow
-set "bandwidthLogger"(value: $LocalSampleLogger$$Type)
-get "packetListener"(): $PacketListener
-get "connecting"(): boolean
+set "listenerForServerboundHandshake"(value: $PacketListener$$Type)
+get "averageReceivedPackets"(): float
+get "disconnectionDetails"(): $DisconnectionDetails
+get "averageSentPackets"(): float
 set "upOutboundProtocol"(value: $ProtocolInfo$$Type<(never)>)
 get "inboundProtocol"(): $ProtocolInfo<(never)>
-get "direction"(): $PacketFlow
-set "listenerForServerboundHandshake"(value: $PacketListener$$Type)
-get "disconnectionDetails"(): $DisconnectionDetails
-get "averageReceivedPackets"(): float
-get "averageSentPackets"(): float
+get "sending"(): $PacketFlow
+get "connecting"(): boolean
+set "bandwidthLogger"(value: $LocalSampleLogger$$Type)
+get "receiving"(): $PacketFlow
+get "packetListener"(): $PacketListener
 get "encrypted"(): boolean
 get "memoryConnection"(): boolean
+get "direction"(): $PacketFlow
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -275,6 +278,7 @@ import {$ConnectionType, $ConnectionType$$Type} from "net.neoforged.neoforge.net
 import {$FriendlyByteBuf} from "net.minecraft.network.FriendlyByteBuf"
 import {$ReferenceCounted} from "io.netty.util.ReferenceCounted"
 import {$Function} from "java.util.function.Function"
+import {$OutputStream$$Type} from "java.io.OutputStream"
 import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
 import {$ByteBuf, $ByteBuf$$Type} from "io.netty.buffer.ByteBuf"
 import {$RegistryAccess, $RegistryAccess$$Type} from "net.minecraft.core.RegistryAccess"
@@ -291,53 +295,56 @@ static readonly "DEFAULT_NBT_QUOTA": integer
 constructor(arg0: $ByteBuf$$Type, arg1: $RegistryAccess$$Type)
 constructor(arg0: $ByteBuf$$Type, arg1: $RegistryAccess$$Type, arg2: $ConnectionType$$Type)
 
-public "registryAccess"(): $RegistryAccess
+public "getConnectionType"(): $ConnectionType
 public static "decorator"(arg0: $RegistryAccess$$Type, arg1: $ConnectionType$$Type): $Function<($ByteBuf), ($RegistryFriendlyByteBuf)>
 /**
  * 
  * @deprecated
  */
 public static "decorator"(arg0: $RegistryAccess$$Type): $Function<($ByteBuf), ($RegistryFriendlyByteBuf)>
-public "getConnectionType"(): $ConnectionType
+public "registryAccess"(): $RegistryAccess
+public "getBytes"(arg0: integer, arg1: (byte)[]): $ByteBuf
+public "getBytes"(arg0: integer, arg1: (byte)[], arg2: integer, arg3: integer): $ByteBuf
+public "getBytes"(arg0: integer, arg1: $OutputStream$$Type, arg2: integer): $ByteBuf
 public "getBytes"(arg0: integer, arg1: $ByteBuffer$$Type): $ByteBuf
-public "getBytes"(arg0: integer, arg1: $ByteBuf$$Type, arg2: integer, arg3: integer): $ByteBuf
-public "setBoolean"(arg0: integer, arg1: boolean): $ByteBuf
-public "setByte"(arg0: integer, arg1: integer): $ByteBuf
+public "writeInt"(arg0: integer): $ByteBuf
+public "setChar"(arg0: integer, arg1: integer): $ByteBuf
 public "setShort"(arg0: integer, arg1: integer): $ByteBuf
-public "setFloat"(arg0: integer, arg1: float): $ByteBuf
+public "setInt"(arg0: integer, arg1: integer): $ByteBuf
+public "setLong"(arg0: integer, arg1: long): $ByteBuf
+public "setDouble"(arg0: integer, arg1: double): $ByteBuf
 public "capacity"(arg0: integer): $ByteBuf
-public "readBytes"(arg0: $ByteBuf$$Type, arg1: integer, arg2: integer): $ByteBuf
-public "readBytes"(arg0: $ByteBuffer$$Type): $ByteBuf
 public "readBytes"(arg0: (byte)[], arg1: integer, arg2: integer): $ByteBuf
 public "readBytes"(arg0: (byte)[]): $ByteBuf
-public "writeBytes"(arg0: $ByteBuf$$Type, arg1: integer, arg2: integer): $ByteBuf
-public "writeBytes"(arg0: (byte)[]): $ByteBuf
-public "writeBytes"(arg0: (byte)[], arg1: integer, arg2: integer): $ByteBuf
 public "writeBytes"(arg0: $ByteBuffer$$Type): $ByteBuf
-public "writeBytes"(arg0: $ByteBuf$$Type, arg1: integer): $ByteBuf
+public "writeBytes"(arg0: (byte)[], arg1: integer, arg2: integer): $ByteBuf
+public "writeBytes"(arg0: (byte)[]): $ByteBuf
 public "writeBytes"(arg0: $ByteBuf$$Type): $ByteBuf
-public "writeFloat"(arg0: float): $ByteBuf
+public "writeBytes"(arg0: $ByteBuf$$Type, arg1: integer): $ByteBuf
+public "writeBytes"(arg0: $ByteBuf$$Type, arg1: integer, arg2: integer): $ByteBuf
 public "skipBytes"(arg0: integer): $ByteBuf
-public "writeBoolean"(arg0: boolean): $ByteBuf
+public "writeByte"(arg0: integer): $ByteBuf
 public "writeShort"(arg0: integer): $ByteBuf
 public "writeLong"(arg0: long): $ByteBuf
 public "writeDouble"(arg0: double): $ByteBuf
 public "setIndex"(arg0: integer, arg1: integer): $ByteBuf
-public "touch"(arg0: any): $ReferenceCounted
-public "touch"(): $ReferenceCounted
-public "setLongLE"(arg0: integer, arg1: long): $ByteBuf
-public "writeIntLE"(arg0: integer): $ByteBuf
-public "setBytes"(arg0: integer, arg1: $ByteBuffer$$Type): $ByteBuf
-public "setBytes"(arg0: integer, arg1: (byte)[], arg2: integer, arg3: integer): $ByteBuf
-public "retain"(): $ReferenceCounted
-public "retain"(arg0: integer): $ByteBuf
-public "readerIndex"(arg0: integer): $ByteBuf
-public "writerIndex"(arg0: integer): $ByteBuf
-public "writeMediumLE"(arg0: integer): $ByteBuf
 public "ensureWritable"(arg0: integer): $ByteBuf
 public "resetReaderIndex"(): $ByteBuf
+public "discardReadBytes"(): $ByteBuf
+public "readerIndex"(arg0: integer): $ByteBuf
+public "writerIndex"(arg0: integer): $ByteBuf
 public "writeShortLE"(arg0: integer): $ByteBuf
-public "resetWriterIndex"(): $ByteBuf
+public "writeMedium"(arg0: integer): $ByteBuf
+public "touch"(): $ReferenceCounted
+public "touch"(arg0: any): $ByteBuf
+public "setShortLE"(arg0: integer, arg1: integer): $ByteBuf
+public "writeIntLE"(arg0: integer): $ByteBuf
+public "setBytes"(arg0: integer, arg1: $ByteBuf$$Type, arg2: integer): $ByteBuf
+public "setBytes"(arg0: integer, arg1: $ByteBuf$$Type): $ByteBuf
+public "setBytes"(arg0: integer, arg1: (byte)[]): $ByteBuf
+public "setBytes"(arg0: integer, arg1: $ByteBuf$$Type, arg2: integer, arg3: integer): $ByteBuf
+public "setBytes"(arg0: integer, arg1: (byte)[], arg2: integer, arg3: integer): $ByteBuf
+public "discardSomeReadBytes"(): $ByteBuf
 get "connectionType"(): $ConnectionType
 }
 /**
@@ -370,14 +377,14 @@ export type $BandwidthDebugMonitor$$Original = $BandwidthDebugMonitor;}
 declare module "net.minecraft.network.ServerboundPacketListener" {
 import {$PacketFlow} from "net.minecraft.network.protocol.PacketFlow"
 import {$Exception$$Type} from "java.lang.Exception"
-import {$PacketListener$$Interface} from "net.minecraft.network.PacketListener"
 import {$ConnectionProtocol} from "net.minecraft.network.ConnectionProtocol"
 import {$CrashReport$$Type} from "net.minecraft.CrashReport"
+import {$PacketListener$$Interface} from "net.minecraft.network.PacketListener"
 import {$Packet$$Type} from "net.minecraft.network.protocol.Packet"
 import {$Throwable$$Type} from "java.lang.Throwable"
 import {$Component$$Type} from "net.minecraft.network.chat.Component"
-import {$CrashReportCategory$$Type} from "net.minecraft.CrashReportCategory"
 import {$DisconnectionDetails, $DisconnectionDetails$$Type} from "net.minecraft.network.DisconnectionDetails"
+import {$CrashReportCategory$$Type} from "net.minecraft.CrashReportCategory"
 
 export interface $ServerboundPacketListener$$Interface extends $PacketListener$$Interface {
 get "acceptingMessages"(): boolean
@@ -386,13 +393,13 @@ get "acceptingMessages"(): boolean
 export class $ServerboundPacketListener implements $ServerboundPacketListener$$Interface {
  "flow"(): $PacketFlow
  "protocol"(): $ConnectionProtocol
+ "isAcceptingMessages"(): boolean
+ "shouldHandleMessage"(arg0: $Packet$$Type<(never)>): boolean
+ "createDisconnectionInfo"(arg0: $Component$$Type, arg1: $Throwable$$Type): $DisconnectionDetails
+ "onPacketError"(arg0: $Packet$$Type, arg1: $Exception$$Type): void
  "fillListenerSpecificCrashDetails"(arg0: $CrashReport$$Type, arg1: $CrashReportCategory$$Type): void
  "fillCrashReport"(arg0: $CrashReport$$Type): void
  "onDisconnect"(arg0: $DisconnectionDetails$$Type): void
- "createDisconnectionInfo"(arg0: $Component$$Type, arg1: $Throwable$$Type): $DisconnectionDetails
- "isAcceptingMessages"(): boolean
- "shouldHandleMessage"(arg0: $Packet$$Type<(never)>): boolean
- "onPacketError"(arg0: $Packet$$Type, arg1: $Exception$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -425,7 +432,7 @@ public "bugReportLink"(): $Optional<($URI)>
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $DisconnectionDetails$$Type = ({"reason"?: $Component$$Type, "report"?: ($Path$$Type)?, "bugReportLink"?: ($URI$$Type)?}) | ([reason?: $Component$$Type, report?: ($Path$$Type)?, bugReportLink?: ($URI$$Type)?]);
+export type $DisconnectionDetails$$Type = ({"report"?: ($Path$$Type)?, "reason"?: $Component$$Type, "bugReportLink"?: ($URI$$Type)?}) | ([report?: ($Path$$Type)?, reason?: $Component$$Type, bugReportLink?: ($URI$$Type)?]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -438,8 +445,8 @@ import {$CrashReport$$Type} from "net.minecraft.CrashReport"
 import {$Packet$$Type} from "net.minecraft.network.protocol.Packet"
 import {$Throwable$$Type} from "java.lang.Throwable"
 import {$Component$$Type} from "net.minecraft.network.chat.Component"
-import {$CrashReportCategory$$Type} from "net.minecraft.CrashReportCategory"
 import {$DisconnectionDetails, $DisconnectionDetails$$Type} from "net.minecraft.network.DisconnectionDetails"
+import {$CrashReportCategory$$Type} from "net.minecraft.CrashReportCategory"
 
 export interface $PacketListener$$Interface {
 get "acceptingMessages"(): boolean
@@ -447,14 +454,14 @@ get "acceptingMessages"(): boolean
 
 export class $PacketListener implements $PacketListener$$Interface {
  "protocol"(): $ConnectionProtocol
+ "isAcceptingMessages"(): boolean
+ "shouldHandleMessage"(arg0: $Packet$$Type<(never)>): boolean
+ "createDisconnectionInfo"(arg0: $Component$$Type, arg1: $Throwable$$Type): $DisconnectionDetails
+ "onPacketError"(arg0: $Packet$$Type, arg1: $Exception$$Type): void
+ "flow"(): $PacketFlow
  "fillListenerSpecificCrashDetails"(arg0: $CrashReport$$Type, arg1: $CrashReportCategory$$Type): void
  "fillCrashReport"(arg0: $CrashReport$$Type): void
  "onDisconnect"(arg0: $DisconnectionDetails$$Type): void
- "createDisconnectionInfo"(arg0: $Component$$Type, arg1: $Throwable$$Type): $DisconnectionDetails
- "isAcceptingMessages"(): boolean
- "shouldHandleMessage"(arg0: $Packet$$Type<(never)>): boolean
- "onPacketError"(arg0: $Packet$$Type, arg1: $Exception$$Type): void
- "flow"(): $PacketFlow
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -471,8 +478,9 @@ import {$ByteOrder, $ByteOrder$$Type} from "java.nio.ByteOrder"
 import {$DynamicOps$$Type} from "com.mojang.serialization.DynamicOps"
 import {$Optional, $Optional$$Type} from "java.util.Optional"
 import {$Vector3f, $Vector3f$$Type} from "org.joml.Vector3f"
-import {$PublicKey, $PublicKey$$Type} from "java.security.PublicKey"
+import {$SerializationContext$$Type} from "io.wispforest.endec.SerializationContext"
 import {$StreamDecoder$$Type} from "net.minecraft.network.codec.StreamDecoder"
+import {$PublicKey, $PublicKey$$Type} from "java.security.PublicKey"
 import {$ByteBuf, $ByteBuf$$Type} from "io.netty.buffer.ByteBuf"
 import {$ReferenceCounted} from "io.netty.util.ReferenceCounted"
 import {$GlobalPos, $GlobalPos$$Type} from "net.minecraft.core.GlobalPos"
@@ -493,15 +501,17 @@ import {$BitSet, $BitSet$$Type} from "java.util.BitSet"
 import {$Enum, $Enum$$Type} from "java.lang.Enum"
 import {$UUID, $UUID$$Type} from "java.util.UUID"
 import {$List} from "java.util.List"
+import {$EndecBuffer$$Interface} from "io.wispforest.endec.util.EndecBuffer"
 import {$IntFunction, $IntFunction$$Type} from "java.util.function.IntFunction"
 import {$Vec3, $Vec3$$Type} from "net.minecraft.world.phys.Vec3"
 import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
 import {$Codec$$Type} from "com.mojang.serialization.Codec"
 import {$Class$$Type} from "java.lang.Class"
 import {$ResourceKey, $ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
-import {$Quaternionf, $Quaternionf$$Type} from "org.joml.Quaternionf"
 import {$NbtAccounter$$Type} from "net.minecraft.nbt.NbtAccounter"
 import {$BlockPos, $BlockPos$$Type} from "net.minecraft.core.BlockPos"
+import {$Quaternionf, $Quaternionf$$Type} from "org.joml.Quaternionf"
+import {$Endec$$Type} from "io.wispforest.endec.Endec"
 import {$CompoundTag} from "net.minecraft.nbt.CompoundTag"
 import {$Collection, $Collection$$Type} from "java.util.Collection"
 import {$Map, $Map$$Type} from "java.util.Map"
@@ -517,7 +527,7 @@ import {$ByteBufAllocator} from "io.netty.buffer.ByteBufAllocator"
 import {$IntList, $IntList$$Type} from "it.unimi.dsi.fastutil.ints.IntList"
 import {$Instant, $Instant$$Type} from "java.time.Instant"
 
-export class $FriendlyByteBuf extends $ByteBuf implements $IFriendlyByteBufExtension$$Interface {
+export class $FriendlyByteBuf extends $ByteBuf implements $IFriendlyByteBufExtension$$Interface, $EndecBuffer$$Interface {
 static readonly "MAX_COMPONENT_STRING_LENGTH": integer
 static readonly "MAX_STRING_LENGTH": short
 static readonly "DEFAULT_NBT_QUOTA": integer
@@ -542,64 +552,66 @@ public "getLong"(arg0: integer): long
 public "getFloat"(arg0: integer): float
 public "getDouble"(arg0: integer): double
 public "clear"(): $FriendlyByteBuf
-public "getBytes"(arg0: integer, arg1: (byte)[], arg2: integer, arg3: integer): $FriendlyByteBuf
-public "getBytes"(arg0: integer, arg1: $ByteBuffer$$Type): $ByteBuf
-public "getBytes"(arg0: integer, arg1: $FileChannel$$Type, arg2: long, arg3: integer): integer
 public "getBytes"(arg0: integer, arg1: $ByteBuf$$Type, arg2: integer): $FriendlyByteBuf
 public "getBytes"(arg0: integer, arg1: $ByteBuf$$Type): $FriendlyByteBuf
-public "getBytes"(arg0: integer, arg1: $OutputStream$$Type, arg2: integer): $FriendlyByteBuf
 public "getBytes"(arg0: integer, arg1: $GatheringByteChannel$$Type, arg2: integer): integer
-public "getBytes"(arg0: integer, arg1: $ByteBuf$$Type, arg2: integer, arg3: integer): $ByteBuf
-public "getBytes"(arg0: integer, arg1: (byte)[]): $FriendlyByteBuf
+public "getBytes"(arg0: integer, arg1: (byte)[]): $ByteBuf
+public "getBytes"(arg0: integer, arg1: $FileChannel$$Type, arg2: long, arg3: integer): integer
+public "getBytes"(arg0: integer, arg1: (byte)[], arg2: integer, arg3: integer): $ByteBuf
+public "getBytes"(arg0: integer, arg1: $ByteBuf$$Type, arg2: integer, arg3: integer): $FriendlyByteBuf
+public "getBytes"(arg0: integer, arg1: $OutputStream$$Type, arg2: integer): $ByteBuf
+public "getBytes"(arg0: integer, arg1: $ByteBuffer$$Type): $ByteBuf
 public "isDirect"(): boolean
 public "hasArray"(): boolean
 public "array"(): (byte)[]
 public "arrayOffset"(): integer
-public "writeInt"(arg0: integer): $FriendlyByteBuf
+public "write"(ctx: $SerializationContext$$Type, endec: $Endec$$Type, value: any): void
+public "read"(ctx: $SerializationContext$$Type, endec: $Endec$$Type): any
+public "writeInt"(arg0: integer): $ByteBuf
 public "readInt"(): integer
-public "setBoolean"(arg0: integer, arg1: boolean): $ByteBuf
-public "setByte"(arg0: integer, arg1: integer): $ByteBuf
-public "setChar"(arg0: integer, arg1: integer): $FriendlyByteBuf
+public "setBoolean"(arg0: integer, arg1: boolean): $FriendlyByteBuf
+public "setByte"(arg0: integer, arg1: integer): $FriendlyByteBuf
+public "setChar"(arg0: integer, arg1: integer): $ByteBuf
 public "setShort"(arg0: integer, arg1: integer): $ByteBuf
-public "setInt"(arg0: integer, arg1: integer): $FriendlyByteBuf
-public "setLong"(arg0: integer, arg1: long): $FriendlyByteBuf
-public "setFloat"(arg0: integer, arg1: float): $ByteBuf
-public "setDouble"(arg0: integer, arg1: double): $FriendlyByteBuf
+public "setInt"(arg0: integer, arg1: integer): $ByteBuf
+public "setLong"(arg0: integer, arg1: long): $ByteBuf
+public "setFloat"(arg0: integer, arg1: float): $FriendlyByteBuf
+public "setDouble"(arg0: integer, arg1: double): $ByteBuf
 public "copy"(arg0: integer, arg1: integer): $ByteBuf
 public "copy"(): $ByteBuf
 public "unwrap"(): $ByteBuf
 public "capacity"(arg0: integer): $ByteBuf
 public "capacity"(): integer
-public "release"(): boolean
 public "release"(arg0: integer): boolean
+public "release"(): boolean
 public "isReadOnly"(): boolean
-public "slice"(): $ByteBuf
 public "slice"(arg0: integer, arg1: integer): $ByteBuf
+public "slice"(): $ByteBuf
 public "duplicate"(): $ByteBuf
-public "readBytes"(arg0: $ByteBuf$$Type): $FriendlyByteBuf
 public "readBytes"(arg0: $ByteBuf$$Type, arg1: integer): $FriendlyByteBuf
+public "readBytes"(arg0: $ByteBuf$$Type): $FriendlyByteBuf
 public "readBytes"(arg0: integer): $ByteBuf
-public "readBytes"(arg0: $ByteBuf$$Type, arg1: integer, arg2: integer): $ByteBuf
-public "readBytes"(arg0: $FileChannel$$Type, arg1: long, arg2: integer): integer
-public "readBytes"(arg0: $GatheringByteChannel$$Type, arg1: integer): integer
 public "readBytes"(arg0: $OutputStream$$Type, arg1: integer): $FriendlyByteBuf
-public "readBytes"(arg0: $ByteBuffer$$Type): $ByteBuf
+public "readBytes"(arg0: $ByteBuffer$$Type): $FriendlyByteBuf
 public "readBytes"(arg0: (byte)[], arg1: integer, arg2: integer): $ByteBuf
 public "readBytes"(arg0: (byte)[]): $ByteBuf
-public "writeBytes"(arg0: $ByteBuf$$Type, arg1: integer, arg2: integer): $ByteBuf
-public "writeBytes"(arg0: (byte)[]): $ByteBuf
-public "writeBytes"(arg0: (byte)[], arg1: integer, arg2: integer): $ByteBuf
+public "readBytes"(arg0: $FileChannel$$Type, arg1: long, arg2: integer): integer
+public "readBytes"(arg0: $GatheringByteChannel$$Type, arg1: integer): integer
+public "readBytes"(arg0: $ByteBuf$$Type, arg1: integer, arg2: integer): $FriendlyByteBuf
 public "writeBytes"(arg0: $ByteBuffer$$Type): $ByteBuf
-public "writeBytes"(arg0: $ByteBuf$$Type, arg1: integer): $ByteBuf
-public "writeBytes"(arg0: $ByteBuf$$Type): $ByteBuf
-public "writeBytes"(arg0: $ScatteringByteChannel$$Type, arg1: integer): integer
+public "writeBytes"(arg0: (byte)[], arg1: integer, arg2: integer): $ByteBuf
+public "writeBytes"(arg0: (byte)[]): $ByteBuf
 public "writeBytes"(arg0: $FileChannel$$Type, arg1: long, arg2: integer): integer
+public "writeBytes"(arg0: $ScatteringByteChannel$$Type, arg1: integer): integer
+public "writeBytes"(arg0: $ByteBuf$$Type): $ByteBuf
+public "writeBytes"(arg0: $ByteBuf$$Type, arg1: integer): $ByteBuf
+public "writeBytes"(arg0: $ByteBuf$$Type, arg1: integer, arg2: integer): $ByteBuf
 public "writeBytes"(arg0: $InputStream$$Type, arg1: integer): integer
 public "order"(arg0: $ByteOrder$$Type): $ByteBuf
 public "order"(): $ByteOrder
 public "writeChar"(arg0: integer): $FriendlyByteBuf
 public "readChar"(): character
-public "writeFloat"(arg0: float): $ByteBuf
+public "writeFloat"(arg0: float): $FriendlyByteBuf
 public "readFloat"(): float
 public "skipBytes"(arg0: integer): $ByteBuf
 public "readBoolean"(): boolean
@@ -610,220 +622,222 @@ public "readUnsignedShort"(): integer
 public "readLong"(): long
 public "readDouble"(): double
 public "getUnsignedShort"(arg0: integer): integer
-public "writeBoolean"(arg0: boolean): $ByteBuf
-public "writeByte"(arg0: integer): $FriendlyByteBuf
+public "writeBoolean"(arg0: boolean): $FriendlyByteBuf
+public "writeByte"(arg0: integer): $ByteBuf
 public "writeShort"(arg0: integer): $ByteBuf
 public "writeLong"(arg0: long): $ByteBuf
 public "writeDouble"(arg0: double): $ByteBuf
 public "isReadable"(arg0: integer): boolean
 public "isReadable"(): boolean
-public "isWritable"(): boolean
 public "isWritable"(arg0: integer): boolean
+public "isWritable"(): boolean
 public "setIndex"(arg0: integer, arg1: integer): $ByteBuf
 public "getSource"(): $ByteBuf
-public "readUtf"(arg0: integer): StringJS
 public "readUtf"(): StringJS
-public static "readUUID"(arg0: $ByteBuf$$Type): $UUID
-public "readUUID"(): $UUID
-public static "readBlockPos"(arg0: $ByteBuf$$Type): $BlockPos
-public "readBlockPos"(): $BlockPos
-public static "writeBlockPos"(arg0: $ByteBuf$$Type, arg1: $BlockPos$$Type): void
-public "writeBlockPos"(arg0: $BlockPos$$Type): $FriendlyByteBuf
-public "forEachByteDesc"(arg0: $ByteProcessor$$Type): integer
-public "forEachByteDesc"(arg0: integer, arg1: integer, arg2: $ByteProcessor$$Type): integer
-public "forEachByte"(arg0: integer, arg1: integer, arg2: $ByteProcessor$$Type): integer
-public "forEachByte"(arg0: $ByteProcessor$$Type): integer
-public "maxCapacity"(): integer
+public "readUtf"(arg0: integer): StringJS
 public "memoryAddress"(): long
-public "readUnsignedMediumLE"(): integer
-public "maxFastWritableBytes"(): integer
-/**
- * 
- * @deprecated
- */
-public "readWithCodecTrusted"<T>(arg0: $DynamicOps$$Type<($Tag$$Type)>, arg1: $Codec$$Type<(T)>): T
-public "readUnsignedShortLE"(): integer
-public "discardSomeReadBytes"(): $FriendlyByteBuf
-public "getUnsignedMediumLE"(arg0: integer): integer
-public "readResourceLocation"(): $ResourceLocation
-public "writeResourceLocation"(arg0: $ResourceLocation$$Type): $FriendlyByteBuf
-public "writeBlockHitResult"(arg0: $BlockHitResult$$Type): void
-public "writeDate"(arg0: $Date$$Type): $FriendlyByteBuf
-public "writeMap"<K, V>(arg0: $Map$$Type<(K), (V)>, arg1: $StreamEncoder$$Type<($FriendlyByteBuf), (K)>, arg2: $StreamEncoder$$Type<($FriendlyByteBuf), (V)>): void
-public "readList"<T>(arg0: $StreamDecoder$$Type<($FriendlyByteBuf), (T)>): $List<(T)>
-public "readMap"<K, V, M extends $Map<(object), (object)>>(arg0: $IntFunction$$Type<(M)>, arg1: $StreamDecoder$$Type<($FriendlyByteBuf), (K)>, arg2: $StreamDecoder$$Type<($FriendlyByteBuf), (V)>): M
-public "readMap"<K, V>(arg0: $StreamDecoder$$Type<($FriendlyByteBuf), (K)>, arg1: $StreamDecoder$$Type<($FriendlyByteBuf), (V)>): $Map<(K), (V)>
-public "touch"(arg0: any): $ReferenceCounted
-public "touch"(): $ReferenceCounted
-public "readVector3f"(): $Vector3f
-public static "readVector3f"(arg0: $ByteBuf$$Type): $Vector3f
-public static "readByteArray"(arg0: $ByteBuf$$Type, arg1: integer): (byte)[]
-public "readByteArray"(): (byte)[]
-public static "readByteArray"(arg0: $ByteBuf$$Type): (byte)[]
-public "readByteArray"(arg0: integer): (byte)[]
-public static "writeByteArray"(arg0: $ByteBuf$$Type, arg1: (byte)[]): void
-public "writeByteArray"(arg0: (byte)[]): $FriendlyByteBuf
-public static "writeNbt"(arg0: $ByteBuf$$Type, arg1: $Tag$$Type): void
-public "writeNbt"(arg0: $Tag$$Type): $FriendlyByteBuf
+public "maxCapacity"(): integer
+public "readNbt"(): $CompoundTag
+public static "readNbt"(arg0: $ByteBuf$$Type): $CompoundTag
 public static "readNbt"(arg0: $ByteBuf$$Type, arg1: $NbtAccounter$$Type): $Tag
 public "readNbt"(arg0: $NbtAccounter$$Type): $Tag
-public static "readNbt"(arg0: $ByteBuf$$Type): $CompoundTag
-public "readNbt"(): $CompoundTag
-public static "writeQuaternion"(arg0: $ByteBuf$$Type, arg1: $Quaternionf$$Type): void
-public "writeQuaternion"(arg0: $Quaternionf$$Type): void
-public "readQuaternion"(): $Quaternionf
-public static "readQuaternion"(arg0: $ByteBuf$$Type): $Quaternionf
-public "readNullable"<T>(arg0: $StreamDecoder$$Type<($FriendlyByteBuf), (T)>): T
-public static "readNullable"<T, B extends $ByteBuf>(arg0: B, arg1: $StreamDecoder$$Type<(B), (T)>): T
-public "writeNullable"<T>(arg0: T, arg1: $StreamEncoder$$Type<($FriendlyByteBuf), (T)>): void
-public static "writeNullable"<T, B extends $ByteBuf>(arg0: B, arg1: T, arg2: $StreamEncoder$$Type<(B), (T)>): void
-public "writeVector3f"(arg0: $Vector3f$$Type): void
-public static "writeVector3f"(arg0: $ByteBuf$$Type, arg1: $Vector3f$$Type): void
-public "alloc"(): $ByteBufAllocator
-public "setLongLE"(arg0: integer, arg1: long): $ByteBuf
-public "setZero"(arg0: integer, arg1: integer): $FriendlyByteBuf
-public "setShortLE"(arg0: integer, arg1: integer): $FriendlyByteBuf
-public "readLongLE"(): long
-public "readMedium"(): integer
-public "writeIntLE"(arg0: integer): $ByteBuf
-public "setBytes"(arg0: integer, arg1: $ByteBuf$$Type, arg2: integer, arg3: integer): $FriendlyByteBuf
-public "setBytes"(arg0: integer, arg1: (byte)[]): $FriendlyByteBuf
-public "setBytes"(arg0: integer, arg1: $ByteBuf$$Type): $FriendlyByteBuf
-public "setBytes"(arg0: integer, arg1: $ByteBuf$$Type, arg2: integer): $FriendlyByteBuf
-public "setBytes"(arg0: integer, arg1: $ByteBuffer$$Type): $ByteBuf
-public "setBytes"(arg0: integer, arg1: (byte)[], arg2: integer, arg3: integer): $ByteBuf
-public "setBytes"(arg0: integer, arg1: $InputStream$$Type, arg2: integer): integer
-public "setBytes"(arg0: integer, arg1: $ScatteringByteChannel$$Type, arg2: integer): integer
-public "setBytes"(arg0: integer, arg1: $FileChannel$$Type, arg2: long, arg3: integer): integer
-public "getMedium"(arg0: integer): integer
-public "writeZero"(arg0: integer): $FriendlyByteBuf
-public "nioBuffers"(): ($ByteBuffer)[]
-public "nioBuffers"(arg0: integer, arg1: integer): ($ByteBuffer)[]
-public "readIntLE"(): integer
-public "nioBuffer"(): $ByteBuffer
-public "nioBuffer"(arg0: integer, arg1: integer): $ByteBuffer
-public "readVarInt"(): integer
-public static "limitValue"<T>(arg0: $IntFunction$$Type<(T)>, arg1: integer): $IntFunction<(T)>
-public "setIntLE"(arg0: integer, arg1: integer): $FriendlyByteBuf
-public "getLongLE"(arg0: integer): long
-public "getIntLE"(arg0: integer): integer
-public "writeUtf"(arg0: StringJS): $FriendlyByteBuf
-public "writeUtf"(arg0: StringJS, arg1: integer): $FriendlyByteBuf
-public "getShortLE"(arg0: integer): short
-public "setMedium"(arg0: integer, arg1: integer): $FriendlyByteBuf
-public "refCnt"(): integer
-public "readSlice"(arg0: integer): $ByteBuf
-public "retain"(): $ReferenceCounted
-public "retain"(arg0: integer): $ByteBuf
-public "writeById"<T>(arg0: $ToIntFunction$$Type<(T)>, arg1: T): $FriendlyByteBuf
-public "readVec3"(): $Vec3
-public "writeEnum"(arg0: $Enum$$Type<(never)>): $FriendlyByteBuf
-public "readById"<T>(arg0: $IntFunction$$Type<(T)>): T
-public "writeVec3"(arg0: $Vec3$$Type): void
-public "readEnum"<T extends $Enum<(object)>>(arg0: $Class$$Type<(T)>): T
-public "readDate"(): $Date
-public "readBitSet"(): $BitSet
-public static "writeUUID"(arg0: $ByteBuf$$Type, arg1: $UUID$$Type): void
-public "writeUUID"(arg0: $UUID$$Type): $FriendlyByteBuf
-public "getCharSequence"(arg0: integer, arg1: integer, arg2: $Charset$$Type): charseq
-public "readerIndex"(arg0: integer): $ByteBuf
+public static "writeNbt"(arg0: $ByteBuf$$Type, arg1: $Tag$$Type): void
+public "writeNbt"(arg0: $Tag$$Type): $FriendlyByteBuf
+public "writeMap"<K, V>(arg0: $Map$$Type<(K), (V)>, arg1: $StreamEncoder$$Type<($FriendlyByteBuf), (K)>, arg2: $StreamEncoder$$Type<($FriendlyByteBuf), (V)>): void
+public "writeDate"(arg0: $Date$$Type): $FriendlyByteBuf
+public "getMediumLE"(arg0: integer): integer
+public "markWriterIndex"(): $FriendlyByteBuf
+public "getUnsignedInt"(arg0: integer): long
+public "ensureWritable"(arg0: integer, arg1: boolean): integer
+public "ensureWritable"(arg0: integer): $ByteBuf
+public "resetReaderIndex"(): $ByteBuf
+public "getUnsignedByte"(arg0: integer): short
+public "readableBytes"(): integer
+public "getUnsignedShortLE"(arg0: integer): integer
+public "getUnsignedMedium"(arg0: integer): integer
+public "setMediumLE"(arg0: integer, arg1: integer): $FriendlyByteBuf
+public "discardReadBytes"(): $ByteBuf
 public "readerIndex"(): integer
+public "readerIndex"(arg0: integer): $ByteBuf
 public "writerIndex"(arg0: integer): $ByteBuf
 public "writerIndex"(): integer
-public "readableBytes"(): integer
-public "writableBytes"(): integer
-public "internalNioBuffer"(arg0: integer, arg1: integer): $ByteBuffer
-public "writeIntIdList"(arg0: $IntList$$Type): void
+public "maxWritableBytes"(): integer
+public "markReaderIndex"(): $FriendlyByteBuf
+public "resetWriterIndex"(): $FriendlyByteBuf
 public "getUnsignedIntLE"(arg0: integer): long
-public "writeCharSequence"(arg0: charseq, arg1: $Charset$$Type): integer
-public "getUnsignedShortLE"(arg0: integer): integer
-public "writeMediumLE"(arg0: integer): $ByteBuf
+public "writableBytes"(): integer
+public "writeFixedBitSet"(arg0: $BitSet$$Type, arg1: integer): void
+public "readFixedBitSet"(arg0: integer): $BitSet
+public "readVarIntArray"(arg0: integer): (integer)[]
+public "readVarIntArray"(): (integer)[]
+public "writeLongArray"(arg0: (long)[]): $FriendlyByteBuf
+public static "readBlockPos"(arg0: $ByteBuf$$Type): $BlockPos
+public "readBlockPos"(): $BlockPos
+public "retainedDuplicate"(): $ByteBuf
+public "readChunkPos"(): $ChunkPos
+public "writeChunkPos"(arg0: $ChunkPos$$Type): $FriendlyByteBuf
+public "writeMediumLE"(arg0: integer): $FriendlyByteBuf
+public "writeVarIntArray"(arg0: (integer)[]): $FriendlyByteBuf
+public "readLongArray"(arg0: (long)[], arg1: integer): (long)[]
+public "readLongArray"(): (long)[]
+public "readLongArray"(arg0: (long)[]): (long)[]
+public "readSectionPos"(): $SectionPos
+public "readIntIdList"(): $IntList
+public "writeSectionPos"(arg0: $SectionPos$$Type): $FriendlyByteBuf
+public "readGlobalPos"(): $GlobalPos
+public "readResourceKey"<T>(arg0: $ResourceKey$$Type<($Registry<(T)>)>): $ResourceKey<(T)>
+public "writeGlobalPos"(arg0: $GlobalPos$$Type): void
+public "writeResourceKey"(arg0: $ResourceKey$$Type<(never)>): void
+public "writeOptional"<T>(arg0: (T)?, arg1: $StreamEncoder$$Type<($FriendlyByteBuf), (T)>): void
+public "readVarLong"(): long
+public "readEnumSet"<E extends $Enum<(object)>>(arg0: $Class$$Type<(E)>): $EnumSet<(E)>
+public "readUnsignedMedium"(): integer
+public "readUnsignedInt"(): long
 public "retainedSlice"(): $ByteBuf
 public "retainedSlice"(arg0: integer, arg1: integer): $ByteBuf
-public "ensureWritable"(arg0: integer): $ByteBuf
-public "ensureWritable"(arg0: integer, arg1: boolean): integer
-public "readCharSequence"(arg0: integer, arg1: $Charset$$Type): charseq
-/**
- * 
- * @deprecated
- */
-public "writeWithCodec"<T>(arg0: $DynamicOps$$Type<($Tag$$Type)>, arg1: $Codec$$Type<(T)>, arg2: T): $FriendlyByteBuf
-public "writeVarInt"(arg0: integer): $FriendlyByteBuf
+public "internalNioBuffer"(arg0: integer, arg1: integer): $ByteBuffer
 public "hasMemoryAddress"(): boolean
-public "writeFixedBitSet"(arg0: $BitSet$$Type, arg1: integer): void
-public "writeJsonWithCodec"<T>(arg0: $Codec$$Type<(T)>, arg1: T): void
-public "readFixedBitSet"(arg0: integer): $BitSet
-public "writeMedium"(arg0: integer): $FriendlyByteBuf
-public "writeLongLE"(arg0: long): $FriendlyByteBuf
 public "nioBufferCount"(): integer
-public "readWithCount"(arg0: $Consumer$$Type<($FriendlyByteBuf)>): void
-public "writeEnumSet"<E extends $Enum<(object)>>(arg0: $EnumSet$$Type<(E)>, arg1: $Class$$Type<(E)>): void
-public "discardReadBytes"(): $FriendlyByteBuf
-public "readJsonWithCodec"<T>(arg0: $Codec$$Type<(T)>): T
-public "writeOptional"<T>(arg0: (T)?, arg1: $StreamEncoder$$Type<($FriendlyByteBuf), (T)>): void
-public "getUnsignedMedium"(arg0: integer): integer
-public "resetReaderIndex"(): $ByteBuf
-public "readEnumSet"<E extends $Enum<(object)>>(arg0: $Class$$Type<(E)>): $EnumSet<(E)>
-public "readShortLE"(): short
-public "maxWritableBytes"(): integer
-public "getUnsignedByte"(arg0: integer): short
-public "markReaderIndex"(): $FriendlyByteBuf
-public "getUnsignedInt"(arg0: integer): long
-public "markWriterIndex"(): $FriendlyByteBuf
-public "readUnsignedIntLE"(): long
-public "writeShortLE"(arg0: integer): $ByteBuf
-public "bytesBefore"(arg0: integer, arg1: integer, arg2: byte): integer
-public "bytesBefore"(arg0: byte): integer
-public "bytesBefore"(arg0: integer, arg1: byte): integer
-public "retainedDuplicate"(): $ByteBuf
 public "isContiguous"(): boolean
-public "readUnsignedInt"(): long
-public "readUnsignedMedium"(): integer
 /**
  * 
  * @deprecated
  */
 public "readWithCodec"<T>(arg0: $DynamicOps$$Type<($Tag$$Type)>, arg1: $Codec$$Type<(T)>, arg2: $NbtAccounter$$Type): T
+public "writeShortLE"(arg0: integer): $ByteBuf
+public "writeJsonWithCodec"<T>(arg0: $Codec$$Type<(T)>, arg1: T): void
+public "writeMedium"(arg0: integer): $ByteBuf
+public "readRetainedSlice"(arg0: integer): $ByteBuf
+public "setCharSequence"(arg0: integer, arg1: charseq, arg2: $Charset$$Type): integer
+public "readShortLE"(): short
+public "writeLongLE"(arg0: long): $FriendlyByteBuf
+/**
+ * 
+ * @deprecated
+ */
+public "writeWithCodec"<T>(arg0: $DynamicOps$$Type<($Tag$$Type)>, arg1: $Codec$$Type<(T)>, arg2: T): $FriendlyByteBuf
+public "readCharSequence"(arg0: integer, arg1: $Charset$$Type): charseq
+public "readJsonWithCodec"<T>(arg0: $Codec$$Type<(T)>): T
 public "readCollection"<T, C extends $Collection<(object)>>(arg0: $IntFunction$$Type<(C)>, arg1: $StreamDecoder$$Type<($FriendlyByteBuf), (T)>): C
 public "writeCollection"<T>(arg0: $Collection$$Type<(T)>, arg1: $StreamEncoder$$Type<($FriendlyByteBuf), (T)>): void
-public "readIntIdList"(): $IntList
-public "readMediumLE"(): integer
-public "readRetainedSlice"(arg0: integer): $ByteBuf
-public "resetWriterIndex"(): $ByteBuf
-public "getMediumLE"(arg0: integer): integer
-public "setMediumLE"(arg0: integer, arg1: integer): $FriendlyByteBuf
-public "setCharSequence"(arg0: integer, arg1: charseq, arg2: $Charset$$Type): integer
-public "readPublicKey"(): $PublicKey
-public "writeVarIntArray"(arg0: (integer)[]): $FriendlyByteBuf
-public "writeGlobalPos"(arg0: $GlobalPos$$Type): void
-public "writeLongArray"(arg0: (long)[]): $FriendlyByteBuf
-public "readVarLong"(): long
-public "readResourceKey"<T>(arg0: $ResourceKey$$Type<($Registry<(T)>)>): $ResourceKey<(T)>
-public "writePublicKey"(arg0: $PublicKey$$Type): $FriendlyByteBuf
-public "readChunkPos"(): $ChunkPos
-public "writeVarLong"(arg0: long): $FriendlyByteBuf
-public "writeSectionPos"(arg0: $SectionPos$$Type): $FriendlyByteBuf
-public "readLongArray"(): (long)[]
-public "readLongArray"(arg0: (long)[]): (long)[]
-public "readLongArray"(arg0: (long)[], arg1: integer): (long)[]
-public "readBlockHitResult"(): $BlockHitResult
-public "writeBitSet"(arg0: $BitSet$$Type): void
-public "readSectionPos"(): $SectionPos
-public "writeResourceKey"(arg0: $ResourceKey$$Type<(never)>): void
-public "readRegistryKey"<T>(): $ResourceKey<($Registry<(T)>)>
+public "writeVarInt"(arg0: integer): $FriendlyByteBuf
+public "writeIntIdList"(arg0: $IntList$$Type): void
+public "writeEnumSet"<E extends $Enum<(object)>>(arg0: $EnumSet$$Type<(E)>, arg1: $Class$$Type<(E)>): void
 public "readOptional"<T>(arg0: $StreamDecoder$$Type<($FriendlyByteBuf), (T)>): $Optional<(T)>
-public "readVarIntArray"(): (integer)[]
-public "readVarIntArray"(arg0: integer): (integer)[]
+public "readMediumLE"(): integer
+public "bytesBefore"(arg0: integer, arg1: integer, arg2: byte): integer
+public "bytesBefore"(arg0: integer, arg1: byte): integer
+public "bytesBefore"(arg0: byte): integer
+public "readUnsignedIntLE"(): long
+public "readWithCount"(arg0: $Consumer$$Type<($FriendlyByteBuf)>): void
+public "writeCharSequence"(arg0: charseq, arg1: $Charset$$Type): integer
+public "readRegistryKey"<T>(): $ResourceKey<($Registry<(T)>)>
+public "writePublicKey"(arg0: $PublicKey$$Type): $FriendlyByteBuf
+public "readPublicKey"(): $PublicKey
+public "writeBitSet"(arg0: $BitSet$$Type): void
+public "writeVarLong"(arg0: long): $FriendlyByteBuf
 public "readInstant"(): $Instant
 public "writeInstant"(arg0: $Instant$$Type): void
-public "readGlobalPos"(): $GlobalPos
-public "writeChunkPos"(arg0: $ChunkPos$$Type): $FriendlyByteBuf
+public "readBlockHitResult"(): $BlockHitResult
+public "writeBlockPos"(arg0: $BlockPos$$Type): $FriendlyByteBuf
+public static "writeBlockPos"(arg0: $ByteBuf$$Type, arg1: $BlockPos$$Type): void
+public "getCharSequence"(arg0: integer, arg1: integer, arg2: $Charset$$Type): charseq
+public static "readNullable"<T, B extends $ByteBuf>(arg0: B, arg1: $StreamDecoder$$Type<(B), (T)>): T
+public "readNullable"<T>(arg0: $StreamDecoder$$Type<($FriendlyByteBuf), (T)>): T
+public static "readQuaternion"(arg0: $ByteBuf$$Type): $Quaternionf
+public "readQuaternion"(): $Quaternionf
+public "writeVector3f"(arg0: $Vector3f$$Type): void
+public static "writeVector3f"(arg0: $ByteBuf$$Type, arg1: $Vector3f$$Type): void
+public static "readVector3f"(arg0: $ByteBuf$$Type): $Vector3f
+public "readVector3f"(): $Vector3f
+public "writeQuaternion"(arg0: $Quaternionf$$Type): void
+public static "writeQuaternion"(arg0: $ByteBuf$$Type, arg1: $Quaternionf$$Type): void
+public "writeNullable"<T>(arg0: T, arg1: $StreamEncoder$$Type<($FriendlyByteBuf), (T)>): void
+public static "writeNullable"<T, B extends $ByteBuf>(arg0: B, arg1: T, arg2: $StreamEncoder$$Type<(B), (T)>): void
+public "forEachByte"(arg0: $ByteProcessor$$Type): integer
+public "forEachByte"(arg0: integer, arg1: integer, arg2: $ByteProcessor$$Type): integer
+public "forEachByteDesc"(arg0: integer, arg1: integer, arg2: $ByteProcessor$$Type): integer
+public "forEachByteDesc"(arg0: $ByteProcessor$$Type): integer
+public "touch"(): $ReferenceCounted
+public "touch"(arg0: any): $ByteBuf
+public "setZero"(arg0: integer, arg1: integer): $FriendlyByteBuf
+public "readSlice"(arg0: integer): $ByteBuf
+public "nioBuffer"(): $ByteBuffer
+public "nioBuffer"(arg0: integer, arg1: integer): $ByteBuffer
+public "getShortLE"(arg0: integer): short
+public "getMedium"(arg0: integer): integer
+public "writeZero"(arg0: integer): $FriendlyByteBuf
+public "readLongLE"(): long
+public "getLongLE"(arg0: integer): long
+public "readIntLE"(): integer
+public "retain"(): $FriendlyByteBuf
+public "retain"(arg0: integer): $FriendlyByteBuf
+public "refCnt"(): integer
+public "readMedium"(): integer
+public "setIntLE"(arg0: integer, arg1: integer): $FriendlyByteBuf
+public "setLongLE"(arg0: integer, arg1: long): $FriendlyByteBuf
+public "getIntLE"(arg0: integer): integer
+public "setShortLE"(arg0: integer, arg1: integer): $ByteBuf
+public "writeIntLE"(arg0: integer): $ByteBuf
+public "setBytes"(arg0: integer, arg1: $ByteBuf$$Type, arg2: integer): $ByteBuf
+public "setBytes"(arg0: integer, arg1: $ByteBuf$$Type): $ByteBuf
+public "setBytes"(arg0: integer, arg1: (byte)[]): $ByteBuf
+public "setBytes"(arg0: integer, arg1: $ByteBuf$$Type, arg2: integer, arg3: integer): $ByteBuf
+public "setBytes"(arg0: integer, arg1: $FileChannel$$Type, arg2: long, arg3: integer): integer
+public "setBytes"(arg0: integer, arg1: $ScatteringByteChannel$$Type, arg2: integer): integer
+public "setBytes"(arg0: integer, arg1: $InputStream$$Type, arg2: integer): integer
+public "setBytes"(arg0: integer, arg1: $ByteBuffer$$Type): $FriendlyByteBuf
+public "setBytes"(arg0: integer, arg1: (byte)[], arg2: integer, arg3: integer): $ByteBuf
+public "nioBuffers"(): ($ByteBuffer)[]
+public "nioBuffers"(arg0: integer, arg1: integer): ($ByteBuffer)[]
+public "alloc"(): $ByteBufAllocator
+public "setMedium"(arg0: integer, arg1: integer): $FriendlyByteBuf
+public "writeUtf"(arg0: StringJS, arg1: integer): $FriendlyByteBuf
+public "writeUtf"(arg0: StringJS): $FriendlyByteBuf
+public "readVarInt"(): integer
+public static "limitValue"<T>(arg0: $IntFunction$$Type<(T)>, arg1: integer): $IntFunction<(T)>
+public "readVec3"(): $Vec3
+public "readEnum"<T extends $Enum<(object)>>(arg0: $Class$$Type<(T)>): T
+public "writeEnum"(arg0: $Enum$$Type<(never)>): $FriendlyByteBuf
+public "readById"<T>(arg0: $IntFunction$$Type<(T)>): T
+public "writeVec3"(arg0: $Vec3$$Type): void
+public "readBitSet"(): $BitSet
+public "readDate"(): $Date
+public "writeById"<T>(arg0: $ToIntFunction$$Type<(T)>, arg1: T): $FriendlyByteBuf
+public "readUUID"(): $UUID
+public static "readUUID"(arg0: $ByteBuf$$Type): $UUID
+public "writeUUID"(arg0: $UUID$$Type): $FriendlyByteBuf
+public static "writeUUID"(arg0: $ByteBuf$$Type, arg1: $UUID$$Type): void
+public "readMap"<K, V, M extends $Map<(object), (object)>>(arg0: $IntFunction$$Type<(M)>, arg1: $StreamDecoder$$Type<($FriendlyByteBuf), (K)>, arg2: $StreamDecoder$$Type<($FriendlyByteBuf), (V)>): M
+public "readMap"<K, V>(arg0: $StreamDecoder$$Type<($FriendlyByteBuf), (K)>, arg1: $StreamDecoder$$Type<($FriendlyByteBuf), (V)>): $Map<(K), (V)>
+public "readList"<T>(arg0: $StreamDecoder$$Type<($FriendlyByteBuf), (T)>): $List<(T)>
+public "maxFastWritableBytes"(): integer
+public "discardSomeReadBytes"(): $ByteBuf
+public "getUnsignedMediumLE"(arg0: integer): integer
+public "readUnsignedShortLE"(): integer
+public "readUnsignedMediumLE"(): integer
+public "readResourceLocation"(): $ResourceLocation
+public "writeBlockHitResult"(arg0: $BlockHitResult$$Type): void
+/**
+ * 
+ * @deprecated
+ */
+public "readWithCodecTrusted"<T>(arg0: $DynamicOps$$Type<($Tag$$Type)>, arg1: $Codec$$Type<(T)>): T
+public "writeResourceLocation"(arg0: $ResourceLocation$$Type): $FriendlyByteBuf
+public static "readByteArray"(arg0: $ByteBuf$$Type, arg1: integer): (byte)[]
+public "readByteArray"(arg0: integer): (byte)[]
+public "readByteArray"(): (byte)[]
+public static "readByteArray"(arg0: $ByteBuf$$Type): (byte)[]
+public static "writeByteArray"(arg0: $ByteBuf$$Type, arg1: (byte)[]): void
+public "writeByteArray"(arg0: (byte)[]): $FriendlyByteBuf
 public "writeByte"(arg0: byte): $FriendlyByteBuf
+public "writeMap"<K, V>(arg0: $Map$$Type<(K), (V)>, arg1: $StreamEncoder$$Type<($FriendlyByteBuf), (K)>, arg2: $TriConsumer$$Type<($FriendlyByteBuf), (K), (V)>): void
 public "writeArray"<T>(arg0: (T)[], arg1: $StreamEncoder$$Type<($FriendlyByteBuf), (T)>): $FriendlyByteBuf
+public "readMap"<K, V>(arg0: $StreamDecoder$$Type<($FriendlyByteBuf), (K)>, arg1: $BiFunction$$Type<($FriendlyByteBuf), (K), (V)>): $Map<(K), (V)>
 public "readArray"<T>(arg0: $IntFunction$$Type<((T)[])>, arg1: $StreamDecoder$$Type<($FriendlyByteBuf), (T)>): (T)[]
 public "writeObjectCollection"<T>(arg0: $Collection$$Type<(T)>, arg1: $BiConsumer$$Type<(T), ($FriendlyByteBuf)>): void
-public "writeMap"<K, V>(arg0: $Map$$Type<(K), (V)>, arg1: $StreamEncoder$$Type<($FriendlyByteBuf), (K)>, arg2: $TriConsumer$$Type<($FriendlyByteBuf), (K), (V)>): void
-public "readMap"<K, V>(arg0: $StreamDecoder$$Type<($FriendlyByteBuf), (K)>, arg1: $BiFunction$$Type<($FriendlyByteBuf), (K), (V)>): $Map<(K), (V)>
+public "write"<T>(arg0: $Endec$$Type<(T)>, arg1: T): void
+public "read"<T>(arg0: $Endec$$Type<(T)>): T
 get "direct"(): boolean
 get "readOnly"(): boolean
 get "readable"(): boolean

@@ -9,20 +9,20 @@ export class $MobEffect$AttributeTemplate extends $Record {
 constructor(arg0: $ResourceLocation$$Type, arg1: double, arg2: $AttributeModifier$Operation$$Type)
 constructor(id: $ResourceLocation$$Type, amount: double, operation: $AttributeModifier$Operation$$Type, curve: $Int2DoubleFunction$$Type)
 
-public "operation"(): $AttributeModifier$Operation
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "id"(): $ResourceLocation
 public "create"(arg0: integer): $AttributeModifier
 public "amount"(): double
+public "operation"(): $AttributeModifier$Operation
 public "curve"(): $Int2DoubleFunction
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $MobEffect$AttributeTemplate$$Type = ({"id"?: $ResourceLocation$$Type, "operation"?: $AttributeModifier$Operation$$Type, "amount"?: double, "curve"?: $Int2DoubleFunction$$Type}) | ([id?: $ResourceLocation$$Type, operation?: $AttributeModifier$Operation$$Type, amount?: double, curve?: $Int2DoubleFunction$$Type]);
+export type $MobEffect$AttributeTemplate$$Type = ({"curve"?: $Int2DoubleFunction$$Type, "amount"?: double, "operation"?: $AttributeModifier$Operation$$Type, "id"?: $ResourceLocation$$Type}) | ([curve?: $Int2DoubleFunction$$Type, amount?: double, operation?: $AttributeModifier$Operation$$Type, id?: $ResourceLocation$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -36,12 +36,12 @@ import {$Component} from "net.minecraft.network.chat.Component"
 import {$SoundEvent$$Type} from "net.minecraft.sounds.SoundEvent"
 import {$Holder, $Holder$$Type} from "net.minecraft.core.Holder"
 import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
-import {$Codec} from "com.mojang.serialization.Codec"
 import {$EffectCure$$Type} from "net.neoforged.neoforge.common.EffectCure"
+import {$Codec} from "com.mojang.serialization.Codec"
 import {$FeatureElement$$Interface} from "net.minecraft.world.flag.FeatureElement"
 import {$Set$$Type} from "java.util.Set"
-import {$Int2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
 import {$Entity$$Type} from "net.minecraft.world.entity.Entity"
+import {$Int2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
 import {$AttributeModifier$$Type} from "net.minecraft.world.entity.ai.attributes.AttributeModifier"
 import {$Map} from "java.util.Map"
 import {$IMobEffectExtension$$Interface} from "net.neoforged.neoforge.common.extensions.IMobEffectExtension"
@@ -68,47 +68,47 @@ constructor(arg0: $MobEffectCategory$$Type, arg1: integer)
 constructor(arg0: $MobEffectCategory$$Type, arg1: integer, arg2: $ParticleOptions$$Type)
 
 public "getDisplayName"(): $Component
-public "shouldApplyEffectTickThisTick"(arg0: integer, arg1: integer): boolean
-public "applyEffectTick"(arg0: $LivingEntity$$Type, arg1: integer): boolean
-public "isInstantenous"(): boolean
-public "withSoundOnAdded"(arg0: $SoundEvent$$Type): $MobEffect
-public "setBlendDuration"(arg0: integer): $MobEffect
-public "getOrCreateDescriptionId"(): StringJS
-public "getBlendDurationTicks"(): integer
+public "addAttributeModifier"(arg0: $Holder$$Type<($Attribute)>, arg1: $ResourceLocation$$Type, arg2: $AttributeModifier$Operation$$Type, arg3: $Int2DoubleFunction$$Type): $MobEffect
+public "addAttributeModifier"(arg0: $Holder$$Type<($Attribute)>, arg1: $ResourceLocation$$Type, arg2: double, arg3: $AttributeModifier$Operation$$Type): $MobEffect
 public "applyInstantenousEffect"(arg0: $Entity$$Type, arg1: $Entity$$Type, arg2: $LivingEntity$$Type, arg3: integer, arg4: double): void
+public "getBlendDurationTicks"(): integer
+public "getOrCreateDescriptionId"(): StringJS
 public "createParticleOptions"(arg0: $MobEffectInstance$$Type): $ParticleOptions
-public "requiredFeatures"(...arg0: ($FeatureFlag$$Type)[]): $MobEffect
-public "requiredFeatures"(): $FeatureFlagSet
-public "addAttributeModifiers"(arg0: $AttributeMap$$Type, arg1: integer): void
-public "removeAttributeModifiers"(arg0: $AttributeMap$$Type): void
-public "onMobRemoved"(arg0: $LivingEntity$$Type, arg1: integer, arg2: $Entity$RemovalReason$$Type): void
-public "getCategory"(): $MobEffectCategory
-public "getDescriptionId"(): StringJS
-public "getColor"(): integer
+public "onMobHurt"(arg0: $LivingEntity$$Type, arg1: integer, arg2: $DamageSource$$Type, arg3: float): void
+public "withSoundOnAdded"(arg0: $SoundEvent$$Type): $MobEffect
+public "applyEffectTick"(arg0: $LivingEntity$$Type, arg1: integer): boolean
+public "isBeneficial"(): boolean
 /**
  * 
  * @deprecated
  */
 public "initializeClient"(arg0: $Consumer$$Type<($IClientMobEffectExtensions)>): void
-public "isBeneficial"(): boolean
+public "setBlendDuration"(arg0: integer): $MobEffect
+public "isInstantenous"(): boolean
 public "createModifiers"(arg0: integer, arg1: $BiConsumer$$Type<($Holder<($Attribute)>), ($AttributeModifier)>): void
-public "addAttributeModifier"(arg0: $Holder$$Type<($Attribute)>, arg1: $ResourceLocation$$Type, arg2: double, arg3: $AttributeModifier$Operation$$Type): $MobEffect
-public "addAttributeModifier"(arg0: $Holder$$Type<($Attribute)>, arg1: $ResourceLocation$$Type, arg2: $AttributeModifier$Operation$$Type, arg3: $Int2DoubleFunction$$Type): $MobEffect
-public "onMobHurt"(arg0: $LivingEntity$$Type, arg1: integer, arg2: $DamageSource$$Type, arg3: float): void
+public "getCategory"(): $MobEffectCategory
+public "requiredFeatures"(): $FeatureFlagSet
+public "requiredFeatures"(...arg0: ($FeatureFlag$$Type)[]): $MobEffect
+public "getColor"(): integer
+public "addAttributeModifiers"(arg0: $AttributeMap$$Type, arg1: integer): void
+public "removeAttributeModifiers"(arg0: $AttributeMap$$Type): void
+public "shouldApplyEffectTickThisTick"(arg0: integer, arg1: integer): boolean
+public "getDescriptionId"(): StringJS
 public "onEffectAdded"(arg0: $LivingEntity$$Type, arg1: integer): void
+public "onMobRemoved"(arg0: $LivingEntity$$Type, arg1: integer, arg2: $Entity$RemovalReason$$Type): void
 public "onEffectStarted"(arg0: $LivingEntity$$Type, arg1: integer): void
 public "isEnabled"(arg0: $FeatureFlagSet$$Type): boolean
-public "getSortOrder"(arg0: $MobEffectInstance$$Type): integer
 public "fillEffectCures"(arg0: $Set$$Type<($EffectCure$$Type)>, arg1: $MobEffectInstance$$Type): void
+public "getSortOrder"(arg0: $MobEffectInstance$$Type): integer
 get "displayName"(): $Component
-get "instantenous"(): boolean
-set "blendDuration"(value: integer)
-get "orCreateDescriptionId"(): StringJS
 get "blendDurationTicks"(): integer
-get "category"(): $MobEffectCategory
-get "descriptionId"(): StringJS
-get "color"(): integer
+get "orCreateDescriptionId"(): StringJS
 get "beneficial"(): boolean
+set "blendDuration"(value: integer)
+get "instantenous"(): boolean
+get "category"(): $MobEffectCategory
+get "color"(): integer
+get "descriptionId"(): StringJS
 /**
  * This field is a type stub generated by ProbeJS and shall not be used in any sense.
  */
@@ -158,8 +158,8 @@ import {$Runnable$$Type} from "java.lang.Runnable"
 import {$Entity$RemovalReason$$Type} from "net.minecraft.world.entity.Entity$RemovalReason"
 import {$Holder, $Holder$$Type} from "net.minecraft.core.Holder"
 import {$MobEffect, $MobEffect$$Type} from "net.minecraft.world.effect.MobEffect"
-import {$EffectCure} from "net.neoforged.neoforge.common.EffectCure"
 import {$Codec} from "com.mojang.serialization.Codec"
+import {$EffectCure} from "net.neoforged.neoforge.common.EffectCure"
 import {$DamageSource$$Type} from "net.minecraft.world.damagesource.DamageSource"
 import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
@@ -187,44 +187,44 @@ constructor(arg0: $Holder$$Type<($MobEffect)>, arg1: integer, arg2: integer, arg
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public "compareTo"(arg0: any): integer
 public "compareTo"(arg0: $MobEffectInstance$$Type): integer
+public "compareTo"(arg0: any): integer
 public "update"(arg0: $MobEffectInstance$$Type): boolean
 public static "load"(arg0: $CompoundTag$$Type): $MobEffectInstance
 public "save"(): $Tag
 public "is"(arg0: $Holder$$Type<($MobEffect)>): boolean
 public "tick"(arg0: $LivingEntity$$Type, arg1: $Runnable$$Type): boolean
 public "getDuration"(): integer
-public "showIcon"(): boolean
-public "onMobRemoved"(arg0: $LivingEntity$$Type, arg1: $Entity$RemovalReason$$Type): void
-public "getParticleOptions"(): $ParticleOptions
-public "getCures"(): $Set<($EffectCure)>
 public "endsWithin"(arg0: integer): boolean
-public "getDescriptionId"(): StringJS
 public "isAmbient"(): boolean
 public "getEffect"(): $Holder<($MobEffect)>
-public "isVisible"(): boolean
 public "onMobHurt"(arg0: $LivingEntity$$Type, arg1: $DamageSource$$Type, arg2: float): void
+public "showIcon"(): boolean
+public "create$getHiddenEffect"(): $MobEffectInstance
+public "setDetailsFrom"(arg0: $MobEffectInstance$$Type): void
+public "skipBlending"(): void
+public "mapDuration"(arg0: $Int2IntFunction$$Type): integer
+public "getBlendFactor"(arg0: $LivingEntity$$Type, arg1: float): float
+public "isInfiniteDuration"(): boolean
+public "getDescriptionId"(): StringJS
+public "getCures"(): $Set<($EffectCure)>
+public "isVisible"(): boolean
 public "onEffectAdded"(arg0: $LivingEntity$$Type): void
-public "onEffectStarted"(arg0: $LivingEntity$$Type): void
 public "copyBlendState"(arg0: $MobEffectInstance$$Type): void
 public "getAmplifier"(): integer
-public "create$getHiddenEffect"(): $MobEffectInstance
-public "mapDuration"(arg0: $Int2IntFunction$$Type): integer
-public "isInfiniteDuration"(): boolean
-public "setDetailsFrom"(arg0: $MobEffectInstance$$Type): void
-public "getBlendFactor"(arg0: $LivingEntity$$Type, arg1: float): float
-public "skipBlending"(): void
+public "onMobRemoved"(arg0: $LivingEntity$$Type, arg1: $Entity$RemovalReason$$Type): void
+public "getParticleOptions"(): $ParticleOptions
+public "onEffectStarted"(arg0: $LivingEntity$$Type): void
 get "duration"(): integer
-get "particleOptions"(): $ParticleOptions
-get "cures"(): $Set<($EffectCure)>
-get "descriptionId"(): StringJS
 get "ambient"(): boolean
 get "effect"(): $Holder<($MobEffect)>
+set "detailsFrom"(value: $MobEffectInstance$$Type)
+get "infiniteDuration"(): boolean
+get "descriptionId"(): StringJS
+get "cures"(): $Set<($EffectCure)>
 get "visible"(): boolean
 get "amplifier"(): integer
-get "infiniteDuration"(): boolean
-set "detailsFrom"(value: $MobEffectInstance$$Type)
+get "particleOptions"(): $ParticleOptions
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

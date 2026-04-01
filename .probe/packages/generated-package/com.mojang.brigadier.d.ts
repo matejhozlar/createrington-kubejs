@@ -4,9 +4,9 @@ export interface $ImmutableStringReader$$Interface {
 get "string"(): StringJS
 get "remaining"(): StringJS
 get "cursor"(): integer
-get "totalLength"(): integer
-get "remainingLength"(): integer
 get "read"(): StringJS
+get "remainingLength"(): integer
+get "totalLength"(): integer
 }
 
 export class $ImmutableStringReader implements $ImmutableStringReader$$Interface {
@@ -17,9 +17,9 @@ export class $ImmutableStringReader implements $ImmutableStringReader$$Interface
  "getString"(): StringJS
  "getRemaining"(): StringJS
  "getCursor"(): integer
- "getTotalLength"(): integer
- "getRemainingLength"(): integer
  "getRead"(): StringJS
+ "getRemainingLength"(): integer
+ "getTotalLength"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -92,24 +92,24 @@ public "readDouble"(): double
 public "readString"(): StringJS
 public "getString"(): StringJS
 public "getRemaining"(): StringJS
-public "skipWhitespace"(): void
-public "readUnquotedString"(): StringJS
-public "readQuotedString"(): StringJS
-public "setCursor"(arg0: integer): void
-public static "isAllowedInUnquotedString"(arg0: character): boolean
-public "readStringUntil"(arg0: character): StringJS
-public static "isAllowedNumber"(arg0: character): boolean
 public "getCursor"(): integer
 public static "isQuotedStringStart"(arg0: character): boolean
-public "getTotalLength"(): integer
-public "getRemainingLength"(): integer
+public static "isAllowedInUnquotedString"(arg0: character): boolean
+public "skipWhitespace"(): void
+public "readQuotedString"(): StringJS
+public "readUnquotedString"(): StringJS
 public "getRead"(): StringJS
+public "readStringUntil"(arg0: character): StringJS
+public static "isAllowedNumber"(arg0: character): boolean
+public "setCursor"(arg0: integer): void
+public "getRemainingLength"(): integer
+public "getTotalLength"(): integer
 get "string"(): StringJS
 get "remaining"(): StringJS
-set "cursor"(value: integer)
 get "cursor"(): integer
-get "totalLength"(): integer
+set "cursor"(value: integer)
 get "remainingLength"(): integer
+get "totalLength"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -185,8 +185,8 @@ export type $RedirectModifier$$Original<S> = $RedirectModifier<(S)>;}
 declare module "com.mojang.brigadier.CommandDispatcher" {
 import {$ParseResults, $ParseResults$$Type} from "com.mojang.brigadier.ParseResults"
 import {$LiteralArgumentBuilder$$Type} from "com.mojang.brigadier.builder.LiteralArgumentBuilder"
-import {$Collection, $Collection$$Type} from "java.util.Collection"
 import {$Suggestions} from "com.mojang.brigadier.suggestion.Suggestions"
+import {$Collection, $Collection$$Type} from "java.util.Collection"
 import {$Map} from "java.util.Map"
 import {$StringReader$$Type} from "com.mojang.brigadier.StringReader"
 import {$ResultConsumer$$Type} from "com.mojang.brigadier.ResultConsumer"
@@ -212,9 +212,9 @@ public "parse"(arg0: StringJS, arg1: S): $ParseResults<(S)>
 public "getRoot"(): $RootCommandNode<(S)>
 public "getPath"(arg0: $CommandNode$$Type<(S)>): $Collection<(StringJS)>
 public "findNode"(arg0: $Collection$$Type<(StringJS)>): $CommandNode<(S)>
-public "getCompletionSuggestions"(arg0: $ParseResults$$Type<(S)>): $CompletableFuture<($Suggestions)>
-public "getCompletionSuggestions"(arg0: $ParseResults$$Type<(S)>, arg1: integer): $CompletableFuture<($Suggestions)>
 public "setConsumer"(arg0: $ResultConsumer$$Type<(S)>): void
+public "getCompletionSuggestions"(arg0: $ParseResults$$Type<(S)>, arg1: integer): $CompletableFuture<($Suggestions)>
+public "getCompletionSuggestions"(arg0: $ParseResults$$Type<(S)>): $CompletableFuture<($Suggestions)>
 public "getAllUsage"(arg0: $CommandNode$$Type<(S)>, arg1: S, arg2: boolean): (StringJS)[]
 public "getSmartUsage"(arg0: $CommandNode$$Type<(S)>, arg1: S): $Map<($CommandNode<(S)>), (StringJS)>
 public "findAmbiguities"(arg0: $AmbiguityConsumer$$Type<(S)>): void

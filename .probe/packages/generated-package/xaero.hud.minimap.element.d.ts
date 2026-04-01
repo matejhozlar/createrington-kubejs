@@ -4,8 +4,8 @@ import {$Vec3, $Vec3$$Type} from "net.minecraft.world.phys.Vec3"
 import {$Level, $Level$$Type} from "net.minecraft.world.level.Level"
 import {$ResourceKey, $ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
 import {$Entity, $Entity$$Type} from "net.minecraft.world.entity.Entity"
-import {$MinimapElementRenderLocation, $MinimapElementRenderLocation$$Type} from "xaero.hud.minimap.element.render.MinimapElementRenderLocation"
 import {$RenderTarget, $RenderTarget$$Type} from "com.mojang.blaze3d.pipeline.RenderTarget"
+import {$MinimapElementRenderLocation, $MinimapElementRenderLocation$$Type} from "xaero.hud.minimap.element.render.MinimapElementRenderLocation"
 
 export class $MinimapElementRenderInfo {
 readonly "mapDimension": $ResourceKey<($Level)>
@@ -68,8 +68,8 @@ import {$MinimapElementRendererHandler} from "xaero.common.minimap.element.rende
 import {$PoseStack$$Type} from "com.mojang.blaze3d.vertex.PoseStack"
 
 export class $MinimapElementOverMapRendererHandler extends $MinimapElementRendererHandler {
-public "prepareRender"(arg0: double, arg1: double, arg2: double, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: boolean, arg8: float): void
 public static "translatePosition"(arg0: $PoseStack$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: double, arg6: double, arg7: double, arg8: double, arg9: double, arg10: boolean, arg11: (double)[]): boolean
+public "prepareRender"(arg0: double, arg1: double, arg2: double, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: boolean, arg8: float): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -98,10 +98,10 @@ public "compareTo"(arg0: $MinimapElementRenderer$$Type<(never), (never)>): integ
 public "getContext"(): RC
 public "getProvider"(): $MinimapElementRenderProvider<(E), (RC)>
 public "getOrder"(): integer
+public "renderElement"(arg0: E, arg1: boolean, arg2: boolean, arg3: double, arg4: float, arg5: double, arg6: double, arg7: $MinimapElementRenderInfo$$Type, arg8: $GuiGraphics$$Type, arg9: $MultiBufferSource$BufferSource$$Type): boolean
+public "getElementReader"(): $MinimapElementReader<(E), (RC)>
 public "postRender"(arg0: $MinimapElementRenderInfo$$Type, arg1: $MultiBufferSource$BufferSource$$Type, arg2: $MultiTextureRenderTypeRendererProvider$$Type): void
 public "shouldRender"(arg0: $MinimapElementRenderLocation$$Type): boolean
-public "getElementReader"(): $MinimapElementReader<(E), (RC)>
-public "renderElement"(arg0: E, arg1: boolean, arg2: boolean, arg3: double, arg4: float, arg5: double, arg6: double, arg7: $MinimapElementRenderInfo$$Type, arg8: $GuiGraphics$$Type, arg9: $MultiBufferSource$BufferSource$$Type): boolean
 public "preRender"(arg0: $MinimapElementRenderInfo$$Type, arg1: $MultiBufferSource$BufferSource$$Type, arg2: $MultiTextureRenderTypeRendererProvider$$Type): void
 get "context"(): RC
 get "provider"(): $MinimapElementRenderProvider<(E), (RC)>

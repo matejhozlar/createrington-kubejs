@@ -4,8 +4,8 @@ export interface $VertexBufferHelper$$Interface {
 }
 
 export class $VertexBufferHelper implements $VertexBufferHelper$$Interface {
- "restoreBinding"(): void
  "saveBinding"(): void
+ "restoreBinding"(): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

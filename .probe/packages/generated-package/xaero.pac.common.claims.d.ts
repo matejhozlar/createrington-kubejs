@@ -58,11 +58,11 @@ get "tracker"(): $IClaimsManagerTrackerAPI
 }
 
 export class $IClaimsManagerAPI implements $IClaimsManagerAPI$$Interface {
- "get"(arg0: $ResourceLocation$$Type, arg1: $BlockPos$$Type): $IPlayerChunkClaimAPI
  "get"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer): $IPlayerChunkClaimAPI
+ "get"(arg0: $ResourceLocation$$Type, arg1: $BlockPos$$Type): $IPlayerChunkClaimAPI
  "get"(arg0: $ResourceLocation$$Type, arg1: $ChunkPos$$Type): $IPlayerChunkClaimAPI
- "getDimension"(arg0: $ResourceLocation$$Type): $IDimensionClaimsManagerAPI
  "getTracker"(): $IClaimsManagerTrackerAPI
+ "getDimension"(arg0: $ResourceLocation$$Type): $IDimensionClaimsManagerAPI
  "getPlayerInfo"(arg0: $UUID$$Type): $IPlayerClaimInfoAPI
  "hasPlayerInfo"(arg0: $UUID$$Type): boolean
 }
@@ -104,23 +104,23 @@ import {$IPlayerDimensionClaimsAPI} from "xaero.pac.common.claims.player.api.IPl
 
 export interface $IPlayerClaimInfoAPI$$Interface {
 get "playerId"(): $UUID
-get "claimCount"(): integer
 get "claimsColor"(): integer
-get "playerUsername"(): StringJS
 get "forceloadCount"(): integer
+get "claimCount"(): integer
 get "claimsName"(): StringJS
+get "playerUsername"(): StringJS
 }
 
 export class $IPlayerClaimInfoAPI implements $IPlayerClaimInfoAPI$$Interface {
  "getDimension"(arg0: $ResourceLocation$$Type): $IPlayerDimensionClaimsAPI
  "getPlayerId"(): $UUID
- "getClaimCount"(): integer
  "getClaimsColor"(arg0: integer): integer
  "getClaimsColor"(): integer
- "getPlayerUsername"(): StringJS
  "getForceloadCount"(): integer
+ "getClaimCount"(): integer
  "getClaimsName"(): StringJS
  "getClaimsName"(arg0: integer): StringJS
+ "getPlayerUsername"(): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -204,9 +204,9 @@ get "forceloadable"(): boolean
 
 export class $IPlayerChunkClaimAPI implements $IPlayerChunkClaimAPI$$Interface {
  "getPlayerId"(): $UUID
+ "isSameClaimType"(arg0: $IPlayerChunkClaimAPI$$Type): boolean
  "getSubConfigIndex"(): integer
  "isForceloadable"(): boolean
- "isSameClaimType"(arg0: $IPlayerChunkClaimAPI$$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -256,8 +256,8 @@ export type $ClaimResult$Type$$Type = (("already_forceloadable") | ("already_unf
  */
 export type $ClaimResult$Type$$Original = $ClaimResult$Type;}
 declare module "xaero.pac.common.claims.result.api.AreaClaimResult" {
-import {$Iterable} from "java.lang.Iterable"
 import {$ClaimResult$Type, $ClaimResult$Type$$Type} from "xaero.pac.common.claims.result.api.ClaimResult$Type"
+import {$Iterable} from "java.lang.Iterable"
 import {$Set$$Type} from "java.util.Set"
 import {$Stream} from "java.util.stream.Stream"
 
@@ -265,19 +265,19 @@ export class $AreaClaimResult {
 constructor(arg0: $Set$$Type<($ClaimResult$Type$$Type)>, arg1: integer, arg2: integer, arg3: integer, arg4: integer)
 
 public "getSize"(): integer
-public "getRight"(): integer
 public "getLeft"(): integer
+public "getRight"(): integer
+public "getResultTypesStream"(): $Stream<($ClaimResult$Type)>
+public "getTop"(): integer
 public "getBottom"(): integer
 public "getResultTypesIterable"(): $Iterable<($ClaimResult$Type)>
-public "getTop"(): integer
-public "getResultTypesStream"(): $Stream<($ClaimResult$Type)>
 get "size"(): integer
-get "right"(): integer
 get "left"(): integer
+get "right"(): integer
+get "resultTypesStream"(): $Stream<($ClaimResult$Type)>
+get "top"(): integer
 get "bottom"(): integer
 get "resultTypesIterable"(): $Iterable<($ClaimResult$Type)>
-get "top"(): integer
-get "resultTypesStream"(): $Stream<($ClaimResult$Type)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -289,16 +289,16 @@ export type $AreaClaimResult$$Type = ($AreaClaimResult);
  */
 export type $AreaClaimResult$$Original = $AreaClaimResult;}
 declare module "xaero.pac.common.claims.tracker.api.IClaimsManagerListenerAPI" {
-import {$IPlayerChunkClaimAPI$$Type} from "xaero.pac.common.claims.player.api.IPlayerChunkClaimAPI"
 import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
+import {$IPlayerChunkClaimAPI$$Type} from "xaero.pac.common.claims.player.api.IPlayerChunkClaimAPI"
 
 export interface $IClaimsManagerListenerAPI$$Interface {
 }
 
 export class $IClaimsManagerListenerAPI implements $IClaimsManagerListenerAPI$$Interface {
  "onChunkChange"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: $IPlayerChunkClaimAPI$$Type): void
- "onWholeRegionChange"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer): void
  "onDimensionChange"(arg0: $ResourceLocation$$Type): void
+ "onWholeRegionChange"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

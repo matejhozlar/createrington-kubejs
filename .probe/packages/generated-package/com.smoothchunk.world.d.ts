@@ -4,8 +4,8 @@ export interface $IChunkTimeSave$$Interface {
 }
 
 export class $IChunkTimeSave implements $IChunkTimeSave$$Interface {
- "smoothchunk$setSaveTimePoint"(arg0: long): void
  "smoothchunk$getNextSaveTime"(): long
+ "smoothchunk$setSaveTimePoint"(arg0: long): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

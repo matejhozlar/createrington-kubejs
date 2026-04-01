@@ -1,8 +1,8 @@
 declare module "com.google.common.cache.LoadingCache" {
 import {$Iterable$$Type} from "java.lang.Iterable"
 import {$CacheStats} from "com.google.common.cache.CacheStats"
-import {$Map$$Type} from "java.util.Map"
 import {$Callable$$Type} from "java.util.concurrent.Callable"
+import {$Map$$Type} from "java.util.Map"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
 import {$ConcurrentMap} from "java.util.concurrent.ConcurrentMap"
 import {$Cache$$Interface} from "com.google.common.cache.Cache"
@@ -28,12 +28,12 @@ export class $LoadingCache<K, V> implements $LoadingCache$$Interface {
  "get"(key: K, loader: $Callable$$Type<(V)>): V
  "put"(key: K, value: V): void
  "putAll"(m: $Map$$Type<(K), (V)>): void
- "invalidateAll"(): void
- "invalidateAll"(keys: $Iterable$$Type<(never)>): void
  "getIfPresent"(key: any): V
  "getAllPresent"(keys: $Iterable$$Type<(never)>): $ImmutableMap<(K), (V)>
- "stats"(): $CacheStats
  "cleanUp"(): void
+ "stats"(): $CacheStats
+ "invalidateAll"(keys: $Iterable$$Type<(never)>): void
+ "invalidateAll"(): void
  "equals"(object: any): boolean
 static "identity"<T>(): $Function$0<(K), (K)>
  "compose"<V>(arg0: $Function$0$$Type<(V), (K)>): $Function$0<(V), (V)>
@@ -58,18 +58,18 @@ public "toString"(): StringJS
 public "hashCode"(): integer
 public "minus"(other: $CacheStats$$Type): $CacheStats
 public "plus"(other: $CacheStats$$Type): $CacheStats
-public "loadCount"(): long
-public "hitRate"(): double
-public "missRate"(): double
-public "missCount"(): long
-public "hitCount"(): long
+public "averageLoadPenalty"(): double
+public "loadSuccessCount"(): long
 public "evictionCount"(): long
 public "loadExceptionRate"(): double
 public "totalLoadTime"(): long
-public "requestCount"(): long
-public "averageLoadPenalty"(): double
-public "loadSuccessCount"(): long
 public "loadExceptionCount"(): long
+public "requestCount"(): long
+public "missCount"(): long
+public "hitCount"(): long
+public "missRate"(): double
+public "hitRate"(): double
+public "loadCount"(): long
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -83,8 +83,8 @@ export type $CacheStats$$Original = $CacheStats;}
 declare module "com.google.common.cache.Cache" {
 import {$Iterable$$Type} from "java.lang.Iterable"
 import {$CacheStats} from "com.google.common.cache.CacheStats"
-import {$Map$$Type} from "java.util.Map"
 import {$Callable$$Type} from "java.util.concurrent.Callable"
+import {$Map$$Type} from "java.util.Map"
 import {$ConcurrentMap} from "java.util.concurrent.ConcurrentMap"
 import {$ImmutableMap} from "com.google.common.collect.ImmutableMap"
 
@@ -97,13 +97,13 @@ export class $Cache<K, V> implements $Cache$$Interface {
  "get"(key: K, loader: $Callable$$Type<(V)>): V
  "put"(key: K, value: V): void
  "putAll"(m: $Map$$Type<(K), (V)>): void
- "asMap"(): $ConcurrentMap<(K), (V)>
- "invalidateAll"(): void
- "invalidateAll"(keys: $Iterable$$Type<(never)>): void
  "getIfPresent"(key: any): V
  "getAllPresent"(keys: $Iterable$$Type<(never)>): $ImmutableMap<(K), (V)>
- "stats"(): $CacheStats
  "cleanUp"(): void
+ "stats"(): $CacheStats
+ "asMap"(): $ConcurrentMap<(K), (V)>
+ "invalidateAll"(keys: $Iterable$$Type<(never)>): void
+ "invalidateAll"(): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

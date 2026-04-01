@@ -4,9 +4,9 @@ export interface $IEMFCuboidDataSupplier$$Interface {
 }
 
 export class $IEMFCuboidDataSupplier implements $IEMFCuboidDataSupplier$$Interface {
- "emf$getSizeAdd"(): (float)[]
  "emf$getTextureXY"(): (integer)[]
  "emf$getTextureUV"(): (integer)[]
+ "emf$getSizeAdd"(): (float)[]
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -26,15 +26,15 @@ readonly "namespace": StringJS
 readonly "isSubFolder": boolean
 
 public "toString"(): StringJS
-public "getFinalFileLocation"(): StringJS
-public "getFileNameWithType"(): StringJS
-public static "getDirectoryManagerOrNull"(printing: boolean, namespace: StringJS, modelFileName: StringJS, suffixAndFileType: StringJS): $EMFDirectoryHandler
-public "packIndex"(): integer
 public "getRelativeDirectoryLocationNoValidation"(fileName: StringJS): StringJS
 public "getRelativeFilePossiblyEMFOverridden"(jpmOrVariantFileNameWithSuffixAndFileType: StringJS): $ResourceLocation
+public "packIndex"(): integer
 public "validForThisBase"(propertiesOrSecond: $EMFDirectoryHandler$$Type): boolean
-get "finalFileLocation"(): StringJS
+public "getFileNameWithType"(): StringJS
+public "getFinalFileLocation"(): StringJS
+public static "getDirectoryManagerOrNull"(printing: boolean, namespace: StringJS, modelFileName: StringJS, suffixAndFileType: StringJS): $EMFDirectoryHandler
 get "fileNameWithType"(): StringJS
+get "finalFileLocation"(): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -65,54 +65,54 @@ export interface $EMFEntity$$Interface extends $ETFEntity$$Interface {
 }
 
 export class $EMFEntity implements $EMFEntity$$Interface {
- "emf$isTouchingWater"(): boolean
- "emf$isAlive"(): boolean
- "emf$isOnGround"(): boolean
- "emf$isGlowing"(): boolean
- "emf$isOnFire"(): boolean
  "emf$isSneaking"(): boolean
- "emf$hasPassengers"(): boolean
- "emf$getPitch"(): float
+ "emf$isAlive"(): boolean
  "emf$isSprinting"(): boolean
- "emf$hasVehicle"(): boolean
- "emf$getVariableMap"(): $Object2FloatOpenHashMap<(StringJS)>
- "emf$isInvisible"(): boolean
  "emf$getVelocity"(): $Vec3
- "emf$getTypeString"(): StringJS
+ "emf$isOnFire"(): boolean
+ "emf$hasVehicle"(): boolean
  "emf$prevPitch"(): float
  "emf$isInLava"(): boolean
- "emf$prevX"(): double
- "emf$getY"(): double
- "emf$getX"(): double
- "emf$prevZ"(): double
+ "emf$isInvisible"(): boolean
+ "emf$hasPassengers"(): boolean
+ "emf$getTypeString"(): StringJS
+ "emf$getVariableMap"(): $Object2FloatOpenHashMap<(StringJS)>
+ "emf$getPitch"(): float
+ "emf$isGlowing"(): boolean
+ "emf$isOnGround"(): boolean
+ "emf$isTouchingWater"(): boolean
  "emf$age"(): float
- "emf$getYaw"(): float
- "emf$prevY"(): double
+ "emf$getX"(): double
  "emf$isWet"(): boolean
+ "emf$prevX"(): double
+ "emf$prevY"(): double
+ "emf$getY"(): double
+ "emf$prevZ"(): double
  "emf$getZ"(): double
- "etf$getScoreboardTeam"(): $Team
- "etf$getItemsEquipped"(): $Iterable<($ItemStack)>
+ "emf$getYaw"(): float
  "etf$getType"(): $EntityType<(never)>
- "etf$getHandItems"(): $Iterable<($ItemStack)>
  "etf$hasCustomName"(): boolean
+ "etf$getBlockY"(): integer
  "etf$getCustomName"(): $Component
+ "etf$getHandItems"(): $Iterable<($ItemStack)>
+ "etf$getArmorItems"(): $Iterable<($ItemStack)>
+ "etf$getUuid"(): $UUID
+ "etf$getOptifineId"(): integer
+ "etf$canBeBright"(): boolean
+ "etf$isBlockEntity"(): boolean
+ "etf$getVelocity"(): $Vec3
+ "etf$distanceTo"(arg0: $Entity$$Type): float
 /**
  * 
  * @deprecated
  */
  "etf$getPose"(): $Pose
- "etf$distanceTo"(arg0: $Entity$$Type): float
- "etf$getVelocity"(): $Vec3
- "etf$getUuid"(): $UUID
- "etf$getOptifineId"(): integer
- "etf$getArmorItems"(): $Iterable<($ItemStack)>
- "etf$canBeBright"(): boolean
- "etf$isBlockEntity"(): boolean
- "etf$getBlockY"(): integer
- "etf$getNbt"(): $CompoundTag
- "etf$getBlockPos"(): $BlockPos
  "etf$getEntityKey"(): StringJS
  "etf$getWorld"(): $Level
+ "etf$getBlockPos"(): $BlockPos
+ "etf$getItemsEquipped"(): $Iterable<($ItemStack)>
+ "etf$getScoreboardTeam"(): $Team
+ "etf$getNbt"(): $CompoundTag
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -151,8 +151,8 @@ export interface $IEMFTextureSizeSupplier$$Interface {
 }
 
 export class $IEMFTextureSizeSupplier implements $IEMFTextureSizeSupplier$$Interface {
- "emf$setTextureSize"(arg0: (integer)[]): void
  "emf$getTextureSize"(): (integer)[]
+ "emf$setTextureSize"(arg0: (integer)[]): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

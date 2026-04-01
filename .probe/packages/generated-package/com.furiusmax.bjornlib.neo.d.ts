@@ -64,24 +64,24 @@ export interface $LivingEntityAccessor$$Interface {
 get "swimAmount"(): float
 get "jumping"(): boolean
 set "swimAmount"(value: float)
-set "swimAmountO"(value: float)
 get "swimAmountO"(): float
+set "swimAmountO"(value: float)
 }
 
 export class $LivingEntityAccessor implements $LivingEntityAccessor$$Interface {
- "callPlayBlockFallSound"(): void
- "callUpdatingUsingItem"(): void
- "callSetLivingEntityFlag"(arg0: integer, arg1: boolean): void
- "callCalculateFallDamage"(arg0: float, arg1: float): integer
  "getSwimAmount"(): float
  "isJumping"(): boolean
+ "callPlayBlockFallSound"(): void
+ "callSetLivingEntityFlag"(arg0: integer, arg1: boolean): void
+ "callUpdatingUsingItem"(): void
+ "callCalculateFallDamage"(arg0: float, arg1: float): integer
  "callGetHurtSound"(arg0: $DamageSource$$Type): $SoundEvent
- "setSwimAmount"(arg0: float): void
  "callGetSoundVolume"(): float
- "setSwimAmountO"(arg0: float): void
+ "setSwimAmount"(arg0: float): void
  "callGetDeathSound"(): $SoundEvent
- "callGetVoicePitch"(): float
  "getSwimAmountO"(): float
+ "callGetVoicePitch"(): float
+ "setSwimAmountO"(arg0: float): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -193,14 +193,14 @@ declare module "com.furiusmax.bjornlib.neo.mixin.LimbAnimatorAccessor" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $LimbAnimatorAccessor$$Interface {
 set "pos"(value: float)
-set "prevSpeed"(value: float)
 get "prevSpeed"(): float
+set "prevSpeed"(value: float)
 }
 
 export class $LimbAnimatorAccessor implements $LimbAnimatorAccessor$$Interface {
  "setPos"(arg0: float): void
- "setPrevSpeed"(arg0: float): void
  "getPrevSpeed"(): float
+ "setPrevSpeed"(arg0: float): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -218,18 +218,18 @@ import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
 import {$BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
 
 export interface $EntityAccessor$$Interface {
-set "touchingWater"(value: boolean)
 set "passengers"(value: $ImmutableList$$Type<($Entity$$Type)>)
+set "touchingWater"(value: boolean)
 set "vehicle"(value: $Entity$$Type)
 }
 
 export class $EntityAccessor implements $EntityAccessor$$Interface {
- "shape_callPlayStepSound"(arg0: $BlockPos$$Type, arg1: $BlockState$$Type): void
- "setTouchingWater"(arg0: boolean): void
- "setPassengers"(arg0: $ImmutableList$$Type<($Entity$$Type)>): void
- "callGetEncodeId"(): StringJS
  "shape_callSetFlag"(arg0: integer, arg1: boolean): void
+ "setPassengers"(arg0: $ImmutableList$$Type<($Entity$$Type)>): void
+ "setTouchingWater"(arg0: boolean): void
+ "callGetEncodeId"(): StringJS
  "setVehicle"(arg0: $Entity$$Type): void
+ "shape_callPlayStepSound"(arg0: $BlockPos$$Type, arg1: $BlockState$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -267,8 +267,8 @@ export interface $PlayerRendererInvoker$$Interface {
 }
 
 export class $PlayerRendererInvoker implements $PlayerRendererInvoker$$Interface {
- "invokeSetupRotations"(arg0: $AbstractClientPlayer$$Type, arg1: $PoseStack$$Type, arg2: float, arg3: float, arg4: float, arg5: float): void
  "invokeScale"(arg0: $AbstractClientPlayer$$Type, arg1: $PoseStack$$Type, arg2: float): void
+ "invokeSetupRotations"(arg0: $AbstractClientPlayer$$Type, arg1: $PoseStack$$Type, arg2: float, arg3: float, arg4: float, arg5: float): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

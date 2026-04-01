@@ -34,12 +34,12 @@ set "randomSupplier"(value: $ETFApi$ETFVariantSuffixProvider$EntityRandomSeedFun
 
 export class $ETFApi$ETFVariantSuffixProvider implements $ETFApi$ETFVariantSuffixProvider$$Interface {
  "size"(): integer
- "entityCanUpdate"(arg0: $UUID$$Type): boolean
- "getAllSuffixes"(): $IntOpenHashSet
-static "getVariantProviderOrNull"(propertiesFileIdentifier: $ResourceLocation$$Type, vanillaIdentifier: $ResourceLocation$$Type, ...suffixKeyName: (StringJS)[]): $ETFApi$ETFVariantSuffixProvider
  "getSuffixForETFEntity"(arg0: $ETFEntity$$Type): integer
- "getSuffixForEntity"(entityToBeTested: $Entity$$Type): integer
+ "entityCanUpdate"(arg0: $UUID$$Type): boolean
+static "getVariantProviderOrNull"(propertiesFileIdentifier: $ResourceLocation$$Type, vanillaIdentifier: $ResourceLocation$$Type, ...suffixKeyName: (StringJS)[]): $ETFApi$ETFVariantSuffixProvider
+ "getAllSuffixes"(): $IntOpenHashSet
  "setRandomSupplier"(arg0: $ETFApi$ETFVariantSuffixProvider$EntityRandomSeedFunction$$Type): void
+ "getSuffixForEntity"(entityToBeTested: $Entity$$Type): integer
  "getSuffixForBlockEntity"(entityToBeTested: $BlockEntity$$Type): integer
 }
 /**

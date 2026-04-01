@@ -5,8 +5,8 @@ export interface $IClientLevel$$Interface {
 }
 
 export class $IClientLevel implements $IClientLevel$$Interface {
- "xaerolib_setData"(arg0: $ClientLevelData$$Type): void
  "xaerolib_getData"(): $ClientLevelData
+ "xaerolib_setData"(arg0: $ClientLevelData$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

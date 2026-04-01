@@ -9,34 +9,34 @@ constructor(arg0: integer, arg1: StringJS)
 constructor(arg0: integer, arg1: StringJS, arg2: $BlockPos$$Type, arg3: $ResourceLocation$$Type, arg4: integer, arg5: $SortedMap$$Type<(StringJS), (double)>)
 
 public "getName"(): StringJS
+public "getY"(): StringJS
+public "getRadius"(): integer
+public "setRadius"(arg0: integer): void
 public "getDimension"(): $ResourceLocation
+public "setAnchor"(arg0: integer): void
+public static "getAnchor"(arg0: $SoundInstance$$Type): $Anchor
+public "editAnchor"(arg0: StringJS, arg1: integer): void
 public "getX"(): StringJS
 public "getZ"(): StringJS
-public static "getAnchor"(arg0: $SoundInstance$$Type): $Anchor
-public "getY"(): StringJS
-public "editAnchor"(arg0: StringJS, arg1: integer): void
-public "setAnchor"(arg0: integer): void
 public "getAnchorId"(): integer
-public "setRadius"(arg0: integer): void
-public "getRadius"(): integer
-public "addSound"(arg0: $ResourceLocation$$Type, arg1: double): void
-public "getAnchorPos"(): $BlockPos
+public "removeSound"(arg0: $ResourceLocation$$Type): void
 public "setMuffledSounds"(arg0: $SortedMap$$Type<($ResourceLocation$$Type), (double)>): void
 public "replaceSound"(arg0: $ResourceLocation$$Type, arg1: double): void
+public "getAnchorPos"(): $BlockPos
 public "deleteAnchor"(): void
-public "removeSound"(arg0: $ResourceLocation$$Type): void
 public "getMuffledSounds"(): $SortedMap<($ResourceLocation), (double)>
+public "addSound"(arg0: $ResourceLocation$$Type, arg1: double): void
 get "name"(): StringJS
+get "y"(): StringJS
+get "radius"(): integer
+set "radius"(value: integer)
 get "dimension"(): $ResourceLocation
+set "anchor"(value: integer)
 get "x"(): StringJS
 get "z"(): StringJS
-get "y"(): StringJS
-set "anchor"(value: integer)
 get "anchorId"(): integer
-set "radius"(value: integer)
-get "radius"(): integer
-get "anchorPos"(): $BlockPos
 set "muffledSounds"(value: $SortedMap$$Type<($ResourceLocation$$Type), (double)>)
+get "anchorPos"(): $BlockPos
 get "muffledSounds"(): $SortedMap<($ResourceLocation), (double)>
 }
 /**

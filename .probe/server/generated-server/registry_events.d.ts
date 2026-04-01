@@ -3,7 +3,7 @@ import {$PaintingVariant} from "moe.wolfgirl.probejs.generated.registry.minecraf
 
 declare global {
 export namespace ServerEvents {
-function registry(type: "jukebox_song", handler: (event: $JukeboxSong) => void): void
 function registry(type: "painting_variant", handler: (event: $PaintingVariant) => void): void
+function registry(type: "jukebox_song", handler: (event: $JukeboxSong) => void): void
 }
 }

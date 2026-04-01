@@ -150,11 +150,11 @@ static readonly "RECIPE_BOOK_TAG": StringJS
 
 constructor()
 
-public "removeRecipes"(arg0: $Collection$$Type<($RecipeHolder$$Type<(never)>)>, arg1: $ServerPlayer$$Type): integer
 public "sendInitialRecipeBook"(arg0: $ServerPlayer$$Type): void
-public "addRecipes"(arg0: $Collection$$Type<($RecipeHolder$$Type<(never)>)>, arg1: $ServerPlayer$$Type): integer
+public "removeRecipes"(arg0: $Collection$$Type<($RecipeHolder$$Type<(never)>)>, arg1: $ServerPlayer$$Type): integer
 public "fromNbt"(arg0: $CompoundTag$$Type, arg1: $RecipeManager$$Type): void
 public "toNbt"(): $CompoundTag
+public "addRecipes"(arg0: $Collection$$Type<($RecipeHolder$$Type<(never)>)>, arg1: $ServerPlayer$$Type): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -167,12 +167,12 @@ export type $ServerRecipeBook$$Type = ($ServerRecipeBook);
 export type $ServerRecipeBook$$Original = $ServerRecipeBook;}
 declare module "net.minecraft.stats.StatType" {
 import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
-import {$Iterable$$Interface} from "java.lang.Iterable"
 import {$Iterator} from "java.util.Iterator"
+import {$Iterable$$Interface} from "java.lang.Iterable"
 import {$Registry, $Registry$$Type} from "net.minecraft.core.Registry"
 import {$Stat, $Stat$$Type} from "net.minecraft.stats.Stat"
-import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$Spliterator} from "java.util.Spliterator"
+import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$StatFormatter$$Type} from "net.minecraft.stats.StatFormatter"
 import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component"
 import {$Consumer$$Type} from "java.util.function.Consumer"
@@ -185,8 +185,8 @@ public "get"(arg0: T, arg1: $StatFormatter$$Type): $Stat<(T)>
 public "iterator"(): $Iterator<($Stat<(T)>)>
 public "contains"(arg0: T): boolean
 public "getDisplayName"(): $Component
-public "getRegistry"(): $Registry<(T)>
 public "streamCodec"(): $StreamCodec<($RegistryFriendlyByteBuf), ($Stat<(T)>)>
+public "getRegistry"(): $Registry<(T)>
 public "spliterator"(): $Spliterator<($Stat<(T)>)>
 public "forEach"(arg0: $Consumer$$Type<($Stat<(T)>)>): void
 [Symbol.iterator](): IterableIterator<$Stat<(T)>>;
@@ -211,8 +211,8 @@ export type $StatType$$Type<T> = (Special.StatType);
  */
 export type $StatType$$Original<T> = $StatType<(T)>;}
 declare module "net.minecraft.stats.StatsCounter" {
-import {$StatType$$Type} from "net.minecraft.stats.StatType"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
+import {$StatType$$Type} from "net.minecraft.stats.StatType"
 import {$Object2IntMap} from "it.unimi.dsi.fastutil.objects.Object2IntMap"
 import {$Stat, $Stat$$Type} from "net.minecraft.stats.Stat"
 
@@ -256,20 +256,20 @@ public "add"(arg0: $RecipeHolder$$Type<(never)>): void
 public "contains"(arg0: $ResourceLocation$$Type): boolean
 public "contains"(arg0: $RecipeHolder$$Type<(never)>): boolean
 public "isOpen"(arg0: $RecipeBookType$$Type): boolean
-public "copyOverData"(arg0: $RecipeBook$$Type): void
 public "removeHighlight"(arg0: $RecipeHolder$$Type<(never)>): void
 public "willHighlight"(arg0: $RecipeHolder$$Type<(never)>): boolean
+public "copyOverData"(arg0: $RecipeBook$$Type): void
 public "setOpen"(arg0: $RecipeBookType$$Type, arg1: boolean): void
-public "addHighlight"(arg0: $ResourceLocation$$Type): void
-public "addHighlight"(arg0: $RecipeHolder$$Type<(never)>): void
+public "setBookSetting"(arg0: $RecipeBookType$$Type, arg1: boolean, arg2: boolean): void
+public "getBookSettings"(): $RecipeBookSettings
 public "isFiltering"(arg0: $RecipeBookType$$Type): boolean
 public "isFiltering"(arg0: $RecipeBookMenu$$Type<(never), (never)>): boolean
-public "setFiltering"(arg0: $RecipeBookType$$Type, arg1: boolean): void
 public "setBookSettings"(arg0: $RecipeBookSettings$$Type): void
-public "getBookSettings"(): $RecipeBookSettings
-public "setBookSetting"(arg0: $RecipeBookType$$Type, arg1: boolean, arg2: boolean): void
-set "bookSettings"(value: $RecipeBookSettings$$Type)
+public "addHighlight"(arg0: $RecipeHolder$$Type<(never)>): void
+public "addHighlight"(arg0: $ResourceLocation$$Type): void
+public "setFiltering"(arg0: $RecipeBookType$$Type, arg1: boolean): void
 get "bookSettings"(): $RecipeBookSettings
+set "bookSettings"(value: $RecipeBookSettings$$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -327,8 +327,8 @@ export type $Stat$$Original<T> = $Stat<(T)>;}
 declare module "net.minecraft.stats.ServerStatsCounter" {
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$Object2IntMap} from "it.unimi.dsi.fastutil.objects.Object2IntMap"
-import {$File$$Type} from "java.io.File"
 import {$Stat, $Stat$$Type} from "net.minecraft.stats.Stat"
+import {$File$$Type} from "java.io.File"
 import {$ServerPlayer$$Type} from "net.minecraft.server.level.ServerPlayer"
 import {$StatsCounter} from "net.minecraft.stats.StatsCounter"
 import {$MinecraftServer$$Type} from "net.minecraft.server.MinecraftServer"
@@ -341,8 +341,8 @@ constructor(arg0: $MinecraftServer$$Type, arg1: $File$$Type)
 
 public "save"(): void
 public "setValue"(arg0: $Player$$Type, arg1: $Stat$$Type<(never)>, arg2: integer): void
-public "parseLocal"(arg0: $DataFixer$$Type, arg1: StringJS): void
 public "toJson"(): StringJS
+public "parseLocal"(arg0: $DataFixer$$Type, arg1: StringJS): void
 public "sendStats"(arg0: $ServerPlayer$$Type): void
 public "markAllDirty"(): void
 }

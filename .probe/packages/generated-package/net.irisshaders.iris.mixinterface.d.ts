@@ -21,15 +21,15 @@ export type $LocalPlayerInterface$$Original = $LocalPlayerInterface;}
 declare module "net.irisshaders.iris.mixinterface.ExtendedBiome" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $ExtendedBiome$$Interface {
-get "downfall"(): float
 get "biomeCategory"(): integer
 set "biomeCategory"(value: integer)
+get "downfall"(): float
 }
 
 export class $ExtendedBiome implements $ExtendedBiome$$Interface {
- "getDownfall"(): float
  "getBiomeCategory"(): integer
  "setBiomeCategory"(arg0: integer): void
+ "getDownfall"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

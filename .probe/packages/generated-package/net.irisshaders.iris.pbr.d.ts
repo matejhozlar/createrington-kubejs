@@ -122,9 +122,9 @@ import {$TextureAtlas$$Type} from "net.minecraft.client.renderer.texture.Texture
 import {$AtlasPBRLoader$PBRTextureAtlasSprite, $AtlasPBRLoader$PBRTextureAtlasSprite$$Type} from "net.irisshaders.iris.pbr.loader.AtlasPBRLoader$PBRTextureAtlasSprite"
 import {$Path$$Type} from "java.nio.file.Path"
 import {$SpriteContents$Ticker$$Type} from "net.minecraft.client.renderer.texture.SpriteContents$Ticker"
+import {$AbstractTexture} from "net.minecraft.client.renderer.texture.AbstractTexture"
 import {$ResourceManager$$Type} from "net.minecraft.server.packs.resources.ResourceManager"
 import {$PBRDumpable$$Interface} from "net.irisshaders.iris.pbr.texture.PBRDumpable"
-import {$AbstractTexture} from "net.minecraft.client.renderer.texture.AbstractTexture"
 
 export class $PBRAtlasTexture extends $AbstractTexture implements $PBRDumpable$$Interface {
 static readonly "NOT_ASSIGNED": integer
@@ -139,14 +139,14 @@ public "clear"(): void
 public "close"(): void
 public "getType"(): $PBRType
 public "getDefaultDumpLocation"(): $ResourceLocation
-public "upload"(arg0: integer, arg1: integer, arg2: integer): void
 public "getSprite"(arg0: $ResourceLocation$$Type): $AtlasPBRLoader$PBRTextureAtlasSprite
 public "dumpContents"(arg0: $ResourceLocation$$Type, arg1: $Path$$Type): void
 public "cycleAnimationFrames"(): void
+public "upload"(arg0: integer, arg1: integer, arg2: integer): void
+public "tryUpload"(arg0: integer, arg1: integer, arg2: integer): boolean
+public "getAtlasId"(): $ResourceLocation
 public "addSprite"(arg0: $AtlasPBRLoader$PBRTextureAtlasSprite$$Type): void
 public static "syncAnimation"(arg0: $SpriteContents$Ticker$$Type, arg1: $SpriteContents$Ticker$$Type): void
-public "getAtlasId"(): $ResourceLocation
-public "tryUpload"(arg0: integer, arg1: integer, arg2: integer): boolean
 get "type"(): $PBRType
 get "defaultDumpLocation"(): $ResourceLocation
 get "atlasId"(): $ResourceLocation
@@ -166,15 +166,15 @@ import {$PBRAtlasTexture, $PBRAtlasTexture$$Type} from "net.irisshaders.iris.pbr
 export class $PBRAtlasHolder {
 constructor()
 
-public "getSpecularAtlas"(): $PBRAtlasTexture
-public "getNormalAtlas"(): $PBRAtlasTexture
+public "cycleAnimationFrames"(): void
 public "setNormalAtlas"(arg0: $PBRAtlasTexture$$Type): void
 public "setSpecularAtlas"(arg0: $PBRAtlasTexture$$Type): void
-public "cycleAnimationFrames"(): void
-get "specularAtlas"(): $PBRAtlasTexture
-get "normalAtlas"(): $PBRAtlasTexture
+public "getNormalAtlas"(): $PBRAtlasTexture
+public "getSpecularAtlas"(): $PBRAtlasTexture
 set "normalAtlas"(value: $PBRAtlasTexture$$Type)
 set "specularAtlas"(value: $PBRAtlasTexture$$Type)
+get "normalAtlas"(): $PBRAtlasTexture
+get "specularAtlas"(): $PBRAtlasTexture
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

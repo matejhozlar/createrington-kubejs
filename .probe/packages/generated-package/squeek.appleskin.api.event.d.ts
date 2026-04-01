@@ -107,10 +107,10 @@ readonly "defaultFood": $FoodProperties
 readonly "itemStack": $ItemStack
 readonly "modifiedFood": $FoodProperties
 
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
-get "canceled"(): boolean
+public "isCanceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -131,10 +131,10 @@ export class $HUDOverlayEvent extends $Event implements $ICancellableEvent$$Inte
  "x": integer
  "y": integer
 
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
-get "canceled"(): boolean
+public "isCanceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

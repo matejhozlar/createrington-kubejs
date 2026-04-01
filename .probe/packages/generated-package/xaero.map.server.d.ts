@@ -10,10 +10,10 @@ constructor(arg0: $SyncedPlayerTrackerSystemManager$$Type, arg1: $SyncedPlayerTr
 
 public static "get"(arg0: $MinecraftServer$$Type): $MinecraftServerData
 public "getLevelProperties"(arg0: $Path$$Type): $LevelMapProperties
-public "getSyncedPlayerTracker"(): $SyncedPlayerTracker
 public "getSyncedPlayerTrackerSystemManager"(): $SyncedPlayerTrackerSystemManager
-get "syncedPlayerTracker"(): $SyncedPlayerTracker
+public "getSyncedPlayerTracker"(): $SyncedPlayerTracker
 get "syncedPlayerTrackerSystemManager"(): $SyncedPlayerTrackerSystemManager
+get "syncedPlayerTracker"(): $SyncedPlayerTracker
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -28,13 +28,13 @@ declare module "xaero.map.server.IMinecraftServer" {
 import {$MinecraftServerData, $MinecraftServerData$$Type} from "xaero.map.server.MinecraftServerData"
 
 export interface $IMinecraftServer$$Interface {
-get "xaeroWorldMapServerData"(): $MinecraftServerData
 set "xaeroWorldMapServerData"(value: $MinecraftServerData$$Type)
+get "xaeroWorldMapServerData"(): $MinecraftServerData
 }
 
 export class $IMinecraftServer implements $IMinecraftServer$$Interface {
- "getXaeroWorldMapServerData"(): $MinecraftServerData
  "setXaeroWorldMapServerData"(arg0: $MinecraftServerData$$Type): void
+ "getXaeroWorldMapServerData"(): $MinecraftServerData
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

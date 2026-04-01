@@ -11,16 +11,16 @@ static readonly "INSTANCE": $Probe
 
 constructor()
 
-public "getCurrentPlayer"(): $Player
-public "getLastRightClickedBlock"(): $LevelBlock
-public "getLastRightClickedEntity"(): $Entity
 /**
  * Capture the class of the object passed in for ProbeJS to dump.
  */
 public "captureType"<T>(object: T): T
+public "getCurrentPlayer"(): $Player
+public "getLastRightClickedEntity"(): $Entity
+public "getLastRightClickedBlock"(): $LevelBlock
 get "currentPlayer"(): $Player
-get "lastRightClickedBlock"(): $LevelBlock
 get "lastRightClickedEntity"(): $Entity
+get "lastRightClickedBlock"(): $LevelBlock
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

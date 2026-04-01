@@ -6,8 +6,8 @@ import {$Pair} from "com.mojang.datafixers.util.Pair"
 import {$DataResult, $DataResult$$Type} from "com.mojang.serialization.DataResult"
 import {$Dynamic, $Dynamic$$Type} from "com.mojang.serialization.Dynamic"
 import {$LongStream} from "java.util.stream.LongStream"
-import {$Function$$Type} from "java.util.function.Function"
 import {$Decoder$$Type} from "com.mojang.serialization.Decoder"
+import {$Function$$Type} from "java.util.function.Function"
 import {$DynamicLike} from "com.mojang.serialization.DynamicLike"
 import {$ByteBuffer} from "java.nio.ByteBuffer"
 import {$Stream} from "java.util.stream.Stream"
@@ -22,19 +22,19 @@ public "map"<U>(arg0: $Function$$Type<($Dynamic<(T)>), (U)>): $DataResult<(U)>
 public "result"(): $Optional<($Dynamic<(T)>)>
 public "flatMap"<U>(arg0: $Function$$Type<($Dynamic<(T)>), ($DataResult$$Type<(U)>)>): $DataResult<(U)>
 public "getElement"(arg0: StringJS): $DataResult<(T)>
-public "asString"(): $DataResult<(StringJS)>
-public "getGeneric"(arg0: T): $DataResult<(T)>
-public "asNumber"(): $DataResult<(number)>
-public "asBoolean"(): $DataResult<(boolean)>
-public "asMapOpt"(): $DataResult<($Stream<($Pair<($Dynamic<(T)>), ($Dynamic<(T)>)>)>)>
-public "into"<V>(arg0: $Function$$Type<($Dynamic<(T)>), (V)>): $DataResult<(V)>
 public "orElseEmptyMap"(): $Dynamic<(T)>
 public "orElseEmptyList"(): $Dynamic<(T)>
+public "asString"(): $DataResult<(StringJS)>
+public "getGeneric"(arg0: T): $DataResult<(T)>
 public "asStreamOpt"(): $DataResult<($Stream<($Dynamic<(T)>)>)>
 public "asLongStreamOpt"(): $DataResult<($LongStream)>
+public "getElementGeneric"(arg0: T): $DataResult<(T)>
 public "asByteBufferOpt"(): $DataResult<($ByteBuffer)>
 public "asIntStreamOpt"(): $DataResult<($IntStream)>
-public "getElementGeneric"(arg0: T): $DataResult<(T)>
+public "asMapOpt"(): $DataResult<($Stream<($Pair<($Dynamic<(T)>), ($Dynamic<(T)>)>)>)>
+public "asNumber"(): $DataResult<(number)>
+public "into"<V>(arg0: $Function$$Type<($Dynamic<(T)>), (V)>): $DataResult<(V)>
+public "asBoolean"(): $DataResult<(boolean)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -88,10 +88,10 @@ export class $MapDecoder<A> implements $MapDecoder$$Interface {
  "map"<B>(arg0: $Function$$Type<(A), (B)>): $MapDecoder<(B)>
  "flatMap"<B>(arg0: $Function$$Type<(A), ($DataResult$$Type<(B)>)>): $MapDecoder<(B)>
  "decoder"(): $Decoder<(A)>
- "ap"<E>(arg0: $MapDecoder$$Type<($Function$$Type<(A), (E)>)>): $MapDecoder<(E)>
  "withLifecycle"(arg0: $Lifecycle$$Type): $MapDecoder<(A)>
- "compressor"<T>(arg0: $DynamicOps$$Type<(T)>): $KeyCompressor<(T)>
+ "ap"<E>(arg0: $MapDecoder$$Type<($Function$$Type<(A), (E)>)>): $MapDecoder<(E)>
  "compressedDecode"<T>(arg0: $DynamicOps$$Type<(T)>, arg1: T): $DataResult<(A)>
+ "compressor"<T>(arg0: $DynamicOps$$Type<(T)>): $KeyCompressor<(T)>
  "keys"<T>(arg0: $DynamicOps$$Type<(T)>): $Stream<(T)>
 static "forStrings"(arg0: $Supplier$$Type<($Stream$$Type<(StringJS)>)>): $Keyable
 }
@@ -105,8 +105,8 @@ export type $MapDecoder$$Type<A> = ($MapDecoder<(A)>);
  */
 export type $MapDecoder$$Original<A> = $MapDecoder<(A)>;}
 declare module "com.mojang.serialization.ListBuilder" {
-import {$Iterable$$Type} from "java.lang.Iterable"
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
+import {$Iterable$$Type} from "java.lang.Iterable"
 import {$DynamicOps} from "com.mojang.serialization.DynamicOps"
 import {$DataResult, $DataResult$$Type} from "com.mojang.serialization.DataResult"
 import {$Encoder$$Type} from "com.mojang.serialization.Encoder"
@@ -122,8 +122,8 @@ export class $ListBuilder<T> implements $ListBuilder$$Interface {
  "addAll"<E>(arg0: $Iterable$$Type<(E)>, arg1: $Encoder$$Type<(E)>): $ListBuilder<(T)>
  "build"(arg0: $DataResult$$Type<(T)>): $DataResult<(T)>
  "build"(arg0: T): $DataResult<(T)>
- "mapError"(arg0: $UnaryOperator$$Type<(StringJS)>): $ListBuilder<(T)>
  "withErrorsFrom"(arg0: $DataResult$$Type<(never)>): $ListBuilder<(T)>
+ "mapError"(arg0: $UnaryOperator$$Type<(StringJS)>): $ListBuilder<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -138,16 +138,16 @@ declare module "com.mojang.serialization.DynamicOps" {
 import {$Map$$Type} from "java.util.Map"
 import {$Pair, $Pair$$Type} from "com.mojang.datafixers.util.Pair"
 import {$IntStream, $IntStream$$Type} from "java.util.stream.IntStream"
-import {$List$$Type} from "java.util.List"
 import {$DataResult} from "com.mojang.serialization.DataResult"
+import {$List$$Type} from "java.util.List"
 import {$RecordBuilder} from "com.mojang.serialization.RecordBuilder"
 import {$LongStream, $LongStream$$Type} from "java.util.stream.LongStream"
 import {$MapLike, $MapLike$$Type} from "com.mojang.serialization.MapLike"
 import {$Encoder$$Type} from "com.mojang.serialization.Encoder"
 import {$Consumer} from "java.util.function.Consumer"
 import {$ListBuilder} from "com.mojang.serialization.ListBuilder"
-import {$Function, $Function$$Type} from "java.util.function.Function"
 import {$Decoder$$Type} from "com.mojang.serialization.Decoder"
+import {$Function, $Function$$Type} from "java.util.function.Function"
 import {$BiConsumer} from "java.util.function.BiConsumer"
 import {$ByteBuffer, $ByteBuffer$$Type} from "java.nio.ByteBuffer"
 import {$Stream, $Stream$$Type} from "java.util.stream.Stream"
@@ -165,48 +165,48 @@ export class $DynamicOps<T> implements $DynamicOps$$Interface {
  "getByteBuffer"(arg0: T): $DataResult<($ByteBuffer)>
  "emptyMap"(): T
  "getMap"(arg0: T): $DataResult<($MapLike<(T)>)>
- "createMap"(arg0: $Map$$Type<(T), (T)>): T
  "createMap"(arg0: $Stream$$Type<($Pair$$Type<(T), (T)>)>): T
+ "createMap"(arg0: $Map$$Type<(T), (T)>): T
  "createLong"(arg0: long): T
  "createString"(arg0: StringJS): T
- "getStream"(arg0: T): $DataResult<($Stream<(T)>)>
+ "createDouble"(arg0: double): T
+ "createFloat"(arg0: float): T
+ "compressMaps"(): boolean
+ "convertList"<U>(arg0: $DynamicOps$$Type<(U)>, arg1: T): U
+ "listBuilder"(): $ListBuilder<(T)>
+ "withEncoder"<E>(arg0: $Encoder$$Type<(E)>): $Function<(E), ($DataResult<(T)>)>
+ "withDecoder"<E>(arg0: $Decoder$$Type<(E)>): $Function<(T), ($DataResult<($Pair<(E), (T)>)>)>
+ "updateGeneric"(arg0: T, arg1: T, arg2: $Function$$Type<(T), (T)>): T
  "createList"(arg0: $Stream$$Type<(T)>): T
  "getBooleanValue"(arg0: T): $DataResult<(boolean)>
  "getStringValue"(arg0: T): $DataResult<(StringJS)>
- "createFloat"(arg0: float): T
- "createDouble"(arg0: double): T
  "createNumeric"(arg0: number): T
+ "createBoolean"(arg0: boolean): T
+ "mergeToPrimitive"(arg0: T, arg1: T): $DataResult<(T)>
+ "createByteList"(arg0: $ByteBuffer$$Type): T
  "getMapValues"(arg0: T): $DataResult<($Stream<($Pair<(T), (T)>)>)>
- "mergeToList"(arg0: T, arg1: T): $DataResult<(T)>
- "mergeToList"(arg0: T, arg1: $List$$Type<(T)>): $DataResult<(T)>
+ "getMapEntries"(arg0: T): $DataResult<($Consumer<($BiConsumer<(T), (T)>)>)>
+ "getIntStream"(arg0: T): $DataResult<($IntStream)>
+ "createIntList"(arg0: $IntStream$$Type): T
+ "getLongStream"(arg0: T): $DataResult<($LongStream)>
  "getNumberValue"(arg0: T): $DataResult<(number)>
  "getNumberValue"(arg0: T, arg1: number): number
- "createInt"(arg0: integer): T
+ "createLongList"(arg0: $LongStream$$Type): T
+ "mergeToList"(arg0: T, arg1: $List$$Type<(T)>): $DataResult<(T)>
+ "mergeToList"(arg0: T, arg1: T): $DataResult<(T)>
+ "createShort"(arg0: short): T
+ "mapBuilder"(): $RecordBuilder<(T)>
  "getList"(arg0: T): $DataResult<($Consumer<($Consumer<(T)>)>)>
+ "withParser"<E>(arg0: $Decoder$$Type<(E)>): $Function<(T), ($DataResult<(E)>)>
+ "createByte"(arg0: byte): T
  "getGeneric"(arg0: T, arg1: T): $DataResult<(T)>
  "convertMap"<U>(arg0: $DynamicOps$$Type<(U)>, arg1: T): U
- "mapBuilder"(): $RecordBuilder<(T)>
- "convertTo"<U>(arg0: $DynamicOps$$Type<(U)>, arg1: T): U
  "mergeToMap"(arg0: T, arg1: T, arg2: T): $DataResult<(T)>
- "mergeToMap"(arg0: T, arg1: $MapLike$$Type<(T)>): $DataResult<(T)>
  "mergeToMap"(arg0: T, arg1: $Map$$Type<(T), (T)>): $DataResult<(T)>
- "createByte"(arg0: byte): T
- "withParser"<E>(arg0: $Decoder$$Type<(E)>): $Function<(T), ($DataResult<(E)>)>
- "getMapEntries"(arg0: T): $DataResult<($Consumer<($BiConsumer<(T), (T)>)>)>
- "createBoolean"(arg0: boolean): T
- "createByteList"(arg0: $ByteBuffer$$Type): T
- "getLongStream"(arg0: T): $DataResult<($LongStream)>
- "mergeToPrimitive"(arg0: T, arg1: T): $DataResult<(T)>
- "compressMaps"(): boolean
- "createShort"(arg0: short): T
- "withDecoder"<E>(arg0: $Decoder$$Type<(E)>): $Function<(T), ($DataResult<($Pair<(E), (T)>)>)>
- "getIntStream"(arg0: T): $DataResult<($IntStream)>
- "createLongList"(arg0: $LongStream$$Type): T
- "updateGeneric"(arg0: T, arg1: T, arg2: $Function$$Type<(T), (T)>): T
- "convertList"<U>(arg0: $DynamicOps$$Type<(U)>, arg1: T): U
- "withEncoder"<E>(arg0: $Encoder$$Type<(E)>): $Function<(E), ($DataResult<(T)>)>
- "createIntList"(arg0: $IntStream$$Type): T
- "listBuilder"(): $ListBuilder<(T)>
+ "mergeToMap"(arg0: T, arg1: $MapLike$$Type<(T)>): $DataResult<(T)>
+ "createInt"(arg0: integer): T
+ "convertTo"<U>(arg0: $DynamicOps$$Type<(U)>, arg1: T): U
+ "getStream"(arg0: T): $DataResult<($Stream<(T)>)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -243,16 +243,16 @@ export type $CompressorHolder$$Type = ($CompressorHolder);
 export type $CompressorHolder$$Original = $CompressorHolder;}
 declare module "com.mojang.serialization.Dynamic" {
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
-import {$DynamicOps$$Type} from "com.mojang.serialization.DynamicOps"
 import {$Map} from "java.util.Map"
+import {$DynamicOps$$Type} from "com.mojang.serialization.DynamicOps"
 import {$Optional$$Type} from "java.util.Optional"
 import {$IntStream} from "java.util.stream.IntStream"
-import {$OptionalDynamic} from "com.mojang.serialization.OptionalDynamic"
 import {$Pair, $Pair$$Type} from "com.mojang.datafixers.util.Pair"
+import {$OptionalDynamic} from "com.mojang.serialization.OptionalDynamic"
 import {$DataResult} from "com.mojang.serialization.DataResult"
 import {$LongStream} from "java.util.stream.LongStream"
-import {$Function$$Type} from "java.util.function.Function"
 import {$Decoder$$Type} from "com.mojang.serialization.Decoder"
+import {$Function$$Type} from "java.util.function.Function"
 import {$DynamicLike} from "com.mojang.serialization.DynamicLike"
 import {$ByteBuffer} from "java.nio.ByteBuffer"
 import {$Stream} from "java.util.stream.Stream"
@@ -278,26 +278,26 @@ public "merge"(arg0: $Dynamic$$Type<(never)>): $OptionalDynamic<(T)>
 public "merge"(arg0: $Dynamic$$Type<(never)>, arg1: $Dynamic$$Type<(never)>): $OptionalDynamic<(T)>
 public "set"(arg0: StringJS, arg1: $Dynamic$$Type<(never)>): $Dynamic<(T)>
 public "getElement"(arg0: StringJS): $DataResult<(T)>
+public "updateGeneric"(arg0: T, arg1: $Function$$Type<(T), (T)>): $Dynamic<(T)>
 public "asString"(): $DataResult<(StringJS)>
 public "getMapValues"(): $DataResult<($Map<($Dynamic<(T)>), ($Dynamic<(T)>)>)>
 public "getGeneric"(arg0: T): $DataResult<(T)>
-public "updateGeneric"(arg0: T, arg1: $Function$$Type<(T), (T)>): $Dynamic<(T)>
+public "asStreamOpt"(): $DataResult<($Stream<($Dynamic<(T)>)>)>
+public "asLongStreamOpt"(): $DataResult<($LongStream)>
+public "renameAndFixField"(arg0: StringJS, arg1: StringJS, arg2: $UnaryOperator$$Type<($Dynamic<(never)>)>): $Dynamic<(T)>
+public "getElementGeneric"(arg0: T): $DataResult<(T)>
+public "setFieldIfPresent"(arg0: StringJS, arg1: ($Dynamic$$Type<(never)>)?): $Dynamic<(T)>
+public "updateMapValues"(arg0: $Function$$Type<($Pair<($Dynamic<(never)>), ($Dynamic<(never)>)>), ($Pair$$Type<($Dynamic$$Type<(never)>), ($Dynamic$$Type<(never)>)>)>): $Dynamic<(T)>
+public static "copyAndFixField"<T>(arg0: $Dynamic$$Type<(T)>, arg1: StringJS, arg2: $Dynamic$$Type<(never)>, arg3: StringJS, arg4: $UnaryOperator$$Type<($Dynamic<(T)>)>): $Dynamic<(never)>
+public "asByteBufferOpt"(): $DataResult<($ByteBuffer)>
+public "renameField"(arg0: StringJS, arg1: StringJS): $Dynamic<(T)>
+public "asIntStreamOpt"(): $DataResult<($IntStream)>
+public "replaceField"(arg0: StringJS, arg1: StringJS, arg2: ($Dynamic$$Type<(never)>)?): $Dynamic<(T)>
+public "asMapOpt"(): $DataResult<($Stream<($Pair<($Dynamic<(T)>), ($Dynamic<(T)>)>)>)>
 public "castTyped"<U>(arg0: $DynamicOps$$Type<(U)>): $Dynamic<(U)>
 public "asNumber"(): $DataResult<(number)>
-public "asBoolean"(): $DataResult<(boolean)>
-public "asMapOpt"(): $DataResult<($Stream<($Pair<($Dynamic<(T)>), ($Dynamic<(T)>)>)>)>
 public "into"<V>(arg0: $Function$$Type<($Dynamic<(T)>), (V)>): V
-public "asStreamOpt"(): $DataResult<($Stream<($Dynamic<(T)>)>)>
-public "setFieldIfPresent"(arg0: StringJS, arg1: ($Dynamic$$Type<(never)>)?): $Dynamic<(T)>
-public "replaceField"(arg0: StringJS, arg1: StringJS, arg2: ($Dynamic$$Type<(never)>)?): $Dynamic<(T)>
-public "asLongStreamOpt"(): $DataResult<($LongStream)>
-public "renameField"(arg0: StringJS, arg1: StringJS): $Dynamic<(T)>
-public "updateMapValues"(arg0: $Function$$Type<($Pair<($Dynamic<(never)>), ($Dynamic<(never)>)>), ($Pair$$Type<($Dynamic$$Type<(never)>), ($Dynamic$$Type<(never)>)>)>): $Dynamic<(T)>
-public "renameAndFixField"(arg0: StringJS, arg1: StringJS, arg2: $UnaryOperator$$Type<($Dynamic<(never)>)>): $Dynamic<(T)>
-public "asByteBufferOpt"(): $DataResult<($ByteBuffer)>
-public "asIntStreamOpt"(): $DataResult<($IntStream)>
-public "getElementGeneric"(arg0: T): $DataResult<(T)>
-public static "copyAndFixField"<T>(arg0: $Dynamic$$Type<(T)>, arg1: StringJS, arg2: $Dynamic$$Type<(never)>, arg3: StringJS, arg4: $UnaryOperator$$Type<($Dynamic<(T)>)>): $Dynamic<(never)>
+public "asBoolean"(): $DataResult<(boolean)>
 get "value"(): T
 get "mapValues"(): $DataResult<($Map<($Dynamic<(T)>), ($Dynamic<(T)>)>)>
 }
@@ -317,19 +317,19 @@ import {$App$$Type, $App$$Interface} from "com.mojang.datafixers.kinds.App"
 import {$Optional} from "java.util.Optional"
 import {$Function3$$Type} from "com.mojang.datafixers.util.Function3"
 import {$Consumer$$Type} from "java.util.function.Consumer"
-import {$BiFunction$$Type} from "java.util.function.BiFunction"
 import {$DataResult$Mu, $DataResult$Mu$$Type} from "com.mojang.serialization.DataResult$Mu"
-import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$BiFunction$$Type} from "java.util.function.BiFunction"
 import {$Function, $Function$$Type} from "java.util.function.Function"
+import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Lifecycle, $Lifecycle$$Type} from "com.mojang.serialization.Lifecycle"
-import {$Throwable} from "java.lang.Throwable"
 import {$DataResult$Error, $DataResult$Error$$Type} from "com.mojang.serialization.DataResult$Error"
+import {$Throwable} from "java.lang.Throwable"
 
 export interface $DataResult$$Interface<R> extends $App$$Interface<($DataResult$Mu), (R)> {
 get "partialOrThrow"(): R
-set "partial"(value: R)
-set "partial"(value: $Supplier$$Type<(R)>)
 get "orThrow"(): R
+set "partial"(value: $Supplier$$Type<(R)>)
+set "partial"(value: R)
 }
 
 export class $DataResult<R> implements $DataResult$$Interface {
@@ -346,30 +346,30 @@ static "instance"(): $DataResult$Instance
 static "unbox"<R>(arg0: $App$$Type<($DataResult$Mu$$Type), (R)>): $DataResult<(R)>
 static "success"<R>(arg0: R, arg1: $Lifecycle$$Type): $DataResult<(R)>
 static "success"<R>(arg0: R): $DataResult<(R)>
- "ap"<R2>(arg0: $DataResult$$Type<($Function$$Type<(R), (R2)>)>): $DataResult<(R2)>
- "mapOrElse"<T>(arg0: $Function$$Type<(R), (T)>, arg1: $Function$$Type<($DataResult$Error<(R)>), (T)>): T
- "mapError"(arg0: $UnaryOperator$$Type<(StringJS)>): $DataResult<(R)>
- "ifSuccess"(arg0: $Consumer$$Type<(R)>): $DataResult<(R)>
- "ifError"(arg0: $Consumer$$Type<($DataResult$Error<(R)>)>): $DataResult<(R)>
-static "partialGet"<K, V>(arg0: $Function$$Type<(K), (V)>, arg1: $Supplier$$Type<(StringJS)>): $Function<(K), ($DataResult<(V)>)>
+ "promotePartial"(arg0: $Consumer$$Type<(StringJS)>): $DataResult<(R)>
+ "getPartialOrThrow"(): R
+ "getPartialOrThrow"<E extends $Throwable>(arg0: $Function$$Type<(StringJS), (E)>): R
+static "appendMessages"(arg0: StringJS, arg1: StringJS): StringJS
  "hasResultOrPartial"(): boolean
  "apply2stable"<R2, S>(arg0: $BiFunction$$Type<(R), (R2), (S)>, arg1: $DataResult$$Type<(R2)>): $DataResult<(S)>
- "getPartialOrThrow"<E extends $Throwable>(arg0: $Function$$Type<(StringJS), (E)>): R
- "getPartialOrThrow"(): R
-static "appendMessages"(arg0: StringJS, arg1: StringJS): StringJS
  "addLifecycle"(arg0: $Lifecycle$$Type): $DataResult<(R)>
- "promotePartial"(arg0: $Consumer$$Type<(StringJS)>): $DataResult<(R)>
- "apply2"<R2, S>(arg0: $BiFunction$$Type<(R), (R2), (S)>, arg1: $DataResult$$Type<(R2)>): $DataResult<(S)>
- "apply3"<R2, R3, S>(arg0: $Function3$$Type<(R), (R2), (R3), (S)>, arg1: $DataResult$$Type<(R2)>, arg2: $DataResult$$Type<(R3)>): $DataResult<(S)>
- "isSuccess"(): boolean
- "setPartial"(arg0: R): $DataResult<(R)>
- "setPartial"(arg0: $Supplier$$Type<(R)>): $DataResult<(R)>
  "getOrThrow"(): R
  "getOrThrow"<E extends $Throwable>(arg0: $Function$$Type<(StringJS), (E)>): R
+ "ap"<R2>(arg0: $DataResult$$Type<($Function$$Type<(R), (R2)>)>): $DataResult<(R2)>
  "lifecycle"(): $Lifecycle
+ "isSuccess"(): boolean
  "setLifecycle"(arg0: $Lifecycle$$Type): $DataResult<(R)>
- "resultOrPartial"(): $Optional<(R)>
  "resultOrPartial"(arg0: $Consumer$$Type<(StringJS)>): $Optional<(R)>
+ "resultOrPartial"(): $Optional<(R)>
+ "apply3"<R2, R3, S>(arg0: $Function3$$Type<(R), (R2), (R3), (S)>, arg1: $DataResult$$Type<(R2)>, arg2: $DataResult$$Type<(R3)>): $DataResult<(S)>
+ "apply2"<R2, S>(arg0: $BiFunction$$Type<(R), (R2), (S)>, arg1: $DataResult$$Type<(R2)>): $DataResult<(S)>
+ "setPartial"(arg0: $Supplier$$Type<(R)>): $DataResult<(R)>
+ "setPartial"(arg0: R): $DataResult<(R)>
+ "mapError"(arg0: $UnaryOperator$$Type<(StringJS)>): $DataResult<(R)>
+static "partialGet"<K, V>(arg0: $Function$$Type<(K), (V)>, arg1: $Supplier$$Type<(StringJS)>): $Function<(K), ($DataResult<(V)>)>
+ "mapOrElse"<T>(arg0: $Function$$Type<(R), (T)>, arg1: $Function$$Type<($DataResult$Error<(R)>), (T)>): T
+ "ifError"(arg0: $Consumer$$Type<($DataResult$Error<(R)>)>): $DataResult<(R)>
+ "ifSuccess"(arg0: $Consumer$$Type<(R)>): $DataResult<(R)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -408,11 +408,11 @@ import {$Function4, $Function4$$Type} from "com.mojang.datafixers.util.Function4
 import {$Function3, $Function3$$Type} from "com.mojang.datafixers.util.Function3"
 import {$Function11$$Type} from "com.mojang.datafixers.util.Function11"
 import {$Function10$$Type} from "com.mojang.datafixers.util.Function10"
-import {$Products$P10} from "com.mojang.datafixers.Products$P10"
 import {$Products$P3} from "com.mojang.datafixers.Products$P3"
+import {$Products$P10} from "com.mojang.datafixers.Products$P10"
 import {$DataResult$Mu, $DataResult$Mu$$Type} from "com.mojang.serialization.DataResult$Mu"
-import {$Products$P11} from "com.mojang.datafixers.Products$P11"
 import {$Products$P4} from "com.mojang.datafixers.Products$P4"
+import {$Products$P11} from "com.mojang.datafixers.Products$P11"
 import {$Products$P1} from "com.mojang.datafixers.Products$P1"
 import {$Products$P2} from "com.mojang.datafixers.Products$P2"
 import {$Products$P7} from "com.mojang.datafixers.Products$P7"
@@ -428,8 +428,8 @@ import {$Products$P13} from "com.mojang.datafixers.Products$P13"
 import {$Applicative$Mu} from "com.mojang.datafixers.kinds.Applicative$Mu"
 import {$App, $App$$Type} from "com.mojang.datafixers.kinds.App"
 import {$Products$P9} from "com.mojang.datafixers.Products$P9"
-import {$Function13$$Type} from "com.mojang.datafixers.util.Function13"
 import {$BiFunction, $BiFunction$$Type} from "java.util.function.BiFunction"
+import {$Function13$$Type} from "com.mojang.datafixers.util.Function13"
 import {$Function12$$Type} from "com.mojang.datafixers.util.Function12"
 import {$Function15$$Type} from "com.mojang.datafixers.util.Function15"
 import {$Function14$$Type} from "com.mojang.datafixers.util.Function14"
@@ -443,42 +443,42 @@ static readonly "INSTANCE": $DataResult$Instance
 public static "values"(): ($DataResult$Instance)[]
 public static "valueOf"(arg0: StringJS): $DataResult$Instance
 public "map"<T, R>(arg0: $Function$$Type<(T), (R)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T)>): $App<($DataResult$Mu), (R)>
-public "point"<A>(arg0: A): $App<($DataResult$Mu), (A)>
 public "ap"<A, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function$$Type<(A), (R)>)>, arg1: $App$$Type<($DataResult$Mu$$Type), (A)>): $App<($DataResult$Mu), (R)>
-public "ap3"<T1, T2, T3, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function3$$Type<(T1), (T2), (T3), (R)>)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>): $App<($DataResult$Mu), (R)>
 public "lift1"<A, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function$$Type<(A), (R)>)>): $Function<($App<($DataResult$Mu), (A)>), ($App<($DataResult$Mu), (R)>)>
 public "ap2"<A, B, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($BiFunction$$Type<(A), (B), (R)>)>, arg1: $App$$Type<($DataResult$Mu$$Type), (A)>, arg2: $App$$Type<($DataResult$Mu$$Type), (B)>): $App<($DataResult$Mu), (R)>
+public "ap3"<T1, T2, T3, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function3$$Type<(T1), (T2), (T3), (R)>)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>): $App<($DataResult$Mu), (R)>
+public "point"<A>(arg0: A): $App<($DataResult$Mu), (A)>
 public static "unbox"<F extends $K1, Mu extends $Applicative$Mu>(arg0: $App$$Type<($DataResult$Instance$Mu$$Type), ($DataResult$Mu$$Type)>): $Applicative<($DataResult$Mu), ($DataResult$Instance$Mu)>
 public "ap"<A, R>(arg0: $Function$$Type<(A), (R)>, arg1: $App$$Type<($DataResult$Mu$$Type), (A)>): $App<($DataResult$Mu), (R)>
+public "ap5"<T1, T2, T3, T4, T5, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function5$$Type<(T1), (T2), (T3), (T4), (T5), (R)>)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T4)>, arg5: $App$$Type<($DataResult$Mu$$Type), (T5)>): $App<($DataResult$Mu), (R)>
+public "ap6"<T1, T2, T3, T4, T5, T6, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function6$$Type<(T1), (T2), (T3), (T4), (T5), (T6), (R)>)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T4)>, arg5: $App$$Type<($DataResult$Mu$$Type), (T5)>, arg6: $App$$Type<($DataResult$Mu$$Type), (T6)>): $App<($DataResult$Mu), (R)>
+public "ap8"<T1, T2, T3, T4, T5, T6, T7, T8, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function8$$Type<(T1), (T2), (T3), (T4), (T5), (T6), (T7), (T8), (R)>)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T4)>, arg5: $App$$Type<($DataResult$Mu$$Type), (T5)>, arg6: $App$$Type<($DataResult$Mu$$Type), (T6)>, arg7: $App$$Type<($DataResult$Mu$$Type), (T7)>, arg8: $App$$Type<($DataResult$Mu$$Type), (T8)>): $App<($DataResult$Mu), (R)>
 public "ap9"<T1, T2, T3, T4, T5, T6, T7, T8, T9, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function9$$Type<(T1), (T2), (T3), (T4), (T5), (T6), (T7), (T8), (T9), (R)>)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T4)>, arg5: $App$$Type<($DataResult$Mu$$Type), (T5)>, arg6: $App$$Type<($DataResult$Mu$$Type), (T6)>, arg7: $App$$Type<($DataResult$Mu$$Type), (T7)>, arg8: $App$$Type<($DataResult$Mu$$Type), (T8)>, arg9: $App$$Type<($DataResult$Mu$$Type), (T9)>): $App<($DataResult$Mu), (R)>
 public "ap7"<T1, T2, T3, T4, T5, T6, T7, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function7$$Type<(T1), (T2), (T3), (T4), (T5), (T6), (T7), (R)>)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T4)>, arg5: $App$$Type<($DataResult$Mu$$Type), (T5)>, arg6: $App$$Type<($DataResult$Mu$$Type), (T6)>, arg7: $App$$Type<($DataResult$Mu$$Type), (T7)>): $App<($DataResult$Mu), (R)>
+public "lift2"<A, B, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($BiFunction$$Type<(A), (B), (R)>)>): $BiFunction<($App<($DataResult$Mu), (A)>), ($App<($DataResult$Mu), (B)>), ($App<($DataResult$Mu), (R)>)>
 public "lift3"<T1, T2, T3, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function3$$Type<(T1), (T2), (T3), (R)>)>): $Function3<($App<($DataResult$Mu), (T1)>), ($App<($DataResult$Mu), (T2)>), ($App<($DataResult$Mu), (T3)>), ($App<($DataResult$Mu), (R)>)>
+public "ap4"<T1, T2, T3, T4, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function4$$Type<(T1), (T2), (T3), (T4), (R)>)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T4)>): $App<($DataResult$Mu), (R)>
+public "ap14"<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function14$$Type<(T1), (T2), (T3), (T4), (T5), (T6), (T7), (T8), (T9), (T10), (T11), (T12), (T13), (T14), (R)>)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T4)>, arg5: $App$$Type<($DataResult$Mu$$Type), (T5)>, arg6: $App$$Type<($DataResult$Mu$$Type), (T6)>, arg7: $App$$Type<($DataResult$Mu$$Type), (T7)>, arg8: $App$$Type<($DataResult$Mu$$Type), (T8)>, arg9: $App$$Type<($DataResult$Mu$$Type), (T9)>, arg10: $App$$Type<($DataResult$Mu$$Type), (T10)>, arg11: $App$$Type<($DataResult$Mu$$Type), (T11)>, arg12: $App$$Type<($DataResult$Mu$$Type), (T12)>, arg13: $App$$Type<($DataResult$Mu$$Type), (T13)>, arg14: $App$$Type<($DataResult$Mu$$Type), (T14)>): $App<($DataResult$Mu), (R)>
+public "lift6"<T1, T2, T3, T4, T5, T6, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function6$$Type<(T1), (T2), (T3), (T4), (T5), (T6), (R)>)>): $Function6<($App<($DataResult$Mu), (T1)>), ($App<($DataResult$Mu), (T2)>), ($App<($DataResult$Mu), (T3)>), ($App<($DataResult$Mu), (T4)>), ($App<($DataResult$Mu), (T5)>), ($App<($DataResult$Mu), (T6)>), ($App<($DataResult$Mu), (R)>)>
+public "lift5"<T1, T2, T3, T4, T5, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function5$$Type<(T1), (T2), (T3), (T4), (T5), (R)>)>): $Function5<($App<($DataResult$Mu), (T1)>), ($App<($DataResult$Mu), (T2)>), ($App<($DataResult$Mu), (T3)>), ($App<($DataResult$Mu), (T4)>), ($App<($DataResult$Mu), (T5)>), ($App<($DataResult$Mu), (R)>)>
+public "lift9"<T1, T2, T3, T4, T5, T6, T7, T8, T9, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function9$$Type<(T1), (T2), (T3), (T4), (T5), (T6), (T7), (T8), (T9), (R)>)>): $Function9<($App<($DataResult$Mu), (T1)>), ($App<($DataResult$Mu), (T2)>), ($App<($DataResult$Mu), (T3)>), ($App<($DataResult$Mu), (T4)>), ($App<($DataResult$Mu), (T5)>), ($App<($DataResult$Mu), (T6)>), ($App<($DataResult$Mu), (T7)>), ($App<($DataResult$Mu), (T8)>), ($App<($DataResult$Mu), (T9)>), ($App<($DataResult$Mu), (R)>)>
+public "lift8"<T1, T2, T3, T4, T5, T6, T7, T8, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function8$$Type<(T1), (T2), (T3), (T4), (T5), (T6), (T7), (T8), (R)>)>): $Function8<($App<($DataResult$Mu), (T1)>), ($App<($DataResult$Mu), (T2)>), ($App<($DataResult$Mu), (T3)>), ($App<($DataResult$Mu), (T4)>), ($App<($DataResult$Mu), (T5)>), ($App<($DataResult$Mu), (T6)>), ($App<($DataResult$Mu), (T7)>), ($App<($DataResult$Mu), (T8)>), ($App<($DataResult$Mu), (R)>)>
+public "ap10"<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function10$$Type<(T1), (T2), (T3), (T4), (T5), (T6), (T7), (T8), (T9), (T10), (R)>)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T4)>, arg5: $App$$Type<($DataResult$Mu$$Type), (T5)>, arg6: $App$$Type<($DataResult$Mu$$Type), (T6)>, arg7: $App$$Type<($DataResult$Mu$$Type), (T7)>, arg8: $App$$Type<($DataResult$Mu$$Type), (T8)>, arg9: $App$$Type<($DataResult$Mu$$Type), (T9)>, arg10: $App$$Type<($DataResult$Mu$$Type), (T10)>): $App<($DataResult$Mu), (R)>
+public "lift4"<T1, T2, T3, T4, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function4$$Type<(T1), (T2), (T3), (T4), (R)>)>): $Function4<($App<($DataResult$Mu), (T1)>), ($App<($DataResult$Mu), (T2)>), ($App<($DataResult$Mu), (T3)>), ($App<($DataResult$Mu), (T4)>), ($App<($DataResult$Mu), (R)>)>
+public "ap11"<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function11$$Type<(T1), (T2), (T3), (T4), (T5), (T6), (T7), (T8), (T9), (T10), (T11), (R)>)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T4)>, arg5: $App$$Type<($DataResult$Mu$$Type), (T5)>, arg6: $App$$Type<($DataResult$Mu$$Type), (T6)>, arg7: $App$$Type<($DataResult$Mu$$Type), (T7)>, arg8: $App$$Type<($DataResult$Mu$$Type), (T8)>, arg9: $App$$Type<($DataResult$Mu$$Type), (T9)>, arg10: $App$$Type<($DataResult$Mu$$Type), (T10)>, arg11: $App$$Type<($DataResult$Mu$$Type), (T11)>): $App<($DataResult$Mu), (R)>
 public "lift7"<T1, T2, T3, T4, T5, T6, T7, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function7$$Type<(T1), (T2), (T3), (T4), (T5), (T6), (T7), (R)>)>): $Function7<($App<($DataResult$Mu), (T1)>), ($App<($DataResult$Mu), (T2)>), ($App<($DataResult$Mu), (T3)>), ($App<($DataResult$Mu), (T4)>), ($App<($DataResult$Mu), (T5)>), ($App<($DataResult$Mu), (T6)>), ($App<($DataResult$Mu), (T7)>), ($App<($DataResult$Mu), (R)>)>
 public "ap12"<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function12$$Type<(T1), (T2), (T3), (T4), (T5), (T6), (T7), (T8), (T9), (T10), (T11), (T12), (R)>)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T4)>, arg5: $App$$Type<($DataResult$Mu$$Type), (T5)>, arg6: $App$$Type<($DataResult$Mu$$Type), (T6)>, arg7: $App$$Type<($DataResult$Mu$$Type), (T7)>, arg8: $App$$Type<($DataResult$Mu$$Type), (T8)>, arg9: $App$$Type<($DataResult$Mu$$Type), (T9)>, arg10: $App$$Type<($DataResult$Mu$$Type), (T10)>, arg11: $App$$Type<($DataResult$Mu$$Type), (T11)>, arg12: $App$$Type<($DataResult$Mu$$Type), (T12)>): $App<($DataResult$Mu), (R)>
 public "ap13"<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function13$$Type<(T1), (T2), (T3), (T4), (T5), (T6), (T7), (T8), (T9), (T10), (T11), (T12), (T13), (R)>)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T4)>, arg5: $App$$Type<($DataResult$Mu$$Type), (T5)>, arg6: $App$$Type<($DataResult$Mu$$Type), (T6)>, arg7: $App$$Type<($DataResult$Mu$$Type), (T7)>, arg8: $App$$Type<($DataResult$Mu$$Type), (T8)>, arg9: $App$$Type<($DataResult$Mu$$Type), (T9)>, arg10: $App$$Type<($DataResult$Mu$$Type), (T10)>, arg11: $App$$Type<($DataResult$Mu$$Type), (T11)>, arg12: $App$$Type<($DataResult$Mu$$Type), (T12)>, arg13: $App$$Type<($DataResult$Mu$$Type), (T13)>): $App<($DataResult$Mu), (R)>
 public "ap15"<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function15$$Type<(T1), (T2), (T3), (T4), (T5), (T6), (T7), (T8), (T9), (T10), (T11), (T12), (T13), (T14), (T15), (R)>)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T4)>, arg5: $App$$Type<($DataResult$Mu$$Type), (T5)>, arg6: $App$$Type<($DataResult$Mu$$Type), (T6)>, arg7: $App$$Type<($DataResult$Mu$$Type), (T7)>, arg8: $App$$Type<($DataResult$Mu$$Type), (T8)>, arg9: $App$$Type<($DataResult$Mu$$Type), (T9)>, arg10: $App$$Type<($DataResult$Mu$$Type), (T10)>, arg11: $App$$Type<($DataResult$Mu$$Type), (T11)>, arg12: $App$$Type<($DataResult$Mu$$Type), (T12)>, arg13: $App$$Type<($DataResult$Mu$$Type), (T13)>, arg14: $App$$Type<($DataResult$Mu$$Type), (T14)>, arg15: $App$$Type<($DataResult$Mu$$Type), (T15)>): $App<($DataResult$Mu), (R)>
-public "apply5"<T1, T2, T3, T4, T5, R>(arg0: $Function5$$Type<(T1), (T2), (T3), (T4), (T5), (R)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T4)>, arg5: $App$$Type<($DataResult$Mu$$Type), (T5)>): $App<($DataResult$Mu), (R)>
 public "apply8"<T1, T2, T3, T4, T5, T6, T7, T8, R>(arg0: $Function8$$Type<(T1), (T2), (T3), (T4), (T5), (T6), (T7), (T8), (R)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T4)>, arg5: $App$$Type<($DataResult$Mu$$Type), (T5)>, arg6: $App$$Type<($DataResult$Mu$$Type), (T6)>, arg7: $App$$Type<($DataResult$Mu$$Type), (T7)>, arg8: $App$$Type<($DataResult$Mu$$Type), (T8)>): $App<($DataResult$Mu), (R)>
-public "apply9"<T1, T2, T3, T4, T5, T6, T7, T8, T9, R>(arg0: $Function9$$Type<(T1), (T2), (T3), (T4), (T5), (T6), (T7), (T8), (T9), (R)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T4)>, arg5: $App$$Type<($DataResult$Mu$$Type), (T5)>, arg6: $App$$Type<($DataResult$Mu$$Type), (T6)>, arg7: $App$$Type<($DataResult$Mu$$Type), (T7)>, arg8: $App$$Type<($DataResult$Mu$$Type), (T8)>, arg9: $App$$Type<($DataResult$Mu$$Type), (T9)>): $App<($DataResult$Mu), (R)>
-public "lift2"<A, B, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($BiFunction$$Type<(A), (B), (R)>)>): $BiFunction<($App<($DataResult$Mu), (A)>), ($App<($DataResult$Mu), (B)>), ($App<($DataResult$Mu), (R)>)>
-public "ap8"<T1, T2, T3, T4, T5, T6, T7, T8, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function8$$Type<(T1), (T2), (T3), (T4), (T5), (T6), (T7), (T8), (R)>)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T4)>, arg5: $App$$Type<($DataResult$Mu$$Type), (T5)>, arg6: $App$$Type<($DataResult$Mu$$Type), (T6)>, arg7: $App$$Type<($DataResult$Mu$$Type), (T7)>, arg8: $App$$Type<($DataResult$Mu$$Type), (T8)>): $App<($DataResult$Mu), (R)>
-public "ap6"<T1, T2, T3, T4, T5, T6, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function6$$Type<(T1), (T2), (T3), (T4), (T5), (T6), (R)>)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T4)>, arg5: $App$$Type<($DataResult$Mu$$Type), (T5)>, arg6: $App$$Type<($DataResult$Mu$$Type), (T6)>): $App<($DataResult$Mu), (R)>
-public "lift6"<T1, T2, T3, T4, T5, T6, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function6$$Type<(T1), (T2), (T3), (T4), (T5), (T6), (R)>)>): $Function6<($App<($DataResult$Mu), (T1)>), ($App<($DataResult$Mu), (T2)>), ($App<($DataResult$Mu), (T3)>), ($App<($DataResult$Mu), (T4)>), ($App<($DataResult$Mu), (T5)>), ($App<($DataResult$Mu), (T6)>), ($App<($DataResult$Mu), (R)>)>
-public "apply4"<T1, T2, T3, T4, R>(arg0: $Function4$$Type<(T1), (T2), (T3), (T4), (R)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T4)>): $App<($DataResult$Mu), (R)>
-public "apply2"<A, B, R>(arg0: $BiFunction$$Type<(A), (B), (R)>, arg1: $App$$Type<($DataResult$Mu$$Type), (A)>, arg2: $App$$Type<($DataResult$Mu$$Type), (B)>): $App<($DataResult$Mu), (R)>
-public "ap16"<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function16$$Type<(T1), (T2), (T3), (T4), (T5), (T6), (T7), (T8), (T9), (T10), (T11), (T12), (T13), (T14), (T15), (T16), (R)>)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T4)>, arg5: $App$$Type<($DataResult$Mu$$Type), (T5)>, arg6: $App$$Type<($DataResult$Mu$$Type), (T6)>, arg7: $App$$Type<($DataResult$Mu$$Type), (T7)>, arg8: $App$$Type<($DataResult$Mu$$Type), (T8)>, arg9: $App$$Type<($DataResult$Mu$$Type), (T9)>, arg10: $App$$Type<($DataResult$Mu$$Type), (T10)>, arg11: $App$$Type<($DataResult$Mu$$Type), (T11)>, arg12: $App$$Type<($DataResult$Mu$$Type), (T12)>, arg13: $App$$Type<($DataResult$Mu$$Type), (T13)>, arg14: $App$$Type<($DataResult$Mu$$Type), (T14)>, arg15: $App$$Type<($DataResult$Mu$$Type), (T15)>, arg16: $App$$Type<($DataResult$Mu$$Type), (T16)>): $App<($DataResult$Mu), (R)>
-public "ap4"<T1, T2, T3, T4, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function4$$Type<(T1), (T2), (T3), (T4), (R)>)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T4)>): $App<($DataResult$Mu), (R)>
-public "ap5"<T1, T2, T3, T4, T5, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function5$$Type<(T1), (T2), (T3), (T4), (T5), (R)>)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T4)>, arg5: $App$$Type<($DataResult$Mu$$Type), (T5)>): $App<($DataResult$Mu), (R)>
-public "lift4"<T1, T2, T3, T4, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function4$$Type<(T1), (T2), (T3), (T4), (R)>)>): $Function4<($App<($DataResult$Mu), (T1)>), ($App<($DataResult$Mu), (T2)>), ($App<($DataResult$Mu), (T3)>), ($App<($DataResult$Mu), (T4)>), ($App<($DataResult$Mu), (R)>)>
-public "lift8"<T1, T2, T3, T4, T5, T6, T7, T8, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function8$$Type<(T1), (T2), (T3), (T4), (T5), (T6), (T7), (T8), (R)>)>): $Function8<($App<($DataResult$Mu), (T1)>), ($App<($DataResult$Mu), (T2)>), ($App<($DataResult$Mu), (T3)>), ($App<($DataResult$Mu), (T4)>), ($App<($DataResult$Mu), (T5)>), ($App<($DataResult$Mu), (T6)>), ($App<($DataResult$Mu), (T7)>), ($App<($DataResult$Mu), (T8)>), ($App<($DataResult$Mu), (R)>)>
-public "lift9"<T1, T2, T3, T4, T5, T6, T7, T8, T9, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function9$$Type<(T1), (T2), (T3), (T4), (T5), (T6), (T7), (T8), (T9), (R)>)>): $Function9<($App<($DataResult$Mu), (T1)>), ($App<($DataResult$Mu), (T2)>), ($App<($DataResult$Mu), (T3)>), ($App<($DataResult$Mu), (T4)>), ($App<($DataResult$Mu), (T5)>), ($App<($DataResult$Mu), (T6)>), ($App<($DataResult$Mu), (T7)>), ($App<($DataResult$Mu), (T8)>), ($App<($DataResult$Mu), (T9)>), ($App<($DataResult$Mu), (R)>)>
-public "ap11"<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function11$$Type<(T1), (T2), (T3), (T4), (T5), (T6), (T7), (T8), (T9), (T10), (T11), (R)>)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T4)>, arg5: $App$$Type<($DataResult$Mu$$Type), (T5)>, arg6: $App$$Type<($DataResult$Mu$$Type), (T6)>, arg7: $App$$Type<($DataResult$Mu$$Type), (T7)>, arg8: $App$$Type<($DataResult$Mu$$Type), (T8)>, arg9: $App$$Type<($DataResult$Mu$$Type), (T9)>, arg10: $App$$Type<($DataResult$Mu$$Type), (T10)>, arg11: $App$$Type<($DataResult$Mu$$Type), (T11)>): $App<($DataResult$Mu), (R)>
-public "lift5"<T1, T2, T3, T4, T5, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function5$$Type<(T1), (T2), (T3), (T4), (T5), (R)>)>): $Function5<($App<($DataResult$Mu), (T1)>), ($App<($DataResult$Mu), (T2)>), ($App<($DataResult$Mu), (T3)>), ($App<($DataResult$Mu), (T4)>), ($App<($DataResult$Mu), (T5)>), ($App<($DataResult$Mu), (R)>)>
-public "ap14"<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function14$$Type<(T1), (T2), (T3), (T4), (T5), (T6), (T7), (T8), (T9), (T10), (T11), (T12), (T13), (T14), (R)>)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T4)>, arg5: $App$$Type<($DataResult$Mu$$Type), (T5)>, arg6: $App$$Type<($DataResult$Mu$$Type), (T6)>, arg7: $App$$Type<($DataResult$Mu$$Type), (T7)>, arg8: $App$$Type<($DataResult$Mu$$Type), (T8)>, arg9: $App$$Type<($DataResult$Mu$$Type), (T9)>, arg10: $App$$Type<($DataResult$Mu$$Type), (T10)>, arg11: $App$$Type<($DataResult$Mu$$Type), (T11)>, arg12: $App$$Type<($DataResult$Mu$$Type), (T12)>, arg13: $App$$Type<($DataResult$Mu$$Type), (T13)>, arg14: $App$$Type<($DataResult$Mu$$Type), (T14)>): $App<($DataResult$Mu), (R)>
-public "ap10"<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function10$$Type<(T1), (T2), (T3), (T4), (T5), (T6), (T7), (T8), (T9), (T10), (R)>)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T4)>, arg5: $App$$Type<($DataResult$Mu$$Type), (T5)>, arg6: $App$$Type<($DataResult$Mu$$Type), (T6)>, arg7: $App$$Type<($DataResult$Mu$$Type), (T7)>, arg8: $App$$Type<($DataResult$Mu$$Type), (T8)>, arg9: $App$$Type<($DataResult$Mu$$Type), (T9)>, arg10: $App$$Type<($DataResult$Mu$$Type), (T10)>): $App<($DataResult$Mu), (R)>
-public "apply3"<T1, T2, T3, R>(arg0: $Function3$$Type<(T1), (T2), (T3), (R)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>): $App<($DataResult$Mu), (R)>
 public "apply6"<T1, T2, T3, T4, T5, T6, R>(arg0: $Function6$$Type<(T1), (T2), (T3), (T4), (T5), (T6), (R)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T4)>, arg5: $App$$Type<($DataResult$Mu$$Type), (T5)>, arg6: $App$$Type<($DataResult$Mu$$Type), (T6)>): $App<($DataResult$Mu), (R)>
+public "apply5"<T1, T2, T3, T4, T5, R>(arg0: $Function5$$Type<(T1), (T2), (T3), (T4), (T5), (R)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T4)>, arg5: $App$$Type<($DataResult$Mu$$Type), (T5)>): $App<($DataResult$Mu), (R)>
+public "apply4"<T1, T2, T3, T4, R>(arg0: $Function4$$Type<(T1), (T2), (T3), (T4), (R)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T4)>): $App<($DataResult$Mu), (R)>
+public "apply9"<T1, T2, T3, T4, T5, T6, T7, T8, T9, R>(arg0: $Function9$$Type<(T1), (T2), (T3), (T4), (T5), (T6), (T7), (T8), (T9), (R)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T4)>, arg5: $App$$Type<($DataResult$Mu$$Type), (T5)>, arg6: $App$$Type<($DataResult$Mu$$Type), (T6)>, arg7: $App$$Type<($DataResult$Mu$$Type), (T7)>, arg8: $App$$Type<($DataResult$Mu$$Type), (T8)>, arg9: $App$$Type<($DataResult$Mu$$Type), (T9)>): $App<($DataResult$Mu), (R)>
+public "ap16"<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, R>(arg0: $App$$Type<($DataResult$Mu$$Type), ($Function16$$Type<(T1), (T2), (T3), (T4), (T5), (T6), (T7), (T8), (T9), (T10), (T11), (T12), (T13), (T14), (T15), (T16), (R)>)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T4)>, arg5: $App$$Type<($DataResult$Mu$$Type), (T5)>, arg6: $App$$Type<($DataResult$Mu$$Type), (T6)>, arg7: $App$$Type<($DataResult$Mu$$Type), (T7)>, arg8: $App$$Type<($DataResult$Mu$$Type), (T8)>, arg9: $App$$Type<($DataResult$Mu$$Type), (T9)>, arg10: $App$$Type<($DataResult$Mu$$Type), (T10)>, arg11: $App$$Type<($DataResult$Mu$$Type), (T11)>, arg12: $App$$Type<($DataResult$Mu$$Type), (T12)>, arg13: $App$$Type<($DataResult$Mu$$Type), (T13)>, arg14: $App$$Type<($DataResult$Mu$$Type), (T14)>, arg15: $App$$Type<($DataResult$Mu$$Type), (T15)>, arg16: $App$$Type<($DataResult$Mu$$Type), (T16)>): $App<($DataResult$Mu), (R)>
+public "apply3"<T1, T2, T3, R>(arg0: $Function3$$Type<(T1), (T2), (T3), (R)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>): $App<($DataResult$Mu), (R)>
 public "apply7"<T1, T2, T3, T4, T5, T6, T7, R>(arg0: $Function7$$Type<(T1), (T2), (T3), (T4), (T5), (T6), (T7), (R)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T4)>, arg5: $App$$Type<($DataResult$Mu$$Type), (T5)>, arg6: $App$$Type<($DataResult$Mu$$Type), (T6)>, arg7: $App$$Type<($DataResult$Mu$$Type), (T7)>): $App<($DataResult$Mu), (R)>
+public "apply2"<A, B, R>(arg0: $BiFunction$$Type<(A), (B), (R)>, arg1: $App$$Type<($DataResult$Mu$$Type), (A)>, arg2: $App$$Type<($DataResult$Mu$$Type), (B)>): $App<($DataResult$Mu), (R)>
 public "group"<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(arg0: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T4)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T5)>, arg5: $App$$Type<($DataResult$Mu$$Type), (T6)>, arg6: $App$$Type<($DataResult$Mu$$Type), (T7)>, arg7: $App$$Type<($DataResult$Mu$$Type), (T8)>, arg8: $App$$Type<($DataResult$Mu$$Type), (T9)>, arg9: $App$$Type<($DataResult$Mu$$Type), (T10)>, arg10: $App$$Type<($DataResult$Mu$$Type), (T11)>): $Products$P11<($DataResult$Mu), (T1), (T2), (T3), (T4), (T5), (T6), (T7), (T8), (T9), (T10), (T11)>
 public "group"<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(arg0: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T4)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T5)>, arg5: $App$$Type<($DataResult$Mu$$Type), (T6)>, arg6: $App$$Type<($DataResult$Mu$$Type), (T7)>, arg7: $App$$Type<($DataResult$Mu$$Type), (T8)>, arg8: $App$$Type<($DataResult$Mu$$Type), (T9)>, arg9: $App$$Type<($DataResult$Mu$$Type), (T10)>): $Products$P10<($DataResult$Mu), (T1), (T2), (T3), (T4), (T5), (T6), (T7), (T8), (T9), (T10)>
 public "group"<T1, T2, T3, T4, T5, T6, T7, T8, T9>(arg0: $App$$Type<($DataResult$Mu$$Type), (T1)>, arg1: $App$$Type<($DataResult$Mu$$Type), (T2)>, arg2: $App$$Type<($DataResult$Mu$$Type), (T3)>, arg3: $App$$Type<($DataResult$Mu$$Type), (T4)>, arg4: $App$$Type<($DataResult$Mu$$Type), (T5)>, arg5: $App$$Type<($DataResult$Mu$$Type), (T6)>, arg6: $App$$Type<($DataResult$Mu$$Type), (T7)>, arg7: $App$$Type<($DataResult$Mu$$Type), (T8)>, arg8: $App$$Type<($DataResult$Mu$$Type), (T9)>): $Products$P9<($DataResult$Mu), (T1), (T2), (T3), (T4), (T5), (T6), (T7), (T8), (T9)>
@@ -532,13 +532,13 @@ import {$DynamicOps, $DynamicOps$$Type} from "com.mojang.serialization.DynamicOp
 import {$Pair} from "com.mojang.datafixers.util.Pair"
 import {$OptionalDynamic} from "com.mojang.serialization.OptionalDynamic"
 import {$IntStream, $IntStream$$Type} from "java.util.stream.IntStream"
-import {$DataResult, $DataResult$$Type} from "com.mojang.serialization.DataResult"
 import {$List} from "java.util.List"
+import {$DataResult, $DataResult$$Type} from "com.mojang.serialization.DataResult"
 import {$Dynamic, $Dynamic$$Type} from "com.mojang.serialization.Dynamic"
 import {$LongStream, $LongStream$$Type} from "java.util.stream.LongStream"
 import {$Function3$$Type} from "com.mojang.datafixers.util.Function3"
-import {$Function$$Type} from "java.util.function.Function"
 import {$Decoder$$Type} from "com.mojang.serialization.Decoder"
+import {$Function$$Type} from "java.util.function.Function"
 import {$ByteBuffer, $ByteBuffer$$Type} from "java.nio.ByteBuffer"
 import {$Stream, $Stream$$Type} from "java.util.stream.Stream"
 
@@ -558,48 +558,48 @@ public "createLong"(arg0: long): $Dynamic<(T)>
 public "createString"(arg0: StringJS): $Dynamic<(T)>
 public "getElement"(arg0: StringJS, arg1: T): T
 public "getElement"(arg0: StringJS): $DataResult<(T)>
-public "createList"(arg0: $Stream$$Type<($Dynamic$$Type<(never)>)>): $Dynamic<(T)>
-public "asIntStream"(): $IntStream
-public "asInt"(arg0: integer): integer
-public "asString"(): $DataResult<(StringJS)>
-public "asString"(arg0: StringJS): StringJS
-public "createFloat"(arg0: float): $Dynamic<(T)>
 public "createDouble"(arg0: double): $Dynamic<(T)>
-public "asMap"<K, V>(arg0: $Function$$Type<($Dynamic<(T)>), (K)>, arg1: $Function$$Type<($Dynamic<(T)>), (V)>): $Map<(K), (V)>
-public "asDouble"(arg0: double): double
+public "createFloat"(arg0: float): $Dynamic<(T)>
+public "createList"(arg0: $Stream$$Type<($Dynamic$$Type<(never)>)>): $Dynamic<(T)>
+public "asString"(arg0: StringJS): StringJS
+public "asString"(): $DataResult<(StringJS)>
+public "asInt"(arg0: integer): integer
 public "asLong"(arg0: long): long
+public "asDouble"(arg0: double): double
 public "createNumeric"(arg0: number): $Dynamic<(T)>
-public "getOps"(): $DynamicOps<(T)>
-public "createInt"(arg0: integer): $Dynamic<(T)>
-public "getGeneric"(arg0: T): $DataResult<(T)>
-public "createByte"(arg0: byte): $Dynamic<(T)>
 public "createBoolean"(arg0: boolean): $Dynamic<(T)>
 public "createByteList"(arg0: $ByteBuffer$$Type): $Dynamic<(never)>
-public "createShort"(arg0: short): $Dynamic<(T)>
-public "createLongList"(arg0: $LongStream$$Type): $Dynamic<(never)>
 public "createIntList"(arg0: $IntStream$$Type): $Dynamic<(never)>
-public "asNumber"(): $DataResult<(number)>
-public "asNumber"(arg0: number): number
-public "asBoolean"(arg0: boolean): boolean
-public "asBoolean"(): $DataResult<(boolean)>
-public "asMapOpt"(): $DataResult<($Stream<($Pair<($Dynamic<(T)>), ($Dynamic<(T)>)>)>)>
-public "asMapOpt"<K, V>(arg0: $Function$$Type<($Dynamic<(T)>), (K)>, arg1: $Function$$Type<($Dynamic<(T)>), (V)>): $DataResult<($Map<(K), (V)>)>
-public "asListOpt"<U>(arg0: $Function$$Type<($Dynamic<(T)>), (U)>): $DataResult<($List<(U)>)>
-public "readList"<E>(arg0: $Decoder$$Type<(E)>): $DataResult<($List<(E)>)>
-public "readList"<E>(arg0: $Function$$Type<($Dynamic<(never)>), ($DataResult$$Type<(E)>)>): $DataResult<($List<(E)>)>
-public "readMap"<K, V>(arg0: $Decoder$$Type<(K)>, arg1: $Function$$Type<(K), ($Decoder$$Type<(V)>)>): $DataResult<($List<($Pair<(K), (V)>)>)>
-public "readMap"<R>(arg0: $DataResult$$Type<(R)>, arg1: $Function3$$Type<(R), ($Dynamic$$Type<(T)>), ($Dynamic$$Type<(T)>), ($DataResult$$Type<(R)>)>): $DataResult<(R)>
-public "readMap"<K, V>(arg0: $Decoder$$Type<(K)>, arg1: $Decoder$$Type<(V)>): $DataResult<($List<($Pair<(K), (V)>)>)>
-public "asShort"(arg0: short): short
-public "asByte"(arg0: byte): byte
-public "asStream"(): $Stream<($Dynamic<(T)>)>
-public "asFloat"(arg0: float): float
+public "createLongList"(arg0: $LongStream$$Type): $Dynamic<(never)>
+public "createShort"(arg0: short): $Dynamic<(T)>
+public "getOps"(): $DynamicOps<(T)>
+public "createByte"(arg0: byte): $Dynamic<(T)>
+public "getGeneric"(arg0: T): $DataResult<(T)>
+public "createInt"(arg0: integer): $Dynamic<(T)>
+public "asMap"<K, V>(arg0: $Function$$Type<($Dynamic<(T)>), (K)>, arg1: $Function$$Type<($Dynamic<(T)>), (V)>): $Map<(K), (V)>
+public "asIntStream"(): $IntStream
 public "asStreamOpt"(): $DataResult<($Stream<($Dynamic<(T)>)>)>
 public "asLongStreamOpt"(): $DataResult<($LongStream)>
-public "asByteBufferOpt"(): $DataResult<($ByteBuffer)>
-public "asIntStreamOpt"(): $DataResult<($IntStream)>
 public "getElementGeneric"(arg0: T, arg1: T): T
 public "getElementGeneric"(arg0: T): $DataResult<(T)>
+public "asByteBufferOpt"(): $DataResult<($ByteBuffer)>
+public "asIntStreamOpt"(): $DataResult<($IntStream)>
+public "asStream"(): $Stream<($Dynamic<(T)>)>
+public "asMapOpt"<K, V>(arg0: $Function$$Type<($Dynamic<(T)>), (K)>, arg1: $Function$$Type<($Dynamic<(T)>), (V)>): $DataResult<($Map<(K), (V)>)>
+public "asMapOpt"(): $DataResult<($Stream<($Pair<($Dynamic<(T)>), ($Dynamic<(T)>)>)>)>
+public "readMap"<R>(arg0: $DataResult$$Type<(R)>, arg1: $Function3$$Type<(R), ($Dynamic$$Type<(T)>), ($Dynamic$$Type<(T)>), ($DataResult$$Type<(R)>)>): $DataResult<(R)>
+public "readMap"<K, V>(arg0: $Decoder$$Type<(K)>, arg1: $Function$$Type<(K), ($Decoder$$Type<(V)>)>): $DataResult<($List<($Pair<(K), (V)>)>)>
+public "readMap"<K, V>(arg0: $Decoder$$Type<(K)>, arg1: $Decoder$$Type<(V)>): $DataResult<($List<($Pair<(K), (V)>)>)>
+public "asFloat"(arg0: float): float
+public "asNumber"(arg0: number): number
+public "asNumber"(): $DataResult<(number)>
+public "readList"<E>(arg0: $Function$$Type<($Dynamic<(never)>), ($DataResult$$Type<(E)>)>): $DataResult<($List<(E)>)>
+public "readList"<E>(arg0: $Decoder$$Type<(E)>): $DataResult<($List<(E)>)>
+public "asByte"(arg0: byte): byte
+public "asShort"(arg0: short): short
+public "asBoolean"(arg0: boolean): boolean
+public "asBoolean"(): $DataResult<(boolean)>
+public "asListOpt"<U>(arg0: $Function$$Type<($Dynamic<(T)>), (U)>): $DataResult<($List<(U)>)>
 get "ops"(): $DynamicOps<(T)>
 }
 /**
@@ -659,13 +659,12 @@ export class $Decoder<A> implements $Decoder$$Interface {
  "decode"<T>(arg0: $Dynamic$$Type<(T)>): $DataResult<($Pair<(A), (T)>)>
  "map"<B>(arg0: $Function$$Type<(A), (B)>): $Decoder<(B)>
  "flatMap"<B>(arg0: $Function$$Type<(A), ($DataResult$$Type<(B)>)>): $Decoder<(B)>
- "parse"<T>(arg0: $Dynamic$$Type<(T)>): $DataResult<(A)>
  "parse"<T>(arg0: $DynamicOps$$Type<(T)>, arg1: T): $DataResult<(A)>
+ "parse"<T>(arg0: $Dynamic$$Type<(T)>): $DataResult<(A)>
 static "error"<A>(arg0: StringJS): $Decoder<(A)>
 static "unit"<A>(arg0: A): $MapDecoder<(A)>
 static "unit"<A>(arg0: $Supplier$$Type<(A)>): $MapDecoder<(A)>
  "boxed"(): $Decoder$Boxed<(A)>
- "terminal"(): $Decoder$Terminal<(A)>
  "withLifecycle"(arg0: $Lifecycle$$Type): $Decoder<(A)>
  "promotePartial"(arg0: $Consumer$$Type<(StringJS)>): $Decoder<(A)>
 static "ofSimple"<A>(arg0: $Decoder$Simple$$Type<(A)>): $Decoder<(A)>
@@ -673,6 +672,7 @@ static "ofTerminal"<A>(arg0: $Decoder$Terminal$$Type<(A)>): $Decoder<(A)>
 static "ofBoxed"<A>(arg0: $Decoder$Boxed$$Type<(A)>): $Decoder<(A)>
  "simple"(): $Decoder$Simple<(A)>
  "fieldOf"(arg0: StringJS): $MapDecoder<(A)>
+ "terminal"(): $Decoder$Terminal<(A)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -684,9 +684,9 @@ export type $Decoder$$Type<A> = ((arg0: $DynamicOps<(T)>, arg1: T) => $DataResul
  */
 export type $Decoder$$Original<A> = $Decoder<(A)>;}
 declare module "com.mojang.serialization.MapCodec" {
-import {$MapCodec$ResultFunction$$Type} from "com.mojang.serialization.MapCodec$ResultFunction"
-import {$KeyCompressor, $KeyCompressor$$Type} from "com.mojang.serialization.KeyCompressor"
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
+import {$KeyCompressor, $KeyCompressor$$Type} from "com.mojang.serialization.KeyCompressor"
+import {$MapCodec$ResultFunction$$Type} from "com.mojang.serialization.MapCodec$ResultFunction"
 import {$DynamicOps$$Type} from "com.mojang.serialization.DynamicOps"
 import {$Pair$$Type} from "com.mojang.datafixers.util.Pair"
 import {$DataResult, $DataResult$$Type} from "com.mojang.serialization.DataResult"
@@ -698,11 +698,11 @@ import {$Keyable} from "com.mojang.serialization.Keyable"
 import {$BiFunction$$Type} from "java.util.function.BiFunction"
 import {$CompressorHolder} from "com.mojang.serialization.CompressorHolder"
 import {$MapDecoder, $MapDecoder$$Type, $MapDecoder$$Interface} from "com.mojang.serialization.MapDecoder"
-import {$RecordCodecBuilder} from "com.mojang.serialization.codecs.RecordCodecBuilder"
 import {$Codec, $Codec$$Type} from "com.mojang.serialization.Codec"
+import {$RecordCodecBuilder} from "com.mojang.serialization.codecs.RecordCodecBuilder"
 import {$Function$$Type} from "java.util.function.Function"
-import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Decoder} from "com.mojang.serialization.Decoder"
+import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$MapEncoder, $MapEncoder$$Type, $MapEncoder$$Interface} from "com.mojang.serialization.MapEncoder"
 import {$Lifecycle$$Type} from "com.mojang.serialization.Lifecycle"
 import {$Stream, $Stream$$Type} from "java.util.stream.Stream"
@@ -710,166 +710,46 @@ import {$Stream, $Stream$$Type} from "java.util.stream.Stream"
 export class $MapCodec<A> extends $CompressorHolder implements $MapDecoder$$Interface<(A)>, $MapEncoder$$Interface<(A)> {
 constructor()
 
-public static "of"<A>(arg0: $MapEncoder$$Type<(A)>, arg1: $MapDecoder$$Type<(A)>): $MapCodec<(A)>
 public static "of"<A>(arg0: $MapEncoder$$Type<(A)>, arg1: $MapDecoder$$Type<(A)>, arg2: $Supplier$$Type<(StringJS)>): $MapCodec<(A)>
+public static "of"<A>(arg0: $MapEncoder$$Type<(A)>, arg1: $MapDecoder$$Type<(A)>): $MapCodec<(A)>
 public "validate"(arg0: $Function$$Type<(A), ($DataResult$$Type<(A)>)>): $MapCodec<(A)>
 public "keys"<T>(arg0: $DynamicOps$$Type<(T)>): $Stream<(T)>
+public "orElse"(arg0: $UnaryOperator$$Type<(StringJS)>, arg1: A): $MapCodec<(A)>
 public "orElse"(arg0: A): $MapCodec<(A)>
 public "orElse"(arg0: $Consumer$$Type<(StringJS)>, arg1: A): $MapCodec<(A)>
-public "orElse"(arg0: $UnaryOperator$$Type<(StringJS)>, arg1: A): $MapCodec<(A)>
-public static "unit"<A>(arg0: A): $MapCodec<(A)>
 public static "unit"<A>(arg0: $Supplier$$Type<(A)>): $MapCodec<(A)>
-public "orElseGet"(arg0: $UnaryOperator$$Type<(StringJS)>, arg1: $Supplier$$Type<(A)>): $MapCodec<(A)>
+public static "unit"<A>(arg0: A): $MapCodec<(A)>
 public "orElseGet"(arg0: $Supplier$$Type<(A)>): $MapCodec<(A)>
 public "orElseGet"(arg0: $Consumer$$Type<(StringJS)>, arg1: $Supplier$$Type<(A)>): $MapCodec<(A)>
+public "orElseGet"(arg0: $UnaryOperator$$Type<(StringJS)>, arg1: $Supplier$$Type<(A)>): $MapCodec<(A)>
 public static "recursive"<A>(arg0: StringJS, arg1: $Function$$Type<($Codec<(A)>), ($MapCodec$$Type<(A)>)>): $MapCodec<(A)>
+public "withLifecycle"(arg0: $Lifecycle$$Type): $MapDecoder
 public "dependent"<E>(arg0: $MapCodec$$Type<(E)>, arg1: $Function$$Type<(A), ($Pair$$Type<(E), ($MapCodec$$Type<(E)>)>)>, arg2: $BiFunction$$Type<(A), (E), (A)>): $MapCodec<(A)>
-public "withLifecycle"(arg0: $Lifecycle$$Type): $MapCodec<(A)>
-public "setPartial"(arg0: $Supplier$$Type<(A)>): $MapCodec<(A)>
-public "fieldOf"(arg0: StringJS): $MapCodec<(A)>
-public "codec"(): $Codec<(A)>
-public "mapResult"(arg0: $MapCodec$ResultFunction$$Type<(A)>): $MapCodec<(A)>
 public "forGetter"<O>(arg0: $Function$$Type<(O), (A)>): $RecordCodecBuilder<(O), (A)>
 public "xmap"<S>(arg0: $Function$$Type<(A), (S)>, arg1: $Function$$Type<(S), (A)>): $MapCodec<(S)>
 public "stable"(): $MapCodec<(A)>
-public "deprecated"(arg0: integer): $MapCodec<(A)>
 public "flatXmap"<S>(arg0: $Function$$Type<(A), ($DataResult$$Type<(S)>)>, arg1: $Function$$Type<(S), ($DataResult$$Type<(A)>)>): $MapCodec<(S)>
+public "deprecated"(arg0: integer): $MapCodec<(A)>
+public "codec"(): $Codec<(A)>
+public "mapResult"(arg0: $MapCodec$ResultFunction$$Type<(A)>): $MapCodec<(A)>
+public "fieldOf"(arg0: StringJS): $MapCodec<(A)>
 public static "assumeMapUnsafe"<A>(arg0: $Codec$$Type<(A)>): $MapCodec<(A)>
+public "setPartial"(arg0: $Supplier$$Type<(A)>): $MapCodec<(A)>
 public "decode"<T>(arg0: $DynamicOps$$Type<(T)>, arg1: $MapLike$$Type<(T)>): $DataResult<(A)>
 public "map"<B>(arg0: $Function$$Type<(A), (B)>): $MapDecoder<(B)>
 public "flatMap"<B>(arg0: $Function$$Type<(A), ($DataResult$$Type<(B)>)>): $MapDecoder<(B)>
 public "decoder"(): $Decoder<(A)>
 public "ap"<E>(arg0: $MapDecoder$$Type<($Function$$Type<(A), (E)>)>): $MapDecoder<(E)>
-public "compressor"<T>(arg0: $DynamicOps$$Type<(T)>): $KeyCompressor<(T)>
 public "compressedDecode"<T>(arg0: $DynamicOps$$Type<(T)>, arg1: T): $DataResult<(A)>
+public "compressor"<T>(arg0: $DynamicOps$$Type<(T)>): $KeyCompressor<(T)>
 public "encode"<T>(arg0: A, arg1: $DynamicOps$$Type<(T)>, arg2: $RecordBuilder$$Type<(T)>): $RecordBuilder<(T)>
 public "encoder"(): $Encoder<(A)>
 public "comap"<B>(arg0: $Function$$Type<(B), (A)>): $MapEncoder<(B)>
 public "flatComap"<B>(arg0: $Function$$Type<(B), ($DataResult$$Type<(A)>)>): $MapEncoder<(B)>
-public static "makeCompressedBuilder"<T>(arg0: $DynamicOps$$Type<(T)>, arg1: $KeyCompressor$$Type<(T)>): $RecordBuilder<(T)>
 public "compressedBuilder"<T>(arg0: $DynamicOps$$Type<(T)>): $RecordBuilder<(T)>
+public static "makeCompressedBuilder"<T>(arg0: $DynamicOps$$Type<(T)>, arg1: $KeyCompressor$$Type<(T)>): $RecordBuilder<(T)>
 public static "forStrings"(arg0: $Supplier$$Type<($Stream$$Type<(StringJS)>)>): $Keyable
 set "partial"(value: $Supplier$$Type<(A)>)
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Literal": Special.EnchantmentProviderType
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Tag": Special.EnchantmentProviderTypeTag
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Literal": Special.NeoforgeBiomeModifierSerializers
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Tag": Special.NeoforgeBiomeModifierSerializersTag
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Literal": Special.WorldgenPoolAliasBinding
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Tag": Special.WorldgenPoolAliasBindingTag
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Literal": Special.EnchantmentValueEffectType
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Tag": Special.EnchantmentValueEffectTypeTag
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Literal": Special.CreatePotatoProjectileRenderMode
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Tag": Special.CreatePotatoProjectileRenderModeTag
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Literal": Special.NeoforgeConditionCodecs
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Tag": Special.NeoforgeConditionCodecsTag
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Literal": Special.WorldgenMaterialRule
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Tag": Special.WorldgenMaterialRuleTag
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Literal": Special.NeoforgeStructureModifierSerializers
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Tag": Special.NeoforgeStructureModifierSerializersTag
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Literal": Special.WorldgenChunkGenerator
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Tag": Special.WorldgenChunkGeneratorTag
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Literal": Special.EnchantmentEntityEffectType
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Tag": Special.EnchantmentEntityEffectTypeTag
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Literal": Special.NeoforgeGlobalLootModifierSerializers
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Tag": Special.NeoforgeGlobalLootModifierSerializersTag
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Literal": Special.WorldgenMaterialCondition
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Tag": Special.WorldgenMaterialConditionTag
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Literal": Special.BlockType
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Tag": Special.BlockTypeTag
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Literal": Special.WorldgenDensityFunctionType
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Tag": Special.WorldgenDensityFunctionTypeTag
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Literal": Special.CreatePotatoProjectileBlockHitAction
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Tag": Special.CreatePotatoProjectileBlockHitActionTag
 /**
  * This field is a type stub generated by ProbeJS and shall not be used in any sense.
  */
@@ -881,19 +761,75 @@ set "partial"(value: $Supplier$$Type<(A)>)
 /**
  * This field is a type stub generated by ProbeJS and shall not be used in any sense.
  */
+ "probejsInternal$$Literal": Special.NeoforgeGlobalLootModifierSerializers
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Tag": Special.NeoforgeGlobalLootModifierSerializersTag
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Literal": Special.CreatePotatoProjectileBlockHitAction
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Tag": Special.CreatePotatoProjectileBlockHitActionTag
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Literal": Special.WorldgenPoolAliasBinding
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Tag": Special.WorldgenPoolAliasBindingTag
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Literal": Special.WorldgenMaterialCondition
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Tag": Special.WorldgenMaterialConditionTag
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Literal": Special.CreatePotatoProjectileRenderMode
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Tag": Special.CreatePotatoProjectileRenderModeTag
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Literal": Special.EnchantmentProviderType
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Tag": Special.EnchantmentProviderTypeTag
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Literal": Special.BlockType
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Tag": Special.BlockTypeTag
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Literal": Special.WorldgenMaterialRule
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Tag": Special.WorldgenMaterialRuleTag
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
  "probejsInternal$$Literal": Special.EnchantmentLevelBasedValueType
 /**
  * This field is a type stub generated by ProbeJS and shall not be used in any sense.
  */
  "probejsInternal$$Tag": Special.EnchantmentLevelBasedValueTypeTag
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Literal": Special.WorldgenBiomeSource
-/**
- * This field is a type stub generated by ProbeJS and shall not be used in any sense.
- */
- "probejsInternal$$Tag": Special.WorldgenBiomeSourceTag
 /**
  * This field is a type stub generated by ProbeJS and shall not be used in any sense.
  */
@@ -905,17 +841,81 @@ set "partial"(value: $Supplier$$Type<(A)>)
 /**
  * This field is a type stub generated by ProbeJS and shall not be used in any sense.
  */
+ "probejsInternal$$Literal": Special.NeoforgeConditionCodecs
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Tag": Special.NeoforgeConditionCodecsTag
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Literal": Special.WorldgenDensityFunctionType
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Tag": Special.WorldgenDensityFunctionTypeTag
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Literal": Special.EnchantmentValueEffectType
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Tag": Special.EnchantmentValueEffectTypeTag
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Literal": Special.WorldgenChunkGenerator
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Tag": Special.WorldgenChunkGeneratorTag
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Literal": Special.NeoforgeBiomeModifierSerializers
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Tag": Special.NeoforgeBiomeModifierSerializersTag
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Literal": Special.NeoforgeStructureModifierSerializers
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Tag": Special.NeoforgeStructureModifierSerializersTag
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
  "probejsInternal$$Literal": Special.EntitySubPredicateType
 /**
  * This field is a type stub generated by ProbeJS and shall not be used in any sense.
  */
  "probejsInternal$$Tag": Special.EntitySubPredicateTypeTag
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Literal": Special.EnchantmentEntityEffectType
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Tag": Special.EnchantmentEntityEffectTypeTag
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Literal": Special.WorldgenBiomeSource
+/**
+ * This field is a type stub generated by ProbeJS and shall not be used in any sense.
+ */
+ "probejsInternal$$Tag": Special.WorldgenBiomeSourceTag
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $MapCodec$$Type<A> = (Special.EnchantmentProviderType) | (Special.NeoforgeBiomeModifierSerializers) | (Special.WorldgenPoolAliasBinding) | (Special.EnchantmentValueEffectType) | (Special.CreatePotatoProjectileRenderMode) | (Special.NeoforgeConditionCodecs) | (Special.WorldgenMaterialRule) | (Special.NeoforgeStructureModifierSerializers) | (Special.WorldgenChunkGenerator) | (Special.EnchantmentEntityEffectType) | (Special.NeoforgeGlobalLootModifierSerializers) | (Special.WorldgenMaterialCondition) | (Special.BlockType) | (Special.WorldgenDensityFunctionType) | (Special.CreatePotatoProjectileBlockHitAction) | (Special.EnchantmentLocationBasedEffectType) | (Special.EnchantmentLevelBasedValueType) | (Special.WorldgenBiomeSource) | (Special.CreatePotatoProjectileEntityHitAction) | (Special.EntitySubPredicateType);
+export type $MapCodec$$Type<A> = (Special.EnchantmentLocationBasedEffectType) | (Special.NeoforgeGlobalLootModifierSerializers) | (Special.CreatePotatoProjectileBlockHitAction) | (Special.WorldgenPoolAliasBinding) | (Special.WorldgenMaterialCondition) | (Special.CreatePotatoProjectileRenderMode) | (Special.EnchantmentProviderType) | (Special.BlockType) | (Special.WorldgenMaterialRule) | (Special.EnchantmentLevelBasedValueType) | (Special.CreatePotatoProjectileEntityHitAction) | (Special.NeoforgeConditionCodecs) | (Special.WorldgenDensityFunctionType) | (Special.EnchantmentValueEffectType) | (Special.WorldgenChunkGenerator) | (Special.NeoforgeBiomeModifierSerializers) | (Special.NeoforgeStructureModifierSerializers) | (Special.EntitySubPredicateType) | (Special.EnchantmentEntityEffectType) | (Special.WorldgenBiomeSource);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -986,9 +986,9 @@ export class $RecordBuilder<T> implements $RecordBuilder$$Interface {
  "add"(arg0: $DataResult$$Type<(T)>, arg1: $DataResult$$Type<(T)>): $RecordBuilder<(T)>
  "build"(arg0: T): $DataResult<(T)>
  "build"(arg0: $DataResult$$Type<(T)>): $DataResult<(T)>
- "mapError"(arg0: $UnaryOperator$$Type<(StringJS)>): $RecordBuilder<(T)>
  "withErrorsFrom"(arg0: $DataResult$$Type<(never)>): $RecordBuilder<(T)>
  "setLifecycle"(arg0: $Lifecycle$$Type): $RecordBuilder<(T)>
+ "mapError"(arg0: $UnaryOperator$$Type<(StringJS)>): $RecordBuilder<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1001,16 +1001,16 @@ export type $RecordBuilder$$Type<T> = ($RecordBuilder<(T)>);
 export type $RecordBuilder$$Original<T> = $RecordBuilder<(T)>;}
 declare module "com.mojang.serialization.DataResult$Error" {
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
-import {$App$$Type} from "com.mojang.datafixers.kinds.App"
 import {$DataResult$Instance} from "com.mojang.serialization.DataResult$Instance"
+import {$App$$Type} from "com.mojang.datafixers.kinds.App"
 import {$Optional, $Optional$$Type} from "java.util.Optional"
 import {$DataResult, $DataResult$$Type, $DataResult$$Interface} from "com.mojang.serialization.DataResult"
 import {$Function3$$Type} from "com.mojang.datafixers.util.Function3"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$DataResult$Mu$$Type} from "com.mojang.serialization.DataResult$Mu"
 import {$BiFunction$$Type} from "java.util.function.BiFunction"
-import {$Supplier, $Supplier$$Type} from "java.util.function.Supplier"
 import {$Function, $Function$$Type} from "java.util.function.Function"
+import {$Supplier, $Supplier$$Type} from "java.util.function.Supplier"
 import {$Lifecycle, $Lifecycle$$Type} from "com.mojang.serialization.Lifecycle"
 import {$Throwable} from "java.lang.Throwable"
 import {$Record} from "java.lang.Record"
@@ -1024,26 +1024,26 @@ public "hashCode"(): integer
 public "map"<T>(arg0: $Function$$Type<(R), (T)>): $DataResult$Error<(T)>
 public "result"(): $Optional<(R)>
 public "message"(): StringJS
-public "flatMap"<R2>(arg0: $Function$$Type<(R), ($DataResult$$Type<(R2)>)>): $DataResult$Error<(R2)>
+public "flatMap"(arg0: $Function$$Type): $DataResult
 public "error"(): $Optional<($DataResult$Error<(R)>)>
 public "messageSupplier"(): $Supplier<(StringJS)>
-public "ap"(arg0: $DataResult$$Type): $DataResult
-public "mapOrElse"<T>(arg0: $Function$$Type<(R), (T)>, arg1: $Function$$Type<($DataResult$Error<(R)>), (T)>): T
-public "mapError"(arg0: $UnaryOperator$$Type): $DataResult
-public "ifSuccess"(arg0: $Consumer$$Type<(R)>): $DataResult<(R)>
-public "ifError"(arg0: $Consumer$$Type<($DataResult$Error<(R)>)>): $DataResult<(R)>
-public "partialValue"(): $Optional<(R)>
-public "hasResultOrPartial"(): boolean
-public "getPartialOrThrow"<E extends $Throwable>(arg0: $Function$$Type<(StringJS), (E)>): R
 public "promotePartial"(arg0: $Consumer$$Type<(StringJS)>): $DataResult<(R)>
-public "isSuccess"(): boolean
-public "setPartial"(arg0: R): $DataResult$Error<(R)>
-public "setPartial"(arg0: $Supplier$$Type<(R)>): $DataResult$Error<(R)>
+public "getPartialOrThrow"<E extends $Throwable>(arg0: $Function$$Type<(StringJS), (E)>): R
+public "hasResultOrPartial"(): boolean
 public "getOrThrow"<E extends $Throwable>(arg0: $Function$$Type<(StringJS), (E)>): R
+public "ap"(arg0: $DataResult$$Type): $DataResult
+public "partialValue"(): $Optional<(R)>
 public "lifecycle"(): $Lifecycle
-public "setLifecycle"(arg0: $Lifecycle$$Type): $DataResult$Error<(R)>
-public "resultOrPartial"(arg0: $Consumer$$Type<(StringJS)>): $Optional<(R)>
+public "isSuccess"(): boolean
+public "setLifecycle"(arg0: $Lifecycle$$Type): $DataResult
 public "resultOrPartial"(): $Optional<(R)>
+public "resultOrPartial"(arg0: $Consumer$$Type<(StringJS)>): $Optional<(R)>
+public "setPartial"(arg0: any): $DataResult
+public "setPartial"(arg0: $Supplier$$Type<(R)>): $DataResult$Error<(R)>
+public "mapError"(arg0: $UnaryOperator$$Type<(StringJS)>): $DataResult$Error<(R)>
+public "mapOrElse"<T>(arg0: $Function$$Type<(R), (T)>, arg1: $Function$$Type<($DataResult$Error<(R)>), (T)>): T
+public "ifError"(arg0: $Consumer$$Type<($DataResult$Error<(R)>)>): $DataResult<(R)>
+public "ifSuccess"(arg0: $Consumer$$Type<(R)>): $DataResult<(R)>
 public static "error"<R>(arg0: $Supplier$$Type<(StringJS)>, arg1: $Lifecycle$$Type): $DataResult<(R)>
 public static "error"<R>(arg0: $Supplier$$Type<(StringJS)>, arg1: R, arg2: $Lifecycle$$Type): $DataResult<(R)>
 public static "error"<R>(arg0: $Supplier$$Type<(StringJS)>, arg1: R): $DataResult<(R)>
@@ -1053,15 +1053,15 @@ public "isError"(): boolean
 public static "unbox"<R>(arg0: $App$$Type<($DataResult$Mu$$Type), (R)>): $DataResult<(R)>
 public static "success"<R>(arg0: R, arg1: $Lifecycle$$Type): $DataResult<(R)>
 public static "success"<R>(arg0: R): $DataResult<(R)>
-public static "partialGet"<K, V>(arg0: $Function$$Type<(K), (V)>, arg1: $Supplier$$Type<(StringJS)>): $Function<(K), ($DataResult<(V)>)>
-public "apply2stable"<R2, S>(arg0: $BiFunction$$Type<(R), (R2), (S)>, arg1: $DataResult$$Type<(R2)>): $DataResult<(S)>
 public "getPartialOrThrow"(): R
 public static "appendMessages"(arg0: StringJS, arg1: StringJS): StringJS
+public "apply2stable"<R2, S>(arg0: $BiFunction$$Type<(R), (R2), (S)>, arg1: $DataResult$$Type<(R2)>): $DataResult<(S)>
 public "addLifecycle"(arg0: $Lifecycle$$Type): $DataResult<(R)>
-public "apply2"<R2, S>(arg0: $BiFunction$$Type<(R), (R2), (S)>, arg1: $DataResult$$Type<(R2)>): $DataResult<(S)>
-public "apply3"<R2, R3, S>(arg0: $Function3$$Type<(R), (R2), (R3), (S)>, arg1: $DataResult$$Type<(R2)>, arg2: $DataResult$$Type<(R3)>): $DataResult<(S)>
 public "getOrThrow"(): R
-set "partial"(value: R)
+public "apply3"<R2, R3, S>(arg0: $Function3$$Type<(R), (R2), (R3), (S)>, arg1: $DataResult$$Type<(R2)>, arg2: $DataResult$$Type<(R3)>): $DataResult<(S)>
+public "apply2"<R2, S>(arg0: $BiFunction$$Type<(R), (R2), (S)>, arg1: $DataResult$$Type<(R2)>): $DataResult<(S)>
+public static "partialGet"<K, V>(arg0: $Function$$Type<(K), (V)>, arg1: $Supplier$$Type<(StringJS)>): $Function<(K), ($DataResult<(V)>)>
+set "partial"(value: any)
 set "partial"(value: $Supplier$$Type<(R)>)
 get "partialOrThrow"(): R
 get "orThrow"(): R
@@ -1070,7 +1070,7 @@ get "orThrow"(): R
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $DataResult$Error$$Type<R> = ({"messageSupplier"?: $Supplier$$Type<(StringJS)>, "partialValue"?: (R)?, "lifecycle"?: $Lifecycle$$Type}) | ([messageSupplier?: $Supplier$$Type<(StringJS)>, partialValue?: (R)?, lifecycle?: $Lifecycle$$Type]);
+export type $DataResult$Error$$Type<R> = ({"lifecycle"?: $Lifecycle$$Type, "partialValue"?: (R)?, "messageSupplier"?: $Supplier$$Type<(StringJS)>}) | ([lifecycle?: $Lifecycle$$Type, partialValue?: (R)?, messageSupplier?: $Supplier$$Type<(StringJS)>]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -1080,12 +1080,12 @@ import {$Keyable, $Keyable$$Interface} from "com.mojang.serialization.Keyable"
 import {$KeyCompressor, $KeyCompressor$$Type} from "com.mojang.serialization.KeyCompressor"
 import {$DynamicOps$$Type} from "com.mojang.serialization.DynamicOps"
 import {$Function$$Type} from "java.util.function.Function"
-import {$DataResult$$Type} from "com.mojang.serialization.DataResult"
 import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$DataResult$$Type} from "com.mojang.serialization.DataResult"
 import {$RecordBuilder, $RecordBuilder$$Type} from "com.mojang.serialization.RecordBuilder"
 import {$Lifecycle$$Type} from "com.mojang.serialization.Lifecycle"
-import {$Stream, $Stream$$Type} from "java.util.stream.Stream"
 import {$Encoder} from "com.mojang.serialization.Encoder"
+import {$Stream, $Stream$$Type} from "java.util.stream.Stream"
 
 export interface $MapEncoder$$Interface<A> extends $Keyable$$Interface {
 }
@@ -1094,11 +1094,11 @@ export class $MapEncoder<A> implements $MapEncoder$$Interface {
  "encode"<T>(arg0: A, arg1: $DynamicOps$$Type<(T)>, arg2: $RecordBuilder$$Type<(T)>): $RecordBuilder<(T)>
  "encoder"(): $Encoder<(A)>
  "withLifecycle"(arg0: $Lifecycle$$Type): $MapEncoder<(A)>
- "compressor"<T>(arg0: $DynamicOps$$Type<(T)>): $KeyCompressor<(T)>
  "comap"<B>(arg0: $Function$$Type<(B), (A)>): $MapEncoder<(B)>
  "flatComap"<B>(arg0: $Function$$Type<(B), ($DataResult$$Type<(A)>)>): $MapEncoder<(B)>
-static "makeCompressedBuilder"<T>(arg0: $DynamicOps$$Type<(T)>, arg1: $KeyCompressor$$Type<(T)>): $RecordBuilder<(T)>
  "compressedBuilder"<T>(arg0: $DynamicOps$$Type<(T)>): $RecordBuilder<(T)>
+static "makeCompressedBuilder"<T>(arg0: $DynamicOps$$Type<(T)>, arg1: $KeyCompressor$$Type<(T)>): $RecordBuilder<(T)>
+ "compressor"<T>(arg0: $DynamicOps$$Type<(T)>): $KeyCompressor<(T)>
  "keys"<T>(arg0: $DynamicOps$$Type<(T)>): $Stream<(T)>
 static "forStrings"(arg0: $Supplier$$Type<($Stream$$Type<(StringJS)>)>): $Keyable
 }
@@ -1150,11 +1150,11 @@ export class $Encoder<A> implements $Encoder$$Interface {
  "encode"<T>(arg0: A, arg1: $DynamicOps$$Type<(T)>, arg2: T): $DataResult<(T)>
 static "empty"<A>(): $MapEncoder<(A)>
 static "error"<A>(arg0: StringJS): $Encoder<(A)>
- "encodeStart"<T>(arg0: $DynamicOps$$Type<(T)>, arg1: A): $DataResult<(T)>
  "withLifecycle"(arg0: $Lifecycle$$Type): $Encoder<(A)>
+ "encodeStart"<T>(arg0: $DynamicOps$$Type<(T)>, arg1: A): $DataResult<(T)>
  "comap"<B>(arg0: $Function$$Type<(B), (A)>): $Encoder<(B)>
- "fieldOf"(arg0: StringJS): $MapEncoder<(A)>
  "flatComap"<B>(arg0: $Function$$Type<(B), ($DataResult$$Type<(A)>)>): $Encoder<(B)>
+ "fieldOf"(arg0: StringJS): $MapEncoder<(A)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1170,21 +1170,21 @@ import {$DynamicOps$$Type} from "com.mojang.serialization.DynamicOps"
 import {$Optional} from "java.util.Optional"
 import {$List} from "java.util.List"
 import {$Dynamic, $Dynamic$$Type} from "com.mojang.serialization.Dynamic"
-import {$PrimitiveCodec} from "com.mojang.serialization.codecs.PrimitiveCodec"
 import {$Encoder, $Encoder$$Type, $Encoder$$Interface} from "com.mojang.serialization.Encoder"
+import {$PrimitiveCodec} from "com.mojang.serialization.codecs.PrimitiveCodec"
 import {$Unit} from "com.mojang.datafixers.util.Unit"
 import {$Decoder$Terminal, $Decoder$Terminal$$Type} from "com.mojang.serialization.Decoder$Terminal"
 import {$MapDecoder$$Type} from "com.mojang.serialization.MapDecoder"
-import {$Either} from "com.mojang.datafixers.util.Either"
 import {$Function, $Function$$Type} from "java.util.function.Function"
+import {$Either} from "com.mojang.datafixers.util.Either"
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Decoder, $Decoder$$Type, $Decoder$$Interface} from "com.mojang.serialization.Decoder"
 import {$Codec$ResultFunction$$Type} from "com.mojang.serialization.Codec$ResultFunction"
 import {$Decoder$Boxed, $Decoder$Boxed$$Type} from "com.mojang.serialization.Decoder$Boxed"
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
 import {$Map} from "java.util.Map"
-import {$IntStream} from "java.util.stream.IntStream"
 import {$Pair} from "com.mojang.datafixers.util.Pair"
+import {$IntStream} from "java.util.stream.IntStream"
 import {$SimpleMapCodec} from "com.mojang.serialization.codecs.SimpleMapCodec"
 import {$DataResult, $DataResult$$Type} from "com.mojang.serialization.DataResult"
 import {$Decoder$Simple, $Decoder$Simple$$Type} from "com.mojang.serialization.Decoder$Simple"
@@ -1230,54 +1230,54 @@ static "list"<E>(arg0: $Codec$$Type<(E)>, arg1: integer, arg2: integer): $Codec<
 static "unit"<A>(arg0: A): $Codec<(A)>
 static "unit"<A>(arg0: $Supplier$$Type<(A)>): $Codec<(A)>
 static "string"(arg0: integer, arg1: integer): $Codec<(StringJS)>
- "orElseGet"(arg0: $UnaryOperator$$Type<(StringJS)>, arg1: $Supplier$$Type<(A)>): $Codec<(A)>
- "orElseGet"(arg0: $Supplier$$Type<(A)>): $Codec<(A)>
  "orElseGet"(arg0: $Consumer$$Type<(StringJS)>, arg1: $Supplier$$Type<(A)>): $Codec<(A)>
+ "orElseGet"(arg0: $Supplier$$Type<(A)>): $Codec<(A)>
+ "orElseGet"(arg0: $UnaryOperator$$Type<(StringJS)>, arg1: $Supplier$$Type<(A)>): $Codec<(A)>
 static "recursive"<A>(arg0: StringJS, arg1: $Function$$Type<($Codec<(A)>), ($Codec$$Type<(A)>)>): $Codec<(A)>
 static "pair"<F, S>(arg0: $Codec$$Type<(F)>, arg1: $Codec$$Type<(S)>): $Codec<($Pair<(F), (S)>)>
 static "checkRange"<N extends number>(arg0: N, arg1: N): $Function<(N), ($DataResult<(N)>)>
 static "xor"<F, S>(arg0: $Codec$$Type<(F)>, arg1: $Codec$$Type<(S)>): $Codec<($Either<(F), (S)>)>
+ "withLifecycle"(arg0: $Lifecycle$$Type): $Decoder
+ "partialDispatch"<E>(arg0: StringJS, arg1: $Function$$Type<(E), ($DataResult$$Type<(A)>)>, arg2: $Function$$Type<(A), ($DataResult$$Type<($MapCodec$$Type<(E)>)>)>): $Codec<(E)>
+ "dispatchMap"<E>(arg0: StringJS, arg1: $Function$$Type<(E), (A)>, arg2: $Function$$Type<(A), ($MapCodec$$Type<(E)>)>): $MapCodec<(E)>
+ "dispatchMap"<E>(arg0: $Function$$Type<(E), (A)>, arg1: $Function$$Type<(A), ($MapCodec$$Type<(E)>)>): $MapCodec<(E)>
+static "compoundList"<K, V>(arg0: $Codec$$Type<(K)>, arg1: $Codec$$Type<(V)>): $Codec<($List<($Pair<(K), (V)>)>)>
+static "optionalField"<F>(arg0: StringJS, arg1: $Codec$$Type<(F)>, arg2: boolean): $MapCodec<($Optional<(F)>)>
+ "promotePartial"(arg0: $Consumer$$Type): $Decoder
+static "dispatchedMap"<K, V>(arg0: $Codec$$Type<(K)>, arg1: $Function$$Type<(K), ($Codec$$Type<(V)>)>): $Codec<($Map<(K), (V)>)>
+static "stringResolver"<E>(arg0: $Function$$Type<(E), (StringJS)>, arg1: $Function$$Type<(StringJS), (E)>): $Codec<(E)>
+static "lazyInitialized"<A>(arg0: $Supplier$$Type<($Codec$$Type<(A)>)>): $Codec<(A)>
+ "sizeLimitedListOf"(arg0: integer): $Codec<($List<(A)>)>
+static "withAlternative"<T>(arg0: $Codec$$Type<(T)>, arg1: $Codec$$Type<(T)>): $Codec<(T)>
+static "withAlternative"<T, U>(arg0: $Codec$$Type<(T)>, arg1: $Codec$$Type<(U)>, arg2: $Function$$Type<(U), (T)>): $Codec<(T)>
+static "sizeLimitedString"(arg0: integer): $Codec<(StringJS)>
+static "doubleRange"(arg0: double, arg1: double): $Codec<(double)>
+ "dispatchStable"<E>(arg0: $Function$$Type<(E), (A)>, arg1: $Function$$Type<(A), ($MapCodec$$Type<(E)>)>): $Codec<(E)>
+ "flatComapMap"<S>(arg0: $Function$$Type<(A), (S)>, arg1: $Function$$Type<(S), ($DataResult$$Type<(A)>)>): $Codec<(S)>
 static "unboundedMap"<K, V>(arg0: $Codec$$Type<(K)>, arg1: $Codec$$Type<(V)>): $UnboundedMapCodec<(K), (V)>
  "comapFlatMap"<S>(arg0: $Function$$Type<(A), ($DataResult$$Type<(S)>)>, arg1: $Function$$Type<(S), (A)>): $Codec<(S)>
  "optionalFieldOf"(arg0: StringJS, arg1: A): $MapCodec<(A)>
+ "optionalFieldOf"(arg0: StringJS, arg1: $Lifecycle$$Type, arg2: A, arg3: $Lifecycle$$Type): $MapCodec<(A)>
  "optionalFieldOf"(arg0: StringJS, arg1: A, arg2: $Lifecycle$$Type): $MapCodec<(A)>
  "optionalFieldOf"(arg0: StringJS): $MapCodec<($Optional<(A)>)>
- "optionalFieldOf"(arg0: StringJS, arg1: $Lifecycle$$Type, arg2: A, arg3: $Lifecycle$$Type): $MapCodec<(A)>
- "partialDispatch"<E>(arg0: StringJS, arg1: $Function$$Type<(E), ($DataResult$$Type<(A)>)>, arg2: $Function$$Type<(A), ($DataResult$$Type<($MapCodec$$Type<(E)>)>)>): $Codec<(E)>
-static "sizeLimitedString"(arg0: integer): $Codec<(StringJS)>
-static "withAlternative"<T, U>(arg0: $Codec$$Type<(T)>, arg1: $Codec$$Type<(U)>, arg2: $Function$$Type<(U), (T)>): $Codec<(T)>
-static "withAlternative"<T>(arg0: $Codec$$Type<(T)>, arg1: $Codec$$Type<(T)>): $Codec<(T)>
- "dispatchStable"<E>(arg0: $Function$$Type<(E), (A)>, arg1: $Function$$Type<(A), ($MapCodec$$Type<(E)>)>): $Codec<(E)>
- "withLifecycle"(arg0: $Lifecycle$$Type): $Decoder
-static "optionalField"<F>(arg0: StringJS, arg1: $Codec$$Type<(F)>, arg2: boolean): $MapCodec<($Optional<(F)>)>
-static "doubleRange"(arg0: double, arg1: double): $Codec<(double)>
-static "lazyInitialized"<A>(arg0: $Supplier$$Type<($Codec$$Type<(A)>)>): $Codec<(A)>
- "promotePartial"(arg0: $Consumer$$Type): $Decoder
- "flatComapMap"<S>(arg0: $Function$$Type<(A), (S)>, arg1: $Function$$Type<(S), ($DataResult$$Type<(A)>)>): $Codec<(S)>
-static "compoundList"<K, V>(arg0: $Codec$$Type<(K)>, arg1: $Codec$$Type<(V)>): $Codec<($List<($Pair<(K), (V)>)>)>
-static "stringResolver"<E>(arg0: $Function$$Type<(E), (StringJS)>, arg1: $Function$$Type<(StringJS), (E)>): $Codec<(E)>
- "dispatchMap"<E>(arg0: $Function$$Type<(E), (A)>, arg1: $Function$$Type<(A), ($MapCodec$$Type<(E)>)>): $MapCodec<(E)>
- "dispatchMap"<E>(arg0: StringJS, arg1: $Function$$Type<(E), (A)>, arg2: $Function$$Type<(A), ($MapCodec$$Type<(E)>)>): $MapCodec<(E)>
-static "dispatchedMap"<K, V>(arg0: $Codec$$Type<(K)>, arg1: $Function$$Type<(K), ($Codec$$Type<(V)>)>): $Codec<($Map<(K), (V)>)>
- "sizeLimitedListOf"(arg0: integer): $Codec<($List<(A)>)>
-static "floatRange"(arg0: float, arg1: float): $Codec<(float)>
 static "mapEither"<F, S>(arg0: $MapCodec$$Type<(F)>, arg1: $MapCodec$$Type<(S)>): $MapCodec<($Either<(F), (S)>)>
-static "simpleMap"<K, V>(arg0: $Codec$$Type<(K)>, arg1: $Codec$$Type<(V)>, arg2: $Keyable$$Type): $SimpleMapCodec<(K), (V)>
-static "mapPair"<F, S>(arg0: $MapCodec$$Type<(F)>, arg1: $MapCodec$$Type<(S)>): $MapCodec<($Pair<(F), (S)>)>
-static "intRange"(arg0: integer, arg1: integer): $Codec<(integer)>
- "fieldOf"(arg0: StringJS): $MapCodec<(A)>
- "mapResult"(arg0: $Codec$ResultFunction$$Type<(A)>): $Codec<(A)>
  "xmap"<S>(arg0: $Function$$Type<(A), (S)>, arg1: $Function$$Type<(S), (A)>): $Codec<(S)>
- "listOf"(): $Codec<($List<(A)>)>
+static "intRange"(arg0: integer, arg1: integer): $Codec<(integer)>
  "listOf"(arg0: integer, arg1: integer): $Codec<($List<(A)>)>
+ "listOf"(): $Codec<($List<(A)>)>
 static "either"<F, S>(arg0: $Codec$$Type<(F)>, arg1: $Codec$$Type<(S)>): $Codec<($Either<(F), (S)>)>
  "stable"(): $Codec<(A)>
- "deprecated"(arg0: integer): $Codec<(A)>
  "flatXmap"<S>(arg0: $Function$$Type<(A), ($DataResult$$Type<(S)>)>, arg1: $Function$$Type<(S), ($DataResult$$Type<(A)>)>): $Codec<(S)>
+static "floatRange"(arg0: float, arg1: float): $Codec<(float)>
+static "simpleMap"<K, V>(arg0: $Codec$$Type<(K)>, arg1: $Codec$$Type<(V)>, arg2: $Keyable$$Type): $SimpleMapCodec<(K), (V)>
+ "deprecated"(arg0: integer): $Codec<(A)>
+static "mapPair"<F, S>(arg0: $MapCodec$$Type<(F)>, arg1: $MapCodec$$Type<(S)>): $MapCodec<($Pair<(F), (S)>)>
+ "mapResult"(arg0: $Codec$ResultFunction$$Type<(A)>): $Codec<(A)>
+ "fieldOf"(arg0: StringJS): $MapCodec<(A)>
+ "lenientOptionalFieldOf"(arg0: StringJS): $MapCodec<($Optional<(A)>)>
  "lenientOptionalFieldOf"(arg0: StringJS, arg1: $Lifecycle$$Type, arg2: A, arg3: $Lifecycle$$Type): $MapCodec<(A)>
  "lenientOptionalFieldOf"(arg0: StringJS, arg1: A, arg2: $Lifecycle$$Type): $MapCodec<(A)>
  "lenientOptionalFieldOf"(arg0: StringJS, arg1: A): $MapCodec<(A)>
- "lenientOptionalFieldOf"(arg0: StringJS): $MapCodec<($Optional<(A)>)>
  "encode"<T>(arg0: A, arg1: $DynamicOps$$Type<(T)>, arg2: T): $DataResult<(T)>
 static "empty"<A>(): $MapEncoder<(A)>
 static "error"<A>(arg0: StringJS): $Encoder<(A)>
@@ -1288,14 +1288,14 @@ static "error"<A>(arg0: StringJS): $Encoder<(A)>
  "decode"<T>(arg0: $Dynamic$$Type<(T)>): $DataResult<($Pair<(A), (T)>)>
  "map"<B>(arg0: $Function$$Type<(A), (B)>): $Decoder<(B)>
  "flatMap"<B>(arg0: $Function$$Type<(A), ($DataResult$$Type<(B)>)>): $Decoder<(B)>
- "parse"<T>(arg0: $Dynamic$$Type<(T)>): $DataResult<(A)>
  "parse"<T>(arg0: $DynamicOps$$Type<(T)>, arg1: T): $DataResult<(A)>
+ "parse"<T>(arg0: $Dynamic$$Type<(T)>): $DataResult<(A)>
  "boxed"(): $Decoder$Boxed<(A)>
- "terminal"(): $Decoder$Terminal<(A)>
 static "ofSimple"<A>(arg0: $Decoder$Simple$$Type<(A)>): $Decoder<(A)>
 static "ofTerminal"<A>(arg0: $Decoder$Terminal$$Type<(A)>): $Decoder<(A)>
 static "ofBoxed"<A>(arg0: $Decoder$Boxed$$Type<(A)>): $Decoder<(A)>
  "simple"(): $Decoder$Simple<(A)>
+ "terminal"(): $Decoder$Terminal<(A)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1368,8 +1368,8 @@ export type $DataResult$Mu$$Type = ($DataResult$Mu);
  */
 export type $DataResult$Mu$$Original = $DataResult$Mu;}
 declare module "com.mojang.serialization.MapLike" {
-import {$DynamicOps$$Type} from "com.mojang.serialization.DynamicOps"
 import {$Map$$Type} from "java.util.Map"
+import {$DynamicOps$$Type} from "com.mojang.serialization.DynamicOps"
 import {$Pair} from "com.mojang.datafixers.util.Pair"
 import {$Stream} from "java.util.stream.Stream"
 

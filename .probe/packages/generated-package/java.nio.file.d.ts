@@ -273,15 +273,15 @@ export type $WatchService$$Type = ($WatchService);
  */
 export type $WatchService$$Original = $WatchService;}
 declare module "java.nio.file.FileSystem" {
-import {$Iterable} from "java.lang.Iterable"
 import {$WatchService} from "java.nio.file.WatchService"
+import {$Iterable} from "java.lang.Iterable"
 import {$FileSystemProvider} from "java.nio.file.spi.FileSystemProvider"
 import {$PathMatcher} from "java.nio.file.PathMatcher"
 import {$Set} from "java.util.Set"
-import {$Closeable$$Interface} from "java.io.Closeable"
 import {$FileStore} from "java.nio.file.FileStore"
-import {$Path} from "java.nio.file.Path"
+import {$Closeable$$Interface} from "java.io.Closeable"
 import {$UserPrincipalLookupService} from "java.nio.file.attribute.UserPrincipalLookupService"
+import {$Path} from "java.nio.file.Path"
 
 /**
  * This class is not allowed By KubeJS!
@@ -342,9 +342,9 @@ export type $WatchEvent$Modifier$$Type = (() => StringJS);
  */
 export type $WatchEvent$Modifier$$Original = $WatchEvent$Modifier;}
 declare module "java.nio.file.Path" {
-import {$Iterable$$Interface} from "java.lang.Iterable"
 import {$WatchService$$Type} from "java.nio.file.WatchService"
 import {$Iterator} from "java.util.Iterator"
+import {$Iterable$$Interface} from "java.lang.Iterable"
 import {$File} from "java.io.File"
 import {$Comparable$$Interface} from "java.lang.Comparable"
 import {$Spliterator} from "java.util.Spliterator"
@@ -354,8 +354,8 @@ import {$WatchEvent$Modifier$$Type} from "java.nio.file.WatchEvent$Modifier"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$URI, $URI$$Type} from "java.net.URI"
 import {$WatchKey} from "java.nio.file.WatchKey"
-import {$Watchable$$Interface} from "java.nio.file.Watchable"
 import {$FileSystem} from "java.nio.file.FileSystem"
+import {$Watchable$$Interface} from "java.nio.file.Watchable"
 
 /**
  * This class is not allowed By KubeJS!

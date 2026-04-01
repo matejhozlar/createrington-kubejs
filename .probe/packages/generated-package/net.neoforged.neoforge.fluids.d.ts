@@ -9,19 +9,19 @@ import {$Optional} from "java.util.Optional"
 import {$Unbreakable$$Type} from "net.minecraft.world.item.component.Unbreakable"
 import {$RelativeURL} from "dev.latvian.mods.kubejs.web.RelativeURL"
 import {$DataComponentType$$Type} from "net.minecraft.core.component.DataComponentType"
-import {$CustomData$$Type} from "net.minecraft.world.item.component.CustomData"
 import {$JukeboxPlayable$$Type} from "net.minecraft.world.item.JukeboxPlayable"
+import {$CustomData$$Type} from "net.minecraft.world.item.component.CustomData"
 import {$FluidIngredient$$Type} from "net.neoforged.neoforge.fluids.crafting.FluidIngredient"
-import {$WritableBookContent$$Type} from "net.minecraft.world.item.component.WritableBookContent"
 import {$AdventureModePredicate$$Type} from "net.minecraft.world.item.AdventureModePredicate"
+import {$WritableBookContent$$Type} from "net.minecraft.world.item.component.WritableBookContent"
 import {$Holder, $Holder$$Type} from "net.minecraft.core.Holder"
 import {$WrittenBookContent$$Type} from "net.minecraft.world.item.component.WrittenBookContent"
 import {$ItemEnchantments$$Type} from "net.minecraft.world.item.enchantment.ItemEnchantments"
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$HolderSet$$Type} from "net.minecraft.core.HolderSet"
 import {$MapPostProcessing$$Type} from "net.minecraft.world.item.component.MapPostProcessing"
-import {$TooltipProvider} from "net.minecraft.world.item.component.TooltipProvider"
 import {$MutableDataComponentHolderFunctions} from "dev.latvian.mods.kubejs.component.MutableDataComponentHolderFunctions"
+import {$TooltipProvider} from "net.minecraft.world.item.component.TooltipProvider"
 import {$Stream} from "java.util.stream.Stream"
 import {$FluidType, $FluidType$$Type} from "net.neoforged.neoforge.fluids.FluidType"
 import {$SeededContainerLoot$$Type} from "net.minecraft.world.item.component.SeededContainerLoot"
@@ -63,8 +63,8 @@ import {$Codec} from "com.mojang.serialization.Codec"
 import {$LockCode$$Type} from "net.minecraft.world.LockCode"
 import {$DyeColor$$Type} from "net.minecraft.world.item.DyeColor"
 import {$ResourceKey, $ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
-import {$FluidLike} from "dev.latvian.mods.kubejs.fluid.FluidLike"
 import {$PotionContents$$Type} from "net.minecraft.world.item.alchemy.PotionContents"
+import {$FluidLike} from "dev.latvian.mods.kubejs.fluid.FluidLike"
 import {$ItemContainerContents$$Type} from "net.minecraft.world.item.component.ItemContainerContents"
 import {$ArmorTrim$$Type} from "net.minecraft.world.item.armortrim.ArmorTrim"
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
@@ -108,9 +108,9 @@ public "save"(arg0: $HolderLookup$Provider$$Type): $Tag
 public "save"(arg0: $HolderLookup$Provider$$Type, arg1: $Tag$$Type): $Tag
 public static "parse"(arg0: $HolderLookup$Provider$$Type, arg1: $Tag$$Type): $Optional<($FluidStack)>
 public "copy"(): $FluidStack
-public "is"(arg0: $Holder$$Type<($Fluid)>): boolean
-public "is"(arg0: $HolderSet$$Type<($Fluid)>): boolean
 public "is"(arg0: $FluidType$$Type): boolean
+public "is"(arg0: $HolderSet$$Type<($Fluid)>): boolean
+public "is"(arg0: $Holder$$Type<($Fluid)>): boolean
 public "is"(arg0: $TagKey$$Type<($Fluid)>): boolean
 public "is"(arg0: $Fluid$$Type): boolean
 public "is"(arg0: $Predicate$$Type<($Holder<($Fluid)>)>): boolean
@@ -120,8 +120,12 @@ public "grow"(arg0: integer): void
  * @deprecated
  */
 public "getDisplayName"(): $Component
-public static "isSameFluidSameComponents"(arg0: $FluidStack$$Type, arg1: $FluidStack$$Type): boolean
-public static "lenientOtionalFieldOf"(arg0: StringJS): $MapCodec<($FluidStack)>
+public "getAmount"(): integer
+public "limitSize"(arg0: integer): void
+public "isComponentsPatchEmpty"(): boolean
+public "shrink"(arg0: integer): void
+public "getComponents"(): $DataComponentMap
+public "copyAndClear"(): $FluidStack
 public static "hashFluidAndComponents"(arg0: $FluidStack$$Type): integer
 /**
  * 
@@ -133,18 +137,12 @@ public static "areFluidStackTagsEqual"(arg0: $FluidStack$$Type, arg1: $FluidStac
  * @deprecated
  */
 public "isFluidStackIdentical"(arg0: $FluidStack$$Type): boolean
-public "setAmount"(arg0: integer): void
-public "getComponentsPatch"(): $DataComponentPatch
-public "saveOptional"(arg0: $HolderLookup$Provider$$Type): $Tag
+public static "isSameFluidSameComponents"(arg0: $FluidStack$$Type, arg1: $FluidStack$$Type): boolean
+public static "lenientOtionalFieldOf"(arg0: StringJS): $MapCodec<($FluidStack)>
+public static "parseOptional"(arg0: $HolderLookup$Provider$$Type, arg1: $CompoundTag$$Type): $FluidStack
+public "getFluidType"(): $FluidType
 public "getTags"(): $Stream<($TagKey<($Fluid)>)>
-public "limitSize"(arg0: integer): void
-public "getDescriptionId"(): StringJS
-public "getHoverName"(): $Component
-public "shrink"(arg0: integer): void
-public "getAmount"(): integer
-public "getComponents"(): $DataComponentMap
-public "getFluid"(): $Fluid
-public "copyAndClear"(): $FluidStack
+public "saveOptional"(arg0: $HolderLookup$Provider$$Type): $Tag
 /**
  * 
  * @deprecated
@@ -161,197 +159,199 @@ public "isFluidEqual"(arg0: $ItemStack$$Type): boolean
  */
 public "containsFluid"(arg0: $FluidStack$$Type): boolean
 public "getFluidHolder"(): $Holder<($Fluid)>
-public static "isSameFluid"(arg0: $FluidStack$$Type, arg1: $FluidStack$$Type): boolean
-public "copyWithAmount"(arg0: integer): $FluidStack
 public static "fixedAmountCodec"(arg0: integer): $Codec<($FluidStack)>
-public "getFluidType"(): $FluidType
-public "isComponentsPatchEmpty"(): boolean
+public static "isSameFluid"(arg0: $FluidStack$$Type, arg1: $FluidStack$$Type): boolean
 /**
  * 
  * @deprecated
  */
 public "getTranslationKey"(): StringJS
-public static "parseOptional"(arg0: $HolderLookup$Provider$$Type, arg1: $CompoundTag$$Type): $FluidStack
+public "getHoverName"(): $Component
+public "getComponentsPatch"(): $DataComponentPatch
+public "getFluid"(): $Fluid
+public "getDescriptionId"(): StringJS
+public "setAmount"(arg0: integer): void
+public "copyWithAmount"(arg0: integer): $FluidStack
 public "update"<T>(arg0: $DataComponentType$$Type<(T)>, arg1: T, arg2: $UnaryOperator$$Type<(T)>): T
 public "update"<T>(arg0: $Supplier$$Type<($DataComponentType$$Type<(T)>)>, arg1: T, arg2: $UnaryOperator$$Type<(T)>): T
 public "update"<T, U>(arg0: $Supplier$$Type<($DataComponentType$$Type<(T)>)>, arg1: T, arg2: U, arg3: $BiFunction$$Type<(T), (U), (T)>): T
 public "update"<T, U>(arg0: $DataComponentType$$Type<(T)>, arg1: T, arg2: U, arg3: $BiFunction$$Type<(T), (U), (T)>): T
 public "copyFrom"(arg0: $DataComponentHolder$$Type, ...arg1: ($Supplier$$Type<($DataComponentType$$Type<(never)>)>)[]): void
 public "copyFrom"(arg0: $DataComponentHolder$$Type, ...arg1: ($DataComponentType$$Type<(never)>)[]): void
-public "matches"(cx: $RecipeMatchContext$$Type, ingredient: $FluidIngredient$$Type, exact: boolean): boolean
 public "matches"(cx: $RecipeMatchContext$$Type, s: $FluidStack$$Type, exact: boolean): boolean
+public "matches"(cx: $RecipeMatchContext$$Type, ingredient: $FluidIngredient$$Type, exact: boolean): boolean
+public "kjs$getWebIconURL"(ops: $DynamicOps$$Type<($Tag$$Type)>, size: integer): $RelativeURL
 public "specialEquals"(o: any, shallow: boolean): boolean
 public "isEmpty"(): boolean
-public "kjs$getWebIconURL"(ops: $DynamicOps$$Type<($Tag$$Type)>, size: integer): $RelativeURL
-public "getId"(): StringJS
-public "getCodec"(): $Codec<(never)>
-public "kjs$self"(): $FluidStack
-public "getKey"(): $ResourceKey<($Fluid)>
-public "copy"(amount: integer): $FluidLike
-public "getMod"(): StringJS
-public "getIdLocation"(): $ResourceLocation
+public "kjs$equalsIgnoringCount"(stack: $FluidStack$$Type): boolean
+public "getFluid"(): $Fluid
+public "getAmount"(): integer
+public "getRegistryId"(): $ResourceKey<($Registry<($Fluid)>)>
 public "asHolder"(): $Holder<($Fluid)>
+public "getIdLocation"(): $ResourceLocation
 public "getRegistry"(): $Registry<($Fluid)>
 public "replaceThisWith"(cx: $RecipeScriptContext$$Type, arg1: any): any
-public "getRegistryId"(): $ResourceKey<($Registry<($Fluid)>)>
-public "getAmount"(): integer
-public "getFluid"(): $Fluid
-public "kjs$equalsIgnoringCount"(stack: $FluidStack$$Type): boolean
+public "kjs$self"(): $FluidStack
+public "getKey"(): $ResourceKey<($Fluid)>
+public "getCodec"(): $Codec<(never)>
+public "getId"(): StringJS
+public "getMod"(): StringJS
+public "copy"(amount: integer): $FluidLike
 public "get"<T>(arg0: $DataComponentType$$Type<(T)>): T
 public "getOrDefault"<T>(arg0: $DataComponentType$$Type<(T)>, arg1: T): T
 public "has"(arg0: $DataComponentType$$Type<(never)>): boolean
-public "patch"(components: $DataComponentPatch$$Type): $ComponentFunctions
-public "getComponentMap"(): $DataComponentMap
 public "getComponentHolder"(): $MutableDataComponentHolder
+public "getComponentMap"(): $DataComponentMap
+public "patch"(components: $DataComponentPatch$$Type): $MutableDataComponentHolderFunctions
 public static "checkSpecialEquality"(arg1: any, arg2: any, arg3: boolean): boolean
-public "toNBT"(): $Tag
 public "toJson"(): $JsonElement
-public "hasTag"(tag: $ResourceLocation$$Type): boolean
+public "toNBT"(): $Tag
 public "getTagKeys"(): $List<($TagKey<($Fluid)>)>
 public "getTags"(): $List<($ResourceLocation)>
+public "hasTag"(tag: $ResourceLocation$$Type): boolean
 public "get"<T>(arg0: $Supplier$$Type<($DataComponentType$$Type<(T)>)>): T
 public "getOrDefault"<T>(arg0: $Supplier$$Type<($DataComponentType$$Type<(T)>)>, arg1: T): T
 public "has"(arg0: $Supplier$$Type<($DataComponentType$$Type<(never)>)>): boolean
 public "addToTooltip"<T extends $TooltipProvider>(arg0: $DataComponentType$$Type<(T)>, arg1: $Item$TooltipContext$$Type, arg2: $Consumer$$Type<($Component)>, arg3: $TooltipFlag$$Type): void
 public "addToTooltip"<T extends $TooltipProvider>(arg0: $Supplier$$Type<($DataComponentType$$Type<(T)>)>, arg1: $Item$TooltipContext$$Type, arg2: $Consumer$$Type<($Component)>, arg3: $TooltipFlag$$Type): void
-public "remove"(type: $DataComponentType$$Type<(never)>): $ComponentFunctions
-public "get"<T>(type: $DataComponentType$$Type<(T)>): T
-public "setLore"(lines: $List$$Type<($Component$$Type)>): void
-public "setLore"(lines: $List$$Type<($Component$$Type)>, styledLines: $List$$Type<($Component$$Type)>): void
 public "setCustomData"(tag: $CompoundTag$$Type): void
-public "setRarity"(rarity: $Rarity$$Type): void
-public "setDyedColor"(color: $KubeColor$$Type): void
-public "setCustomName"(name: $Component$$Type): void
-public "setUnit"(component: $DataComponentType$$Type<($Unit$$Type)>): $ComponentFunctions
-public "getCustomName"(): $Component
-public "getCustomData"(): $CompoundTag
-public "setLockCode"(lock: StringJS): void
 public "setProfile"(name: StringJS, uuid: $UUID$$Type): void
 public "setProfile"(profile: $GameProfile$$Type): void
-public "setBaseColor"(color: $DyeColor$$Type): void
-public "setPotionId"(potion: $Holder$$Type<($Potion)>): void
+public "setDyedColor"(color: $KubeColor$$Type): void
 public "setEntityData"(tag: $CompoundTag$$Type): void
+public "setPotionId"(potion: $Holder$$Type<($Potion)>): void
+public "setUnit"(component: $DataComponentType$$Type<($Unit$$Type)>): $ComponentFunctions
+public "setCustomName"(name: $Component$$Type): void
+public "setRarity"(rarity: $Rarity$$Type): void
+public "getCustomName"(): $Component
+public "setBaseColor"(color: $DyeColor$$Type): void
+public "setLore"(lines: $List$$Type<($Component$$Type)>, styledLines: $List$$Type<($Component$$Type)>): void
+public "setLore"(lines: $List$$Type<($Component$$Type)>): void
+public "setLockCode"(lock: StringJS): void
+public "getCustomData"(): $CompoundTag
 public "setAdditionalTooltipHidden"(): void
 public "setBlockStateProperties"(properties: $Map$$Type<(StringJS), (StringJS)>): void
 public "setDyedColorWithTooltip"(color: $KubeColor$$Type): void
 public "setPotionContents"(contents: $PotionContents$$Type): void
-public "getComponentString"(): StringJS
 public "resetComponents"(): $ComponentFunctions
-public "setTooltipHidden"(): void
 public "setCustomModelData"(data: integer): void
 public "setGlintOverride"(override: boolean): void
-public "setContainerLootTable"(lootTable: $ResourceKey$$Type<($LootTable)>): void
 public "setContainerLootTable"(lootTable: $ResourceKey$$Type<($LootTable)>, seed: long): void
+public "setContainerLootTable"(lootTable: $ResourceKey$$Type<($LootTable)>): void
+public "getComponentString"(): StringJS
+public "setTooltipHidden"(): void
+public "get"<T>(type: $DataComponentType$$Type<(T)>): T
+public "remove"(type: $DataComponentType$$Type<(never)>): $ComponentFunctions
 public static "wrap"(o: any): $ReplacementMatch
 public "set"<T extends ComponentTypes>(componentType: T, value: ComponentTypeMap[T]): $FluidStack
 get "empty"(): boolean
 get "displayName"(): $Component
-set "amount"(value: integer)
-get "componentsPatch"(): $DataComponentPatch
-get "tags"(): $Stream<($TagKey<($Fluid)>)>
-get "descriptionId"(): StringJS
-get "hoverName"(): $Component
 get "amount"(): integer
-get "components"(): $DataComponentMap
-get "fluid"(): $Fluid
-get "fluidHolder"(): $Holder<($Fluid)>
-get "fluidType"(): $FluidType
 get "componentsPatchEmpty"(): boolean
+get "components"(): $DataComponentMap
+get "fluidType"(): $FluidType
+get "tags"(): $Stream<($TagKey<($Fluid)>)>
+get "fluidHolder"(): $Holder<($Fluid)>
 get "translationKey"(): StringJS
+get "hoverName"(): $Component
+get "componentsPatch"(): $DataComponentPatch
+get "fluid"(): $Fluid
+get "descriptionId"(): StringJS
+set "amount"(value: integer)
 get "empty"(): boolean
-get "id"(): StringJS
-get "codec"(): $Codec<(never)>
-get "key"(): $ResourceKey<($Fluid)>
-get "mod"(): StringJS
+get "fluid"(): $Fluid
+get "amount"(): integer
+get "registryId"(): $ResourceKey<($Registry<($Fluid)>)>
 get "idLocation"(): $ResourceLocation
 get "registry"(): $Registry<($Fluid)>
-get "registryId"(): $ResourceKey<($Registry<($Fluid)>)>
-get "amount"(): integer
-get "fluid"(): $Fluid
-get "componentMap"(): $DataComponentMap
+get "key"(): $ResourceKey<($Fluid)>
+get "codec"(): $Codec<(never)>
+get "id"(): StringJS
+get "mod"(): StringJS
 get "componentHolder"(): $MutableDataComponentHolder
+get "componentMap"(): $DataComponentMap
 get "tagKeys"(): $List<($TagKey<($Fluid)>)>
 get "tags"(): $List<($ResourceLocation)>
-set "lore"(value: $List$$Type<($Component$$Type)>)
 set "customData"(value: $CompoundTag$$Type)
-set "rarity"(value: $Rarity$$Type)
-set "dyedColor"(value: $KubeColor$$Type)
-set "customName"(value: $Component$$Type)
-set "unit"(value: $DataComponentType$$Type<($Unit$$Type)>)
-get "customName"(): $Component
-get "customData"(): $CompoundTag
-set "lockCode"(value: StringJS)
 set "profile"(value: $GameProfile$$Type)
-set "baseColor"(value: $DyeColor$$Type)
-set "potionId"(value: $Holder$$Type<($Potion)>)
+set "dyedColor"(value: $KubeColor$$Type)
 set "entityData"(value: $CompoundTag$$Type)
+set "potionId"(value: $Holder$$Type<($Potion)>)
+set "unit"(value: $DataComponentType$$Type<($Unit$$Type)>)
+set "customName"(value: $Component$$Type)
+set "rarity"(value: $Rarity$$Type)
+get "customName"(): $Component
+set "baseColor"(value: $DyeColor$$Type)
+set "lore"(value: $List$$Type<($Component$$Type)>)
+set "lockCode"(value: StringJS)
+get "customData"(): $CompoundTag
 get "additionalTooltipHidden"(): void
 set "blockStateProperties"(value: $Map$$Type<(StringJS), (StringJS)>)
 set "dyedColorWithTooltip"(value: $KubeColor$$Type)
 set "potionContents"(value: $PotionContents$$Type)
-get "componentString"(): StringJS
-get "tooltipHidden"(): void
 set "customModelData"(value: integer)
 set "glintOverride"(value: boolean)
 set "containerLootTable"(value: $ResourceKey$$Type<($LootTable)>)
+get "componentString"(): StringJS
+get "tooltipHidden"(): void
 }
-export type ComponentTypeMap = {"minecraft:map_id": $MapId$$Type;
-"minecraft:food": $FoodProperties$$Type;
-"minecraft:jukebox_playable": $JukeboxPlayable$$Type;
-"minecraft:map_post_processing": $MapPostProcessing$$Type;
-"minecraft:repair_cost": integer;
-"minecraft:firework_explosion": $FireworkExplosion$$Type;
-"minecraft:written_book_content": $WrittenBookContent$$Type;
-"minecraft:container": $ItemContainerContents$$Type;
-"minecraft:note_block_sound": $ResourceLocation$$Type;
-"minecraft:max_stack_size": integer;
-"minecraft:attribute_modifiers": $ItemAttributeModifiers$$Type;
-"minecraft:pot_decorations": $PotDecorations$$Type;
-"minecraft:map_decorations": $MapDecorations$$Type;
-"minecraft:lodestone_tracker": $LodestoneTracker$$Type;
-"minecraft:container_loot": $SeededContainerLoot$$Type;
-"minecraft:enchantment_glint_override": boolean;
-"minecraft:charged_projectiles": $ChargedProjectiles$$Type;
-"minecraft:block_state": $BlockItemStateProperties$$Type;
-"minecraft:damage": integer;
-"minecraft:profile": $ResolvableProfile$$Type;
-"minecraft:entity_data": $CustomData$$Type;
-"minecraft:creative_slot_lock": $Unit$$Type;
-"minecraft:unbreakable": $Unbreakable$$Type;
-"minecraft:writable_book_content": $WritableBookContent$$Type;
+export type ComponentTypeMap = {"minecraft:map_color": $MapItemColor$$Type;
 "minecraft:bucket_entity_data": $CustomData$$Type;
-"minecraft:map_color": $MapItemColor$$Type;
-"minecraft:suspicious_stew_effects": $SuspiciousStewEffects$$Type;
-"minecraft:tool": $Tool$$Type;
-"minecraft:item_name": $Component$$Type;
-"minecraft:rarity": $Rarity$$Type;
-"minecraft:lore": $ItemLore$$Type;
-"minecraft:trim": $ArmorTrim$$Type;
-"minecraft:dyed_color": $DyedItemColor$$Type;
-"minecraft:custom_data": $CustomData$$Type;
-"minecraft:recipes": $List$$Type<($ResourceLocation$$Type)>;
-"minecraft:ominous_bottle_amplifier": integer;
+"minecraft:enchantments": $ItemEnchantments$$Type;
+"minecraft:map_decorations": $MapDecorations$$Type;
+"minecraft:writable_book_content": $WritableBookContent$$Type;
 "minecraft:block_entity_data": $CustomData$$Type;
-"minecraft:can_place_on": $AdventureModePredicate$$Type;
-"minecraft:bundle_contents": $BundleContents$$Type;
-"minecraft:banner_patterns": $BannerPatternLayers$$Type;
-"minecraft:can_break": $AdventureModePredicate$$Type;
-"minecraft:custom_name": $Component$$Type;
-"minecraft:bees": $List$$Type<($BeehiveBlockEntity$Occupant$$Type)>;
-"minecraft:fireworks": $Fireworks$$Type;
-"minecraft:intangible_projectile": $Unit$$Type;
-"minecraft:potion_contents": $PotionContents$$Type;
 "minecraft:instrument": $Holder$$Type<($Instrument$$Type)>;
+"minecraft:lodestone_tracker": $LodestoneTracker$$Type;
 "minecraft:base_color": $DyeColor$$Type;
-"minecraft:stored_enchantments": $ItemEnchantments$$Type;
-"minecraft:lock": $LockCode$$Type;
+"minecraft:map_post_processing": $MapPostProcessing$$Type;
+"minecraft:item_name": $Component$$Type;
+"minecraft:food": $FoodProperties$$Type;
+"minecraft:unbreakable": $Unbreakable$$Type;
+"minecraft:container": $ItemContainerContents$$Type;
+"minecraft:pot_decorations": $PotDecorations$$Type;
+"minecraft:damage": integer;
+"minecraft:potion_contents": $PotionContents$$Type;
+"minecraft:bees": $List$$Type<($BeehiveBlockEntity$Occupant$$Type)>;
+"minecraft:trim": $ArmorTrim$$Type;
 "minecraft:max_damage": integer;
+"minecraft:custom_data": $CustomData$$Type;
+"minecraft:map_id": $MapId$$Type;
+"minecraft:recipes": $List$$Type<($ResourceLocation$$Type)>;
+"minecraft:enchantment_glint_override": boolean;
+"minecraft:block_state": $BlockItemStateProperties$$Type;
+"minecraft:lock": $LockCode$$Type;
+"minecraft:bundle_contents": $BundleContents$$Type;
+"minecraft:entity_data": $CustomData$$Type;
+"minecraft:suspicious_stew_effects": $SuspiciousStewEffects$$Type;
+"minecraft:debug_stick_state": $DebugStickState$$Type;
+"minecraft:ominous_bottle_amplifier": integer;
+"minecraft:jukebox_playable": $JukeboxPlayable$$Type;
+"minecraft:fire_resistant": $Unit$$Type;
+"minecraft:creative_slot_lock": $Unit$$Type;
+"minecraft:rarity": $Rarity$$Type;
+"minecraft:tool": $Tool$$Type;
+"minecraft:lore": $ItemLore$$Type;
+"minecraft:container_loot": $SeededContainerLoot$$Type;
+"minecraft:dyed_color": $DyedItemColor$$Type;
+"minecraft:intangible_projectile": $Unit$$Type;
+"minecraft:note_block_sound": $ResourceLocation$$Type;
+"minecraft:charged_projectiles": $ChargedProjectiles$$Type;
+"minecraft:fireworks": $Fireworks$$Type;
+"minecraft:can_break": $AdventureModePredicate$$Type;
+"minecraft:repair_cost": integer;
+"minecraft:max_stack_size": integer;
+"minecraft:stored_enchantments": $ItemEnchantments$$Type;
+"minecraft:written_book_content": $WrittenBookContent$$Type;
+"minecraft:custom_name": $Component$$Type;
+"minecraft:can_place_on": $AdventureModePredicate$$Type;
+"minecraft:firework_explosion": $FireworkExplosion$$Type;
+"minecraft:attribute_modifiers": $ItemAttributeModifiers$$Type;
 "minecraft:hide_tooltip": $Unit$$Type;
 "minecraft:custom_model_data": $CustomModelData$$Type;
 "minecraft:hide_additional_tooltip": $Unit$$Type;
-"minecraft:enchantments": $ItemEnchantments$$Type;
-"minecraft:fire_resistant": $Unit$$Type;
-"minecraft:debug_stick_state": $DebugStickState$$Type};
+"minecraft:banner_patterns": $BannerPatternLayers$$Type;
+"minecraft:profile": $ResolvableProfile$$Type};
 export type ComponentTypes = keyof ComponentTypeMap;
 export type FluidWithAmount = {"fluid": Special.Fluid, "amount"?: integer};
 /**
@@ -398,12 +398,12 @@ public "hashCode"(): integer
 public "test"(arg0: any): boolean
 public "test"(arg0: $FluidStack$$Type): boolean
 public "isEmpty"(): boolean
-public static "of"(): $FluidIngredient
-public static "of"(...arg0: ($FluidStack$$Type)[]): $FluidIngredient
 public static "of"(...arg0: ($Fluid$$Type)[]): $FluidIngredient
+public static "of"(...arg0: ($FluidStack$$Type)[]): $FluidIngredient
+public static "of"(): $FluidIngredient
+public static "single"(arg0: $FluidStack$$Type): $FluidIngredient
 public static "single"(arg0: $Fluid$$Type): $FluidIngredient
 public static "single"(arg0: $Holder$$Type<($Fluid)>): $FluidIngredient
-public static "single"(arg0: $FluidStack$$Type): $FluidIngredient
 public static "empty"(): $FluidIngredient
 public "getType"(): $FluidIngredientType<(never)>
 public static "tag"(arg0: $TagKey$$Type<($Fluid)>): $FluidIngredient
@@ -419,8 +419,8 @@ public "matches"(cx: $RecipeMatchContext$$Type, arg1: $FluidIngredient$$Type, ex
 public "matches"(cx: $RecipeMatchContext$$Type, s: $FluidStack$$Type, exact: boolean): boolean
 public "getCodec"(): $Codec<(never)>
 public "withAmount"(amount: integer): $SizedFluidIngredient
-public "toNBT"(): $Tag
 public "toJson"(): $JsonElement
+public "toNBT"(): $Tag
 public static "wrap"(o: any): $ReplacementMatch
 get "stacks"(): ($FluidStack)[]
 get "type"(): $FluidIngredientType<(never)>
@@ -447,15 +447,15 @@ constructor(chance: float, dripParticle: $ParticleOptions$$Type, filledCauldron:
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public "dripParticle"(): $ParticleOptions
-public "chance"(): float
 public "filledCauldron"(): $Block
+public "chance"(): float
+public "dripParticle"(): $ParticleOptions
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $FluidType$DripstoneDripInfo$$Type = ({"chance"?: float, "dripParticle"?: $ParticleOptions$$Type, "filledCauldron"?: $Block$$Type}) | ([chance?: float, dripParticle?: $ParticleOptions$$Type, filledCauldron?: $Block$$Type]);
+export type $FluidType$DripstoneDripInfo$$Type = ({"filledCauldron"?: $Block$$Type, "dripParticle"?: $ParticleOptions$$Type, "chance"?: float}) | ([filledCauldron?: $Block$$Type, dripParticle?: $ParticleOptions$$Type, chance?: float]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -470,25 +470,25 @@ import {$SoundAction$$Type} from "net.neoforged.neoforge.common.SoundAction"
 
 export class $FluidType$Properties {
 public static "create"(): $FluidType$Properties
+public "fallDistanceModifier"(arg0: float): $FluidType$Properties
+public "addDripstoneDripping"(arg0: float, arg1: $ParticleOptions$$Type, arg2: $Block$$Type, arg3: $SoundEvent$$Type): $FluidType$Properties
 public "descriptionId"(arg0: StringJS): $FluidType$Properties
-public "temperature"(arg0: integer): $FluidType$Properties
+public "adjacentPathType"(arg0: $PathType$$Type): $FluidType$Properties
+public "canConvertToSource"(arg0: boolean): $FluidType$Properties
+public "supportsBoating"(arg0: boolean): $FluidType$Properties
 public "sound"(arg0: $SoundAction$$Type, arg1: $SoundEvent$$Type): $FluidType$Properties
 public "canHydrate"(arg0: boolean): $FluidType$Properties
 public "canSwim"(arg0: boolean): $FluidType$Properties
-public "rarity"(arg0: $Rarity$$Type): $FluidType$Properties
-public "addDripstoneDripping"(arg0: float, arg1: $ParticleOptions$$Type, arg2: $Block$$Type, arg3: $SoundEvent$$Type): $FluidType$Properties
-public "density"(arg0: integer): $FluidType$Properties
-public "supportsBoating"(arg0: boolean): $FluidType$Properties
-public "canConvertToSource"(arg0: boolean): $FluidType$Properties
-public "adjacentPathType"(arg0: $PathType$$Type): $FluidType$Properties
-public "canDrown"(arg0: boolean): $FluidType$Properties
-public "pathType"(arg0: $PathType$$Type): $FluidType$Properties
-public "lightLevel"(arg0: integer): $FluidType$Properties
 public "viscosity"(arg0: integer): $FluidType$Properties
+public "lightLevel"(arg0: integer): $FluidType$Properties
+public "pathType"(arg0: $PathType$$Type): $FluidType$Properties
+public "canDrown"(arg0: boolean): $FluidType$Properties
+public "rarity"(arg0: $Rarity$$Type): $FluidType$Properties
+public "temperature"(arg0: integer): $FluidType$Properties
+public "density"(arg0: integer): $FluidType$Properties
+public "canPushEntity"(arg0: boolean): $FluidType$Properties
 public "motionScale"(arg0: double): $FluidType$Properties
 public "canExtinguish"(arg0: boolean): $FluidType$Properties
-public "canPushEntity"(arg0: boolean): $FluidType$Properties
-public "fallDistanceModifier"(arg0: float): $FluidType$Properties
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -511,10 +511,10 @@ export class $IFluidHandler implements $IFluidHandler$$Interface {
  "drain"(arg0: integer, arg1: $IFluidHandler$FluidAction$$Type): $FluidStack
  "drain"(arg0: $FluidStack$$Type, arg1: $IFluidHandler$FluidAction$$Type): $FluidStack
  "fill"(arg0: $FluidStack$$Type, arg1: $IFluidHandler$FluidAction$$Type): integer
- "getTankCapacity"(arg0: integer): integer
- "isFluidValid"(arg0: integer, arg1: $FluidStack$$Type): boolean
  "getTanks"(): integer
  "getFluidInTank"(arg0: integer): $FluidStack
+ "isFluidValid"(arg0: integer, arg1: $FluidStack$$Type): boolean
+ "getTankCapacity"(arg0: integer): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -532,6 +532,7 @@ import {$FlowingFluid} from "net.minecraft.world.level.material.FlowingFluid"
 import {$IntegerProperty} from "net.minecraft.world.level.block.state.properties.IntegerProperty"
 import {$Level$$Type} from "net.minecraft.world.level.Level"
 import {$SoundEvent} from "net.minecraft.sounds.SoundEvent"
+import {$Holder} from "net.minecraft.core.Holder"
 import {$LevelReader$$Type} from "net.minecraft.world.level.LevelReader"
 import {$Fluid, $Fluid$$Type} from "net.minecraft.world.level.material.Fluid"
 import {$IdMapper} from "net.minecraft.core.IdMapper"
@@ -539,8 +540,8 @@ import {$Item} from "net.minecraft.world.item.Item"
 import {$BooleanProperty} from "net.minecraft.world.level.block.state.properties.BooleanProperty"
 import {$StateDefinition} from "net.minecraft.world.level.block.state.StateDefinition"
 import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
-import {$FluidType} from "net.neoforged.neoforge.fluids.FluidType"
 import {$FluidState, $FluidState$$Type} from "net.minecraft.world.level.material.FluidState"
+import {$FluidType} from "net.neoforged.neoforge.fluids.FluidType"
 
 export class $BaseFlowingFluid extends $FlowingFluid {
 static readonly "FLUID_STATE_REGISTRY": $IdMapper<($FluidState)>
@@ -549,20 +550,21 @@ static readonly "LEVEL": $IntegerProperty
 readonly "stateDefinition": $StateDefinition<($Fluid), ($FluidState)>
 
 public "getSource"(): $Fluid
-public "getBucket"(): $Item
+public "getTickDelay"(arg0: $LevelReader$$Type): integer
+public "getPickupSound"(): $Optional<($SoundEvent)>
 public "canConvertToSource"(arg0: $FluidState$$Type, arg1: $Level$$Type, arg2: $BlockPos$$Type): boolean
+public "getBucket"(): $Item
+public "getFluidType"(): $FluidType
 public "getFlowing"(): $Fluid
 public "isSame"(arg0: $Fluid$$Type): boolean
-public "getPickupSound"(): $Optional<($SoundEvent)>
-public "getTickDelay"(arg0: $LevelReader$$Type): integer
-public "getFluidType"(): $FluidType
+public "asHolder"(): $Holder
 public static "checkSpecialEquality"(arg1: any, arg2: any, arg3: boolean): boolean
 public static "wrap"(o: any): $ReplacementMatch
 get "source"(): $Fluid
-get "bucket"(): $Item
-get "flowing"(): $Fluid
 get "pickupSound"(): $Optional<($SoundEvent)>
+get "bucket"(): $Item
 get "fluidType"(): $FluidType
+get "flowing"(): $Fluid
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -583,6 +585,7 @@ import {$BaseFlowingFluid$Properties$$Type} from "net.neoforged.neoforge.fluids.
 import {$StateDefinition} from "net.minecraft.world.level.block.state.StateDefinition"
 import {$FluidState, $FluidState$$Type} from "net.minecraft.world.level.material.FluidState"
 import {$BaseFlowingFluid} from "net.neoforged.neoforge.fluids.BaseFlowingFluid"
+import {$Holder} from "net.minecraft.core.Holder"
 
 export class $BaseFlowingFluid$Flowing extends $BaseFlowingFluid {
 static readonly "FLUID_STATE_REGISTRY": $IdMapper<($FluidState)>
@@ -594,6 +597,7 @@ constructor(arg0: $BaseFlowingFluid$Properties$$Type)
 
 public "getAmount"(arg0: $FluidState$$Type): integer
 public "isSource"(arg0: $FluidState$$Type): boolean
+public "asHolder"(): $Holder
 public static "checkSpecialEquality"(arg1: any, arg2: any, arg3: boolean): boolean
 public static "wrap"(o: any): $ReplacementMatch
 }
@@ -641,8 +645,8 @@ constructor(codec: $MapCodec$$Type<(T)>, streamCodec: $StreamCodec$$Type<($Regis
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public "codec"(): $MapCodec<(T)>
 public "streamCodec"(): $StreamCodec<($RegistryFriendlyByteBuf), (T)>
+public "codec"(): $MapCodec<(T)>
 /**
  * This field is a type stub generated by ProbeJS and shall not be used in any sense.
  */
@@ -667,8 +671,8 @@ import {$ItemStack} from "net.minecraft.world.item.ItemStack"
 import {$Mob$$Type} from "net.minecraft.world.entity.Mob"
 import {$Level$$Type} from "net.minecraft.world.level.Level"
 import {$FluidStack$$Type} from "net.neoforged.neoforge.fluids.FluidStack"
-import {$Component} from "net.minecraft.network.chat.Component"
 import {$SoundEvent} from "net.minecraft.sounds.SoundEvent"
+import {$Component} from "net.minecraft.network.chat.Component"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$Vec3$$Type} from "net.minecraft.world.phys.Vec3"
 import {$LevelReader$$Type} from "net.minecraft.world.level.LevelReader"
@@ -678,8 +682,8 @@ import {$Entity$$Type} from "net.minecraft.world.entity.Entity"
 import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
 import {$SoundAction$$Type} from "net.neoforged.neoforge.common.SoundAction"
 import {$BlockState, $BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
-import {$Rarity} from "net.minecraft.world.item.Rarity"
 import {$ItemEntity$$Type} from "net.minecraft.world.entity.item.ItemEntity"
+import {$Rarity} from "net.minecraft.world.item.Rarity"
 import {$Lazy} from "net.neoforged.neoforge.common.util.Lazy"
 import {$FluidType$DripstoneDripInfo} from "net.neoforged.neoforge.fluids.FluidType$DripstoneDripInfo"
 import {$Consumer$$Type} from "java.util.function.Consumer"
@@ -700,73 +704,73 @@ public "getDescription"(arg0: $FluidStack$$Type): $Component
 public "getDescription"(): $Component
 public "toString"(): StringJS
 public "move"(arg0: $FluidState$$Type, arg1: $LivingEntity$$Type, arg2: $Vec3$$Type, arg3: double): boolean
-public "isAir"(): boolean
-public "canRideVehicleUnder"(arg0: $Entity$$Type, arg1: $Entity$$Type): boolean
-public "getFallDistanceModifier"(arg0: $Entity$$Type): float
-public "canDrownIn"(arg0: $LivingEntity$$Type): boolean
-public "canHydrate"(arg0: $Entity$$Type): boolean
-public "canHydrate"(arg0: $FluidState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $BlockState$$Type, arg4: $BlockPos$$Type): boolean
-public "canHydrate"(arg0: $FluidStack$$Type): boolean
-public "canSwim"(arg0: $Entity$$Type): boolean
-public "getSound"(arg0: $Player$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $SoundAction$$Type): $SoundEvent
-public "getSound"(arg0: $SoundAction$$Type): $SoundEvent
-public "getSound"(arg0: $Entity$$Type, arg1: $SoundAction$$Type): $SoundEvent
-public "getSound"(arg0: $FluidStack$$Type, arg1: $SoundAction$$Type): $SoundEvent
-public "getDescriptionId"(): StringJS
-public "getDescriptionId"(arg0: $FluidStack$$Type): StringJS
+public "getStateForPlacement"(arg0: $BlockAndTintGetter$$Type, arg1: $BlockPos$$Type, arg2: $FluidStack$$Type): $FluidState
+public "getAdjacentBlockPathType"(arg0: $FluidState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Mob$$Type, arg4: $PathType$$Type): $PathType
+public "getBlockForFluidState"(arg0: $BlockAndTintGetter$$Type, arg1: $BlockPos$$Type, arg2: $FluidState$$Type): $BlockState
+public "isVaporizedOnPlacement"(arg0: $Level$$Type, arg1: $BlockPos$$Type, arg2: $FluidStack$$Type): boolean
 /**
  * 
  * @deprecated
  */
 public "initializeClient"(arg0: $Consumer$$Type<($IClientFluidTypeExtensions)>): void
-public "isVanilla"(): boolean
-public "getBucket"(arg0: $FluidStack$$Type): $ItemStack
-public "getViscosity"(arg0: $FluidStack$$Type): integer
-public "getViscosity"(arg0: $FluidState$$Type, arg1: $BlockAndTintGetter$$Type, arg2: $BlockPos$$Type): integer
-public "getViscosity"(): integer
-public "supportsBoating"(arg0: $Boat$$Type): boolean
-public "supportsBoating"(arg0: $FluidState$$Type, arg1: $Boat$$Type): boolean
-public "canConvertToSource"(arg0: $FluidStack$$Type): boolean
-public "canConvertToSource"(arg0: $FluidState$$Type, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type): boolean
+public "getLightLevel"(): integer
 public "getLightLevel"(arg0: $FluidStack$$Type): integer
 public "getLightLevel"(arg0: $FluidState$$Type, arg1: $BlockAndTintGetter$$Type, arg2: $BlockPos$$Type): integer
-public "getLightLevel"(): integer
-public "getDripInfo"(): $FluidType$DripstoneDripInfo
-public "getBlockPathType"(arg0: $FluidState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Mob$$Type, arg4: boolean): $PathType
 public "setItemMovement"(arg0: $ItemEntity$$Type): void
+public "getBlockPathType"(arg0: $FluidState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Mob$$Type, arg4: boolean): $PathType
 public "handleCauldronDrip"(arg0: $Fluid$$Type, arg1: $Level$$Type, arg2: $BlockPos$$Type): boolean
 public "isLighterThanAir"(): boolean
-public "getTemperature"(arg0: $FluidStack$$Type): integer
-public "getTemperature"(): integer
-public "getTemperature"(arg0: $FluidState$$Type, arg1: $BlockAndTintGetter$$Type, arg2: $BlockPos$$Type): integer
 public "canBePlacedInLevel"(arg0: $BlockAndTintGetter$$Type, arg1: $BlockPos$$Type, arg2: $FluidState$$Type): boolean
 public "canBePlacedInLevel"(arg0: $BlockAndTintGetter$$Type, arg1: $BlockPos$$Type, arg2: $FluidStack$$Type): boolean
-public "getDensity"(): integer
+public "canConvertToSource"(arg0: $FluidState$$Type, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type): boolean
+public "canConvertToSource"(arg0: $FluidStack$$Type): boolean
+public "supportsBoating"(arg0: $Boat$$Type): boolean
+public "supportsBoating"(arg0: $FluidState$$Type, arg1: $Boat$$Type): boolean
+public "getDripInfo"(): $FluidType$DripstoneDripInfo
+public "getTemperature"(arg0: $FluidState$$Type, arg1: $BlockAndTintGetter$$Type, arg2: $BlockPos$$Type): integer
+public "getTemperature"(arg0: $FluidStack$$Type): integer
+public "getTemperature"(): integer
+public "getViscosity"(): integer
+public "getViscosity"(arg0: $FluidState$$Type, arg1: $BlockAndTintGetter$$Type, arg2: $BlockPos$$Type): integer
+public "getViscosity"(arg0: $FluidStack$$Type): integer
+public "isAir"(): boolean
+public "getBucket"(arg0: $FluidStack$$Type): $ItemStack
+public "canHydrate"(arg0: $FluidStack$$Type): boolean
+public "canHydrate"(arg0: $FluidState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $BlockState$$Type, arg4: $BlockPos$$Type): boolean
+public "canHydrate"(arg0: $Entity$$Type): boolean
+public "getSound"(arg0: $Entity$$Type, arg1: $SoundAction$$Type): $SoundEvent
+public "getSound"(arg0: $Player$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $SoundAction$$Type): $SoundEvent
+public "getSound"(arg0: $SoundAction$$Type): $SoundEvent
+public "getSound"(arg0: $FluidStack$$Type, arg1: $SoundAction$$Type): $SoundEvent
+public "canDrownIn"(arg0: $LivingEntity$$Type): boolean
+public "canSwim"(arg0: $Entity$$Type): boolean
+public "onVaporize"(arg0: $Player$$Type, arg1: $Level$$Type, arg2: $BlockPos$$Type, arg3: $FluidStack$$Type): void
 public "getDensity"(arg0: $FluidStack$$Type): integer
 public "getDensity"(arg0: $FluidState$$Type, arg1: $BlockAndTintGetter$$Type, arg2: $BlockPos$$Type): integer
+public "getDensity"(): integer
 public "getRarity"(): $Rarity
 public "getRarity"(arg0: $FluidStack$$Type): $Rarity
-public "onVaporize"(arg0: $Player$$Type, arg1: $Level$$Type, arg2: $BlockPos$$Type, arg3: $FluidStack$$Type): void
-public "motionScale"(arg0: $Entity$$Type): double
-public "canExtinguish"(arg0: $Entity$$Type): boolean
-public "canExtinguish"(arg0: $FluidState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type): boolean
+public "getDescriptionId"(): StringJS
+public "getDescriptionId"(arg0: $FluidStack$$Type): StringJS
+public "isVanilla"(): boolean
+public "getFallDistanceModifier"(arg0: $Entity$$Type): float
+public "canRideVehicleUnder"(arg0: $Entity$$Type, arg1: $Entity$$Type): boolean
 public "canPushEntity"(arg0: $Entity$$Type): boolean
-public "getBlockForFluidState"(arg0: $BlockAndTintGetter$$Type, arg1: $BlockPos$$Type, arg2: $FluidState$$Type): $BlockState
-public "getAdjacentBlockPathType"(arg0: $FluidState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Mob$$Type, arg4: $PathType$$Type): $PathType
-public "getStateForPlacement"(arg0: $BlockAndTintGetter$$Type, arg1: $BlockPos$$Type, arg2: $FluidStack$$Type): $FluidState
-public "isVaporizedOnPlacement"(arg0: $Level$$Type, arg1: $BlockPos$$Type, arg2: $FluidStack$$Type): boolean
+public "motionScale"(arg0: $Entity$$Type): double
+public "canExtinguish"(arg0: $FluidState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type): boolean
+public "canExtinguish"(arg0: $Entity$$Type): boolean
 get "description"(): $Component
-get "air"(): boolean
-get "descriptionId"(): StringJS
-get "vanilla"(): boolean
-get "viscosity"(): integer
 get "lightLevel"(): integer
-get "dripInfo"(): $FluidType$DripstoneDripInfo
 set "itemMovement"(value: $ItemEntity$$Type)
 get "lighterThanAir"(): boolean
+get "dripInfo"(): $FluidType$DripstoneDripInfo
 get "temperature"(): integer
+get "viscosity"(): integer
+get "air"(): boolean
 get "density"(): integer
 get "rarity"(): $Rarity
+get "descriptionId"(): StringJS
+get "vanilla"(): boolean
 /**
  * This field is a type stub generated by ProbeJS and shall not be used in any sense.
  */
@@ -788,8 +792,8 @@ export type $FluidType$$Original = $FluidType;}
 declare module "net.neoforged.neoforge.fluids.RegisterCauldronFluidContentEvent" {
 import {$Fluid$$Type} from "net.minecraft.world.level.material.Fluid"
 import {$Block$$Type} from "net.minecraft.world.level.block.Block"
-import {$IntegerProperty$$Type} from "net.minecraft.world.level.block.state.properties.IntegerProperty"
 import {$Event} from "net.neoforged.bus.api.Event"
+import {$IntegerProperty$$Type} from "net.minecraft.world.level.block.state.properties.IntegerProperty"
 import {$IModBusEvent$$Interface} from "net.neoforged.fml.event.IModBusEvent"
 
 export class $RegisterCauldronFluidContentEvent extends $Event implements $IModBusEvent$$Interface {
@@ -815,11 +819,11 @@ export class $BaseFlowingFluid$Properties {
 constructor(arg0: $Supplier$$Type<($FluidType$$Type)>, arg1: $Supplier$$Type<($Fluid$$Type)>, arg2: $Supplier$$Type<($Fluid$$Type)>)
 
 public "block"(arg0: $Supplier$$Type<($LiquidBlock$$Type)>): $BaseFlowingFluid$Properties
-public "levelDecreasePerBlock"(arg0: integer): $BaseFlowingFluid$Properties
-public "bucket"(arg0: $Supplier$$Type<($Item$$Type)>): $BaseFlowingFluid$Properties
 public "tickRate"(arg0: integer): $BaseFlowingFluid$Properties
-public "slopeFindDistance"(arg0: integer): $BaseFlowingFluid$Properties
 public "explosionResistance"(arg0: float): $BaseFlowingFluid$Properties
+public "bucket"(arg0: $Supplier$$Type<($Item$$Type)>): $BaseFlowingFluid$Properties
+public "levelDecreasePerBlock"(arg0: integer): $BaseFlowingFluid$Properties
+public "slopeFindDistance"(arg0: integer): $BaseFlowingFluid$Properties
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -861,10 +865,10 @@ public static "of"(arg0: $FluidStack$$Type): $SizedFluidIngredient
 public "amount"(): integer
 public "ingredient"(): $FluidIngredient
 public "getFluids"(): ($FluidStack)[]
-public "matches"(cx: $RecipeMatchContext$$Type, arg1: $FluidIngredient$$Type, exact: boolean): boolean
 public "matches"(cx: $RecipeMatchContext$$Type, s: $FluidStack$$Type, exact: boolean): boolean
-public "self"(): $SizedFluidIngredient
+public "matches"(cx: $RecipeMatchContext$$Type, arg1: $FluidIngredient$$Type, exact: boolean): boolean
 public "replaceThisWith"(cx: $RecipeScriptContext$$Type, arg1: any): any
+public "self"(): $SizedFluidIngredient
 public "toFlatJson"(): $JsonElement
 public "toNestedJson"(): $JsonElement
 public static "wrap"(o: any): $ReplacementMatch

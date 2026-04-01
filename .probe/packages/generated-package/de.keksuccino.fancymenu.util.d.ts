@@ -2,13 +2,13 @@ declare module "de.keksuccino.fancymenu.util.rendering.ui.widget.UniqueWidget" {
 import {$AbstractWidget} from "net.minecraft.client.gui.components.AbstractWidget"
 
 export interface $UniqueWidget$$Interface {
-set "widgetIdentifierFancyMenu"(value: StringJS)
 get "widgetIdentifierFancyMenu"(): StringJS
+set "widgetIdentifierFancyMenu"(value: StringJS)
 }
 
 export class $UniqueWidget implements $UniqueWidget$$Interface {
- "setWidgetIdentifierFancyMenu"(arg0: StringJS): $AbstractWidget
  "getWidgetIdentifierFancyMenu"(): StringJS
+ "setWidgetIdentifierFancyMenu"(arg0: StringJS): $AbstractWidget
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -48,10 +48,10 @@ static readonly "FULLY_TRANSPARENT_TEXTURE": $ResourceLocation
  "open"(): $InputStream
  "isClosed"(): boolean
  "isReady"(): boolean
+ "waitForLoadingCompletedOrFailed"(arg0: long): void
+ "waitForReady"(arg0: long): void
  "isLoadingCompleted"(): boolean
  "isLoadingFailed"(): boolean
- "waitForReady"(arg0: long): void
- "waitForLoadingCompletedOrFailed"(arg0: long): void
  "close"(): void
 }
 /**
@@ -70,9 +70,9 @@ import {$InputStream} from "java.io.InputStream"
 
 export interface $IAudio$$Interface extends $PlayableResourceWithAudio$$Interface {
 get "duration"(): float
-get "playTime"(): float
 get "soundChannel"(): $SoundSource
 set "soundChannel"(value: $SoundSource$$Type)
+get "playTime"(): float
 set "volume"(value: float)
 get "volume"(): float
 get "paused"(): boolean
@@ -86,9 +86,9 @@ get "loadingFailed"(): boolean
 export class $IAudio implements $IAudio$$Interface {
  "getDuration"(): float
  "play"(): void
- "getPlayTime"(): float
  "getSoundChannel"(): $SoundSource
  "setSoundChannel"(arg0: $SoundSource$$Type): void
+ "getPlayTime"(): float
  "setVolume"(arg0: float): void
  "getVolume"(): float
  "stop"(): void
@@ -98,10 +98,10 @@ export class $IAudio implements $IAudio$$Interface {
  "open"(): $InputStream
  "isClosed"(): boolean
  "isReady"(): boolean
+ "waitForLoadingCompletedOrFailed"(arg0: long): void
+ "waitForReady"(arg0: long): void
  "isLoadingCompleted"(): boolean
  "isLoadingFailed"(): boolean
- "waitForReady"(arg0: long): void
- "waitForLoadingCompletedOrFailed"(arg0: long): void
  "close"(): void
 }
 /**
@@ -118,14 +118,14 @@ export {} // Mark the file as a module, do not remove unless there are other imp
 export class $AspectRatio {
 constructor(arg0: integer, arg1: integer)
 
-public "getInputWidth"(): integer
-public "getInputHeight"(): integer
-public "getAspectRatioSizeByMaximumSize"(arg0: integer, arg1: integer): (integer)[]
 public "getAspectRatioSizeByMinimumSize"(arg0: integer, arg1: integer): (integer)[]
+public "getAspectRatioSizeByMaximumSize"(arg0: integer, arg1: integer): (integer)[]
+public "getInputHeight"(): integer
+public "getInputWidth"(): integer
 public "getAspectRatioWidth"(arg0: integer): integer
 public "getAspectRatioHeight"(arg0: integer): integer
-get "inputWidth"(): integer
 get "inputHeight"(): integer
+get "inputWidth"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -190,107 +190,107 @@ import {$IAudio, $IAudio$$Type} from "de.keksuccino.fancymenu.util.resource.reso
 import {$Consumer, $Consumer$$Type} from "java.util.function.Consumer"
 
 export interface $CustomizableWidget$$Interface {
-get "hoverStateListenersFancyMenu"(): $List<($Consumer<(boolean)>)>
-get "customBackgroundResetBehaviorFancyMenu"(): $CustomizableWidget$CustomBackgroundResetBehavior
-set "nineSliceCustomBackground_FancyMenu"(value: boolean)
+set "customXFancyMenu"(value: integer)
 set "customLabelFancyMenu"(value: $Component$$Type)
-get "lastHoverStateFancyMenu"(): boolean
-set "customWidthFancyMenu"(value: integer)
-get "hoverLabelFancyMenu"(): $Component
 get "customWidthFancyMenu"(): integer
-get "customXFancyMenu"(): integer
-set "hoverLabelFancyMenu"(value: $Component$$Type)
+set "hoverSoundFancyMenu"(value: $IAudio$$Type)
+get "hoverLabelFancyMenu"(): $Component
+set "customWidthFancyMenu"(value: integer)
+get "lastHoverStateFancyMenu"(): boolean
 set "lastHoverStateFancyMenu"(value: boolean)
 set "customHeightFancyMenu"(value: integer)
-set "customXFancyMenu"(value: integer)
+get "hoverSoundFancyMenu"(): $IAudio
+get "customYFancyMenu"(): integer
+get "customHeightFancyMenu"(): integer
+set "hoverLabelFancyMenu"(value: $Component$$Type)
+get "customLabelFancyMenu"(): $Component
+get "customXFancyMenu"(): integer
+set "lastFocusStateFancyMenu"(value: boolean)
 set "customYFancyMenu"(value: integer)
 get "lastFocusStateFancyMenu"(): boolean
-get "customHeightFancyMenu"(): integer
-get "customLabelFancyMenu"(): $Component
-get "hoverSoundFancyMenu"(): $IAudio
-set "hoverSoundFancyMenu"(value: $IAudio$$Type)
-get "customYFancyMenu"(): integer
-set "lastFocusStateFancyMenu"(value: boolean)
-get "hoverOrFocusStateListenersFancyMenu"(): $List<($Consumer<(boolean)>)>
-get "customBackgroundInactiveFancyMenu"(): $RenderableResource
-set "customBackgroundResetBehaviorFancyMenu"(value: $CustomizableWidget$CustomBackgroundResetBehavior$$Type)
-set "customBackgroundInactiveFancyMenu"(value: $RenderableResource$$Type)
-get "resetCustomizationsListenersFancyMenu"(): $List<($Runnable)>
+get "customClickSoundFancyMenu"(): $IAudio
+set "customClickSoundFancyMenu"(value: $IAudio$$Type)
+set "customBackgroundNormalFancyMenu"(value: $RenderableResource$$Type)
+set "customBackgroundHoverFancyMenu"(value: $RenderableResource$$Type)
+set "nineSliceBorderX_FancyMenu"(value: integer)
+set "nineSliceBorderY_FancyMenu"(value: integer)
+get "originalMessageFancyMenu"(): $Component
+set "lastHoverOrFocusStateFancyMenu"(value: boolean)
+get "customBackgroundHoverFancyMenu"(): $RenderableResource
+get "customBackgroundNormalFancyMenu"(): $RenderableResource
+get "hoverStateListenersFancyMenu"(): $List<($Consumer<(boolean)>)>
 get "focusStateListenersFancyMenu"(): $List<($Consumer<(boolean)>)>
-get "nineSliceCustomBackgroundBorderX_FancyMenu"(): integer
+get "lastHoverOrFocusStateFancyMenu"(): boolean
 get "nineSliceCustomBackgroundTexture_FancyMenu"(): boolean
+get "nineSliceCustomBackgroundBorderX_FancyMenu"(): integer
 get "nineSliceCustomBackgroundBorderY_FancyMenu"(): integer
+get "customBackgroundInactiveFancyMenu"(): $RenderableResource
+get "resetCustomizationsListenersFancyMenu"(): $List<($Runnable)>
+get "hoverOrFocusStateListenersFancyMenu"(): $List<($Consumer<(boolean)>)>
+set "nineSliceCustomBackground_FancyMenu"(value: boolean)
+set "customBackgroundResetBehaviorFancyMenu"(value: $CustomizableWidget$CustomBackgroundResetBehavior$$Type)
+get "customBackgroundResetBehaviorFancyMenu"(): $CustomizableWidget$CustomBackgroundResetBehavior
+set "customBackgroundInactiveFancyMenu"(value: $RenderableResource$$Type)
 get "hiddenFancyMenu"(): boolean
 set "hiddenFancyMenu"(value: boolean)
-set "customClickSoundFancyMenu"(value: $IAudio$$Type)
-get "originalMessageFancyMenu"(): $Component
-set "customBackgroundNormalFancyMenu"(value: $RenderableResource$$Type)
-set "lastHoverOrFocusStateFancyMenu"(value: boolean)
-get "customBackgroundNormalFancyMenu"(): $RenderableResource
-get "customClickSoundFancyMenu"(): $IAudio
-get "lastHoverOrFocusStateFancyMenu"(): boolean
-set "nineSliceBorderX_FancyMenu"(value: integer)
-get "customBackgroundHoverFancyMenu"(): $RenderableResource
-set "customBackgroundHoverFancyMenu"(value: $RenderableResource$$Type)
-set "nineSliceBorderY_FancyMenu"(value: integer)
 }
 
 export class $CustomizableWidget implements $CustomizableWidget$$Interface {
- "getHoverStateListenersFancyMenu"(): $List<($Consumer<(boolean)>)>
- "resetWidgetCustomizationsFancyMenu"(): void
- "addFocusStateListenerFancyMenu"(arg0: $Consumer$$Type<(boolean)>): void
- "getCustomBackgroundResetBehaviorFancyMenu"(): $CustomizableWidget$CustomBackgroundResetBehavior
- "setNineSliceCustomBackground_FancyMenu"(arg0: boolean): void
+ "setCustomXFancyMenu"(arg0: integer): void
  "setCustomLabelFancyMenu"(arg0: $Component$$Type): void
- "getLastHoverStateFancyMenu"(): boolean
- "setCustomWidthFancyMenu"(arg0: integer): void
- "getHoverLabelFancyMenu"(): $Component
  "getCustomWidthFancyMenu"(): integer
- "getCustomXFancyMenu"(): integer
- "setHoverLabelFancyMenu"(arg0: $Component$$Type): void
+ "setHoverSoundFancyMenu"(arg0: $IAudio$$Type): void
+ "getHoverLabelFancyMenu"(): $Component
+ "setCustomWidthFancyMenu"(arg0: integer): void
+ "getLastHoverStateFancyMenu"(): boolean
  "setLastHoverStateFancyMenu"(arg0: boolean): void
  "setCustomHeightFancyMenu"(arg0: integer): void
- "setCustomXFancyMenu"(arg0: integer): void
+ "getHoverSoundFancyMenu"(): $IAudio
+ "getCustomYFancyMenu"(): integer
+ "getCustomHeightFancyMenu"(): integer
+ "setHoverLabelFancyMenu"(arg0: $Component$$Type): void
+ "getCustomLabelFancyMenu"(): $Component
+ "getCustomXFancyMenu"(): integer
+ "setLastFocusStateFancyMenu"(arg0: boolean): void
  "setCustomYFancyMenu"(arg0: integer): void
  "getLastFocusStateFancyMenu"(): boolean
- "getCustomHeightFancyMenu"(): integer
- "getCustomLabelFancyMenu"(): $Component
- "getHoverSoundFancyMenu"(): $IAudio
- "setHoverSoundFancyMenu"(arg0: $IAudio$$Type): void
- "getCustomYFancyMenu"(): integer
- "setLastFocusStateFancyMenu"(arg0: boolean): void
  "stopHoverSoundFancyMenu"(): void
- "addHoverStateListenerFancyMenu"(arg0: $Consumer$$Type<(boolean)>): void
- "tickHoverOrFocusStateListenersFancyMenu"(arg0: boolean): void
- "addResetCustomizationsListenerFancyMenu"(arg0: $Runnable$$Type): void
- "getHoverOrFocusStateListenersFancyMenu"(): $List<($Consumer<(boolean)>)>
- "getCustomBackgroundInactiveFancyMenu"(): $RenderableResource
- "addHoverOrFocusStateListenerFancyMenu"(arg0: $Consumer$$Type<(boolean)>): void
- "setCustomBackgroundResetBehaviorFancyMenu"(arg0: $CustomizableWidget$CustomBackgroundResetBehavior$$Type): void
- "resetWidgetSizeAndPositionFancyMenu"(): void
- "setCustomBackgroundInactiveFancyMenu"(arg0: $RenderableResource$$Type): void
- "getResetCustomizationsListenersFancyMenu"(): $List<($Runnable)>
- "getFocusStateListenersFancyMenu"(): $List<($Consumer<(boolean)>)>
- "tickHoverStateListenersFancyMenu"(arg0: boolean): void
- "tickFocusStateListenersFancyMenu"(arg0: boolean): void
- "getNineSliceCustomBackgroundBorderX_FancyMenu"(): integer
- "isNineSliceCustomBackgroundTexture_FancyMenu"(): boolean
- "getNineSliceCustomBackgroundBorderY_FancyMenu"(): integer
- "isHiddenFancyMenu"(): boolean
- "setHiddenFancyMenu"(arg0: boolean): void
- "setCustomClickSoundFancyMenu"(arg0: $IAudio$$Type): void
- "getOriginalMessageFancyMenu"(): $Component
- "setCustomBackgroundNormalFancyMenu"(arg0: $RenderableResource$$Type): void
- "setLastHoverOrFocusStateFancyMenu"(arg0: boolean): void
- "getCustomBackgroundNormalFancyMenu"(): $RenderableResource
  "getCustomClickSoundFancyMenu"(): $IAudio
  "renderCustomBackgroundFancyMenu"(arg0: $AbstractWidget$$Type, arg1: $GuiGraphics$$Type, arg2: integer, arg3: integer, arg4: integer, arg5: integer): boolean
- "getLastHoverOrFocusStateFancyMenu"(): boolean
- "stopCustomClickSoundFancyMenu"(): void
- "setNineSliceBorderX_FancyMenu"(arg0: integer): void
- "getCustomBackgroundHoverFancyMenu"(): $RenderableResource
+ "setCustomClickSoundFancyMenu"(arg0: $IAudio$$Type): void
+ "setCustomBackgroundNormalFancyMenu"(arg0: $RenderableResource$$Type): void
  "setCustomBackgroundHoverFancyMenu"(arg0: $RenderableResource$$Type): void
+ "setNineSliceBorderX_FancyMenu"(arg0: integer): void
+ "stopCustomClickSoundFancyMenu"(): void
  "setNineSliceBorderY_FancyMenu"(arg0: integer): void
+ "getOriginalMessageFancyMenu"(): $Component
+ "resetWidgetCustomizationsFancyMenu"(): void
+ "setLastHoverOrFocusStateFancyMenu"(arg0: boolean): void
+ "getCustomBackgroundHoverFancyMenu"(): $RenderableResource
+ "getCustomBackgroundNormalFancyMenu"(): $RenderableResource
+ "tickHoverStateListenersFancyMenu"(arg0: boolean): void
+ "tickFocusStateListenersFancyMenu"(arg0: boolean): void
+ "addFocusStateListenerFancyMenu"(arg0: $Consumer$$Type<(boolean)>): void
+ "getHoverStateListenersFancyMenu"(): $List<($Consumer<(boolean)>)>
+ "getFocusStateListenersFancyMenu"(): $List<($Consumer<(boolean)>)>
+ "getLastHoverOrFocusStateFancyMenu"(): boolean
+ "addHoverStateListenerFancyMenu"(arg0: $Consumer$$Type<(boolean)>): void
+ "isNineSliceCustomBackgroundTexture_FancyMenu"(): boolean
+ "getNineSliceCustomBackgroundBorderX_FancyMenu"(): integer
+ "getNineSliceCustomBackgroundBorderY_FancyMenu"(): integer
+ "getCustomBackgroundInactiveFancyMenu"(): $RenderableResource
+ "tickHoverOrFocusStateListenersFancyMenu"(arg0: boolean): void
+ "resetWidgetSizeAndPositionFancyMenu"(): void
+ "getResetCustomizationsListenersFancyMenu"(): $List<($Runnable)>
+ "getHoverOrFocusStateListenersFancyMenu"(): $List<($Consumer<(boolean)>)>
+ "setNineSliceCustomBackground_FancyMenu"(arg0: boolean): void
+ "setCustomBackgroundResetBehaviorFancyMenu"(arg0: $CustomizableWidget$CustomBackgroundResetBehavior$$Type): void
+ "getCustomBackgroundResetBehaviorFancyMenu"(): $CustomizableWidget$CustomBackgroundResetBehavior
+ "setCustomBackgroundInactiveFancyMenu"(arg0: $RenderableResource$$Type): void
+ "addResetCustomizationsListenerFancyMenu"(arg0: $Runnable$$Type): void
+ "addHoverOrFocusStateListenerFancyMenu"(arg0: $Consumer$$Type<(boolean)>): void
+ "isHiddenFancyMenu"(): boolean
+ "setHiddenFancyMenu"(arg0: boolean): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -305,13 +305,13 @@ declare module "de.keksuccino.fancymenu.util.rendering.ui.widget.UniqueLabeledSw
 import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component"
 
 export interface $UniqueLabeledSwitchCycleButton$$Interface {
-set "labeledSwitchComponentLabel_FancyMenu"(value: $Component$$Type)
 get "labeledSwitchComponentLabel_FancyMenu"(): $Component
+set "labeledSwitchComponentLabel_FancyMenu"(value: $Component$$Type)
 }
 
 export class $UniqueLabeledSwitchCycleButton implements $UniqueLabeledSwitchCycleButton$$Interface {
- "setLabeledSwitchComponentLabel_FancyMenu"(arg0: $Component$$Type): void
  "getLabeledSwitchComponentLabel_FancyMenu"(): $Component
+ "setLabeledSwitchComponentLabel_FancyMenu"(arg0: $Component$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -343,15 +343,15 @@ export class $PlayableResourceWithAudio implements $PlayableResourceWithAudio$$I
  "stop"(): void
  "isPaused"(): boolean
  "pause"(): void
- "isPlaying"(): boolean
  "play"(): void
+ "isPlaying"(): boolean
  "open"(): $InputStream
  "isClosed"(): boolean
  "isReady"(): boolean
+ "waitForLoadingCompletedOrFailed"(arg0: long): void
+ "waitForReady"(arg0: long): void
  "isLoadingCompleted"(): boolean
  "isLoadingFailed"(): boolean
- "waitForReady"(arg0: long): void
- "waitForLoadingCompletedOrFailed"(arg0: long): void
  "close"(): void
 }
 /**
@@ -378,10 +378,10 @@ export class $Resource implements $Resource$$Interface {
  "open"(): $InputStream
  "isClosed"(): boolean
  "isReady"(): boolean
+ "waitForLoadingCompletedOrFailed"(arg0: long): void
+ "waitForReady"(arg0: long): void
  "isLoadingCompleted"(): boolean
  "isLoadingFailed"(): boolean
- "waitForReady"(arg0: long): void
- "waitForLoadingCompletedOrFailed"(arg0: long): void
  "close"(): void
 }
 /**

@@ -60,9 +60,9 @@ export type $FabricEntityTypeImpl$$Original = $FabricEntityTypeImpl;}
 declare module "net.fabricmc.fabric.impl.client.model.loading.ModelLoadingEventDispatcher" {
 import {$TextureAtlasSprite$$Type} from "net.minecraft.client.renderer.texture.TextureAtlasSprite"
 import {$Material$$Type} from "net.minecraft.client.resources.model.Material"
-import {$List$$Type} from "java.util.List"
 import {$BakedModel, $BakedModel$$Type} from "net.minecraft.client.resources.model.BakedModel"
 import {$ModelResourceLocation$$Type} from "net.minecraft.client.resources.model.ModelResourceLocation"
+import {$List$$Type} from "java.util.List"
 import {$Block$$Type} from "net.minecraft.world.level.block.Block"
 import {$ModelState$$Type} from "net.minecraft.client.resources.model.ModelState"
 import {$UnbakedModel, $UnbakedModel$$Type} from "net.minecraft.client.resources.model.UnbakedModel"
@@ -80,8 +80,8 @@ constructor(arg0: $ModelBakery$$Type, arg1: $List$$Type<($ModelLoadingPlugin$$Ty
 
 public "modifyModelAfterBake"(arg0: $BakedModel$$Type, arg1: $ResourceLocation$$Type, arg2: $ModelResourceLocation$$Type, arg3: $UnbakedModel$$Type, arg4: $Function$$Type<($Material), ($TextureAtlasSprite$$Type)>, arg5: $ModelState$$Type, arg6: $ModelBaker$$Type): $BakedModel
 public "modifyModelBeforeBake"(arg0: $UnbakedModel$$Type, arg1: $ResourceLocation$$Type, arg2: $ModelResourceLocation$$Type, arg3: $Function$$Type<($Material), ($TextureAtlasSprite$$Type)>, arg4: $ModelState$$Type, arg5: $ModelBaker$$Type): $UnbakedModel
-public "resolveModel"(arg0: $ResourceLocation$$Type): $UnbakedModel
 public "modifyModelOnLoad"(arg0: $UnbakedModel$$Type, arg1: $ResourceLocation$$Type, arg2: $ModelResourceLocation$$Type): $UnbakedModel
+public "resolveModel"(arg0: $ResourceLocation$$Type): $UnbakedModel
 public "addExtraModels"(arg0: $Consumer$$Type<($ResourceLocation)>): void
 public "loadBlockStateModels"(arg0: $ResourceLocation$$Type, arg1: $StateDefinition$$Type<($Block$$Type), ($BlockState$$Type)>): boolean
 }
@@ -122,9 +122,9 @@ export interface $MultiNoiseSamplerHooks$$Interface {
 }
 
 export class $MultiNoiseSamplerHooks implements $MultiNoiseSamplerHooks$$Interface {
- "fabric_setSeed"(arg0: long): void
- "fabric_getSeed"(): long
  "fabric_getEndBiomesSampler"(): $ImprovedNoise
+ "fabric_getSeed"(): long
+ "fabric_setSeed"(arg0: long): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -142,8 +142,8 @@ export interface $RuleKeyExtensions$$Interface {
 }
 
 export class $RuleKeyExtensions implements $RuleKeyExtensions$$Interface {
- "fabric_getCustomCategory"(): $CustomGameRuleCategory
  "fabric_setCustomCategory"(arg0: $CustomGameRuleCategory$$Type): void
+ "fabric_getCustomCategory"(): $CustomGameRuleCategory
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -161,8 +161,8 @@ export interface $ItemStackExtensions$$Interface {
 }
 
 export class $ItemStackExtensions implements $ItemStackExtensions$$Interface {
- "fabric_setLivingEntity"(arg0: $LivingEntity$$Type): void
  "fabric_getLivingEntity"(): $LivingEntity
+ "fabric_setLivingEntity"(arg0: $LivingEntity$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -218,12 +218,12 @@ public "find"(arg0: $Level$$Type, arg1: $BlockPos$$Type, arg2: $BlockState$$Type
 public "getId"(): $ResourceLocation
 public "getProvider"(arg0: $Block$$Type): $BlockApiLookup$BlockApiProvider<(A), (C)>
 public "apiClass"(): $Class<(A)>
-public "registerForBlocks"(arg0: $BlockApiLookup$BlockApiProvider$$Type<(A), (C)>, ...arg1: ($Block$$Type)[]): void
-public "getFallbackProviders"(): $List<($BlockApiLookup$BlockApiProvider<(A), (C)>)>
-public "registerForBlockEntities"(arg0: $BlockApiLookup$BlockEntityApiProvider$$Type<(A), (C)>, ...arg1: ($BlockEntityType$$Type<(never)>)[]): void
 public "contextClass"(): $Class<(C)>
-public "registerSelf"(...arg0: ($BlockEntityType$$Type<(never)>)[]): void
 public "registerFallback"(arg0: $BlockApiLookup$BlockApiProvider$$Type<(A), (C)>): void
+public "registerSelf"(...arg0: ($BlockEntityType$$Type<(never)>)[]): void
+public "registerForBlocks"(arg0: $BlockApiLookup$BlockApiProvider$$Type<(A), (C)>, ...arg1: ($Block$$Type)[]): void
+public "registerForBlockEntities"(arg0: $BlockApiLookup$BlockEntityApiProvider$$Type<(A), (C)>, ...arg1: ($BlockEntityType$$Type<(never)>)[]): void
+public "getFallbackProviders"(): $List<($BlockApiLookup$BlockApiProvider<(A), (C)>)>
 public "find"(arg0: $Level$$Type, arg1: $BlockPos$$Type, arg2: C): A
 public "registerForBlockEntity"<T extends $BlockEntity>(arg0: $BiFunction$$Type<(T), (C), (A)>, arg1: $BlockEntityType$$Type<(T)>): void
 get "id"(): $ResourceLocation
@@ -244,9 +244,9 @@ import {$Screen$$Type} from "net.minecraft.client.gui.screens.Screen"
 import {$ScreenKeyboardEvents$AfterKeyPress} from "net.fabricmc.fabric.api.client.screen.v1.ScreenKeyboardEvents$AfterKeyPress"
 import {$List} from "java.util.List"
 import {$ScreenMouseEvents$AfterMouseClick} from "net.fabricmc.fabric.api.client.screen.v1.ScreenMouseEvents$AfterMouseClick"
-import {$ScreenKeyboardEvents$AllowKeyPress} from "net.fabricmc.fabric.api.client.screen.v1.ScreenKeyboardEvents$AllowKeyPress"
-import {$ScreenMouseEvents$BeforeMouseScroll} from "net.fabricmc.fabric.api.client.screen.v1.ScreenMouseEvents$BeforeMouseScroll"
 import {$ScreenMouseEvents$AllowMouseRelease} from "net.fabricmc.fabric.api.client.screen.v1.ScreenMouseEvents$AllowMouseRelease"
+import {$ScreenMouseEvents$BeforeMouseScroll} from "net.fabricmc.fabric.api.client.screen.v1.ScreenMouseEvents$BeforeMouseScroll"
+import {$ScreenKeyboardEvents$AllowKeyPress} from "net.fabricmc.fabric.api.client.screen.v1.ScreenKeyboardEvents$AllowKeyPress"
 import {$ScreenEvents$Remove} from "net.fabricmc.fabric.api.client.screen.v1.ScreenEvents$Remove"
 import {$ScreenMouseEvents$AfterMouseScroll} from "net.fabricmc.fabric.api.client.screen.v1.ScreenMouseEvents$AfterMouseScroll"
 import {$ScreenMouseEvents$BeforeMouseClick} from "net.fabricmc.fabric.api.client.screen.v1.ScreenMouseEvents$BeforeMouseClick"
@@ -269,26 +269,26 @@ export interface $ScreenExtensions$$Interface {
 
 export class $ScreenExtensions implements $ScreenExtensions$$Interface {
 static "getExtensions"(arg0: $Screen$$Type): $ScreenExtensions
- "fabric_getBeforeTickEvent"(): $Event<($ScreenEvents$BeforeTick)>
- "fabric_getRemoveEvent"(): $Event<($ScreenEvents$Remove)>
- "fabric_getAfterRenderEvent"(): $Event<($ScreenEvents$AfterRender)>
- "fabric_getAfterTickEvent"(): $Event<($ScreenEvents$AfterTick)>
- "fabric_getAfterMouseClickEvent"(): $Event<($ScreenMouseEvents$AfterMouseClick)>
+ "fabric_getBeforeMouseClickEvent"(): $Event<($ScreenMouseEvents$BeforeMouseClick)>
  "fabric_getAllowMouseReleaseEvent"(): $Event<($ScreenMouseEvents$AllowMouseRelease)>
- "fabric_getAfterMouseReleaseEvent"(): $Event<($ScreenMouseEvents$AfterMouseRelease)>
  "fabric_getBeforeMouseReleaseEvent"(): $Event<($ScreenMouseEvents$BeforeMouseRelease)>
- "fabric_getAllowMouseScrollEvent"(): $Event<($ScreenMouseEvents$AllowMouseScroll)>
- "fabric_getBeforeMouseScrollEvent"(): $Event<($ScreenMouseEvents$BeforeMouseScroll)>
- "fabric_getAfterMouseScrollEvent"(): $Event<($ScreenMouseEvents$AfterMouseScroll)>
- "fabric_getBeforeRenderEvent"(): $Event<($ScreenEvents$BeforeRender)>
- "fabric_getAllowKeyPressEvent"(): $Event<($ScreenKeyboardEvents$AllowKeyPress)>
+ "fabric_getAfterMouseReleaseEvent"(): $Event<($ScreenMouseEvents$AfterMouseRelease)>
  "fabric_getBeforeKeyPressEvent"(): $Event<($ScreenKeyboardEvents$BeforeKeyPress)>
+ "fabric_getAllowKeyReleaseEvent"(): $Event<($ScreenKeyboardEvents$AllowKeyRelease)>
+ "fabric_getAllowKeyPressEvent"(): $Event<($ScreenKeyboardEvents$AllowKeyPress)>
+ "fabric_getAfterKeyReleaseEvent"(): $Event<($ScreenKeyboardEvents$AfterKeyRelease)>
+ "fabric_getBeforeRenderEvent"(): $Event<($ScreenEvents$BeforeRender)>
  "fabric_getAfterKeyPressEvent"(): $Event<($ScreenKeyboardEvents$AfterKeyPress)>
  "fabric_getBeforeKeyReleaseEvent"(): $Event<($ScreenKeyboardEvents$BeforeKeyRelease)>
- "fabric_getAfterKeyReleaseEvent"(): $Event<($ScreenKeyboardEvents$AfterKeyRelease)>
  "fabric_getAllowMouseClickEvent"(): $Event<($ScreenMouseEvents$AllowMouseClick)>
- "fabric_getAllowKeyReleaseEvent"(): $Event<($ScreenKeyboardEvents$AllowKeyRelease)>
- "fabric_getBeforeMouseClickEvent"(): $Event<($ScreenMouseEvents$BeforeMouseClick)>
+ "fabric_getAfterMouseClickEvent"(): $Event<($ScreenMouseEvents$AfterMouseClick)>
+ "fabric_getBeforeMouseScrollEvent"(): $Event<($ScreenMouseEvents$BeforeMouseScroll)>
+ "fabric_getAfterMouseScrollEvent"(): $Event<($ScreenMouseEvents$AfterMouseScroll)>
+ "fabric_getAllowMouseScrollEvent"(): $Event<($ScreenMouseEvents$AllowMouseScroll)>
+ "fabric_getRemoveEvent"(): $Event<($ScreenEvents$Remove)>
+ "fabric_getBeforeTickEvent"(): $Event<($ScreenEvents$BeforeTick)>
+ "fabric_getAfterTickEvent"(): $Event<($ScreenEvents$AfterTick)>
+ "fabric_getAfterRenderEvent"(): $Event<($ScreenEvents$AfterRender)>
  "fabric_getButtons"(): $List<($AbstractWidget)>
 }
 /**
@@ -301,8 +301,8 @@ export type $ScreenExtensions$$Type = ($ScreenExtensions);
  */
 export type $ScreenExtensions$$Original = $ScreenExtensions;}
 declare module "net.fabricmc.fabric.impl.attachment.sync.AttachmentTargetInfo" {
-import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
 import {$AttachmentTarget} from "net.fabricmc.fabric.api.attachment.v1.AttachmentTarget"
+import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
 import {$AttachmentTargetInfo$Type} from "net.fabricmc.fabric.impl.attachment.sync.AttachmentTargetInfo$Type"
 import {$MutableComponent$$Type} from "net.minecraft.network.chat.MutableComponent"
 import {$Level$$Type} from "net.minecraft.world.level.Level"
@@ -339,8 +339,8 @@ export interface $LoadedChunksCache$$Interface {
 }
 
 export class $LoadedChunksCache implements $LoadedChunksCache$$Interface {
- "fabric_markUnloaded"(arg0: $LevelChunk$$Type): void
  "fabric_getLoadedChunks"(): $Set<($LevelChunk)>
+ "fabric_markUnloaded"(arg0: $LevelChunk$$Type): void
  "fabric_markLoaded"(arg0: $LevelChunk$$Type): void
 }
 /**
@@ -360,10 +360,10 @@ export interface $ItemExtensions$$Interface {
 }
 
 export class $ItemExtensions implements $ItemExtensions$$Interface {
- "fabric_setEquipmentSlotProvider"(arg0: $EquipmentSlotProvider$$Type): void
- "fabric_getEquipmentSlotProvider"(): $EquipmentSlotProvider
- "fabric_getCustomDamageHandler"(): $CustomDamageHandler
  "fabric_setCustomDamageHandler"(arg0: $CustomDamageHandler$$Type): void
+ "fabric_getCustomDamageHandler"(): $CustomDamageHandler
+ "fabric_getEquipmentSlotProvider"(): $EquipmentSlotProvider
+ "fabric_setEquipmentSlotProvider"(arg0: $EquipmentSlotProvider$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -376,9 +376,9 @@ export type $ItemExtensions$$Type = ($ItemExtensions);
 export type $ItemExtensions$$Original = $ItemExtensions;}
 declare module "net.fabricmc.fabric.impl.renderer.SpriteFinderImpl" {
 import {$TextureAtlasSprite, $TextureAtlasSprite$$Type} from "net.minecraft.client.renderer.texture.TextureAtlasSprite"
-import {$Map$$Type} from "java.util.Map"
 import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
 import {$SpriteFinder$$Interface} from "net.fabricmc.fabric.api.renderer.v1.model.SpriteFinder"
+import {$Map$$Type} from "java.util.Map"
 import {$TextureAtlas$$Type} from "net.minecraft.client.renderer.texture.TextureAtlas"
 import {$QuadView$$Type} from "net.fabricmc.fabric.api.renderer.v1.mesh.QuadView"
 
@@ -425,16 +425,16 @@ public "toString"(): StringJS
 public "hashCode"(): integer
 public "data"(): (byte)[]
 public static "create"(arg0: $AttachmentTargetInfo$$Type<(never)>, arg1: $AttachmentType$$Type<(never)>, arg2: any, arg3: $RegistryAccess$$Type): $AttachmentChange
-public static "partitionAndSendPackets"(arg0: $List$$Type<($AttachmentChange$$Type)>, arg1: $ServerPlayer$$Type): void
 public "targetInfo"(): $AttachmentTargetInfo<(never)>
-public "tryApply"(arg0: $Level$$Type): void
 public "decodeValue"(arg0: $RegistryAccess$$Type): any
+public "tryApply"(arg0: $Level$$Type): void
+public static "partitionAndSendPackets"(arg0: $List$$Type<($AttachmentChange$$Type)>, arg1: $ServerPlayer$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $AttachmentChange$$Type = ({"data"?: (byte)[], "type"?: $AttachmentType$$Type<(never)>, "targetInfo"?: $AttachmentTargetInfo$$Type<(never)>}) | ([data?: (byte)[], type?: $AttachmentType$$Type<(never)>, targetInfo?: $AttachmentTargetInfo$$Type<(never)>]);
+export type $AttachmentChange$$Type = ({"type"?: $AttachmentType$$Type<(never)>, "data"?: (byte)[], "targetInfo"?: $AttachmentTargetInfo$$Type<(never)>}) | ([type?: $AttachmentType$$Type<(never)>, data?: (byte)[], targetInfo?: $AttachmentTargetInfo$$Type<(never)>]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -507,8 +507,8 @@ export interface $FabricResourcePackProfile$$Interface {
 }
 
 export class $FabricResourcePackProfile implements $FabricResourcePackProfile$$Interface {
- "fabric_parentsEnabled"(arg0: $Set$$Type<(StringJS)>): boolean
  "fabric_setParentsPredicate"(arg0: $Predicate$$Type<($Set<(StringJS)>)>): void
+ "fabric_parentsEnabled"(arg0: $Set$$Type<(StringJS)>): boolean
  "fabric_isHidden"(): boolean
 }
 /**
@@ -530,10 +530,10 @@ export interface $ModelLoaderHooks$$Interface {
 }
 
 export class $ModelLoaderHooks implements $ModelLoaderHooks$$Interface {
+ "fabric_add"(arg0: $ModelResourceLocation$$Type, arg1: $UnbakedModel$$Type): void
  "fabric_getMissingModel"(): $UnbakedModel
  "fabric_getOrLoadModel"(arg0: $ResourceLocation$$Type): $UnbakedModel
  "fabric_getDispatcher"(): $ModelLoadingEventDispatcher
- "fabric_add"(arg0: $ModelResourceLocation$$Type, arg1: $UnbakedModel$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -572,8 +572,8 @@ export interface $SpecialLogicInventory$$Interface {
 }
 
 export class $SpecialLogicInventory implements $SpecialLogicInventory$$Interface {
- "fabric_onTransfer"(arg0: integer, arg1: $TransactionContext$$Type): void
  "fabric_setSuppress"(arg0: boolean): void
+ "fabric_onTransfer"(arg0: integer, arg1: $TransactionContext$$Type): void
  "fabric_onFinalCommit"(arg0: integer, arg1: $ItemStack$$Type, arg2: $ItemStack$$Type): void
 }
 /**
@@ -598,8 +598,8 @@ import {$StreamMemberEncoder$$Type} from "net.minecraft.network.codec.StreamMemb
 import {$ByteBuf} from "io.netty.buffer.ByteBuf"
 import {$ServerboundCustomPayloadPacket} from "net.minecraft.network.protocol.common.ServerboundCustomPayloadPacket"
 import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
-import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$ClientboundCustomPayloadPacket} from "net.minecraft.network.protocol.common.ClientboundCustomPayloadPacket"
+import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$ConnectionProtocol$$Type} from "net.minecraft.network.ConnectionProtocol"
 import {$CustomPacketPayload$TypeAndCodec$$Type} from "net.minecraft.network.protocol.common.custom.CustomPacketPayload$TypeAndCodec"
 import {$CustomPacketPayload$FallbackProvider$$Type} from "net.minecraft.network.protocol.common.custom.CustomPacketPayload$FallbackProvider"
@@ -617,10 +617,10 @@ public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "attachments"(): $List<($AttachmentChange)>
-public "toVanillaServerbound"(): $ServerboundCustomPayloadPacket
-public "toVanillaClientbound"(): $ClientboundCustomPayloadPacket
 public static "codec"<B extends $FriendlyByteBuf>(arg0: $CustomPacketPayload$FallbackProvider$$Type<(B)>, arg1: $List$$Type<($CustomPacketPayload$TypeAndCodec$$Type<(B), (never)>)>, arg2: $ConnectionProtocol$$Type, arg3: $PacketFlow$$Type): $StreamCodec<(B), ($CustomPacketPayload)>
 public static "codec"<B extends $ByteBuf, T extends $CustomPacketPayload>(arg0: $StreamMemberEncoder$$Type<(B), (T)>, arg1: $StreamDecoder$$Type<(B), (T)>): $StreamCodec<(B), (T)>
+public "toVanillaClientbound"(): $ClientboundCustomPayloadPacket
+public "toVanillaServerbound"(): $ServerboundCustomPayloadPacket
 public static "createType"<T extends $CustomPacketPayload>(arg0: StringJS): $CustomPacketPayload$Type<(T)>
 }
 /**
@@ -666,16 +666,16 @@ constructor(arg0: $BlockApiLookupImpl$$Type<(A), (C)>, arg1: $ServerLevel$$Type,
 
 public "invalidate"(): void
 public "find"(arg0: $BlockState$$Type, arg1: C): A
+public "getWorld"(): $ServerLevel
+public "getLookup"(): $BlockApiLookup
 public "getPos"(): $BlockPos
 public "getBlockEntity"(): $BlockEntity
-public "getLookup"(): $BlockApiLookup
-public "getWorld"(): $ServerLevel
 public "find"(arg0: C): A
 public static "create"<A, C>(arg0: $BlockApiLookup$$Type<(A), (C)>, arg1: $ServerLevel$$Type, arg2: $BlockPos$$Type): $BlockApiCache<(A), (C)>
+get "world"(): $ServerLevel
+get "lookup"(): $BlockApiLookup
 get "pos"(): $BlockPos
 get "blockEntity"(): $BlockEntity
-get "lookup"(): $BlockApiLookup
-get "world"(): $ServerLevel
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -687,16 +687,16 @@ export type $BlockApiCacheImpl$$Type<A, C> = ($BlockApiCacheImpl<(A), (C)>);
  */
 export type $BlockApiCacheImpl$$Original<A, C> = $BlockApiCacheImpl<(A), (C)>;}
 declare module "net.fabricmc.fabric.impl.attachment.AttachmentTargetImpl" {
-import {$AttachmentTarget$$Interface} from "net.fabricmc.fabric.api.attachment.v1.AttachmentTarget"
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
+import {$AttachmentTarget$$Interface} from "net.fabricmc.fabric.api.attachment.v1.AttachmentTarget"
 import {$AttachmentSyncPayloadS2C$$Type} from "net.fabricmc.fabric.impl.attachment.sync.s2c.AttachmentSyncPayloadS2C"
 import {$AttachmentType$$Type} from "net.fabricmc.fabric.api.attachment.v1.AttachmentType"
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$AttachmentChange$$Type} from "net.fabricmc.fabric.impl.attachment.sync.AttachmentChange"
 import {$ServerPlayer$$Type} from "net.minecraft.server.level.ServerPlayer"
 import {$Consumer$$Type} from "java.util.function.Consumer"
-import {$RegistryAccess, $RegistryAccess$$Type} from "net.minecraft.core.RegistryAccess"
 import {$AttachmentTargetInfo} from "net.fabricmc.fabric.impl.attachment.sync.AttachmentTargetInfo"
+import {$RegistryAccess, $RegistryAccess$$Type} from "net.minecraft.core.RegistryAccess"
 
 export interface $AttachmentTargetImpl$$Interface extends $AttachmentTarget$$Interface {
 
@@ -704,23 +704,23 @@ export interface $AttachmentTargetImpl$$Interface extends $AttachmentTarget$$Int
 }
 
 export class $AttachmentTargetImpl implements $AttachmentTargetImpl$$Interface {
- "acknowledgeSyncedEntry"(arg0: $AttachmentType$$Type<(never)>, arg1: $AttachmentChange$$Type): void
- "fabric_getSyncTargetInfo"(): $AttachmentTargetInfo<(never)>
- "fabric_shouldTryToSync"(): boolean
  "fabric_syncChange"(arg0: $AttachmentType$$Type<(never)>, arg1: $AttachmentSyncPayloadS2C$$Type): void
  "setAttached"<A>(arg0: $AttachmentType$$Type<(A)>, arg1: A): A
  "fabric_computeInitialSyncChanges"(arg0: $ServerPlayer$$Type, arg1: $Consumer$$Type<($AttachmentChange)>): void
  "fabric_getDynamicRegistryManager"(): $RegistryAccess
+ "fabric_shouldTryToSync"(): boolean
+ "fabric_getSyncTargetInfo"(): $AttachmentTargetInfo<(never)>
+ "acknowledgeSyncedEntry"(arg0: $AttachmentType$$Type<(never)>, arg1: $AttachmentChange$$Type): void
+ "getAttachedOrThrow"<A>(arg0: $AttachmentType$$Type<(A)>): A
+ "getAttachedOrElse"<A>(arg0: $AttachmentType$$Type<(A)>, arg1: A): A
+ "getAttachedOrGet"<A>(arg0: $AttachmentType$$Type<(A)>, arg1: $Supplier$$Type<(A)>): A
+ "getAttached"<A>(arg0: $AttachmentType$$Type<(A)>): A
+ "hasAttached"(arg0: $AttachmentType$$Type<(never)>): boolean
+ "removeAttached"<A>(arg0: $AttachmentType$$Type<(A)>): A
+ "modifyAttached"<A>(arg0: $AttachmentType$$Type<(A)>, arg1: $UnaryOperator$$Type<(A)>): A
+ "getAttachedOrSet"<A>(arg0: $AttachmentType$$Type<(A)>, arg1: A): A
  "getAttachedOrCreate"<A>(arg0: $AttachmentType$$Type<(A)>, arg1: $Supplier$$Type<(A)>): A
  "getAttachedOrCreate"<A>(arg0: $AttachmentType$$Type<(A)>): A
- "hasAttached"(arg0: $AttachmentType$$Type<(never)>): boolean
- "getAttached"<A>(arg0: $AttachmentType$$Type<(A)>): A
- "removeAttached"<A>(arg0: $AttachmentType$$Type<(A)>): A
- "getAttachedOrElse"<A>(arg0: $AttachmentType$$Type<(A)>, arg1: A): A
- "getAttachedOrSet"<A>(arg0: $AttachmentType$$Type<(A)>, arg1: A): A
- "modifyAttached"<A>(arg0: $AttachmentType$$Type<(A)>, arg1: $UnaryOperator$$Type<(A)>): A
- "getAttachedOrThrow"<A>(arg0: $AttachmentType$$Type<(A)>): A
- "getAttachedOrGet"<A>(arg0: $AttachmentType$$Type<(A)>, arg1: $Supplier$$Type<(A)>): A
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -805,8 +805,8 @@ export interface $SupportedAttachmentsClientConnection$$Interface {
 }
 
 export class $SupportedAttachmentsClientConnection implements $SupportedAttachmentsClientConnection$$Interface {
- "fabric_setSupportedAttachments"(arg0: $Set$$Type<($ResourceLocation$$Type)>): void
  "fabric_getSupportedAttachments"(): $Set<($ResourceLocation)>
+ "fabric_setSupportedAttachments"(arg0: $Set$$Type<($ResourceLocation$$Type)>): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

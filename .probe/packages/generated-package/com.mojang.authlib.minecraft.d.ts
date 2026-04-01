@@ -7,24 +7,24 @@ import {$Record} from "java.lang.Record"
 export class $AbuseReport extends $Record {
 constructor(opinionComments: StringJS, reason: StringJS, evidence: $ReportEvidence$$Type, skinUrl: StringJS, reportedEntity: $ReportedEntity$$Type, createdTime: $Instant$$Type)
 
-public "evidence"(): $ReportEvidence
 public static "name"(arg0: StringJS, arg1: $ReportedEntity$$Type, arg2: $Instant$$Type): $AbuseReport
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "reason"(): StringJS
-public "skinUrl"(): StringJS
 public static "chat"(arg0: StringJS, arg1: StringJS, arg2: $ReportEvidence$$Type, arg3: $ReportedEntity$$Type, arg4: $Instant$$Type): $AbuseReport
-public "createdTime"(): $Instant
 public static "skin"(arg0: StringJS, arg1: StringJS, arg2: StringJS, arg3: $ReportedEntity$$Type, arg4: $Instant$$Type): $AbuseReport
-public "opinionComments"(): StringJS
+public "createdTime"(): $Instant
+public "skinUrl"(): StringJS
 public "reportedEntity"(): $ReportedEntity
+public "opinionComments"(): StringJS
+public "evidence"(): $ReportEvidence
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $AbuseReport$$Type = ({"createdTime"?: $Instant$$Type, "opinionComments"?: StringJS, "skinUrl"?: StringJS, "reason"?: StringJS, "evidence"?: $ReportEvidence$$Type, "reportedEntity"?: $ReportedEntity$$Type}) | ([createdTime?: $Instant$$Type, opinionComments?: StringJS, skinUrl?: StringJS, reason?: StringJS, evidence?: $ReportEvidence$$Type, reportedEntity?: $ReportedEntity$$Type]);
+export type $AbuseReport$$Type = ({"evidence"?: $ReportEvidence$$Type, "reason"?: StringJS, "skinUrl"?: StringJS, "opinionComments"?: StringJS, "createdTime"?: $Instant$$Type, "reportedEntity"?: $ReportedEntity$$Type}) | ([evidence?: $ReportEvidence$$Type, reason?: StringJS, skinUrl?: StringJS, opinionComments?: StringJS, createdTime?: $Instant$$Type, reportedEntity?: $ReportedEntity$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -42,16 +42,16 @@ constructor(skin: $MinecraftProfileTexture$$Type, cape: $MinecraftProfileTexture
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public "elytra"(): $MinecraftProfileTexture
 public "cape"(): $MinecraftProfileTexture
 public "skin"(): $MinecraftProfileTexture
 public "signatureState"(): $SignatureState
+public "elytra"(): $MinecraftProfileTexture
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $MinecraftProfileTextures$$Type = ({"cape"?: $MinecraftProfileTexture$$Type, "signatureState"?: $SignatureState$$Type, "elytra"?: $MinecraftProfileTexture$$Type, "skin"?: $MinecraftProfileTexture$$Type}) | ([cape?: $MinecraftProfileTexture$$Type, signatureState?: $SignatureState$$Type, elytra?: $MinecraftProfileTexture$$Type, skin?: $MinecraftProfileTexture$$Type]);
+export type $MinecraftProfileTextures$$Type = ({"skin"?: $MinecraftProfileTexture$$Type, "elytra"?: $MinecraftProfileTexture$$Type, "signatureState"?: $SignatureState$$Type, "cape"?: $MinecraftProfileTexture$$Type}) | ([skin?: $MinecraftProfileTexture$$Type, elytra?: $MinecraftProfileTexture$$Type, signatureState?: $SignatureState$$Type, cape?: $MinecraftProfileTexture$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -66,7 +66,6 @@ import {$Record} from "java.lang.Record"
 export class $ReportChatMessage extends $Record {
 constructor(index: integer, profileId: $UUID$$Type, sessionId: $UUID$$Type, timestamp: $Instant$$Type, salt: long, lastSeen: $List$$Type<($ByteBuffer$$Type)>, message: StringJS, signature: $ByteBuffer$$Type, messageReported: boolean)
 
-public "salt"(): long
 public "signature"(): $ByteBuffer
 public "index"(): integer
 public "equals"(arg0: any): boolean
@@ -74,8 +73,9 @@ public "toString"(): StringJS
 public "hashCode"(): integer
 public "message"(): StringJS
 public "timestamp"(): $Instant
-public "profileId"(): $UUID
 public "sessionId"(): $UUID
+public "salt"(): long
+public "profileId"(): $UUID
 public "lastSeen"(): $List<($ByteBuffer)>
 public "messageReported"(): boolean
 }
@@ -83,7 +83,7 @@ public "messageReported"(): boolean
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $ReportChatMessage$$Type = ({"message"?: StringJS, "index"?: integer, "lastSeen"?: $List$$Type<($ByteBuffer$$Type)>, "profileId"?: $UUID$$Type, "timestamp"?: $Instant$$Type, "signature"?: $ByteBuffer$$Type, "sessionId"?: $UUID$$Type, "messageReported"?: boolean, "salt"?: long}) | ([message?: StringJS, index?: integer, lastSeen?: $List$$Type<($ByteBuffer$$Type)>, profileId?: $UUID$$Type, timestamp?: $Instant$$Type, signature?: $ByteBuffer$$Type, sessionId?: $UUID$$Type, messageReported?: boolean, salt?: long]);
+export type $ReportChatMessage$$Type = ({"messageReported"?: boolean, "sessionId"?: $UUID$$Type, "signature"?: $ByteBuffer$$Type, "timestamp"?: $Instant$$Type, "profileId"?: $UUID$$Type, "lastSeen"?: $List$$Type<($ByteBuffer$$Type)>, "index"?: integer, "message"?: StringJS, "salt"?: long}) | ([messageReported?: boolean, sessionId?: $UUID$$Type, signature?: $ByteBuffer$$Type, timestamp?: $Instant$$Type, profileId?: $UUID$$Type, lastSeen?: $List$$Type<($ByteBuffer$$Type)>, index?: integer, message?: StringJS, salt?: long]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -174,7 +174,7 @@ public "reasonMessage"(): StringJS
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $BanDetails$$Type = ({"reasonMessage"?: StringJS, "id"?: $UUID$$Type, "expires"?: $Instant$$Type, "reason"?: StringJS}) | ([reasonMessage?: StringJS, id?: $UUID$$Type, expires?: $Instant$$Type, reason?: StringJS]);
+export type $BanDetails$$Type = ({"expires"?: $Instant$$Type, "id"?: $UUID$$Type, "reasonMessage"?: StringJS, "reason"?: StringJS}) | ([expires?: $Instant$$Type, id?: $UUID$$Type, reasonMessage?: StringJS, reason?: StringJS]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -186,12 +186,12 @@ export interface $TelemetryPropertyContainer$$Interface {
 }
 
 export class $TelemetryPropertyContainer implements $TelemetryPropertyContainer$$Interface {
-static "forJsonObject"(arg0: $JsonObject$$Type): $TelemetryPropertyContainer
- "addNullProperty"(arg0: StringJS): void
- "addProperty"(arg0: StringJS, arg1: StringJS): void
  "addProperty"(arg0: StringJS, arg1: boolean): void
  "addProperty"(arg0: StringJS, arg1: long): void
  "addProperty"(arg0: StringJS, arg1: integer): void
+ "addProperty"(arg0: StringJS, arg1: StringJS): void
+ "addNullProperty"(arg0: StringJS): void
+static "forJsonObject"(arg0: $JsonObject$$Type): $TelemetryPropertyContainer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -204,30 +204,30 @@ export type $TelemetryPropertyContainer$$Type = ($TelemetryPropertyContainer);
 export type $TelemetryPropertyContainer$$Original = $TelemetryPropertyContainer;}
 declare module "com.mojang.authlib.minecraft.UserApiService" {
 import {$AbuseReportRequest$$Type} from "com.mojang.authlib.yggdrasil.request.AbuseReportRequest"
-import {$UUID$$Type} from "java.util.UUID"
 import {$UserApiService$UserProperties} from "com.mojang.authlib.minecraft.UserApiService$UserProperties"
+import {$UUID$$Type} from "java.util.UUID"
 import {$Executor$$Type} from "java.util.concurrent.Executor"
 import {$TelemetrySession} from "com.mojang.authlib.minecraft.TelemetrySession"
 import {$KeyPairResponse} from "com.mojang.authlib.yggdrasil.response.KeyPairResponse"
 import {$AbuseReportLimits} from "com.mojang.authlib.minecraft.report.AbuseReportLimits"
 
 export interface $UserApiService$$Interface {
-get "abuseReportLimits"(): $AbuseReportLimits
 get "keyPair"(): $KeyPairResponse
+get "abuseReportLimits"(): $AbuseReportLimits
 }
 
 export class $UserApiService implements $UserApiService$$Interface {
 static readonly "OFFLINE_PROPERTIES": $UserApiService$UserProperties
 static readonly "OFFLINE": $UserApiService
 
+ "getKeyPair"(): $KeyPairResponse
+ "isBlockedPlayer"(arg0: $UUID$$Type): boolean
+ "refreshBlockList"(): void
+ "canSendReports"(): boolean
+ "reportAbuse"(arg0: $AbuseReportRequest$$Type): void
  "newTelemetrySession"(arg0: $Executor$$Type): $TelemetrySession
  "getAbuseReportLimits"(): $AbuseReportLimits
- "refreshBlockList"(): void
- "reportAbuse"(arg0: $AbuseReportRequest$$Type): void
- "isBlockedPlayer"(arg0: $UUID$$Type): boolean
- "canSendReports"(): boolean
  "fetchProperties"(): $UserApiService$UserProperties
- "getKeyPair"(): $KeyPairResponse
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -239,8 +239,8 @@ export type $UserApiService$$Type = ($UserApiService);
  */
 export type $UserApiService$$Original = $UserApiService;}
 declare module "com.mojang.authlib.minecraft.UserApiService$UserProperties" {
-import {$Map, $Map$$Type} from "java.util.Map"
 import {$UserApiService$UserFlag, $UserApiService$UserFlag$$Type} from "com.mojang.authlib.minecraft.UserApiService$UserFlag"
+import {$Map, $Map$$Type} from "java.util.Map"
 import {$Set, $Set$$Type} from "java.util.Set"
 import {$BanDetails, $BanDetails$$Type} from "com.mojang.authlib.minecraft.BanDetails"
 import {$Record} from "java.lang.Record"
@@ -259,7 +259,7 @@ public "bannedScopes"(): $Map<(StringJS), ($BanDetails)>
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $UserApiService$UserProperties$$Type = ({"bannedScopes"?: $Map$$Type<(StringJS), ($BanDetails$$Type)>, "flags"?: $Set$$Type<($UserApiService$UserFlag$$Type)>}) | ([bannedScopes?: $Map$$Type<(StringJS), ($BanDetails$$Type)>, flags?: $Set$$Type<($UserApiService$UserFlag$$Type)>]);
+export type $UserApiService$UserProperties$$Type = ({"flags"?: $Set$$Type<($UserApiService$UserFlag$$Type)>, "bannedScopes"?: $Map$$Type<(StringJS), ($BanDetails$$Type)>}) | ([flags?: $Set$$Type<($UserApiService$UserFlag$$Type)>, bannedScopes?: $Map$$Type<(StringJS), ($BanDetails$$Type)>]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -343,17 +343,17 @@ constructor(maxOpinionCommentsLength: integer, maxReportedMessageCount: integer,
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public "maxOpinionCommentsLength"(): integer
-public "maxReportedMessageCount"(): integer
-public "leadingContextMessageCount"(): integer
 public "trailingContextMessageCount"(): integer
+public "maxReportedMessageCount"(): integer
+public "maxOpinionCommentsLength"(): integer
+public "leadingContextMessageCount"(): integer
 public "maxEvidenceMessageCount"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $AbuseReportLimits$$Type = ({"leadingContextMessageCount"?: integer, "trailingContextMessageCount"?: integer, "maxOpinionCommentsLength"?: integer, "maxReportedMessageCount"?: integer, "maxEvidenceMessageCount"?: integer}) | ([leadingContextMessageCount?: integer, trailingContextMessageCount?: integer, maxOpinionCommentsLength?: integer, maxReportedMessageCount?: integer, maxEvidenceMessageCount?: integer]);
+export type $AbuseReportLimits$$Type = ({"maxReportedMessageCount"?: integer, "maxOpinionCommentsLength"?: integer, "trailingContextMessageCount"?: integer, "leadingContextMessageCount"?: integer, "maxEvidenceMessageCount"?: integer}) | ([maxReportedMessageCount?: integer, maxOpinionCommentsLength?: integer, trailingContextMessageCount?: integer, leadingContextMessageCount?: integer, maxEvidenceMessageCount?: integer]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -369,12 +369,12 @@ export class $TelemetryEvent implements $TelemetryEvent$$Interface {
 static readonly "EMPTY": $TelemetryEvent
 
  "send"(): void
-static "forJsonObject"(arg0: $JsonObject$$Type): $TelemetryPropertyContainer
- "addNullProperty"(arg0: StringJS): void
- "addProperty"(arg0: StringJS, arg1: StringJS): void
  "addProperty"(arg0: StringJS, arg1: boolean): void
  "addProperty"(arg0: StringJS, arg1: long): void
  "addProperty"(arg0: StringJS, arg1: integer): void
+ "addProperty"(arg0: StringJS, arg1: StringJS): void
+ "addNullProperty"(arg0: StringJS): void
+static "forJsonObject"(arg0: $JsonObject$$Type): $TelemetryPropertyContainer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -386,24 +386,24 @@ export type $TelemetryEvent$$Type = ($TelemetryEvent);
  */
 export type $TelemetryEvent$$Original = $TelemetryEvent;}
 declare module "com.mojang.authlib.minecraft.MinecraftSessionService" {
-import {$UUID$$Type} from "java.util.UUID"
 import {$InetAddress$$Type} from "java.net.InetAddress"
+import {$UUID$$Type} from "java.util.UUID"
 import {$MinecraftProfileTextures} from "com.mojang.authlib.minecraft.MinecraftProfileTextures"
-import {$GameProfile$$Type} from "com.mojang.authlib.GameProfile"
 import {$Property, $Property$$Type} from "com.mojang.authlib.properties.Property"
+import {$GameProfile$$Type} from "com.mojang.authlib.GameProfile"
 import {$ProfileResult} from "com.mojang.authlib.yggdrasil.ProfileResult"
 
 export interface $MinecraftSessionService$$Interface {
 }
 
 export class $MinecraftSessionService implements $MinecraftSessionService$$Interface {
- "getSecurePropertyValue"(arg0: $Property$$Type): StringJS
- "getPackedTextures"(arg0: $GameProfile$$Type): $Property
- "unpackTextures"(arg0: $Property$$Type): $MinecraftProfileTextures
- "hasJoinedServer"(arg0: StringJS, arg1: StringJS, arg2: $InetAddress$$Type): $ProfileResult
- "fetchProfile"(arg0: $UUID$$Type, arg1: boolean): $ProfileResult
  "getTextures"(arg0: $GameProfile$$Type): $MinecraftProfileTextures
+ "unpackTextures"(arg0: $Property$$Type): $MinecraftProfileTextures
+ "getPackedTextures"(arg0: $GameProfile$$Type): $Property
+ "hasJoinedServer"(arg0: StringJS, arg1: StringJS, arg2: $InetAddress$$Type): $ProfileResult
+ "getSecurePropertyValue"(arg0: $Property$$Type): StringJS
  "joinServer"(arg0: $UUID$$Type, arg1: StringJS, arg2: StringJS): void
+ "fetchProfile"(arg0: $UUID$$Type, arg1: boolean): $ProfileResult
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

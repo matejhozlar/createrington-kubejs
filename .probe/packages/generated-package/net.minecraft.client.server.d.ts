@@ -3,15 +3,19 @@ import {$LevelSettings} from "net.minecraft.world.level.LevelSettings"
 import {$LevelStorageSource$LevelStorageAccess, $LevelStorageSource$LevelStorageAccess$$Type} from "net.minecraft.world.level.storage.LevelStorageSource$LevelStorageAccess"
 import {$UUID$$Type} from "java.util.UUID"
 import {$MinecraftServer$ReloadableResources} from "net.minecraft.server.MinecraftServer$ReloadableResources"
+import {$Level} from "net.minecraft.world.level.Level"
 import {$RegionStorageInfo$$Type} from "net.minecraft.world.level.chunk.storage.RegionStorageInfo"
 import {$ProcessorHandle} from "net.minecraft.util.thread.ProcessorHandle"
 import {$Proxy} from "java.net.Proxy"
+import {$Executor} from "java.util.concurrent.Executor"
 import {$WorldStem$$Type} from "net.minecraft.server.WorldStem"
 import {$Throwable$$Type} from "java.lang.Throwable"
 import {$Minecraft$$Type} from "net.minecraft.client.Minecraft"
+import {$ResourceKey} from "net.minecraft.resources.ResourceKey"
 import {$GameType, $GameType$$Type} from "net.minecraft.world.level.GameType"
 import {$SystemReport, $SystemReport$$Type} from "net.minecraft.SystemReport"
 import {$PlayerDataStorage} from "net.minecraft.world.level.storage.PlayerDataStorage"
+import {$Map} from "java.util.Map"
 import {$LocalSampleLogger} from "net.minecraft.util.debugchart.LocalSampleLogger"
 import {$CrashReport$$Type} from "net.minecraft.CrashReport"
 import {$PackRepository$$Type} from "net.minecraft.server.packs.repository.PackRepository"
@@ -22,6 +26,7 @@ import {$ChunkPos$$Type} from "net.minecraft.world.level.ChunkPos"
 import {$ModCheck} from "net.minecraft.util.ModCheck"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$ReportedException} from "net.minecraft.ReportedException"
+import {$ServerLevel} from "net.minecraft.server.level.ServerLevel"
 import {$WorldData} from "net.minecraft.world.level.storage.WorldData"
 import {$Path} from "java.nio.file.Path"
 import {$GameProfile, $GameProfile$$Type} from "com.mojang.authlib.GameProfile"
@@ -30,67 +35,69 @@ import {$MinecraftServer} from "net.minecraft.server.MinecraftServer"
 
 export class $IntegratedServer extends $MinecraftServer {
 static readonly "VANILLA_BRAND": StringJS
-readonly "proxy": $Proxy
 static readonly "ANONYMOUS_PLAYER_PROFILE": $GameProfile
  "nextTickTimeNanos": long
  "resources": $MinecraftServer$ReloadableResources
-readonly "worldData": $WorldData
 readonly "services": $Services
-readonly "storageSource": $LevelStorageSource$LevelStorageAccess
 static readonly "ABSOLUTE_MAX_WORLD_SIZE": integer
 static readonly "DEMO_SETTINGS": $LevelSettings
+readonly "proxy": $Proxy
+readonly "executor": $Executor
+readonly "worldData": $WorldData
+readonly "storageSource": $LevelStorageSource$LevelStorageAccess
+readonly "levels": $Map<($ResourceKey<($Level)>), ($ServerLevel)>
 readonly "playerDataStorage": $PlayerDataStorage
 
 constructor(arg0: $Thread$$Type, arg1: $Minecraft$$Type, arg2: $LevelStorageSource$LevelStorageAccess$$Type, arg3: $PackRepository$$Type, arg4: $WorldStem$$Type, arg5: $Services$$Type, arg6: $ChunkProgressListenerFactory$$Type)
 
 public "getPort"(): integer
 public "halt"(arg0: boolean): void
-public "isPaused"(): boolean
-public "getRateLimitPacketsPerSecond"(): integer
-public "getOperatorUserPermissionLevel"(): integer
-public "getFunctionCompilationLevel"(): integer
-public "isDedicated"(): boolean
-public "forceSynchronousWrites"(): boolean
-public "shouldInformAdmins"(): boolean
-public "getForcedGameType"(): $GameType
 public "tickServer"(arg0: $BooleanSupplier$$Type): void
-public "isPublished"(): boolean
-public "isCommandBlockEnabled"(): boolean
-public "initServer"(): boolean
-public "setUUID"(arg0: $UUID$$Type): void
-public "stop"(): void
-public "isTickTimeLoggingEnabled"(): boolean
+public "isDedicated"(): boolean
+public "isPaused"(): boolean
 public "shouldRconBroadcast"(): boolean
-public "getScaledTrackingDistance"(arg0: integer): integer
+public "isTickTimeLoggingEnabled"(): boolean
 public "isSingleplayerOwner"(arg0: $GameProfile$$Type): boolean
-public "fillServerSystemReport"(arg0: $SystemReport$$Type): $SystemReport
 public "reportChunkLoadFailure"(arg0: $Throwable$$Type, arg1: $RegionStorageInfo$$Type, arg2: $ChunkPos$$Type): void
 public "reportChunkSaveFailure"(arg0: $Throwable$$Type, arg1: $RegionStorageInfo$$Type, arg2: $ChunkPos$$Type): void
-public "getModdedStatus"(): $ModCheck
+public "fillServerSystemReport"(arg0: $SystemReport$$Type): $SystemReport
+public "getScaledTrackingDistance"(arg0: integer): integer
+public "getOperatorUserPermissionLevel"(): integer
+public "getRateLimitPacketsPerSecond"(): integer
+public "getFunctionCompilationLevel"(): integer
+public "getForcedGameType"(): $GameType
+public "stop"(): void
+public "setUUID"(arg0: $UUID$$Type): void
+public "isCommandBlockEnabled"(): boolean
+public "forceSynchronousWrites"(): boolean
+public "shouldInformAdmins"(): boolean
+public "isPublished"(): boolean
+public "initServer"(): boolean
 public "saveEverything"(arg0: boolean, arg1: boolean, arg2: boolean): boolean
 public "onServerCrash"(arg0: $CrashReport$$Type): void
-public "isEpollEnabled"(): boolean
-public "setDefaultGameType"(arg0: $GameType$$Type): void
+public "getModdedStatus"(): $ModCheck
 public "getTickTimeLogger"(): $LocalSampleLogger
+public "setDefaultGameType"(arg0: $GameType$$Type): void
 public "publishServer"(arg0: $GameType$$Type, arg1: boolean, arg2: integer): boolean
+public "isEpollEnabled"(): boolean
 public "getServerDirectory"(): $Path
 public static "createMisplacedChunkReport"(arg0: $ChunkPos$$Type, arg1: $ChunkPos$$Type): $ReportedException
 public static "of"<Msg>(arg0: StringJS, arg1: $Consumer$$Type<(Msg)>): $ProcessorHandle<(Msg)>
 get "port"(): integer
-get "paused"(): boolean
-get "rateLimitPacketsPerSecond"(): integer
-get "operatorUserPermissionLevel"(): integer
-get "functionCompilationLevel"(): integer
 get "dedicated"(): boolean
-get "forcedGameType"(): $GameType
-get "published"(): boolean
-get "commandBlockEnabled"(): boolean
-set "UUID"(value: $UUID$$Type)
+get "paused"(): boolean
 get "tickTimeLoggingEnabled"(): boolean
+get "operatorUserPermissionLevel"(): integer
+get "rateLimitPacketsPerSecond"(): integer
+get "functionCompilationLevel"(): integer
+get "forcedGameType"(): $GameType
+set "UUID"(value: $UUID$$Type)
+get "commandBlockEnabled"(): boolean
+get "published"(): boolean
 get "moddedStatus"(): $ModCheck
-get "epollEnabled"(): boolean
-set "defaultGameType"(value: $GameType$$Type)
 get "tickTimeLogger"(): $LocalSampleLogger
+set "defaultGameType"(value: $GameType$$Type)
+get "epollEnabled"(): boolean
 get "serverDirectory"(): $Path
 }
 /**

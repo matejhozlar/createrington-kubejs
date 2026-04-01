@@ -19,8 +19,8 @@ export type $ClientPlayerNetworkEvent$LoggingIn$$Type = ($ClientPlayerNetworkEve
 export type $ClientPlayerNetworkEvent$LoggingIn$$Original = $ClientPlayerNetworkEvent$LoggingIn;}
 declare module "net.neoforged.neoforge.client.event.EntityRenderersEvent$RegisterLayerDefinitions" {
 import {$Supplier$$Type} from "java.util.function.Supplier"
-import {$ModelLayerLocation$$Type} from "net.minecraft.client.model.geom.ModelLayerLocation"
 import {$EntityRenderersEvent} from "net.neoforged.neoforge.client.event.EntityRenderersEvent"
+import {$ModelLayerLocation$$Type} from "net.minecraft.client.model.geom.ModelLayerLocation"
 import {$LayerDefinition$$Type} from "net.minecraft.client.model.geom.builders.LayerDefinition"
 
 export class $EntityRenderersEvent$RegisterLayerDefinitions extends $EntityRenderersEvent {
@@ -158,11 +158,11 @@ import {$RenderPlayerEvent} from "net.neoforged.neoforge.client.event.RenderPlay
 export class $RenderPlayerEvent$Pre extends $RenderPlayerEvent implements $ICancellableEvent$$Interface {
 constructor(arg0: $Player$$Type, arg1: $PlayerRenderer$$Type, arg2: float, arg3: $PoseStack$$Type, arg4: $MultiBufferSource$$Type, arg5: integer)
 
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
+public "isCanceled"(): boolean
 public "getEntity"(): $Entity
-get "canceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 get "entity"(): $Entity
 }
 /**
@@ -221,8 +221,8 @@ declare module "net.neoforged.neoforge.client.event.RegisterRenderBuffersEvent" 
 import {$SequencedMap$$Type} from "java.util.SequencedMap"
 import {$ByteBufferBuilder$$Type} from "com.mojang.blaze3d.vertex.ByteBufferBuilder"
 import {$Event} from "net.neoforged.bus.api.Event"
-import {$RenderType$$Type} from "net.minecraft.client.renderer.RenderType"
 import {$IModBusEvent$$Interface} from "net.neoforged.fml.event.IModBusEvent"
+import {$RenderType$$Type} from "net.minecraft.client.renderer.RenderType"
 
 export class $RegisterRenderBuffersEvent extends $Event implements $IModBusEvent$$Interface {
 constructor(arg0: $SequencedMap$$Type<($RenderType$$Type), ($ByteBufferBuilder$$Type)>)
@@ -266,8 +266,8 @@ import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
 import {$SpriteSource$$Type} from "net.minecraft.client.renderer.texture.atlas.SpriteSource"
 import {$Event} from "net.neoforged.bus.api.Event"
 import {$SpriteSourceType, $SpriteSourceType$$Type} from "net.minecraft.client.renderer.texture.atlas.SpriteSourceType"
-import {$MapCodec$$Type} from "com.mojang.serialization.MapCodec"
 import {$IModBusEvent$$Interface} from "net.neoforged.fml.event.IModBusEvent"
+import {$MapCodec$$Type} from "com.mojang.serialization.MapCodec"
 
 export class $RegisterSpriteSourceTypesEvent extends $Event implements $IModBusEvent$$Interface {
 constructor(arg0: $BiMap$$Type<($ResourceLocation$$Type), ($SpriteSourceType$$Type)>)
@@ -295,18 +295,18 @@ import {$ViewportEvent} from "net.neoforged.neoforge.client.event.ViewportEvent"
 export class $ViewportEvent$ComputeFogColor extends $ViewportEvent {
 constructor(arg0: $Camera$$Type, arg1: float, arg2: float, arg3: float, arg4: float)
 
-public "getRed"(): float
-public "getGreen"(): float
-public "getBlue"(): float
+public "setBlue"(arg0: float): void
 public "setRed"(arg0: float): void
 public "setGreen"(arg0: float): void
-public "setBlue"(arg0: float): void
-get "red"(): float
-get "green"(): float
-get "blue"(): float
+public "getGreen"(): float
+public "getRed"(): float
+public "getBlue"(): float
+set "blue"(value: float)
 set "red"(value: float)
 set "green"(value: float)
-set "blue"(value: float)
+get "green"(): float
+get "red"(): float
+get "blue"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -332,9 +332,9 @@ static readonly "DEFAULT": $IClientMobEffectExtensions
 
 static "of"(arg0: $MobEffectInstance$$Type): $IClientMobEffectExtensions
 static "of"(arg0: $MobEffect$$Type): $IClientMobEffectExtensions
- "renderInventoryIcon"(arg0: $MobEffectInstance$$Type, arg1: $EffectRenderingInventoryScreen$$Type<(never)>, arg2: $GuiGraphics$$Type, arg3: integer, arg4: integer, arg5: integer): boolean
- "renderInventoryText"(arg0: $MobEffectInstance$$Type, arg1: $EffectRenderingInventoryScreen$$Type<(never)>, arg2: $GuiGraphics$$Type, arg3: integer, arg4: integer, arg5: integer): boolean
  "isVisibleInInventory"(arg0: $MobEffectInstance$$Type): boolean
+ "renderInventoryText"(arg0: $MobEffectInstance$$Type, arg1: $EffectRenderingInventoryScreen$$Type<(never)>, arg2: $GuiGraphics$$Type, arg3: integer, arg4: integer, arg5: integer): boolean
+ "renderInventoryIcon"(arg0: $MobEffectInstance$$Type, arg1: $EffectRenderingInventoryScreen$$Type<(never)>, arg2: $GuiGraphics$$Type, arg3: integer, arg4: integer, arg5: integer): boolean
  "renderGuiIcon"(arg0: $MobEffectInstance$$Type, arg1: $Gui$$Type, arg2: $GuiGraphics$$Type, arg3: integer, arg4: integer, arg5: float, arg6: float): boolean
  "isVisibleInGui"(arg0: $MobEffectInstance$$Type): boolean
 }
@@ -355,15 +355,15 @@ export class $ClientChatEvent extends $Event implements $ICancellableEvent$$Inte
 constructor(arg0: StringJS)
 
 public "getMessage"(): StringJS
-public "setMessage"(arg0: StringJS): void
 public "getOriginalMessage"(): StringJS
-public "isCanceled"(): boolean
+public "setMessage"(arg0: StringJS): void
 public "setCanceled"(arg0: boolean): void
+public "isCanceled"(): boolean
 get "message"(): StringJS
-set "message"(value: StringJS)
 get "originalMessage"(): StringJS
-get "canceled"(): boolean
+set "message"(value: StringJS)
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -376,8 +376,8 @@ export type $ClientChatEvent$$Type = ($ClientChatEvent);
 export type $ClientChatEvent$$Original = $ClientChatEvent;}
 declare module "net.neoforged.neoforge.client.event.RegisterColorHandlersEvent$ColorResolvers" {
 import {$ImmutableList$Builder$$Type} from "com.google.common.collect.ImmutableList$Builder"
-import {$RegisterColorHandlersEvent} from "net.neoforged.neoforge.client.event.RegisterColorHandlersEvent"
 import {$ColorResolver$$Type} from "net.minecraft.world.level.ColorResolver"
+import {$RegisterColorHandlersEvent} from "net.neoforged.neoforge.client.event.RegisterColorHandlersEvent"
 
 export class $RegisterColorHandlersEvent$ColorResolvers extends $RegisterColorHandlersEvent {
 constructor(arg0: $ImmutableList$Builder$$Type<($ColorResolver$$Type)>)
@@ -401,10 +401,10 @@ import {$ICancellableEvent$$Interface} from "net.neoforged.bus.api.ICancellableE
 export class $ScreenEvent$CharacterTyped$Pre extends $ScreenEvent$CharacterTyped implements $ICancellableEvent$$Interface {
 constructor(arg0: $Screen$$Type, arg1: character, arg2: integer)
 
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
-get "canceled"(): boolean
+public "isCanceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -427,10 +427,10 @@ constructor(arg0: $ItemStack$$Type, arg1: $AttributeTooltipContext$$Type)
 
 public "getContext"(): $AttributeTooltipContext
 public "getStack"(): $ItemStack
-public "skipId"(arg0: $ResourceLocation$$Type): void
-public "setSkipAll"(arg0: boolean): void
 public "isSkipped"(arg0: $EquipmentSlotGroup$$Type): boolean
 public "isSkipped"(arg0: $ResourceLocation$$Type): boolean
+public "skipId"(arg0: $ResourceLocation$$Type): void
+public "setSkipAll"(arg0: boolean): void
 public "skipGroup"(arg0: $EquipmentSlotGroup$$Type): void
 public "isSkippingAll"(): boolean
 get "context"(): $AttributeTooltipContext
@@ -492,8 +492,8 @@ export type $CustomizeGuiOverlayEvent$$Type = ($CustomizeGuiOverlayEvent);
  */
 export type $CustomizeGuiOverlayEvent$$Original = $CustomizeGuiOverlayEvent;}
 declare module "net.neoforged.neoforge.client.model.geometry.IGeometryLoader" {
-import {$JsonObject, $JsonObject$$Type} from "com.google.gson.JsonObject"
 import {$JsonDeserializationContext, $JsonDeserializationContext$$Type} from "com.google.gson.JsonDeserializationContext"
+import {$JsonObject, $JsonObject$$Type} from "com.google.gson.JsonObject"
 import {$IUnbakedGeometry, $IUnbakedGeometry$$Type} from "net.neoforged.neoforge.client.model.geometry.IUnbakedGeometry"
 
 export interface $IGeometryLoader$$Interface<T extends $IUnbakedGeometry<(object)>> {
@@ -518,11 +518,11 @@ import {$GuiGraphics} from "net.minecraft.client.gui.GuiGraphics"
 import {$ContainerScreenEvent} from "net.neoforged.neoforge.client.event.ContainerScreenEvent"
 
 export class $ContainerScreenEvent$Render extends $ContainerScreenEvent {
-public "getMouseY"(): integer
 public "getMouseX"(): integer
+public "getMouseY"(): integer
 public "getGuiGraphics"(): $GuiGraphics
-get "mouseY"(): integer
 get "mouseX"(): integer
+get "mouseY"(): integer
 get "guiGraphics"(): $GuiGraphics
 }
 /**
@@ -543,10 +543,10 @@ import {$ScreenEvent$Render} from "net.neoforged.neoforge.client.event.ScreenEve
 export class $ScreenEvent$Render$Pre extends $ScreenEvent$Render implements $ICancellableEvent$$Interface {
 constructor(arg0: $Screen$$Type, arg1: $GuiGraphics$$Type, arg2: integer, arg3: integer, arg4: float)
 
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
-get "canceled"(): boolean
+public "isCanceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -570,10 +570,10 @@ export interface $IVertexConsumerExtension$$Interface {
 }
 
 export class $IVertexConsumerExtension implements $IVertexConsumerExtension$$Interface {
- "misc"(arg0: $VertexFormatElement$$Type, ...arg1: (integer)[]): $VertexConsumer
- "putBulkData"(arg0: $PoseStack$Pose$$Type, arg1: $BakedQuad$$Type, arg2: float, arg3: float, arg4: float, arg5: float, arg6: integer, arg7: integer, arg8: boolean): void
  "applyBakedLighting"(arg0: integer, arg1: $ByteBuffer$$Type): integer
+ "putBulkData"(arg0: $PoseStack$Pose$$Type, arg1: $BakedQuad$$Type, arg2: float, arg3: float, arg4: float, arg5: float, arg6: integer, arg7: integer, arg8: boolean): void
  "applyBakedNormals"(arg0: $Vector3f$$Type, arg1: $ByteBuffer$$Type, arg2: $Matrix3f$$Type): void
+ "misc"(arg0: $VertexFormatElement$$Type, ...arg1: (integer)[]): $VertexConsumer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -611,15 +611,15 @@ export class $ScreenEvent$KeyReleased$Pre extends $ScreenEvent$KeyReleased imple
 constructor(arg0: $Screen$$Type, arg1: integer, arg2: integer, arg3: integer)
 
 public "getModifiers"(): integer
-public "getScanCode"(): integer
 public "getKeyCode"(): integer
-public "isCanceled"(): boolean
+public "getScanCode"(): integer
 public "setCanceled"(arg0: boolean): void
+public "isCanceled"(): boolean
 get "modifiers"(): integer
-get "scanCode"(): integer
 get "keyCode"(): integer
-get "canceled"(): boolean
+get "scanCode"(): integer
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -660,25 +660,25 @@ import {$Material} from "net.minecraft.client.resources.model.Material"
 import {$Transformation} from "com.mojang.math.Transformation"
 
 export interface $IGeometryBakingContext$$Interface {
-get "gui3d"(): boolean
 get "transforms"(): $ItemTransforms
+get "gui3d"(): boolean
 get "renderTypeHint"(): $ResourceLocation
-get "modelName"(): StringJS
 get "rootTransform"(): $Transformation
+get "modelName"(): StringJS
 }
 
 export class $IGeometryBakingContext implements $IGeometryBakingContext$$Interface {
- "isGui3d"(): boolean
- "getTransforms"(): $ItemTransforms
  "getRenderType"(arg0: $ResourceLocation$$Type): $RenderTypeGroup
- "getMaterial"(arg0: StringJS): $Material
+ "getTransforms"(): $ItemTransforms
  "useAmbientOcclusion"(): boolean
+ "getMaterial"(arg0: StringJS): $Material
+ "isGui3d"(): boolean
  "getRenderTypeHint"(): $ResourceLocation
- "getModelName"(): StringJS
- "isComponentVisible"(arg0: StringJS, arg1: boolean): boolean
- "hasMaterial"(arg0: StringJS): boolean
  "getRootTransform"(): $Transformation
  "useBlockLight"(): boolean
+ "getModelName"(): StringJS
+ "hasMaterial"(arg0: StringJS): boolean
+ "isComponentVisible"(arg0: StringJS, arg1: boolean): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -705,16 +705,16 @@ export type $EntityRenderersEvent$$Type = ($EntityRenderersEvent);
  */
 export type $EntityRenderersEvent$$Original = $EntityRenderersEvent;}
 declare module "net.neoforged.neoforge.client.event.ScreenEvent$Render" {
-import {$ScreenEvent} from "net.neoforged.neoforge.client.event.ScreenEvent"
 import {$GuiGraphics} from "net.minecraft.client.gui.GuiGraphics"
+import {$ScreenEvent} from "net.neoforged.neoforge.client.event.ScreenEvent"
 
 export class $ScreenEvent$Render extends $ScreenEvent {
-public "getMouseY"(): integer
 public "getMouseX"(): integer
+public "getMouseY"(): integer
 public "getGuiGraphics"(): $GuiGraphics
 public "getPartialTick"(): float
-get "mouseY"(): integer
 get "mouseX"(): integer
+get "mouseY"(): integer
 get "guiGraphics"(): $GuiGraphics
 get "partialTick"(): float
 }
@@ -735,14 +735,14 @@ import {$ScreenEvent$MouseButtonPressed} from "net.neoforged.neoforge.client.eve
 export class $ScreenEvent$MouseButtonPressed$Pre extends $ScreenEvent$MouseButtonPressed implements $ICancellableEvent$$Interface {
 constructor(arg0: $Screen$$Type, arg1: double, arg2: double, arg3: integer)
 
-public "getMouseY"(): double
 public "getMouseX"(): double
-public "isCanceled"(): boolean
+public "getMouseY"(): double
 public "setCanceled"(arg0: boolean): void
-get "mouseY"(): double
+public "isCanceled"(): boolean
 get "mouseX"(): double
-get "canceled"(): boolean
+get "mouseY"(): double
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -760,10 +760,10 @@ import {$ICancellableEvent$$Interface} from "net.neoforged.bus.api.ICancellableE
 export class $InputEvent$MouseButton$Pre extends $InputEvent$MouseButton implements $ICancellableEvent$$Interface {
 constructor(arg0: integer, arg1: integer, arg2: integer)
 
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
-get "canceled"(): boolean
+public "isCanceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -777,8 +777,8 @@ export type $InputEvent$MouseButton$Pre$$Original = $InputEvent$MouseButton$Pre;
 declare module "net.neoforged.neoforge.client.extensions.common.IClientItemExtensions" {
 import {$HumanoidArm$$Type} from "net.minecraft.world.entity.HumanoidArm"
 import {$ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
-import {$PoseStack$$Type} from "com.mojang.blaze3d.vertex.PoseStack"
 import {$InteractionHand$$Type} from "net.minecraft.world.InteractionHand"
+import {$PoseStack$$Type} from "com.mojang.blaze3d.vertex.PoseStack"
 import {$Model, $Model$$Type} from "net.minecraft.client.model.Model"
 import {$Font} from "net.minecraft.client.gui.Font"
 import {$ArmorMaterial$Layer$$Type} from "net.minecraft.world.item.ArmorMaterial$Layer"
@@ -804,10 +804,13 @@ static readonly "DEFAULT": $IClientItemExtensions
 
 static "of"(arg0: $ItemStack$$Type): $IClientItemExtensions
 static "of"(arg0: $Item$$Type): $IClientItemExtensions
- "getFont"(arg0: $ItemStack$$Type, arg1: $IClientItemExtensions$FontContext$$Type): $Font
+ "getCustomRenderer"(): $BlockEntityWithoutLevelRenderer
  "getDefaultDyeColor"(arg0: $ItemStack$$Type): integer
  "shouldBobAsEntity"(arg0: $ItemStack$$Type): boolean
- "getCustomRenderer"(): $BlockEntityWithoutLevelRenderer
+ "getGenericArmorModel"(arg0: $LivingEntity$$Type, arg1: $ItemStack$$Type, arg2: $EquipmentSlot$$Type, arg3: $HumanoidModel$$Type<(never)>): $Model
+ "applyForgeHandTransform"(arg0: $PoseStack$$Type, arg1: $LocalPlayer$$Type, arg2: $HumanoidArm$$Type, arg3: $ItemStack$$Type, arg4: float, arg5: float, arg6: float): boolean
+ "setupModelAnimations"(arg0: $LivingEntity$$Type, arg1: $ItemStack$$Type, arg2: $EquipmentSlot$$Type, arg3: $Model$$Type, arg4: float, arg5: float, arg6: float, arg7: float, arg8: float, arg9: float): void
+ "getHumanoidArmorModel"(arg0: $LivingEntity$$Type, arg1: $ItemStack$$Type, arg2: $EquipmentSlot$$Type, arg3: $HumanoidModel$$Type<(never)>): $HumanoidModel<(never)>
  "shouldSpreadAsEntity"(arg0: $ItemStack$$Type): boolean
  "getScopeOverlayTexture"(arg0: $ItemStack$$Type): $ResourceLocation
 /**
@@ -816,11 +819,8 @@ static "of"(arg0: $Item$$Type): $IClientItemExtensions
  */
  "renderHelmetOverlay"(arg0: $ItemStack$$Type, arg1: $Player$$Type, arg2: integer, arg3: integer, arg4: float): void
  "renderHelmetOverlay"(arg0: $ItemStack$$Type, arg1: $Player$$Type, arg2: $GuiGraphics$$Type, arg3: $DeltaTracker$$Type): void
- "applyForgeHandTransform"(arg0: $PoseStack$$Type, arg1: $LocalPlayer$$Type, arg2: $HumanoidArm$$Type, arg3: $ItemStack$$Type, arg4: float, arg5: float, arg6: float): boolean
- "setupModelAnimations"(arg0: $LivingEntity$$Type, arg1: $ItemStack$$Type, arg2: $EquipmentSlot$$Type, arg3: $Model$$Type, arg4: float, arg5: float, arg6: float, arg7: float, arg8: float, arg9: float): void
- "getGenericArmorModel"(arg0: $LivingEntity$$Type, arg1: $ItemStack$$Type, arg2: $EquipmentSlot$$Type, arg3: $HumanoidModel$$Type<(never)>): $Model
  "getArmorLayerTintColor"(arg0: $ItemStack$$Type, arg1: $LivingEntity$$Type, arg2: $ArmorMaterial$Layer$$Type, arg3: integer, arg4: integer): integer
- "getHumanoidArmorModel"(arg0: $LivingEntity$$Type, arg1: $ItemStack$$Type, arg2: $EquipmentSlot$$Type, arg3: $HumanoidModel$$Type<(never)>): $HumanoidModel<(never)>
+ "getFont"(arg0: $ItemStack$$Type, arg1: $IClientItemExtensions$FontContext$$Type): $Font
  "getArmPose"(arg0: $LivingEntity$$Type, arg1: $InteractionHand$$Type, arg2: $ItemStack$$Type): $HumanoidModel$ArmPose
 }
 /**
@@ -892,9 +892,9 @@ import {$FogRenderer$FogMode$$Type} from "net.minecraft.client.renderer.FogRende
 import {$BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
 
 export interface $IClientFluidTypeExtensions$$Interface {
-get "overlayTexture"(): $ResourceLocation
-get "stillTexture"(): $ResourceLocation
 get "tintColor"(): integer
+get "stillTexture"(): $ResourceLocation
+get "overlayTexture"(): $ResourceLocation
 get "flowingTexture"(): $ResourceLocation
 }
 
@@ -904,22 +904,22 @@ static readonly "DEFAULT": $IClientFluidTypeExtensions
 static "of"(arg0: $FluidState$$Type): $IClientFluidTypeExtensions
 static "of"(arg0: $FluidType$$Type): $IClientFluidTypeExtensions
 static "of"(arg0: $Fluid$$Type): $IClientFluidTypeExtensions
- "getOverlayTexture"(arg0: $FluidState$$Type, arg1: $BlockAndTintGetter$$Type, arg2: $BlockPos$$Type): $ResourceLocation
- "getOverlayTexture"(arg0: $FluidStack$$Type): $ResourceLocation
- "getOverlayTexture"(): $ResourceLocation
- "getStillTexture"(): $ResourceLocation
+ "getRenderOverlayTexture"(arg0: $Minecraft$$Type): $ResourceLocation
+ "getTintColor"(arg0: $FluidStack$$Type): integer
+ "getTintColor"(arg0: $FluidState$$Type, arg1: $BlockAndTintGetter$$Type, arg2: $BlockPos$$Type): integer
+ "getTintColor"(): integer
  "getStillTexture"(arg0: $FluidState$$Type, arg1: $BlockAndTintGetter$$Type, arg2: $BlockPos$$Type): $ResourceLocation
  "getStillTexture"(arg0: $FluidStack$$Type): $ResourceLocation
- "getTintColor"(arg0: $FluidState$$Type, arg1: $BlockAndTintGetter$$Type, arg2: $BlockPos$$Type): integer
- "getTintColor"(arg0: $FluidStack$$Type): integer
- "getTintColor"(): integer
- "getRenderOverlayTexture"(arg0: $Minecraft$$Type): $ResourceLocation
- "modifyFogColor"(arg0: $Camera$$Type, arg1: float, arg2: $ClientLevel$$Type, arg3: integer, arg4: float, arg5: $Vector3f$$Type): $Vector3f
- "renderFluid"(arg0: $FluidState$$Type, arg1: $BlockAndTintGetter$$Type, arg2: $BlockPos$$Type, arg3: $VertexConsumer$$Type, arg4: $BlockState$$Type): boolean
+ "getStillTexture"(): $ResourceLocation
+ "getOverlayTexture"(arg0: $FluidState$$Type, arg1: $BlockAndTintGetter$$Type, arg2: $BlockPos$$Type): $ResourceLocation
+ "getOverlayTexture"(): $ResourceLocation
+ "getOverlayTexture"(arg0: $FluidStack$$Type): $ResourceLocation
  "getFlowingTexture"(): $ResourceLocation
- "getFlowingTexture"(arg0: $FluidState$$Type, arg1: $BlockAndTintGetter$$Type, arg2: $BlockPos$$Type): $ResourceLocation
  "getFlowingTexture"(arg0: $FluidStack$$Type): $ResourceLocation
+ "getFlowingTexture"(arg0: $FluidState$$Type, arg1: $BlockAndTintGetter$$Type, arg2: $BlockPos$$Type): $ResourceLocation
  "renderOverlay"(arg0: $Minecraft$$Type, arg1: $PoseStack$$Type): void
+ "renderFluid"(arg0: $FluidState$$Type, arg1: $BlockAndTintGetter$$Type, arg2: $BlockPos$$Type, arg3: $VertexConsumer$$Type, arg4: $BlockState$$Type): boolean
+ "modifyFogColor"(arg0: $Camera$$Type, arg1: float, arg2: $ClientLevel$$Type, arg3: integer, arg4: float, arg5: $Vector3f$$Type): $Vector3f
  "modifyFogRender"(arg0: $Camera$$Type, arg1: $FogRenderer$FogMode$$Type, arg2: float, arg3: float, arg4: float, arg5: float, arg6: $FogShape$$Type): void
 }
 /**
@@ -941,10 +941,10 @@ import {$Component} from "net.minecraft.network.chat.Component"
 export interface $IKeyMappingExtension$$Interface {
 get "key"(): $InputConstants$Key
 get "displayName"(): $Component
-get "toDefault"(): void
-set "keyConflictContext"(value: $IKeyConflictContext$$Type)
-get "keyConflictContext"(): $IKeyConflictContext
 get "defaultKeyModifier"(): $KeyModifier
+get "keyConflictContext"(): $IKeyConflictContext
+set "keyConflictContext"(value: $IKeyConflictContext$$Type)
+get "toDefault"(): void
 get "conflictContextAndModifierActive"(): boolean
 get "keyModifier"(): $KeyModifier
 }
@@ -952,13 +952,13 @@ get "keyModifier"(): $KeyModifier
 export class $IKeyMappingExtension implements $IKeyMappingExtension$$Interface {
  "getKey"(): $InputConstants$Key
  "getDisplayName"(): $Component
- "setToDefault"(): void
- "isActiveAndMatches"(arg0: $InputConstants$Key$$Type): boolean
- "setKeyConflictContext"(arg0: $IKeyConflictContext$$Type): void
- "setKeyModifierAndCode"(arg0: $KeyModifier$$Type, arg1: $InputConstants$Key$$Type): void
+ "getDefaultKeyModifier"(): $KeyModifier
  "hasKeyModifierConflict"(arg0: $KeyMapping$$Type): boolean
  "getKeyConflictContext"(): $IKeyConflictContext
- "getDefaultKeyModifier"(): $KeyModifier
+ "setKeyConflictContext"(arg0: $IKeyConflictContext$$Type): void
+ "setKeyModifierAndCode"(arg0: $KeyModifier$$Type, arg1: $InputConstants$Key$$Type): void
+ "setToDefault"(): void
+ "isActiveAndMatches"(arg0: $InputConstants$Key$$Type): boolean
  "isConflictContextAndModifierActive"(): boolean
  "getKeyModifier"(): $KeyModifier
 }
@@ -975,8 +975,8 @@ declare module "net.neoforged.neoforge.client.model.data.ModelDataManager" {
 import {$SectionPos$$Type} from "net.minecraft.core.SectionPos"
 import {$Long2ObjectMap} from "it.unimi.dsi.fastutil.longs.Long2ObjectMap"
 import {$Level$$Type} from "net.minecraft.world.level.Level"
-import {$ChunkEvent$Unload$$Type} from "net.neoforged.neoforge.event.level.ChunkEvent$Unload"
 import {$ModelData} from "net.neoforged.neoforge.client.model.data.ModelData"
+import {$ChunkEvent$Unload$$Type} from "net.neoforged.neoforge.event.level.ChunkEvent$Unload"
 import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
 import {$BlockEntity$$Type} from "net.minecraft.world.level.block.entity.BlockEntity"
 import {$Long2ObjectFunction} from "it.unimi.dsi.fastutil.longs.Long2ObjectFunction"
@@ -986,11 +986,11 @@ static readonly "EMPTY_SNAPSHOT": $Long2ObjectFunction<($ModelData)>
 
 constructor(arg0: $Level$$Type)
 
-public "requestRefresh"(arg0: $BlockEntity$$Type): void
-public "getAt"(arg0: $BlockPos$$Type): $ModelData
-public "getAt"(arg0: $SectionPos$$Type): $Long2ObjectMap<($ModelData)>
-public static "onChunkUnload"(arg0: $ChunkEvent$Unload$$Type): void
 public "snapshotSectionRegion"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): $Long2ObjectFunction<($ModelData)>
+public static "onChunkUnload"(arg0: $ChunkEvent$Unload$$Type): void
+public "getAt"(arg0: $SectionPos$$Type): $Long2ObjectMap<($ModelData)>
+public "getAt"(arg0: $BlockPos$$Type): $ModelData
+public "requestRefresh"(arg0: $BlockEntity$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1030,8 +1030,8 @@ export type $RenderLevelStageEvent$Stage$$Type = ($RenderLevelStageEvent$Stage);
  */
 export type $RenderLevelStageEvent$Stage$$Original = $RenderLevelStageEvent$Stage;}
 declare module "net.neoforged.neoforge.client.event.RegisterEntitySpectatorShadersEvent" {
-import {$Map$$Type} from "java.util.Map"
 import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
+import {$Map$$Type} from "java.util.Map"
 import {$Event} from "net.neoforged.bus.api.Event"
 import {$IModBusEvent$$Interface} from "net.neoforged.fml.event.IModBusEvent"
 import {$EntityType$$Type} from "net.minecraft.world.entity.EntityType"
@@ -1059,10 +1059,10 @@ import {$DeltaTracker$$Type} from "net.minecraft.client.DeltaTracker"
 export class $RenderGuiEvent$Pre extends $RenderGuiEvent implements $ICancellableEvent$$Interface {
 constructor(arg0: $GuiGraphics$$Type, arg1: $DeltaTracker$$Type)
 
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
-get "canceled"(): boolean
+public "isCanceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1084,10 +1084,10 @@ export class $RegisterColorHandlersEvent$Item extends $RegisterColorHandlersEven
 constructor(arg0: $ItemColors$$Type, arg1: $BlockColors$$Type)
 
 public "register"(arg0: $ItemColor$$Type, ...arg1: ($ItemLike$$Type)[]): void
-public "getItemColors"(): $ItemColors
 public "getBlockColors"(): $BlockColors
-get "itemColors"(): $ItemColors
+public "getItemColors"(): $ItemColors
 get "blockColors"(): $BlockColors
+get "itemColors"(): $ItemColors
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1138,8 +1138,8 @@ export type $RegisterClientTooltipComponentFactoriesEvent$$Original = $RegisterC
 declare module "net.neoforged.neoforge.client.event.RenderHighlightEvent$Entity" {
 import {$MultiBufferSource$$Type} from "net.minecraft.client.renderer.MultiBufferSource"
 import {$EntityHitResult, $EntityHitResult$$Type} from "net.minecraft.world.phys.EntityHitResult"
-import {$RenderHighlightEvent} from "net.neoforged.neoforge.client.event.RenderHighlightEvent"
 import {$PoseStack$$Type} from "com.mojang.blaze3d.vertex.PoseStack"
+import {$RenderHighlightEvent} from "net.neoforged.neoforge.client.event.RenderHighlightEvent"
 import {$LevelRenderer$$Type} from "net.minecraft.client.renderer.LevelRenderer"
 import {$DeltaTracker$$Type} from "net.minecraft.client.DeltaTracker"
 import {$Camera$$Type} from "net.minecraft.client.Camera"
@@ -1167,11 +1167,11 @@ export class $ScreenEvent$KeyReleased extends $ScreenEvent$KeyInput {
 constructor(arg0: $Screen$$Type, arg1: integer, arg2: integer, arg3: integer)
 
 public "getModifiers"(): integer
-public "getScanCode"(): integer
 public "getKeyCode"(): integer
+public "getScanCode"(): integer
 get "modifiers"(): integer
-get "scanCode"(): integer
 get "keyCode"(): integer
+get "scanCode"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1186,8 +1186,8 @@ declare module "net.neoforged.neoforge.client.extensions.IBakedModelExtension" {
 import {$TextureAtlasSprite} from "net.minecraft.client.renderer.texture.TextureAtlasSprite"
 import {$ItemDisplayContext$$Type} from "net.minecraft.world.item.ItemDisplayContext"
 import {$ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
-import {$PoseStack$$Type} from "com.mojang.blaze3d.vertex.PoseStack"
 import {$BakedModel} from "net.minecraft.client.resources.model.BakedModel"
+import {$PoseStack$$Type} from "com.mojang.blaze3d.vertex.PoseStack"
 import {$List} from "java.util.List"
 import {$Direction$$Type} from "net.minecraft.core.Direction"
 import {$BakedQuad} from "net.minecraft.client.renderer.block.model.BakedQuad"
@@ -1197,21 +1197,21 @@ import {$ChunkRenderTypeSet} from "net.neoforged.neoforge.client.ChunkRenderType
 import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
 import {$ModelData, $ModelData$$Type} from "net.neoforged.neoforge.client.model.data.ModelData"
 import {$RenderType, $RenderType$$Type} from "net.minecraft.client.renderer.RenderType"
-import {$BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
 import {$TriState} from "net.neoforged.neoforge.common.util.TriState"
+import {$BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
 
 export interface $IBakedModelExtension$$Interface {
 }
 
 export class $IBakedModelExtension implements $IBakedModelExtension$$Interface {
+ "getRenderPasses"(arg0: $ItemStack$$Type, arg1: boolean): $List<($BakedModel)>
+ "getRenderTypes"(arg0: $BlockState$$Type, arg1: $RandomSource$$Type, arg2: $ModelData$$Type): $ChunkRenderTypeSet
+ "getRenderTypes"(arg0: $ItemStack$$Type, arg1: boolean): $List<($RenderType)>
+ "useAmbientOcclusion"(arg0: $BlockState$$Type, arg1: $ModelData$$Type, arg2: $RenderType$$Type): $TriState
+ "getQuads"(arg0: $BlockState$$Type, arg1: $Direction$$Type, arg2: $RandomSource$$Type, arg3: $ModelData$$Type, arg4: $RenderType$$Type): $List<($BakedQuad)>
  "applyTransform"(arg0: $ItemDisplayContext$$Type, arg1: $PoseStack$$Type, arg2: boolean): $BakedModel
  "getParticleIcon"(arg0: $ModelData$$Type): $TextureAtlasSprite
  "getModelData"(arg0: $BlockAndTintGetter$$Type, arg1: $BlockPos$$Type, arg2: $BlockState$$Type, arg3: $ModelData$$Type): $ModelData
- "useAmbientOcclusion"(arg0: $BlockState$$Type, arg1: $ModelData$$Type, arg2: $RenderType$$Type): $TriState
- "getRenderTypes"(arg0: $ItemStack$$Type, arg1: boolean): $List<($RenderType)>
- "getRenderTypes"(arg0: $BlockState$$Type, arg1: $RandomSource$$Type, arg2: $ModelData$$Type): $ChunkRenderTypeSet
- "getRenderPasses"(arg0: $ItemStack$$Type, arg1: boolean): $List<($BakedModel)>
- "getQuads"(arg0: $BlockState$$Type, arg1: $Direction$$Type, arg2: $RandomSource$$Type, arg3: $ModelData$$Type, arg4: $RenderType$$Type): $List<($BakedQuad)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1234,18 +1234,18 @@ constructor(arg0: $ChatType$Bound$$Type, arg1: $Component$$Type, arg2: $UUID$$Ty
 
 public "getMessage"(): $Component
 public "isSystem"(): boolean
-public "setMessage"(arg0: $Component$$Type): void
 public "getBoundChatType"(): $ChatType$Bound
+public "setMessage"(arg0: $Component$$Type): void
 public "getSender"(): $UUID
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
+public "isCanceled"(): boolean
 get "message"(): $Component
 get "system"(): boolean
-set "message"(value: $Component$$Type)
 get "boundChatType"(): $ChatType$Bound
+set "message"(value: $Component$$Type)
 get "sender"(): $UUID
-get "canceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1332,15 +1332,15 @@ import {$PlayerRenderer} from "net.minecraft.client.renderer.entity.player.Playe
 export class $RenderPlayerEvent extends $PlayerEvent {
 public "getRenderer"(): $PlayerRenderer
 public "getMultiBufferSource"(): $MultiBufferSource
-public "getPartialTick"(): float
-public "getPackedLight"(): integer
 public "getPoseStack"(): $PoseStack
+public "getPackedLight"(): integer
+public "getPartialTick"(): float
 public "getEntity"(): $Entity
 get "renderer"(): $PlayerRenderer
 get "multiBufferSource"(): $MultiBufferSource
-get "partialTick"(): float
-get "packedLight"(): integer
 get "poseStack"(): $PoseStack
+get "packedLight"(): integer
+get "partialTick"(): float
 get "entity"(): $Entity
 }
 /**
@@ -1361,15 +1361,15 @@ export class $ScreenEvent$KeyReleased$Post extends $ScreenEvent$KeyReleased impl
 constructor(arg0: $Screen$$Type, arg1: integer, arg2: integer, arg3: integer)
 
 public "getModifiers"(): integer
-public "getScanCode"(): integer
 public "getKeyCode"(): integer
-public "isCanceled"(): boolean
+public "getScanCode"(): integer
 public "setCanceled"(arg0: boolean): void
+public "isCanceled"(): boolean
 get "modifiers"(): integer
-get "scanCode"(): integer
 get "keyCode"(): integer
-get "canceled"(): boolean
+get "scanCode"(): integer
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1384,35 +1384,35 @@ declare module "net.neoforged.neoforge.client.event.RenderHandEvent" {
 import {$MultiBufferSource, $MultiBufferSource$$Type} from "net.minecraft.client.renderer.MultiBufferSource"
 import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$ICancellableEvent$$Interface} from "net.neoforged.bus.api.ICancellableEvent"
-import {$InteractionHand, $InteractionHand$$Type} from "net.minecraft.world.InteractionHand"
 import {$PoseStack, $PoseStack$$Type} from "com.mojang.blaze3d.vertex.PoseStack"
+import {$InteractionHand, $InteractionHand$$Type} from "net.minecraft.world.InteractionHand"
 import {$Event} from "net.neoforged.bus.api.Event"
 
 export class $RenderHandEvent extends $Event implements $ICancellableEvent$$Interface {
 constructor(arg0: $InteractionHand$$Type, arg1: $PoseStack$$Type, arg2: $MultiBufferSource$$Type, arg3: integer, arg4: float, arg5: float, arg6: float, arg7: float, arg8: $ItemStack$$Type)
 
-public "getMultiBufferSource"(): $MultiBufferSource
-public "getInterpolatedPitch"(): float
-public "getHand"(): $InteractionHand
-public "getItemStack"(): $ItemStack
-public "getPartialTick"(): float
-public "getPackedLight"(): integer
 public "getEquipProgress"(): float
 public "getSwingProgress"(): float
+public "getInterpolatedPitch"(): float
+public "getMultiBufferSource"(): $MultiBufferSource
 public "getPoseStack"(): $PoseStack
-public "isCanceled"(): boolean
+public "getHand"(): $InteractionHand
+public "getItemStack"(): $ItemStack
+public "getPackedLight"(): integer
+public "getPartialTick"(): float
 public "setCanceled"(arg0: boolean): void
-get "multiBufferSource"(): $MultiBufferSource
-get "interpolatedPitch"(): float
-get "hand"(): $InteractionHand
-get "itemStack"(): $ItemStack
-get "partialTick"(): float
-get "packedLight"(): integer
+public "isCanceled"(): boolean
 get "equipProgress"(): float
 get "swingProgress"(): float
+get "interpolatedPitch"(): float
+get "multiBufferSource"(): $MultiBufferSource
 get "poseStack"(): $PoseStack
-get "canceled"(): boolean
+get "hand"(): $InteractionHand
+get "itemStack"(): $ItemStack
+get "packedLight"(): integer
+get "partialTick"(): float
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1429,9 +1429,9 @@ import {$ScreenEvent} from "net.neoforged.neoforge.client.event.ScreenEvent"
 import {$List} from "java.util.List"
 
 export class $ScreenEvent$Init extends $ScreenEvent {
-public "getListenersList"(): $List<($GuiEventListener)>
 public "removeListener"(arg0: $GuiEventListener$$Type): void
 public "addListener"(arg0: $GuiEventListener$$Type): void
+public "getListenersList"(): $List<($GuiEventListener)>
 get "listenersList"(): $List<($GuiEventListener)>
 }
 /**
@@ -1466,15 +1466,15 @@ get "empty"(): boolean
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $RenderTypeGroup$$Type = ({"entityFabulous"?: $RenderType$$Type, "block"?: $RenderType$$Type, "entity"?: $RenderType$$Type}) | ([entityFabulous?: $RenderType$$Type, block?: $RenderType$$Type, entity?: $RenderType$$Type]);
+export type $RenderTypeGroup$$Type = ({"entity"?: $RenderType$$Type, "block"?: $RenderType$$Type, "entityFabulous"?: $RenderType$$Type}) | ([entity?: $RenderType$$Type, block?: $RenderType$$Type, entityFabulous?: $RenderType$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $RenderTypeGroup$$Original = $RenderTypeGroup;}
 declare module "net.neoforged.neoforge.client.event.RenderItemInFrameEvent" {
 import {$ItemFrameRenderer, $ItemFrameRenderer$$Type} from "net.minecraft.client.renderer.entity.ItemFrameRenderer"
-import {$MultiBufferSource, $MultiBufferSource$$Type} from "net.minecraft.client.renderer.MultiBufferSource"
 import {$ItemStack} from "net.minecraft.world.item.ItemStack"
+import {$MultiBufferSource, $MultiBufferSource$$Type} from "net.minecraft.client.renderer.MultiBufferSource"
 import {$ICancellableEvent$$Interface} from "net.neoforged.bus.api.ICancellableEvent"
 import {$PoseStack, $PoseStack$$Type} from "com.mojang.blaze3d.vertex.PoseStack"
 import {$Event} from "net.neoforged.bus.api.Event"
@@ -1485,20 +1485,20 @@ constructor(arg0: $ItemFrame$$Type, arg1: $ItemFrameRenderer$$Type<(never)>, arg
 
 public "getRenderer"(): $ItemFrameRenderer<(never)>
 public "getMultiBufferSource"(): $MultiBufferSource
-public "getItemStack"(): $ItemStack
-public "getPackedLight"(): integer
 public "getPoseStack"(): $PoseStack
 public "getItemFrameEntity"(): $ItemFrame
-public "isCanceled"(): boolean
+public "getItemStack"(): $ItemStack
+public "getPackedLight"(): integer
 public "setCanceled"(arg0: boolean): void
+public "isCanceled"(): boolean
 get "renderer"(): $ItemFrameRenderer<(never)>
 get "multiBufferSource"(): $MultiBufferSource
-get "itemStack"(): $ItemStack
-get "packedLight"(): integer
 get "poseStack"(): $PoseStack
 get "itemFrameEntity"(): $ItemFrame
-get "canceled"(): boolean
+get "itemStack"(): $ItemStack
+get "packedLight"(): integer
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1526,14 +1526,14 @@ constructor(arg0: $Map$$Type<($EntityType$$Type<(never)>), ($EntityRenderer$$Typ
 
 public "getContext"(): $EntityRendererProvider$Context
 public "getSkin"<R extends $EntityRenderer<(object)>>(arg0: $PlayerSkin$Model$$Type): R
-public "getRenderer"<T extends $Entity, R extends $EntityRenderer<(object)>>(arg0: $EntityType$$Type<(T)>): R
-public "getEntityModels"(): $EntityModelSet
-public "getEntityTypes"(): $Set<($EntityType<(never)>)>
 public "getSkins"(): $Set<($PlayerSkin$Model)>
+public "getRenderer"<T extends $Entity, R extends $EntityRenderer<(object)>>(arg0: $EntityType$$Type<(T)>): R
+public "getEntityTypes"(): $Set<($EntityType<(never)>)>
+public "getEntityModels"(): $EntityModelSet
 get "context"(): $EntityRendererProvider$Context
-get "entityModels"(): $EntityModelSet
-get "entityTypes"(): $Set<($EntityType<(never)>)>
 get "skins"(): $Set<($PlayerSkin$Model)>
+get "entityTypes"(): $Set<($EntityType<(never)>)>
+get "entityModels"(): $EntityModelSet
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1548,17 +1548,17 @@ declare module "net.neoforged.neoforge.client.event.ScreenEvent$Init$Pre" {
 import {$GuiEventListener$$Type} from "net.minecraft.client.gui.components.events.GuiEventListener"
 import {$ScreenEvent$Init} from "net.neoforged.neoforge.client.event.ScreenEvent$Init"
 import {$Screen$$Type} from "net.minecraft.client.gui.screens.Screen"
-import {$List$$Type} from "java.util.List"
 import {$ICancellableEvent$$Interface} from "net.neoforged.bus.api.ICancellableEvent"
+import {$List$$Type} from "java.util.List"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 
 export class $ScreenEvent$Init$Pre extends $ScreenEvent$Init implements $ICancellableEvent$$Interface {
 constructor(arg0: $Screen$$Type, arg1: $List$$Type<($GuiEventListener$$Type)>, arg2: $Consumer$$Type<($GuiEventListener)>, arg3: $Consumer$$Type<($GuiEventListener)>)
 
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
-get "canceled"(): boolean
+public "isCanceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1628,9 +1628,9 @@ import {$IModBusEvent$$Interface} from "net.neoforged.fml.event.IModBusEvent"
 export class $RegisterDimensionTransitionScreenEvent extends $Event implements $IModBusEvent$$Interface {
 constructor(arg0: $Map$$Type<($Pair$$Type<($ResourceKey$$Type<($Level$$Type)>), ($ResourceKey$$Type<($Level$$Type)>)>), ($DimensionTransitionScreenManager$ReceivingLevelScreenFactory$$Type)>, arg1: $Map$$Type<($ResourceKey$$Type<($Level$$Type)>), ($DimensionTransitionScreenManager$ReceivingLevelScreenFactory$$Type)>, arg2: $Map$$Type<($ResourceKey$$Type<($Level$$Type)>), ($DimensionTransitionScreenManager$ReceivingLevelScreenFactory$$Type)>)
 
-public "registerIncomingEffect"(arg0: $ResourceKey$$Type<($Level)>, arg1: $DimensionTransitionScreenManager$ReceivingLevelScreenFactory$$Type): boolean
-public "registerOutgoingEffect"(arg0: $ResourceKey$$Type<($Level)>, arg1: $DimensionTransitionScreenManager$ReceivingLevelScreenFactory$$Type): boolean
 public "registerConditionalEffect"(arg0: $ResourceKey$$Type<($Level)>, arg1: $ResourceKey$$Type<($Level)>, arg2: $DimensionTransitionScreenManager$ReceivingLevelScreenFactory$$Type): boolean
+public "registerOutgoingEffect"(arg0: $ResourceKey$$Type<($Level)>, arg1: $DimensionTransitionScreenManager$ReceivingLevelScreenFactory$$Type): boolean
+public "registerIncomingEffect"(arg0: $ResourceKey$$Type<($Level)>, arg1: $DimensionTransitionScreenManager$ReceivingLevelScreenFactory$$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1651,8 +1651,8 @@ get "locale"(): $Locale
 
 export class $IMinecraftExtension implements $IMinecraftExtension$$Interface {
  "getLocale"(): $Locale
- "pushGuiLayer"(arg0: $Screen$$Type): void
  "popGuiLayer"(): void
+ "pushGuiLayer"(arg0: $Screen$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1664,30 +1664,30 @@ export type $IMinecraftExtension$$Type = ($IMinecraftExtension);
  */
 export type $IMinecraftExtension$$Original = $IMinecraftExtension;}
 declare module "net.neoforged.neoforge.client.event.InputEvent$MouseScrollingEvent" {
-import {$InputEvent} from "net.neoforged.neoforge.client.event.InputEvent"
 import {$ICancellableEvent$$Interface} from "net.neoforged.bus.api.ICancellableEvent"
+import {$InputEvent} from "net.neoforged.neoforge.client.event.InputEvent"
 
 export class $InputEvent$MouseScrollingEvent extends $InputEvent implements $ICancellableEvent$$Interface {
 constructor(arg0: double, arg1: double, arg2: boolean, arg3: boolean, arg4: boolean, arg5: double, arg6: double)
 
-public "isLeftDown"(): boolean
-public "getMouseY"(): double
-public "getMouseX"(): double
 public "isRightDown"(): boolean
 public "isMiddleDown"(): boolean
+public "isLeftDown"(): boolean
+public "getMouseX"(): double
+public "getMouseY"(): double
 public "getScrollDeltaX"(): double
 public "getScrollDeltaY"(): double
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
-get "leftDown"(): boolean
-get "mouseY"(): double
-get "mouseX"(): double
+public "isCanceled"(): boolean
 get "rightDown"(): boolean
 get "middleDown"(): boolean
+get "leftDown"(): boolean
+get "mouseX"(): double
+get "mouseY"(): double
 get "scrollDeltaX"(): double
 get "scrollDeltaY"(): double
-get "canceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1699,8 +1699,8 @@ export type $InputEvent$MouseScrollingEvent$$Type = ($InputEvent$MouseScrollingE
  */
 export type $InputEvent$MouseScrollingEvent$$Original = $InputEvent$MouseScrollingEvent;}
 declare module "net.neoforged.neoforge.client.event.ScreenEvent$BackgroundRendered" {
-import {$ScreenEvent} from "net.neoforged.neoforge.client.event.ScreenEvent"
 import {$GuiGraphics, $GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
+import {$ScreenEvent} from "net.neoforged.neoforge.client.event.ScreenEvent"
 import {$Screen$$Type} from "net.minecraft.client.gui.screens.Screen"
 
 /**
@@ -1726,39 +1726,39 @@ declare module "net.neoforged.neoforge.client.event.RenderTooltipEvent$Color" {
 import {$ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
 import {$List$$Type} from "java.util.List"
-import {$Font$$Type} from "net.minecraft.client.gui.Font"
 import {$RenderTooltipEvent} from "net.neoforged.neoforge.client.event.RenderTooltipEvent"
+import {$Font$$Type} from "net.minecraft.client.gui.Font"
 import {$ClientTooltipComponent$$Type} from "net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent"
 
 export class $RenderTooltipEvent$Color extends $RenderTooltipEvent {
 constructor(arg0: $ItemStack$$Type, arg1: $GuiGraphics$$Type, arg2: integer, arg3: integer, arg4: $Font$$Type, arg5: integer, arg6: integer, arg7: integer, arg8: $List$$Type<($ClientTooltipComponent$$Type)>)
 
-public "getBorderEnd"(): integer
-public "getBackgroundStart"(): integer
-public "getBackgroundEnd"(): integer
-public "getBorderStart"(): integer
 public "setBackground"(arg0: integer): void
+public "getBackgroundStart"(): integer
+public "getBorderStart"(): integer
+public "getBackgroundEnd"(): integer
+public "getBorderEnd"(): integer
+public "getOriginalBorderStart"(): integer
+public "getOriginalBackgroundStart"(): integer
+public "getOriginalBorderEnd"(): integer
+public "getOriginalBackgroundEnd"(): integer
+public "setBackgroundEnd"(arg0: integer): void
 public "setBackgroundStart"(arg0: integer): void
 public "setBorderStart"(arg0: integer): void
 public "setBorderEnd"(arg0: integer): void
-public "setBackgroundEnd"(arg0: integer): void
-public "getOriginalBorderEnd"(): integer
-public "getOriginalBackgroundStart"(): integer
-public "getOriginalBorderStart"(): integer
-public "getOriginalBackgroundEnd"(): integer
-get "borderEnd"(): integer
-get "backgroundStart"(): integer
-get "backgroundEnd"(): integer
-get "borderStart"(): integer
 set "background"(value: integer)
+get "backgroundStart"(): integer
+get "borderStart"(): integer
+get "backgroundEnd"(): integer
+get "borderEnd"(): integer
+get "originalBorderStart"(): integer
+get "originalBackgroundStart"(): integer
+get "originalBorderEnd"(): integer
+get "originalBackgroundEnd"(): integer
+set "backgroundEnd"(value: integer)
 set "backgroundStart"(value: integer)
 set "borderStart"(value: integer)
 set "borderEnd"(value: integer)
-set "backgroundEnd"(value: integer)
-get "originalBorderEnd"(): integer
-get "originalBackgroundStart"(): integer
-get "originalBorderStart"(): integer
-get "originalBackgroundEnd"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1785,14 +1785,14 @@ public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "inverseKeyframeTarget"(): $AnimationKeyframeTarget
-public "channelTarget"(): $AnimationChannel$Target
 public "keyframeTarget"(): $AnimationKeyframeTarget
+public "channelTarget"(): $AnimationChannel$Target
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $AnimationTarget$$Type = ({"channelTarget"?: $AnimationChannel$Target$$Type, "inverseKeyframeTarget"?: $AnimationKeyframeTarget$$Type, "keyframeTarget"?: $AnimationKeyframeTarget$$Type}) | ([channelTarget?: $AnimationChannel$Target$$Type, inverseKeyframeTarget?: $AnimationKeyframeTarget$$Type, keyframeTarget?: $AnimationKeyframeTarget$$Type]);
+export type $AnimationTarget$$Type = ({"inverseKeyframeTarget"?: $AnimationKeyframeTarget$$Type, "channelTarget"?: $AnimationChannel$Target$$Type, "keyframeTarget"?: $AnimationKeyframeTarget$$Type}) | ([inverseKeyframeTarget?: $AnimationKeyframeTarget$$Type, channelTarget?: $AnimationChannel$Target$$Type, keyframeTarget?: $AnimationKeyframeTarget$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -1806,15 +1806,15 @@ export class $ScreenEvent$KeyPressed$Pre extends $ScreenEvent$KeyPressed impleme
 constructor(arg0: $Screen$$Type, arg1: integer, arg2: integer, arg3: integer)
 
 public "getModifiers"(): integer
-public "getScanCode"(): integer
 public "getKeyCode"(): integer
-public "isCanceled"(): boolean
+public "getScanCode"(): integer
 public "setCanceled"(arg0: boolean): void
+public "isCanceled"(): boolean
 get "modifiers"(): integer
-get "scanCode"(): integer
 get "keyCode"(): integer
-get "canceled"(): boolean
+get "scanCode"(): integer
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1865,10 +1865,10 @@ declare module "net.neoforged.neoforge.client.event.RegisterMenuScreensEvent" {
 import {$Map$$Type} from "java.util.Map"
 import {$AbstractContainerMenu} from "net.minecraft.world.inventory.AbstractContainerMenu"
 import {$Screen} from "net.minecraft.client.gui.screens.Screen"
-import {$MenuType$$Type} from "net.minecraft.world.inventory.MenuType"
 import {$Event} from "net.neoforged.bus.api.Event"
-import {$IModBusEvent$$Interface} from "net.neoforged.fml.event.IModBusEvent"
+import {$MenuType$$Type} from "net.minecraft.world.inventory.MenuType"
 import {$MenuScreens$ScreenConstructor$$Type} from "net.minecraft.client.gui.screens.MenuScreens$ScreenConstructor"
+import {$IModBusEvent$$Interface} from "net.neoforged.fml.event.IModBusEvent"
 
 export class $RegisterMenuScreensEvent extends $Event implements $IModBusEvent$$Interface {
 constructor(arg0: $Map$$Type<($MenuType$$Type<(never)>), ($MenuScreens$ScreenConstructor$$Type<(never), (never)>)>)
@@ -1930,23 +1930,23 @@ export class $RenderNameTagEvent extends $EntityEvent {
 constructor(arg0: $Entity$$Type, arg1: $Component$$Type, arg2: $EntityRenderer$$Type<(never)>, arg3: $PoseStack$$Type, arg4: $MultiBufferSource$$Type, arg5: integer, arg6: float)
 
 public "getContent"(): $Component
-public "getMultiBufferSource"(): $MultiBufferSource
 public "setContent"(arg0: $Component$$Type): void
-public "getPartialTick"(): float
-public "getPackedLight"(): integer
-public "getEntityRenderer"(): $EntityRenderer<(never)>
-public "setCanRender"(arg0: $TriState$$Type): void
-public "getOriginalContent"(): $Component
 public "canRender"(): $TriState
+public "getMultiBufferSource"(): $MultiBufferSource
 public "getPoseStack"(): $PoseStack
+public "getEntityRenderer"(): $EntityRenderer<(never)>
+public "getPackedLight"(): integer
+public "getOriginalContent"(): $Component
+public "setCanRender"(arg0: $TriState$$Type): void
+public "getPartialTick"(): float
 get "content"(): $Component
-get "multiBufferSource"(): $MultiBufferSource
 set "content"(value: $Component$$Type)
-get "partialTick"(): float
-get "packedLight"(): integer
-get "entityRenderer"(): $EntityRenderer<(never)>
-get "originalContent"(): $Component
+get "multiBufferSource"(): $MultiBufferSource
 get "poseStack"(): $PoseStack
+get "entityRenderer"(): $EntityRenderer<(never)>
+get "packedLight"(): integer
+get "originalContent"(): $Component
+get "partialTick"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1958,8 +1958,8 @@ export type $RenderNameTagEvent$$Type = ($RenderNameTagEvent);
  */
 export type $RenderNameTagEvent$$Original = $RenderNameTagEvent;}
 declare module "net.neoforged.neoforge.client.event.CustomizeGuiOverlayEvent$Chat" {
-import {$GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
 import {$Window$$Type} from "com.mojang.blaze3d.platform.Window"
+import {$GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
 import {$DeltaTracker$$Type} from "net.minecraft.client.DeltaTracker"
 import {$CustomizeGuiOverlayEvent} from "net.neoforged.neoforge.client.event.CustomizeGuiOverlayEvent"
 
@@ -1968,12 +1968,12 @@ constructor(arg0: $Window$$Type, arg1: $GuiGraphics$$Type, arg2: $DeltaTracker$$
 
 public "getPosY"(): integer
 public "getPosX"(): integer
-public "setPosY"(arg0: integer): void
 public "setPosX"(arg0: integer): void
+public "setPosY"(arg0: integer): void
 get "posY"(): integer
 get "posX"(): integer
-set "posY"(value: integer)
 set "posX"(value: integer)
+set "posY"(value: integer)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1999,10 +1999,10 @@ get "modelTextureGetter"(): $Function<($Material), ($TextureAtlasSprite)>
 }
 
 export class $IModelBakerExtension implements $IModelBakerExtension$$Interface {
- "bake"(arg0: $ResourceLocation$$Type, arg1: $ModelState$$Type, arg2: $Function$$Type<($Material), ($TextureAtlasSprite$$Type)>): $BakedModel
- "bakeUncached"(arg0: $UnbakedModel$$Type, arg1: $ModelState$$Type, arg2: $Function$$Type<($Material), ($TextureAtlasSprite$$Type)>): $BakedModel
- "getTopLevelModel"(arg0: $ModelResourceLocation$$Type): $UnbakedModel
  "getModelTextureGetter"(): $Function<($Material), ($TextureAtlasSprite)>
+ "getTopLevelModel"(arg0: $ModelResourceLocation$$Type): $UnbakedModel
+ "bakeUncached"(arg0: $UnbakedModel$$Type, arg1: $ModelState$$Type, arg2: $Function$$Type<($Material), ($TextureAtlasSprite$$Type)>): $BakedModel
+ "bake"(arg0: $ResourceLocation$$Type, arg1: $ModelState$$Type, arg2: $Function$$Type<($Material), ($TextureAtlasSprite$$Type)>): $BakedModel
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2018,29 +2018,29 @@ import {$TooltipComponent, $TooltipComponent$$Type} from "net.minecraft.world.in
 import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$FormattedText, $FormattedText$$Type} from "net.minecraft.network.chat.FormattedText"
 import {$ICancellableEvent$$Interface} from "net.neoforged.bus.api.ICancellableEvent"
-import {$List, $List$$Type} from "java.util.List"
 import {$Either, $Either$$Type} from "com.mojang.datafixers.util.Either"
+import {$List, $List$$Type} from "java.util.List"
 import {$Event} from "net.neoforged.bus.api.Event"
 
 export class $RenderTooltipEvent$GatherComponents extends $Event implements $ICancellableEvent$$Interface {
 constructor(arg0: $ItemStack$$Type, arg1: integer, arg2: integer, arg3: $List$$Type<($Either$$Type<($FormattedText$$Type), ($TooltipComponent$$Type)>)>, arg4: integer)
 
-public "getItemStack"(): $ItemStack
-public "getMaxWidth"(): integer
 public "getScreenHeight"(): integer
 public "getScreenWidth"(): integer
+public "getMaxWidth"(): integer
+public "getItemStack"(): $ItemStack
 public "setMaxWidth"(arg0: integer): void
 public "getTooltipElements"(): $List<($Either<($FormattedText), ($TooltipComponent)>)>
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
-get "itemStack"(): $ItemStack
-get "maxWidth"(): integer
+public "isCanceled"(): boolean
 get "screenHeight"(): integer
 get "screenWidth"(): integer
+get "maxWidth"(): integer
+get "itemStack"(): $ItemStack
 set "maxWidth"(value: integer)
 get "tooltipElements"(): $List<($Either<($FormattedText), ($TooltipComponent)>)>
-get "canceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2058,10 +2058,10 @@ import {$ClientPauseChangeEvent} from "net.neoforged.neoforge.client.event.Clien
 export class $ClientPauseChangeEvent$Pre extends $ClientPauseChangeEvent implements $ICancellableEvent$$Interface {
 constructor(arg0: boolean)
 
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
-get "canceled"(): boolean
+public "isCanceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2079,14 +2079,14 @@ import {$Event} from "net.neoforged.bus.api.Event"
 export class $ComputeFovModifierEvent extends $Event {
 constructor(arg0: $Player$$Type, arg1: float)
 
-public "getPlayer"(): $Player
-public "getFovModifier"(): float
 public "getNewFovModifier"(): float
+public "getFovModifier"(): float
 public "setNewFovModifier"(arg0: float): void
-get "player"(): $Player
-get "fovModifier"(): float
+public "getPlayer"(): $Player
 get "newFovModifier"(): float
+get "fovModifier"(): float
 set "newFovModifier"(value: float)
+get "player"(): $Player
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2099,8 +2099,8 @@ export type $ComputeFovModifierEvent$$Type = ($ComputeFovModifierEvent);
 export type $ComputeFovModifierEvent$$Original = $ComputeFovModifierEvent;}
 declare module "net.neoforged.neoforge.client.event.RegisterDimensionSpecialEffectsEvent" {
 import {$DimensionSpecialEffects$$Type} from "net.minecraft.client.renderer.DimensionSpecialEffects"
-import {$Map$$Type} from "java.util.Map"
 import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
+import {$Map$$Type} from "java.util.Map"
 import {$Event} from "net.neoforged.bus.api.Event"
 import {$IModBusEvent$$Interface} from "net.neoforged.fml.event.IModBusEvent"
 
@@ -2126,12 +2126,12 @@ constructor(arg0: integer, arg1: integer, arg2: integer, arg3: integer)
 
 public "getModifiers"(): integer
 public "getKey"(): integer
-public "getScanCode"(): integer
 public "getAction"(): integer
+public "getScanCode"(): integer
 get "modifiers"(): integer
 get "key"(): integer
-get "scanCode"(): integer
 get "action"(): integer
+get "scanCode"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2149,8 +2149,8 @@ import {$CreativeQuadLighter$$Interface} from "team.creative.creativecore.client
 import {$VertexConsumer$$Type} from "com.mojang.blaze3d.vertex.VertexConsumer"
 import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
 import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
-import {$BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
 import {$BakedQuad$$Type} from "net.minecraft.client.renderer.block.model.BakedQuad"
+import {$BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
 
 export class $QuadLighter implements $CreativeQuadLighter$$Interface {
  "customTint": integer
@@ -2159,16 +2159,16 @@ public "reset"(): void
 public "setup"(arg0: $BlockAndTintGetter$$Type, arg1: $BlockPos$$Type, arg2: $BlockState$$Type): void
 public "setState"(arg0: $BlockState$$Type): void
 public "process"(arg0: $VertexConsumer$$Type, arg1: $PoseStack$Pose$$Type, arg2: $BakedQuad$$Type, arg3: integer): void
+public "handler$gak000$creativecore$getColorMultiplierHook"(arg0: integer, arg1: $CallbackInfoReturnable$$Type): void
 public static "calculateShade"(arg0: float, arg1: float, arg2: float, arg3: boolean): float
-public "handler$feh000$creativecore$getColorMultiplierHook"(arg0: integer, arg1: $CallbackInfoReturnable$$Type): void
 public "setCustomTint"(arg0: integer): void
+public "getComputedBrightness"(): (float)[]
 public "getComputedLightmap"(): (integer)[]
 public "computeLightingForQuad"(arg0: $BakedQuad$$Type): void
 public "computeLightingForQuad"(arg0: (integer)[], arg1: boolean): void
-public "getComputedBrightness"(): (float)[]
 set "state"(value: $BlockState$$Type)
-get "computedLightmap"(): (integer)[]
 get "computedBrightness"(): (float)[]
+get "computedLightmap"(): (integer)[]
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2188,11 +2188,11 @@ export class $ViewportEvent extends $Event {
 constructor(arg0: $GameRenderer$$Type, arg1: $Camera$$Type, arg2: double)
 
 public "getRenderer"(): $GameRenderer
-public "getPartialTick"(): double
 public "getCamera"(): $Camera
+public "getPartialTick"(): double
 get "renderer"(): $GameRenderer
-get "partialTick"(): double
 get "camera"(): $Camera
+get "partialTick"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2221,7 +2221,7 @@ public "layer"(): $LayeredDraw$Layer
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $GuiLayerManager$NamedLayer$$Type = ({"layer"?: $LayeredDraw$Layer$$Type, "name"?: $ResourceLocation$$Type}) | ([layer?: $LayeredDraw$Layer$$Type, name?: $ResourceLocation$$Type]);
+export type $GuiLayerManager$NamedLayer$$Type = ({"name"?: $ResourceLocation$$Type, "layer"?: $LayeredDraw$Layer$$Type}) | ([name?: $ResourceLocation$$Type, layer?: $LayeredDraw$Layer$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -2249,8 +2249,8 @@ export type $IItemDecorator$$Type = ((arg0: $GuiGraphics, arg1: $Font, arg2: $It
  */
 export type $IItemDecorator$$Original = $IItemDecorator;}
 declare module "net.neoforged.neoforge.client.gui.map.IMapDecorationRenderer" {
-import {$MapDecorationTextureManager, $MapDecorationTextureManager$$Type} from "net.minecraft.client.resources.MapDecorationTextureManager"
 import {$MultiBufferSource, $MultiBufferSource$$Type} from "net.minecraft.client.renderer.MultiBufferSource"
+import {$MapDecorationTextureManager, $MapDecorationTextureManager$$Type} from "net.minecraft.client.resources.MapDecorationTextureManager"
 import {$PoseStack, $PoseStack$$Type} from "com.mojang.blaze3d.vertex.PoseStack"
 import {$MapDecoration, $MapDecoration$$Type} from "net.minecraft.world.level.saveddata.maps.MapDecoration"
 import {$MapItemSavedData, $MapItemSavedData$$Type} from "net.minecraft.world.level.saveddata.maps.MapItemSavedData"
@@ -2284,12 +2284,12 @@ import {$ModelManager, $ModelManager$$Type} from "net.minecraft.client.resources
 export class $ModelEvent$BakingCompleted extends $ModelEvent implements $IModBusEvent$$Interface {
 constructor(arg0: $ModelManager$$Type, arg1: $Map$$Type<($ModelResourceLocation$$Type), ($BakedModel$$Type)>, arg2: $ModelBakery$$Type)
 
-public "getModelManager"(): $ModelManager
 public "getModelBakery"(): $ModelBakery
 public "getModels"(): $Map<($ModelResourceLocation), ($BakedModel)>
-get "modelManager"(): $ModelManager
+public "getModelManager"(): $ModelManager
 get "modelBakery"(): $ModelBakery
 get "models"(): $Map<($ModelResourceLocation), ($BakedModel)>
+get "modelManager"(): $ModelManager
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2301,8 +2301,8 @@ export type $ModelEvent$BakingCompleted$$Type = ($ModelEvent$BakingCompleted);
  */
 export type $ModelEvent$BakingCompleted$$Original = $ModelEvent$BakingCompleted;}
 declare module "net.neoforged.neoforge.client.event.AddSectionGeometryEvent$SectionRenderingContext" {
-import {$BlockAndTintGetter, $BlockAndTintGetter$$Type} from "net.minecraft.world.level.BlockAndTintGetter"
 import {$QuadLighter} from "net.neoforged.neoforge.client.model.lighting.QuadLighter"
+import {$BlockAndTintGetter, $BlockAndTintGetter$$Type} from "net.minecraft.world.level.BlockAndTintGetter"
 import {$Function$$Type} from "java.util.function.Function"
 import {$PoseStack, $PoseStack$$Type} from "com.mojang.blaze3d.vertex.PoseStack"
 import {$VertexConsumer, $VertexConsumer$$Type} from "com.mojang.blaze3d.vertex.VertexConsumer"
@@ -2313,8 +2313,8 @@ constructor(arg0: $Function$$Type<($RenderType), ($VertexConsumer$$Type)>, arg1:
 
 public "getRegion"(): $BlockAndTintGetter
 public "getPoseStack"(): $PoseStack
-public "getQuadLighter"(arg0: boolean): $QuadLighter
 public "getOrCreateChunkBuffer"(arg0: $RenderType$$Type): $VertexConsumer
+public "getQuadLighter"(arg0: boolean): $QuadLighter
 get "region"(): $BlockAndTintGetter
 get "poseStack"(): $PoseStack
 }
@@ -2340,11 +2340,11 @@ export class $RegisterGuiLayersEvent extends $Event implements $IModBusEvent$$In
 constructor(arg0: $List$$Type<($GuiLayerManager$NamedLayer$$Type)>)
 
 public "wrapLayer"(arg0: $ResourceLocation$$Type, arg1: $UnaryOperator$$Type<($LayeredDraw$Layer)>): void
-public "registerBelowAll"(arg0: $ResourceLocation$$Type, arg1: $LayeredDraw$Layer$$Type): void
-public "replaceLayer"(arg0: $ResourceLocation$$Type, arg1: $LayeredDraw$Layer$$Type): void
 public "registerBelow"(arg0: $ResourceLocation$$Type, arg1: $ResourceLocation$$Type, arg2: $LayeredDraw$Layer$$Type): void
-public "registerAboveAll"(arg0: $ResourceLocation$$Type, arg1: $LayeredDraw$Layer$$Type): void
 public "registerAbove"(arg0: $ResourceLocation$$Type, arg1: $ResourceLocation$$Type, arg2: $LayeredDraw$Layer$$Type): void
+public "registerAboveAll"(arg0: $ResourceLocation$$Type, arg1: $LayeredDraw$Layer$$Type): void
+public "replaceLayer"(arg0: $ResourceLocation$$Type, arg1: $LayeredDraw$Layer$$Type): void
+public "registerBelowAll"(arg0: $ResourceLocation$$Type, arg1: $LayeredDraw$Layer$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2391,8 +2391,8 @@ export type $RegisterColorHandlersEvent$$Type = ($RegisterColorHandlersEvent);
  */
 export type $RegisterColorHandlersEvent$$Original = $RegisterColorHandlersEvent;}
 declare module "net.neoforged.neoforge.client.event.RegisterMaterialAtlasesEvent" {
-import {$Map$$Type} from "java.util.Map"
 import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
+import {$Map$$Type} from "java.util.Map"
 import {$Event} from "net.neoforged.bus.api.Event"
 import {$IModBusEvent$$Interface} from "net.neoforged.fml.event.IModBusEvent"
 
@@ -2421,10 +2421,10 @@ import {$DeltaTracker$$Type} from "net.minecraft.client.DeltaTracker"
 export class $RenderGuiLayerEvent$Pre extends $RenderGuiLayerEvent implements $ICancellableEvent$$Interface {
 constructor(arg0: $GuiGraphics$$Type, arg1: $DeltaTracker$$Type, arg2: $ResourceLocation$$Type, arg3: $LayeredDraw$Layer$$Type)
 
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
-get "canceled"(): boolean
+public "isCanceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2466,15 +2466,15 @@ import {$Camera} from "net.minecraft.client.Camera"
 
 export class $RenderHighlightEvent extends $Event {
 public "getTarget"(): $HitResult
-public "getMultiBufferSource"(): $MultiBufferSource
-public "getLevelRenderer"(): $LevelRenderer
 public "getDeltaTracker"(): $DeltaTracker
+public "getLevelRenderer"(): $LevelRenderer
+public "getMultiBufferSource"(): $MultiBufferSource
 public "getPoseStack"(): $PoseStack
 public "getCamera"(): $Camera
 get "target"(): $HitResult
-get "multiBufferSource"(): $MultiBufferSource
-get "levelRenderer"(): $LevelRenderer
 get "deltaTracker"(): $DeltaTracker
+get "levelRenderer"(): $LevelRenderer
+get "multiBufferSource"(): $MultiBufferSource
 get "poseStack"(): $PoseStack
 get "camera"(): $Camera
 }
@@ -2516,17 +2516,17 @@ import {$ViewportEvent} from "net.neoforged.neoforge.client.event.ViewportEvent"
 export class $ViewportEvent$ComputeCameraAngles extends $ViewportEvent {
 constructor(arg0: $Camera$$Type, arg1: double, arg2: float, arg3: float, arg4: float)
 
+public "getYaw"(): float
 public "getRoll"(): float
-public "setYaw"(arg0: float): void
 public "setRoll"(arg0: float): void
 public "setPitch"(arg0: float): void
-public "getYaw"(): float
+public "setYaw"(arg0: float): void
 public "getPitch"(): float
+get "yaw"(): float
 get "roll"(): float
-set "yaw"(value: float)
 set "roll"(value: float)
 set "pitch"(value: float)
-get "yaw"(): float
+set "yaw"(value: float)
 get "pitch"(): float
 }
 /**
@@ -2547,11 +2547,11 @@ export class $ToastAddEvent extends $Event implements $ICancellableEvent$$Interf
 constructor(arg0: $Toast$$Type)
 
 public "getToast"(): $Toast
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
+public "isCanceled"(): boolean
 get "toast"(): $Toast
-get "canceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2564,22 +2564,22 @@ export type $ToastAddEvent$$Type = ($ToastAddEvent);
 export type $ToastAddEvent$$Original = $ToastAddEvent;}
 declare module "net.neoforged.neoforge.client.event.ScreenEvent$MouseButtonReleased$Post" {
 import {$ScreenEvent$MouseButtonReleased} from "net.neoforged.neoforge.client.event.ScreenEvent$MouseButtonReleased"
-import {$ScreenEvent$MouseButtonReleased$Post$Result, $ScreenEvent$MouseButtonReleased$Post$Result$$Type} from "net.neoforged.neoforge.client.event.ScreenEvent$MouseButtonReleased$Post$Result"
 import {$Screen$$Type} from "net.minecraft.client.gui.screens.Screen"
+import {$ScreenEvent$MouseButtonReleased$Post$Result, $ScreenEvent$MouseButtonReleased$Post$Result$$Type} from "net.neoforged.neoforge.client.event.ScreenEvent$MouseButtonReleased$Post$Result"
 
 export class $ScreenEvent$MouseButtonReleased$Post extends $ScreenEvent$MouseButtonReleased {
 constructor(arg0: $Screen$$Type, arg1: double, arg2: double, arg3: integer, arg4: boolean)
 
 public "setResult"(arg0: $ScreenEvent$MouseButtonReleased$Post$Result$$Type): void
 public "getResult"(): $ScreenEvent$MouseButtonReleased$Post$Result
-public "getMouseY"(): double
 public "getMouseX"(): double
-public "wasReleaseHandled"(): boolean
+public "getMouseY"(): double
 public "getReleaseResult"(): boolean
+public "wasReleaseHandled"(): boolean
 set "result"(value: $ScreenEvent$MouseButtonReleased$Post$Result$$Type)
 get "result"(): $ScreenEvent$MouseButtonReleased$Post$Result
-get "mouseY"(): double
 get "mouseX"(): double
+get "mouseY"(): double
 get "releaseResult"(): boolean
 }
 /**
@@ -2599,15 +2599,15 @@ export class $ScreenEvent$MouseDragged extends $ScreenEvent$MouseInput {
 constructor(arg0: $Screen$$Type, arg1: double, arg2: double, arg3: integer, arg4: double, arg5: double)
 
 public "getMouseButton"(): integer
-public "getMouseY"(): double
-public "getMouseX"(): double
 public "getDragY"(): double
 public "getDragX"(): double
+public "getMouseX"(): double
+public "getMouseY"(): double
 get "mouseButton"(): integer
-get "mouseY"(): double
-get "mouseX"(): double
 get "dragY"(): double
 get "dragX"(): double
+get "mouseX"(): double
+get "mouseY"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2645,12 +2645,12 @@ import {$ScreenEvent$MouseInput} from "net.neoforged.neoforge.client.event.Scree
 export class $ScreenEvent$MouseButtonReleased extends $ScreenEvent$MouseInput {
 constructor(arg0: $Screen$$Type, arg1: double, arg2: double, arg3: integer)
 
-public "getMouseY"(): double
-public "getMouseX"(): double
 public "getButton"(): integer
-get "mouseY"(): double
-get "mouseX"(): double
+public "getMouseX"(): double
+public "getMouseY"(): double
 get "button"(): integer
+get "mouseX"(): double
+get "mouseY"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2738,8 +2738,8 @@ declare module "net.neoforged.neoforge.client.event.RenderLevelStageEvent$Regist
 import {$RenderLevelStageEvent$Stage} from "net.neoforged.neoforge.client.event.RenderLevelStageEvent$Stage"
 import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
 import {$Event} from "net.neoforged.bus.api.Event"
-import {$RenderType$$Type} from "net.minecraft.client.renderer.RenderType"
 import {$IModBusEvent$$Interface} from "net.neoforged.fml.event.IModBusEvent"
+import {$RenderType$$Type} from "net.minecraft.client.renderer.RenderType"
 
 export class $RenderLevelStageEvent$RegisterStageEvent extends $Event implements $IModBusEvent$$Interface {
 constructor()
@@ -2764,23 +2764,23 @@ import {$IClientFluidTypeExtensions$$Type} from "net.neoforged.neoforge.client.e
 import {$Item$$Type} from "net.minecraft.world.item.Item"
 import {$FluidType$$Type} from "net.neoforged.neoforge.fluids.FluidType"
 import {$IModBusEvent$$Interface} from "net.neoforged.fml.event.IModBusEvent"
-import {$Holder$$Type} from "net.minecraft.core.Holder"
 import {$MobEffect$$Type} from "net.minecraft.world.effect.MobEffect"
 import {$IClientBlockExtensions$$Type} from "net.neoforged.neoforge.client.extensions.common.IClientBlockExtensions"
+import {$Holder$$Type} from "net.minecraft.core.Holder"
 
 export class $RegisterClientExtensionsEvent extends $Event implements $IModBusEvent$$Interface {
-public "registerMobEffect"(arg0: $IClientMobEffectExtensions$$Type, ...arg1: ($Holder$$Type<($MobEffect$$Type)>)[]): void
-public "registerMobEffect"(arg0: $IClientMobEffectExtensions$$Type, ...arg1: ($MobEffect$$Type)[]): void
 public "registerItem"(arg0: $IClientItemExtensions$$Type, ...arg1: ($Holder$$Type<($Item$$Type)>)[]): void
 public "registerItem"(arg0: $IClientItemExtensions$$Type, ...arg1: ($Item$$Type)[]): void
 public "registerBlock"(arg0: $IClientBlockExtensions$$Type, ...arg1: ($Holder$$Type<($Block$$Type)>)[]): void
 public "registerBlock"(arg0: $IClientBlockExtensions$$Type, ...arg1: ($Block$$Type)[]): void
 public "registerFluidType"(arg0: $IClientFluidTypeExtensions$$Type, ...arg1: ($FluidType$$Type)[]): void
 public "registerFluidType"(arg0: $IClientFluidTypeExtensions$$Type, ...arg1: ($Holder$$Type<($FluidType$$Type)>)[]): void
-public "isMobEffectRegistered"(arg0: $MobEffect$$Type): boolean
-public "isFluidTypeRegistered"(arg0: $FluidType$$Type): boolean
 public "isBlockRegistered"(arg0: $Block$$Type): boolean
 public "isItemRegistered"(arg0: $Item$$Type): boolean
+public "isMobEffectRegistered"(arg0: $MobEffect$$Type): boolean
+public "isFluidTypeRegistered"(arg0: $FluidType$$Type): boolean
+public "registerMobEffect"(arg0: $IClientMobEffectExtensions$$Type, ...arg1: ($MobEffect$$Type)[]): void
+public "registerMobEffect"(arg0: $IClientMobEffectExtensions$$Type, ...arg1: ($Holder$$Type<($MobEffect$$Type)>)[]): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2792,20 +2792,20 @@ export type $RegisterClientExtensionsEvent$$Type = ($RegisterClientExtensionsEve
  */
 export type $RegisterClientExtensionsEvent$$Original = $RegisterClientExtensionsEvent;}
 declare module "net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent$Clone" {
-import {$LocalPlayer, $LocalPlayer$$Type} from "net.minecraft.client.player.LocalPlayer"
 import {$MultiPlayerGameMode$$Type} from "net.minecraft.client.multiplayer.MultiPlayerGameMode"
+import {$LocalPlayer, $LocalPlayer$$Type} from "net.minecraft.client.player.LocalPlayer"
 import {$ClientPlayerNetworkEvent} from "net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent"
 import {$Connection$$Type} from "net.minecraft.network.Connection"
 
 export class $ClientPlayerNetworkEvent$Clone extends $ClientPlayerNetworkEvent {
 constructor(arg0: $MultiPlayerGameMode$$Type, arg1: $LocalPlayer$$Type, arg2: $LocalPlayer$$Type, arg3: $Connection$$Type)
 
-public "getNewPlayer"(): $LocalPlayer
-public "getOldPlayer"(): $LocalPlayer
 public "getPlayer"(): $LocalPlayer
-get "newPlayer"(): $LocalPlayer
-get "oldPlayer"(): $LocalPlayer
+public "getOldPlayer"(): $LocalPlayer
+public "getNewPlayer"(): $LocalPlayer
 get "player"(): $LocalPlayer
+get "oldPlayer"(): $LocalPlayer
+get "newPlayer"(): $LocalPlayer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2848,19 +2848,19 @@ constructor(arg0: $NativeImage$$Type, arg1: $File$$Type)
 public "getImage"(): $NativeImage
 public "getResultMessage"(): $Component
 public "getCancelMessage"(): $Component
+public "getScreenshotFile"(): $File
 public "setScreenshotFile"(arg0: $File$$Type): void
 public "setResultMessage"(arg0: $Component$$Type): void
-public "getScreenshotFile"(): $File
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
+public "isCanceled"(): boolean
 get "image"(): $NativeImage
 get "resultMessage"(): $Component
 get "cancelMessage"(): $Component
+get "screenshotFile"(): $File
 set "screenshotFile"(value: $File$$Type)
 set "resultMessage"(value: $Component$$Type)
-get "screenshotFile"(): $File
-get "canceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2873,11 +2873,11 @@ export type $ScreenshotEvent$$Type = ($ScreenshotEvent);
 export type $ScreenshotEvent$$Original = $ScreenshotEvent;}
 declare module "net.neoforged.neoforge.client.event.RegisterNamedRenderTypesEvent" {
 import {$RenderTypeGroup$$Type} from "net.neoforged.neoforge.client.RenderTypeGroup"
-import {$Map$$Type} from "java.util.Map"
 import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
+import {$Map$$Type} from "java.util.Map"
 import {$Event} from "net.neoforged.bus.api.Event"
-import {$RenderType$$Type} from "net.minecraft.client.renderer.RenderType"
 import {$IModBusEvent$$Interface} from "net.neoforged.fml.event.IModBusEvent"
+import {$RenderType$$Type} from "net.minecraft.client.renderer.RenderType"
 
 export class $RegisterNamedRenderTypesEvent extends $Event implements $IModBusEvent$$Interface {
 constructor(arg0: $Map$$Type<($ResourceLocation$$Type), ($RenderTypeGroup$$Type)>)
@@ -3014,10 +3014,10 @@ static readonly "DEFAULT": $IClientBlockExtensions
 static "of"(arg0: $BlockState$$Type): $IClientBlockExtensions
 static "of"(arg0: $Block$$Type): $IClientBlockExtensions
  "areBreakingParticlesTinted"(arg0: $BlockState$$Type, arg1: $ClientLevel$$Type, arg2: $BlockPos$$Type): boolean
- "getFogColor"(arg0: $BlockState$$Type, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type, arg3: $Entity$$Type, arg4: $Vector3d$$Type, arg5: float): $Vector3d
- "playBreakSound"(arg0: $BlockState$$Type, arg1: $Level$$Type, arg2: $BlockPos$$Type): boolean
  "addDestroyEffects"(arg0: $BlockState$$Type, arg1: $Level$$Type, arg2: $BlockPos$$Type, arg3: $ParticleEngine$$Type): boolean
  "addHitEffects"(arg0: $BlockState$$Type, arg1: $Level$$Type, arg2: $HitResult$$Type, arg3: $ParticleEngine$$Type): boolean
+ "getFogColor"(arg0: $BlockState$$Type, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type, arg3: $Entity$$Type, arg4: $Vector3d$$Type, arg5: float): $Vector3d
+ "playBreakSound"(arg0: $BlockState$$Type, arg1: $Level$$Type, arg2: $BlockPos$$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3034,14 +3034,14 @@ import {$Event} from "net.neoforged.bus.api.Event"
 export class $CalculatePlayerTurnEvent extends $Event {
 constructor(arg0: double, arg1: boolean)
 
-public "getMouseSensitivity"(): double
 public "getCinematicCameraEnabled"(): boolean
-public "setMouseSensitivity"(arg0: double): void
+public "getMouseSensitivity"(): double
 public "setCinematicCameraEnabled"(arg0: boolean): void
-get "mouseSensitivity"(): double
+public "setMouseSensitivity"(arg0: double): void
 get "cinematicCameraEnabled"(): boolean
-set "mouseSensitivity"(value: double)
+get "mouseSensitivity"(): double
 set "cinematicCameraEnabled"(value: boolean)
+set "mouseSensitivity"(value: double)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3059,12 +3059,12 @@ import {$ScreenEvent$MouseInput} from "net.neoforged.neoforge.client.event.Scree
 export class $ScreenEvent$MouseButtonPressed extends $ScreenEvent$MouseInput {
 constructor(arg0: $Screen$$Type, arg1: double, arg2: double, arg3: integer)
 
-public "getMouseY"(): double
-public "getMouseX"(): double
 public "getButton"(): integer
-get "mouseY"(): double
-get "mouseX"(): double
+public "getMouseX"(): double
+public "getMouseY"(): double
 get "button"(): integer
+get "mouseX"(): double
+get "mouseY"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3096,8 +3096,8 @@ export type $ScreenEvent$MouseButtonPressed$Post$Result$$Type = (("force_handled
  */
 export type $ScreenEvent$MouseButtonPressed$Post$Result$$Original = $ScreenEvent$MouseButtonPressed$Post$Result;}
 declare module "net.neoforged.neoforge.client.event.CustomizeGuiOverlayEvent$BossEventProgress" {
-import {$GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
 import {$Window$$Type} from "com.mojang.blaze3d.platform.Window"
+import {$GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
 import {$ICancellableEvent$$Interface} from "net.neoforged.bus.api.ICancellableEvent"
 import {$LerpingBossEvent, $LerpingBossEvent$$Type} from "net.minecraft.client.gui.components.LerpingBossEvent"
 import {$DeltaTracker$$Type} from "net.minecraft.client.DeltaTracker"
@@ -3106,20 +3106,20 @@ import {$CustomizeGuiOverlayEvent} from "net.neoforged.neoforge.client.event.Cus
 export class $CustomizeGuiOverlayEvent$BossEventProgress extends $CustomizeGuiOverlayEvent implements $ICancellableEvent$$Interface {
 constructor(arg0: $Window$$Type, arg1: $GuiGraphics$$Type, arg2: $DeltaTracker$$Type, arg3: $LerpingBossEvent$$Type, arg4: integer, arg5: integer, arg6: integer)
 
-public "getX"(): integer
 public "getY"(): integer
-public "getIncrement"(): integer
+public "getX"(): integer
 public "getBossEvent"(): $LerpingBossEvent
 public "setIncrement"(arg0: integer): void
-public "isCanceled"(): boolean
+public "getIncrement"(): integer
 public "setCanceled"(arg0: boolean): void
-get "x"(): integer
+public "isCanceled"(): boolean
 get "y"(): integer
-get "increment"(): integer
+get "x"(): integer
 get "bossEvent"(): $LerpingBossEvent
 set "increment"(value: integer)
-get "canceled"(): boolean
+get "increment"(): integer
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3175,8 +3175,8 @@ export type $RenderGuiEvent$Post$$Type = ($RenderGuiEvent$Post);
  */
 export type $RenderGuiEvent$Post$$Original = $RenderGuiEvent$Post;}
 declare module "net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent$LoggingOut" {
-import {$LocalPlayer, $LocalPlayer$$Type} from "net.minecraft.client.player.LocalPlayer"
 import {$MultiPlayerGameMode, $MultiPlayerGameMode$$Type} from "net.minecraft.client.multiplayer.MultiPlayerGameMode"
+import {$LocalPlayer, $LocalPlayer$$Type} from "net.minecraft.client.player.LocalPlayer"
 import {$ClientPlayerNetworkEvent} from "net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent"
 import {$Connection, $Connection$$Type} from "net.minecraft.network.Connection"
 
@@ -3207,16 +3207,16 @@ import {$ICancellableEvent$$Interface} from "net.neoforged.bus.api.ICancellableE
 export class $ScreenEvent$Opening extends $ScreenEvent implements $ICancellableEvent$$Interface {
 constructor(arg0: $Screen$$Type, arg1: $Screen$$Type)
 
-public "getNewScreen"(): $Screen
-public "setNewScreen"(arg0: $Screen$$Type): void
 public "getCurrentScreen"(): $Screen
-public "isCanceled"(): boolean
+public "setNewScreen"(arg0: $Screen$$Type): void
+public "getNewScreen"(): $Screen
 public "setCanceled"(arg0: boolean): void
-get "newScreen"(): $Screen
-set "newScreen"(value: $Screen$$Type)
+public "isCanceled"(): boolean
 get "currentScreen"(): $Screen
-get "canceled"(): boolean
+set "newScreen"(value: $Screen$$Type)
+get "newScreen"(): $Screen
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3234,12 +3234,12 @@ import {$ScreenEvent$MouseInput} from "net.neoforged.neoforge.client.event.Scree
 export class $ScreenEvent$MouseScrolled extends $ScreenEvent$MouseInput {
 constructor(arg0: $Screen$$Type, arg1: double, arg2: double, arg3: double, arg4: double)
 
-public "getMouseY"(): double
 public "getMouseX"(): double
+public "getMouseY"(): double
 public "getScrollDeltaX"(): double
 public "getScrollDeltaY"(): double
-get "mouseY"(): double
 get "mouseX"(): double
+get "mouseY"(): double
 get "scrollDeltaX"(): double
 get "scrollDeltaY"(): double
 }
@@ -3281,18 +3281,18 @@ import {$LivingEntity} from "net.minecraft.world.entity.LivingEntity"
 import {$LivingEntityRenderer} from "net.minecraft.client.renderer.entity.LivingEntityRenderer"
 
 export class $RenderLivingEvent<T extends $LivingEntity, M extends $EntityModel<(object)>> extends $Event {
+public "getEntity"(): $LivingEntity
 public "getRenderer"(): $LivingEntityRenderer<(T), (M)>
 public "getMultiBufferSource"(): $MultiBufferSource
-public "getEntity"(): $LivingEntity
-public "getPartialTick"(): float
-public "getPackedLight"(): integer
 public "getPoseStack"(): $PoseStack
+public "getPackedLight"(): integer
+public "getPartialTick"(): float
+get "entity"(): $LivingEntity
 get "renderer"(): $LivingEntityRenderer<(T), (M)>
 get "multiBufferSource"(): $MultiBufferSource
-get "entity"(): $LivingEntity
-get "partialTick"(): float
-get "packedLight"(): integer
 get "poseStack"(): $PoseStack
+get "packedLight"(): integer
+get "partialTick"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3304,8 +3304,8 @@ export type $RenderLivingEvent$$Type<T, M> = ($RenderLivingEvent<(T), (M)>);
  */
 export type $RenderLivingEvent$$Original<T, M> = $RenderLivingEvent<(T), (M)>;}
 declare module "net.neoforged.neoforge.client.event.RecipesUpdatedEvent" {
-import {$RecipeManager, $RecipeManager$$Type} from "net.minecraft.world.item.crafting.RecipeManager"
 import {$Event} from "net.neoforged.bus.api.Event"
+import {$RecipeManager, $RecipeManager$$Type} from "net.minecraft.world.item.crafting.RecipeManager"
 
 export class $RecipesUpdatedEvent extends $Event {
 constructor(arg0: $RecipeManager$$Type)
@@ -3330,14 +3330,14 @@ import {$ScreenEvent$MouseScrolled} from "net.neoforged.neoforge.client.event.Sc
 export class $ScreenEvent$MouseScrolled$Pre extends $ScreenEvent$MouseScrolled implements $ICancellableEvent$$Interface {
 constructor(arg0: $Screen$$Type, arg1: double, arg2: double, arg3: double, arg4: double)
 
-public "getMouseY"(): double
 public "getMouseX"(): double
-public "isCanceled"(): boolean
+public "getMouseY"(): double
 public "setCanceled"(arg0: boolean): void
-get "mouseY"(): double
+public "isCanceled"(): boolean
 get "mouseX"(): double
-get "canceled"(): boolean
+get "mouseY"(): double
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3361,11 +3361,11 @@ export interface $IDimensionSpecialEffectsExtension$$Interface {
 }
 
 export class $IDimensionSpecialEffectsExtension implements $IDimensionSpecialEffectsExtension$$Interface {
- "tickRain"(arg0: $ClientLevel$$Type, arg1: integer, arg2: $Camera$$Type): boolean
- "renderSky"(arg0: $ClientLevel$$Type, arg1: integer, arg2: float, arg3: $Matrix4f$$Type, arg4: $Camera$$Type, arg5: $Matrix4f$$Type, arg6: boolean, arg7: $Runnable$$Type): boolean
  "renderSnowAndRain"(arg0: $ClientLevel$$Type, arg1: integer, arg2: float, arg3: $LightTexture$$Type, arg4: double, arg5: double, arg6: double): boolean
  "renderClouds"(arg0: $ClientLevel$$Type, arg1: integer, arg2: float, arg3: $PoseStack$$Type, arg4: double, arg5: double, arg6: double, arg7: $Matrix4f$$Type, arg8: $Matrix4f$$Type): boolean
+ "renderSky"(arg0: $ClientLevel$$Type, arg1: integer, arg2: float, arg3: $Matrix4f$$Type, arg4: $Camera$$Type, arg5: $Matrix4f$$Type, arg6: boolean, arg7: $Runnable$$Type): boolean
  "adjustLightmapColors"(arg0: $ClientLevel$$Type, arg1: float, arg2: float, arg3: float, arg4: float, arg5: integer, arg6: integer, arg7: $Vector3f$$Type): void
+ "tickRain"(arg0: $ClientLevel$$Type, arg1: integer, arg2: $Camera$$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3385,15 +3385,15 @@ export class $ScreenEvent$KeyPressed$Post extends $ScreenEvent$KeyPressed implem
 constructor(arg0: $Screen$$Type, arg1: integer, arg2: integer, arg3: integer)
 
 public "getModifiers"(): integer
-public "getScanCode"(): integer
 public "getKeyCode"(): integer
-public "isCanceled"(): boolean
+public "getScanCode"(): integer
 public "setCanceled"(arg0: boolean): void
+public "isCanceled"(): boolean
 get "modifiers"(): integer
-get "scanCode"(): integer
 get "keyCode"(): integer
-get "canceled"(): boolean
+get "scanCode"(): integer
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3413,18 +3413,18 @@ import {$Font} from "net.minecraft.client.gui.Font"
 import {$ClientTooltipComponent} from "net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent"
 
 export class $RenderTooltipEvent extends $Event {
-public "getFont"(): $Font
-public "getX"(): integer
-public "getItemStack"(): $ItemStack
 public "getY"(): integer
 public "getComponents"(): $List<($ClientTooltipComponent)>
+public "getItemStack"(): $ItemStack
 public "getGraphics"(): $GuiGraphics
-get "font"(): $Font
-get "x"(): integer
-get "itemStack"(): $ItemStack
+public "getX"(): integer
+public "getFont"(): $Font
 get "y"(): integer
 get "components"(): $List<($ClientTooltipComponent)>
+get "itemStack"(): $ItemStack
 get "graphics"(): $GuiGraphics
+get "x"(): integer
+get "font"(): $Font
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3459,34 +3459,34 @@ readonly "visibilityData": $BlockGeometryBakingContext$VisibilityData
 constructor(arg0: $BlockModel$$Type)
 
 public "copyFrom"(arg0: $BlockGeometryBakingContext$$Type): void
+public "getTransforms"(): $ItemTransforms
+public "useAmbientOcclusion"(): boolean
+public "getMaterial"(arg0: StringJS): $Material
 public "bake"(arg0: $ModelBaker$$Type, arg1: $Function$$Type<($Material), ($TextureAtlasSprite$$Type)>, arg2: $ModelState$$Type, arg3: $ItemOverrides$$Type): $BakedModel
 public "isGui3d"(): boolean
-public "getTransforms"(): $ItemTransforms
-public "getMaterial"(arg0: StringJS): $Material
-public "useAmbientOcclusion"(): boolean
 public "getRenderTypeHint"(): $ResourceLocation
-public "setCustomGeometry"(arg0: $IUnbakedGeometry$$Type<(never)>): void
-public "setRootTransform"(arg0: $Transformation$$Type): void
-public "setRenderTypeHint"(arg0: $ResourceLocation$$Type): void
-public "getModelName"(): StringJS
-public "isComponentVisible"(arg0: StringJS, arg1: boolean): boolean
-public "hasCustomGeometry"(): boolean
-public "hasMaterial"(arg0: StringJS): boolean
-public "getCustomGeometry"(): $IUnbakedGeometry<(never)>
+public "setGui3d"(arg0: boolean): void
 public "getRootTransform"(): $Transformation
 public "useBlockLight"(): boolean
-public "setGui3d"(arg0: boolean): void
+public "getModelName"(): StringJS
+public "hasMaterial"(arg0: StringJS): boolean
+public "isComponentVisible"(arg0: StringJS, arg1: boolean): boolean
+public "getCustomGeometry"(): $IUnbakedGeometry<(never)>
+public "hasCustomGeometry"(): boolean
+public "setRenderTypeHint"(arg0: $ResourceLocation$$Type): void
+public "setRootTransform"(arg0: $Transformation$$Type): void
+public "setCustomGeometry"(arg0: $IUnbakedGeometry$$Type<(never)>): void
 public "getRenderType"(arg0: $ResourceLocation$$Type): $RenderTypeGroup
-get "gui3d"(): boolean
 get "transforms"(): $ItemTransforms
+get "gui3d"(): boolean
 get "renderTypeHint"(): $ResourceLocation
-set "customGeometry"(value: $IUnbakedGeometry$$Type<(never)>)
-set "rootTransform"(value: $Transformation$$Type)
-set "renderTypeHint"(value: $ResourceLocation$$Type)
+set "gui3d"(value: boolean)
+get "rootTransform"(): $Transformation
 get "modelName"(): StringJS
 get "customGeometry"(): $IUnbakedGeometry<(never)>
-get "rootTransform"(): $Transformation
-set "gui3d"(value: boolean)
+set "renderTypeHint"(value: $ResourceLocation$$Type)
+set "rootTransform"(value: $Transformation$$Type)
+set "customGeometry"(value: $IUnbakedGeometry$$Type<(never)>)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3505,11 +3505,11 @@ import {$ViewportEvent} from "net.neoforged.neoforge.client.event.ViewportEvent"
 export class $ViewportEvent$ComputeFov extends $ViewportEvent {
 constructor(arg0: $GameRenderer$$Type, arg1: $Camera$$Type, arg2: double, arg3: double, arg4: boolean)
 
-public "setFOV"(arg0: double): void
 public "getFOV"(): double
+public "setFOV"(arg0: double): void
 public "usedConfiguredFov"(): boolean
-set "FOV"(value: double)
 get "FOV"(): double
+set "FOV"(value: double)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3545,8 +3545,8 @@ export type $ModelProperty$$Type<T> = ($ModelProperty<(T)>);
 export type $ModelProperty$$Original<T> = $ModelProperty<(T)>;}
 declare module "net.neoforged.neoforge.client.event.RegisterItemDecorationsEvent" {
 import {$Map$$Type} from "java.util.Map"
-import {$List$$Type} from "java.util.List"
 import {$ItemLike$$Type} from "net.minecraft.world.level.ItemLike"
+import {$List$$Type} from "java.util.List"
 import {$Event} from "net.neoforged.bus.api.Event"
 import {$Item$$Type} from "net.minecraft.world.item.Item"
 import {$IItemDecorator$$Type} from "net.neoforged.neoforge.client.IItemDecorator"
@@ -3609,8 +3609,8 @@ export type $RegisterShadersEvent$$Type = ($RegisterShadersEvent);
  */
 export type $RegisterShadersEvent$$Original = $RegisterShadersEvent;}
 declare module "net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent" {
-import {$LocalPlayer} from "net.minecraft.client.player.LocalPlayer"
 import {$MultiPlayerGameMode} from "net.minecraft.client.multiplayer.MultiPlayerGameMode"
+import {$LocalPlayer} from "net.minecraft.client.player.LocalPlayer"
 import {$Event} from "net.neoforged.bus.api.Event"
 import {$Connection} from "net.minecraft.network.Connection"
 
@@ -3669,20 +3669,20 @@ import {$BlockState, $BlockState$$Type} from "net.minecraft.world.level.block.st
 export class $RenderBlockScreenEffectEvent extends $Event implements $ICancellableEvent$$Interface {
 constructor(arg0: $Player$$Type, arg1: $PoseStack$$Type, arg2: $RenderBlockScreenEffectEvent$OverlayType$$Type, arg3: $BlockState$$Type, arg4: $BlockPos$$Type)
 
-public "getBlockState"(): $BlockState
 public "getPlayer"(): $Player
-public "getBlockPos"(): $BlockPos
+public "getBlockState"(): $BlockState
 public "getPoseStack"(): $PoseStack
+public "getBlockPos"(): $BlockPos
 public "getOverlayType"(): $RenderBlockScreenEffectEvent$OverlayType
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
-get "blockState"(): $BlockState
+public "isCanceled"(): boolean
 get "player"(): $Player
-get "blockPos"(): $BlockPos
+get "blockState"(): $BlockState
 get "poseStack"(): $PoseStack
+get "blockPos"(): $BlockPos
 get "overlayType"(): $RenderBlockScreenEffectEvent$OverlayType
-get "canceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3697,8 +3697,8 @@ declare module "net.neoforged.neoforge.client.gui.map.RegisterMapDecorationRende
 import {$Map$$Type} from "java.util.Map"
 import {$Event} from "net.neoforged.bus.api.Event"
 import {$IMapDecorationRenderer$$Type} from "net.neoforged.neoforge.client.gui.map.IMapDecorationRenderer"
-import {$IModBusEvent$$Interface} from "net.neoforged.fml.event.IModBusEvent"
 import {$MapDecorationType$$Type} from "net.minecraft.world.level.saveddata.maps.MapDecorationType"
+import {$IModBusEvent$$Interface} from "net.neoforged.fml.event.IModBusEvent"
 
 export class $RegisterMapDecorationRenderersEvent extends $Event implements $IModBusEvent$$Interface {
 constructor(arg0: $Map$$Type<($MapDecorationType$$Type), ($IMapDecorationRenderer$$Type)>)
@@ -3722,21 +3722,21 @@ import {$ICancellableEvent$$Interface} from "net.neoforged.bus.api.ICancellableE
 export class $ScreenEvent$RenderInventoryMobEffects extends $ScreenEvent implements $ICancellableEvent$$Interface {
 constructor(arg0: $Screen$$Type, arg1: integer, arg2: boolean, arg3: integer)
 
+public "getAvailableSpace"(): integer
+public "isCompact"(): boolean
+public "setHorizontalOffset"(arg0: integer): void
 public "getHorizontalOffset"(): integer
 public "setCompact"(arg0: boolean): void
-public "setHorizontalOffset"(arg0: integer): void
-public "isCompact"(): boolean
-public "getAvailableSpace"(): integer
 public "addHorizontalOffset"(arg0: integer): void
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
+public "isCanceled"(): boolean
+get "availableSpace"(): integer
+get "compact"(): boolean
+set "horizontalOffset"(value: integer)
 get "horizontalOffset"(): integer
 set "compact"(value: boolean)
-set "horizontalOffset"(value: integer)
-get "compact"(): boolean
-get "availableSpace"(): integer
-get "canceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3757,14 +3757,14 @@ constructor(arg0: $Screen$$Type, arg1: double, arg2: double, arg3: integer, arg4
 
 public "setResult"(arg0: $ScreenEvent$MouseButtonPressed$Post$Result$$Type): void
 public "getResult"(): $ScreenEvent$MouseButtonPressed$Post$Result
-public "getMouseY"(): double
 public "getMouseX"(): double
-public "wasClickHandled"(): boolean
+public "getMouseY"(): double
 public "getClickResult"(): boolean
+public "wasClickHandled"(): boolean
 set "result"(value: $ScreenEvent$MouseButtonPressed$Post$Result$$Type)
 get "result"(): $ScreenEvent$MouseButtonPressed$Post$Result
-get "mouseY"(): double
 get "mouseX"(): double
+get "mouseY"(): double
 get "clickResult"(): boolean
 }
 /**
@@ -3796,31 +3796,31 @@ export type $IBlockEntityRendererExtension$$Type<T> = ($IBlockEntityRendererExte
  */
 export type $IBlockEntityRendererExtension$$Original<T> = $IBlockEntityRendererExtension<(T)>;}
 declare module "net.neoforged.neoforge.client.event.InputEvent$InteractionKeyMappingTriggered" {
-import {$InputEvent} from "net.neoforged.neoforge.client.event.InputEvent"
 import {$ICancellableEvent$$Interface} from "net.neoforged.bus.api.ICancellableEvent"
 import {$InteractionHand, $InteractionHand$$Type} from "net.minecraft.world.InteractionHand"
+import {$InputEvent} from "net.neoforged.neoforge.client.event.InputEvent"
 import {$KeyMapping, $KeyMapping$$Type} from "net.minecraft.client.KeyMapping"
 
 export class $InputEvent$InteractionKeyMappingTriggered extends $InputEvent implements $ICancellableEvent$$Interface {
 constructor(arg0: integer, arg1: $KeyMapping$$Type, arg2: $InteractionHand$$Type)
 
-public "getHand"(): $InteractionHand
-public "getKeyMapping"(): $KeyMapping
-public "shouldSwingHand"(): boolean
 public "isPickBlock"(): boolean
 public "setSwingHand"(arg0: boolean): void
+public "getHand"(): $InteractionHand
 public "isAttack"(): boolean
 public "isUseItem"(): boolean
-public "isCanceled"(): boolean
+public "getKeyMapping"(): $KeyMapping
+public "shouldSwingHand"(): boolean
 public "setCanceled"(arg0: boolean): void
-get "hand"(): $InteractionHand
-get "keyMapping"(): $KeyMapping
+public "isCanceled"(): boolean
 get "pickBlock"(): boolean
 set "swingHand"(value: boolean)
+get "hand"(): $InteractionHand
 get "attack"(): boolean
 get "useItem"(): boolean
-get "canceled"(): boolean
+get "keyMapping"(): $KeyMapping
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3834,17 +3834,17 @@ export type $InputEvent$InteractionKeyMappingTriggered$$Original = $InputEvent$I
 declare module "net.neoforged.neoforge.client.event.EntityRenderersEvent$RegisterRenderers" {
 import {$BlockEntityType$$Type} from "net.minecraft.world.level.block.entity.BlockEntityType"
 import {$BlockEntityRendererProvider$$Type} from "net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider"
-import {$Entity} from "net.minecraft.world.entity.Entity"
 import {$EntityRendererProvider$$Type} from "net.minecraft.client.renderer.entity.EntityRendererProvider"
 import {$EntityRenderersEvent} from "net.neoforged.neoforge.client.event.EntityRenderersEvent"
+import {$Entity} from "net.minecraft.world.entity.Entity"
 import {$BlockEntity} from "net.minecraft.world.level.block.entity.BlockEntity"
 import {$EntityType$$Type} from "net.minecraft.world.entity.EntityType"
 
 export class $EntityRenderersEvent$RegisterRenderers extends $EntityRenderersEvent {
 constructor()
 
-public "registerBlockEntityRenderer"<T extends $BlockEntity>(arg0: $BlockEntityType$$Type<(T)>, arg1: $BlockEntityRendererProvider$$Type<(T)>): void
 public "registerEntityRenderer"<T extends $Entity>(arg0: $EntityType$$Type<(T)>, arg1: $EntityRendererProvider$$Type<(T)>): void
+public "registerBlockEntityRenderer"<T extends $BlockEntity>(arg0: $BlockEntityType$$Type<(T)>, arg1: $BlockEntityRendererProvider$$Type<(T)>): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3939,21 +3939,21 @@ export type $ModelData$Builder$$Type = ($ModelData$Builder);
  */
 export type $ModelData$Builder$$Original = $ModelData$Builder;}
 declare module "net.neoforged.neoforge.client.event.ScreenEvent$MouseDragged$Pre" {
-import {$Screen$$Type} from "net.minecraft.client.gui.screens.Screen"
 import {$ScreenEvent$MouseDragged} from "net.neoforged.neoforge.client.event.ScreenEvent$MouseDragged"
+import {$Screen$$Type} from "net.minecraft.client.gui.screens.Screen"
 import {$ICancellableEvent$$Interface} from "net.neoforged.bus.api.ICancellableEvent"
 
 export class $ScreenEvent$MouseDragged$Pre extends $ScreenEvent$MouseDragged implements $ICancellableEvent$$Interface {
 constructor(arg0: $Screen$$Type, arg1: double, arg2: double, arg3: integer, arg4: double, arg5: double)
 
-public "getMouseY"(): double
 public "getMouseX"(): double
-public "isCanceled"(): boolean
+public "getMouseY"(): double
 public "setCanceled"(arg0: boolean): void
-get "mouseY"(): double
+public "isCanceled"(): boolean
 get "mouseX"(): double
-get "canceled"(): boolean
+get "mouseY"(): double
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3986,32 +3986,32 @@ export type $PlayStreamingSourceEvent$$Original = $PlayStreamingSourceEvent;}
 declare module "net.neoforged.neoforge.client.event.RenderTooltipEvent$Pre" {
 import {$ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
-import {$List$$Type} from "java.util.List"
 import {$ICancellableEvent$$Interface} from "net.neoforged.bus.api.ICancellableEvent"
-import {$Font$$Type} from "net.minecraft.client.gui.Font"
+import {$List$$Type} from "java.util.List"
 import {$RenderTooltipEvent} from "net.neoforged.neoforge.client.event.RenderTooltipEvent"
 import {$ClientTooltipPositioner, $ClientTooltipPositioner$$Type} from "net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipPositioner"
+import {$Font$$Type} from "net.minecraft.client.gui.Font"
 import {$ClientTooltipComponent$$Type} from "net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent"
 
 export class $RenderTooltipEvent$Pre extends $RenderTooltipEvent implements $ICancellableEvent$$Interface {
 constructor(arg0: $ItemStack$$Type, arg1: $GuiGraphics$$Type, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: $Font$$Type, arg7: $List$$Type<($ClientTooltipComponent$$Type)>, arg8: $ClientTooltipPositioner$$Type)
 
-public "setY"(arg0: integer): void
-public "setX"(arg0: integer): void
 public "getTooltipPositioner"(): $ClientTooltipPositioner
+public "setX"(arg0: integer): void
+public "setY"(arg0: integer): void
 public "getScreenHeight"(): integer
 public "getScreenWidth"(): integer
 public "setFont"(arg0: $Font$$Type): void
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
-set "y"(value: integer)
-set "x"(value: integer)
+public "isCanceled"(): boolean
 get "tooltipPositioner"(): $ClientTooltipPositioner
+set "x"(value: integer)
+set "y"(value: integer)
 get "screenHeight"(): integer
 get "screenWidth"(): integer
 set "font"(value: $Font$$Type)
-get "canceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4025,11 +4025,11 @@ export type $RenderTooltipEvent$Pre$$Original = $RenderTooltipEvent$Pre;}
 declare module "net.neoforged.neoforge.client.event.RegisterRecipeBookCategoriesEvent" {
 import {$Map$$Type} from "java.util.Map"
 import {$RecipeHolder$$Type} from "net.minecraft.world.item.crafting.RecipeHolder"
-import {$List$$Type} from "java.util.List"
-import {$RecipeBookType$$Type} from "net.minecraft.world.inventory.RecipeBookType"
 import {$Function$$Type} from "java.util.function.Function"
-import {$Event} from "net.neoforged.bus.api.Event"
+import {$RecipeBookType$$Type} from "net.minecraft.world.inventory.RecipeBookType"
+import {$List$$Type} from "java.util.List"
 import {$RecipeType$$Type} from "net.minecraft.world.item.crafting.RecipeType"
+import {$Event} from "net.neoforged.bus.api.Event"
 import {$ImmutableList$$Type} from "com.google.common.collect.ImmutableList"
 import {$RecipeBookCategories$$Type} from "net.minecraft.client.RecipeBookCategories"
 import {$IModBusEvent$$Interface} from "net.neoforged.fml.event.IModBusEvent"
@@ -4037,8 +4037,8 @@ import {$IModBusEvent$$Interface} from "net.neoforged.fml.event.IModBusEvent"
 export class $RegisterRecipeBookCategoriesEvent extends $Event implements $IModBusEvent$$Interface {
 constructor(arg0: $Map$$Type<($RecipeBookCategories$$Type), ($ImmutableList$$Type<($RecipeBookCategories$$Type)>)>, arg1: $Map$$Type<($RecipeBookType$$Type), ($ImmutableList$$Type<($RecipeBookCategories$$Type)>)>, arg2: $Map$$Type<($RecipeType$$Type<(never)>), ($Function$$Type<($RecipeHolder$$Type<(never)>), ($RecipeBookCategories$$Type)>)>)
 
-public "registerAggregateCategory"(arg0: $RecipeBookCategories$$Type, arg1: $List$$Type<($RecipeBookCategories$$Type)>): void
 public "registerBookCategories"(arg0: $RecipeBookType$$Type, arg1: $List$$Type<($RecipeBookCategories$$Type)>): void
+public "registerAggregateCategory"(arg0: $RecipeBookCategories$$Type, arg1: $List$$Type<($RecipeBookCategories$$Type)>): void
 public "registerRecipeCategoryFinder"(arg0: $RecipeType$$Type<(never)>, arg1: $Function$$Type<($RecipeHolder<(never)>), ($RecipeBookCategories$$Type)>): void
 }
 /**
@@ -4055,11 +4055,11 @@ import {$InputEvent} from "net.neoforged.neoforge.client.event.InputEvent"
 
 export class $InputEvent$MouseButton extends $InputEvent {
 public "getModifiers"(): integer
-public "getAction"(): integer
 public "getButton"(): integer
+public "getAction"(): integer
 get "modifiers"(): integer
-get "action"(): integer
 get "button"(): integer
+get "action"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4149,20 +4149,20 @@ import {$AbstractClientPlayer, $AbstractClientPlayer$$Type} from "net.minecraft.
 export class $RenderArmEvent extends $Event implements $ICancellableEvent$$Interface {
 constructor(arg0: $PoseStack$$Type, arg1: $MultiBufferSource$$Type, arg2: integer, arg3: $AbstractClientPlayer$$Type, arg4: $HumanoidArm$$Type)
 
-public "getMultiBufferSource"(): $MultiBufferSource
 public "getPlayer"(): $AbstractClientPlayer
-public "getPackedLight"(): integer
-public "getPoseStack"(): $PoseStack
 public "getArm"(): $HumanoidArm
-public "isCanceled"(): boolean
+public "getMultiBufferSource"(): $MultiBufferSource
+public "getPoseStack"(): $PoseStack
+public "getPackedLight"(): integer
 public "setCanceled"(arg0: boolean): void
-get "multiBufferSource"(): $MultiBufferSource
+public "isCanceled"(): boolean
 get "player"(): $AbstractClientPlayer
-get "packedLight"(): integer
-get "poseStack"(): $PoseStack
 get "arm"(): $HumanoidArm
-get "canceled"(): boolean
+get "multiBufferSource"(): $MultiBufferSource
+get "poseStack"(): $PoseStack
+get "packedLight"(): integer
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4181,14 +4181,14 @@ import {$ICancellableEvent$$Interface} from "net.neoforged.bus.api.ICancellableE
 export class $ScreenEvent$MouseButtonReleased$Pre extends $ScreenEvent$MouseButtonReleased implements $ICancellableEvent$$Interface {
 constructor(arg0: $Screen$$Type, arg1: double, arg2: double, arg3: integer)
 
-public "getMouseY"(): double
 public "getMouseX"(): double
-public "isCanceled"(): boolean
+public "getMouseY"(): double
 public "setCanceled"(arg0: boolean): void
-get "mouseY"(): double
+public "isCanceled"(): boolean
 get "mouseX"(): double
-get "canceled"(): boolean
+get "mouseY"(): double
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4231,9 +4231,9 @@ import {$TextureAtlasSprite, $TextureAtlasSprite$$Type} from "net.minecraft.clie
 import {$ModelEvent} from "net.neoforged.neoforge.client.event.ModelEvent"
 import {$Map, $Map$$Type} from "java.util.Map"
 import {$Material, $Material$$Type} from "net.minecraft.client.resources.model.Material"
+import {$BakedModel, $BakedModel$$Type} from "net.minecraft.client.resources.model.BakedModel"
 import {$Function, $Function$$Type} from "java.util.function.Function"
 import {$ModelBakery, $ModelBakery$$Type} from "net.minecraft.client.resources.model.ModelBakery"
-import {$BakedModel, $BakedModel$$Type} from "net.minecraft.client.resources.model.BakedModel"
 import {$ModelResourceLocation, $ModelResourceLocation$$Type} from "net.minecraft.client.resources.model.ModelResourceLocation"
 import {$IModBusEvent$$Interface} from "net.neoforged.fml.event.IModBusEvent"
 
@@ -4293,15 +4293,15 @@ public "toString"(): StringJS
 public "hashCode"(): integer
 public static "read"(arg0: $JsonElement$$Type, arg1: $ExtraFaceData$$Type): $ExtraFaceData
 public "color"(): integer
-public "ambientOcclusion"(): boolean
 public "blockLight"(): integer
 public "skyLight"(): integer
+public "ambientOcclusion"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $ExtraFaceData$$Type = ({"color"?: integer, "blockLight"?: integer, "skyLight"?: integer, "ambientOcclusion"?: boolean}) | ([color?: integer, blockLight?: integer, skyLight?: integer, ambientOcclusion?: boolean]);
+export type $ExtraFaceData$$Type = ({"ambientOcclusion"?: boolean, "skyLight"?: integer, "blockLight"?: integer, "color"?: integer}) | ([ambientOcclusion?: boolean, skyLight?: integer, blockLight?: integer, color?: integer]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -4396,9 +4396,9 @@ export type $ScreenEvent$MouseInput$$Type = ($ScreenEvent$MouseInput);
  */
 export type $ScreenEvent$MouseInput$$Original = $ScreenEvent$MouseInput;}
 declare module "net.neoforged.neoforge.client.ChunkRenderTypeSet" {
-import {$Iterable$$Type, $Iterable$$Interface} from "java.lang.Iterable"
-import {$Iterator} from "java.util.Iterator"
 import {$BitSet, $BitSet$$Type} from "java.util.BitSet"
+import {$Iterator} from "java.util.Iterator"
+import {$Iterable$$Type, $Iterable$$Interface} from "java.lang.Iterable"
 import {$ChunkRenderTypeSetAccessor$$Interface} from "net.caffeinemc.mods.sodium.mixin.platform.neoforge.ChunkRenderTypeSetAccessor"
 import {$Collection$$Type} from "java.util.Collection"
 import {$Spliterator} from "java.util.Spliterator"
@@ -4423,8 +4423,8 @@ public static "intersection"(...arg0: ($ChunkRenderTypeSet$$Type)[]): $ChunkRend
 public static "intersection"(arg0: $Collection$$Type<($ChunkRenderTypeSet$$Type)>): $ChunkRenderTypeSet
 public static "intersection"(arg0: $Iterable$$Type<($ChunkRenderTypeSet$$Type)>): $ChunkRenderTypeSet
 public static "none"(): $ChunkRenderTypeSet
-public static "create$sodium_$md$6d3b50$0"(arg0: $BitSet$$Type): $ChunkRenderTypeSet
 public "sinytra$firstLayer"(): $RenderType
+public static "create$sodium_$md$1ae6d3$0"(arg0: $BitSet$$Type): $ChunkRenderTypeSet
 public "spliterator"(): $Spliterator<($RenderType)>
 public "forEach"(arg0: $Consumer$$Type<($RenderType)>): void
 public static "create"(arg0: $BitSet$$Type): $ChunkRenderTypeSet
@@ -4474,10 +4474,10 @@ static readonly "INVALID": StringJS
 static readonly "RESET_CHAR": StringJS
 
  "drawScrollingString"(arg0: $Font$$Type, arg1: $Component$$Type, arg2: integer, arg3: integer, arg4: integer, arg5: integer): integer
- "blitInscribed"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: boolean, arg8: boolean): void
- "blitInscribed"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer): void
- "blitWithBorder"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer, arg9: integer): void
  "blitWithBorder"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer, arg9: integer, arg10: integer, arg11: integer, arg12: integer): void
+ "blitWithBorder"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer, arg9: integer): void
+ "blitInscribed"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer): void
+ "blitInscribed"(arg0: $ResourceLocation$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: boolean, arg8: boolean): void
  "getColorFromFormattingCharacter"(arg0: character, arg1: boolean): integer
 }
 /**
@@ -4496,10 +4496,10 @@ import {$ScreenEvent$MouseScrolled} from "net.neoforged.neoforge.client.event.Sc
 export class $ScreenEvent$MouseScrolled$Post extends $ScreenEvent$MouseScrolled {
 constructor(arg0: $Screen$$Type, arg1: double, arg2: double, arg3: double, arg4: double)
 
-public "getMouseY"(): double
 public "getMouseX"(): double
-get "mouseY"(): double
+public "getMouseY"(): double
 get "mouseX"(): double
+get "mouseY"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4558,9 +4558,9 @@ export type $BlockGeometryBakingContext$VisibilityData$$Original = $BlockGeometr
 declare module "net.neoforged.neoforge.client.event.RenderHighlightEvent$Block" {
 import {$BlockHitResult, $BlockHitResult$$Type} from "net.minecraft.world.phys.BlockHitResult"
 import {$MultiBufferSource$$Type} from "net.minecraft.client.renderer.MultiBufferSource"
-import {$RenderHighlightEvent} from "net.neoforged.neoforge.client.event.RenderHighlightEvent"
 import {$ICancellableEvent$$Interface} from "net.neoforged.bus.api.ICancellableEvent"
 import {$PoseStack$$Type} from "com.mojang.blaze3d.vertex.PoseStack"
+import {$RenderHighlightEvent} from "net.neoforged.neoforge.client.event.RenderHighlightEvent"
 import {$LevelRenderer$$Type} from "net.minecraft.client.renderer.LevelRenderer"
 import {$DeltaTracker$$Type} from "net.minecraft.client.DeltaTracker"
 import {$Camera$$Type} from "net.minecraft.client.Camera"
@@ -4569,11 +4569,11 @@ export class $RenderHighlightEvent$Block extends $RenderHighlightEvent implement
 constructor(arg0: $LevelRenderer$$Type, arg1: $Camera$$Type, arg2: $BlockHitResult$$Type, arg3: $DeltaTracker$$Type, arg4: $PoseStack$$Type, arg5: $MultiBufferSource$$Type)
 
 public "getTarget"(): $BlockHitResult
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
+public "isCanceled"(): boolean
 get "target"(): $BlockHitResult
-get "canceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4612,27 +4612,27 @@ export class $ViewportEvent$RenderFog extends $ViewportEvent implements $ICancel
 constructor(arg0: $FogRenderer$FogMode$$Type, arg1: $FogType$$Type, arg2: $Camera$$Type, arg3: float, arg4: float, arg5: float, arg6: $FogShape$$Type)
 
 public "getType"(): $FogType
-public "setFarPlaneDistance"(arg0: float): void
-public "getNearPlaneDistance"(): float
-public "getFarPlaneDistance"(): float
-public "setNearPlaneDistance"(arg0: float): void
-public "getMode"(): $FogRenderer$FogMode
-public "setFogShape"(arg0: $FogShape$$Type): void
 public "getFogShape"(): $FogShape
-public "scaleNearPlaneDistance"(arg0: float): void
+public "setFogShape"(arg0: $FogShape$$Type): void
+public "getMode"(): $FogRenderer$FogMode
+public "getNearPlaneDistance"(): float
+public "setNearPlaneDistance"(arg0: float): void
+public "getFarPlaneDistance"(): float
+public "setFarPlaneDistance"(arg0: float): void
 public "scaleFarPlaneDistance"(arg0: float): void
-public "isCanceled"(): boolean
+public "scaleNearPlaneDistance"(arg0: float): void
 public "setCanceled"(arg0: boolean): void
+public "isCanceled"(): boolean
 get "type"(): $FogType
-set "farPlaneDistance"(value: float)
-get "nearPlaneDistance"(): float
-get "farPlaneDistance"(): float
-set "nearPlaneDistance"(value: float)
-get "mode"(): $FogRenderer$FogMode
-set "fogShape"(value: $FogShape$$Type)
 get "fogShape"(): $FogShape
-get "canceled"(): boolean
+set "fogShape"(value: $FogShape$$Type)
+get "mode"(): $FogRenderer$FogMode
+get "nearPlaneDistance"(): float
+set "nearPlaneDistance"(value: float)
+get "farPlaneDistance"(): float
+set "farPlaneDistance"(value: float)
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4645,8 +4645,8 @@ export type $ViewportEvent$RenderFog$$Type = ($ViewportEvent$RenderFog);
 export type $ViewportEvent$RenderFog$$Original = $ViewportEvent$RenderFog;}
 declare module "net.neoforged.neoforge.client.event.ModelEvent$RegisterGeometryLoaders" {
 import {$ModelEvent} from "net.neoforged.neoforge.client.event.ModelEvent"
-import {$Map$$Type} from "java.util.Map"
 import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
+import {$Map$$Type} from "java.util.Map"
 import {$IGeometryLoader$$Type} from "net.neoforged.neoforge.client.model.geometry.IGeometryLoader"
 import {$IModBusEvent$$Interface} from "net.neoforged.fml.event.IModBusEvent"
 
@@ -4673,11 +4673,11 @@ export class $ClientPlayerChangeGameTypeEvent extends $Event {
 constructor(arg0: $PlayerInfo$$Type, arg1: $GameType$$Type, arg2: $GameType$$Type)
 
 public "getInfo"(): $PlayerInfo
-public "getNewGameType"(): $GameType
 public "getCurrentGameType"(): $GameType
+public "getNewGameType"(): $GameType
 get "info"(): $PlayerInfo
-get "newGameType"(): $GameType
 get "currentGameType"(): $GameType
+get "newGameType"(): $GameType
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4689,16 +4689,16 @@ export type $ClientPlayerChangeGameTypeEvent$$Type = ($ClientPlayerChangeGameTyp
  */
 export type $ClientPlayerChangeGameTypeEvent$$Original = $ClientPlayerChangeGameTypeEvent;}
 declare module "net.neoforged.neoforge.client.event.ScreenEvent$MouseDragged$Post" {
-import {$Screen$$Type} from "net.minecraft.client.gui.screens.Screen"
 import {$ScreenEvent$MouseDragged} from "net.neoforged.neoforge.client.event.ScreenEvent$MouseDragged"
+import {$Screen$$Type} from "net.minecraft.client.gui.screens.Screen"
 
 export class $ScreenEvent$MouseDragged$Post extends $ScreenEvent$MouseDragged {
 constructor(arg0: $Screen$$Type, arg1: double, arg2: double, arg3: integer, arg4: double, arg5: double)
 
-public "getMouseY"(): double
 public "getMouseX"(): double
-get "mouseY"(): double
+public "getMouseY"(): double
 get "mouseX"(): double
+get "mouseY"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4710,8 +4710,8 @@ export type $ScreenEvent$MouseDragged$Post$$Type = ($ScreenEvent$MouseDragged$Po
  */
 export type $ScreenEvent$MouseDragged$Post$$Original = $ScreenEvent$MouseDragged$Post;}
 declare module "net.neoforged.neoforge.client.event.CustomizeGuiOverlayEvent$DebugText" {
-import {$GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
 import {$Window$$Type} from "com.mojang.blaze3d.platform.Window"
+import {$GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
 import {$List, $List$$Type} from "java.util.List"
 import {$DeltaTracker$$Type} from "net.minecraft.client.DeltaTracker"
 import {$CustomizeGuiOverlayEvent} from "net.neoforged.neoforge.client.event.CustomizeGuiOverlayEvent"
@@ -4719,10 +4719,10 @@ import {$CustomizeGuiOverlayEvent} from "net.neoforged.neoforge.client.event.Cus
 export class $CustomizeGuiOverlayEvent$DebugText extends $CustomizeGuiOverlayEvent {
 constructor(arg0: $Window$$Type, arg1: $GuiGraphics$$Type, arg2: $DeltaTracker$$Type, arg3: $List$$Type<(StringJS)>, arg4: $List$$Type<(StringJS)>)
 
-public "getRight"(): $List<(StringJS)>
 public "getLeft"(): $List<(StringJS)>
-get "right"(): $List<(StringJS)>
+public "getRight"(): $List<(StringJS)>
 get "left"(): $List<(StringJS)>
+get "right"(): $List<(StringJS)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4741,11 +4741,11 @@ export class $ScreenEvent$KeyPressed extends $ScreenEvent$KeyInput {
 constructor(arg0: $Screen$$Type, arg1: integer, arg2: integer, arg3: integer)
 
 public "getModifiers"(): integer
-public "getScanCode"(): integer
 public "getKeyCode"(): integer
+public "getScanCode"(): integer
 get "modifiers"(): integer
-get "scanCode"(): integer
 get "keyCode"(): integer
+get "scanCode"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4786,8 +4786,8 @@ public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "truncated"(): boolean
-public "numberOfMods"(): integer
 public "extraReason"(): StringJS
+public "numberOfMods"(): integer
 public "isCompatible"(): boolean
 get "compatible"(): boolean
 }
@@ -4795,14 +4795,14 @@ get "compatible"(): boolean
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $ExtendedServerListData$$Type = ({"numberOfMods"?: integer, "type"?: StringJS, "truncated"?: boolean, "isCompatible"?: boolean, "extraReason"?: StringJS}) | ([numberOfMods?: integer, type?: StringJS, truncated?: boolean, isCompatible?: boolean, extraReason?: StringJS]);
+export type $ExtendedServerListData$$Type = ({"extraReason"?: StringJS, "isCompatible"?: boolean, "truncated"?: boolean, "type"?: StringJS, "numberOfMods"?: integer}) | ([extraReason?: StringJS, isCompatible?: boolean, truncated?: boolean, type?: StringJS, numberOfMods?: integer]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ExtendedServerListData$$Original = $ExtendedServerListData;}
 declare module "net.neoforged.neoforge.client.event.EntityRenderersEvent$CreateSkullModels" {
-import {$SkullModelBase$$Type} from "net.minecraft.client.model.SkullModelBase"
 import {$ImmutableMap$Builder$$Type} from "com.google.common.collect.ImmutableMap$Builder"
+import {$SkullModelBase$$Type} from "net.minecraft.client.model.SkullModelBase"
 import {$EntityRenderersEvent} from "net.neoforged.neoforge.client.event.EntityRenderersEvent"
 import {$SkullBlock$Type$$Type} from "net.minecraft.world.level.block.SkullBlock$Type"
 import {$EntityModelSet, $EntityModelSet$$Type} from "net.minecraft.client.model.geom.EntityModelSet"
@@ -4810,8 +4810,8 @@ import {$EntityModelSet, $EntityModelSet$$Type} from "net.minecraft.client.model
 export class $EntityRenderersEvent$CreateSkullModels extends $EntityRenderersEvent {
 constructor(arg0: $ImmutableMap$Builder$$Type<($SkullBlock$Type$$Type), ($SkullModelBase$$Type)>, arg1: $EntityModelSet$$Type)
 
-public "registerSkullModel"(arg0: $SkullBlock$Type$$Type, arg1: $SkullModelBase$$Type): void
 public "getEntityModelSet"(): $EntityModelSet
+public "registerSkullModel"(arg0: $SkullBlock$Type$$Type, arg1: $SkullModelBase$$Type): void
 get "entityModelSet"(): $EntityModelSet
 }
 /**
@@ -4855,24 +4855,24 @@ import {$Matrix4f, $Matrix4f$$Type} from "org.joml.Matrix4f"
 export class $RenderLevelStageEvent extends $Event {
 constructor(arg0: $RenderLevelStageEvent$Stage$$Type, arg1: $LevelRenderer$$Type, arg2: $PoseStack$$Type, arg3: $Matrix4f$$Type, arg4: $Matrix4f$$Type, arg5: integer, arg6: $DeltaTracker$$Type, arg7: $Camera$$Type, arg8: $Frustum$$Type)
 
-public "getFrustum"(): $Frustum
-public "getProjectionMatrix"(): $Matrix4f
-public "getPartialTick"(): $DeltaTracker
+public "getRenderTick"(): integer
 public "getLevelRenderer"(): $LevelRenderer
+public "getProjectionMatrix"(): $Matrix4f
 public "getStage"(): $RenderLevelStageEvent$Stage
 public "getPoseStack"(): $PoseStack
-public "getRenderTick"(): integer
 public "getModelViewMatrix"(): $Matrix4f
 public "getCamera"(): $Camera
-get "frustum"(): $Frustum
-get "projectionMatrix"(): $Matrix4f
-get "partialTick"(): $DeltaTracker
+public "getFrustum"(): $Frustum
+public "getPartialTick"(): $DeltaTracker
+get "renderTick"(): integer
 get "levelRenderer"(): $LevelRenderer
+get "projectionMatrix"(): $Matrix4f
 get "stage"(): $RenderLevelStageEvent$Stage
 get "poseStack"(): $PoseStack
-get "renderTick"(): integer
 get "modelViewMatrix"(): $Matrix4f
 get "camera"(): $Camera
+get "frustum"(): $Frustum
+get "partialTick"(): $DeltaTracker
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4895,10 +4895,10 @@ import {$LivingEntityRenderer$$Type} from "net.minecraft.client.renderer.entity.
 export class $RenderLivingEvent$Pre<T extends $LivingEntity, M extends $EntityModel<(object)>> extends $RenderLivingEvent<(T), (M)> implements $ICancellableEvent$$Interface {
 constructor(arg0: $LivingEntity$$Type, arg1: $LivingEntityRenderer$$Type<(T), (M)>, arg2: float, arg3: $PoseStack$$Type, arg4: $MultiBufferSource$$Type, arg5: integer)
 
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
-get "canceled"(): boolean
+public "isCanceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4919,12 +4919,12 @@ import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component
 export class $GatherEffectScreenTooltipsEvent extends $Event {
 constructor(arg0: $EffectRenderingInventoryScreen$$Type<(never)>, arg1: $MobEffectInstance$$Type, arg2: $List$$Type<($Component$$Type)>)
 
-public "getScreen"(): $EffectRenderingInventoryScreen<(never)>
 public "getEffectInstance"(): $MobEffectInstance
 public "getTooltip"(): $List<($Component)>
-get "screen"(): $EffectRenderingInventoryScreen<(never)>
+public "getScreen"(): $EffectRenderingInventoryScreen<(never)>
 get "effectInstance"(): $MobEffectInstance
 get "tooltip"(): $List<($Component)>
+get "screen"(): $EffectRenderingInventoryScreen<(never)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4946,17 +4946,17 @@ constructor(arg0: $Music$$Type, arg1: $SoundInstance$$Type)
 
 public "setMusic"(arg0: $Music$$Type): void
 public "getMusic"(): $Music
+public "getOriginalMusic"(): $Music
 public "getPlayingMusic"(): $SoundInstance
 public "overrideMusic"(arg0: $Music$$Type): void
-public "getOriginalMusic"(): $Music
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
+public "isCanceled"(): boolean
 set "music"(value: $Music$$Type)
 get "music"(): $Music
-get "playingMusic"(): $SoundInstance
 get "originalMusic"(): $Music
-get "canceled"(): boolean
+get "playingMusic"(): $SoundInstance
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4986,19 +4986,19 @@ public static "values"(): ($KeyModifier)[]
 public static "valueOf"(arg0: StringJS): $KeyModifier
 public "matches"(arg0: $InputConstants$Key$$Type): boolean
 public "isActive"(arg0: $IKeyConflictContext$$Type): boolean
+public "codes"(): ($InputConstants$Key)[]
+public static "getKeyModifier"(arg0: $InputConstants$Key$$Type): $KeyModifier
+public "getCombinedName"(arg0: $InputConstants$Key$$Type, arg1: $Supplier$$Type<($Component$$Type)>): $Component
 public static "valueFromString"(arg0: StringJS): $KeyModifier
+public static "getActiveModifiers"(): $List<($KeyModifier)>
 public static "isKeyCodeModifier"(arg0: $InputConstants$Key$$Type): boolean
 /**
  * 
  * @deprecated
  */
 public static "getActiveModifier"(): $KeyModifier
-public static "getActiveModifiers"(): $List<($KeyModifier)>
-public "codes"(): ($InputConstants$Key)[]
-public "getCombinedName"(arg0: $InputConstants$Key$$Type, arg1: $Supplier$$Type<($Component$$Type)>): $Component
-public static "getKeyModifier"(arg0: $InputConstants$Key$$Type): $KeyModifier
-get "activeModifier"(): $KeyModifier
 get "activeModifiers"(): $List<($KeyModifier)>
+get "activeModifier"(): $KeyModifier
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

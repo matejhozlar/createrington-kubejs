@@ -6,15 +6,15 @@ import {$RadarList} from "xaero.hud.minimap.radar.state.RadarList"
 export class $RadarState {
 constructor()
 
-public "getListsReversedOrder"(): boolean
 public "getListsGeneratedForConfig"(): $EntityRadarCategory
-public "getListsGeneratedForSyncedConfig"(): $EntityRadarCategory
+public "getListsReversedOrder"(): boolean
 public "setListsGeneratedForSyncedConfig"(arg0: $EntityRadarCategory$$Type): void
+public "getListsGeneratedForSyncedConfig"(): $EntityRadarCategory
 public "getRadarLists"(): $Iterable<($RadarList)>
-get "listsReversedOrder"(): boolean
 get "listsGeneratedForConfig"(): $EntityRadarCategory
-get "listsGeneratedForSyncedConfig"(): $EntityRadarCategory
+get "listsReversedOrder"(): boolean
 set "listsGeneratedForSyncedConfig"(value: $EntityRadarCategory$$Type)
+get "listsGeneratedForSyncedConfig"(): $EntityRadarCategory
 get "radarLists"(): $Iterable<($RadarList)>
 }
 /**
@@ -91,8 +91,8 @@ export type $EntityRadarCategoryData$$Type = ($EntityRadarCategoryData);
  */
 export type $EntityRadarCategoryData$$Original = $EntityRadarCategoryData;}
 declare module "xaero.hud.minimap.radar.state.RadarStateUpdater" {
-import {$ClientLevel$$Type} from "net.minecraft.client.multiplayer.ClientLevel"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
+import {$ClientLevel$$Type} from "net.minecraft.client.multiplayer.ClientLevel"
 import {$RadarState$$Type} from "xaero.hud.minimap.radar.state.RadarState"
 import {$Entity$$Type} from "net.minecraft.world.entity.Entity"
 import {$EntityRadarCategoryManager$$Type} from "xaero.hud.minimap.radar.category.EntityRadarCategoryManager"
@@ -123,10 +123,10 @@ export class $RadarColorHelper {
 constructor()
 
 public "getTeamColor"(arg0: $Entity$$Type): integer
-public "getEntityHeightFade"(arg0: float, arg1: integer, arg2: integer): float
 public "getFallbackColor"(arg0: $EntityRadarCategory$$Type, arg1: $EntityRadarCategory$$Type): $RadarColor
 public "getFallbackColor"(arg0: $RadarList$$Type): $RadarColor
 public "getEntityColor"(arg0: $Entity$$Type, arg1: float, arg2: boolean, arg3: integer, arg4: integer, arg5: boolean, arg6: $RadarColor$$Type, arg7: $RadarColor$$Type): integer
+public "getEntityHeightFade"(arg0: float, arg1: integer, arg2: integer): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -161,8 +161,8 @@ import {$Config$$Type} from "xaero.lib.common.config.Config"
 import {$EntityRadarCategory, $EntityRadarCategory$$Type} from "xaero.hud.minimap.radar.category.EntityRadarCategory"
 
 export class $EntityRadarCategoryConfigIO {
-public "loadRootCategory"(arg0: $Config$$Type): $EntityRadarCategory
 public "storeRootCategory"(arg0: $EntityRadarCategory$$Type, arg1: $Config$$Type): void
+public "loadRootCategory"(arg0: $Config$$Type): $EntityRadarCategory
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -174,8 +174,8 @@ export type $EntityRadarCategoryConfigIO$$Type = ($EntityRadarCategoryConfigIO);
  */
 export type $EntityRadarCategoryConfigIO$$Original = $EntityRadarCategoryConfigIO;}
 declare module "xaero.hud.minimap.radar.RadarSession" {
-import {$ClientLevel$$Type} from "net.minecraft.client.multiplayer.ClientLevel"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
+import {$ClientLevel$$Type} from "net.minecraft.client.multiplayer.ClientLevel"
 import {$RadarState} from "xaero.hud.minimap.radar.state.RadarState"
 import {$RadarStateUpdater} from "xaero.hud.minimap.radar.state.RadarStateUpdater"
 import {$RadarColorHelper} from "xaero.hud.minimap.radar.color.RadarColorHelper"
@@ -187,12 +187,12 @@ constructor(arg0: $EntityRadarCategoryManager$$Type)
 
 public "update"(arg0: $ClientLevel$$Type, arg1: $Entity$$Type, arg2: $Player$$Type): void
 public "getState"(): $RadarState
-public "getColorHelper"(): $RadarColorHelper
 public "getStateUpdater"(): $RadarStateUpdater
+public "getColorHelper"(): $RadarColorHelper
 public "getCategoryManager"(): $EntityRadarCategoryManager
 get "state"(): $RadarState
-get "colorHelper"(): $RadarColorHelper
 get "stateUpdater"(): $RadarStateUpdater
+get "colorHelper"(): $RadarColorHelper
 get "categoryManager"(): $EntityRadarCategoryManager
 }
 /**
@@ -234,36 +234,36 @@ import {$Path} from "java.nio.file.Path"
 
 export class $EntityRadarCategoryManager {
 public "init"(): void
-public "storeEditedCategory"(arg0: $EntityRadarCategory$$Type, arg1: boolean): void
-public "storeEditedCategory"(arg0: boolean): void
-public "getEditedCategoryConfig"(): $Config
-public "fetchDefaultServerCategory"(arg0: integer): $EntityRadarCategory
-public "fetchDefaultServerCategory"(): $EntityRadarCategory
-public "fetchDefaultClientCategory"(): $EntityRadarCategory
-public "fetchDefaultClientCategory"(arg0: integer): $EntityRadarCategory
-public "getSyncedRootCategory"(): $EntityRadarCategory
-public "updateFromConfigChange"(arg0: $Config$$Type): void
-public "getSecondaryLegacyFilePath"(): $Path
-public "forgetEditedCategory"(): void
-public "editedCategoryNeedsSaving"(): boolean
-public "resetRootCategorySettings"(arg0: $IEditConfigScreenContext$$Type): void
+public "getDefaultCategoryConfigurator"(): $EntityRadarDefaultCategories
+public "setEditedCategoryNeedsSaving"(arg0: boolean): void
+public "getEffectiveSyncedRootCategory"(): $EntityRadarCategory
 public "getMainIO"(): $EntityRadarCategoryConfigIO
-public "loadEditedCategory"(arg0: $Config$$Type, arg1: boolean): $EntityRadarCategory
 public "getEditedCategory"(): $EntityRadarCategory
 public "getRootCategory"(): $EntityRadarCategory
 public "getRuleResolver"(): $ObjectCategoryRuleResolver
-public "getEffectiveSyncedRootCategory"(): $EntityRadarCategory
-public "setEditedCategoryNeedsSaving"(arg0: boolean): void
-public "getDefaultCategoryConfigurator"(): $EntityRadarDefaultCategories
-get "editedCategoryConfig"(): $Config
-get "syncedRootCategory"(): $EntityRadarCategory
-get "secondaryLegacyFilePath"(): $Path
+public "loadEditedCategory"(arg0: $Config$$Type, arg1: boolean): $EntityRadarCategory
+public "storeEditedCategory"(arg0: $EntityRadarCategory$$Type, arg1: boolean): void
+public "storeEditedCategory"(arg0: boolean): void
+public "fetchDefaultClientCategory"(): $EntityRadarCategory
+public "fetchDefaultClientCategory"(arg0: integer): $EntityRadarCategory
+public "forgetEditedCategory"(): void
+public "getSyncedRootCategory"(): $EntityRadarCategory
+public "getEditedCategoryConfig"(): $Config
+public "fetchDefaultServerCategory"(arg0: integer): $EntityRadarCategory
+public "fetchDefaultServerCategory"(): $EntityRadarCategory
+public "getSecondaryLegacyFilePath"(): $Path
+public "resetRootCategorySettings"(arg0: $IEditConfigScreenContext$$Type): void
+public "updateFromConfigChange"(arg0: $Config$$Type): void
+public "editedCategoryNeedsSaving"(): boolean
+get "defaultCategoryConfigurator"(): $EntityRadarDefaultCategories
+get "effectiveSyncedRootCategory"(): $EntityRadarCategory
 get "mainIO"(): $EntityRadarCategoryConfigIO
 get "editedCategory"(): $EntityRadarCategory
 get "rootCategory"(): $EntityRadarCategory
 get "ruleResolver"(): $ObjectCategoryRuleResolver
-get "effectiveSyncedRootCategory"(): $EntityRadarCategory
-get "defaultCategoryConfigurator"(): $EntityRadarDefaultCategories
+get "syncedRootCategory"(): $EntityRadarCategory
+get "editedCategoryConfig"(): $Config
+get "secondaryLegacyFilePath"(): $Path
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

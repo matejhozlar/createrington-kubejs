@@ -15,8 +15,8 @@ readonly "returnType": $BaseType
 constructor(params: $List$$Type<($ParamDecl$$Type)>, returnType: $BaseType$$Type)
 
 public "format"(declaration: $Declaration$$Type, input: $BaseType$FormatType$$Type): $List<(StringJS)>
-public "getUsedImports"(): $Collection<($ImportInfo)>
 public "asMethod"(methodName: StringJS): $MethodDecl
+public "getUsedImports"(): $Collection<($ImportInfo)>
 get "usedImports"(): $Collection<($ImportInfo)>
 }
 /**
@@ -40,11 +40,11 @@ constructor()
 
 public "newline"(...comments: (StringJS)[]): void
 public "format"(declaration: $Declaration$$Type): $List<(StringJS)>
-public "addComment"(...comments: (StringJS)[]): void
-public "formatComments"(): $List<(StringJS)>
-public "addCommentAtStart"(...comments: (StringJS)[]): void
-public "linebreak"(): void
 public "formatRaw"(declaration: $Declaration$$Type): $List<(StringJS)>
+public "linebreak"(): void
+public "addComment"(...comments: (StringJS)[]): void
+public "addCommentAtStart"(...comments: (StringJS)[]): void
+public "formatComments"(): $List<(StringJS)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -56,8 +56,8 @@ export type $CommentableCode$$Type = ($CommentableCode);
  */
 export type $CommentableCode$$Original = $CommentableCode;}
 declare module "moe.wolfgirl.probejs.lang.typescript.code.type.js.JSArrayType$Builder" {
-import {$Collection} from "java.util.Collection"
 import {$JSArrayType} from "moe.wolfgirl.probejs.lang.typescript.code.type.js.JSArrayType"
+import {$Collection} from "java.util.Collection"
 import {$JSMemberType$Builder} from "moe.wolfgirl.probejs.lang.typescript.code.type.js.JSMemberType$Builder"
 import {$JSParam} from "moe.wolfgirl.probejs.lang.typescript.code.type.js.JSParam"
 
@@ -99,8 +99,8 @@ export type $MethodInfo$MethodAttributes$$Type = ($MethodInfo$MethodAttributes);
 export type $MethodInfo$MethodAttributes$$Original = $MethodInfo$MethodAttributes;}
 declare module "moe.wolfgirl.probejs.lang.java.base.TypeVariableHolder" {
 import {$AnnotationHolder} from "moe.wolfgirl.probejs.lang.java.base.AnnotationHolder"
-import {$TypeVariable$$Type} from "java.lang.reflect.TypeVariable"
 import {$VariableTypeInfo} from "dev.latvian.mods.rhino.type.VariableTypeInfo"
+import {$TypeVariable$$Type} from "java.lang.reflect.TypeVariable"
 import {$Annotation$$Type} from "java.lang.annotation.Annotation"
 import {$List} from "java.util.List"
 
@@ -184,21 +184,21 @@ public "hashCode"(): integer
 public "getPackage"(): $List<(StringJS)>
 public "parts"(): $List<(StringJS)>
 public "getClassPath"(): StringJS
+public "makePath"(base: $Path$$Type): $Path
+public "getDirPath"(base: $Path$$Type): $Path
+public "getFileKey"(): StringJS
 public "getConcatenatedPackage"(sep: StringJS): StringJS
 public "getGenerics"(): $List<(StringJS)>
 public "getConcatenated"(sep: StringJS): StringJS
-public "getClassPathJava"(): StringJS
 public "getTypeScriptPath"(): StringJS
-public "getDirPath"(base: $Path$$Type): $Path
-public "makePath"(base: $Path$$Type): $Path
-public "getFileKey"(): StringJS
+public "getClassPathJava"(): StringJS
 get "name"(): StringJS
 get "package"(): $List<(StringJS)>
 get "classPath"(): StringJS
-get "generics"(): $List<(StringJS)>
-get "classPathJava"(): StringJS
-get "typeScriptPath"(): StringJS
 get "fileKey"(): StringJS
+get "generics"(): $List<(StringJS)>
+get "typeScriptPath"(): StringJS
+get "classPathJava"(): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -264,13 +264,13 @@ readonly "declaration": $Declaration
 constructor(self: $ClassPath$$Type)
 
 public "format"(): StringJS
-public "write"(writeTo: $Path$$Type): void
 public "write"(writer: $BufferedWriter$$Type): void
-public "addCode"(code: $Code$$Type): void
+public "write"(writeTo: $Path$$Type): void
 public "writeAsModule"(writer: $BufferedWriter$$Type): void
+public "addCode"(code: $Code$$Type): void
 public "excludeSymbol"(name: StringJS): void
-public "findCode"<T extends $Code>(type: $Class$$Type<(T)>): $Optional<(T)>
 public "refreshImports"(): void
+public "findCode"<T extends $Code>(type: $Class$$Type<(T)>): $Optional<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -282,8 +282,8 @@ export type $TypeScriptFile$$Type = ($TypeScriptFile);
  */
 export type $TypeScriptFile$$Original = $TypeScriptFile;}
 declare module "moe.wolfgirl.probejs.lang.typescript.code.type.js.JSParam" {
-import {$Declaration$$Type} from "moe.wolfgirl.probejs.lang.typescript.Declaration"
 import {$Function$$Type} from "java.util.function.Function"
+import {$Declaration$$Type} from "moe.wolfgirl.probejs.lang.typescript.Declaration"
 import {$BaseType, $BaseType$$Type} from "moe.wolfgirl.probejs.lang.typescript.code.type.BaseType"
 import {$BaseType$FormatType$$Type} from "moe.wolfgirl.probejs.lang.typescript.code.type.BaseType$FormatType"
 import {$Record} from "java.lang.Record"
@@ -303,7 +303,7 @@ public "optional"(): boolean
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $JSParam$$Type = ({"type"?: $BaseType$$Type, "optional"?: boolean, "name"?: StringJS}) | ([type?: $BaseType$$Type, optional?: boolean, name?: StringJS]);
+export type $JSParam$$Type = ({"optional"?: boolean, "type"?: $BaseType$$Type, "name"?: StringJS}) | ([optional?: boolean, type?: $BaseType$$Type, name?: StringJS]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -451,8 +451,8 @@ readonly "params": $List<($ParamDecl)>
 
 constructor(name: StringJS, variableTypes: $List$$Type<($TSVariableType$$Type)>, params: $List$$Type<($ParamDecl$$Type)>, returnType: $BaseType$$Type)
 
-public "getUsedImports"(): $Collection<($ImportInfo)>
 public "formatRaw"(declaration: $Declaration$$Type): $List<(StringJS)>
+public "getUsedImports"(): $Collection<($ImportInfo)>
 get "usedImports"(): $Collection<($ImportInfo)>
 }
 /**
@@ -557,11 +557,11 @@ export type $TSOptionalType$$Type = ($TSOptionalType);
 export type $TSOptionalType$$Original = $TSOptionalType;}
 declare module "moe.wolfgirl.probejs.lang.transpiler.Transpiler" {
 import {$TypeConverter} from "moe.wolfgirl.probejs.lang.transpiler.TypeConverter"
-import {$Clazz$$Type} from "moe.wolfgirl.probejs.lang.java.clazz.Clazz"
 import {$Collection$$Type} from "java.util.Collection"
+import {$Clazz$$Type} from "moe.wolfgirl.probejs.lang.java.clazz.Clazz"
 import {$Map} from "java.util.Map"
-import {$Set} from "java.util.Set"
 import {$Class$$Type} from "java.lang.Class"
+import {$Set} from "java.util.Set"
 import {$ClassPath} from "moe.wolfgirl.probejs.lang.java.clazz.ClassPath"
 import {$TypeScriptFile} from "moe.wolfgirl.probejs.lang.typescript.TypeScriptFile"
 import {$ScriptManager$$Type} from "dev.latvian.mods.kubejs.script.ScriptManager"
@@ -620,10 +620,10 @@ import {$ClassPath$$Type} from "moe.wolfgirl.probejs.lang.java.clazz.ClassPath"
 import {$Clazz, $Clazz$$Type} from "moe.wolfgirl.probejs.lang.java.clazz.Clazz"
 import {$Supplier} from "java.util.function.Supplier"
 import {$ScriptType} from "dev.latvian.mods.kubejs.script.ScriptType"
-import {$Set} from "java.util.Set"
 import {$Class, $Class$$Type} from "java.lang.Class"
-import {$Path, $Path$$Type} from "java.nio.file.Path"
+import {$Set} from "java.util.Set"
 import {$BaseType$$Type} from "moe.wolfgirl.probejs.lang.typescript.code.type.BaseType"
+import {$Path, $Path$$Type} from "java.nio.file.Path"
 import {$ScriptManager, $ScriptManager$$Type} from "dev.latvian.mods.kubejs.script.ScriptManager"
 
 export class $ScriptDump {
@@ -646,15 +646,15 @@ static readonly "CLIENT_DUMP": $Supplier<($ScriptDump)>
 constructor(manager: $ScriptManager$$Type, basePath: $Path$$Type, scriptPath: $Path$$Type, packageDump: boolean)
 
 public "destroy"(): void
-public "assignType"(classPath: $Class$$Type<(never)>, name: StringJS, type: $BaseType$$Type): void
 public "assignType"(classPath: $ClassPath$$Type, name: StringJS, type: $BaseType$$Type): void
-public "assignType"(classPath: $ClassPath$$Type, type: $BaseType$$Type): void
 public "assignType"(classPath: $Class$$Type<(never)>, type: $BaseType$$Type): void
-public "dumpGlobal"(): void
+public "assignType"(classPath: $Class$$Type<(never)>, name: StringJS, type: $BaseType$$Type): void
+public "assignType"(classPath: $ClassPath$$Type, type: $BaseType$$Type): void
 public "ensureDumpFolder"(): $Path
-public "retrieveClasses"(): $Set<($Class<(never)>)>
 public "dumpClasses"(): void
 public "acceptClasses"(classes: $Collection$$Type<($Clazz$$Type)>): void
+public "retrieveClasses"(): $Set<($Class<(never)>)>
+public "dumpGlobal"(): void
 public "addGlobal"(identifier: StringJS, excludedNames: $Collection$$Type<(StringJS)>, ...content: ($Code$$Type)[]): void
 public "addGlobal"(identifier: StringJS, ...content: ($Code$$Type)[]): void
 }
@@ -700,8 +700,8 @@ import {$Collection$$Type} from "java.util.Collection"
 import {$Registry$$Type} from "net.minecraft.core.Registry"
 import {$List} from "java.util.List"
 import {$Variable$$Type} from "moe.wolfgirl.probejs.lang.snippet.parts.Variable"
-import {$JsonObject} from "com.google.gson.JsonObject"
 import {$ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
+import {$JsonObject} from "com.google.gson.JsonObject"
 
 export class $Snippet {
 readonly "name": StringJS
@@ -713,14 +713,14 @@ public "compile"(): $JsonObject
 public "prefix"(prefix: StringJS): $Snippet
 public "literal"(content: StringJS): $Snippet
 public "description"(description: StringJS): $Snippet
-public "registry"<T>(registry: $ResourceKey$$Type<($Registry<(T)>)>): $Snippet
 public "getPrefixes"(): $List<(StringJS)>
-public "variable"(variable: $Variable$$Type): $Snippet
-public "choices"(choices: $Collection$$Type<(StringJS)>): $Snippet
-public "choices"(enumeration: integer, choices: $Collection$$Type<(StringJS)>): $Snippet
-public "tabStop"(enumeration: integer, defaultValue: StringJS): $Snippet
 public "tabStop"(): $Snippet
+public "tabStop"(enumeration: integer, defaultValue: StringJS): $Snippet
 public "tabStop"(enumeration: integer): $Snippet
+public "registry"<T>(registry: $ResourceKey$$Type<($Registry<(T)>)>): $Snippet
+public "variable"(variable: $Variable$$Type): $Snippet
+public "choices"(enumeration: integer, choices: $Collection$$Type<(StringJS)>): $Snippet
+public "choices"(choices: $Collection$$Type<(StringJS)>): $Snippet
 get "prefixes"(): $List<(StringJS)>
 }
 /**
@@ -805,8 +805,8 @@ export type $JSJoinedType$Intersection$$Type = ($JSJoinedType$Intersection);
  */
 export type $JSJoinedType$Intersection$$Original = $JSJoinedType$Intersection;}
 declare module "moe.wolfgirl.probejs.lang.typescript.code.member.ParamDecl" {
-import {$List$$Type} from "java.util.List"
 import {$Declaration$$Type} from "moe.wolfgirl.probejs.lang.typescript.Declaration"
+import {$List$$Type} from "java.util.List"
 import {$BaseType, $BaseType$$Type} from "moe.wolfgirl.probejs.lang.typescript.code.type.BaseType"
 import {$BaseType$FormatType$$Type} from "moe.wolfgirl.probejs.lang.typescript.code.type.BaseType$FormatType"
 
@@ -874,8 +874,8 @@ export class $SnippetDump {
 constructor()
 
 public "writeTo"(path: $Path$$Type): void
-public "fromDocs"(): void
 public "snippet"(name: StringJS): $Snippet
+public "fromDocs"(): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -961,16 +961,16 @@ static "literal"(content: any): $JSPrimitiveType
 static "or"(...types: ($BaseType$$Type)[]): $BaseType
 static "object"(): $JSObjectType$Builder
 static "and"(...types: ($BaseType$$Type)[]): $JSJoinedType$Intersection
+static "primitive"(type: StringJS): $JSPrimitiveType
+static "parameterized"(base: $BaseType$$Type, ...params: ($BaseType$$Type)[]): $TSParamType
+static "arrayOf"(): $JSArrayType$Builder
+static "custom"(formatter: $BiFunction$$Type<($Declaration), ($BaseType$FormatType), (StringJS)>, ...imports: ($ImportInfo$$Type)[]): $BaseType
 static "typeOf"(classType: $BaseType$$Type): $JSTypeOfType
 static "typeOf"(classPath: $ClassPath$$Type): $JSTypeOfType
 static "typeOf"(clazz: $Class$$Type<(never)>): $JSTypeOfType
-static "custom"(formatter: $BiFunction$$Type<($Declaration), ($BaseType$FormatType), (StringJS)>, ...imports: ($ImportInfo$$Type)[]): $BaseType
-static "arrayOf"(): $JSArrayType$Builder
-static "parameterized"(base: $BaseType$$Type, ...params: ($BaseType$$Type)[]): $TSParamType
-static "primitive"(type: StringJS): $JSPrimitiveType
 static "typeMaybeGeneric"(clazz: $Class$$Type<(never)>): $BaseType
-static "ignoreImport"(type: $BaseType$$Type, importType: $ImportInfo$Type$$Type): $BaseType
 static "ignoreContext"(type: $BaseType$$Type, formatType: $BaseType$FormatType$$Type): $BaseType
+static "ignoreImport"(type: $BaseType$$Type, importType: $ImportInfo$Type$$Type): $BaseType
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -989,8 +989,8 @@ import {$Collection} from "java.util.Collection"
 import {$ImportInfo} from "moe.wolfgirl.probejs.lang.typescript.code.ImportInfo"
 import {$Declaration$$Type} from "moe.wolfgirl.probejs.lang.typescript.Declaration"
 import {$List, $List$$Type} from "java.util.List"
-import {$MethodDeclaration} from "moe.wolfgirl.probejs.lang.typescript.code.ts.MethodDeclaration"
 import {$BaseType, $BaseType$$Type} from "moe.wolfgirl.probejs.lang.typescript.code.type.BaseType"
+import {$MethodDeclaration} from "moe.wolfgirl.probejs.lang.typescript.code.ts.MethodDeclaration"
 
 export class $MethodDecl extends $CommentableCode {
  "isStatic": boolean
@@ -1005,8 +1005,8 @@ readonly "comments": $List<(StringJS)>
 
 constructor(name: StringJS, variableTypes: $List$$Type<($TSVariableType$$Type)>, params: $List$$Type<($ParamDecl$$Type)>, returnType: $BaseType$$Type)
 
-public "getUsedImports"(): $Collection<($ImportInfo)>
 public "formatRaw"(declaration: $Declaration$$Type): $List<(StringJS)>
+public "getUsedImports"(): $Collection<($ImportInfo)>
 public "asDeclaration"(): $MethodDeclaration
 get "usedImports"(): $Collection<($ImportInfo)>
 }
@@ -1415,7 +1415,7 @@ get "import"(): StringJS
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $Reference$$Type = ({"types"?: $EnumSet$$Type<($ImportInfo$Type$$Type)>, "classPath"?: $ClassPath$$Type, "symbol"?: StringJS}) | ([types?: $EnumSet$$Type<($ImportInfo$Type$$Type)>, classPath?: $ClassPath$$Type, symbol?: StringJS]);
+export type $Reference$$Type = ({"symbol"?: StringJS, "classPath"?: $ClassPath$$Type, "types"?: $EnumSet$$Type<($ImportInfo$Type$$Type)>}) | ([symbol?: StringJS, classPath?: $ClassPath$$Type, types?: $EnumSet$$Type<($ImportInfo$Type$$Type)>]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -1437,8 +1437,8 @@ constructor()
 public "isEmpty"(): boolean
 public "merge"(other: $Wrapped$$Type): void
 public "addCode"(inner: $Code$$Type): void
-public "getUsedImports"(): $Collection<($ImportInfo)>
 public "formatRaw"(declaration: $Declaration$$Type): $List<(StringJS)>
+public "getUsedImports"(): $Collection<($ImportInfo)>
 get "empty"(): boolean
 get "usedImports"(): $Collection<($ImportInfo)>
 }

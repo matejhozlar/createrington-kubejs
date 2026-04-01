@@ -52,29 +52,29 @@ constructor(variantIdentifier: $ResourceLocation$$Type)
 public "toString"(): StringJS
 public "exists"(): boolean
 public "isEmissive"(): boolean
+public "setGUIBlink"(): void
+public static "ofUnmodifiable"(identifier: $ResourceLocation$$Type, emissiveIdentifier: $ResourceLocation$$Type): $ETFTexture
+public "getPaintingSprite"(originalSprite: $TextureAtlasSprite$$Type, originalID: $ResourceLocation$$Type): $ETFSprite
+public "isEnchanted"(): boolean
+public static "manual"(modifiedSkinIdentifier: $ResourceLocation$$Type, blinkIdentifier: $ResourceLocation$$Type, blink2Identifier: $ResourceLocation$$Type, emissiveIdentifier: $ResourceLocation$$Type, blinkEmissiveIdentifier: $ResourceLocation$$Type, blink2EmissiveIdentifier: $ResourceLocation$$Type, enchantIdentifier: $ResourceLocation$$Type, blinkenchantIdentifier: $ResourceLocation$$Type, blink2enchantIdentifier: $ResourceLocation$$Type, patchIdentifier: $ResourceLocation$$Type, blinkpatchIdentifier: $ResourceLocation$$Type, blink2patchIdentifier: $ResourceLocation$$Type): $ETFTexture
+public static "manual"(modifiedSkinIdentifier: $ResourceLocation$$Type, emissiveIdentifier: $ResourceLocation$$Type, enchantIdentifier: $ResourceLocation$$Type): $ETFTexture
+public "getTextureIdentifier"(entity: $ETFEntity$$Type): $ResourceLocation
+public "assertPatchedTextures"(): void
 public "doesBlink"(): boolean
 public "canPatch"(): boolean
 public "doesBlink2"(): boolean
-public "getEnchantIdentifierOfCurrentState"(): $ResourceLocation
+public "renderEmissive"(matrixStack: $PoseStack$$Type, vertexConsumerProvider: $MultiBufferSource$$Type, modelPart: $ModelPart$$Type): void
+public "renderEmissive"(matrixStack: $PoseStack$$Type, vertexConsumerProvider: $MultiBufferSource$$Type, modelPart: $ModelPart$$Type, modeToUsePossiblyManuallyChosen: $ETFConfig$EmissiveRenderModes$$Type): void
 public "renderEmissive"(matrixStack: $PoseStack$$Type, vertexConsumerProvider: $MultiBufferSource$$Type, model: $Model$$Type): void
 public "renderEmissive"(matrixStack: $PoseStack$$Type, vertexConsumerProvider: $MultiBufferSource$$Type, model: $Model$$Type, modeToUsePossiblyManuallyChosen: $ETFConfig$EmissiveRenderModes$$Type): void
-public "renderEmissive"(matrixStack: $PoseStack$$Type, vertexConsumerProvider: $MultiBufferSource$$Type, modelPart: $ModelPart$$Type, modeToUsePossiblyManuallyChosen: $ETFConfig$EmissiveRenderModes$$Type): void
-public "renderEmissive"(matrixStack: $PoseStack$$Type, vertexConsumerProvider: $MultiBufferSource$$Type, modelPart: $ModelPart$$Type): void
-public "isEnchanted"(): boolean
-public "setGUIBlink"(): void
-public "getTextureIdentifier"(entity: $ETFEntity$$Type): $ResourceLocation
-public static "manual"(modifiedSkinIdentifier: $ResourceLocation$$Type, blinkIdentifier: $ResourceLocation$$Type, blink2Identifier: $ResourceLocation$$Type, emissiveIdentifier: $ResourceLocation$$Type, blinkEmissiveIdentifier: $ResourceLocation$$Type, blink2EmissiveIdentifier: $ResourceLocation$$Type, enchantIdentifier: $ResourceLocation$$Type, blinkenchantIdentifier: $ResourceLocation$$Type, blink2enchantIdentifier: $ResourceLocation$$Type, patchIdentifier: $ResourceLocation$$Type, blinkpatchIdentifier: $ResourceLocation$$Type, blink2patchIdentifier: $ResourceLocation$$Type): $ETFTexture
-public static "manual"(modifiedSkinIdentifier: $ResourceLocation$$Type, emissiveIdentifier: $ResourceLocation$$Type, enchantIdentifier: $ResourceLocation$$Type): $ETFTexture
-public "getEmissiveIdentifierOfCurrentState"(): $ResourceLocation
-public static "ofUnmodifiable"(identifier: $ResourceLocation$$Type, emissiveIdentifier: $ResourceLocation$$Type): $ETFTexture
-public "getPaintingSprite"(originalSprite: $TextureAtlasSprite$$Type, originalID: $ResourceLocation$$Type): $ETFSprite
-public static "patchTextureToRemoveZFightingWithOtherTexture"(baseImage: $NativeImage$$Type, otherImage: $NativeImage$$Type): void
-public "assertPatchedTextures"(): void
+public "getEnchantIdentifierOfCurrentState"(): $ResourceLocation
 public "getEmissiveVertexConsumer"(vertexConsumerProvider: $MultiBufferSource$$Type, model: $Model$$Type, modeToUsePossiblyManuallyChosen: $ETFConfig$EmissiveRenderModes$$Type): $VertexConsumer
+public "getEmissiveIdentifierOfCurrentState"(): $ResourceLocation
+public static "patchTextureToRemoveZFightingWithOtherTexture"(baseImage: $NativeImage$$Type, otherImage: $NativeImage$$Type): void
 get "emissive"(): boolean
-get "enchantIdentifierOfCurrentState"(): $ResourceLocation
-get "enchanted"(): boolean
 get "GUIBlink"(): void
+get "enchanted"(): boolean
+get "enchantIdentifierOfCurrentState"(): $ResourceLocation
 get "emissiveIdentifierOfCurrentState"(): $ResourceLocation
 }
 /**

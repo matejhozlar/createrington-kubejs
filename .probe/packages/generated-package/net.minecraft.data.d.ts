@@ -5,8 +5,8 @@ import {$ModContainer$$Type} from "net.fabricmc.loader.api.ModContainer"
 import {$DataGenerator$PackGenerator} from "net.minecraft.data.DataGenerator$PackGenerator"
 import {$PackOutput, $PackOutput$$Type} from "net.minecraft.data.PackOutput"
 import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
-import {$DataProvider, $DataProvider$$Type} from "net.minecraft.data.DataProvider"
 import {$DataProvider$Factory$$Type} from "net.minecraft.data.DataProvider$Factory"
+import {$DataProvider, $DataProvider$$Type} from "net.minecraft.data.DataProvider"
 import {$DataGeneratorExtension$$Interface} from "net.fabricmc.fabric.impl.datagen.DataGeneratorExtension"
 import {$Set} from "java.util.Set"
 import {$WorldVersion$$Type} from "net.minecraft.WorldVersion"
@@ -22,17 +22,17 @@ constructor(arg0: $Path$$Type, arg1: $WorldVersion$$Type, arg2: boolean)
 
 public "run"(): void
 public "merge"(arg0: $DataGenerator$$Type): void
-public "addProvider"<T extends $DataProvider>(arg0: boolean, arg1: T): T
 public "addProvider"<T extends $DataProvider>(arg0: boolean, arg1: $DataProvider$Factory$$Type<(T)>): T
-public "createBuiltinResourcePack"(arg0: boolean, arg1: $ResourceLocation$$Type, arg2: $ModContainer$$Type, arg3: boolean): $Pair
-public "getVanillaPack"(arg0: boolean): $DataGenerator$PackGenerator
+public "addProvider"<T extends $DataProvider>(arg0: boolean, arg1: T): T
 public "getPackOutput"(arg0: StringJS): $PackOutput
 public "getPackOutput"(): $PackOutput
-public "getBuiltinDatapack"(arg0: boolean, arg1: StringJS, arg2: StringJS): $DataGenerator$PackGenerator
+public "createBuiltinResourcePack"(arg0: boolean, arg1: $ResourceLocation$$Type, arg2: $ModContainer$$Type, arg3: boolean): $Pair
+public "createPack"(arg0: StringJS, arg1: $PackOutput$$Type): $DataGenerator$PackGenerator
+public "getVanillaPack"(arg0: boolean): $DataGenerator$PackGenerator
 public "getBuiltinDatapack"(arg0: boolean, arg1: StringJS): $DataGenerator$PackGenerator
+public "getBuiltinDatapack"(arg0: boolean, arg1: StringJS, arg2: StringJS): $DataGenerator$PackGenerator
 public "getProvidersView"(): $Map<(StringJS), ($DataProvider)>
 public "getPackGenerator"(arg0: boolean, arg1: StringJS, arg2: StringJS): $DataGenerator$PackGenerator
-public "createPack"(arg0: StringJS, arg1: $PackOutput$$Type): $DataGenerator$PackGenerator
 get "packOutput"(): $PackOutput
 get "providersView"(): $Map<(StringJS), ($DataProvider)>
 }
@@ -70,8 +70,8 @@ export type $CachedOutput$$Type = ((arg0: $Path, arg1: (byte)[], arg2: $HashCode
 export type $CachedOutput$$Original = $CachedOutput;}
 declare module "net.minecraft.data.DataGenerator$PackGenerator" {
 import {$PackOutput$$Type} from "net.minecraft.data.PackOutput"
-import {$DataProvider} from "net.minecraft.data.DataProvider"
 import {$DataProvider$Factory$$Type} from "net.minecraft.data.DataProvider$Factory"
+import {$DataProvider} from "net.minecraft.data.DataProvider"
 import {$DataGenerator, $DataGenerator$$Type} from "net.minecraft.data.DataGenerator"
 
 export class $DataGenerator$PackGenerator {
@@ -184,12 +184,12 @@ export type $PackOutput$Target$$Type = (("data_pack") | ("resource_pack") | ("re
 export type $PackOutput$Target$$Original = $PackOutput$Target;}
 declare module "net.minecraft.data.DataProvider" {
 import {$ToIntFunction} from "java.util.function.ToIntFunction"
-import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
 import {$Codec$$Type} from "com.mojang.serialization.Codec"
+import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
 import {$Comparator} from "java.util.Comparator"
 import {$JsonElement$$Type} from "com.google.gson.JsonElement"
-import {$CachedOutput$$Type} from "net.minecraft.data.CachedOutput"
 import {$AtomicInteger} from "java.util.concurrent.atomic.AtomicInteger"
+import {$CachedOutput$$Type} from "net.minecraft.data.CachedOutput"
 import {$Path$$Type} from "java.nio.file.Path"
 import {$Logger} from "org.slf4j.Logger"
 import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
@@ -206,8 +206,8 @@ static readonly "LOGGER": $Logger
 
  "getName"(): StringJS
  "run"(arg0: $CachedOutput$$Type): $CompletableFuture<(never)>
-static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 static "saveStable"(arg0: $CachedOutput$$Type, arg1: $JsonElement$$Type, arg2: $Path$$Type): $CompletableFuture<(never)>
+static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

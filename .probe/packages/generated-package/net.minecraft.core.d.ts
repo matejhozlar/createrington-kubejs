@@ -9,7 +9,6 @@ import {$NonNullListAccessor$$Interface} from "net.caffeinemc.mods.lithium.mixin
 export class $NonNullList<E> extends $AbstractList<(E)> implements $NonNullListAccessor$$Interface {
 constructor(arg0: $List$$Type<(E)>, arg1: E)
 
-public static "codecOf"<E>(arg0: $Codec$$Type<(E)>): $Codec<($NonNullList<(E)>)>
 public "remove"(arg0: integer): E
 public "size"(): integer
 public "get"(arg0: integer): E
@@ -20,6 +19,7 @@ public static "of"<E>(arg0: E, ...arg1: (E)[]): $NonNullList<(E)>
 public "set"(arg0: integer, arg1: E): E
 public static "create"<E>(): $NonNullList<(E)>
 public "getDelegate"(): $List
+public static "codecOf"<E>(arg0: $Codec$$Type<(E)>): $Codec<($NonNullList<(E)>)>
 public static "createWithCapacity"<E>(arg0: integer): $NonNullList<(E)>
 public static "withSize"<E>(arg0: integer, arg1: E): $NonNullList<(E)>
 public "remove"(arg0: any): boolean
@@ -88,14 +88,14 @@ public "hashCode"(): integer
 public "apply"(arg0: $RegistrySetBuilder$BuildState$$Type): void
 public "key"(): $ResourceKey<($Registry<(T)>)>
 public "bootstrap"(): $RegistrySetBuilder$RegistryBootstrap<(T)>
-public "lifecycle"(): $Lifecycle
 public "collectRegisteredValues"(arg0: $RegistrySetBuilder$BuildState$$Type): $RegistrySetBuilder$RegistryContents<(T)>
+public "lifecycle"(): $Lifecycle
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $RegistrySetBuilder$RegistryStub$$Type<T> = ({"bootstrap"?: $RegistrySetBuilder$RegistryBootstrap$$Type<(T)>, "key"?: $ResourceKey$$Type<($Registry<(T)>)>, "lifecycle"?: $Lifecycle$$Type}) | ([bootstrap?: $RegistrySetBuilder$RegistryBootstrap$$Type<(T)>, key?: $ResourceKey$$Type<($Registry<(T)>)>, lifecycle?: $Lifecycle$$Type]);
+export type $RegistrySetBuilder$RegistryStub$$Type<T> = ({"lifecycle"?: $Lifecycle$$Type, "key"?: $ResourceKey$$Type<($Registry<(T)>)>, "bootstrap"?: $RegistrySetBuilder$RegistryBootstrap$$Type<(T)>}) | ([lifecycle?: $Lifecycle$$Type, key?: $ResourceKey$$Type<($Registry<(T)>)>, bootstrap?: $RegistrySetBuilder$RegistryBootstrap$$Type<(T)>]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -130,13 +130,13 @@ import {$List} from "java.util.List"
 import {$HolderLookup$RegistryLookup, $HolderLookup$RegistryLookup$$Type} from "net.minecraft.core.HolderLookup$RegistryLookup"
 import {$HolderOwner$$Type} from "net.minecraft.core.HolderOwner"
 import {$Cloner$Factory$$Type} from "net.minecraft.core.Cloner$Factory"
-import {$RegistrySetBuilder$RegistryStub} from "net.minecraft.core.RegistrySetBuilder$RegistryStub"
 import {$HolderLookup$Provider, $HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
+import {$RegistrySetBuilder$RegistryStub} from "net.minecraft.core.RegistrySetBuilder$RegistryStub"
 import {$HolderGetter} from "net.minecraft.core.HolderGetter"
 import {$RegistrySetBuilder$PatchedRegistries} from "net.minecraft.core.RegistrySetBuilder$PatchedRegistries"
 import {$Registry, $Registry$$Type} from "net.minecraft.core.Registry"
-import {$Lifecycle$$Type} from "com.mojang.serialization.Lifecycle"
 import {$Holder$Reference$$Type} from "net.minecraft.core.Holder$Reference"
+import {$Lifecycle$$Type} from "com.mojang.serialization.Lifecycle"
 import {$ResourceKey, $ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
 import {$RegistryAccess$$Type} from "net.minecraft.core.RegistryAccess"
 
@@ -145,8 +145,8 @@ readonly "entries": $List<($RegistrySetBuilder$RegistryStub<(never)>)>
 
 constructor()
 
-public "add"<T>(arg0: $ResourceKey$$Type<($Registry<(T)>)>, arg1: $Lifecycle$$Type, arg2: $RegistrySetBuilder$RegistryBootstrap$$Type<(T)>): $RegistrySetBuilder
 public "add"<T>(arg0: $ResourceKey$$Type<($Registry<(T)>)>, arg1: $RegistrySetBuilder$RegistryBootstrap$$Type<(T)>): $RegistrySetBuilder
+public "add"<T>(arg0: $ResourceKey$$Type<($Registry<(T)>)>, arg1: $Lifecycle$$Type, arg2: $RegistrySetBuilder$RegistryBootstrap$$Type<(T)>): $RegistrySetBuilder
 public "build"(arg0: $RegistryAccess$$Type): $HolderLookup$Provider
 public static "lookupFromMap"<T>(arg0: $ResourceKey$$Type<($Registry<(T)>)>, arg1: $Lifecycle$$Type, arg2: $HolderOwner$$Type<(T)>, arg3: $Map$$Type<($ResourceKey$$Type<(T)>), ($Holder$Reference$$Type<(T)>)>): $HolderLookup$RegistryLookup<(T)>
 public "getEntryKeys"(): $List<($ResourceKey<($Registry<(never)>)>)>
@@ -198,15 +198,15 @@ constructor(arg0: $ListTag$$Type)
 
 public "equals"(arg0: any): boolean
 public "save"(): $ListTag
+public "getY"(): float
 public "getX"(): float
 public "getZ"(): float
 public "getWrappedX"(): float
-public "getWrappedY"(): float
 public "getWrappedZ"(): float
-public "getY"(): float
+public "getWrappedY"(): float
 get "wrappedX"(): float
-get "wrappedY"(): float
 get "wrappedZ"(): float
+get "wrappedY"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -220,16 +220,16 @@ export type $Rotations$$Original = $Rotations;}
 declare module "net.minecraft.core.BlockPos" {
 import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
 import {$Iterable} from "java.lang.Iterable"
-import {$BlockPos$MutableBlockPos} from "net.minecraft.core.BlockPos$MutableBlockPos"
 import {$BoundingBox$$Type} from "net.minecraft.world.level.levelgen.structure.BoundingBox"
+import {$BlockPos$MutableBlockPos} from "net.minecraft.core.BlockPos$MutableBlockPos"
 import {$Optional} from "java.util.Optional"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$Direction$$Type} from "net.minecraft.core.Direction"
 import {$Position$$Type} from "net.minecraft.core.Position"
 import {$ByteBuf} from "io.netty.buffer.ByteBuf"
 import {$Consumer$$Type} from "java.util.function.Consumer"
-import {$Direction$Axis$$Type} from "net.minecraft.core.Direction$Axis"
 import {$RandomSource$$Type} from "net.minecraft.util.RandomSource"
+import {$Direction$Axis$$Type} from "net.minecraft.core.Direction$Axis"
 import {$Vec3, $Vec3$$Type} from "net.minecraft.world.phys.Vec3"
 import {$Vec3i, $Vec3i$$Type} from "net.minecraft.core.Vec3i"
 import {$Codec} from "com.mojang.serialization.Codec"
@@ -251,20 +251,33 @@ public static "min"(arg0: $BlockPos$$Type, arg1: $BlockPos$$Type): $BlockPos
 public static "max"(arg0: $BlockPos$$Type, arg1: $BlockPos$$Type): $BlockPos
 public "compareTo"(arg0: any): integer
 public static "of"(arg0: long): $BlockPos
-public "offset"(arg0: integer, arg1: integer, arg2: integer): $BlockPos
 public "offset"(arg0: $Vec3i$$Type): $Vec3i
-public static "offset"(arg0: long, arg1: $Direction$$Type): long
+public "offset"(arg0: integer, arg1: integer, arg2: integer): $Vec3i
 public static "offset"(arg0: long, arg1: integer, arg2: integer, arg3: integer): long
-public "multiply"(arg0: integer): $Vec3i
+public static "offset"(arg0: long, arg1: $Direction$$Type): long
+public "multiply"(arg0: integer): $BlockPos
 public "rotate"(arg0: $Rotation$$Type): $BlockPos
 public "subtract"(arg0: $Vec3i$$Type): $Vec3i
-public "relative"(arg0: $Direction$$Type): $Vec3i
 public "relative"(arg0: $Direction$Axis$$Type, arg1: integer): $BlockPos
 public "relative"(arg0: $Direction$$Type, arg1: integer): $Vec3i
+public "relative"(arg0: $Direction$$Type): $Vec3i
+public static "getY"(arg0: long): integer
+public static "randomBetweenClosed"(arg0: $RandomSource$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer): $Iterable<($BlockPos)>
+public static "breadthFirstTraversal"(arg0: $BlockPos$$Type, arg1: integer, arg2: integer, arg3: $BiConsumer$$Type<($BlockPos), ($Consumer<($BlockPos)>)>, arg4: $Predicate$$Type<($BlockPos)>): integer
+public "clampLocationWithin"(arg0: $Vec3$$Type): $Vec3
+public static "withinManhattanStream"(arg0: $BlockPos$$Type, arg1: integer, arg2: integer, arg3: integer): $Stream<($BlockPos)>
+public static "randomInCube"(arg0: $RandomSource$$Type, arg1: integer, arg2: $BlockPos$$Type, arg3: integer): $Iterable<($BlockPos)>
+public "immutable"(): $BlockPos
+public static "asLong"(arg0: integer, arg1: integer, arg2: integer): long
+public "asLong"(): long
+public static "betweenClosed"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): $Iterable<($BlockPos)>
+public static "betweenClosed"(arg0: $BlockPos$$Type, arg1: $BlockPos$$Type): $Iterable<($BlockPos)>
+public static "containing"(arg0: double, arg1: double, arg2: double): $BlockPos
+public static "containing"(arg0: $Position$$Type): $BlockPos
 public "above"(): $BlockPos
 public "above"(arg0: integer): $Vec3i
-public "below"(arg0: integer): $Vec3i
 public "below"(): $BlockPos
+public "below"(arg0: integer): $Vec3i
 public static "getFlatIndex"(arg0: long): long
 /**
  * 
@@ -272,40 +285,27 @@ public static "getFlatIndex"(arg0: long): long
  */
 public static "squareOutSouthEast"(arg0: $BlockPos$$Type): $Stream<($BlockPos)>
 public static "withinManhattan"(arg0: $BlockPos$$Type, arg1: integer, arg2: integer, arg3: integer): $Iterable<($BlockPos)>
-public static "betweenClosedStream"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): $Stream<($BlockPos)>
+public static "spiralAround"(arg0: $BlockPos$$Type, arg1: integer, arg2: $Direction$$Type, arg3: $Direction$$Type): $Iterable<($BlockPos$MutableBlockPos)>
+public static "findClosestMatch"(arg0: $BlockPos$$Type, arg1: integer, arg2: integer, arg3: $Predicate$$Type<($BlockPos)>): $Optional<($BlockPos)>
+public "east"(): $BlockPos
+public "east"(arg0: integer): $Vec3i
+public "north"(): $BlockPos
+public "north"(arg0: integer): $BlockPos
+public "west"(arg0: integer): $Vec3i
+public "west"(): $Vec3i
+public "south"(): $BlockPos
+public "south"(arg0: integer): $Vec3i
+public "cross"(arg0: $Vec3i$$Type): $Vec3i
+public "getBottomCenter"(): $Vec3
+public static "betweenClosedStream"(arg0: $BlockPos$$Type, arg1: $BlockPos$$Type): $Stream<($BlockPos)>
 public static "betweenClosedStream"(arg0: $AABB$$Type): $Stream<($BlockPos)>
 public static "betweenClosedStream"(arg0: $BoundingBox$$Type): $Stream<($BlockPos)>
-public static "betweenClosedStream"(arg0: $BlockPos$$Type, arg1: $BlockPos$$Type): $Stream<($BlockPos)>
-public "mutable"(): $BlockPos$MutableBlockPos
+public static "betweenClosedStream"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): $Stream<($BlockPos)>
 public static "getX"(arg0: long): integer
 public static "getZ"(arg0: long): integer
-public "getBottomCenter"(): $Vec3
+public "mutable"(): $BlockPos$MutableBlockPos
 public "atY"(arg0: integer): $BlockPos
 public "getCenter"(): $Vec3
-public static "getY"(arg0: long): integer
-public "immutable"(): $BlockPos
-public static "asLong"(arg0: integer, arg1: integer, arg2: integer): long
-public "asLong"(): long
-public static "randomInCube"(arg0: $RandomSource$$Type, arg1: integer, arg2: $BlockPos$$Type, arg3: integer): $Iterable<($BlockPos)>
-public "clampLocationWithin"(arg0: $Vec3$$Type): $Vec3
-public static "randomBetweenClosed"(arg0: $RandomSource$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer): $Iterable<($BlockPos)>
-public static "withinManhattanStream"(arg0: $BlockPos$$Type, arg1: integer, arg2: integer, arg3: integer): $Stream<($BlockPos)>
-public static "breadthFirstTraversal"(arg0: $BlockPos$$Type, arg1: integer, arg2: integer, arg3: $BiConsumer$$Type<($BlockPos), ($Consumer<($BlockPos)>)>, arg4: $Predicate$$Type<($BlockPos)>): integer
-public static "betweenClosed"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): $Iterable<($BlockPos)>
-public static "betweenClosed"(arg0: $BlockPos$$Type, arg1: $BlockPos$$Type): $Iterable<($BlockPos)>
-public "cross"(arg0: $Vec3i$$Type): $Vec3i
-public static "findClosestMatch"(arg0: $BlockPos$$Type, arg1: integer, arg2: integer, arg3: $Predicate$$Type<($BlockPos)>): $Optional<($BlockPos)>
-public static "spiralAround"(arg0: $BlockPos$$Type, arg1: integer, arg2: $Direction$$Type, arg3: $Direction$$Type): $Iterable<($BlockPos$MutableBlockPos)>
-public "east"(arg0: integer): $BlockPos
-public "east"(): $BlockPos
-public "west"(): $Vec3i
-public "west"(arg0: integer): $Vec3i
-public "north"(): $BlockPos
-public "north"(arg0: integer): $Vec3i
-public "south"(): $Vec3i
-public "south"(arg0: integer): $BlockPos
-public static "containing"(arg0: double, arg1: double, arg2: double): $BlockPos
-public static "containing"(arg0: $Position$$Type): $BlockPos
 get "bottomCenter"(): $Vec3
 get "center"(): $Vec3
 }
@@ -329,16 +329,16 @@ import {$Matrix4f$$Type} from "org.joml.Matrix4f"
 import {$ByteBuf} from "io.netty.buffer.ByteBuf"
 import {$IntFunction} from "java.util.function.IntFunction"
 import {$Keyable} from "com.mojang.serialization.Keyable"
-import {$Direction$Axis, $Direction$Axis$$Type} from "net.minecraft.core.Direction$Axis"
 import {$RandomSource$$Type} from "net.minecraft.util.RandomSource"
+import {$Direction$Axis, $Direction$Axis$$Type} from "net.minecraft.core.Direction$Axis"
 import {$Vec3$$Type} from "net.minecraft.world.phys.Vec3"
 import {$Vec3i} from "net.minecraft.core.Vec3i"
-import {$Codec} from "com.mojang.serialization.Codec"
 import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
+import {$Codec} from "com.mojang.serialization.Codec"
 import {$Function, $Function$$Type} from "java.util.function.Function"
 import {$Supplier$$Type} from "java.util.function.Supplier"
-import {$Quaternionf} from "org.joml.Quaternionf"
 import {$Entity$$Type} from "net.minecraft.world.entity.Entity"
+import {$Quaternionf} from "org.joml.Quaternionf"
 import {$Stream} from "java.util.stream.Stream"
 
 export class $Direction extends $Enum<($Direction)> implements $StringRepresentable$$Interface {
@@ -362,59 +362,59 @@ public static "valueOf"(arg0: StringJS): $Direction
 public static "stream"(): $Stream<($Direction)>
 public "step"(): $Vector3f
 public static "rotate"(arg0: $Matrix4f$$Type, arg1: $Direction$$Type): $Direction
-public "getOpposite"(): $Direction
-public "getNormal"(): $Vec3i
-public "getAxisDirection"(): $Direction$AxisDirection
-public "isFacingAngle"(arg0: float): boolean
 public static "getFacingAxis"(arg0: $Entity$$Type, arg1: $Direction$Axis$$Type): $Direction
-public static "from3DDataValue"(arg0: integer): $Direction
-public static "from2DDataValue"(arg0: integer): $Direction
-public static "orderedByNearest"(arg0: $Entity$$Type): ($Direction)[]
-public "getPitch"(): float
-public "getHorizontalIndex"(): integer
-public "getIndex"(): integer
 public static "allShuffled"(arg0: $RandomSource$$Type): $Collection<($Direction)>
-public static "getRandom"(arg0: $RandomSource$$Type): $Direction
-public "getYaw"(): float
-public "getCounterClockWise"(): $Direction
-public "getCounterClockWise"(arg0: $Direction$Axis$$Type): $Direction
-public "getSerializedName"(): StringJS
-public static "fromYRot"(arg0: double): $Direction
-public static "getNearest"(arg0: float, arg1: float, arg2: float): $Direction
-public static "getNearest"(arg0: double, arg1: double, arg2: double): $Direction
-public static "getNearest"(arg0: $Vec3$$Type): $Direction
+public "getIndex"(): integer
+public "isFacingAngle"(arg0: float): boolean
+public static "from2DDataValue"(arg0: integer): $Direction
+public "getHorizontalIndex"(): integer
+public static "orderedByNearest"(arg0: $Entity$$Type): ($Direction)[]
+public static "from3DDataValue"(arg0: integer): $Direction
+public "getPitch"(): float
+public static "byName"(arg0: StringJS): $Direction
 public "getX"(): integer
 public "getZ"(): integer
-public static "byName"(arg0: StringJS): $Direction
-public static "fromDelta"(arg0: integer, arg1: integer, arg2: integer): $Direction
-public static "fromAxisAndDirection"(arg0: $Direction$Axis$$Type, arg1: $Direction$AxisDirection$$Type): $Direction
-public "getY"(): integer
-public "getClockWise"(arg0: $Direction$Axis$$Type): $Direction
-public "getClockWise"(): $Direction
-public "getRotation"(): $Quaternionf
+public static "getRandom"(arg0: $RandomSource$$Type): $Direction
 public "getAxis"(): $Direction$Axis
-public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
+public "getClockWise"(): $Direction
+public "getClockWise"(arg0: $Direction$Axis$$Type): $Direction
+public "getSerializedName"(): StringJS
+public "getRotation"(): $Quaternionf
+public static "fromDelta"(arg0: integer, arg1: integer, arg2: integer): $Direction
+public "getCounterClockWise"(arg0: $Direction$Axis$$Type): $Direction
+public "getCounterClockWise"(): $Direction
+public static "fromAxisAndDirection"(arg0: $Direction$Axis$$Type, arg1: $Direction$AxisDirection$$Type): $Direction
+public "getAxisDirection"(): $Direction$AxisDirection
+public static "fromYRot"(arg0: double): $Direction
+public "getNormal"(): $Vec3i
+public "getOpposite"(): $Direction
+public static "getNearest"(arg0: $Vec3$$Type): $Direction
+public static "getNearest"(arg0: float, arg1: float, arg2: float): $Direction
+public static "getNearest"(arg0: double, arg1: double, arg2: double): $Direction
+public "getY"(): integer
+public "getYaw"(): float
 public static "keys"(arg0: ($StringRepresentable$$Type)[]): $Keyable
+public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
+public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 public "getRemappedEnumConstantName"(): StringJS
 public static "fromEnum"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromValues"<T extends $StringRepresentable>(arg0: $Supplier$$Type<((T)[])>): $Codec<(T)>
-public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 get "name"(): StringJS
-get "opposite"(): $Direction
-get "normal"(): $Vec3i
-get "axisDirection"(): $Direction$AxisDirection
-get "pitch"(): float
-get "horizontalIndex"(): integer
 get "index"(): integer
-get "yaw"(): float
-get "counterClockWise"(): $Direction
-get "serializedName"(): StringJS
+get "horizontalIndex"(): integer
+get "pitch"(): float
 get "x"(): integer
 get "z"(): integer
-get "y"(): integer
-get "clockWise"(): $Direction
-get "rotation"(): $Quaternionf
 get "axis"(): $Direction$Axis
+get "clockWise"(): $Direction
+get "serializedName"(): StringJS
+get "rotation"(): $Quaternionf
+get "counterClockWise"(): $Direction
+get "axisDirection"(): $Direction$AxisDirection
+get "normal"(): $Vec3i
+get "opposite"(): $Direction
+get "y"(): integer
+get "yaw"(): float
 get "remappedEnumConstantName"(): StringJS
 }
 /**
@@ -449,8 +449,8 @@ public "contains"(arg0: integer): boolean
 public "getId"(arg0: T): integer
 public "addMapping"(arg0: T, arg1: integer): void
 public "byId"(arg0: integer): T
-public "getIdOrThrow"(arg0: T): integer
 public "byIdOrThrow"(arg0: integer): T
+public "getIdOrThrow"(arg0: T): integer
 public "spliterator"(): $Spliterator<(T)>
 public "forEach"(arg0: $Consumer$$Type<(T)>): void
 [Symbol.iterator](): IterableIterator<T>;
@@ -475,8 +475,8 @@ public "getName"(): StringJS
 public "toString"(): StringJS
 public static "values"(): ($Direction$AxisDirection)[]
 public static "valueOf"(arg0: StringJS): $Direction$AxisDirection
-public "opposite"(): $Direction$AxisDirection
 public "getStep"(): integer
+public "opposite"(): $Direction$AxisDirection
 get "name"(): StringJS
 get "step"(): integer
 }
@@ -522,8 +522,8 @@ import {$DynamicOps$$Type} from "com.mojang.serialization.DynamicOps"
 import {$Optional} from "java.util.Optional"
 import {$RegistryOps} from "net.minecraft.resources.RegistryOps"
 import {$HolderLookup$RegistryLookup, $HolderLookup$RegistryLookup$$Type} from "net.minecraft.core.HolderLookup$RegistryLookup"
-import {$Holder} from "net.minecraft.core.Holder"
 import {$HolderLookup$Provider} from "net.minecraft.core.HolderLookup$Provider"
+import {$Holder} from "net.minecraft.core.Holder"
 import {$Registry, $Registry$$Type} from "net.minecraft.core.Registry"
 import {$Lifecycle} from "com.mojang.serialization.Lifecycle"
 import {$Holder$Reference} from "net.minecraft.core.Holder$Reference"
@@ -537,16 +537,16 @@ export interface $RegistryAccess$Frozen$$Interface extends $RegistryAccess$$Inte
 export class $RegistryAccess$Frozen implements $RegistryAccess$Frozen$$Interface {
  "lookup"<T>(arg0: $ResourceKey$$Type<($Registry<(T)>)>): $Optional<($HolderLookup$RegistryLookup<(T)>)>
  "freeze"(): $RegistryAccess$Frozen
- "registries"(): $Stream<($RegistryAccess$RegistryEntry<(never)>)>
  "registry"<E>(arg0: $ResourceKey$$Type<($Registry<(E)>)>): $Optional<($Registry<(E)>)>
+ "registries"(): $Stream<($RegistryAccess$RegistryEntry<(never)>)>
  "allRegistriesLifecycle"(): $Lifecycle
 static "fromRegistryOfRegistries"(arg0: $Registry$$Type<($Registry$$Type<(never)>)>): $RegistryAccess$Frozen
- "registryOrThrow"<E>(arg0: $ResourceKey$$Type<($Registry<(E)>)>): $Registry<(E)>
  "listRegistries"(): $Stream<($ResourceKey<($Registry<(never)>)>)>
+ "registryOrThrow"<E>(arg0: $ResourceKey$$Type<($Registry<(E)>)>): $Registry<(E)>
 static "create"(arg0: $Stream$$Type<($HolderLookup$RegistryLookup$$Type<(never)>)>): $HolderLookup$Provider
- "createSerializationContext"<V>(arg0: $DynamicOps$$Type<(V)>): $RegistryOps<(V)>
- "asGetterLookup"(): $HolderGetter$Provider
  "lookupOrThrow"<T>(arg0: $ResourceKey$$Type<($Registry<(T)>)>): $HolderLookup$RegistryLookup<(T)>
+ "asGetterLookup"(): $HolderGetter$Provider
+ "createSerializationContext"<V>(arg0: $DynamicOps$$Type<(V)>): $RegistryOps<(V)>
  "holder"<T>(arg0: $ResourceKey$$Type<(T)>): $Optional<($Holder$Reference<(T)>)>
  "holderOrThrow"<T>(arg0: $ResourceKey$$Type<(T)>): $Holder<(T)>
 }
@@ -560,8 +560,8 @@ export type $RegistryAccess$Frozen$$Type = ($RegistryAccess$Frozen);
  */
 export type $RegistryAccess$Frozen$$Original = $RegistryAccess$Frozen;}
 declare module "net.minecraft.core.HolderSet" {
-import {$Iterable$$Interface} from "java.lang.Iterable"
 import {$Iterator} from "java.util.Iterator"
+import {$Iterable$$Interface} from "java.lang.Iterable"
 import {$Collection$$Type} from "java.util.Collection"
 import {$Optional} from "java.util.Optional"
 import {$Spliterator} from "java.util.Spliterator"
@@ -576,8 +576,8 @@ import {$HolderSet$Direct} from "net.minecraft.core.HolderSet$Direct"
 import {$Function$$Type} from "java.util.function.Function"
 import {$Either} from "com.mojang.datafixers.util.Either"
 import {$TagKey, $TagKey$$Type} from "net.minecraft.tags.TagKey"
-import {$Stream} from "java.util.stream.Stream"
 import {$IHolderSetExtension$$Interface} from "net.neoforged.neoforge.common.extensions.IHolderSetExtension"
+import {$Stream} from "java.util.stream.Stream"
 import {$HolderSet$Named} from "net.minecraft.core.HolderSet$Named"
 
 export interface $HolderSet$$Interface<T> extends $Iterable$$Interface<($Holder<(T)>)>, $IHolderSetExtension$$Interface<(T)> {
@@ -595,19 +595,19 @@ static "direct"<E, T>(arg0: $Function$$Type<(E), ($Holder$$Type<(T)>)>, ...arg1:
 static "direct"<T>(...arg0: ($Holder$$Type<(T)>)[]): $HolderSet$Direct<(T)>
 static "direct"<T>(arg0: $List$$Type<($Holder$$Type<(T)>)>): $HolderSet$Direct<(T)>
 static "direct"<E, T>(arg0: $Function$$Type<(E), ($Holder$$Type<(T)>)>, arg1: $Collection$$Type<(E)>): $HolderSet$Direct<(T)>
+ "unwrapKey"(): $Optional<($TagKey<(T)>)>
 /**
  * 
  * @deprecated
  */
 static "emptyNamed"<T>(arg0: $HolderOwner$$Type<(T)>, arg1: $TagKey$$Type<(T)>): $HolderSet$Named<(T)>
- "getRandomElement"(arg0: $RandomSource$$Type): $Optional<($Holder<(T)>)>
  "canSerializeIn"(arg0: $HolderOwner$$Type<(T)>): boolean
- "unwrapKey"(): $Optional<($TagKey<(T)>)>
+ "getRandomElement"(arg0: $RandomSource$$Type): $Optional<($Holder<(T)>)>
  "iterator"(): $Iterator<($Holder<(T)>)>
  "spliterator"(): $Spliterator<($Holder<(T)>)>
  "forEach"(arg0: $Consumer$$Type<($Holder<(T)>)>): void
- "serializationType"(): $IHolderSetExtension$SerializationType
  "addInvalidationListener"(arg0: $Runnable$$Type): void
+ "serializationType"(): $IHolderSetExtension$SerializationType
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -641,9 +641,9 @@ public "key"(): $TagKey<(T)>
 public "unwrap"(): $Either<($TagKey<(T)>), ($List<($Holder<(T)>)>)>
 public "bind"(arg0: $List$$Type<($Holder$$Type<(T)>)>): void
 public "contents"(): $List<($Holder<(T)>)>
-public "canSerializeIn"(arg0: $HolderOwner$$Type<(T)>): boolean
-public "unwrapKey"(): $Optional<($TagKey<(T)>)>
 public "addInvalidationListener"(arg0: $Runnable$$Type): void
+public "unwrapKey"(): $Optional<($TagKey<(T)>)>
+public "canSerializeIn"(arg0: $HolderOwner$$Type<(T)>): boolean
 public static "empty"<T>(): $HolderSet<(T)>
 public static "direct"<E, T>(arg0: $Function$$Type<(E), ($Holder$$Type<(T)>)>, ...arg1: (E)[]): $HolderSet$Direct<(T)>
 public static "direct"<T>(...arg0: ($Holder$$Type<(T)>)[]): $HolderSet$Direct<(T)>
@@ -685,13 +685,13 @@ export interface $HolderLookup$RegistryLookup$$Interface<T> extends $HolderLooku
 export class $HolderLookup$RegistryLookup<T> implements $HolderLookup$RegistryLookup$$Interface {
  "key"(): $ResourceKey<($Registry<(T)>)>
  "getData"<A>(arg0: $DataMapType$$Type<(T), (A)>, arg1: $ResourceKey$$Type<(T)>): A
- "filterFeatures"(arg0: $FeatureFlagSet$$Type): $HolderLookup$RegistryLookup<(T)>
- "registryLifecycle"(): $Lifecycle
  "filterElements"(arg0: $Predicate$$Type<(T)>): $HolderLookup$RegistryLookup<(T)>
- "listTags"(): $Stream<($HolderSet$Named<(T)>)>
- "listTagIds"(): $Stream<($TagKey<(T)>)>
- "listElements"(): $Stream<($Holder$Reference<(T)>)>
+ "registryLifecycle"(): $Lifecycle
+ "filterFeatures"(arg0: $FeatureFlagSet$$Type): $HolderLookup$RegistryLookup<(T)>
  "listElementIds"(): $Stream<($ResourceKey<(T)>)>
+ "listElements"(): $Stream<($Holder$Reference<(T)>)>
+ "listTagIds"(): $Stream<($TagKey<(T)>)>
+ "listTags"(): $Stream<($HolderSet$Named<(T)>)>
  "canSerializeIn"(arg0: $HolderOwner$$Type<(T)>): boolean
  "get"(arg0: $ResourceKey$$Type<(T)>): $Optional<($Holder$Reference<(T)>)>
  "get"(arg0: $TagKey$$Type<(T)>): $Optional<($HolderSet$Named<(T)>)>
@@ -755,9 +755,9 @@ static readonly "DEFAULT": integer
 
  "size"(): integer
  "getId"(arg0: T): integer
- "getIdOrThrow"(arg0: T): integer
- "byIdOrThrow"(arg0: integer): T
  "byId"(arg0: integer): T
+ "byIdOrThrow"(arg0: integer): T
+ "getIdOrThrow"(arg0: T): integer
  "iterator"(): $Iterator<(T)>
  "spliterator"(): $Spliterator<(T)>
  "forEach"(arg0: $Consumer$$Type<(T)>): void
@@ -800,8 +800,8 @@ public "iterator"(): $Iterator<($Holder<(T)>)>
 public "stream"(): $Stream<($Holder<(T)>)>
 public "spliterator"(): $Spliterator<($Holder<(T)>)>
 public "contents"(): $List<($Holder<(T)>)>
-public "getRandomElement"(arg0: $RandomSource$$Type): $Optional<($Holder<(T)>)>
 public "canSerializeIn"(arg0: $HolderOwner$$Type<(T)>): boolean
+public "getRandomElement"(arg0: $RandomSource$$Type): $Optional<($Holder<(T)>)>
 public "contains"(arg0: $Holder$$Type<(T)>): boolean
 public static "empty"<T>(): $HolderSet<(T)>
 public "unwrap"(): $Either<($TagKey<(T)>), ($List<($Holder<(T)>)>)>
@@ -809,15 +809,15 @@ public static "direct"<E, T>(arg0: $Function$$Type<(E), ($Holder$$Type<(T)>)>, .
 public static "direct"<T>(...arg0: ($Holder$$Type<(T)>)[]): $HolderSet$Direct<(T)>
 public static "direct"<T>(arg0: $List$$Type<($Holder$$Type<(T)>)>): $HolderSet$Direct<(T)>
 public static "direct"<E, T>(arg0: $Function$$Type<(E), ($Holder$$Type<(T)>)>, arg1: $Collection$$Type<(E)>): $HolderSet$Direct<(T)>
+public "unwrapKey"(): $Optional<($TagKey<(T)>)>
 /**
  * 
  * @deprecated
  */
 public static "emptyNamed"<T>(arg0: $HolderOwner$$Type<(T)>, arg1: $TagKey$$Type<(T)>): $HolderSet$Named<(T)>
-public "unwrapKey"(): $Optional<($TagKey<(T)>)>
 public "forEach"(arg0: $Consumer$$Type<($Holder<(T)>)>): void
-public "serializationType"(): $IHolderSetExtension$SerializationType
 public "addInvalidationListener"(arg0: $Runnable$$Type): void
+public "serializationType"(): $IHolderSetExtension$SerializationType
 [Symbol.iterator](): IterableIterator<$Holder<(T)>>;
 }
 /**
@@ -853,8 +853,8 @@ export type $RegistryAccess$RegistryEntry$$Type<T> = ($RegistryAccess$RegistryEn
  */
 export type $RegistryAccess$RegistryEntry$$Original<T> = $RegistryAccess$RegistryEntry<(T)>;}
 declare module "net.minecraft.core.Cloner$Factory" {
-import {$Registry$$Type} from "net.minecraft.core.Registry"
 import {$Codec$$Type} from "com.mojang.serialization.Codec"
+import {$Registry$$Type} from "net.minecraft.core.Registry"
 import {$Cloner} from "net.minecraft.core.Cloner"
 import {$ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
 
@@ -908,8 +908,8 @@ import {$Holder$Reference} from "net.minecraft.core.Holder$Reference"
 
 export interface $Registry$$Interface<T> extends $Keyable$$Interface, $IdMap$$Interface<(T)>, $IRegistryExtension$$Interface<(T)> {
 [Symbol.iterator](): IterableIterator<T>;
-get "tags"(): $Stream<($Pair<($TagKey<(T)>), ($HolderSet$Named<(T)>)>)>
 get "any"(): $Optional<($Holder$Reference<(T)>)>
+get "tags"(): $Stream<($Pair<($TagKey<(T)>), ($HolderSet$Named<(T)>)>)>
 get "tagNames"(): $Stream<($TagKey<(T)>)>
 get "maxId"(): integer
 /**
@@ -928,9 +928,9 @@ export class $Registry<T> implements $Registry$$Interface {
  "stream"(): $Stream<(T)>
  "entrySet"(): $Set<($Map$Entry<($ResourceKey<(T)>), (T)>)>
  "getKey"(arg0: T): $ResourceLocation
+static "register"<T>(arg0: $Registry$$Type<(T)>, arg1: StringJS, arg2: T): T
 static "register"<V, T>(arg0: $Registry$$Type<(V)>, arg1: $ResourceLocation$$Type, arg2: T): T
 static "register"<V, T>(arg0: $Registry$$Type<(V)>, arg1: $ResourceKey$$Type<(V)>, arg2: T): T
-static "register"<T>(arg0: $Registry$$Type<(T)>, arg1: StringJS, arg2: T): T
  "key"(): $ResourceKey<($Registry<(T)>)>
  "containsKey"(arg0: $ResourceLocation$$Type): boolean
  "containsKey"(arg0: $ResourceKey$$Type<(T)>): boolean
@@ -939,42 +939,42 @@ static "register"<T>(arg0: $Registry$$Type<(T)>, arg1: StringJS, arg2: T): T
  "keySet"(): $Set<($ResourceLocation)>
  "freeze"(): $Registry<(T)>
  "getTag"(arg0: $TagKey$$Type<(T)>): $Optional<($HolderSet$Named<(T)>)>
- "getOptional"(arg0: $ResourceKey$$Type<(T)>): $Optional<(T)>
  "getOptional"(arg0: $ResourceLocation$$Type): $Optional<(T)>
+ "getOptional"(arg0: $ResourceKey$$Type<(T)>): $Optional<(T)>
+ "getAny"(): $Optional<($Holder$Reference<(T)>)>
+ "getOrThrow"(arg0: $ResourceKey$$Type<(T)>): T
  "createIntrusiveHolder"(arg0: T): $Holder$Reference<(T)>
+ "registryLifecycle"(): $Lifecycle
+ "getHolder"(arg0: integer): $Optional<($Holder$Reference<(T)>)>
+ "getHolder"(arg0: $ResourceLocation$$Type): $Optional<($Holder$Reference<(T)>)>
+ "getHolder"(arg0: $ResourceKey$$Type<(T)>): $Optional<($Holder$Reference<(T)>)>
  "getRandom"(arg0: $RandomSource$$Type): $Optional<($Holder$Reference<(T)>)>
  "getTags"(): $Stream<($Pair<($TagKey<(T)>), ($HolderSet$Named<(T)>)>)>
- "asLookup"(): $HolderLookup$RegistryLookup<(T)>
  "wrapAsHolder"(arg0: T): $Holder<(T)>
- "getHolderOrThrow"(arg0: $ResourceKey$$Type<(T)>): $Holder$Reference<(T)>
- "registryLifecycle"(): $Lifecycle
- "getOrThrow"(arg0: $ResourceKey$$Type<(T)>): T
- "getAny"(): $Optional<($Holder$Reference<(T)>)>
- "asHolderIdMap"(): $IdMap<($Holder<(T)>)>
- "holders"(): $Stream<($Holder$Reference<(T)>)>
- "bindTags"(arg0: $Map$$Type<($TagKey$$Type<(T)>), ($List$$Type<($Holder$$Type<(T)>)>)>): void
  "resetTags"(): void
- "byNameCodec"(): $Codec<(T)>
+ "bindTags"(arg0: $Map$$Type<($TagKey$$Type<(T)>), ($List$$Type<($Holder$$Type<(T)>)>)>): void
+ "holders"(): $Stream<($Holder$Reference<(T)>)>
+ "asHolderIdMap"(): $IdMap<($Holder<(T)>)>
+ "asLookup"(): $HolderLookup$RegistryLookup<(T)>
+ "getHolderOrThrow"(arg0: $ResourceKey$$Type<(T)>): $Holder$Reference<(T)>
+ "registrationInfo"(arg0: $ResourceKey$$Type<(T)>): $Optional<($RegistrationInfo)>
+ "getResourceKey"(arg0: T): $Optional<($ResourceKey<(T)>)>
  "registryKeySet"(): $Set<($ResourceKey<(T)>)>
- "getRandomElementOf"(arg0: $TagKey$$Type<(T)>, arg1: $RandomSource$$Type): $Optional<($Holder<(T)>)>
- "getTagOrEmpty"(arg0: $TagKey$$Type<(T)>): $Iterable<($Holder<(T)>)>
- "getTagNames"(): $Stream<($TagKey<(T)>)>
  "holderByNameCodec"(): $Codec<($Holder<(T)>)>
- "asTagAddingLookup"(): $HolderLookup$RegistryLookup<(T)>
+ "getTagOrEmpty"(arg0: $TagKey$$Type<(T)>): $Iterable<($Holder<(T)>)>
 static "registerForHolder"<T>(arg0: $Registry$$Type<(T)>, arg1: $ResourceLocation$$Type, arg2: T): $Holder$Reference<(T)>
 static "registerForHolder"<T>(arg0: $Registry$$Type<(T)>, arg1: $ResourceKey$$Type<(T)>, arg2: T): $Holder$Reference<(T)>
- "getResourceKey"(arg0: T): $Optional<($ResourceKey<(T)>)>
+ "getTagNames"(): $Stream<($TagKey<(T)>)>
  "holderOwner"(): $HolderOwner<(T)>
+ "asTagAddingLookup"(): $HolderLookup$RegistryLookup<(T)>
+ "byNameCodec"(): $Codec<(T)>
+ "getRandomElementOf"(arg0: $TagKey$$Type<(T)>, arg1: $RandomSource$$Type): $Optional<($Holder<(T)>)>
  "getOrCreateTag"(arg0: $TagKey$$Type<(T)>): $HolderSet$Named<(T)>
- "registrationInfo"(arg0: $ResourceKey$$Type<(T)>): $Optional<($RegistrationInfo)>
- "getHolder"(arg0: $ResourceLocation$$Type): $Optional<($Holder$Reference<(T)>)>
- "getHolder"(arg0: integer): $Optional<($Holder$Reference<(T)>)>
- "getHolder"(arg0: $ResourceKey$$Type<(T)>): $Optional<($Holder$Reference<(T)>)>
 static "forStrings"(arg0: $Supplier$$Type<($Stream$$Type<(StringJS)>)>): $Keyable
  "size"(): integer
- "getIdOrThrow"(arg0: T): integer
- "byIdOrThrow"(arg0: integer): T
  "byId"(arg0: integer): T
+ "byIdOrThrow"(arg0: integer): T
+ "getIdOrThrow"(arg0: T): integer
  "resolve"(arg0: $ResourceLocation$$Type): $ResourceLocation
  "resolve"(arg0: $ResourceKey$$Type<(T)>): $ResourceKey<(T)>
  "getId"(arg0: $ResourceKey$$Type<(T)>): integer
@@ -983,10 +983,10 @@ static "forStrings"(arg0: $Supplier$$Type<($Stream$$Type<(StringJS)>)>): $Keyabl
  "getData"<A>(arg0: $DataMapType$$Type<(T), (A)>, arg1: $ResourceKey$$Type<(T)>): A
  "addAlias"(arg0: $ResourceLocation$$Type, arg1: $ResourceLocation$$Type): void
  "getDataMap"<A>(arg0: $DataMapType$$Type<(T), (A)>): $Map<($ResourceKey<(T)>), (A)>
- "doesSync"(): boolean
  "getMaxId"(): integer
- "addCallback"<C extends $RegistryCallback<(object)>>(arg0: $Class$$Type<(C)>, arg1: C): void
+ "doesSync"(): boolean
  "addCallback"(arg0: $RegistryCallback$$Type<(T)>): void
+ "addCallback"<C extends $RegistryCallback<(object)>>(arg0: $Class$$Type<(C)>, arg1: C): void
  "getKeyOrNull"(arg0: T): $ResourceLocation
  "iterator"(): $Iterator<(T)>
  "spliterator"(): $Spliterator<(T)>
@@ -996,7 +996,7 @@ static "forStrings"(arg0: $Supplier$$Type<($Stream$$Type<(StringJS)>)>): $Keyabl
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $Registry$$Type<T> = (("minecraft:armor_material") | ("create:display_target") | ("minecraft:enchantment_provider_type") | ("silentgear:material_modifier_type") | ("minecraft:banner_pattern") | ("minecraft:cat_variant") | ("neoforge:biome_modifier_serializers") | ("minecraft:item") | ("minecraft:worldgen/pool_alias_binding") | ("minecraft:fluid") | ("minecraft:worldgen/tree_decorator_type") | ("minecraft:worldgen/structure") | ("minecraft:enchantment_value_effect_type") | ("common_storage_lib_data:sync_serializers") | ("create:arm_interaction_point_type") | ("minecraft:block_entity_type") | ("minecraft:worldgen/block_state_provider_type") | ("minecraft:worldgen/trunk_placer_type") | ("minecraft:painting_variant") | ("create:item_attribute_type") | ("minecraft:menu") | ("create:potato_projectile/render_mode") | ("neoforge:structure_modifier") | ("create:potato_projectile/type") | ("minecraft:chunk_status") | ("minecraft:loot_pool_entry_type") | ("silentgear:trait_effect_type") | ("minecraft:block") | ("bjornlib:bjorn_ability") | ("minecraft:wolf_variant") | ("minecraft:worldgen/structure_placement") | ("minecraft:decorated_pot_pattern") | ("createdieselgenerators:fuel_type") | ("minecraft:game_event") | ("neoforge:condition_codecs") | ("minecraft:loot_number_provider_type") | ("minecraft:loot_condition_type") | ("northstar:fuel_type") | ("minecraft:trigger_type") | ("silentgear:part_serializer") | ("minecraft:villager_type") | ("minecraft:float_provider_type") | ("minecraft:mob_effect") | ("create:mounted_item_storage_type") | ("minecraft:worldgen/feature") | ("minecraft:position_source_type") | ("minecraft:worldgen/template_pool") | ("minecraft:sensor_type") | ("minecraft:loot_nbt_provider_type") | ("neoforge:entity_data_serializers") | ("minecraft:instrument") | ("minecraft:worldgen/material_rule") | ("minecraft:worldgen/structure_type") | ("minecraft:rule_block_entity_modifier") | ("minecraft:point_of_interest_type") | ("minecraft:damage_type") | ("minecraft:rule_test") | ("neoforge:biome_modifier") | ("neoforge:structure_modifier_serializers") | ("minecraft:worldgen/chunk_generator") | ("minecraft:chat_type") | ("minecraft:worldgen/noise") | ("minecraft:trim_material") | ("create:mounted_fluid_storage_type") | ("minecraft:enchantment_entity_effect_type") | ("minecraft:worldgen/configured_feature") | ("minecraft:worldgen/structure_piece") | ("minecraft:worldgen/feature_size_type") | ("minecraft:creative_mode_tab") | ("create:contraption_type") | ("minecraft:worldgen/density_function") | ("minecraft:pos_rule_test") | ("minecraft:dimension_type") | ("minecraft:potion") | ("minecraft:worldgen/structure_set") | ("minecraft:memory_module_type") | ("silentgear:trait_condition") | ("minecraft:trim_pattern") | ("minecraft:schedule") | ("silentgear:part_type") | ("minecraft:worldgen/biome") | ("neoforge:global_loot_modifier_serializers") | ("minecraft:worldgen/placed_feature") | ("minecraft:height_provider_type") | ("minecraft:worldgen/placement_modifier_type") | ("minecraft:item_sub_predicate_type") | ("minecraft:worldgen/multi_noise_biome_source_parameter_list") | ("neoforge:fluid_type") | ("minecraft:worldgen/noise_settings") | ("minecraft:entity_type") | ("minecraft:worldgen/structure_pool_element") | ("silentgear:property") | ("minecraft:attribute") | ("minecraft:worldgen/structure_processor") | ("minecraft:worldgen/world_preset") | ("minecraft:worldgen/processor_list") | ("minecraft:frog_variant") | ("minecraft:worldgen/flat_level_generator_preset") | ("minecraft:worldgen/root_placer_type") | ("minecraft:dimension") | ("minecraft:worldgen/foliage_placer_type") | ("minecraft:worldgen/material_condition") | ("minecraft:enchantment") | ("minecraft:map_decoration_type") | ("create:display_source") | ("minecraft:worldgen/configured_carver") | ("minecraft:sound_event") | ("minecraft:recipe_serializer") | ("minecraft:block_type") | ("create:fan_processing_type") | ("minecraft:worldgen/density_function_type") | ("minecraft:recipe_type") | ("create:potato_projectile/block_hit_action") | ("minecraft:command_argument_type") | ("minecraft:enchantment_location_based_effect_type") | ("minecraft:jukebox_song") | ("minecraft:loot_function_type") | ("minecraft:enchantment_level_based_value_type") | ("minecraft:worldgen/biome_source") | ("create:potato_projectile/entity_hit_action") | ("minecraft:stat_type") | ("minecraft:worldgen/carver") | ("minecraft:block_predicate_type") | ("minecraft:villager_profession") | ("neoforge:ingredient_serializer") | ("create:package_port_target_type") | ("neoforge:fluid_ingredient_type") | ("minecraft:enchantment_provider") | ("minecraft:int_provider_type") | ("minecraft:enchantment_effect_component_type") | ("minecraft:loot_score_provider_type") | ("minecraft:particle_type") | ("neoforge:holder_set_type") | ("silentgear:gear_type") | ("minecraft:data_component_type") | ("silentgear:material_serializer") | ("create_factory_abstractions:generic_keys") | ("minecraft:activity") | ("minecraft:entity_sub_predicate_type") | ("neoforge:attachment_types") | ("minecraft:number_format_type"));
+export type $Registry$$Type<T> = (("minecraft:recipe_type") | ("minecraft:mob_effect") | ("minecraft:enchantment_location_based_effect_type") | ("minecraft:entity_type") | ("minecraft:point_of_interest_type") | ("neoforge:holder_set_type") | ("minecraft:worldgen/block_state_provider_type") | ("minecraft:worldgen/feature") | ("minecraft:fluid") | ("neoforge:global_loot_modifier_serializers") | ("bjornlib:bjorn_ability") | ("create:potato_projectile/block_hit_action") | ("neoforge:fluid_type") | ("minecraft:villager_type") | ("minecraft:block_predicate_type") | ("minecraft:position_source_type") | ("minecraft:worldgen/pool_alias_binding") | ("minecraft:worldgen/material_condition") | ("minecraft:loot_score_provider_type") | ("powergrid:components") | ("minecraft:worldgen/structure_type") | ("create:potato_projectile/render_mode") | ("minecraft:loot_condition_type") | ("minecraft:enchantment_provider_type") | ("neoforge:attachment_types") | ("minecraft:worldgen/configured_feature") | ("minecraft:creative_mode_tab") | ("minecraft:block_type") | ("minecraft:loot_nbt_provider_type") | ("minecraft:worldgen/material_rule") | ("create:display_target") | ("minecraft:dimension") | ("neoforge:entity_data_serializers") | ("minecraft:enchantment_level_based_value_type") | ("minecraft:memory_module_type") | ("create:potato_projectile/entity_hit_action") | ("minecraft:worldgen/structure_piece") | ("minecraft:worldgen/feature_size_type") | ("create:display_source") | ("minecraft:worldgen/density_function") | ("minecraft:activity") | ("minecraft:worldgen/processor_list") | ("neoforge:condition_codecs") | ("minecraft:worldgen/template_pool") | ("minecraft:item") | ("tfmg:flamethrower_fuel/type") | ("silentgear:part_type") | ("neoforge:biome_modifier") | ("silentgear:material_modifier_type") | ("minecraft:map_decoration_type") | ("minecraft:damage_type") | ("minecraft:worldgen/density_function_type") | ("neoforge:fluid_ingredient_type") | ("minecraft:banner_pattern") | ("create:contraption_type") | ("minecraft:decorated_pot_pattern") | ("minecraft:worldgen/root_placer_type") | ("minecraft:worldgen/biome") | ("minecraft:rule_block_entity_modifier") | ("minecraft:worldgen/noise_settings") | ("silentgear:part_serializer") | ("minecraft:worldgen/structure_placement") | ("minecraft:worldgen/foliage_placer_type") | ("minecraft:worldgen/structure_processor") | ("create:arm_interaction_point_type") | ("neoforge:ingredient_serializer") | ("minecraft:enchantment_value_effect_type") | ("minecraft:armor_material") | ("minecraft:particle_type") | ("minecraft:chunk_status") | ("minecraft:command_argument_type") | ("minecraft:wolf_variant") | ("minecraft:data_component_type") | ("silentgear:property") | ("silentgear:material_serializer") | ("minecraft:attribute") | ("minecraft:loot_pool_entry_type") | ("minecraft:worldgen/structure_pool_element") | ("minecraft:item_sub_predicate_type") | ("minecraft:worldgen/configured_carver") | ("minecraft:schedule") | ("minecraft:painting_variant") | ("minecraft:trim_pattern") | ("create_factory_abstractions:generic_keys") | ("minecraft:loot_number_provider_type") | ("minecraft:dimension_type") | ("minecraft:int_provider_type") | ("minecraft:stat_type") | ("minecraft:menu") | ("minecraft:enchantment_provider") | ("minecraft:worldgen/tree_decorator_type") | ("minecraft:recipe_serializer") | ("minecraft:worldgen/noise") | ("minecraft:sound_event") | ("minecraft:worldgen/carver") | ("common_storage_lib_data:sync_serializers") | ("minecraft:enchantment_effect_component_type") | ("minecraft:sensor_type") | ("minecraft:worldgen/placed_feature") | ("minecraft:potion") | ("minecraft:worldgen/structure") | ("minecraft:loot_function_type") | ("silentgear:gear_type") | ("create:fan_processing_type") | ("minecraft:game_event") | ("tfmg:cable_types") | ("minecraft:block_entity_type") | ("minecraft:enchantment") | ("minecraft:frog_variant") | ("minecraft:chat_type") | ("minecraft:number_format_type") | ("silentgear:trait_condition") | ("minecraft:worldgen/structure_set") | ("minecraft:trigger_type") | ("create:item_attribute_type") | ("minecraft:villager_profession") | ("create:mounted_fluid_storage_type") | ("minecraft:instrument") | ("powergrid:component_items") | ("create:potato_projectile/type") | ("minecraft:worldgen/trunk_placer_type") | ("northstar:fuel_type") | ("neoforge:structure_modifier") | ("minecraft:worldgen/chunk_generator") | ("create:package_port_target_type") | ("minecraft:cat_variant") | ("minecraft:worldgen/placement_modifier_type") | ("silentgear:trait_effect_type") | ("minecraft:worldgen/flat_level_generator_preset") | ("minecraft:worldgen/multi_noise_biome_source_parameter_list") | ("neoforge:biome_modifier_serializers") | ("minecraft:height_provider_type") | ("minecraft:trim_material") | ("minecraft:pos_rule_test") | ("neoforge:structure_modifier_serializers") | ("minecraft:entity_sub_predicate_type") | ("minecraft:rule_test") | ("minecraft:enchantment_entity_effect_type") | ("create:mounted_item_storage_type") | ("minecraft:worldgen/world_preset") | ("minecraft:block") | ("minecraft:float_provider_type") | ("minecraft:worldgen/biome_source") | ("tfmg:electrodes") | ("minecraft:jukebox_song"));
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -1004,15 +1004,15 @@ export type $Registry$$Original<T> = $Registry<(T)>;}
 declare module "net.minecraft.core.HolderLookup$Provider" {
 import {$HolderGetter$Provider} from "net.minecraft.core.HolderGetter$Provider"
 import {$DynamicOps$$Type} from "com.mojang.serialization.DynamicOps"
-import {$Optional} from "java.util.Optional"
 import {$Registry, $Registry$$Type} from "net.minecraft.core.Registry"
+import {$Optional} from "java.util.Optional"
 import {$RegistryOps} from "net.minecraft.resources.RegistryOps"
 import {$HolderLookup$RegistryLookup, $HolderLookup$RegistryLookup$$Type} from "net.minecraft.core.HolderLookup$RegistryLookup"
 import {$Holder$Reference} from "net.minecraft.core.Holder$Reference"
 import {$ResourceKey, $ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
 import {$Stream, $Stream$$Type} from "java.util.stream.Stream"
-import {$IHolderLookupProviderExtension$$Interface} from "net.neoforged.neoforge.common.extensions.IHolderLookupProviderExtension"
 import {$Holder} from "net.minecraft.core.Holder"
+import {$IHolderLookupProviderExtension$$Interface} from "net.neoforged.neoforge.common.extensions.IHolderLookupProviderExtension"
 
 export interface $HolderLookup$Provider$$Interface extends $IHolderLookupProviderExtension$$Interface {
 }
@@ -1020,10 +1020,10 @@ export interface $HolderLookup$Provider$$Interface extends $IHolderLookupProvide
 export class $HolderLookup$Provider implements $HolderLookup$Provider$$Interface {
  "lookup"<T>(arg0: $ResourceKey$$Type<($Registry<(T)>)>): $Optional<($HolderLookup$RegistryLookup<(T)>)>
 static "create"(arg0: $Stream$$Type<($HolderLookup$RegistryLookup$$Type<(never)>)>): $HolderLookup$Provider
- "createSerializationContext"<V>(arg0: $DynamicOps$$Type<(V)>): $RegistryOps<(V)>
  "listRegistries"(): $Stream<($ResourceKey<($Registry<(never)>)>)>
- "asGetterLookup"(): $HolderGetter$Provider
  "lookupOrThrow"<T>(arg0: $ResourceKey$$Type<($Registry<(T)>)>): $HolderLookup$RegistryLookup<(T)>
+ "asGetterLookup"(): $HolderGetter$Provider
+ "createSerializationContext"<V>(arg0: $DynamicOps$$Type<(V)>): $RegistryOps<(V)>
  "holder"<T>(arg0: $ResourceKey$$Type<(T)>): $Optional<($Holder$Reference<(T)>)>
  "holderOrThrow"<T>(arg0: $ResourceKey$$Type<(T)>): $Holder<(T)>
 }
@@ -1062,16 +1062,16 @@ static readonly "EMPTY": $RegistryAccess$Frozen
 
  "lookup"<T>(arg0: $ResourceKey$$Type<($Registry<(T)>)>): $Optional<($HolderLookup$RegistryLookup<(T)>)>
  "freeze"(): $RegistryAccess$Frozen
- "registries"(): $Stream<($RegistryAccess$RegistryEntry<(never)>)>
  "registry"<E>(arg0: $ResourceKey$$Type<($Registry<(E)>)>): $Optional<($Registry<(E)>)>
+ "registries"(): $Stream<($RegistryAccess$RegistryEntry<(never)>)>
  "allRegistriesLifecycle"(): $Lifecycle
 static "fromRegistryOfRegistries"(arg0: $Registry$$Type<($Registry$$Type<(never)>)>): $RegistryAccess$Frozen
- "registryOrThrow"<E>(arg0: $ResourceKey$$Type<($Registry<(E)>)>): $Registry<(E)>
  "listRegistries"(): $Stream<($ResourceKey<($Registry<(never)>)>)>
+ "registryOrThrow"<E>(arg0: $ResourceKey$$Type<($Registry<(E)>)>): $Registry<(E)>
 static "create"(arg0: $Stream$$Type<($HolderLookup$RegistryLookup$$Type<(never)>)>): $HolderLookup$Provider
- "createSerializationContext"<V>(arg0: $DynamicOps$$Type<(V)>): $RegistryOps<(V)>
- "asGetterLookup"(): $HolderGetter$Provider
  "lookupOrThrow"<T>(arg0: $ResourceKey$$Type<($Registry<(T)>)>): $HolderLookup$RegistryLookup<(T)>
+ "asGetterLookup"(): $HolderGetter$Provider
+ "createSerializationContext"<V>(arg0: $DynamicOps$$Type<(V)>): $RegistryOps<(V)>
  "holder"<T>(arg0: $ResourceKey$$Type<(T)>): $Optional<($Holder$Reference<(T)>)>
  "holderOrThrow"<T>(arg0: $ResourceKey$$Type<(T)>): $Holder<(T)>
 }
@@ -1105,8 +1105,8 @@ export type $RegistrySetBuilder$RegistryBootstrap$$Type<T> = ((arg0: $BootstrapC
  */
 export type $RegistrySetBuilder$RegistryBootstrap$$Original<T> = $RegistrySetBuilder$RegistryBootstrap<(T)>;}
 declare module "net.minecraft.core.HolderGetter$Provider" {
-import {$Optional, $Optional$$Type} from "java.util.Optional"
 import {$Registry, $Registry$$Type} from "net.minecraft.core.Registry"
+import {$Optional, $Optional$$Type} from "java.util.Optional"
 import {$Holder$Reference} from "net.minecraft.core.Holder$Reference"
 import {$ResourceKey, $ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
 import {$HolderGetter, $HolderGetter$$Type} from "net.minecraft.core.HolderGetter"
@@ -1169,10 +1169,10 @@ static "direct"<T>(arg0: T): $Holder<(T)>
  * Test if a tag matches the object this holder holds.
  */
  "isTag"(tagKey: $ResourceLocation$$Type): boolean
+ "unwrapKey"(): $Optional<($ResourceKey<(T)>)>
  "isBound"(): boolean
  "getRegisteredName"(): StringJS
  "canSerializeIn"(arg0: $HolderOwner$$Type<(T)>): boolean
- "unwrapKey"(): $Optional<($ResourceKey<(T)>)>
  "getKey"(): $ResourceKey<(T)>
  "getDelegate"(): $Holder<(T)>
  "unwrapLookup"(): $HolderLookup$RegistryLookup<(T)>
@@ -1252,10 +1252,10 @@ export type $HolderSet$Direct$$Original<T> = $HolderSet$Direct<(T)>;}
 declare module "net.minecraft.core.FrontAndTop" {
 import {$Keyable} from "com.mojang.serialization.Keyable"
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Enum, $Enum$$Type} from "java.lang.Enum"
-import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Function, $Function$$Type} from "java.util.function.Function"
+import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Direction, $Direction$$Type} from "net.minecraft.core.Direction"
 import {$StringRepresentable, $StringRepresentable$$Type, $StringRepresentable$$Interface} from "net.minecraft.util.StringRepresentable"
 
@@ -1277,14 +1277,14 @@ public static "values"(): ($FrontAndTop)[]
 public static "valueOf"(arg0: StringJS): $FrontAndTop
 public "top"(): $Direction
 public "front"(): $Direction
-public "getSerializedName"(): StringJS
 public static "fromFrontAndTop"(arg0: $Direction$$Type, arg1: $Direction$$Type): $FrontAndTop
-public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
+public "getSerializedName"(): StringJS
 public static "keys"(arg0: ($StringRepresentable$$Type)[]): $Keyable
+public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
+public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 public "getRemappedEnumConstantName"(): StringJS
 public static "fromEnum"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromValues"<T extends $StringRepresentable>(arg0: $Supplier$$Type<((T)[])>): $Codec<(T)>
-public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 get "serializedName"(): StringJS
 get "remappedEnumConstantName"(): StringJS
 }
@@ -1314,12 +1314,12 @@ static readonly "EAST": $Direction8
 
 public static "values"(): ($Direction8)[]
 public static "valueOf"(arg0: StringJS): $Direction8
-public "getDirections"(): $Set<($Direction)>
 public "getStepX"(): integer
 public "getStepZ"(): integer
-get "directions"(): $Set<($Direction)>
+public "getDirections"(): $Set<($Direction)>
 get "stepX"(): integer
 get "stepZ"(): integer
+get "directions"(): $Set<($Direction)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1344,7 +1344,7 @@ export class $RegistrySetBuilder$RegistryContents<T> extends $Record {
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $RegistrySetBuilder$RegistryContents$$Type<T> = ({"key"?: $ResourceKey$$Type<($Registry<(T)>)>, "values"?: $Map$$Type<($ResourceKey$$Type<(T)>), ($RegistrySetBuilder$ValueAndHolder$$Type<(T)>)>, "lifecycle"?: $Lifecycle$$Type}) | ([key?: $ResourceKey$$Type<($Registry<(T)>)>, values?: $Map$$Type<($ResourceKey$$Type<(T)>), ($RegistrySetBuilder$ValueAndHolder$$Type<(T)>)>, lifecycle?: $Lifecycle$$Type]);
+export type $RegistrySetBuilder$RegistryContents$$Type<T> = ({"lifecycle"?: $Lifecycle$$Type, "values"?: $Map$$Type<($ResourceKey$$Type<(T)>), ($RegistrySetBuilder$ValueAndHolder$$Type<(T)>)>, "key"?: $ResourceKey$$Type<($Registry<(T)>)>}) | ([lifecycle?: $Lifecycle$$Type, values?: $Map$$Type<($ResourceKey$$Type<(T)>), ($RegistrySetBuilder$ValueAndHolder$$Type<(T)>)>, key?: $ResourceKey$$Type<($Registry<(T)>)>]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -1399,10 +1399,10 @@ export interface $HolderLookup$$Interface<T> extends $HolderGetter$$Interface<(T
 }
 
 export class $HolderLookup<T> implements $HolderLookup$$Interface {
- "listTags"(): $Stream<($HolderSet$Named<(T)>)>
- "listTagIds"(): $Stream<($TagKey<(T)>)>
- "listElements"(): $Stream<($Holder$Reference<(T)>)>
  "listElementIds"(): $Stream<($ResourceKey<(T)>)>
+ "listElements"(): $Stream<($Holder$Reference<(T)>)>
+ "listTagIds"(): $Stream<($TagKey<(T)>)>
+ "listTags"(): $Stream<($HolderSet$Named<(T)>)>
  "get"(arg0: $ResourceKey$$Type<(T)>): $Optional<($Holder$Reference<(T)>)>
  "get"(arg0: $TagKey$$Type<(T)>): $Optional<($HolderSet$Named<(T)>)>
  "getOrThrow"(arg0: $ResourceKey$$Type<(T)>): $Holder$Reference<(T)>
@@ -1441,42 +1441,42 @@ public "offset"(arg0: $Vec3i$$Type): $Vec3i
 public "toShortString"(): StringJS
 public "multiply"(arg0: integer): $Vec3i
 public "subtract"(arg0: $Vec3i$$Type): $Vec3i
+public "relative"(arg0: $Direction$$Type, arg1: integer): $Vec3i
 public "relative"(arg0: $Direction$$Type): $Vec3i
 public "relative"(arg0: $Direction$Axis$$Type, arg1: integer): $Vec3i
-public "relative"(arg0: $Direction$$Type, arg1: integer): $Vec3i
-public "setY"(arg0: integer): $Vec3i
-public "setX"(arg0: integer): $Vec3i
-public "setZ"(arg0: integer): $Vec3i
-public "above"(arg0: integer): $Vec3i
-public "above"(): $Vec3i
-public "below"(): $Vec3i
-public "below"(arg0: integer): $Vec3i
-public "distToLowCornerSqr"(arg0: double, arg1: double, arg2: double): double
-public "distManhattan"(arg0: $Vec3i$$Type): integer
-public static "offsetCodec"(arg0: integer): $Codec<($Vec3i)>
-public "closerToCenterThan"(arg0: $Position$$Type, arg1: double): boolean
-public "getX"(): integer
-public "getZ"(): integer
-public "closerThan"(arg0: $Vec3i$$Type, arg1: double): boolean
 public "getY"(): integer
-public "distToCenterSqr"(arg0: double, arg1: double, arg2: double): double
-public "distToCenterSqr"(arg0: $Position$$Type): double
-public "cross"(arg0: $Vec3i$$Type): $Vec3i
 public "distSqr"(arg0: $Vec3i$$Type): double
-public "east"(arg0: integer): $Vec3i
+public "above"(): $Vec3i
+public "above"(arg0: integer): $Vec3i
+public "below"(arg0: integer): $Vec3i
+public "below"(): $Vec3i
+public "setX"(arg0: integer): $Vec3i
+public "setY"(arg0: integer): $Vec3i
+public "closerThan"(arg0: $Vec3i$$Type, arg1: double): boolean
+public static "offsetCodec"(arg0: integer): $Codec<($Vec3i)>
+public "distManhattan"(arg0: $Vec3i$$Type): integer
+public "distToLowCornerSqr"(arg0: double, arg1: double, arg2: double): double
+public "closerToCenterThan"(arg0: $Position$$Type, arg1: double): boolean
 public "east"(): $Vec3i
-public "west"(arg0: integer): $Vec3i
-public "west"(): $Vec3i
+public "east"(arg0: integer): $Vec3i
 public "north"(): $Vec3i
 public "north"(arg0: integer): $Vec3i
+public "west"(arg0: integer): $Vec3i
+public "west"(): $Vec3i
 public "south"(): $Vec3i
 public "south"(arg0: integer): $Vec3i
-set "y"(value: integer)
+public "cross"(arg0: $Vec3i$$Type): $Vec3i
+public "setZ"(arg0: integer): $Vec3i
+public "distToCenterSqr"(arg0: double, arg1: double, arg2: double): double
+public "distToCenterSqr"(arg0: $Position$$Type): double
+public "getX"(): integer
+public "getZ"(): integer
+get "y"(): integer
 set "x"(value: integer)
+set "y"(value: integer)
 set "z"(value: integer)
 get "x"(): integer
 get "z"(): integer
-get "y"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1488,8 +1488,8 @@ export type $Vec3i$$Type = ($Vec3i);
  */
 export type $Vec3i$$Original = $Vec3i;}
 declare module "net.minecraft.core.RegistrySetBuilder$BuildState" {
-import {$Map$$Type} from "java.util.Map"
 import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
+import {$Map$$Type} from "java.util.Map"
 import {$RegistrySetBuilder$UniversalLookup$$Type} from "net.minecraft.core.RegistrySetBuilder$UniversalLookup"
 import {$List$$Type} from "java.util.List"
 import {$RegistrySetBuilder$UniversalOwner$$Type} from "net.minecraft.core.RegistrySetBuilder$UniversalOwner"
@@ -1505,7 +1505,7 @@ export class $RegistrySetBuilder$BuildState extends $Record {
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $RegistrySetBuilder$BuildState$$Type = ({"errors"?: $List$$Type<($RuntimeException$$Type)>, "registeredValues"?: $Map$$Type<($ResourceKey$$Type<(never)>), ($RegistrySetBuilder$RegisteredValue$$Type<(never)>)>, "registries"?: $Map$$Type<($ResourceLocation$$Type), ($HolderGetter$$Type<(never)>)>, "lookup"?: $RegistrySetBuilder$UniversalLookup$$Type, "owner"?: $RegistrySetBuilder$UniversalOwner$$Type}) | ([errors?: $List$$Type<($RuntimeException$$Type)>, registeredValues?: $Map$$Type<($ResourceKey$$Type<(never)>), ($RegistrySetBuilder$RegisteredValue$$Type<(never)>)>, registries?: $Map$$Type<($ResourceLocation$$Type), ($HolderGetter$$Type<(never)>)>, lookup?: $RegistrySetBuilder$UniversalLookup$$Type, owner?: $RegistrySetBuilder$UniversalOwner$$Type]);
+export type $RegistrySetBuilder$BuildState$$Type = ({"lookup"?: $RegistrySetBuilder$UniversalLookup$$Type, "registries"?: $Map$$Type<($ResourceLocation$$Type), ($HolderGetter$$Type<(never)>)>, "registeredValues"?: $Map$$Type<($ResourceKey$$Type<(never)>), ($RegistrySetBuilder$RegisteredValue$$Type<(never)>)>, "errors"?: $List$$Type<($RuntimeException$$Type)>, "owner"?: $RegistrySetBuilder$UniversalOwner$$Type}) | ([lookup?: $RegistrySetBuilder$UniversalLookup$$Type, registries?: $Map$$Type<($ResourceLocation$$Type), ($HolderGetter$$Type<(never)>)>, registeredValues?: $Map$$Type<($ResourceKey$$Type<(never)>), ($RegistrySetBuilder$RegisteredValue$$Type<(never)>)>, errors?: $List$$Type<($RuntimeException$$Type)>, owner?: $RegistrySetBuilder$UniversalOwner$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -1559,8 +1559,8 @@ export type $HolderGetter$$Type<T> = ($HolderGetter<(T)>);
 export type $HolderGetter$$Original<T> = $HolderGetter<(T)>;}
 declare module "net.minecraft.core.BlockPos$MutableBlockPos" {
 import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
-import {$Direction$Axis$$Type} from "net.minecraft.core.Direction$Axis"
 import {$AxisCycle$$Type} from "net.minecraft.core.AxisCycle"
+import {$Direction$Axis$$Type} from "net.minecraft.core.Direction$Axis"
 import {$Vec3i, $Vec3i$$Type} from "net.minecraft.core.Vec3i"
 import {$Codec} from "com.mojang.serialization.Codec"
 import {$Rotation$$Type} from "net.minecraft.world.level.block.Rotation"
@@ -1589,35 +1589,35 @@ public "set"(arg0: integer, arg1: integer, arg2: integer): $BlockPos$MutableBloc
 public "multiply"(arg0: integer): $Vec3i
 public "rotate"(arg0: $Rotation$$Type): $BlockPos
 public "subtract"(arg0: $Vec3i$$Type): $Vec3i
-public "move"(arg0: $Direction$$Type): $BlockPos$MutableBlockPos
 public "move"(arg0: integer, arg1: integer, arg2: integer): $BlockPos$MutableBlockPos
-public "move"(arg0: $Direction$$Type, arg1: integer): $BlockPos$MutableBlockPos
 public "move"(arg0: $Vec3i$$Type): $BlockPos$MutableBlockPos
+public "move"(arg0: $Direction$$Type, arg1: integer): $BlockPos$MutableBlockPos
+public "move"(arg0: $Direction$$Type): $BlockPos$MutableBlockPos
 public "relative"(arg0: $Direction$$Type, arg1: integer): $Vec3i
 public "relative"(arg0: $Direction$$Type): $Vec3i
 public "relative"(arg0: $Direction$Axis$$Type, arg1: integer): $Vec3i
-public "setY"(arg0: integer): $Vec3i
-public "setX"(arg0: integer): $BlockPos$MutableBlockPos
-public "setZ"(arg0: integer): $Vec3i
+public "immutable"(): $BlockPos
 public "above"(): $Vec3i
 public "above"(arg0: integer): $Vec3i
-public "below"(): $Vec3i
 public "below"(arg0: integer): $Vec3i
-public "setWithOffset"(arg0: $Vec3i$$Type, arg1: $Vec3i$$Type): $BlockPos$MutableBlockPos
-public "setWithOffset"(arg0: $Vec3i$$Type, arg1: $Direction$$Type): $BlockPos$MutableBlockPos
-public "setWithOffset"(arg0: $Vec3i$$Type, arg1: integer, arg2: integer, arg3: integer): $BlockPos$MutableBlockPos
-public "immutable"(): $BlockPos
-public "cross"(arg0: $Vec3i$$Type): $Vec3i
-public "east"(arg0: integer): $Vec3i
+public "below"(): $Vec3i
+public "setX"(arg0: integer): $BlockPos$MutableBlockPos
+public "setY"(arg0: integer): $BlockPos$MutableBlockPos
 public "east"(): $Vec3i
-public "west"(): $Vec3i
-public "west"(arg0: integer): $Vec3i
-public "north"(arg0: integer): $Vec3i
+public "east"(arg0: integer): $Vec3i
 public "north"(): $Vec3i
+public "north"(arg0: integer): $Vec3i
+public "west"(arg0: integer): $Vec3i
+public "west"(): $Vec3i
 public "south"(arg0: integer): $Vec3i
 public "south"(): $Vec3i
-set "y"(value: integer)
+public "cross"(arg0: $Vec3i$$Type): $Vec3i
+public "setZ"(arg0: integer): $Vec3i
+public "setWithOffset"(arg0: $Vec3i$$Type, arg1: $Vec3i$$Type): $BlockPos$MutableBlockPos
+public "setWithOffset"(arg0: $Vec3i$$Type, arg1: integer, arg2: integer, arg3: integer): $BlockPos$MutableBlockPos
+public "setWithOffset"(arg0: $Vec3i$$Type, arg1: $Direction$$Type): $BlockPos$MutableBlockPos
 set "x"(value: integer)
+set "y"(value: integer)
 set "z"(value: integer)
 }
 /**
@@ -1663,47 +1663,47 @@ public "offset"(arg0: integer, arg1: integer, arg2: integer): $Vec3i
 public static "offset"(arg0: long, arg1: $Direction$$Type): long
 public static "x"(arg0: long): integer
 public "x"(): integer
-public static "z"(arg0: long): integer
 public "z"(): integer
-public static "y"(arg0: long): integer
+public static "z"(arg0: long): integer
 public "y"(): integer
+public static "y"(arg0: long): integer
 public "origin"(): $BlockPos
-public static "bottomOf"(arg0: $ChunkAccess$$Type): $SectionPos
-public "minBlockZ"(): integer
-public "minBlockY"(): integer
-public "minBlockX"(): integer
-public "maxBlockY"(): integer
-public "maxBlockZ"(): integer
-public "maxBlockX"(): integer
-public static "sectionRelative"(arg0: integer): integer
-public "chunk"(): $ChunkPos
-public static "betweenClosedStream"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): $Stream<($SectionPos)>
-public static "blockToSectionCoord"(arg0: integer): integer
-public static "blockToSectionCoord"(arg0: double): integer
-public static "sectionToBlockCoord"(arg0: integer): integer
-public static "sectionToBlockCoord"(arg0: integer, arg1: integer): integer
 public "center"(): $BlockPos
-public static "asLong"(arg0: $BlockPos$$Type): long
+public "chunk"(): $ChunkPos
 public static "asLong"(arg0: integer, arg1: integer, arg2: integer): long
 public "asLong"(): long
-public static "sectionRelativeX"(arg0: short): integer
-public static "aroundChunk"(arg0: $ChunkPos$$Type, arg1: integer, arg2: integer, arg3: integer): $Stream<($SectionPos)>
-public "relativeToBlockX"(arg0: short): integer
-public static "sectionRelativeZ"(arg0: short): integer
-public static "getZeroNode"(arg0: integer, arg1: integer): long
-public static "getZeroNode"(arg0: long): long
-public static "blockToSection"(arg0: long): long
-public static "sectionRelativePos"(arg0: $BlockPos$$Type): short
-public "relativeToBlockY"(arg0: short): integer
-public "relativeToBlockZ"(arg0: short): integer
-public static "sectionRelativeY"(arg0: short): integer
-public "blocksInside"(): $Stream<($BlockPos)>
-public "relativeToBlockPos"(arg0: short): $BlockPos
-public static "posToSectionCoord"(arg0: double): integer
-public static "aroundAndAtBlockPos"(arg0: integer, arg1: integer, arg2: integer, arg3: $LongConsumer$$Type): void
-public static "aroundAndAtBlockPos"(arg0: long, arg1: $LongConsumer$$Type): void
+public static "asLong"(arg0: $BlockPos$$Type): long
+public static "bottomOf"(arg0: $ChunkAccess$$Type): $SectionPos
+public "maxBlockY"(): integer
+public "maxBlockX"(): integer
+public "minBlockX"(): integer
+public "maxBlockZ"(): integer
+public "minBlockZ"(): integer
+public "minBlockY"(): integer
+public static "sectionToBlockCoord"(arg0: integer, arg1: integer): integer
+public static "sectionToBlockCoord"(arg0: integer): integer
+public static "blockToSectionCoord"(arg0: integer): integer
+public static "blockToSectionCoord"(arg0: double): integer
 public static "aroundAndAtBlockPos"(arg0: $BlockPos$$Type, arg1: $LongConsumer$$Type): void
+public static "aroundAndAtBlockPos"(arg0: long, arg1: $LongConsumer$$Type): void
+public static "aroundAndAtBlockPos"(arg0: integer, arg1: integer, arg2: integer, arg3: $LongConsumer$$Type): void
+public static "sectionRelative"(arg0: integer): integer
+public static "sectionRelativeX"(arg0: short): integer
+public "relativeToBlockPos"(arg0: short): $BlockPos
+public "blocksInside"(): $Stream<($BlockPos)>
+public static "blockToSection"(arg0: long): long
+public static "sectionRelativeZ"(arg0: short): integer
+public static "getZeroNode"(arg0: long): long
+public static "getZeroNode"(arg0: integer, arg1: integer): long
+public "relativeToBlockX"(arg0: short): integer
+public static "posToSectionCoord"(arg0: double): integer
+public static "sectionRelativeY"(arg0: short): integer
+public "relativeToBlockY"(arg0: short): integer
+public static "aroundChunk"(arg0: $ChunkPos$$Type, arg1: integer, arg2: integer, arg3: integer): $Stream<($SectionPos)>
+public "relativeToBlockZ"(arg0: short): integer
+public static "sectionRelativePos"(arg0: $BlockPos$$Type): short
 public static "cube"(arg0: $SectionPos$$Type, arg1: integer): $Stream<($SectionPos)>
+public static "betweenClosedStream"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): $Stream<($SectionPos)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1716,6 +1716,7 @@ export type $SectionPos$$Type = ($SectionPos);
 export type $SectionPos$$Original = $SectionPos;}
 declare module "net.minecraft.core.Holder$Reference" {
 import {$Collection$$Type} from "java.util.Collection"
+import {$ReferenceAccessor$$Interface} from "io.wispforest.owo.mixin.registry.ReferenceAccessor"
 import {$Optional} from "java.util.Optional"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$HolderLookup$RegistryLookup} from "net.minecraft.core.HolderLookup$RegistryLookup"
@@ -1727,11 +1728,11 @@ import {$Either} from "com.mojang.datafixers.util.Either"
 import {$TagKey, $TagKey$$Type} from "net.minecraft.tags.TagKey"
 import {$DataMapType$$Type} from "net.neoforged.neoforge.registries.datamaps.DataMapType"
 import {$ResourceKey, $ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
-import {$Stream} from "java.util.stream.Stream"
 import {$Holder$Reference$Type$$Type} from "net.minecraft.core.Holder$Reference$Type"
+import {$Stream} from "java.util.stream.Stream"
 import {$Holder$Kind} from "net.minecraft.core.Holder$Kind"
 
-export class $Holder$Reference<T> implements $Holder$$Interface<(T)>, $CoreLibHolderReference$$Interface {
+export class $Holder$Reference<T> implements $Holder$$Interface<(T)>, $CoreLibHolderReference$$Interface, $ReferenceAccessor$$Interface {
 constructor(arg0: $Holder$Reference$Type$$Type, arg1: $HolderOwner$$Type<(T)>, arg2: $ResourceKey$$Type<(T)>, arg3: T)
 
 public "value"(): T
@@ -1742,24 +1743,26 @@ public "getKey"(): $ResourceKey<(T)>
 public "kind"(): $Holder$Kind
 public "key"(): $ResourceKey<(T)>
 public "unwrap"(): $Either<($ResourceKey<(T)>), (T)>
-public "is"(arg0: $ResourceLocation$$Type): boolean
 public "test"(arg0: $Predicate$$Type<($ResourceKey<(T)>)>): boolean
+public "is"(arg0: $ResourceLocation$$Type): boolean
 public "tags"(): $Stream<($TagKey<(T)>)>
 public "getData"<A>(arg0: $DataMapType$$Type<(T), (A)>): A
+public "unwrapLookup"(): $HolderLookup$RegistryLookup<(T)>
 public "supermartijn642corelibOverride"(key: $ResourceKey$$Type, value: any): void
+public "unwrapKey"(): $Optional<($ResourceKey<(T)>)>
 public "isBound"(): boolean
-public "bindKey"(arg0: $ResourceKey$$Type<(T)>): void
 public "bindTags"(arg0: $Collection$$Type<($TagKey$$Type<(T)>)>): void
+public "bindKey"(arg0: $ResourceKey$$Type<(T)>): void
 public "bindValue"(arg0: T): void
 /**
  * 
  * @deprecated
  */
 public static "createIntrusive"<T>(arg0: $HolderOwner$$Type<(T)>, arg1: T): $Holder$Reference<(T)>
+public "owo$setValue"(arg0: any): void
 public static "createStandAlone"<T>(arg0: $HolderOwner$$Type<(T)>, arg1: $ResourceKey$$Type<(T)>): $Holder$Reference<(T)>
-public "unwrapLookup"(): $HolderLookup$RegistryLookup<(T)>
 public "canSerializeIn"(arg0: $HolderOwner$$Type<(T)>): boolean
-public "unwrapKey"(): $Optional<($ResourceKey<(T)>)>
+public "owo$setRegistryKey"(arg0: $ResourceKey$$Type): void
 public static "direct"<T>(arg0: T): $Holder<(T)>
 /**
  * Test if a tag matches the object this holder holds.

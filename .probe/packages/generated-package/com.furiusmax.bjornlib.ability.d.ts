@@ -2,8 +2,8 @@ declare module "com.furiusmax.bjornlib.ability.AbilityType" {
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$Ability, $Ability$$Type} from "com.furiusmax.bjornlib.ability.Ability"
 import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
-import {$AbilityType$AbilityCastType, $AbilityType$AbilityCastType$$Type} from "com.furiusmax.bjornlib.ability.AbilityType$AbilityCastType"
 import {$IPlayerAbilities$$Type} from "com.furiusmax.bjornlib.capability.IPlayerAbilities"
+import {$AbilityType$AbilityCastType, $AbilityType$AbilityCastType$$Type} from "com.furiusmax.bjornlib.ability.AbilityType$AbilityCastType"
 import {$Component} from "net.minecraft.network.chat.Component"
 
 export class $AbilityType {
@@ -19,8 +19,8 @@ public "getId"(): $ResourceLocation
 public "getMaxLevel"(): integer
 public "getCost"(): float
 public "getCastType"(): $AbilityType$AbilityCastType
-public "onLevelUp"(arg0: $IPlayerAbilities$$Type, arg1: $Ability$$Type): boolean
 public "createAbility"(arg0: $Player$$Type, arg1: integer): $Ability
+public "onLevelUp"(arg0: $IPlayerAbilities$$Type, arg1: $Ability$$Type): boolean
 get "name"(): $Component
 get "parent"(): $AbilityType
 get "id"(): $ResourceLocation
@@ -86,11 +86,11 @@ constructor(arg0: $AbilityType$$Type, arg1: $Player$$Type, arg2: integer)
 public "tick"(): void
 public "getLevel"(): integer
 public "setLevel"(arg0: integer): $Ability
+public "getPlayer"(): $Player
 public "getMaxLevel"(): integer
 public "writeTag"(arg0: $CompoundTag$$Type): void
 public "readTag"(arg0: $CompoundTag$$Type): void
 public "getCost"(): float
-public "getPlayer"(): $Player
 public "setPlayer"(arg0: $Player$$Type): void
 public "levelUp"(arg0: $IPlayerAbilities$$Type, arg1: boolean): void
 public "canCastAbility"(): boolean

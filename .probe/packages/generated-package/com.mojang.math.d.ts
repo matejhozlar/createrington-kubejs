@@ -21,25 +21,25 @@ public static "identity"(): $Transformation
 public "compose"(arg0: $Transformation$$Type): $Transformation
 public "getScale"(): $Vector3f
 public "inverse"(): $Transformation
-public "slerp"(arg0: $Transformation$$Type, arg1: float): $Transformation
-public "getRightRotation"(): $Quaternionf
-public "getLeftRotation"(): $Quaternionf
 public "getTranslation"(): $Vector3f
-public "getNormalMatrix"(): $Matrix3f
+public "slerp"(arg0: $Transformation$$Type, arg1: float): $Transformation
 public "getMatrix"(): $Matrix4f
+public "getLeftRotation"(): $Quaternionf
+public "getRightRotation"(): $Quaternionf
+public "getNormalMatrix"(): $Matrix3f
 public "isIdentity"(): boolean
 public "transformNormal"(arg0: $Vector3f$$Type): void
 public "transformPosition"(arg0: $Vector4f$$Type): void
-public "applyOrigin"(arg0: $Vector3f$$Type): $Transformation
-public "blockCenterToCorner"(): $Transformation
-public "blockCornerToCenter"(): $Transformation
 public "rotateTransform"(arg0: $Direction$$Type): $Direction
+public "applyOrigin"(arg0: $Vector3f$$Type): $Transformation
+public "blockCornerToCenter"(): $Transformation
+public "blockCenterToCorner"(): $Transformation
 get "scale"(): $Vector3f
-get "rightRotation"(): $Quaternionf
-get "leftRotation"(): $Quaternionf
 get "translation"(): $Vector3f
-get "normalMatrix"(): $Matrix3f
 get "matrix"(): $Matrix4f
+get "leftRotation"(): $Quaternionf
+get "rightRotation"(): $Quaternionf
+get "normalMatrix"(): $Matrix3f
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -55,10 +55,10 @@ import {$Keyable} from "com.mojang.serialization.Keyable"
 import {$Direction$Axis$$Type} from "net.minecraft.core.Direction$Axis"
 import {$FrontAndTop, $FrontAndTop$$Type} from "net.minecraft.core.FrontAndTop"
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Enum, $Enum$$Type} from "java.lang.Enum"
-import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Function, $Function$$Type} from "java.util.function.Function"
+import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Direction, $Direction$$Type} from "net.minecraft.core.Direction"
 import {$StringRepresentable, $StringRepresentable$$Type, $StringRepresentable$$Interface} from "net.minecraft.util.StringRepresentable"
 import {$Matrix3f} from "org.joml.Matrix3f"
@@ -117,18 +117,18 @@ public "toString"(): StringJS
 public static "values"(): ($OctahedralGroup)[]
 public static "valueOf"(arg0: StringJS): $OctahedralGroup
 public "compose"(arg0: $OctahedralGroup$$Type): $OctahedralGroup
-public "rotate"(arg0: $Direction$$Type): $Direction
 public "rotate"(arg0: $FrontAndTop$$Type): $FrontAndTop
-public "getSerializedName"(): StringJS
+public "rotate"(arg0: $Direction$$Type): $Direction
 public "inverse"(): $OctahedralGroup
-public "inverts"(arg0: $Direction$Axis$$Type): boolean
 public "transformation"(): $Matrix3f
-public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
+public "getSerializedName"(): StringJS
+public "inverts"(arg0: $Direction$Axis$$Type): boolean
 public static "keys"(arg0: ($StringRepresentable$$Type)[]): $Keyable
+public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
+public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 public "getRemappedEnumConstantName"(): StringJS
 public static "fromEnum"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromValues"<T extends $StringRepresentable>(arg0: $Supplier$$Type<((T)[])>): $Codec<(T)>
-public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 get "serializedName"(): StringJS
 get "remappedEnumConstantName"(): StringJS
 }

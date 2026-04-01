@@ -15,17 +15,20 @@ import {$RenderType} from "net.minecraft.client.renderer.RenderType"
 export class $GeoModel<T extends $GeoAnimatable> {
 constructor()
 
-public "getAnimationResourceFallbacks"(arg0: T): ($ResourceLocation)[]
-public "getAnimation"(arg0: T, arg1: StringJS): $Animation
 public "getRenderType"(arg0: T, arg1: $ResourceLocation$$Type): $RenderType
+public "getAnimation"(arg0: T, arg1: StringJS): $Animation
 public "getBakedModel"(arg0: $ResourceLocation$$Type): $BakedGeoModel
-public "getBone"(arg0: StringJS): $Optional<($GeoBone)>
+public "addAdditionalStateData"(arg0: T, arg1: long, arg2: $BiConsumer$$Type<($DataTicket<(T)>), (T)>): void
+public "getAnimationProcessor"(): $AnimationProcessor<(T)>
+public "getAnimationResource"(arg0: T): $ResourceLocation
+public "setCustomAnimations"(arg0: T, arg1: long, arg2: $AnimationState$$Type<(T)>): void
+public "getAnimationResourceFallbacks"(arg0: T): ($ResourceLocation)[]
+public "getTextureResource"(arg0: T, arg1: $GeoRenderer$$Type<(T)>): $ResourceLocation
 /**
  * 
  * @deprecated
  */
 public "getTextureResource"(arg0: T): $ResourceLocation
-public "getTextureResource"(arg0: T, arg1: $GeoRenderer$$Type<(T)>): $ResourceLocation
 public "crashIfBoneMissing"(): boolean
 public "handleAnimations"(arg0: T, arg1: long, arg2: $AnimationState$$Type<(T)>, arg3: float): void
 public "applyMolangQueries"(arg0: $AnimationState$$Type<(T)>, arg1: double): void
@@ -35,10 +38,7 @@ public "applyMolangQueries"(arg0: $AnimationState$$Type<(T)>, arg1: double): voi
  */
 public "getModelResource"(arg0: T): $ResourceLocation
 public "getModelResource"(arg0: T, arg1: $GeoRenderer$$Type<(T)>): $ResourceLocation
-public "getAnimationResource"(arg0: T): $ResourceLocation
-public "addAdditionalStateData"(arg0: T, arg1: long, arg2: $BiConsumer$$Type<($DataTicket<(T)>), (T)>): void
-public "getAnimationProcessor"(): $AnimationProcessor<(T)>
-public "setCustomAnimations"(arg0: T, arg1: long, arg2: $AnimationState$$Type<(T)>): void
+public "getBone"(arg0: StringJS): $Optional<($GeoBone)>
 get "animationProcessor"(): $AnimationProcessor<(T)>
 }
 /**

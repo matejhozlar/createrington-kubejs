@@ -21,10 +21,10 @@ export class $Packet<T extends $Packet<(object)>> implements $Packet$$Interface 
  "type"(): $CustomPacketPayload$Type<(T)>
  "toBytes"(arg0: $FriendlyByteBuf$$Type): void
  "fromBytes"(arg0: $FriendlyByteBuf$$Type): T
- "toVanillaServerbound"(): $ServerboundCustomPayloadPacket
- "toVanillaClientbound"(): $ClientboundCustomPayloadPacket
 static "codec"<B extends $FriendlyByteBuf>(arg0: $CustomPacketPayload$FallbackProvider$$Type<(B)>, arg1: $List$$Type<($CustomPacketPayload$TypeAndCodec$$Type<(B), (never)>)>, arg2: $ConnectionProtocol$$Type, arg3: $PacketFlow$$Type): $StreamCodec<(B), ($CustomPacketPayload)>
 static "codec"<B extends $ByteBuf, T extends $CustomPacketPayload>(arg0: $StreamMemberEncoder$$Type<(B), (T)>, arg1: $StreamDecoder$$Type<(B), (T)>): $StreamCodec<(B), (T)>
+ "toVanillaClientbound"(): $ClientboundCustomPayloadPacket
+ "toVanillaServerbound"(): $ServerboundCustomPayloadPacket
 static "createType"<T extends $CustomPacketPayload>(arg0: StringJS): $CustomPacketPayload$Type<(T)>
 }
 /**
@@ -44,8 +44,8 @@ import {$FriendlyByteBuf, $FriendlyByteBuf$$Type} from "net.minecraft.network.Fr
 import {$UUID, $UUID$$Type} from "java.util.UUID"
 import {$List$$Type} from "java.util.List"
 import {$CustomPacketPayload$Type} from "net.minecraft.network.protocol.common.custom.CustomPacketPayload$Type"
-import {$Packet, $Packet$$Interface} from "de.maxhenkel.voicechat.net.Packet"
 import {$ServerConfig$$Type} from "de.maxhenkel.voicechat.config.ServerConfig"
+import {$Packet, $Packet$$Interface} from "de.maxhenkel.voicechat.net.Packet"
 import {$StreamDecoder$$Type} from "net.minecraft.network.codec.StreamDecoder"
 import {$CustomPacketPayload} from "net.minecraft.network.protocol.common.custom.CustomPacketPayload"
 import {$StreamMemberEncoder$$Type} from "net.minecraft.network.codec.StreamMemberEncoder"
@@ -60,34 +60,34 @@ import {$CustomPacketPayload$FallbackProvider$$Type} from "net.minecraft.network
 export class $SecretPacket implements $Packet$$Interface<($SecretPacket)> {
 static readonly "SECRET": $CustomPacketPayload$Type<($SecretPacket)>
 
-constructor(arg0: $ServerPlayer$$Type, arg1: $UUID$$Type, arg2: integer, arg3: $ServerConfig$$Type)
 constructor()
+constructor(arg0: $ServerPlayer$$Type, arg1: $UUID$$Type, arg2: integer, arg3: $ServerConfig$$Type)
 
-public "getVoiceHost"(): StringJS
-public "getServerPort"(): integer
-public "getMtuSize"(): integer
 public "type"(): $CustomPacketPayload$Type<($SecretPacket)>
 public "toBytes"(arg0: $FriendlyByteBuf$$Type): void
-public "getSecret"(): $UUID
-public "getVoiceChatDistance"(): double
-public "getKeepAlive"(): integer
 public "fromBytes"(arg0: $FriendlyByteBuf$$Type): $Packet
 public "getCodec"(): $ServerConfig$Codec
+public "getKeepAlive"(): integer
 public "groupsEnabled"(): boolean
 public "allowRecording"(): boolean
 public "getPlayerUUID"(): $UUID
-public "toVanillaServerbound"(): $ServerboundCustomPayloadPacket
-public "toVanillaClientbound"(): $ClientboundCustomPayloadPacket
+public "getVoiceChatDistance"(): double
+public "getSecret"(): $UUID
+public "getServerPort"(): integer
+public "getVoiceHost"(): StringJS
+public "getMtuSize"(): integer
 public static "codec"<B extends $FriendlyByteBuf>(arg0: $CustomPacketPayload$FallbackProvider$$Type<(B)>, arg1: $List$$Type<($CustomPacketPayload$TypeAndCodec$$Type<(B), (never)>)>, arg2: $ConnectionProtocol$$Type, arg3: $PacketFlow$$Type): $StreamCodec<(B), ($CustomPacketPayload)>
 public static "codec"<B extends $ByteBuf, T extends $CustomPacketPayload>(arg0: $StreamMemberEncoder$$Type<(B), (T)>, arg1: $StreamDecoder$$Type<(B), (T)>): $StreamCodec<(B), (T)>
+public "toVanillaClientbound"(): $ClientboundCustomPayloadPacket
+public "toVanillaServerbound"(): $ServerboundCustomPayloadPacket
 public static "createType"<T extends $CustomPacketPayload>(arg0: StringJS): $CustomPacketPayload$Type<(T)>
-get "voiceHost"(): StringJS
-get "serverPort"(): integer
-get "mtuSize"(): integer
-get "secret"(): $UUID
-get "voiceChatDistance"(): double
 get "keepAlive"(): integer
 get "playerUUID"(): $UUID
+get "voiceChatDistance"(): double
+get "secret"(): $UUID
+get "serverPort"(): integer
+get "voiceHost"(): StringJS
+get "mtuSize"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

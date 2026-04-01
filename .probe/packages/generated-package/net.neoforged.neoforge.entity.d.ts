@@ -1,28 +1,26 @@
 declare module "net.neoforged.neoforge.entity.PartEntity" {
 import {$Optional} from "java.util.Optional"
 import {$UUID} from "java.util.UUID"
-import {$SynchedEntityData} from "net.minecraft.network.syncher.SynchedEntityData"
-import {$Pose} from "net.minecraft.world.entity.Pose"
-import {$Vec3} from "net.minecraft.world.phys.Vec3"
-import {$EntityDataAccessor} from "net.minecraft.network.syncher.EntityDataAccessor"
-import {$ScoreHolder} from "net.minecraft.world.scores.ScoreHolder"
-import {$PortalProcessor} from "net.minecraft.world.entity.PortalProcessor"
-import {$BlockPos} from "net.minecraft.core.BlockPos"
-import {$Entity, $Entity$$Type} from "net.minecraft.world.entity.Entity"
-import {$ServerEntity$$Type} from "net.minecraft.server.level.ServerEntity"
-import {$FluidType} from "net.neoforged.neoforge.fluids.FluidType"
 import {$EntityDimensions} from "net.minecraft.world.entity.EntityDimensions"
 import {$Entity$RemovalReason} from "net.minecraft.world.entity.Entity$RemovalReason"
 import {$ClientGamePacketListener} from "net.minecraft.network.protocol.game.ClientGamePacketListener"
-import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
+import {$SynchedEntityData} from "net.minecraft.network.syncher.SynchedEntityData"
 import {$RandomSource} from "net.minecraft.util.RandomSource"
+import {$Pose} from "net.minecraft.world.entity.Pose"
+import {$Vec3} from "net.minecraft.world.phys.Vec3"
 import {$Fluid} from "net.minecraft.world.level.material.Fluid"
+import {$EntityDataAccessor} from "net.minecraft.network.syncher.EntityDataAccessor"
 import {$TagKey} from "net.minecraft.tags.TagKey"
 import {$Object2DoubleMap} from "it.unimi.dsi.fastutil.objects.Object2DoubleMap"
 import {$AtomicInteger} from "java.util.concurrent.atomic.AtomicInteger"
-import {$Tag} from "net.minecraft.nbt.Tag"
+import {$ScoreHolder} from "net.minecraft.world.scores.ScoreHolder"
 import {$Packet} from "net.minecraft.network.protocol.Packet"
+import {$BlockPos} from "net.minecraft.core.BlockPos"
+import {$PortalProcessor} from "net.minecraft.world.entity.PortalProcessor"
 import {$GameProfile$$Type} from "com.mojang.authlib.GameProfile"
+import {$Entity, $Entity$$Type} from "net.minecraft.world.entity.Entity"
+import {$ServerEntity$$Type} from "net.minecraft.server.level.ServerEntity"
+import {$FluidType} from "net.neoforged.neoforge.fluids.FluidType"
 
 export class $PartEntity<T extends $Entity> extends $Entity {
  "firstTick": boolean
@@ -49,7 +47,6 @@ static readonly "DELTA_AFFECTED_BY_BLOCKS_BELOW_1_0": double
  "xRotO": float
  "boardingCooldown": integer
  "zo": double
- "create_diesel_generators$turretPos": $BlockPos
 static readonly "DATA_POSE": $EntityDataAccessor<($Pose)>
  "walkDist": float
  "xOld": double
@@ -102,13 +99,8 @@ constructor(arg0: T)
 
 public "getParent"(): T
 public "getAddEntityPacket"(arg0: $ServerEntity$$Type): $Packet<($ClientGamePacketListener)>
-public static "forNameOnly"(arg0: StringJS): $ScoreHolder
 public static "fromGameProfile"(arg0: $GameProfile$$Type): $ScoreHolder
-/**
- * 
- * @deprecated
- */
-public "serializeNBT"(arg0: $HolderLookup$Provider$$Type): $Tag
+public static "forNameOnly"(arg0: StringJS): $ScoreHolder
 get "parent"(): T
 }
 /**
@@ -128,14 +120,14 @@ import {$Event} from "net.neoforged.bus.api.Event"
 export class $XpOrbTargetingEvent extends $Event {
 constructor(arg0: $ExperienceOrb$$Type, arg1: double)
 
-public "setFollowingPlayer"(arg0: $Player$$Type): void
-public "getScanDistance"(): double
 public "getFollowingPlayer"(): $Player
 public "getXpOrb"(): $ExperienceOrb
-set "followingPlayer"(value: $Player$$Type)
-get "scanDistance"(): double
+public "getScanDistance"(): double
+public "setFollowingPlayer"(arg0: $Player$$Type): void
 get "followingPlayer"(): $Player
 get "xpOrb"(): $ExperienceOrb
+get "scanDistance"(): double
+set "followingPlayer"(value: $Player$$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

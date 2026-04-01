@@ -20,8 +20,8 @@ export type $WorldRendererAccessor$$Original = $WorldRendererAccessor;}
 declare module "toni.sodiumdynamiclights.accessor.DynamicLightHandlerHolder" {
 import {$DynamicLightHandler, $DynamicLightHandler$$Type} from "dev.lambdaurora.lambdynlights.api.DynamicLightHandler"
 import {$BlockEntityType$$Type} from "net.minecraft.world.level.block.entity.BlockEntityType"
-import {$Entity} from "net.minecraft.world.entity.Entity"
 import {$Component} from "net.minecraft.network.chat.Component"
+import {$Entity} from "net.minecraft.world.entity.Entity"
 import {$BlockEntity} from "net.minecraft.world.level.block.entity.BlockEntity"
 import {$EntityType$$Type} from "net.minecraft.world.entity.EntityType"
 
@@ -29,12 +29,12 @@ export interface $DynamicLightHandlerHolder$$Interface<T> {
 }
 
 export class $DynamicLightHandlerHolder<T> implements $DynamicLightHandlerHolder$$Interface {
-static "cast"<T extends $BlockEntity>(entityType: $BlockEntityType$$Type<(T)>): $DynamicLightHandlerHolder<(T)>
 static "cast"<T extends $Entity>(entityType: $EntityType$$Type<(T)>): $DynamicLightHandlerHolder<(T)>
- "sodiumdynamiclights$getSetting"(): boolean
- "sodiumdynamiclights$getName"(): $Component
- "sodiumdynamiclights$getDynamicLightHandler"(): $DynamicLightHandler<(T)>
+static "cast"<T extends $BlockEntity>(entityType: $BlockEntityType$$Type<(T)>): $DynamicLightHandlerHolder<(T)>
  "sodiumdynamiclights$setDynamicLightHandler"(arg0: $DynamicLightHandler$$Type<(T)>): void
+ "sodiumdynamiclights$getDynamicLightHandler"(): $DynamicLightHandler<(T)>
+ "sodiumdynamiclights$getName"(): $Component
+ "sodiumdynamiclights$getSetting"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

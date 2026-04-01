@@ -5,16 +5,16 @@ import {$List} from "java.util.List"
 import {$Renderable, $Renderable$$Type} from "net.minecraft.client.gui.components.Renderable"
 
 export interface $ScreenAccessor$$Interface {
-get "renderables"(): $List<($Renderable)>
 get "narratables"(): $List<($NarratableEntry)>
+get "renderables"(): $List<($Renderable)>
 }
 
 export class $ScreenAccessor implements $ScreenAccessor$$Interface {
  "callAddRenderableWidget"<T extends $GuiEventListener>(arg0: T): T
  "callAddRenderableOnly"<T extends $Renderable>(arg0: T): T
- "getRenderables"(): $List<($Renderable)>
- "getNarratables"(): $List<($NarratableEntry)>
  "callAddWidget"<T extends $GuiEventListener>(arg0: T): T
+ "getNarratables"(): $List<($NarratableEntry)>
+ "getRenderables"(): $List<($Renderable)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

@@ -4,8 +4,8 @@ export interface $CullingDataCache$$Interface {
 }
 
 export class $CullingDataCache implements $CullingDataCache$$Interface {
- "saveState"(): void
  "restoreState"(): void
+ "saveState"(): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

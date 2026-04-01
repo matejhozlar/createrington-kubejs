@@ -10,22 +10,22 @@ import {$BakedGeoModel, $BakedGeoModel$$Type} from "software.bernie.geckolib.cac
 export class $GeoRenderEvent$Block$Pre extends $GeoRenderEvent$Block implements $ICancellableEvent$$Interface {
 constructor(arg0: $GeoBlockRenderer$$Type<(never)>, arg1: $PoseStack$$Type, arg2: $BakedGeoModel$$Type, arg3: $MultiBufferSource$$Type, arg4: float, arg5: integer)
 
-public "getModel"(): $BakedGeoModel
 public "getRenderer"(): $GeoRenderer
-public "getPartialTick"(): float
-public "getPackedLight"(): integer
 public "getPoseStack"(): $PoseStack
+public "getPackedLight"(): integer
+public "getModel"(): $BakedGeoModel
+public "getPartialTick"(): float
 public "getBufferSource"(): $MultiBufferSource
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
-get "model"(): $BakedGeoModel
+public "isCanceled"(): boolean
 get "renderer"(): $GeoRenderer
-get "partialTick"(): float
-get "packedLight"(): integer
 get "poseStack"(): $PoseStack
+get "packedLight"(): integer
+get "model"(): $BakedGeoModel
+get "partialTick"(): float
 get "bufferSource"(): $MultiBufferSource
-get "canceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -37,8 +37,8 @@ export type $GeoRenderEvent$Block$Pre$$Type = ($GeoRenderEvent$Block$Pre);
  */
 export type $GeoRenderEvent$Block$Pre$$Original = $GeoRenderEvent$Block$Pre;}
 declare module "software.bernie.geckolib.event.GeoRenderEvent$Item$Post" {
-import {$GeoRenderEvent$Item} from "software.bernie.geckolib.event.GeoRenderEvent$Item"
 import {$GeoRenderer} from "software.bernie.geckolib.renderer.GeoRenderer"
+import {$GeoRenderEvent$Item} from "software.bernie.geckolib.event.GeoRenderEvent$Item"
 import {$MultiBufferSource, $MultiBufferSource$$Type} from "net.minecraft.client.renderer.MultiBufferSource"
 import {$PoseStack, $PoseStack$$Type} from "com.mojang.blaze3d.vertex.PoseStack"
 import {$GeoItemRenderer$$Type} from "software.bernie.geckolib.renderer.GeoItemRenderer"
@@ -47,17 +47,17 @@ import {$BakedGeoModel, $BakedGeoModel$$Type} from "software.bernie.geckolib.cac
 export class $GeoRenderEvent$Item$Post extends $GeoRenderEvent$Item {
 constructor(arg0: $GeoItemRenderer$$Type<(never)>, arg1: $PoseStack$$Type, arg2: $BakedGeoModel$$Type, arg3: $MultiBufferSource$$Type, arg4: float, arg5: integer)
 
-public "getModel"(): $BakedGeoModel
 public "getRenderer"(): $GeoRenderer
-public "getPartialTick"(): float
-public "getPackedLight"(): integer
 public "getPoseStack"(): $PoseStack
+public "getPackedLight"(): integer
+public "getModel"(): $BakedGeoModel
+public "getPartialTick"(): float
 public "getBufferSource"(): $MultiBufferSource
-get "model"(): $BakedGeoModel
 get "renderer"(): $GeoRenderer
-get "partialTick"(): float
-get "packedLight"(): integer
 get "poseStack"(): $PoseStack
+get "packedLight"(): integer
+get "model"(): $BakedGeoModel
+get "partialTick"(): float
 get "bufferSource"(): $MultiBufferSource
 }
 /**
@@ -71,18 +71,17 @@ export type $GeoRenderEvent$Item$Post$$Type = ($GeoRenderEvent$Item$Post);
 export type $GeoRenderEvent$Item$Post$$Original = $GeoRenderEvent$Item$Post;}
 declare module "software.bernie.geckolib.event.GeoRenderEvent$Entity" {
 import {$GeoRenderEvent$$Interface} from "software.bernie.geckolib.event.GeoRenderEvent"
-import {$GeoRenderer} from "software.bernie.geckolib.renderer.GeoRenderer"
 import {$Event} from "net.neoforged.bus.api.Event"
-import {$GeoEntityRenderer$$Type} from "software.bernie.geckolib.renderer.GeoEntityRenderer"
+import {$GeoEntityRenderer, $GeoEntityRenderer$$Type} from "software.bernie.geckolib.renderer.GeoEntityRenderer"
 import {$Entity} from "net.minecraft.world.entity.Entity"
 
 export class $GeoRenderEvent$Entity extends $Event implements $GeoRenderEvent$$Interface {
 constructor(arg0: $GeoEntityRenderer$$Type<(never)>)
 
-public "getRenderer"(): $GeoRenderer
 public "getEntity"(): $Entity
-get "renderer"(): $GeoRenderer
+public "getRenderer"(): $GeoEntityRenderer<(never)>
 get "entity"(): $Entity
+get "renderer"(): $GeoEntityRenderer<(never)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -105,22 +104,22 @@ import {$BakedGeoModel, $BakedGeoModel$$Type} from "software.bernie.geckolib.cac
 export class $GeoRenderEvent$Object$Pre extends $GeoRenderEvent$Object implements $ICancellableEvent$$Interface {
 constructor(arg0: $GeoObjectRenderer$$Type<(never)>, arg1: $PoseStack$$Type, arg2: $BakedGeoModel$$Type, arg3: $MultiBufferSource$$Type, arg4: float, arg5: integer)
 
-public "getModel"(): $BakedGeoModel
 public "getRenderer"(): $GeoRenderer
-public "getPartialTick"(): float
-public "getPackedLight"(): integer
 public "getPoseStack"(): $PoseStack
+public "getPackedLight"(): integer
+public "getModel"(): $BakedGeoModel
+public "getPartialTick"(): float
 public "getBufferSource"(): $MultiBufferSource
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
-get "model"(): $BakedGeoModel
+public "isCanceled"(): boolean
 get "renderer"(): $GeoRenderer
-get "partialTick"(): float
-get "packedLight"(): integer
 get "poseStack"(): $PoseStack
+get "packedLight"(): integer
+get "model"(): $BakedGeoModel
+get "partialTick"(): float
 get "bufferSource"(): $MultiBufferSource
-get "canceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -140,8 +139,8 @@ import {$GeoReplacedEntityRenderer$$Type} from "software.bernie.geckolib.rendere
 export class $GeoRenderEvent$ReplacedEntity$CompileRenderLayers extends $GeoRenderEvent$ReplacedEntity {
 constructor(arg0: $GeoReplacedEntityRenderer$$Type<(never), (never)>)
 
-public "getRenderer"(): $GeoRenderer
 public "addLayer"(arg0: $GeoRenderLayer$$Type): void
+public "getRenderer"(): $GeoRenderer
 get "renderer"(): $GeoRenderer
 }
 /**
@@ -155,8 +154,8 @@ export type $GeoRenderEvent$ReplacedEntity$CompileRenderLayers$$Type = ($GeoRend
 export type $GeoRenderEvent$ReplacedEntity$CompileRenderLayers$$Original = $GeoRenderEvent$ReplacedEntity$CompileRenderLayers;}
 declare module "software.bernie.geckolib.event.GeoRenderEvent$ReplacedEntity$Post" {
 import {$GeoRenderer} from "software.bernie.geckolib.renderer.GeoRenderer"
-import {$GeoRenderEvent$ReplacedEntity} from "software.bernie.geckolib.event.GeoRenderEvent$ReplacedEntity"
 import {$MultiBufferSource, $MultiBufferSource$$Type} from "net.minecraft.client.renderer.MultiBufferSource"
+import {$GeoRenderEvent$ReplacedEntity} from "software.bernie.geckolib.event.GeoRenderEvent$ReplacedEntity"
 import {$PoseStack, $PoseStack$$Type} from "com.mojang.blaze3d.vertex.PoseStack"
 import {$GeoReplacedEntityRenderer$$Type} from "software.bernie.geckolib.renderer.GeoReplacedEntityRenderer"
 import {$BakedGeoModel, $BakedGeoModel$$Type} from "software.bernie.geckolib.cache.object.BakedGeoModel"
@@ -164,17 +163,17 @@ import {$BakedGeoModel, $BakedGeoModel$$Type} from "software.bernie.geckolib.cac
 export class $GeoRenderEvent$ReplacedEntity$Post extends $GeoRenderEvent$ReplacedEntity {
 constructor(arg0: $GeoReplacedEntityRenderer$$Type<(never), (never)>, arg1: $PoseStack$$Type, arg2: $BakedGeoModel$$Type, arg3: $MultiBufferSource$$Type, arg4: float, arg5: integer)
 
-public "getModel"(): $BakedGeoModel
 public "getRenderer"(): $GeoRenderer
-public "getPartialTick"(): float
-public "getPackedLight"(): integer
 public "getPoseStack"(): $PoseStack
+public "getPackedLight"(): integer
+public "getModel"(): $BakedGeoModel
+public "getPartialTick"(): float
 public "getBufferSource"(): $MultiBufferSource
-get "model"(): $BakedGeoModel
 get "renderer"(): $GeoRenderer
-get "partialTick"(): float
-get "packedLight"(): integer
 get "poseStack"(): $PoseStack
+get "packedLight"(): integer
+get "model"(): $BakedGeoModel
+get "partialTick"(): float
 get "bufferSource"(): $MultiBufferSource
 }
 /**
@@ -188,8 +187,8 @@ export type $GeoRenderEvent$ReplacedEntity$Post$$Type = ($GeoRenderEvent$Replace
 export type $GeoRenderEvent$ReplacedEntity$Post$$Original = $GeoRenderEvent$ReplacedEntity$Post;}
 declare module "software.bernie.geckolib.event.GeoRenderEvent$ReplacedEntity$Pre" {
 import {$GeoRenderer} from "software.bernie.geckolib.renderer.GeoRenderer"
-import {$GeoRenderEvent$ReplacedEntity} from "software.bernie.geckolib.event.GeoRenderEvent$ReplacedEntity"
 import {$MultiBufferSource, $MultiBufferSource$$Type} from "net.minecraft.client.renderer.MultiBufferSource"
+import {$GeoRenderEvent$ReplacedEntity} from "software.bernie.geckolib.event.GeoRenderEvent$ReplacedEntity"
 import {$ICancellableEvent$$Interface} from "net.neoforged.bus.api.ICancellableEvent"
 import {$PoseStack, $PoseStack$$Type} from "com.mojang.blaze3d.vertex.PoseStack"
 import {$GeoReplacedEntityRenderer$$Type} from "software.bernie.geckolib.renderer.GeoReplacedEntityRenderer"
@@ -198,22 +197,22 @@ import {$BakedGeoModel, $BakedGeoModel$$Type} from "software.bernie.geckolib.cac
 export class $GeoRenderEvent$ReplacedEntity$Pre extends $GeoRenderEvent$ReplacedEntity implements $ICancellableEvent$$Interface {
 constructor(arg0: $GeoReplacedEntityRenderer$$Type<(never), (never)>, arg1: $PoseStack$$Type, arg2: $BakedGeoModel$$Type, arg3: $MultiBufferSource$$Type, arg4: float, arg5: integer)
 
-public "getModel"(): $BakedGeoModel
 public "getRenderer"(): $GeoRenderer
-public "getPartialTick"(): float
-public "getPackedLight"(): integer
 public "getPoseStack"(): $PoseStack
+public "getPackedLight"(): integer
+public "getModel"(): $BakedGeoModel
+public "getPartialTick"(): float
 public "getBufferSource"(): $MultiBufferSource
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
-get "model"(): $BakedGeoModel
+public "isCanceled"(): boolean
 get "renderer"(): $GeoRenderer
-get "partialTick"(): float
-get "packedLight"(): integer
 get "poseStack"(): $PoseStack
+get "packedLight"(): integer
+get "model"(): $BakedGeoModel
+get "partialTick"(): float
 get "bufferSource"(): $MultiBufferSource
-get "canceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -225,8 +224,8 @@ export type $GeoRenderEvent$ReplacedEntity$Pre$$Type = ($GeoRenderEvent$Replaced
  */
 export type $GeoRenderEvent$ReplacedEntity$Pre$$Original = $GeoRenderEvent$ReplacedEntity$Pre;}
 declare module "software.bernie.geckolib.event.GeoRenderEvent$Item$Pre" {
-import {$GeoRenderEvent$Item} from "software.bernie.geckolib.event.GeoRenderEvent$Item"
 import {$GeoRenderer} from "software.bernie.geckolib.renderer.GeoRenderer"
+import {$GeoRenderEvent$Item} from "software.bernie.geckolib.event.GeoRenderEvent$Item"
 import {$MultiBufferSource, $MultiBufferSource$$Type} from "net.minecraft.client.renderer.MultiBufferSource"
 import {$ICancellableEvent$$Interface} from "net.neoforged.bus.api.ICancellableEvent"
 import {$PoseStack, $PoseStack$$Type} from "com.mojang.blaze3d.vertex.PoseStack"
@@ -236,22 +235,22 @@ import {$BakedGeoModel, $BakedGeoModel$$Type} from "software.bernie.geckolib.cac
 export class $GeoRenderEvent$Item$Pre extends $GeoRenderEvent$Item implements $ICancellableEvent$$Interface {
 constructor(arg0: $GeoItemRenderer$$Type<(never)>, arg1: $PoseStack$$Type, arg2: $BakedGeoModel$$Type, arg3: $MultiBufferSource$$Type, arg4: float, arg5: integer)
 
-public "getModel"(): $BakedGeoModel
 public "getRenderer"(): $GeoRenderer
-public "getPartialTick"(): float
-public "getPackedLight"(): integer
 public "getPoseStack"(): $PoseStack
+public "getPackedLight"(): integer
+public "getModel"(): $BakedGeoModel
+public "getPartialTick"(): float
 public "getBufferSource"(): $MultiBufferSource
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
-get "model"(): $BakedGeoModel
+public "isCanceled"(): boolean
 get "renderer"(): $GeoRenderer
-get "partialTick"(): float
-get "packedLight"(): integer
 get "poseStack"(): $PoseStack
+get "packedLight"(): integer
+get "model"(): $BakedGeoModel
+get "partialTick"(): float
 get "bufferSource"(): $MultiBufferSource
-get "canceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -273,17 +272,17 @@ import {$BakedGeoModel, $BakedGeoModel$$Type} from "software.bernie.geckolib.cac
 export class $GeoRenderEvent$Object$Post extends $GeoRenderEvent$Object {
 constructor(arg0: $GeoObjectRenderer$$Type<(never)>, arg1: $PoseStack$$Type, arg2: $BakedGeoModel$$Type, arg3: $MultiBufferSource$$Type, arg4: float, arg5: integer)
 
-public "getModel"(): $BakedGeoModel
 public "getRenderer"(): $GeoRenderer
-public "getPartialTick"(): float
-public "getPackedLight"(): integer
 public "getPoseStack"(): $PoseStack
+public "getPackedLight"(): integer
+public "getModel"(): $BakedGeoModel
+public "getPartialTick"(): float
 public "getBufferSource"(): $MultiBufferSource
-get "model"(): $BakedGeoModel
 get "renderer"(): $GeoRenderer
-get "partialTick"(): float
-get "packedLight"(): integer
 get "poseStack"(): $PoseStack
+get "packedLight"(): integer
+get "model"(): $BakedGeoModel
+get "partialTick"(): float
 get "bufferSource"(): $MultiBufferSource
 }
 /**
@@ -297,18 +296,17 @@ export type $GeoRenderEvent$Object$Post$$Type = ($GeoRenderEvent$Object$Post);
 export type $GeoRenderEvent$Object$Post$$Original = $GeoRenderEvent$Object$Post;}
 declare module "software.bernie.geckolib.event.GeoRenderEvent$ReplacedEntity" {
 import {$GeoRenderEvent$$Interface} from "software.bernie.geckolib.event.GeoRenderEvent"
-import {$GeoRenderer} from "software.bernie.geckolib.renderer.GeoRenderer"
 import {$Event} from "net.neoforged.bus.api.Event"
-import {$GeoReplacedEntityRenderer$$Type} from "software.bernie.geckolib.renderer.GeoReplacedEntityRenderer"
+import {$GeoReplacedEntityRenderer, $GeoReplacedEntityRenderer$$Type} from "software.bernie.geckolib.renderer.GeoReplacedEntityRenderer"
 import {$Entity} from "net.minecraft.world.entity.Entity"
 
 export class $GeoRenderEvent$ReplacedEntity extends $Event implements $GeoRenderEvent$$Interface {
 constructor(arg0: $GeoReplacedEntityRenderer$$Type<(never), (never)>)
 
-public "getRenderer"(): $GeoRenderer
 public "getReplacedEntity"(): $Entity
-get "renderer"(): $GeoRenderer
+public "getRenderer"(): $GeoReplacedEntityRenderer<(never), (never)>
 get "replacedEntity"(): $Entity
+get "renderer"(): $GeoReplacedEntityRenderer<(never), (never)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -354,17 +352,17 @@ import {$BakedGeoModel, $BakedGeoModel$$Type} from "software.bernie.geckolib.cac
 export class $GeoRenderEvent$Block$Post extends $GeoRenderEvent$Block {
 constructor(arg0: $GeoBlockRenderer$$Type<(never)>, arg1: $PoseStack$$Type, arg2: $BakedGeoModel$$Type, arg3: $MultiBufferSource$$Type, arg4: float, arg5: integer)
 
-public "getModel"(): $BakedGeoModel
 public "getRenderer"(): $GeoRenderer
-public "getPartialTick"(): float
-public "getPackedLight"(): integer
 public "getPoseStack"(): $PoseStack
+public "getPackedLight"(): integer
+public "getModel"(): $BakedGeoModel
+public "getPartialTick"(): float
 public "getBufferSource"(): $MultiBufferSource
-get "model"(): $BakedGeoModel
 get "renderer"(): $GeoRenderer
-get "partialTick"(): float
-get "packedLight"(): integer
 get "poseStack"(): $PoseStack
+get "packedLight"(): integer
+get "model"(): $BakedGeoModel
+get "partialTick"(): float
 get "bufferSource"(): $MultiBufferSource
 }
 /**
@@ -388,22 +386,22 @@ import {$BakedGeoModel, $BakedGeoModel$$Type} from "software.bernie.geckolib.cac
 export class $GeoRenderEvent$Armor$Pre extends $GeoRenderEvent$Armor implements $ICancellableEvent$$Interface {
 constructor(arg0: $GeoArmorRenderer$$Type<(never)>, arg1: $PoseStack$$Type, arg2: $BakedGeoModel$$Type, arg3: $MultiBufferSource$$Type, arg4: float, arg5: integer)
 
-public "getModel"(): $BakedGeoModel
 public "getRenderer"(): $GeoRenderer
-public "getPartialTick"(): float
-public "getPackedLight"(): integer
 public "getPoseStack"(): $PoseStack
+public "getPackedLight"(): integer
+public "getModel"(): $BakedGeoModel
+public "getPartialTick"(): float
 public "getBufferSource"(): $MultiBufferSource
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
-get "model"(): $BakedGeoModel
+public "isCanceled"(): boolean
 get "renderer"(): $GeoRenderer
-get "partialTick"(): float
-get "packedLight"(): integer
 get "poseStack"(): $PoseStack
+get "packedLight"(): integer
+get "model"(): $BakedGeoModel
+get "partialTick"(): float
 get "bufferSource"(): $MultiBufferSource
-get "canceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -450,22 +448,22 @@ import {$BakedGeoModel, $BakedGeoModel$$Type} from "software.bernie.geckolib.cac
 export class $GeoRenderEvent$Entity$Pre extends $GeoRenderEvent$Entity implements $ICancellableEvent$$Interface {
 constructor(arg0: $GeoEntityRenderer$$Type<(never)>, arg1: $PoseStack$$Type, arg2: $BakedGeoModel$$Type, arg3: $MultiBufferSource$$Type, arg4: float, arg5: integer)
 
-public "getModel"(): $BakedGeoModel
 public "getRenderer"(): $GeoRenderer
-public "getPartialTick"(): float
-public "getPackedLight"(): integer
 public "getPoseStack"(): $PoseStack
+public "getPackedLight"(): integer
+public "getModel"(): $BakedGeoModel
+public "getPartialTick"(): float
 public "getBufferSource"(): $MultiBufferSource
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
-get "model"(): $BakedGeoModel
+public "isCanceled"(): boolean
 get "renderer"(): $GeoRenderer
-get "partialTick"(): float
-get "packedLight"(): integer
 get "poseStack"(): $PoseStack
+get "packedLight"(): integer
+get "model"(): $BakedGeoModel
+get "partialTick"(): float
 get "bufferSource"(): $MultiBufferSource
-get "canceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -487,17 +485,17 @@ import {$BakedGeoModel, $BakedGeoModel$$Type} from "software.bernie.geckolib.cac
 export class $GeoRenderEvent$Armor$Post extends $GeoRenderEvent$Armor {
 constructor(arg0: $GeoArmorRenderer$$Type<(never)>, arg1: $PoseStack$$Type, arg2: $BakedGeoModel$$Type, arg3: $MultiBufferSource$$Type, arg4: float, arg5: integer)
 
-public "getModel"(): $BakedGeoModel
 public "getRenderer"(): $GeoRenderer
-public "getPartialTick"(): float
-public "getPackedLight"(): integer
 public "getPoseStack"(): $PoseStack
+public "getPackedLight"(): integer
+public "getModel"(): $BakedGeoModel
+public "getPartialTick"(): float
 public "getBufferSource"(): $MultiBufferSource
-get "model"(): $BakedGeoModel
 get "renderer"(): $GeoRenderer
-get "partialTick"(): float
-get "packedLight"(): integer
 get "poseStack"(): $PoseStack
+get "packedLight"(): integer
+get "model"(): $BakedGeoModel
+get "partialTick"(): float
 get "bufferSource"(): $MultiBufferSource
 }
 /**
@@ -518,8 +516,8 @@ import {$GeoRenderLayer$$Type} from "software.bernie.geckolib.renderer.layer.Geo
 export class $GeoRenderEvent$Object$CompileRenderLayers extends $GeoRenderEvent$Object {
 constructor(arg0: $GeoObjectRenderer$$Type<(never)>)
 
-public "getRenderer"(): $GeoRenderer
 public "addLayer"(arg0: $GeoRenderLayer$$Type): void
+public "getRenderer"(): $GeoRenderer
 get "renderer"(): $GeoRenderer
 }
 /**
@@ -532,16 +530,16 @@ export type $GeoRenderEvent$Object$CompileRenderLayers$$Type = ($GeoRenderEvent$
  */
 export type $GeoRenderEvent$Object$CompileRenderLayers$$Original = $GeoRenderEvent$Object$CompileRenderLayers;}
 declare module "software.bernie.geckolib.event.GeoRenderEvent$Item$CompileRenderLayers" {
-import {$GeoRenderEvent$Item} from "software.bernie.geckolib.event.GeoRenderEvent$Item"
 import {$GeoRenderer} from "software.bernie.geckolib.renderer.GeoRenderer"
+import {$GeoRenderEvent$Item} from "software.bernie.geckolib.event.GeoRenderEvent$Item"
 import {$GeoRenderLayer$$Type} from "software.bernie.geckolib.renderer.layer.GeoRenderLayer"
 import {$GeoItemRenderer$$Type} from "software.bernie.geckolib.renderer.GeoItemRenderer"
 
 export class $GeoRenderEvent$Item$CompileRenderLayers extends $GeoRenderEvent$Item {
 constructor(arg0: $GeoItemRenderer$$Type<(never)>)
 
-public "getRenderer"(): $GeoRenderer
 public "addLayer"(arg0: $GeoRenderLayer$$Type): void
+public "getRenderer"(): $GeoRenderer
 get "renderer"(): $GeoRenderer
 }
 /**
@@ -562,8 +560,8 @@ import {$GeoRenderLayer$$Type} from "software.bernie.geckolib.renderer.layer.Geo
 export class $GeoRenderEvent$Block$CompileRenderLayers extends $GeoRenderEvent$Block {
 constructor(arg0: $GeoBlockRenderer$$Type<(never)>)
 
-public "getRenderer"(): $GeoRenderer
 public "addLayer"(arg0: $GeoRenderLayer$$Type): void
+public "getRenderer"(): $GeoRenderer
 get "renderer"(): $GeoRenderer
 }
 /**
@@ -584,8 +582,8 @@ import {$GeoRenderLayer$$Type} from "software.bernie.geckolib.renderer.layer.Geo
 export class $GeoRenderEvent$Entity$CompileRenderLayers extends $GeoRenderEvent$Entity {
 constructor(arg0: $GeoEntityRenderer$$Type<(never)>)
 
-public "getRenderer"(): $GeoRenderer
 public "addLayer"(arg0: $GeoRenderLayer$$Type): void
+public "getRenderer"(): $GeoRenderer
 get "renderer"(): $GeoRenderer
 }
 /**
@@ -627,8 +625,8 @@ import {$GeoRenderLayer$$Type} from "software.bernie.geckolib.renderer.layer.Geo
 export class $GeoRenderEvent$Armor$CompileRenderLayers extends $GeoRenderEvent$Armor {
 constructor(arg0: $GeoArmorRenderer$$Type<(never)>)
 
-public "getRenderer"(): $GeoRenderer
 public "addLayer"(arg0: $GeoRenderLayer$$Type): void
+public "getRenderer"(): $GeoRenderer
 get "renderer"(): $GeoRenderer
 }
 /**
@@ -652,14 +650,14 @@ import {$Entity} from "net.minecraft.world.entity.Entity"
 export class $GeoRenderEvent$Armor extends $Event implements $GeoRenderEvent$$Interface {
 constructor(arg0: $GeoArmorRenderer$$Type<(never)>)
 
-public "getRenderer"(): $GeoRenderer
 public "getEntity"(): $Entity
-public "getEquipmentSlot"(): $EquipmentSlot
+public "getRenderer"(): $GeoRenderer
 public "getItemStack"(): $ItemStack
-get "renderer"(): $GeoRenderer
+public "getEquipmentSlot"(): $EquipmentSlot
 get "entity"(): $Entity
-get "equipmentSlot"(): $EquipmentSlot
+get "renderer"(): $GeoRenderer
 get "itemStack"(): $ItemStack
+get "equipmentSlot"(): $EquipmentSlot
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -701,17 +699,17 @@ import {$BakedGeoModel, $BakedGeoModel$$Type} from "software.bernie.geckolib.cac
 export class $GeoRenderEvent$Entity$Post extends $GeoRenderEvent$Entity {
 constructor(arg0: $GeoEntityRenderer$$Type<(never)>, arg1: $PoseStack$$Type, arg2: $BakedGeoModel$$Type, arg3: $MultiBufferSource$$Type, arg4: float, arg5: integer)
 
-public "getModel"(): $BakedGeoModel
 public "getRenderer"(): $GeoRenderer
-public "getPartialTick"(): float
-public "getPackedLight"(): integer
 public "getPoseStack"(): $PoseStack
+public "getPackedLight"(): integer
+public "getModel"(): $BakedGeoModel
+public "getPartialTick"(): float
 public "getBufferSource"(): $MultiBufferSource
-get "model"(): $BakedGeoModel
 get "renderer"(): $GeoRenderer
-get "partialTick"(): float
-get "packedLight"(): integer
 get "poseStack"(): $PoseStack
+get "packedLight"(): integer
+get "model"(): $BakedGeoModel
+get "partialTick"(): float
 get "bufferSource"(): $MultiBufferSource
 }
 /**

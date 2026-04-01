@@ -51,8 +51,8 @@ constructor(arg0: $ConfigPropertyBuilder$$Type, arg1: T)
 
 public "type"(): $Class<(T)>
 public "defaultValue"(): any
-public "codec"(): $Codec<(T)>
 public "streamCodec"(): $StreamCodec<($ByteBuf), (T)>
+public "codec"(): $Codec<(T)>
 public "get"(arg0: $LoadedConfig$$Type): T
 public "get"(): T
 public "set"(arg0: T): void
@@ -133,13 +133,13 @@ export type $ScreenInitEvent$Post$$Type = ($ScreenInitEvent$Post);
 export type $ScreenInitEvent$Post$$Original = $ScreenInitEvent$Post;}
 declare module "net.blay09.mods.balm.api.config.schema.ConfigSchemaBuilder" {
 import {$ConfigPropertyBuilder} from "net.blay09.mods.balm.api.config.schema.builder.ConfigPropertyBuilder"
-import {$ConfigCategoryBuilder} from "net.blay09.mods.balm.api.config.schema.builder.ConfigCategoryBuilder"
-import {$Collection} from "java.util.Collection"
 import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
+import {$Collection} from "java.util.Collection"
+import {$ConfigCategoryBuilder} from "net.blay09.mods.balm.api.config.schema.builder.ConfigCategoryBuilder"
 import {$ConfigSchemaImpl} from "net.blay09.mods.balm.api.config.schema.impl.ConfigSchemaImpl"
 import {$PropertyHolderBuilder$$Interface} from "net.blay09.mods.balm.api.config.schema.builder.PropertyHolderBuilder"
-import {$ConfiguredProperty} from "net.blay09.mods.balm.api.config.schema.ConfiguredProperty"
 import {$LoadedConfig} from "net.blay09.mods.balm.api.config.LoadedConfig"
+import {$ConfiguredProperty} from "net.blay09.mods.balm.api.config.schema.ConfiguredProperty"
 import {$ConfigCategory} from "net.blay09.mods.balm.api.config.schema.builder.ConfigCategory"
 import {$BalmConfigSchema$$Interface} from "net.blay09.mods.balm.api.config.schema.BalmConfigSchema"
 
@@ -153,9 +153,9 @@ export class $ConfigSchemaBuilder implements $ConfigSchemaBuilder$$Interface {
 static "create"(arg0: $ResourceLocation$$Type): $ConfigSchemaImpl
  "identifier"(): $ResourceLocation
  "categories"(): $Collection<($ConfigCategory)>
- "findProperty"(arg0: StringJS, arg1: StringJS): $ConfiguredProperty<(never)>
- "findRootProperty"(arg0: StringJS): $ConfiguredProperty<(never)>
  "rootProperties"(): $Collection<($ConfiguredProperty<(never)>)>
+ "findRootProperty"(arg0: StringJS): $ConfiguredProperty<(never)>
+ "findProperty"(arg0: StringJS, arg1: StringJS): $ConfiguredProperty<(never)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -178,10 +178,10 @@ import {$RegistryAccess, $RegistryAccess$$Type} from "net.minecraft.core.Registr
 export class $RecipesUpdatedEvent extends $BalmEvent {
 constructor(arg0: $RecipeManager$$Type, arg1: $RegistryAccess$$Type)
 
-public "getRecipeManager"(): $RecipeManager
 public "getRegistryAccess"(): $RegistryAccess
-get "recipeManager"(): $RecipeManager
+public "getRecipeManager"(): $RecipeManager
 get "registryAccess"(): $RegistryAccess
+get "recipeManager"(): $RecipeManager
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -285,9 +285,9 @@ constructor(arg0: $ConfigPropertyBuilder$$Type, arg1: $Class$$Type<(T)>, arg2: $
 
 public "type"(): $Class<(never)>
 public "defaultValue"(): any
+public "streamCodec"(): $StreamCodec<($ByteBuf), ($List<(T)>)>
 public "nestedType"(): $Class<(T)>
 public "codec"(): $Codec<($List<(T)>)>
-public "streamCodec"(): $StreamCodec<($ByteBuf), ($List<(T)>)>
 public "get"(arg0: $LoadedConfig$$Type): $List<(T)>
 public "get"(): $List<(T)>
 public "set"(arg0: $List$$Type<(T)>): void
@@ -319,14 +319,14 @@ constructor(arg0: $ConfigPropertyBuilder$$Type)
 public "name"(): StringJS
 public "comment"(): StringJS
 public "category"(): StringJS
-public "parentSchema"(): $ConfigSchemaImpl
 public "synced"(): boolean
+public "parentSchema"(): $ConfigSchemaImpl
 public "type"(): $Class<(never)>
 public "defaultValue"(): T
-public "getRaw"(arg0: $LoadedConfig$$Type): T
-public "codec"(): $Codec<(T)>
 public "streamCodec"(): $StreamCodec<($ByteBuf), (T)>
 public "setRaw"(arg0: $MutableLoadedConfig$$Type, arg1: T): void
+public "getRaw"(arg0: $LoadedConfig$$Type): T
+public "codec"(): $Codec<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -360,12 +360,12 @@ export class $ConfiguredString implements $ConfiguredString$$Interface {
  "comment"(): StringJS
  "defaultValue"(): StringJS
  "category"(): StringJS
- "parentSchema"(): $BalmConfigSchema
- "getRaw"(arg0: $LoadedConfig$$Type): StringJS
- "codec"(): $Codec<(StringJS)>
  "streamCodec"(): $StreamCodec<($ByteBuf), (StringJS)>
  "setRaw"(arg0: $MutableLoadedConfig$$Type, arg1: StringJS): void
+ "getRaw"(arg0: $LoadedConfig$$Type): StringJS
+ "codec"(): $Codec<(StringJS)>
  "synced"(): boolean
+ "parentSchema"(): $BalmConfigSchema
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -384,10 +384,10 @@ import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 export class $TossItemEvent extends $BalmEvent {
 constructor(arg0: $Player$$Type, arg1: $ItemStack$$Type)
 
-public "getItemStack"(): $ItemStack
 public "getPlayer"(): $Player
-get "itemStack"(): $ItemStack
+public "getItemStack"(): $ItemStack
 get "player"(): $Player
+get "itemStack"(): $ItemStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -421,12 +421,12 @@ export class $ConfiguredDouble implements $ConfiguredDouble$$Interface {
  "comment"(): StringJS
  "defaultValue"(): double
  "category"(): StringJS
- "parentSchema"(): $BalmConfigSchema
- "getRaw"(arg0: $LoadedConfig$$Type): double
- "codec"(): $Codec<(double)>
  "streamCodec"(): $StreamCodec<($ByteBuf), (double)>
  "setRaw"(arg0: $MutableLoadedConfig$$Type, arg1: double): void
+ "getRaw"(arg0: $LoadedConfig$$Type): double
+ "codec"(): $Codec<(double)>
  "synced"(): boolean
+ "parentSchema"(): $BalmConfigSchema
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -459,13 +459,13 @@ export type $PlayerLoginEvent$$Original = $PlayerLoginEvent;}
 declare module "net.blay09.mods.balm.mixin.SlotAccessor" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $SlotAccessor$$Interface {
-set "y"(value: integer)
 set "x"(value: integer)
+set "y"(value: integer)
 }
 
 export class $SlotAccessor implements $SlotAccessor$$Interface {
- "setY"(arg0: integer): void
  "setX"(arg0: integer): void
+ "setY"(arg0: integer): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -500,21 +500,21 @@ import {$Slot, $Slot$$Type} from "net.minecraft.world.inventory.Slot"
 import {$GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
 
 export interface $AbstractContainerScreenAccessor$$Interface {
-get "leftPos"(): integer
-get "topPos"(): integer
 get "imageHeight"(): integer
 get "imageWidth"(): integer
 get "hoveredSlot"(): $Slot
+get "leftPos"(): integer
+get "topPos"(): integer
 }
 
 export class $AbstractContainerScreenAccessor implements $AbstractContainerScreenAccessor$$Interface {
- "getLeftPos"(): integer
- "getTopPos"(): integer
+ "callRenderSlot"(arg0: $GuiGraphics$$Type, arg1: $Slot$$Type): void
  "callIsHovering"(arg0: $Slot$$Type, arg1: double, arg2: double): boolean
  "getImageHeight"(): integer
  "getImageWidth"(): integer
- "callRenderSlot"(arg0: $GuiGraphics$$Type, arg1: $Slot$$Type): void
  "getHoveredSlot"(): $Slot
+ "getLeftPos"(): integer
+ "getTopPos"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -696,12 +696,12 @@ export class $ConfiguredInt implements $ConfiguredInt$$Interface {
  "comment"(): StringJS
  "defaultValue"(): integer
  "category"(): StringJS
- "parentSchema"(): $BalmConfigSchema
- "getRaw"(arg0: $LoadedConfig$$Type): integer
- "codec"(): $Codec<(integer)>
  "streamCodec"(): $StreamCodec<($ByteBuf), (integer)>
  "setRaw"(arg0: $MutableLoadedConfig$$Type, arg1: integer): void
+ "getRaw"(arg0: $LoadedConfig$$Type): integer
+ "codec"(): $Codec<(integer)>
  "synced"(): boolean
+ "parentSchema"(): $BalmConfigSchema
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -725,14 +725,14 @@ constructor(arg0: $Level$$Type, arg1: $Player$$Type, arg2: $BlockPos$$Type, arg3
 
 public "getState"(): $BlockState
 public "getLevel"(): $Level
+public "getPlayer"(): $Player
 public "getPos"(): $BlockPos
 public "getBlockEntity"(): $BlockEntity
-public "getPlayer"(): $Player
 get "state"(): $BlockState
 get "level"(): $Level
+get "player"(): $Player
 get "pos"(): $BlockPos
 get "blockEntity"(): $BlockEntity
-get "player"(): $Player
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -830,12 +830,12 @@ export class $ConfiguredBoolean implements $ConfiguredBoolean$$Interface {
  "comment"(): StringJS
  "defaultValue"(): boolean
  "category"(): StringJS
- "parentSchema"(): $BalmConfigSchema
- "getRaw"(arg0: $LoadedConfig$$Type): boolean
- "codec"(): $Codec<(boolean)>
  "streamCodec"(): $StreamCodec<($ByteBuf), (boolean)>
  "setRaw"(arg0: $MutableLoadedConfig$$Type, arg1: boolean): void
+ "getRaw"(arg0: $LoadedConfig$$Type): boolean
+ "codec"(): $Codec<(boolean)>
  "synced"(): boolean
+ "parentSchema"(): $BalmConfigSchema
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -873,12 +873,12 @@ import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 export class $ItemCraftedEvent extends $BalmEvent {
 constructor(arg0: $Player$$Type, arg1: $ItemStack$$Type, arg2: $Container$$Type)
 
-public "getItemStack"(): $ItemStack
 public "getPlayer"(): $Player
 public "getCraftMatrix"(): $Container
-get "itemStack"(): $ItemStack
+public "getItemStack"(): $ItemStack
 get "player"(): $Player
 get "craftMatrix"(): $Container
+get "itemStack"(): $ItemStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -898,8 +898,8 @@ export interface $LoadedConfig$$Interface {
 }
 
 export class $LoadedConfig implements $LoadedConfig$$Interface {
- "mutable"(arg0: $BalmConfigSchema$$Type): $MutableLoadedConfig
  "getRaw"<T>(arg0: $ConfiguredProperty$$Type<(T)>): T
+ "mutable"(arg0: $BalmConfigSchema$$Type): $MutableLoadedConfig
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -928,8 +928,8 @@ constructor(arg0: $ConfigPropertyBuilder$$Type, arg1: double)
 
 public "type"(): $Class<(double)>
 public "defaultValue"(): double
-public "codec"(): $Codec<(double)>
 public "streamCodec"(): $StreamCodec<($ByteBuf), (double)>
+public "codec"(): $Codec<(double)>
 public "get"(arg0: $LoadedConfig$$Type): double
 public "get"(): double
 public "set"(arg0: double): void
@@ -948,13 +948,13 @@ declare module "net.blay09.mods.balm.api.entity.BalmEntity" {
 import {$CompoundTag, $CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
 
 export interface $BalmEntity$$Interface {
-get "fabricBalmData"(): $CompoundTag
 set "fabricBalmData"(value: $CompoundTag$$Type)
+get "fabricBalmData"(): $CompoundTag
 }
 
 export class $BalmEntity implements $BalmEntity$$Interface {
- "getFabricBalmData"(): $CompoundTag
  "setFabricBalmData"(arg0: $CompoundTag$$Type): void
+ "getFabricBalmData"(): $CompoundTag
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -973,12 +973,12 @@ import {$Screen, $Screen$$Type} from "net.minecraft.client.gui.screens.Screen"
 export class $ContainerScreenDrawEvent extends $BalmEvent {
 constructor(arg0: $Screen$$Type, arg1: $GuiGraphics$$Type, arg2: integer, arg3: integer)
 
-public "getMouseY"(): integer
 public "getMouseX"(): integer
+public "getMouseY"(): integer
 public "getGuiGraphics"(): $GuiGraphics
 public "getScreen"(): $Screen
-get "mouseY"(): integer
 get "mouseX"(): integer
+get "mouseY"(): integer
 get "guiGraphics"(): $GuiGraphics
 get "screen"(): $Screen
 }
@@ -993,8 +993,8 @@ export type $ContainerScreenDrawEvent$$Type = ($ContainerScreenDrawEvent);
 export type $ContainerScreenDrawEvent$$Original = $ContainerScreenDrawEvent;}
 declare module "net.blay09.mods.balm.api.config.schema.ConfiguredList" {
 import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
-import {$MutableLoadedConfig$$Type} from "net.blay09.mods.balm.api.config.MutableLoadedConfig"
 import {$NestedTypeHolder$$Interface} from "net.blay09.mods.balm.api.config.schema.NestedTypeHolder"
+import {$MutableLoadedConfig$$Type} from "net.blay09.mods.balm.api.config.MutableLoadedConfig"
 import {$Codec} from "com.mojang.serialization.Codec"
 import {$List, $List$$Type} from "java.util.List"
 import {$Class} from "java.lang.Class"
@@ -1016,12 +1016,12 @@ export class $ConfiguredList<T> implements $ConfiguredList$$Interface {
  "comment"(): StringJS
  "defaultValue"(): $List<(T)>
  "category"(): StringJS
- "parentSchema"(): $BalmConfigSchema
- "getRaw"(arg0: $LoadedConfig$$Type): $List<(T)>
- "codec"(): $Codec<($List<(T)>)>
  "streamCodec"(): $StreamCodec<($ByteBuf), ($List<(T)>)>
  "setRaw"(arg0: $MutableLoadedConfig$$Type, arg1: $List$$Type<(T)>): void
+ "getRaw"(arg0: $LoadedConfig$$Type): $List<(T)>
+ "codec"(): $Codec<($List<(T)>)>
  "synced"(): boolean
+ "parentSchema"(): $BalmConfigSchema
  "nestedType"(): $Class<(T)>
 }
 /**
@@ -1034,11 +1034,11 @@ export type $ConfiguredList$$Type<T> = ($ConfiguredList<(T)>);
  */
 export type $ConfiguredList$$Original<T> = $ConfiguredList<(T)>;}
 declare module "net.blay09.mods.balm.api.config.schema.BalmConfigSchema" {
-import {$Collection} from "java.util.Collection"
 import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
+import {$Collection} from "java.util.Collection"
 import {$ConfigSchemaImpl} from "net.blay09.mods.balm.api.config.schema.impl.ConfigSchemaImpl"
-import {$ConfiguredProperty} from "net.blay09.mods.balm.api.config.schema.ConfiguredProperty"
 import {$LoadedConfig} from "net.blay09.mods.balm.api.config.LoadedConfig"
+import {$ConfiguredProperty} from "net.blay09.mods.balm.api.config.schema.ConfiguredProperty"
 import {$ConfigCategory} from "net.blay09.mods.balm.api.config.schema.builder.ConfigCategory"
 
 export interface $BalmConfigSchema$$Interface {
@@ -1049,9 +1049,9 @@ export class $BalmConfigSchema implements $BalmConfigSchema$$Interface {
 static "create"(arg0: $ResourceLocation$$Type): $ConfigSchemaImpl
  "identifier"(): $ResourceLocation
  "categories"(): $Collection<($ConfigCategory)>
- "findProperty"(arg0: StringJS, arg1: StringJS): $ConfiguredProperty<(never)>
- "findRootProperty"(arg0: StringJS): $ConfiguredProperty<(never)>
  "rootProperties"(): $Collection<($ConfiguredProperty<(never)>)>
+ "findRootProperty"(arg0: StringJS): $ConfiguredProperty<(never)>
+ "findProperty"(arg0: StringJS, arg1: StringJS): $ConfiguredProperty<(never)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1069,14 +1069,14 @@ import {$Screen, $Screen$$Type} from "net.minecraft.client.gui.screens.Screen"
 export class $ScreenMouseEvent extends $BalmEvent {
 constructor(arg0: $Screen$$Type, arg1: double, arg2: double, arg3: integer)
 
-public "getMouseY"(): double
-public "getMouseX"(): double
-public "getScreen"(): $Screen
 public "getButton"(): integer
-get "mouseY"(): double
-get "mouseX"(): double
-get "screen"(): $Screen
+public "getMouseX"(): double
+public "getMouseY"(): double
+public "getScreen"(): $Screen
 get "button"(): integer
+get "mouseX"(): double
+get "mouseY"(): double
+get "screen"(): $Screen
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1129,8 +1129,8 @@ export type $LivingFallEvent$$Type = ($LivingFallEvent);
 export type $LivingFallEvent$$Original = $LivingFallEvent;}
 declare module "net.blay09.mods.balm.api.event.UseBlockEvent" {
 import {$Player, $Player$$Type} from "net.minecraft.world.entity.player.Player"
-import {$InteractionResult, $InteractionResult$$Type} from "net.minecraft.world.InteractionResult"
 import {$BlockHitResult, $BlockHitResult$$Type} from "net.minecraft.world.phys.BlockHitResult"
+import {$InteractionResult, $InteractionResult$$Type} from "net.minecraft.world.InteractionResult"
 import {$BalmEvent} from "net.blay09.mods.balm.api.event.BalmEvent"
 import {$InteractionHand, $InteractionHand$$Type} from "net.minecraft.world.InteractionHand"
 import {$Level, $Level$$Type} from "net.minecraft.world.level.Level"
@@ -1140,16 +1140,16 @@ constructor(arg0: $Player$$Type, arg1: $Level$$Type, arg2: $InteractionHand$$Typ
 
 public "setResult"(arg0: $InteractionResult$$Type): void
 public "getLevel"(): $Level
-public "getHand"(): $InteractionHand
-public "getHitResult"(): $BlockHitResult
 public "getPlayer"(): $Player
 public "getInteractionResult"(): $InteractionResult
+public "getHand"(): $InteractionHand
+public "getHitResult"(): $BlockHitResult
 set "result"(value: $InteractionResult$$Type)
 get "level"(): $Level
-get "hand"(): $InteractionHand
-get "hitResult"(): $BlockHitResult
 get "player"(): $Player
 get "interactionResult"(): $InteractionResult
+get "hand"(): $InteractionHand
+get "hitResult"(): $BlockHitResult
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1168,12 +1168,12 @@ import {$InteractionHand, $InteractionHand$$Type} from "net.minecraft.world.Inte
 export class $RenderHandEvent extends $BalmEvent {
 constructor(arg0: $InteractionHand$$Type, arg1: $ItemStack$$Type, arg2: float)
 
+public "getSwingProgress"(): float
 public "getHand"(): $InteractionHand
 public "getItemStack"(): $ItemStack
-public "getSwingProgress"(): float
+get "swingProgress"(): float
 get "hand"(): $InteractionHand
 get "itemStack"(): $ItemStack
-get "swingProgress"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1202,8 +1202,8 @@ constructor(arg0: $ConfigPropertyBuilder$$Type, arg1: integer)
 
 public "type"(): $Class<(integer)>
 public "defaultValue"(): integer
-public "codec"(): $Codec<(integer)>
 public "streamCodec"(): $StreamCodec<($ByteBuf), (integer)>
+public "codec"(): $Codec<(integer)>
 public "get"(arg0: $LoadedConfig$$Type): integer
 public "get"(): integer
 public "set"(arg0: integer): void
@@ -1236,8 +1236,8 @@ constructor(arg0: $ConfigPropertyBuilder$$Type, arg1: float)
 
 public "type"(): $Class<(float)>
 public "defaultValue"(): float
-public "codec"(): $Codec<(float)>
 public "streamCodec"(): $StreamCodec<($ByteBuf), (float)>
+public "codec"(): $Codec<(float)>
 public "get"(arg0: $LoadedConfig$$Type): float
 public "get"(): float
 public "set"(arg0: float): void
@@ -1354,8 +1354,8 @@ export type $ScreenDrawEvent$Post$$Type = ($ScreenDrawEvent$Post);
 export type $ScreenDrawEvent$Post$$Original = $ScreenDrawEvent$Post;}
 declare module "net.blay09.mods.balm.api.config.MutableLoadedConfig" {
 import {$Predicate$$Type} from "java.util.function.Predicate"
-import {$ConfiguredProperty$$Type} from "net.blay09.mods.balm.api.config.schema.ConfiguredProperty"
 import {$LoadedConfig$$Type, $LoadedConfig$$Interface} from "net.blay09.mods.balm.api.config.LoadedConfig"
+import {$ConfiguredProperty$$Type} from "net.blay09.mods.balm.api.config.schema.ConfiguredProperty"
 import {$BalmConfigSchema$$Type} from "net.blay09.mods.balm.api.config.schema.BalmConfigSchema"
 
 export interface $MutableLoadedConfig$$Interface extends $LoadedConfig$$Interface {
@@ -1363,11 +1363,11 @@ export interface $MutableLoadedConfig$$Interface extends $LoadedConfig$$Interfac
 
 export class $MutableLoadedConfig implements $MutableLoadedConfig$$Interface {
  "copy"(): $MutableLoadedConfig
- "applyFrom"(arg0: $BalmConfigSchema$$Type, arg1: $LoadedConfig$$Type, arg2: $Predicate$$Type<($ConfiguredProperty<(never)>)>): void
- "applyFrom"(arg0: $BalmConfigSchema$$Type, arg1: $LoadedConfig$$Type): void
  "setRaw"<T>(arg0: $ConfiguredProperty$$Type<(T)>, arg1: T): void
- "mutable"(arg0: $BalmConfigSchema$$Type): $MutableLoadedConfig
+ "applyFrom"(arg0: $BalmConfigSchema$$Type, arg1: $LoadedConfig$$Type): void
+ "applyFrom"(arg0: $BalmConfigSchema$$Type, arg1: $LoadedConfig$$Type, arg2: $Predicate$$Type<($ConfiguredProperty<(never)>)>): void
  "getRaw"<T>(arg0: $ConfiguredProperty$$Type<(T)>): T
+ "mutable"(arg0: $BalmConfigSchema$$Type): $MutableLoadedConfig
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1399,13 +1399,13 @@ export type $ScreenDrawEvent$Pre$$Original = $ScreenDrawEvent$Pre;}
 declare module "net.blay09.mods.balm.mixin.MouseHandlerAccessor" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $MouseHandlerAccessor$$Interface {
-get "mouseY"(): double
 get "mouseX"(): double
+get "mouseY"(): double
 }
 
 export class $MouseHandlerAccessor implements $MouseHandlerAccessor$$Interface {
- "getMouseY"(): double
  "getMouseX"(): double
+ "getMouseY"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1423,10 +1423,10 @@ import {$ServerPlayer, $ServerPlayer$$Type} from "net.minecraft.server.level.Ser
 export class $PlayerRespawnEvent extends $BalmEvent {
 constructor(arg0: $ServerPlayer$$Type, arg1: $ServerPlayer$$Type)
 
-public "getNewPlayer"(): $ServerPlayer
 public "getOldPlayer"(): $ServerPlayer
-get "newPlayer"(): $ServerPlayer
+public "getNewPlayer"(): $ServerPlayer
 get "oldPlayer"(): $ServerPlayer
+get "newPlayer"(): $ServerPlayer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1575,12 +1575,12 @@ export class $ConfiguredLong implements $ConfiguredLong$$Interface {
  "comment"(): StringJS
  "defaultValue"(): long
  "category"(): StringJS
- "parentSchema"(): $BalmConfigSchema
- "getRaw"(arg0: $LoadedConfig$$Type): long
- "codec"(): $Codec<(long)>
  "streamCodec"(): $StreamCodec<($ByteBuf), (long)>
  "setRaw"(arg0: $MutableLoadedConfig$$Type, arg1: long): void
+ "getRaw"(arg0: $LoadedConfig$$Type): long
+ "codec"(): $Codec<(long)>
  "synced"(): boolean
+ "parentSchema"(): $BalmConfigSchema
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1593,9 +1593,9 @@ export type $ConfiguredLong$$Type = ($ConfiguredLong);
 export type $ConfiguredLong$$Original = $ConfiguredLong;}
 declare module "net.blay09.mods.balm.api.event.client.GuiDrawEvent$Post" {
 import {$GuiDrawEvent$Element$$Type} from "net.blay09.mods.balm.api.event.client.GuiDrawEvent$Element"
+import {$Window$$Type} from "com.mojang.blaze3d.platform.Window"
 import {$GuiDrawEvent} from "net.blay09.mods.balm.api.event.client.GuiDrawEvent"
 import {$GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
-import {$Window$$Type} from "com.mojang.blaze3d.platform.Window"
 
 export class $GuiDrawEvent$Post extends $GuiDrawEvent {
 constructor(arg0: $Window$$Type, arg1: $GuiGraphics$$Type, arg2: $GuiDrawEvent$Element$$Type)
@@ -1622,12 +1622,12 @@ export class $ItemTooltipEvent extends $BalmEvent {
 constructor(arg0: $ItemStack$$Type, arg1: $Player$$Type, arg2: $List$$Type<($Component$$Type)>, arg3: $TooltipFlag$$Type)
 
 public "getFlags"(): $TooltipFlag
-public "getItemStack"(): $ItemStack
 public "getPlayer"(): $Player
+public "getItemStack"(): $ItemStack
 public "getToolTip"(): $List<($Component)>
 get "flags"(): $TooltipFlag
-get "itemStack"(): $ItemStack
 get "player"(): $Player
+get "itemStack"(): $ItemStack
 get "toolTip"(): $List<($Component)>
 }
 /**
@@ -1640,8 +1640,8 @@ export type $ItemTooltipEvent$$Type = ($ItemTooltipEvent);
  */
 export type $ItemTooltipEvent$$Original = $ItemTooltipEvent;}
 declare module "net.blay09.mods.balm.api.config.schema.builder.ConfigPropertyBuilder" {
-import {$LongConfigProperty} from "net.blay09.mods.balm.api.config.schema.builder.LongConfigProperty"
 import {$ListConfigProperty} from "net.blay09.mods.balm.api.config.schema.builder.ListConfigProperty"
+import {$LongConfigProperty} from "net.blay09.mods.balm.api.config.schema.builder.LongConfigProperty"
 import {$BooleanConfigProperty} from "net.blay09.mods.balm.api.config.schema.builder.BooleanConfigProperty"
 import {$StringConfigProperty} from "net.blay09.mods.balm.api.config.schema.builder.StringConfigProperty"
 import {$Enum, $Enum$$Type} from "java.lang.Enum"
@@ -1663,16 +1663,16 @@ constructor(arg0: $ConfigSchemaImpl$$Type, arg1: StringJS, arg2: StringJS)
 
 public "comment"(arg0: StringJS): $ConfigPropertyBuilder
 public "stringOf"(arg0: StringJS): $StringConfigProperty
-public "resourceLocationOf"(arg0: $ResourceLocation$$Type): $ResourceLocationConfigProperty
-public "setOf"<T>(arg0: $Class$$Type<(T)>, arg1: $Set$$Type<(T)>): $SetConfigProperty<(T)>
 public "listOf"<T>(arg0: $Class$$Type<(T)>, arg1: $List$$Type<(T)>): $ListConfigProperty<(T)>
-public "synced"(): $ConfigPropertyBuilder
 public "boolOf"(arg0: boolean): $BooleanConfigProperty
-public "floatOf"(arg0: float): $FloatConfigProperty
-public "intOf"(arg0: integer): $IntConfigProperty
 public "enumOf"<T extends $Enum<(object)>>(arg0: T): $EnumConfigProperty<(T)>
+public "floatOf"(arg0: float): $FloatConfigProperty
 public "longOf"(arg0: long): $LongConfigProperty
+public "intOf"(arg0: integer): $IntConfigProperty
 public "doubleOf"(arg0: double): $DoubleConfigProperty
+public "setOf"<T>(arg0: $Class$$Type<(T)>, arg1: $Set$$Type<(T)>): $SetConfigProperty<(T)>
+public "synced"(): $ConfigPropertyBuilder
+public "resourceLocationOf"(arg0: $ResourceLocation$$Type): $ResourceLocationConfigProperty
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1690,10 +1690,10 @@ import {$Event} from "net.neoforged.bus.api.Event"
 export class $BalmEvent extends $Event implements $ICancellableEvent$$Interface {
 constructor()
 
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
-get "canceled"(): boolean
+public "isCanceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1722,9 +1722,9 @@ public "properties"(): $List<($ConfiguredProperty<(never)>)>
 public "comment"(): StringJS
 public "comment"(arg0: StringJS): $ConfigCategoryImpl
 public "property"(arg0: StringJS): $ConfigPropertyBuilder
-public "parentSchema"(): $BalmConfigSchema
 public "addProperty"<T extends $ConfiguredProperty<(object)>>(arg0: T): void
 public "via"<T>(arg0: $Function$$Type<($ConfigCategoryBuilder), (T)>): T
+public "parentSchema"(): $BalmConfigSchema
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1777,9 +1777,9 @@ export type $ServerReloadFinishedEvent$$Type = ($ServerReloadFinishedEvent);
 export type $ServerReloadFinishedEvent$$Original = $ServerReloadFinishedEvent;}
 declare module "net.blay09.mods.balm.api.event.client.GuiDrawEvent$Pre" {
 import {$GuiDrawEvent$Element$$Type} from "net.blay09.mods.balm.api.event.client.GuiDrawEvent$Element"
+import {$Window$$Type} from "com.mojang.blaze3d.platform.Window"
 import {$GuiDrawEvent} from "net.blay09.mods.balm.api.event.client.GuiDrawEvent"
 import {$GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
-import {$Window$$Type} from "com.mojang.blaze3d.platform.Window"
 
 export class $GuiDrawEvent$Pre extends $GuiDrawEvent {
 constructor(arg0: $Window$$Type, arg1: $GuiGraphics$$Type, arg2: $GuiDrawEvent$Element$$Type)
@@ -1864,10 +1864,10 @@ import {$ServerPlayer, $ServerPlayer$$Type} from "net.minecraft.server.level.Ser
 export class $PlayerOpenMenuEvent extends $BalmEvent {
 constructor(arg0: $ServerPlayer$$Type, arg1: $AbstractContainerMenu$$Type)
 
-public "getMenu"(): $AbstractContainerMenu
 public "getPlayer"(): $ServerPlayer
-get "menu"(): $AbstractContainerMenu
+public "getMenu"(): $AbstractContainerMenu
 get "player"(): $ServerPlayer
+get "menu"(): $AbstractContainerMenu
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1896,8 +1896,8 @@ constructor(arg0: $ConfigPropertyBuilder$$Type, arg1: boolean)
 
 public "type"(): $Class<(boolean)>
 public "defaultValue"(): boolean
-public "codec"(): $Codec<(boolean)>
 public "streamCodec"(): $StreamCodec<($ByteBuf), (boolean)>
+public "codec"(): $Codec<(boolean)>
 public "get"(arg0: $LoadedConfig$$Type): boolean
 public "get"(): boolean
 public "set"(arg0: boolean): void
@@ -1924,14 +1924,14 @@ constructor(arg0: $Player$$Type, arg1: $Level$$Type, arg2: $InteractionHand$$Typ
 
 public "setResult"(arg0: $InteractionResult$$Type): void
 public "getLevel"(): $Level
-public "getHand"(): $InteractionHand
 public "getPlayer"(): $Player
 public "getInteractionResult"(): $InteractionResult
+public "getHand"(): $InteractionHand
 set "result"(value: $InteractionResult$$Type)
 get "level"(): $Level
-get "hand"(): $InteractionHand
 get "player"(): $Player
 get "interactionResult"(): $InteractionResult
+get "hand"(): $InteractionHand
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1982,12 +1982,12 @@ export class $ConfiguredFloat implements $ConfiguredFloat$$Interface {
  "comment"(): StringJS
  "defaultValue"(): float
  "category"(): StringJS
- "parentSchema"(): $BalmConfigSchema
- "getRaw"(arg0: $LoadedConfig$$Type): float
- "codec"(): $Codec<(float)>
  "streamCodec"(): $StreamCodec<($ByteBuf), (float)>
  "setRaw"(arg0: $MutableLoadedConfig$$Type, arg1: float): void
+ "getRaw"(arg0: $LoadedConfig$$Type): float
+ "codec"(): $Codec<(float)>
  "synced"(): boolean
+ "parentSchema"(): $BalmConfigSchema
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2022,12 +2022,12 @@ export class $ConfiguredResourceLocation implements $ConfiguredResourceLocation$
  "comment"(): StringJS
  "defaultValue"(): $ResourceLocation
  "category"(): StringJS
- "parentSchema"(): $BalmConfigSchema
- "getRaw"(arg0: $LoadedConfig$$Type): $ResourceLocation
- "codec"(): $Codec<($ResourceLocation)>
  "streamCodec"(): $StreamCodec<($ByteBuf), ($ResourceLocation)>
  "setRaw"(arg0: $MutableLoadedConfig$$Type, arg1: $ResourceLocation$$Type): void
+ "getRaw"(arg0: $LoadedConfig$$Type): $ResourceLocation
+ "codec"(): $Codec<($ResourceLocation)>
  "synced"(): boolean
+ "parentSchema"(): $BalmConfigSchema
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2079,8 +2079,8 @@ constructor(arg0: $ConfigPropertyBuilder$$Type, arg1: long)
 
 public "type"(): $Class<(long)>
 public "defaultValue"(): long
-public "codec"(): $Codec<(long)>
 public "streamCodec"(): $StreamCodec<($ByteBuf), (long)>
+public "codec"(): $Codec<(long)>
 public "get"(arg0: $LoadedConfig$$Type): long
 public "get"(): long
 public "set"(arg0: long): void
@@ -2103,16 +2103,16 @@ import {$ConfigPropertyBuilder$$Type} from "net.blay09.mods.balm.api.config.sche
 import {$Codec} from "com.mojang.serialization.Codec"
 import {$Class} from "java.lang.Class"
 import {$LoadedConfig$$Type} from "net.blay09.mods.balm.api.config.LoadedConfig"
-import {$ByteBuf} from "io.netty.buffer.ByteBuf"
 import {$ConfiguredString$$Interface} from "net.blay09.mods.balm.api.config.schema.ConfiguredString"
+import {$ByteBuf} from "io.netty.buffer.ByteBuf"
 
 export class $StringConfigProperty extends $AbstractConfigProperty<(StringJS)> implements $ConfiguredString$$Interface {
 constructor(arg0: $ConfigPropertyBuilder$$Type, arg1: StringJS)
 
 public "type"(): $Class<(StringJS)>
 public "defaultValue"(): any
-public "codec"(): $Codec<(StringJS)>
 public "streamCodec"(): $StreamCodec<($ByteBuf), (StringJS)>
+public "codec"(): $Codec<(StringJS)>
 public "get"(arg0: $LoadedConfig$$Type): StringJS
 public "get"(): StringJS
 public "set"(arg0: StringJS): void
@@ -2158,16 +2158,16 @@ import {$Screen, $Screen$$Type} from "net.minecraft.client.gui.screens.Screen"
 export class $ScreenDrawEvent extends $BalmEvent {
 constructor(arg0: $Screen$$Type, arg1: $GuiGraphics$$Type, arg2: integer, arg3: integer, arg4: float)
 
-public "getMouseY"(): integer
+public "getTickDelta"(): float
 public "getMouseX"(): integer
+public "getMouseY"(): integer
 public "getGuiGraphics"(): $GuiGraphics
 public "getScreen"(): $Screen
-public "getTickDelta"(): float
-get "mouseY"(): integer
+get "tickDelta"(): float
 get "mouseX"(): integer
+get "mouseY"(): integer
 get "guiGraphics"(): $GuiGraphics
 get "screen"(): $Screen
-get "tickDelta"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2185,8 +2185,8 @@ import {$MutableLoadedConfig$$Type} from "net.blay09.mods.balm.api.config.Mutabl
 import {$ConfigPropertyBuilder$$Type} from "net.blay09.mods.balm.api.config.schema.builder.ConfigPropertyBuilder"
 import {$Codec} from "com.mojang.serialization.Codec"
 import {$ConfiguredSet$$Interface} from "net.blay09.mods.balm.api.config.schema.ConfiguredSet"
-import {$Set, $Set$$Type} from "java.util.Set"
 import {$Class, $Class$$Type} from "java.lang.Class"
+import {$Set, $Set$$Type} from "java.util.Set"
 import {$LoadedConfig$$Type} from "net.blay09.mods.balm.api.config.LoadedConfig"
 import {$ByteBuf} from "io.netty.buffer.ByteBuf"
 
@@ -2195,9 +2195,9 @@ constructor(arg0: $ConfigPropertyBuilder$$Type, arg1: $Class$$Type<(T)>, arg2: $
 
 public "type"(): $Class<(never)>
 public "defaultValue"(): any
+public "streamCodec"(): $StreamCodec<($ByteBuf), ($Set<(T)>)>
 public "nestedType"(): $Class<(T)>
 public "codec"(): $Codec<($Set<(T)>)>
-public "streamCodec"(): $StreamCodec<($ByteBuf), ($Set<(T)>)>
 public "get"(arg0: $LoadedConfig$$Type): $Set<(T)>
 public "get"(): $Set<(T)>
 public "set"(arg0: $Set$$Type<(T)>): void
@@ -2232,8 +2232,8 @@ export type $ScreenKeyEvent$Release$$Original = $ScreenKeyEvent$Release;}
 declare module "net.blay09.mods.balm.api.event.client.GuiDrawEvent" {
 import {$GuiDrawEvent$Element, $GuiDrawEvent$Element$$Type} from "net.blay09.mods.balm.api.event.client.GuiDrawEvent$Element"
 import {$BalmEvent} from "net.blay09.mods.balm.api.event.BalmEvent"
-import {$GuiGraphics, $GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
 import {$Window, $Window$$Type} from "com.mojang.blaze3d.platform.Window"
+import {$GuiGraphics, $GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
 
 export class $GuiDrawEvent extends $BalmEvent {
 constructor(arg0: $Window$$Type, arg1: $GuiGraphics$$Type, arg2: $GuiDrawEvent$Element$$Type)
@@ -2272,13 +2272,13 @@ export type $ScreenKeyEvent$Press$$Type = ($ScreenKeyEvent$Press);
  */
 export type $ScreenKeyEvent$Press$$Original = $ScreenKeyEvent$Press;}
 declare module "net.blay09.mods.balm.api.config.schema.impl.ConfigSchemaImpl" {
-import {$ConfigSchemaBuilder$$Interface} from "net.blay09.mods.balm.api.config.schema.ConfigSchemaBuilder"
 import {$ConfigPropertyBuilder} from "net.blay09.mods.balm.api.config.schema.builder.ConfigPropertyBuilder"
-import {$ConfigCategoryBuilder} from "net.blay09.mods.balm.api.config.schema.builder.ConfigCategoryBuilder"
-import {$Collection} from "java.util.Collection"
+import {$ConfigSchemaBuilder$$Interface} from "net.blay09.mods.balm.api.config.schema.ConfigSchemaBuilder"
 import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
-import {$ConfiguredProperty, $ConfiguredProperty$$Type} from "net.blay09.mods.balm.api.config.schema.ConfiguredProperty"
+import {$Collection} from "java.util.Collection"
+import {$ConfigCategoryBuilder} from "net.blay09.mods.balm.api.config.schema.builder.ConfigCategoryBuilder"
 import {$LoadedConfig} from "net.blay09.mods.balm.api.config.LoadedConfig"
+import {$ConfiguredProperty, $ConfiguredProperty$$Type} from "net.blay09.mods.balm.api.config.schema.ConfiguredProperty"
 import {$ConfigCategory} from "net.blay09.mods.balm.api.config.schema.builder.ConfigCategory"
 import {$BalmConfigSchema$$Interface} from "net.blay09.mods.balm.api.config.schema.BalmConfigSchema"
 
@@ -2288,12 +2288,12 @@ constructor(arg0: $ResourceLocation$$Type)
 public "defaults"(): $LoadedConfig
 public "property"(arg0: StringJS): $ConfigPropertyBuilder
 public "category"(arg0: StringJS): $ConfigCategoryBuilder
-public "addAndReturn"<T extends $ConfiguredProperty<(object)>>(arg0: T): T
 public "identifier"(): $ResourceLocation
 public "categories"(): $Collection<($ConfigCategory)>
-public "findProperty"(arg0: StringJS, arg1: StringJS): $ConfiguredProperty<(never)>
-public "findRootProperty"(arg0: StringJS): $ConfiguredProperty<(never)>
 public "rootProperties"(): $Collection<($ConfiguredProperty<(never)>)>
+public "findRootProperty"(arg0: StringJS): $ConfiguredProperty<(never)>
+public "findProperty"(arg0: StringJS, arg1: StringJS): $ConfiguredProperty<(never)>
+public "addAndReturn"<T extends $ConfiguredProperty<(object)>>(arg0: T): T
 public static "create"(arg0: $ResourceLocation$$Type): $ConfigSchemaImpl
 }
 /**
@@ -2329,12 +2329,12 @@ export class $ConfiguredEnum<T extends $Enum<(object)>> implements $ConfiguredEn
  "comment"(): StringJS
  "defaultValue"(): T
  "category"(): StringJS
- "parentSchema"(): $BalmConfigSchema
- "getRaw"(arg0: $LoadedConfig$$Type): T
- "codec"(): $Codec<(T)>
  "streamCodec"(): $StreamCodec<($ByteBuf), (T)>
  "setRaw"(arg0: $MutableLoadedConfig$$Type, arg1: T): void
+ "getRaw"(arg0: $LoadedConfig$$Type): T
+ "codec"(): $Codec<(T)>
  "synced"(): boolean
+ "parentSchema"(): $BalmConfigSchema
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2347,8 +2347,8 @@ export type $ConfiguredEnum$$Type<T> = ($ConfiguredEnum<(T)>);
 export type $ConfiguredEnum$$Original<T> = $ConfiguredEnum<(T)>;}
 declare module "net.blay09.mods.balm.api.config.schema.ConfiguredSet" {
 import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
-import {$MutableLoadedConfig$$Type} from "net.blay09.mods.balm.api.config.MutableLoadedConfig"
 import {$NestedTypeHolder$$Interface} from "net.blay09.mods.balm.api.config.schema.NestedTypeHolder"
+import {$MutableLoadedConfig$$Type} from "net.blay09.mods.balm.api.config.MutableLoadedConfig"
 import {$Codec} from "com.mojang.serialization.Codec"
 import {$Class} from "java.lang.Class"
 import {$Set, $Set$$Type} from "java.util.Set"
@@ -2370,12 +2370,12 @@ export class $ConfiguredSet<T> implements $ConfiguredSet$$Interface {
  "comment"(): StringJS
  "defaultValue"(): $Set<(T)>
  "category"(): StringJS
- "parentSchema"(): $BalmConfigSchema
- "getRaw"(arg0: $LoadedConfig$$Type): $Set<(T)>
- "codec"(): $Codec<($Set<(T)>)>
  "streamCodec"(): $StreamCodec<($ByteBuf), ($Set<(T)>)>
  "setRaw"(arg0: $MutableLoadedConfig$$Type, arg1: $Set$$Type<(T)>): void
+ "getRaw"(arg0: $LoadedConfig$$Type): $Set<(T)>
+ "codec"(): $Codec<($Set<(T)>)>
  "synced"(): boolean
+ "parentSchema"(): $BalmConfigSchema
  "nestedType"(): $Class<(T)>
 }
 /**
@@ -2397,13 +2397,13 @@ constructor(arg0: $Player$$Type, arg1: $BlockState$$Type, arg2: float)
 
 public "getState"(): $BlockState
 public "getPlayer"(): $Player
-public "setSpeedOverride"(arg0: float): void
 public "getSpeedOverride"(): float
+public "setSpeedOverride"(arg0: float): void
 public "getSpeed"(): float
 get "state"(): $BlockState
 get "player"(): $Player
-set "speedOverride"(value: float)
 get "speedOverride"(): float
+set "speedOverride"(value: float)
 get "speed"(): float
 }
 /**
@@ -2441,12 +2441,12 @@ import {$LivingEntity, $LivingEntity$$Type} from "net.minecraft.world.entity.Liv
 export class $FovUpdateEvent extends $BalmEvent {
 constructor(arg0: $LivingEntity$$Type)
 
-public "getFov"(): float
-public "setFov"(arg0: float): void
 public "getEntity"(): $LivingEntity
-get "fov"(): float
-set "fov"(value: float)
+public "setFov"(arg0: float): void
+public "getFov"(): float
 get "entity"(): $LivingEntity
+set "fov"(value: float)
+get "fov"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2560,12 +2560,12 @@ export class $BlockHighlightDrawEvent extends $BalmEvent {
 constructor(arg0: $BlockHitResult$$Type, arg1: $PoseStack$$Type, arg2: $MultiBufferSource$$Type, arg3: $Camera$$Type)
 
 public "getMultiBufferSource"(): $MultiBufferSource
-public "getHitResult"(): $BlockHitResult
 public "getPoseStack"(): $PoseStack
+public "getHitResult"(): $BlockHitResult
 public "getCamera"(): $Camera
 get "multiBufferSource"(): $MultiBufferSource
-get "hitResult"(): $BlockHitResult
 get "poseStack"(): $PoseStack
+get "hitResult"(): $BlockHitResult
 get "camera"(): $Camera
 }
 /**
@@ -2611,8 +2611,8 @@ constructor(arg0: $ConfigPropertyBuilder$$Type, arg1: $ResourceLocation$$Type)
 
 public "type"(): $Class<($ResourceLocation)>
 public "defaultValue"(): any
-public "codec"(): $Codec<($ResourceLocation)>
 public "streamCodec"(): $StreamCodec<($ByteBuf), ($ResourceLocation)>
+public "codec"(): $Codec<($ResourceLocation)>
 public "get"(arg0: $LoadedConfig$$Type): $ResourceLocation
 public "get"(): $ResourceLocation
 public "set"(arg0: $ResourceLocation$$Type): void
@@ -2663,12 +2663,12 @@ export class $ConfiguredProperty<T> implements $ConfiguredProperty$$Interface {
  "comment"(): StringJS
  "defaultValue"(): T
  "category"(): StringJS
- "parentSchema"(): $BalmConfigSchema
- "getRaw"(arg0: $LoadedConfig$$Type): T
- "codec"(): $Codec<(T)>
  "streamCodec"(): $StreamCodec<($ByteBuf), (T)>
  "setRaw"(arg0: $MutableLoadedConfig$$Type, arg1: T): void
+ "getRaw"(arg0: $LoadedConfig$$Type): T
+ "codec"(): $Codec<(T)>
  "synced"(): boolean
+ "parentSchema"(): $BalmConfigSchema
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

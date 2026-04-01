@@ -44,16 +44,16 @@ export type $NorthstarServerPlayer$$Type = ($NorthstarServerPlayer);
 export type $NorthstarServerPlayer$$Original = $NorthstarServerPlayer;}
 declare module "com.lightning.northstar.accessor.NorthstarLevel" {
 import {$NorthstarTemperature} from "com.lightning.northstar.world.temperature.NorthstarTemperature"
-import {$LongCollection$$Type} from "it.unimi.dsi.fastutil.longs.LongCollection"
 import {$NorthstarOxygen} from "com.lightning.northstar.world.oxygen.NorthstarOxygen"
+import {$LongCollection$$Type} from "it.unimi.dsi.fastutil.longs.LongCollection"
 
 export interface $NorthstarLevel$$Interface {
 }
 
 export class $NorthstarLevel implements $NorthstarLevel$$Interface {
- "northstar$queueBlockUpdates"(positions: $LongCollection$$Type): void
  "northstar$temperature"(): $NorthstarTemperature
  "northstar$oxygen"(): $NorthstarOxygen
+ "northstar$queueBlockUpdates"(positions: $LongCollection$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -71,8 +71,8 @@ export interface $NorthstarPlayer$$Interface {
 }
 
 export class $NorthstarPlayer implements $NorthstarPlayer$$Interface {
- "northstar$setRelativeEntity"(entity: $Entity$$Type, ticks: integer): void
  "northstar$getRelativeEntity"(): $Entity
+ "northstar$setRelativeEntity"(entity: $Entity$$Type, ticks: integer): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

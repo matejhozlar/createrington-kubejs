@@ -2,17 +2,17 @@ declare module "xaero.pac.common.entity.IItemEntity" {
 import {$UUID, $UUID$$Type} from "java.util.UUID"
 
 export interface $IItemEntity$$Interface {
-set "xaero_OPAC_throwerAccessor"(value: $UUID$$Type)
 get "xaero_OPAC_throwerAccessor"(): $UUID
-get "xaero_OPAC_target"(): $UUID
+set "xaero_OPAC_throwerAccessor"(value: $UUID$$Type)
 get "xaero_OPAC_thrower"(): $UUID
+get "xaero_OPAC_target"(): $UUID
 }
 
 export class $IItemEntity implements $IItemEntity$$Interface {
- "setXaero_OPAC_throwerAccessor"(arg0: $UUID$$Type): void
  "getXaero_OPAC_throwerAccessor"(): $UUID
- "getXaero_OPAC_target"(): $UUID
+ "setXaero_OPAC_throwerAccessor"(arg0: $UUID$$Type): void
  "getXaero_OPAC_thrower"(): $UUID
+ "getXaero_OPAC_target"(): $UUID
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -57,21 +57,21 @@ constructor()
 public static "from"(arg0: $Entity$$Type): $EntityData
 public static "from"(arg0: $IEntity$$Type): $EntityData
 public "getShouldCheckItemUseTick"(): boolean
+public "setLastChunkEntryDimension"(arg0: $ResourceKey$$Type<($Level)>): void
 public "setShouldCheckItemUseTick"(arg0: boolean): void
 public "getLastChunkEntryDimension"(): $ResourceKey<($Level)>
-public "setLastChunkEntryDimension"(arg0: $ResourceKey$$Type<($Level)>): void
-public "setDeadPlayer"(arg0: $UUID$$Type): void
 public "getDeadPlayer"(): $UUID
-public "setLootOwner"(arg0: $UUID$$Type): void
+public "setDeadPlayer"(arg0: $UUID$$Type): void
 public "getLootOwner"(): $UUID
+public "setLootOwner"(arg0: $UUID$$Type): void
 get "shouldCheckItemUseTick"(): boolean
+set "lastChunkEntryDimension"(value: $ResourceKey$$Type<($Level)>)
 set "shouldCheckItemUseTick"(value: boolean)
 get "lastChunkEntryDimension"(): $ResourceKey<($Level)>
-set "lastChunkEntryDimension"(value: $ResourceKey$$Type<($Level)>)
-set "deadPlayer"(value: $UUID$$Type)
 get "deadPlayer"(): $UUID
-set "lootOwner"(value: $UUID$$Type)
+set "deadPlayer"(value: $UUID$$Type)
 get "lootOwner"(): $UUID
+set "lootOwner"(value: $UUID$$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

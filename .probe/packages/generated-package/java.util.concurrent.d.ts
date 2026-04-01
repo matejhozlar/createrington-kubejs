@@ -1,7 +1,7 @@
 declare module "java.util.concurrent.TimeUnit" {
 import {$Enum} from "java.lang.Enum"
-import {$ChronoUnit, $ChronoUnit$$Type} from "java.time.temporal.ChronoUnit"
 import {$Thread$$Type} from "java.lang.Thread"
+import {$ChronoUnit, $ChronoUnit$$Type} from "java.time.temporal.ChronoUnit"
 import {$Duration$$Type} from "java.time.Duration"
 
 export class $TimeUnit extends $Enum<($TimeUnit)> {
@@ -306,8 +306,8 @@ declare module "java.util.concurrent.CompletableFuture" {
 import {$CompletionStage, $CompletionStage$$Type, $CompletionStage$$Interface} from "java.util.concurrent.CompletionStage"
 import {$Future$$Interface} from "java.util.concurrent.Future"
 import {$Runnable$$Type} from "java.lang.Runnable"
-import {$TimeUnit$$Type} from "java.util.concurrent.TimeUnit"
 import {$Consumer$$Type} from "java.util.function.Consumer"
+import {$TimeUnit$$Type} from "java.util.concurrent.TimeUnit"
 import {$BiFunction$$Type} from "java.util.function.BiFunction"
 import {$Function$$Type} from "java.util.function.Function"
 import {$Supplier$$Type} from "java.util.function.Supplier"
@@ -319,10 +319,8 @@ import {$Throwable, $Throwable$$Type} from "java.lang.Throwable"
 export class $CompletableFuture<T> implements $Future$$Interface<(T)>, $CompletionStage$$Interface<(T)> {
 constructor()
 
-public "newIncompleteFuture"<U>(): $CompletableFuture<(U)>
-public "toCompletableFuture"(): $CompletableFuture<(T)>
-public "get"(): T
 public "get"(arg0: long, arg1: $TimeUnit$$Type): T
+public "get"(): T
 public "toString"(): StringJS
 public "join"(): T
 public "state"(): $Future$State
@@ -336,50 +334,56 @@ public "isCancelled"(): boolean
 public "resultNow"(): T
 public "exceptionNow"(): $Throwable
 public "completeExceptionally"(arg0: $Throwable$$Type): boolean
+public "defaultExecutor"(): $Executor
+public "newIncompleteFuture"<U>(): $CompletableFuture<(U)>
+public "toCompletableFuture"(): $CompletableFuture<(T)>
 public "completeAsync"(arg0: $Supplier$$Type<(T)>): $CompletableFuture<(T)>
 public "completeAsync"(arg0: $Supplier$$Type<(T)>, arg1: $Executor$$Type): $CompletableFuture<(T)>
 public "exceptionallyComposeAsync"(arg0: $Function$$Type<($Throwable), ($CompletionStage$$Type<(T)>)>): $CompletableFuture<(T)>
-public "exceptionallyComposeAsync"(arg0: $Function$$Type, arg1: $Executor$$Type): $CompletionStage
+public "exceptionallyComposeAsync"(arg0: $Function$$Type<($Throwable), ($CompletionStage$$Type<(T)>)>, arg1: $Executor$$Type): $CompletableFuture<(T)>
 public "exceptionallyCompose"(arg0: $Function$$Type<($Throwable), ($CompletionStage$$Type<(T)>)>): $CompletableFuture<(T)>
+public "exceptionallyAsync"(arg0: $Function$$Type, arg1: $Executor$$Type): $CompletionStage
 public "exceptionallyAsync"(arg0: $Function$$Type<($Throwable), (T)>): $CompletableFuture<(T)>
-public "exceptionallyAsync"(arg0: $Function$$Type<($Throwable), (T)>, arg1: $Executor$$Type): $CompletableFuture<(T)>
-public "exceptionally"(arg0: $Function$$Type<($Throwable), (T)>): $CompletableFuture<(T)>
+public "exceptionally"(arg0: $Function$$Type): $CompletionStage
+public "whenCompleteAsync"(arg0: $BiConsumer$$Type<(T), ($Throwable)>, arg1: $Executor$$Type): $CompletableFuture<(T)>
 public "whenCompleteAsync"(arg0: $BiConsumer$$Type): $CompletionStage
-public "whenCompleteAsync"(arg0: $BiConsumer$$Type, arg1: $Executor$$Type): $CompletionStage
-public "handleAsync"<U>(arg0: $BiFunction$$Type<(T), ($Throwable), (U)>, arg1: $Executor$$Type): $CompletableFuture<(U)>
+public "handleAsync"(arg0: $BiFunction$$Type, arg1: $Executor$$Type): $CompletionStage
 public "handleAsync"<U>(arg0: $BiFunction$$Type<(T), ($Throwable), (U)>): $CompletableFuture<(U)>
+public "thenComposeAsync"(arg0: $Function$$Type, arg1: $Executor$$Type): $CompletionStage
 public "thenComposeAsync"<U>(arg0: $Function$$Type<(T), ($CompletionStage$$Type<(U)>)>): $CompletableFuture<(U)>
-public "thenComposeAsync"<U>(arg0: $Function$$Type<(T), ($CompletionStage$$Type<(U)>)>, arg1: $Executor$$Type): $CompletableFuture<(U)>
-public "thenCompose"<U>(arg0: $Function$$Type<(T), ($CompletionStage$$Type<(U)>)>): $CompletableFuture<(U)>
-public "runAfterEitherAsync"(arg0: $CompletionStage$$Type, arg1: $Runnable$$Type, arg2: $Executor$$Type): $CompletionStage
+public "thenCompose"(arg0: $Function$$Type): $CompletionStage
 public "runAfterEitherAsync"(arg0: $CompletionStage$$Type, arg1: $Runnable$$Type): $CompletionStage
-public "runAfterEither"(arg0: $CompletionStage$$Type, arg1: $Runnable$$Type): $CompletionStage
-public "acceptEitherAsync"(arg0: $CompletionStage$$Type, arg1: $Consumer$$Type, arg2: $Executor$$Type): $CompletionStage
-public "acceptEitherAsync"(arg0: $CompletionStage$$Type, arg1: $Consumer$$Type): $CompletionStage
-public "acceptEither"(arg0: $CompletionStage$$Type, arg1: $Consumer$$Type): $CompletionStage
-public "applyToEitherAsync"<U>(arg0: $CompletionStage$$Type<(T)>, arg1: $Function$$Type<(T), (U)>, arg2: $Executor$$Type): $CompletableFuture<(U)>
-public "applyToEitherAsync"(arg0: $CompletionStage$$Type, arg1: $Function$$Type): $CompletionStage
+public "runAfterEitherAsync"(arg0: $CompletionStage$$Type<(never)>, arg1: $Runnable$$Type, arg2: $Executor$$Type): $CompletableFuture<(void)>
+public "runAfterEither"(arg0: $CompletionStage$$Type<(never)>, arg1: $Runnable$$Type): $CompletableFuture<(void)>
+public "acceptEitherAsync"(arg0: $CompletionStage$$Type<(T)>, arg1: $Consumer$$Type<(T)>, arg2: $Executor$$Type): $CompletableFuture<(void)>
+public "acceptEitherAsync"(arg0: $CompletionStage$$Type<(T)>, arg1: $Consumer$$Type<(T)>): $CompletableFuture<(void)>
+public "acceptEither"(arg0: $CompletionStage$$Type<(T)>, arg1: $Consumer$$Type<(T)>): $CompletableFuture<(void)>
+public "applyToEitherAsync"<U>(arg0: $CompletionStage$$Type<(T)>, arg1: $Function$$Type<(T), (U)>): $CompletableFuture<(U)>
+public "applyToEitherAsync"(arg0: $CompletionStage$$Type, arg1: $Function$$Type, arg2: $Executor$$Type): $CompletionStage
 public "applyToEither"<U>(arg0: $CompletionStage$$Type<(T)>, arg1: $Function$$Type<(T), (U)>): $CompletableFuture<(U)>
+public "runAfterBothAsync"(arg0: $CompletionStage$$Type<(never)>, arg1: $Runnable$$Type, arg2: $Executor$$Type): $CompletableFuture<(void)>
 public "runAfterBothAsync"(arg0: $CompletionStage$$Type, arg1: $Runnable$$Type): $CompletionStage
-public "runAfterBothAsync"(arg0: $CompletionStage$$Type, arg1: $Runnable$$Type, arg2: $Executor$$Type): $CompletionStage
-public "runAfterBoth"(arg0: $CompletionStage$$Type<(never)>, arg1: $Runnable$$Type): $CompletableFuture<(void)>
+public "runAfterBoth"(arg0: $CompletionStage$$Type, arg1: $Runnable$$Type): $CompletionStage
+public "thenAcceptBothAsync"<U>(arg0: $CompletionStage$$Type<(U)>, arg1: $BiConsumer$$Type<(T), (U)>): $CompletableFuture<(void)>
 public "thenAcceptBothAsync"<U>(arg0: $CompletionStage$$Type<(U)>, arg1: $BiConsumer$$Type<(T), (U)>, arg2: $Executor$$Type): $CompletableFuture<(void)>
-public "thenAcceptBothAsync"(arg0: $CompletionStage$$Type, arg1: $BiConsumer$$Type): $CompletionStage
 public "thenAcceptBoth"(arg0: $CompletionStage$$Type, arg1: $BiConsumer$$Type): $CompletionStage
-public "thenCombineAsync"<U, V>(arg0: $CompletionStage$$Type<(U)>, arg1: $BiFunction$$Type<(T), (U), (V)>): $CompletableFuture<(V)>
 public "thenCombineAsync"<U, V>(arg0: $CompletionStage$$Type<(U)>, arg1: $BiFunction$$Type<(T), (U), (V)>, arg2: $Executor$$Type): $CompletableFuture<(V)>
-public "thenCombine"(arg0: $CompletionStage$$Type, arg1: $BiFunction$$Type): $CompletionStage
+public "thenCombineAsync"(arg0: $CompletionStage$$Type, arg1: $BiFunction$$Type): $CompletionStage
+public "thenCombine"<U, V>(arg0: $CompletionStage$$Type<(U)>, arg1: $BiFunction$$Type<(T), (U), (V)>): $CompletableFuture<(V)>
 public "thenRunAsync"(arg0: $Runnable$$Type, arg1: $Executor$$Type): $CompletableFuture<(void)>
-public "thenRunAsync"(arg0: $Runnable$$Type): $CompletionStage
+public "thenRunAsync"(arg0: $Runnable$$Type): $CompletableFuture<(void)>
 public "thenRun"(arg0: $Runnable$$Type): $CompletableFuture<(void)>
-public "thenAcceptAsync"(arg0: $Consumer$$Type<(T)>): $CompletableFuture<(void)>
 public "thenAcceptAsync"(arg0: $Consumer$$Type<(T)>, arg1: $Executor$$Type): $CompletableFuture<(void)>
+public "thenAcceptAsync"(arg0: $Consumer$$Type<(T)>): $CompletableFuture<(void)>
 public "thenAccept"(arg0: $Consumer$$Type): $CompletionStage
-public "thenApplyAsync"<U>(arg0: $Function$$Type<(T), (U)>, arg1: $Executor$$Type): $CompletableFuture<(U)>
-public "thenApplyAsync"(arg0: $Function$$Type): $CompletionStage
-public "thenApply"<U>(arg0: $Function$$Type<(T), (U)>): $CompletableFuture<(U)>
-public static "runAsync"(arg0: $Runnable$$Type): $CompletableFuture<(void)>
+public "thenApplyAsync"(arg0: $Function$$Type, arg1: $Executor$$Type): $CompletionStage
+public "thenApplyAsync"<U>(arg0: $Function$$Type<(T), (U)>): $CompletableFuture<(U)>
+public "thenApply"(arg0: $Function$$Type): $CompletionStage
+public "whenComplete"(arg0: $BiConsumer$$Type<(T), ($Throwable)>): $CompletableFuture<(T)>
+public static "supplyAsync"<U>(arg0: $Supplier$$Type<(U)>, arg1: $Executor$$Type): $CompletableFuture<(U)>
+public static "supplyAsync"<U>(arg0: $Supplier$$Type<(U)>): $CompletableFuture<(U)>
 public static "runAsync"(arg0: $Runnable$$Type, arg1: $Executor$$Type): $CompletableFuture<(void)>
+public static "runAsync"(arg0: $Runnable$$Type): $CompletableFuture<(void)>
 public static "completedFuture"<U>(arg0: U): $CompletableFuture<(U)>
 public "getNow"(arg0: T): T
 public static "anyOf"(...arg0: ($CompletableFuture$$Type<(never)>)[]): $CompletableFuture<(any)>
@@ -395,10 +399,6 @@ public static "delayedExecutor"(arg0: long, arg1: $TimeUnit$$Type): $Executor
 public static "completedStage"<U>(arg0: U): $CompletionStage<(U)>
 public static "failedFuture"<U>(arg0: $Throwable$$Type): $CompletableFuture<(U)>
 public static "failedStage"<U>(arg0: $Throwable$$Type): $CompletionStage<(U)>
-public "whenComplete"(arg0: $BiConsumer$$Type): $CompletionStage
-public static "supplyAsync"<U>(arg0: $Supplier$$Type<(U)>): $CompletableFuture<(U)>
-public static "supplyAsync"<U>(arg0: $Supplier$$Type<(U)>, arg1: $Executor$$Type): $CompletableFuture<(U)>
-public "defaultExecutor"(): $Executor
 get "done"(): boolean
 get "cancelled"(): boolean
 get "completedExceptionally"(): boolean
@@ -416,8 +416,8 @@ export type $CompletableFuture$$Original<T> = $CompletableFuture<(T)>;}
 declare module "java.util.concurrent.CompletionStage" {
 import {$BiFunction$$Type} from "java.util.function.BiFunction"
 import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
-import {$Executor$$Type} from "java.util.concurrent.Executor"
 import {$Function$$Type} from "java.util.function.Function"
+import {$Executor$$Type} from "java.util.concurrent.Executor"
 import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$Runnable$$Type} from "java.lang.Runnable"
 import {$Throwable$$Type} from "java.lang.Throwable"
@@ -427,8 +427,8 @@ export interface $CompletionStage$$Interface<T> {
 }
 
 export class $CompletionStage<T> implements $CompletionStage$$Interface {
- "toCompletableFuture"(): $CompletableFuture<(T)>
  "handle"<U>(arg0: $BiFunction$$Type<(T), ($Throwable), (U)>): $CompletionStage<(U)>
+ "toCompletableFuture"(): $CompletableFuture<(T)>
  "exceptionallyComposeAsync"(arg0: $Function$$Type<($Throwable), ($CompletionStage$$Type<(T)>)>): $CompletionStage<(T)>
  "exceptionallyComposeAsync"(arg0: $Function$$Type<($Throwable), ($CompletionStage$$Type<(T)>)>, arg1: $Executor$$Type): $CompletionStage<(T)>
  "exceptionallyCompose"(arg0: $Function$$Type<($Throwable), ($CompletionStage$$Type<(T)>)>): $CompletionStage<(T)>
@@ -502,14 +502,14 @@ export type $Executor$$Type = ((arg0: $Runnable) => void);
 export type $Executor$$Original = $Executor;}
 declare module "java.util.concurrent.BlockingQueue" {
 import {$Iterator} from "java.util.Iterator"
-import {$Queue$$Interface} from "java.util.Queue"
 import {$Collection$$Type} from "java.util.Collection"
+import {$Queue$$Interface} from "java.util.Queue"
 import {$Spliterator} from "java.util.Spliterator"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$Stream} from "java.util.stream.Stream"
 import {$Consumer$$Type} from "java.util.function.Consumer"
-import {$IntFunction$$Type} from "java.util.function.IntFunction"
 import {$TimeUnit$$Type} from "java.util.concurrent.TimeUnit"
+import {$IntFunction$$Type} from "java.util.function.IntFunction"
 
 export interface $BlockingQueue$$Interface<E> extends $Queue$$Interface<(E)> {
 [Symbol.iterator](): IterableIterator<E>;
@@ -568,8 +568,8 @@ export interface $Flow$Subscriber$$Interface<T> {
 }
 
 export class $Flow$Subscriber<T> implements $Flow$Subscriber$$Interface {
- "onError"(arg0: $Throwable$$Type): void
  "onComplete"(): void
+ "onError"(arg0: $Throwable$$Type): void
  "onSubscribe"(arg0: $Flow$Subscription$$Type): void
  "onNext"(arg0: T): void
 }

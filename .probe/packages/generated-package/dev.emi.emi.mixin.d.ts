@@ -26,14 +26,14 @@ import {$Ingredient} from "net.minecraft.world.item.crafting.Ingredient"
 
 export interface $SmithingTrimRecipeAccessor$$Interface {
 get "base"(): $Ingredient
-get "addition"(): $Ingredient
 get "template"(): $Ingredient
+get "addition"(): $Ingredient
 }
 
 export class $SmithingTrimRecipeAccessor implements $SmithingTrimRecipeAccessor$$Interface {
  "getBase"(): $Ingredient
- "getAddition"(): $Ingredient
  "getTemplate"(): $Ingredient
+ "getAddition"(): $Ingredient
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -71,20 +71,20 @@ declare module "dev.emi.emi.mixin.accessor.HandledScreenAccessor" {
 import {$Slot} from "net.minecraft.world.inventory.Slot"
 
 export interface $HandledScreenAccessor$$Interface {
-get "x"(): integer
 get "y"(): integer
-get "backgroundHeight"(): integer
 get "focusedSlot"(): $Slot
 get "backgroundWidth"(): integer
+get "backgroundHeight"(): integer
+get "x"(): integer
 }
 
 export class $HandledScreenAccessor implements $HandledScreenAccessor$$Interface {
- "getX"(): integer
  "getY"(): integer
- "getBackgroundHeight"(): integer
  "getFocusedSlot"(): $Slot
  "getBackgroundWidth"(): integer
  "invokeGetSlotAt"(arg0: double, arg1: double): $Slot
+ "getBackgroundHeight"(): integer
+ "getX"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -100,14 +100,14 @@ import {$Ingredient} from "net.minecraft.world.item.crafting.Ingredient"
 
 export interface $SmithingTransformRecipeAccessor$$Interface {
 get "base"(): $Ingredient
-get "addition"(): $Ingredient
 get "template"(): $Ingredient
+get "addition"(): $Ingredient
 }
 
 export class $SmithingTransformRecipeAccessor implements $SmithingTransformRecipeAccessor$$Interface {
  "getBase"(): $Ingredient
- "getAddition"(): $Ingredient
  "getTemplate"(): $Ingredient
+ "getAddition"(): $Ingredient
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -119,22 +119,22 @@ export type $SmithingTransformRecipeAccessor$$Type = ($SmithingTransformRecipeAc
  */
 export type $SmithingTransformRecipeAccessor$$Original = $SmithingTransformRecipeAccessor;}
 declare module "dev.emi.emi.mixin.accessor.BrewingRecipeRegistryAccessor" {
-import {$Potion} from "net.minecraft.world.item.alchemy.Potion"
 import {$PotionBrewing$Mix} from "net.minecraft.world.item.alchemy.PotionBrewing$Mix"
+import {$Potion} from "net.minecraft.world.item.alchemy.Potion"
 import {$Ingredient} from "net.minecraft.world.item.crafting.Ingredient"
 import {$List} from "java.util.List"
 import {$Item} from "net.minecraft.world.item.Item"
 
 export interface $BrewingRecipeRegistryAccessor$$Interface {
+get "potionTypes"(): $List<($Ingredient)>
 get "itemRecipes"(): $List<($PotionBrewing$Mix<($Item)>)>
 get "potionRecipes"(): $List<($PotionBrewing$Mix<($Potion)>)>
-get "potionTypes"(): $List<($Ingredient)>
 }
 
 export class $BrewingRecipeRegistryAccessor implements $BrewingRecipeRegistryAccessor$$Interface {
+ "getPotionTypes"(): $List<($Ingredient)>
  "getItemRecipes"(): $List<($PotionBrewing$Mix<($Item)>)>
  "getPotionRecipes"(): $List<($PotionBrewing$Mix<($Potion)>)>
- "getPotionTypes"(): $List<($Ingredient)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

@@ -23,13 +23,13 @@ declare module "com.blackgear.platform.client.v2.emissive.EmissiveSpriteHolder" 
 import {$TextureAtlasSprite, $TextureAtlasSprite$$Type} from "net.minecraft.client.renderer.texture.TextureAtlasSprite"
 
 export interface $EmissiveSpriteHolder$$Interface {
-get "emissiveSprite"(): $TextureAtlasSprite
 set "emissiveSprite"(value: $TextureAtlasSprite$$Type)
+get "emissiveSprite"(): $TextureAtlasSprite
 }
 
 export class $EmissiveSpriteHolder implements $EmissiveSpriteHolder$$Interface {
- "getEmissiveSprite"(): $TextureAtlasSprite
  "setEmissiveSprite"(arg0: $TextureAtlasSprite$$Type): void
+ "getEmissiveSprite"(): $TextureAtlasSprite
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

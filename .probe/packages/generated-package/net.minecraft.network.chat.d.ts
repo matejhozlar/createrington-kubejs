@@ -25,7 +25,7 @@ public "fullSignature"(): $MessageSignature
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $MessageSignature$Packed$$Type = ({"fullSignature"?: $MessageSignature$$Type, "id"?: integer}) | ([fullSignature?: $MessageSignature$$Type, id?: integer]);
+export type $MessageSignature$Packed$$Type = ({"id"?: integer, "fullSignature"?: $MessageSignature$$Type}) | ([id?: integer, fullSignature?: $MessageSignature$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -41,7 +41,6 @@ static readonly "CODEC": $Codec<($SignedMessageLink)>
 
 constructor(arg0: integer, arg1: $UUID$$Type, arg2: $UUID$$Type)
 
-public "isDescendantOf"(arg0: $SignedMessageLink$$Type): boolean
 public "index"(): integer
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
@@ -49,15 +48,16 @@ public "hashCode"(): integer
 public static "root"(arg0: $UUID$$Type, arg1: $UUID$$Type): $SignedMessageLink
 public "advance"(): $SignedMessageLink
 public static "unsigned"(arg0: $UUID$$Type): $SignedMessageLink
-public "sender"(): $UUID
 public "sessionId"(): $UUID
+public "sender"(): $UUID
 public "updateSignature"(arg0: $SignatureUpdater$Output$$Type): void
+public "isDescendantOf"(arg0: $SignedMessageLink$$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $SignedMessageLink$$Type = ({"index"?: integer, "sender"?: $UUID$$Type, "sessionId"?: $UUID$$Type}) | ([index?: integer, sender?: $UUID$$Type, sessionId?: $UUID$$Type]);
+export type $SignedMessageLink$$Type = ({"sender"?: $UUID$$Type, "index"?: integer, "sessionId"?: $UUID$$Type}) | ([sender?: $UUID$$Type, index?: integer, sessionId?: $UUID$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -67,8 +67,8 @@ import {$Codec} from "com.mojang.serialization.Codec"
 import {$Optional, $Optional$$Type} from "java.util.Optional"
 import {$RegistryOps$$Type} from "net.minecraft.resources.RegistryOps"
 import {$UUID, $UUID$$Type} from "java.util.UUID"
-import {$DataResult} from "com.mojang.serialization.DataResult"
 import {$List} from "java.util.List"
+import {$DataResult} from "com.mojang.serialization.DataResult"
 import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component"
 import {$EntityType, $EntityType$$Type} from "net.minecraft.world.entity.EntityType"
 
@@ -127,8 +127,8 @@ export type $RemoteChatSession$Data$$Type = ({"profilePublicKey"?: $ProfilePubli
  */
 export type $RemoteChatSession$Data$$Original = $RemoteChatSession$Data;}
 declare module "net.minecraft.network.chat.FilterMask" {
-import {$Codec} from "com.mojang.serialization.Codec"
 import {$FriendlyByteBuf$$Type} from "net.minecraft.network.FriendlyByteBuf"
+import {$Codec} from "com.mojang.serialization.Codec"
 import {$Style} from "net.minecraft.network.chat.Style"
 import {$Component} from "net.minecraft.network.chat.Component"
 import {$MapCodec} from "com.mojang.serialization.MapCodec"
@@ -151,11 +151,11 @@ public "apply"(arg0: StringJS): StringJS
 public static "write"(arg0: $FriendlyByteBuf$$Type, arg1: $FilterMask$$Type): void
 public static "read"(arg0: $FriendlyByteBuf$$Type): $FilterMask
 public "applyWithFormatting"(arg0: StringJS): $Component
-public "isFullyFiltered"(): boolean
 public "setFiltered"(arg0: integer): void
+public "isFullyFiltered"(): boolean
 get "empty"(): boolean
-get "fullyFiltered"(): boolean
 set "filtered"(value: integer)
+get "fullyFiltered"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -205,11 +205,11 @@ public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "sessionId"(): $UUID
-public "hasExpired"(): boolean
+public "createMessageValidator"(arg0: $Duration$$Type): $SignedMessageValidator
+public "createMessageDecoder"(arg0: $UUID$$Type): $SignedMessageChain$Decoder
 public "profilePublicKey"(): $ProfilePublicKey
 public "asData"(): $RemoteChatSession$Data
-public "createMessageDecoder"(arg0: $UUID$$Type): $SignedMessageChain$Decoder
-public "createMessageValidator"(arg0: $Duration$$Type): $SignedMessageValidator
+public "hasExpired"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -225,10 +225,10 @@ import {$Optional} from "java.util.Optional"
 import {$Style$$Type} from "net.minecraft.network.chat.Style"
 import {$MutableComponent} from "net.minecraft.network.chat.MutableComponent"
 import {$Entity$$Type} from "net.minecraft.world.entity.Entity"
-import {$FormattedText$ContentConsumer$$Type} from "net.minecraft.network.chat.FormattedText$ContentConsumer"
 import {$ComponentContents$Type, $ComponentContents$Type$$Type} from "net.minecraft.network.chat.ComponentContents$Type"
-import {$CommandSourceStack$$Type} from "net.minecraft.commands.CommandSourceStack"
+import {$FormattedText$ContentConsumer$$Type} from "net.minecraft.network.chat.FormattedText$ContentConsumer"
 import {$FormattedText$StyledContentConsumer$$Type} from "net.minecraft.network.chat.FormattedText$StyledContentConsumer"
+import {$CommandSourceStack$$Type} from "net.minecraft.commands.CommandSourceStack"
 
 export interface $ComponentContents$$Interface {
 
@@ -252,8 +252,8 @@ export type $ComponentContents$$Type = (() => $ComponentContents$Type$$Type<(nev
 export type $ComponentContents$$Original = $ComponentContents;}
 declare module "net.minecraft.network.chat.MutableComponent" {
 import {$Iterable} from "java.lang.Iterable"
-import {$Optional, $Optional$$Type} from "java.util.Optional"
 import {$FormattedText, $FormattedText$$Type} from "net.minecraft.network.chat.FormattedText"
+import {$Optional, $Optional$$Type} from "java.util.Optional"
 import {$UUID$$Type} from "java.util.UUID"
 import {$JsonElement} from "com.google.gson.JsonElement"
 import {$List, $List$$Type} from "java.util.List"
@@ -264,8 +264,8 @@ import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
 import {$Codec} from "com.mojang.serialization.Codec"
 import {$ComponentContents, $ComponentContents$$Type} from "net.minecraft.network.chat.ComponentContents"
 import {$FormattedText$ContentConsumer$$Type} from "net.minecraft.network.chat.FormattedText$ContentConsumer"
-import {$ComponentKJS$$Interface} from "dev.latvian.mods.kubejs.core.ComponentKJS"
 import {$ChatFormatting$$Type} from "net.minecraft.ChatFormatting"
+import {$ComponentKJS$$Interface} from "dev.latvian.mods.kubejs.core.ComponentKJS"
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
 import {$Style, $Style$$Type} from "net.minecraft.network.chat.Style"
 import {$ClickEvent$$Type} from "net.minecraft.network.chat.ClickEvent"
@@ -288,113 +288,113 @@ public "hashCode"(): integer
 public static "create"(arg0: $ComponentContents$$Type): $MutableComponent
 public "getContents"(): $ComponentContents
 public "getSiblings"(): $List<($Component)>
+public "getVisualOrderText"(): $FormattedCharSequence
 public "withStyle"(arg0: $UnaryOperator$$Type<($Style)>): $MutableComponent
 public "withStyle"(arg0: $ChatFormatting$$Type): $MutableComponent
 public "withStyle"(arg0: $Style$$Type): $MutableComponent
 public "withStyle"(...arg0: ($ChatFormatting$$Type)[]): $MutableComponent
-public "getVisualOrderText"(): $FormattedCharSequence
-public "getStyle"(): $Style
 public "setStyle"(arg0: $Style$$Type): $MutableComponent
 public "withColor"(arg0: integer): $MutableComponent
+public "getStyle"(): $Style
 public "contains"(arg0: $Component$$Type): boolean
 public static "empty"(): $MutableComponent
 public "copy"(): $MutableComponent
 public static "literal"(arg0: StringJS): $MutableComponent
-public "visit"<T>(arg0: $FormattedText$ContentConsumer$$Type<(T)>): $Optional<(T)>
 public "visit"<T>(arg0: $FormattedText$StyledContentConsumer$$Type<(T)>, arg1: $Style$$Type): $Optional<(T)>
+public "visit"<T>(arg0: $FormattedText$ContentConsumer$$Type<(T)>): $Optional<(T)>
 public "getString"(arg0: integer): StringJS
 public "getString"(): StringJS
 public static "selector"(arg0: StringJS, arg1: ($Component$$Type)?): $MutableComponent
-public static "translatable"(arg0: StringJS, ...arg1: (any)[]): $MutableComponent
-public static "translatable"(arg0: StringJS): $MutableComponent
-public static "nullToEmpty"(arg0: StringJS): $Component
-public static "translatableEscape"(arg0: StringJS, ...arg1: (any)[]): $MutableComponent
-public static "translationArg"(arg0: $ResourceLocation$$Type): $Component
-public static "translationArg"(arg0: $UUID$$Type): $Component
-public static "translationArg"(arg0: $ChunkPos$$Type): $Component
-public static "translationArg"(arg0: $Message$$Type): $Component
+public static "score"(arg0: StringJS, arg1: StringJS): $MutableComponent
 public static "translationArg"(arg0: $Date$$Type): $Component
+public static "translationArg"(arg0: $UUID$$Type): $Component
+public static "translationArg"(arg0: $ResourceLocation$$Type): $Component
+public static "translationArg"(arg0: $Message$$Type): $Component
 public static "translationArg"(arg0: $URI$$Type): $Component
+public static "translationArg"(arg0: $ChunkPos$$Type): $Component
+public static "translatableEscape"(arg0: StringJS, ...arg1: (any)[]): $MutableComponent
+public static "nullToEmpty"(arg0: StringJS): $Component
+public "tryCollapseToString"(): StringJS
 public static "translatableWithFallback"(arg0: StringJS, arg1: StringJS, ...arg2: (any)[]): $MutableComponent
 public static "translatableWithFallback"(arg0: StringJS, arg1: StringJS): $MutableComponent
-public "tryCollapseToString"(): StringJS
-public static "score"(arg0: StringJS, arg1: StringJS): $MutableComponent
-public "toFlatList"(arg0: $Style$$Type): $List<($Component)>
+public static "translatable"(arg0: StringJS, ...arg1: (any)[]): $MutableComponent
+public static "translatable"(arg0: StringJS): $MutableComponent
 public "toFlatList"(): $List<($Component)>
-public "plainCopy"(): $MutableComponent
-public static "nbt"(arg0: StringJS, arg1: boolean, arg2: ($Component$$Type)?, arg3: $DataSource$$Type): $MutableComponent
+public "toFlatList"(arg0: $Style$$Type): $List<($Component)>
 public static "keybind"(arg0: StringJS): $MutableComponent
+public static "nbt"(arg0: StringJS, arg1: boolean, arg2: ($Component$$Type)?, arg3: $DataSource$$Type): $MutableComponent
+public "plainCopy"(): $MutableComponent
 public "forEach"(action: $Consumer$$Type<($Component)>): void
 public "asIterable"(): $Iterable<($Component)>
-public "darkAqua"(): $MutableComponent
-public "lightPurple"(): $MutableComponent
-public "darkBlue"(): $MutableComponent
+public "darkPurple"(): $MutableComponent
+public "insertion"(s: StringJS): $MutableComponent
 /**
  * 
  * @deprecated
  */
 public "component"(): $Component
-public "clickOpenUrl"(url: StringJS): $MutableComponent
-public "obfuscated"(): $MutableComponent
-public "obfuscated"(value: boolean): $MutableComponent
-public "hasSiblings"(): boolean
+public "strikethrough"(value: boolean): $MutableComponent
+public "strikethrough"(): $MutableComponent
+public "hasStyle"(): boolean
 public "clickCopy"(text: StringJS): $MutableComponent
-public "clickOpenFile"(path: StringJS): $MutableComponent
 /**
  * 
  * @deprecated
  */
 public "rawCopy"(): $MutableComponent
-public "strikethrough"(): $MutableComponent
-public "strikethrough"(value: boolean): $MutableComponent
-public "hasStyle"(): boolean
-public "underlined"(): $MutableComponent
+public "darkGray"(): $MutableComponent
+public "darkGreen"(): $MutableComponent
 public "underlined"(value: boolean): $MutableComponent
-public "darkRed"(): $MutableComponent
-public "darkPurple"(): $MutableComponent
-public "noColor"(): $MutableComponent
+public "underlined"(): $MutableComponent
+public "darkAqua"(): $MutableComponent
 /**
  * 
  * @deprecated
  */
 public "rawComponent"(): $MutableComponent
-public "darkGray"(): $MutableComponent
+public "obfuscated"(value: boolean): $MutableComponent
+public "obfuscated"(): $MutableComponent
 public "isEmpty"(): boolean
-public "darkGreen"(): $MutableComponent
-public "insertion"(s: StringJS): $MutableComponent
-public "bold"(value: boolean): $MutableComponent
-public "bold"(): $MutableComponent
-public "color"(c: $KubeColor$$Type): $MutableComponent
+public "noColor"(): $MutableComponent
+public "darkRed"(): $MutableComponent
+public "lightPurple"(): $MutableComponent
+public "clickOpenUrl"(url: StringJS): $MutableComponent
+public "darkBlue"(): $MutableComponent
+public "hasSiblings"(): boolean
+public "clickOpenFile"(path: StringJS): $MutableComponent
+public "self"(): $MutableComponent
+public "clickRunCommand"(command: StringJS): $MutableComponent
+public "clickSuggestCommand"(command: StringJS): $MutableComponent
+public "clickChangePage"(page: StringJS): $MutableComponent
+public "getCodec"(): $Codec<(never)>
+public "black"(): $MutableComponent
+public "aqua"(): $MutableComponent
 public "italic"(): $MutableComponent
 public "italic"(value: boolean): $MutableComponent
 public "red"(): $MutableComponent
-public "yellow"(): $MutableComponent
-public "black"(): $MutableComponent
-public "gold"(): $MutableComponent
-public "click"(s: $ClickEvent$$Type): $MutableComponent
-public "font"(s: $ResourceLocation$$Type): $MutableComponent
 public "white"(): $MutableComponent
 public "hover"(s: $Component$$Type): $MutableComponent
-public "clickChangePage"(page: StringJS): $MutableComponent
-public "clickSuggestCommand"(command: StringJS): $MutableComponent
-public "clickRunCommand"(command: StringJS): $MutableComponent
-public "blue"(): $MutableComponent
+public "yellow"(): $MutableComponent
+public "font"(s: $ResourceLocation$$Type): $MutableComponent
+public "color"(c: $KubeColor$$Type): $MutableComponent
+public "bold"(value: boolean): $MutableComponent
+public "bold"(): $MutableComponent
+public "click"(s: $ClickEvent$$Type): $MutableComponent
+public "gold"(): $MutableComponent
 public "gray"(): $MutableComponent
+public "blue"(): $MutableComponent
 public "green"(): $MutableComponent
-public "aqua"(): $MutableComponent
-public "getCodec"(): $Codec<(never)>
-public "self"(): $MutableComponent
 public static "of"(arg0: StringJS, arg1: $Style$$Type): $FormattedText
 public static "of"(arg0: StringJS): $FormattedText
 public static "composite"(arg0: $List$$Type<($FormattedText$$Type)>): $FormattedText
 public static "composite"(...arg0: ($FormattedText$$Type)[]): $FormattedText
-public "toNBT"(): $Tag
 public "toJson"(): $JsonElement
+public "toNBT"(): $Tag
 get "contents"(): $ComponentContents
 get "siblings"(): $List<($Component)>
 get "visualOrderText"(): $FormattedCharSequence
-get "style"(): $Style
 set "style"(value: $Style$$Type)
+get "style"(): $Style
 get "string"(): StringJS
 get "codec"(): $Codec<(never)>
 }
@@ -426,8 +426,8 @@ export interface $NumberFormatType$$Interface<T extends $NumberFormat> {
 }
 
 export class $NumberFormatType<T extends $NumberFormat> implements $NumberFormatType$$Interface {
- "mapCodec"(): $MapCodec<(T)>
  "streamCodec"(): $StreamCodec<($RegistryFriendlyByteBuf), (T)>
+ "mapCodec"(): $MapCodec<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -454,13 +454,13 @@ public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "getValue"(): StringJS
-public "getCodec"(): $Codec
 public "getAction"(): $ClickEvent$Action
-public "toNBT"(): $Tag
+public "getCodec"(): $Codec
 public "toJson"(): $JsonElement
+public "toNBT"(): $Tag
 get "value"(): StringJS
-get "codec"(): $Codec
 get "action"(): $ClickEvent$Action
+get "codec"(): $Codec
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -484,21 +484,21 @@ export class $SignedMessageBody$Packed extends $Record {
 constructor(arg0: $FriendlyByteBuf$$Type)
 constructor(arg0: StringJS, arg1: $Instant$$Type, arg2: long, arg3: $LastSeenMessages$Packed$$Type)
 
-public "salt"(): long
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "write"(arg0: $FriendlyByteBuf$$Type): void
 public "content"(): StringJS
 public "timeStamp"(): $Instant
-public "lastSeen"(): $LastSeenMessages$Packed
 public "unpack"(arg0: $MessageSignatureCache$$Type): $Optional<($SignedMessageBody)>
+public "salt"(): long
+public "lastSeen"(): $LastSeenMessages$Packed
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $SignedMessageBody$Packed$$Type = ({"content"?: StringJS, "lastSeen"?: $LastSeenMessages$Packed$$Type, "salt"?: long, "timeStamp"?: $Instant$$Type}) | ([content?: StringJS, lastSeen?: $LastSeenMessages$Packed$$Type, salt?: long, timeStamp?: $Instant$$Type]);
+export type $SignedMessageBody$Packed$$Type = ({"timeStamp"?: $Instant$$Type, "salt"?: long, "lastSeen"?: $LastSeenMessages$Packed$$Type, "content"?: StringJS}) | ([timeStamp?: $Instant$$Type, salt?: long, lastSeen?: $LastSeenMessages$Packed$$Type, content?: StringJS]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -551,7 +551,7 @@ public "acknowledged"(): $BitSet
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $LastSeenMessages$Update$$Type = ({"acknowledged"?: $BitSet$$Type, "offset"?: integer}) | ([acknowledged?: $BitSet$$Type, offset?: integer]);
+export type $LastSeenMessages$Update$$Type = ({"offset"?: integer, "acknowledged"?: $BitSet$$Type}) | ([offset?: integer, acknowledged?: $BitSet$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -568,9 +568,9 @@ constructor(arg0: integer)
 
 public "push"(arg0: $SignedMessageBody$$Type, arg1: $MessageSignature$$Type): void
 public "push"(arg0: $List$$Type<($MessageSignature$$Type)>): void
+public "pack"(arg0: $MessageSignature$$Type): integer
 public "unpack"(arg0: integer): $MessageSignature
 public static "createDefault"(): $MessageSignatureCache
-public "pack"(arg0: $MessageSignature$$Type): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -606,10 +606,10 @@ export type $HoverEvent$LegacyConverter$$Original<T> = $HoverEvent$LegacyConvert
 declare module "net.minecraft.network.chat.contents.DataSource$Type" {
 import {$Keyable} from "com.mojang.serialization.Keyable"
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Enum, $Enum$$Type} from "java.lang.Enum"
-import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Function, $Function$$Type} from "java.util.function.Function"
+import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$StringRepresentable, $StringRepresentable$$Type, $StringRepresentable$$Interface} from "net.minecraft.util.StringRepresentable"
 import {$MapCodec, $MapCodec$$Type} from "com.mojang.serialization.MapCodec"
 import {$DataSource} from "net.minecraft.network.chat.contents.DataSource"
@@ -622,14 +622,14 @@ public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "id"(): StringJS
-public "getSerializedName"(): StringJS
 public "codec"(): $MapCodec<(T)>
-public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
+public "getSerializedName"(): StringJS
 public static "keys"(arg0: ($StringRepresentable$$Type)[]): $Keyable
+public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
+public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 public "getRemappedEnumConstantName"(): StringJS
 public static "fromEnum"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromValues"<T extends $StringRepresentable>(arg0: $Supplier$$Type<((T)[])>): $Codec<(T)>
-public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 get "serializedName"(): StringJS
 get "remappedEnumConstantName"(): StringJS
 }
@@ -687,22 +687,22 @@ static readonly "MAP_CODEC": $MapCodec<($SignedMessageBody)>
 
 constructor(arg0: StringJS, arg1: $Instant$$Type, arg2: long, arg3: $LastSeenMessages$$Type)
 
-public "salt"(): long
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "content"(): StringJS
 public static "unsigned"(arg0: StringJS): $SignedMessageBody
-public "timeStamp"(): $Instant
-public "lastSeen"(): $LastSeenMessages
 public "pack"(arg0: $MessageSignatureCache$$Type): $SignedMessageBody$Packed
+public "timeStamp"(): $Instant
+public "salt"(): long
+public "lastSeen"(): $LastSeenMessages
 public "updateSignature"(arg0: $SignatureUpdater$Output$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $SignedMessageBody$$Type = ({"content"?: StringJS, "lastSeen"?: $LastSeenMessages$$Type, "salt"?: long, "timeStamp"?: $Instant$$Type}) | ([content?: StringJS, lastSeen?: $LastSeenMessages$$Type, salt?: long, timeStamp?: $Instant$$Type]);
+export type $SignedMessageBody$$Type = ({"timeStamp"?: $Instant$$Type, "salt"?: long, "lastSeen"?: $LastSeenMessages$$Type, "content"?: StringJS}) | ([timeStamp?: $Instant$$Type, salt?: long, lastSeen?: $LastSeenMessages$$Type, content?: StringJS]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -717,10 +717,10 @@ import {$ChatTypeDecoration, $ChatTypeDecoration$$Type} from "net.minecraft.netw
 import {$ResourceKey, $ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
 import {$Entity$$Type} from "net.minecraft.world.entity.Entity"
 import {$CommandSourceStack$$Type} from "net.minecraft.commands.CommandSourceStack"
-import {$RegistryAccess$$Type} from "net.minecraft.core.RegistryAccess"
 import {$ChatType$Bound} from "net.minecraft.network.chat.ChatType$Bound"
-import {$Record} from "java.lang.Record"
+import {$RegistryAccess$$Type} from "net.minecraft.core.RegistryAccess"
 import {$BootstrapContext$$Type} from "net.minecraft.data.worldgen.BootstrapContext"
+import {$Record} from "java.lang.Record"
 
 export class $ChatType extends $Record {
 static readonly "SAY_COMMAND": $ResourceKey<($ChatType)>
@@ -744,8 +744,8 @@ public static "bootstrap"(arg0: $BootstrapContext$$Type<($ChatType$$Type)>): voi
 public static "bind"(arg0: $ResourceKey$$Type<($ChatType)>, arg1: $Entity$$Type): $ChatType$Bound
 public static "bind"(arg0: $ResourceKey$$Type<($ChatType)>, arg1: $RegistryAccess$$Type, arg2: $Component$$Type): $ChatType$Bound
 public static "bind"(arg0: $ResourceKey$$Type<($ChatType)>, arg1: $CommandSourceStack$$Type): $ChatType$Bound
-public "narration"(): $ChatTypeDecoration
 public "chat"(): $ChatTypeDecoration
+public "narration"(): $ChatTypeDecoration
 /**
  * This field is a type stub generated by ProbeJS and shall not be used in any sense.
  */
@@ -765,8 +765,8 @@ export type $ChatType$$Type = (Special.ChatType) | ({"chat"?: $ChatTypeDecoratio
  */
 export type $ChatType$$Original = $ChatType;}
 declare module "net.minecraft.network.chat.Component" {
-import {$Optional, $Optional$$Type} from "java.util.Optional"
 import {$FormattedText, $FormattedText$$Type, $FormattedText$$Interface} from "net.minecraft.network.chat.FormattedText"
+import {$Optional, $Optional$$Type} from "java.util.Optional"
 import {$UUID$$Type} from "java.util.UUID"
 import {$Style, $Style$$Type} from "net.minecraft.network.chat.Style"
 import {$List, $List$$Type} from "java.util.List"
@@ -797,34 +797,34 @@ export class $Component implements $Component$$Interface {
 static "empty"(): $MutableComponent
  "copy"(): $MutableComponent
 static "literal"(arg0: StringJS): $MutableComponent
- "visit"<T>(arg0: $FormattedText$ContentConsumer$$Type<(T)>): $Optional<(T)>
  "visit"<T>(arg0: $FormattedText$StyledContentConsumer$$Type<(T)>, arg1: $Style$$Type): $Optional<(T)>
+ "visit"<T>(arg0: $FormattedText$ContentConsumer$$Type<(T)>): $Optional<(T)>
  "getString"(arg0: integer): StringJS
  "getString"(): StringJS
  "getContents"(): $ComponentContents
 static "selector"(arg0: StringJS, arg1: ($Component$$Type)?): $MutableComponent
-static "translatable"(arg0: StringJS, ...arg1: (any)[]): $MutableComponent
-static "translatable"(arg0: StringJS): $MutableComponent
-static "nullToEmpty"(arg0: StringJS): $Component
-static "translatableEscape"(arg0: StringJS, ...arg1: (any)[]): $MutableComponent
-static "translationArg"(arg0: $ResourceLocation$$Type): $Component
-static "translationArg"(arg0: $UUID$$Type): $Component
-static "translationArg"(arg0: $ChunkPos$$Type): $Component
-static "translationArg"(arg0: $Message$$Type): $Component
-static "translationArg"(arg0: $Date$$Type): $Component
-static "translationArg"(arg0: $URI$$Type): $Component
+static "score"(arg0: StringJS, arg1: StringJS): $MutableComponent
  "getSiblings"(): $List<($Component)>
+static "translationArg"(arg0: $Date$$Type): $Component
+static "translationArg"(arg0: $UUID$$Type): $Component
+static "translationArg"(arg0: $ResourceLocation$$Type): $Component
+static "translationArg"(arg0: $Message$$Type): $Component
+static "translationArg"(arg0: $URI$$Type): $Component
+static "translationArg"(arg0: $ChunkPos$$Type): $Component
+static "translatableEscape"(arg0: StringJS, ...arg1: (any)[]): $MutableComponent
+ "getVisualOrderText"(): $FormattedCharSequence
+static "nullToEmpty"(arg0: StringJS): $Component
+ "tryCollapseToString"(): StringJS
 static "translatableWithFallback"(arg0: StringJS, arg1: StringJS, ...arg2: (any)[]): $MutableComponent
 static "translatableWithFallback"(arg0: StringJS, arg1: StringJS): $MutableComponent
- "tryCollapseToString"(): StringJS
- "getVisualOrderText"(): $FormattedCharSequence
-static "score"(arg0: StringJS, arg1: StringJS): $MutableComponent
- "toFlatList"(arg0: $Style$$Type): $List<($Component)>
+static "translatable"(arg0: StringJS, ...arg1: (any)[]): $MutableComponent
+static "translatable"(arg0: StringJS): $MutableComponent
  "toFlatList"(): $List<($Component)>
+ "toFlatList"(arg0: $Style$$Type): $List<($Component)>
+static "keybind"(arg0: StringJS): $MutableComponent
+static "nbt"(arg0: StringJS, arg1: boolean, arg2: ($Component$$Type)?, arg3: $DataSource$$Type): $MutableComponent
  "plainCopy"(): $MutableComponent
  "getStyle"(): $Style
-static "nbt"(arg0: StringJS, arg1: boolean, arg2: ($Component$$Type)?, arg3: $DataSource$$Type): $MutableComponent
-static "keybind"(arg0: StringJS): $MutableComponent
 static "of"(arg0: StringJS, arg1: $Style$$Type): $FormattedText
 static "of"(arg0: StringJS): $FormattedText
 static "composite"(arg0: $List$$Type<($FormattedText$$Type)>): $FormattedText
@@ -865,15 +865,15 @@ public "style"(): $Style
 public "decorate"(arg0: $Component$$Type, arg1: $ChatType$Bound$$Type): $Component
 public "translationKey"(): StringJS
 public static "withSender"(arg0: StringJS): $ChatTypeDecoration
+public static "teamMessage"(arg0: StringJS): $ChatTypeDecoration
 public static "incomingDirectMessage"(arg0: StringJS): $ChatTypeDecoration
 public static "outgoingDirectMessage"(arg0: StringJS): $ChatTypeDecoration
-public static "teamMessage"(arg0: StringJS): $ChatTypeDecoration
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $ChatTypeDecoration$$Type = ({"translationKey"?: StringJS, "parameters"?: $List$$Type<($ChatTypeDecoration$Parameter$$Type)>, "style"?: $Style$$Type}) | ([translationKey?: StringJS, parameters?: $List$$Type<($ChatTypeDecoration$Parameter$$Type)>, style?: $Style$$Type]);
+export type $ChatTypeDecoration$$Type = ({"parameters"?: $List$$Type<($ChatTypeDecoration$Parameter$$Type)>, "translationKey"?: StringJS, "style"?: $Style$$Type}) | ([parameters?: $List$$Type<($ChatTypeDecoration$Parameter$$Type)>, translationKey?: StringJS, style?: $Style$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -882,10 +882,10 @@ declare module "net.minecraft.network.chat.ChatTypeDecoration$Parameter" {
 import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
 import {$Keyable} from "com.mojang.serialization.Keyable"
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Enum, $Enum$$Type} from "java.lang.Enum"
-import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Function, $Function$$Type} from "java.util.function.Function"
+import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component"
 import {$StringRepresentable, $StringRepresentable$$Type, $StringRepresentable$$Interface} from "net.minecraft.util.StringRepresentable"
 import {$ByteBuf} from "io.netty.buffer.ByteBuf"
@@ -900,14 +900,14 @@ static readonly "STREAM_CODEC": $StreamCodec<($ByteBuf), ($ChatTypeDecoration$Pa
 
 public static "values"(): ($ChatTypeDecoration$Parameter)[]
 public static "valueOf"(arg0: StringJS): $ChatTypeDecoration$Parameter
-public "getSerializedName"(): StringJS
 public "select"(arg0: $Component$$Type, arg1: $ChatType$Bound$$Type): $Component
-public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
+public "getSerializedName"(): StringJS
 public static "keys"(arg0: ($StringRepresentable$$Type)[]): $Keyable
+public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
+public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 public "getRemappedEnumConstantName"(): StringJS
 public static "fromEnum"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromValues"<T extends $StringRepresentable>(arg0: $Supplier$$Type<((T)[])>): $Codec<(T)>
-public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 get "serializedName"(): StringJS
 get "remappedEnumConstantName"(): StringJS
 }
@@ -921,11 +921,11 @@ export type $ChatTypeDecoration$Parameter$$Type = (("sender") | ("target") | ("c
  */
 export type $ChatTypeDecoration$Parameter$$Original = $ChatTypeDecoration$Parameter;}
 declare module "net.minecraft.network.chat.MessageSignature" {
-import {$MessageSignature$Packed} from "net.minecraft.network.chat.MessageSignature$Packed"
 import {$SignatureValidator$$Type} from "net.minecraft.util.SignatureValidator"
+import {$MessageSignature$Packed} from "net.minecraft.network.chat.MessageSignature$Packed"
 import {$MessageSignatureCache$$Type} from "net.minecraft.network.chat.MessageSignatureCache"
-import {$Codec} from "com.mojang.serialization.Codec"
 import {$FriendlyByteBuf$$Type} from "net.minecraft.network.FriendlyByteBuf"
+import {$Codec} from "com.mojang.serialization.Codec"
 import {$SignatureUpdater$$Type} from "net.minecraft.util.SignatureUpdater"
 import {$ByteBuffer} from "java.nio.ByteBuffer"
 import {$Record} from "java.lang.Record"
@@ -957,8 +957,8 @@ export type $MessageSignature$$Type = ({"bytes"?: (byte)[]}) | ([bytes?: (byte)[
 export type $MessageSignature$$Original = $MessageSignature;}
 declare module "net.minecraft.network.chat.FormattedText" {
 import {$Optional} from "java.util.Optional"
-import {$List$$Type} from "java.util.List"
 import {$Style$$Type} from "net.minecraft.network.chat.Style"
+import {$List$$Type} from "java.util.List"
 import {$FormattedText$ContentConsumer$$Type} from "net.minecraft.network.chat.FormattedText$ContentConsumer"
 import {$FormattedText$StyledContentConsumer$$Type} from "net.minecraft.network.chat.FormattedText$StyledContentConsumer"
 import {$Unit} from "net.minecraft.util.Unit"
@@ -1035,22 +1035,22 @@ public "hashCode"(): integer
 public "targetName"(): $Optional<($Component)>
 public "decorate"(arg0: $Component$$Type): $Component
 public "chatType"(): $Holder<($ChatType)>
-public "withTargetName"(arg0: $Component$$Type): $ChatType$Bound
 public "decorateNarration"(arg0: $Component$$Type): $Component
+public "withTargetName"(arg0: $Component$$Type): $ChatType$Bound
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $ChatType$Bound$$Type = ({"chatType"?: $Holder$$Type<($ChatType)>, "targetName"?: ($Component$$Type)?, "name"?: $Component$$Type}) | ([chatType?: $Holder$$Type<($ChatType)>, targetName?: ($Component$$Type)?, name?: $Component$$Type]);
+export type $ChatType$Bound$$Type = ({"targetName"?: ($Component$$Type)?, "chatType"?: $Holder$$Type<($ChatType)>, "name"?: $Component$$Type}) | ([targetName?: ($Component$$Type)?, chatType?: $Holder$$Type<($ChatType)>, name?: $Component$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ChatType$Bound$$Original = $ChatType$Bound;}
 declare module "net.minecraft.network.chat.HoverEvent$Action" {
 import {$HoverEvent$EntityTooltipInfo} from "net.minecraft.network.chat.HoverEvent$EntityTooltipInfo"
-import {$HoverEvent$LegacyConverter$$Type} from "net.minecraft.network.chat.HoverEvent$LegacyConverter"
 import {$Enum, $Enum$$Type} from "java.lang.Enum"
+import {$HoverEvent$LegacyConverter$$Type} from "net.minecraft.network.chat.HoverEvent$LegacyConverter"
 import {$HoverEvent$ItemStackInfo} from "net.minecraft.network.chat.HoverEvent$ItemStackInfo"
 import {$Component} from "net.minecraft.network.chat.Component"
 import {$StringRepresentable, $StringRepresentable$$Type, $StringRepresentable$$Interface} from "net.minecraft.util.StringRepresentable"
@@ -1058,8 +1058,8 @@ import {$Keyable} from "com.mojang.serialization.Keyable"
 import {$HoverEvent$TypedHoverEvent} from "net.minecraft.network.chat.HoverEvent$TypedHoverEvent"
 import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Codec, $Codec$$Type} from "com.mojang.serialization.Codec"
-import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Function, $Function$$Type} from "java.util.function.Function"
+import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$MapCodec} from "com.mojang.serialization.MapCodec"
 
 export class $HoverEvent$Action<T> implements $StringRepresentable$$Interface {
@@ -1077,12 +1077,12 @@ public "toString"(): StringJS
 public "cast"(arg0: any): T
 public "isAllowedFromServer"(): boolean
 public "getSerializedName"(): StringJS
-public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
 public static "keys"(arg0: ($StringRepresentable$$Type)[]): $Keyable
+public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
+public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 public "getRemappedEnumConstantName"(): StringJS
 public static "fromEnum"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromValues"<T extends $StringRepresentable>(arg0: $Supplier$$Type<((T)[])>): $Codec<(T)>
-public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 get "allowedFromServer"(): boolean
 get "serializedName"(): StringJS
 get "remappedEnumConstantName"(): StringJS
@@ -1097,8 +1097,8 @@ export type $HoverEvent$Action$$Type<T> = ($HoverEvent$Action<(T)>);
  */
 export type $HoverEvent$Action$$Original<T> = $HoverEvent$Action<(T)>;}
 declare module "net.minecraft.network.chat.PlayerChatMessage" {
-import {$SignedMessageBody, $SignedMessageBody$$Type} from "net.minecraft.network.chat.SignedMessageBody"
 import {$SignatureValidator$$Type} from "net.minecraft.util.SignatureValidator"
+import {$SignedMessageBody, $SignedMessageBody$$Type} from "net.minecraft.network.chat.SignedMessageBody"
 import {$MessageSignature, $MessageSignature$$Type} from "net.minecraft.network.chat.MessageSignature"
 import {$UUID, $UUID$$Type} from "java.util.UUID"
 import {$Duration} from "java.time.Duration"
@@ -1119,7 +1119,6 @@ static readonly "MESSAGE_EXPIRES_AFTER_CLIENT": $Duration
 
 constructor(arg0: $SignedMessageLink$$Type, arg1: $MessageSignature$$Type, arg2: $SignedMessageBody$$Type, arg3: $Component$$Type, arg4: $FilterMask$$Type)
 
-public "salt"(): long
 public "signature"(): $MessageSignature
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
@@ -1131,38 +1130,39 @@ public "verify"(arg0: $SignatureValidator$$Type): boolean
 public "link"(): $SignedMessageLink
 public "isSystem"(): boolean
 public static "unsigned"(arg0: $UUID$$Type, arg1: StringJS): $PlayerChatMessage
-public "hasExpiredServer"(arg0: $Instant$$Type): boolean
 public "timeStamp"(): $Instant
-public "decoratedContent"(): $Component
-public "hasSignatureFrom"(arg0: $UUID$$Type): boolean
-public "signedContent"(): StringJS
-public "sender"(): $UUID
 public "hasSignature"(): boolean
-public "signedBody"(): $SignedMessageBody
-public "hasExpiredClient"(arg0: $Instant$$Type): boolean
-public "removeSignature"(): $PlayerChatMessage
-public "chatheads$setOwner"(playerInfo: $PlayerInfo$$Type): void
-public "chatheads$getOwner"(): $PlayerInfo
-public "filterMask"(): $FilterMask
-public "withUnsignedContent"(arg0: $Component$$Type): $PlayerChatMessage
+public "salt"(): long
 public "unsignedContent"(): $Component
+public "decoratedContent"(): $Component
+public "signedContent"(): StringJS
+public "hasSignatureFrom"(arg0: $UUID$$Type): boolean
+public "filterMask"(): $FilterMask
+public "signedBody"(): $SignedMessageBody
+public "sender"(): $UUID
+public "withUnsignedContent"(arg0: $Component$$Type): $PlayerChatMessage
+public static "updateSignature"(arg0: $SignatureUpdater$Output$$Type, arg1: $SignedMessageLink$$Type, arg2: $SignedMessageBody$$Type): void
 public "isFullyFiltered"(): boolean
 public "removeUnsignedContent"(): $PlayerChatMessage
-public static "updateSignature"(arg0: $SignatureUpdater$Output$$Type, arg1: $SignedMessageLink$$Type, arg2: $SignedMessageBody$$Type): void
+public "chatheads$getOwner"(): $PlayerInfo
+public "chatheads$setOwner"(playerInfo: $PlayerInfo$$Type): void
+public "hasExpiredServer"(arg0: $Instant$$Type): boolean
+public "hasExpiredClient"(arg0: $Instant$$Type): boolean
+public "removeSignature"(): $PlayerChatMessage
 get "fullyFiltered"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $PlayerChatMessage$$Type = ({"filterMask"?: $FilterMask$$Type, "signature"?: $MessageSignature$$Type, "link"?: $SignedMessageLink$$Type, "signedBody"?: $SignedMessageBody$$Type, "unsignedContent"?: $Component$$Type}) | ([filterMask?: $FilterMask$$Type, signature?: $MessageSignature$$Type, link?: $SignedMessageLink$$Type, signedBody?: $SignedMessageBody$$Type, unsignedContent?: $Component$$Type]);
+export type $PlayerChatMessage$$Type = ({"unsignedContent"?: $Component$$Type, "signedBody"?: $SignedMessageBody$$Type, "link"?: $SignedMessageLink$$Type, "signature"?: $MessageSignature$$Type, "filterMask"?: $FilterMask$$Type}) | ([unsignedContent?: $Component$$Type, signedBody?: $SignedMessageBody$$Type, link?: $SignedMessageLink$$Type, signature?: $MessageSignature$$Type, filterMask?: $FilterMask$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $PlayerChatMessage$$Original = $PlayerChatMessage;}
 declare module "net.minecraft.network.chat.ChatDecorator" {
-import {$ServerPlayer, $ServerPlayer$$Type} from "net.minecraft.server.level.ServerPlayer"
 import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component"
+import {$ServerPlayer, $ServerPlayer$$Type} from "net.minecraft.server.level.ServerPlayer"
 
 export interface $ChatDecorator$$Interface {
 
@@ -1208,32 +1208,32 @@ public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "isEmpty"(): boolean
-public "applyFormat"(arg0: $ChatFormatting$$Type): $Style
-public "withUnderlined"(arg0: boolean): $Style
 public "applyFormats"(...arg0: ($ChatFormatting$$Type)[]): $Style
-public "getInsertion"(): StringJS
-public "isUnderlined"(): boolean
-public "getClickEvent"(): $ClickEvent
+public "applyFormat"(arg0: $ChatFormatting$$Type): $Style
 public "withStrikethrough"(arg0: boolean): $Style
 public "withHoverEvent"(arg0: $HoverEvent$$Type): $Style
-public "withObfuscated"(arg0: boolean): $Style
-public "applyLegacyFormat"(arg0: $ChatFormatting$$Type): $Style
+public "isUnderlined"(): boolean
+public "withUnderlined"(arg0: boolean): $Style
+public "getClickEvent"(): $ClickEvent
 public "isStrikethrough"(): boolean
+public "withObfuscated"(arg0: boolean): $Style
+public "getInsertion"(): StringJS
 public "withInsertion"(arg0: StringJS): $Style
-public "getFont"(): $ResourceLocation
-public "withBold"(arg0: boolean): $Style
-public "withItalic"(arg0: boolean): $Style
-public "withClickEvent"(arg0: $ClickEvent$$Type): $Style
-public "withFont"(arg0: $ResourceLocation$$Type): $Style
-public "isBold"(): boolean
-public "isItalic"(): boolean
-public "getHoverEvent"(): $HoverEvent
+public "applyLegacyFormat"(arg0: $ChatFormatting$$Type): $Style
 public "isObfuscated"(): boolean
 public "getColor"(): $TextColor
-public "applyTo"(arg0: $Style$$Type): $Style
+public "isBold"(): boolean
+public "isItalic"(): boolean
+public "withFont"(arg0: $ResourceLocation$$Type): $Style
+public "withItalic"(arg0: boolean): $Style
 public "withColor"(arg0: $TextColor$$Type): $Style
 public "withColor"(arg0: integer): $Style
 public "withColor"(arg0: $ChatFormatting$$Type): $Style
+public "withBold"(arg0: boolean): $Style
+public "applyTo"(arg0: $Style$$Type): $Style
+public "getHoverEvent"(): $HoverEvent
+public "withClickEvent"(arg0: $ClickEvent$$Type): $Style
+public "getFont"(): $ResourceLocation
 get "empty"(): boolean
 }
 /**
@@ -1341,8 +1341,8 @@ export type $SignedMessageChain$Decoder$$Type = ((arg0: $MessageSignature, arg1:
 export type $SignedMessageChain$Decoder$$Original = $SignedMessageChain$Decoder;}
 declare module "net.minecraft.network.chat.LastSeenMessages" {
 import {$MessageSignatureCache$$Type} from "net.minecraft.network.chat.MessageSignatureCache"
-import {$Codec} from "com.mojang.serialization.Codec"
 import {$MessageSignature, $MessageSignature$$Type} from "net.minecraft.network.chat.MessageSignature"
+import {$Codec} from "com.mojang.serialization.Codec"
 import {$List, $List$$Type} from "java.util.List"
 import {$LastSeenMessages$Packed} from "net.minecraft.network.chat.LastSeenMessages$Packed"
 import {$SignatureUpdater$Output$$Type} from "net.minecraft.util.SignatureUpdater$Output"
@@ -1439,11 +1439,11 @@ export type $HoverEvent$TypedHoverEvent$$Original<T> = $HoverEvent$TypedHoverEve
 declare module "net.minecraft.network.chat.ComponentContents$Type" {
 import {$Keyable} from "com.mojang.serialization.Keyable"
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Enum, $Enum$$Type} from "java.lang.Enum"
-import {$Supplier$$Type} from "java.util.function.Supplier"
-import {$Function, $Function$$Type} from "java.util.function.Function"
+import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$ComponentContents} from "net.minecraft.network.chat.ComponentContents"
+import {$Function, $Function$$Type} from "java.util.function.Function"
+import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$StringRepresentable, $StringRepresentable$$Type, $StringRepresentable$$Interface} from "net.minecraft.util.StringRepresentable"
 import {$MapCodec, $MapCodec$$Type} from "com.mojang.serialization.MapCodec"
 import {$Record} from "java.lang.Record"
@@ -1455,14 +1455,14 @@ public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "id"(): StringJS
-public "getSerializedName"(): StringJS
 public "codec"(): $MapCodec<(T)>
-public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
+public "getSerializedName"(): StringJS
 public static "keys"(arg0: ($StringRepresentable$$Type)[]): $Keyable
+public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
+public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 public "getRemappedEnumConstantName"(): StringJS
 public static "fromEnum"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromValues"<T extends $StringRepresentable>(arg0: $Supplier$$Type<((T)[])>): $Codec<(T)>
-public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 get "serializedName"(): StringJS
 get "remappedEnumConstantName"(): StringJS
 }
@@ -1498,10 +1498,10 @@ export type $NumberFormat$$Original = $NumberFormat;}
 declare module "net.minecraft.network.chat.ClickEvent$Action" {
 import {$Keyable} from "com.mojang.serialization.Keyable"
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Enum, $Enum$$Type} from "java.lang.Enum"
-import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Function, $Function$$Type} from "java.util.function.Function"
+import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$DataResult} from "com.mojang.serialization.DataResult"
 import {$StringRepresentable, $StringRepresentable$$Type, $StringRepresentable$$Interface} from "net.minecraft.util.StringRepresentable"
 import {$MapCodec} from "com.mojang.serialization.MapCodec"
@@ -1518,15 +1518,15 @@ static readonly "OPEN_URL": $ClickEvent$Action
 
 public static "values"(): ($ClickEvent$Action)[]
 public static "valueOf"(arg0: StringJS): $ClickEvent$Action
-public "isAllowedFromServer"(): boolean
 public static "filterForSerialization"(arg0: $ClickEvent$Action$$Type): $DataResult<($ClickEvent$Action)>
+public "isAllowedFromServer"(): boolean
 public "getSerializedName"(): StringJS
-public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
 public static "keys"(arg0: ($StringRepresentable$$Type)[]): $Keyable
+public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
+public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 public "getRemappedEnumConstantName"(): StringJS
 public static "fromEnum"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromValues"<T extends $StringRepresentable>(arg0: $Supplier$$Type<((T)[])>): $Codec<(T)>
-public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 get "allowedFromServer"(): boolean
 get "serializedName"(): StringJS
 get "remappedEnumConstantName"(): StringJS
@@ -1554,21 +1554,21 @@ public "toString"(): StringJS
 public "hashCode"(): integer
 public "getValue"(): integer
 public static "fromLegacyFormat"(arg0: $ChatFormatting$$Type): $TextColor
-public static "fromRgb"(arg0: integer): $TextColor
+public "formatValue"(): StringJS
 public static "parseColor"(arg0: StringJS): $DataResult<($TextColor)>
 public "serialize"(): StringJS
-public "formatValue"(): StringJS
-public "getRgb"(): integer
-public "serialize"(): StringJS
 public "getArgb"(): integer
+public "serialize"(): StringJS
+public static "fromRgb"(arg0: integer): $TextColor
+public "getRgb"(): integer
 public "specialEquals"(o: any, shallow: boolean): boolean
 public "createTextColor"(): $TextColor
 public "toHexString"(): StringJS
 public "getFireworkRGB"(): integer
 public static "checkSpecialEquality"(arg1: any, arg2: any, arg3: boolean): boolean
 get "value"(): integer
-get "rgb"(): integer
 get "argb"(): integer
+get "rgb"(): integer
 get "fireworkRGB"(): integer
 }
 /**

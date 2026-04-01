@@ -24,11 +24,11 @@ import {$BlockState$$Type} from "net.minecraft.world.level.block.state.BlockStat
 export class $BrokenBlockTintCache {
 constructor(arg0: $Set$$Type<($BlockState$$Type)>)
 
-public "setBroken"(arg0: $BlockState$$Type): void
 public "getSize"(): integer
 public "isBroken"(arg0: $BlockState$$Type): boolean
-set "broken"(value: $BlockState$$Type)
+public "setBroken"(arg0: $BlockState$$Type): void
 get "size"(): integer
+set "broken"(value: $BlockState$$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

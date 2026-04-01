@@ -381,10 +381,10 @@ import {$ModuleDescriptor$Opens$$Type} from "java.lang.module.ModuleDescriptor$O
 import {$ModuleDescriptor$Requires$Modifier$$Type} from "java.lang.module.ModuleDescriptor$Requires$Modifier"
 import {$ModuleDescriptor$Provides$$Type} from "java.lang.module.ModuleDescriptor$Provides"
 import {$List$$Type} from "java.util.List"
-import {$ModuleDescriptor$Version$$Type} from "java.lang.module.ModuleDescriptor$Version"
-import {$ModuleDescriptor$Exports$$Type} from "java.lang.module.ModuleDescriptor$Exports"
-import {$ModuleDescriptor$Opens$Modifier$$Type} from "java.lang.module.ModuleDescriptor$Opens$Modifier"
 import {$Set$$Type} from "java.util.Set"
+import {$ModuleDescriptor$Version$$Type} from "java.lang.module.ModuleDescriptor$Version"
+import {$ModuleDescriptor$Opens$Modifier$$Type} from "java.lang.module.ModuleDescriptor$Opens$Modifier"
+import {$ModuleDescriptor$Exports$$Type} from "java.lang.module.ModuleDescriptor$Exports"
 import {$ModuleDescriptor$Exports$Modifier$$Type} from "java.lang.module.ModuleDescriptor$Exports$Modifier"
 import {$ModuleDescriptor$Requires$$Type} from "java.lang.module.ModuleDescriptor$Requires"
 

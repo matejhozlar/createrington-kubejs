@@ -4,11 +4,11 @@ export interface $BlockSensitiveBufferBuilder$$Interface {
 }
 
 export class $BlockSensitiveBufferBuilder implements $BlockSensitiveBufferBuilder$$Interface {
- "restoreBlock"(): void
- "ignoreMidBlock"(arg0: boolean): void
  "overrideBlock"(arg0: integer): void
- "endBlock"(): void
+ "ignoreMidBlock"(arg0: boolean): void
+ "restoreBlock"(): void
  "beginBlock"(arg0: integer, arg1: byte, arg2: byte, arg3: integer, arg4: integer, arg5: integer): void
+ "endBlock"(): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

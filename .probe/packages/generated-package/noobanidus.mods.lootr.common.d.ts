@@ -1,25 +1,3 @@
-declare module "noobanidus.mods.lootr.common.mixins.MixinDimensionDataStorage" {
-import {$Map, $Map$$Type} from "java.util.Map"
-import {$SavedData, $SavedData$$Type} from "net.minecraft.world.level.saveddata.SavedData"
-
-export interface $MixinDimensionDataStorage$$Interface {
-
-(): $Map$$Type<(StringJS), ($SavedData$$Type)>
-get "cache"(): $Map<(StringJS), ($SavedData)>
-}
-
-export class $MixinDimensionDataStorage implements $MixinDimensionDataStorage$$Interface {
- "getCache"(): $Map<(StringJS), ($SavedData)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $MixinDimensionDataStorage$$Type = (() => $Map$$Type<(StringJS), ($SavedData$$Type)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $MixinDimensionDataStorage$$Original = $MixinDimensionDataStorage;}
 declare module "noobanidus.mods.lootr.common.mixins.AccessorMixinDimensionDataStorage" {
 import {$Map, $Map$$Type} from "java.util.Map"
 import {$SavedData, $SavedData$$Type} from "net.minecraft.world.level.saveddata.SavedData"
@@ -66,23 +44,43 @@ export type $AccessorMixinBaseContainerBlockEntity$$Type = ($AccessorMixinBaseCo
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $AccessorMixinBaseContainerBlockEntity$$Original = $AccessorMixinBaseContainerBlockEntity;}
-declare module "noobanidus.mods.lootr.common.mixins.AccessorMixinVehicleEntity" {
-import {$Item, $Item$$Type} from "net.minecraft.world.item.Item"
+declare module "noobanidus.mods.lootr.common.mixins.AccessorMixinBrushableBlockEntity" {
+import {$ResourceKey} from "net.minecraft.resources.ResourceKey"
+import {$LootTable} from "net.minecraft.world.level.storage.loot.LootTable"
 
-export interface $AccessorMixinVehicleEntity$$Interface {
-
-(): $Item$$Type
+export interface $AccessorMixinBrushableBlockEntity$$Interface {
 }
 
-export class $AccessorMixinVehicleEntity implements $AccessorMixinVehicleEntity$$Interface {
- "invokeGetDropItem"(): $Item
+export class $AccessorMixinBrushableBlockEntity implements $AccessorMixinBrushableBlockEntity$$Interface {
+ "lootr$getLootTableSeed"(): long
+ "lootr$getLootTable"(): $ResourceKey<($LootTable)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $AccessorMixinVehicleEntity$$Type = (() => $Item$$Type);
+export type $AccessorMixinBrushableBlockEntity$$Type = ($AccessorMixinBrushableBlockEntity);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
-export type $AccessorMixinVehicleEntity$$Original = $AccessorMixinVehicleEntity;}
+export type $AccessorMixinBrushableBlockEntity$$Original = $AccessorMixinBrushableBlockEntity;}
+declare module "noobanidus.mods.lootr.common.mixins.AccessorMixinFallingBlockEntity" {
+import {$BlockState, $BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
+
+export interface $AccessorMixinFallingBlockEntity$$Interface {
+
+(arg0: $BlockState): void
+}
+
+export class $AccessorMixinFallingBlockEntity implements $AccessorMixinFallingBlockEntity$$Interface {
+ "lootr$setBlockState"(arg0: $BlockState$$Type): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $AccessorMixinFallingBlockEntity$$Type = ((arg0: $BlockState) => void);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $AccessorMixinFallingBlockEntity$$Original = $AccessorMixinFallingBlockEntity;}

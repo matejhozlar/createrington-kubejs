@@ -46,15 +46,15 @@ public "forceChunk"(arg0: $ServerLevel$$Type, arg1: $Entity$$Type, arg2: integer
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $TicketController$$Type = ({"callback"?: $LoadingValidationCallback$$Type, "id"?: $ResourceLocation$$Type}) | ([callback?: $LoadingValidationCallback$$Type, id?: $ResourceLocation$$Type]);
+export type $TicketController$$Type = ({"id"?: $ResourceLocation$$Type, "callback"?: $LoadingValidationCallback$$Type}) | ([id?: $ResourceLocation$$Type, callback?: $LoadingValidationCallback$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $TicketController$$Original = $TicketController;}
 declare module "net.neoforged.neoforge.common.world.chunk.RegisterTicketControllersEvent" {
 import {$Event} from "net.neoforged.bus.api.Event"
-import {$IModBusEvent$$Interface} from "net.neoforged.fml.event.IModBusEvent"
 import {$TicketController$$Type} from "net.neoforged.neoforge.common.world.chunk.TicketController"
+import {$IModBusEvent$$Interface} from "net.neoforged.fml.event.IModBusEvent"
 
 export class $RegisterTicketControllersEvent extends $Event implements $IModBusEvent$$Interface {
 public "register"(arg0: $TicketController$$Type): void
@@ -95,8 +95,8 @@ import {$DamageContainer$$Type} from "net.neoforged.neoforge.common.damagesource
 import {$Entity$$Type} from "net.minecraft.world.entity.Entity"
 import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
 import {$FluidType, $FluidType$$Type} from "net.neoforged.neoforge.fluids.FluidType"
-import {$BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
 import {$SoundAction$$Type} from "net.neoforged.neoforge.common.SoundAction"
+import {$BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
 import {$CompoundTag, $CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
 import {$Collection, $Collection$$Type} from "java.util.Collection"
 import {$IEntityExtension$$Interface} from "net.neoforged.neoforge.common.extensions.IEntityExtension"
@@ -106,50 +106,54 @@ import {$CustomPacketPayload$$Type} from "net.minecraft.network.protocol.common.
 import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$MobCategory} from "net.minecraft.world.entity.MobCategory"
+import {$Tag$$Type} from "net.minecraft.nbt.Tag"
 import {$LivingEntity} from "net.minecraft.world.entity.LivingEntity"
-import {$Tag, $Tag$$Type} from "net.minecraft.nbt.Tag"
 import {$ServerPlayer$$Type} from "net.minecraft.server.level.ServerPlayer"
 import {$FluidState$$Type} from "net.minecraft.world.level.material.FluidState"
 
 export interface $ILivingEntityExtension$$Interface extends $IEntityExtension$$Interface {
-get "maxHeightFluidType"(): $FluidType
 get "inFluidType"(): boolean
 get "parts"(): ($PartEntity<(never)>)[]
+get "maxHeightFluidType"(): $FluidType
 get "eyeInFluidType"(): $FluidType
-get "multipartEntity"(): boolean
 get "persistentData"(): $CompoundTag
 get "addedToLevel"(): boolean
+get "multipartEntity"(): boolean
 }
 
 export class $ILivingEntityExtension implements $ILivingEntityExtension$$Interface {
  "self"(): $LivingEntity
+ "onDamageTaken"(arg0: $DamageContainer$$Type): void
+ "sinkInFluid"(arg0: $FluidType$$Type): void
+ "moveInFluid"(arg0: $FluidState$$Type, arg1: $Vec3$$Type, arg2: double): boolean
+ "jumpInFluid"(arg0: $FluidType$$Type): void
  "canDrownInFluidType"(arg0: $FluidType$$Type): boolean
  "canSwimInFluidType"(arg0: $FluidType$$Type): boolean
- "moveInFluid"(arg0: $FluidState$$Type, arg1: $Vec3$$Type, arg2: double): boolean
- "sinkInFluid"(arg0: $FluidType$$Type): void
- "onDamageTaken"(arg0: $DamageContainer$$Type): void
- "jumpInFluid"(arg0: $FluidType$$Type): void
- "getMaxHeightFluidType"(): $FluidType
- "copyAttachmentsFrom"(arg0: $Entity$$Type, arg1: boolean): void
- "canHydrateInFluidType"(arg0: $FluidType$$Type): boolean
- "canBeRiddenUnderFluidType"(arg0: $FluidType$$Type, arg1: $Entity$$Type): boolean
- "getFluidMotionScale"(arg0: $FluidType$$Type): double
- "hasCustomOutlineRendering"(arg0: $Player$$Type): boolean
- "getSoundFromFluidType"(arg0: $FluidType$$Type, arg1: $SoundAction$$Type): $SoundEvent
- "getPickedResult"(arg0: $HitResult$$Type): $ItemStack
- "isInFluidType"(arg0: $BiPredicate$$Type<($FluidType), (double)>, arg1: boolean): boolean
+ "captureDrops"(arg0: $Collection$$Type<($ItemEntity$$Type)>): $Collection<($ItemEntity)>
+ "captureDrops"(): $Collection<($ItemEntity)>
  "isInFluidType"(arg0: $FluidState$$Type): boolean
  "isInFluidType"(arg0: $FluidType$$Type): boolean
  "isInFluidType"(arg0: $BiPredicate$$Type<($FluidType), (double)>): boolean
  "isInFluidType"(): boolean
+ "isInFluidType"(arg0: $BiPredicate$$Type<($FluidType), (double)>, arg1: boolean): boolean
+ "getFluidTypeHeight"(arg0: $FluidType$$Type): double
  "getParts"(): ($PartEntity<(never)>)[]
  "canTrample"(arg0: $BlockState$$Type, arg1: $BlockPos$$Type, arg2: float): boolean
  "revive"(): void
  "getFluidFallDistanceModifier"(arg0: $FluidType$$Type): float
+ "getMaxHeightFluidType"(): $FluidType
+ "getFluidMotionScale"(arg0: $FluidType$$Type): double
+ "canHydrateInFluidType"(arg0: $FluidType$$Type): boolean
+ "getSoundFromFluidType"(arg0: $FluidType$$Type, arg1: $SoundAction$$Type): $SoundEvent
+ "canBeRiddenUnderFluidType"(arg0: $FluidType$$Type, arg1: $Entity$$Type): boolean
+ "copyAttachmentsFrom"(arg0: $Entity$$Type, arg1: boolean): void
+ "hasCustomOutlineRendering"(arg0: $Player$$Type): boolean
  "getEyeInFluidType"(): $FluidType
- "shouldRiderSit"(): boolean
- "isEyeInFluidType"(arg0: $FluidType$$Type): boolean
- "isMultipartEntity"(): boolean
+ "isPushedByFluid"(arg0: $FluidType$$Type): boolean
+ "getPersistentData"(): $CompoundTag
+ "canRiderInteract"(): boolean
+ "isAddedToLevel"(): boolean
+ "onAddedToLevel"(): void
 /**
  * 
  * @deprecated
@@ -160,24 +164,20 @@ export class $ILivingEntityExtension implements $ILivingEntityExtension$$Interfa
  * @deprecated
  */
  "deserializeNBT"(arg0: $HolderLookup$Provider$$Type, arg1: $CompoundTag$$Type): void
- "getPersistentData"(): $CompoundTag
- "canStartSwimming"(): boolean
- "getClassification"(arg0: boolean): $MobCategory
- "canRiderInteract"(): boolean
- "isPushedByFluid"(arg0: $FluidType$$Type): boolean
- "onAddedToLevel"(): void
- "onRemovedFromLevel"(): void
 /**
  * 
  * @deprecated
  */
- "serializeNBT"(arg0: $HolderLookup$Provider$$Type): $Tag
- "isAddedToLevel"(): boolean
- "sendPairingData"(arg0: $ServerPlayer$$Type, arg1: $Consumer$$Type<($CustomPacketPayload)>): void
- "captureDrops"(arg0: $Collection$$Type<($ItemEntity$$Type)>): $Collection<($ItemEntity)>
- "captureDrops"(): $Collection<($ItemEntity)>
- "getFluidTypeHeight"(arg0: $FluidType$$Type): double
+ "serializeNBT"(arg0: $HolderLookup$Provider$$Type): $CompoundTag
+ "shouldRiderSit"(): boolean
+ "getClassification"(arg0: boolean): $MobCategory
  "canFluidExtinguish"(arg0: $FluidType$$Type): boolean
+ "getPickedResult"(arg0: $HitResult$$Type): $ItemStack
+ "canStartSwimming"(): boolean
+ "isMultipartEntity"(): boolean
+ "isEyeInFluidType"(arg0: $FluidType$$Type): boolean
+ "sendPairingData"(arg0: $ServerPlayer$$Type, arg1: $Consumer$$Type<($CustomPacketPayload)>): void
+ "onRemovedFromLevel"(): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -189,8 +189,8 @@ export type $ILivingEntityExtension$$Type = ($ILivingEntityExtension);
  */
 export type $ILivingEntityExtension$$Original = $ILivingEntityExtension;}
 declare module "net.neoforged.neoforge.common.crafting.SizedIngredient" {
-import {$Iterable$$Type} from "java.lang.Iterable"
 import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
+import {$Iterable$$Type} from "java.lang.Iterable"
 import {$ReplacementMatch} from "dev.latvian.mods.kubejs.recipe.match.ReplacementMatch"
 import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$RecipeScriptContext$$Type} from "dev.latvian.mods.kubejs.recipe.RecipeScriptContext"
@@ -199,9 +199,9 @@ import {$JsonElement} from "com.google.gson.JsonElement"
 import {$RecipeMatchContext$$Type} from "dev.latvian.mods.kubejs.recipe.filter.RecipeMatchContext"
 import {$Codec} from "com.mojang.serialization.Codec"
 import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
-import {$TagKey$$Type} from "net.minecraft.tags.TagKey"
-import {$ItemLike$$Type} from "net.minecraft.world.level.ItemLike"
 import {$SizedIngredientKJS$$Interface} from "dev.latvian.mods.kubejs.core.SizedIngredientKJS"
+import {$ItemLike$$Type} from "net.minecraft.world.level.ItemLike"
+import {$TagKey$$Type} from "net.minecraft.tags.TagKey"
 import {$Item$$Type} from "net.minecraft.world.item.Item"
 
 export class $SizedIngredient implements $SizedIngredientKJS$$Interface {
@@ -220,11 +220,11 @@ public static "of"(arg0: $TagKey$$Type<($Item)>, arg1: integer): $SizedIngredien
 public "count"(): integer
 public "getItems"(): ($ItemStack)[]
 public "ingredient"(): $Ingredient
-public "matches"(cx: $RecipeMatchContext$$Type, item: $ItemStack$$Type, exact: boolean): boolean
 public "matches"(cx: $RecipeMatchContext$$Type, arg1: $Ingredient$$Type, exact: boolean): boolean
+public "matches"(cx: $RecipeMatchContext$$Type, item: $ItemStack$$Type, exact: boolean): boolean
+public "replaceThisWith"(cx: $RecipeScriptContext$$Type, arg1: any): any
 public "kjs$self"(): $SizedIngredient
 public "kjs$asIngredient"(): $Ingredient
-public "replaceThisWith"(cx: $RecipeScriptContext$$Type, arg1: any): any
 public "kjs$toFlatJson"(): $JsonElement
 public "kjs$toNestedJson"(): $JsonElement
 public "matches"(cx: $RecipeMatchContext$$Type, itemLike: $ItemLike$$Type, exact: boolean): boolean
@@ -292,8 +292,8 @@ import {$StreamEncoder$$Type} from "net.minecraft.network.codec.StreamEncoder"
 import {$Collection$$Type} from "java.util.Collection"
 import {$Map, $Map$$Type} from "java.util.Map"
 import {$FriendlyByteBuf, $FriendlyByteBuf$$Type} from "net.minecraft.network.FriendlyByteBuf"
-import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$TriConsumer$$Type} from "org.apache.commons.lang3.function.TriConsumer"
+import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$StreamDecoder$$Type} from "net.minecraft.network.codec.StreamDecoder"
 import {$IntFunction$$Type} from "java.util.function.IntFunction"
 
@@ -302,11 +302,11 @@ export interface $IFriendlyByteBufExtension$$Interface {
 
 export class $IFriendlyByteBufExtension implements $IFriendlyByteBufExtension$$Interface {
  "writeByte"(arg0: byte): $FriendlyByteBuf
+ "writeMap"<K, V>(arg0: $Map$$Type<(K), (V)>, arg1: $StreamEncoder$$Type<($FriendlyByteBuf), (K)>, arg2: $TriConsumer$$Type<($FriendlyByteBuf), (K), (V)>): void
  "writeArray"<T>(arg0: (T)[], arg1: $StreamEncoder$$Type<($FriendlyByteBuf), (T)>): $FriendlyByteBuf
+ "readMap"<K, V>(arg0: $StreamDecoder$$Type<($FriendlyByteBuf), (K)>, arg1: $BiFunction$$Type<($FriendlyByteBuf), (K), (V)>): $Map<(K), (V)>
  "readArray"<T>(arg0: $IntFunction$$Type<((T)[])>, arg1: $StreamDecoder$$Type<($FriendlyByteBuf), (T)>): (T)[]
  "writeObjectCollection"<T>(arg0: $Collection$$Type<(T)>, arg1: $BiConsumer$$Type<(T), ($FriendlyByteBuf)>): void
- "writeMap"<K, V>(arg0: $Map$$Type<(K), (V)>, arg1: $StreamEncoder$$Type<($FriendlyByteBuf), (K)>, arg2: $TriConsumer$$Type<($FriendlyByteBuf), (K), (V)>): void
- "readMap"<K, V>(arg0: $StreamDecoder$$Type<($FriendlyByteBuf), (K)>, arg1: $BiFunction$$Type<($FriendlyByteBuf), (K), (V)>): $Map<(K), (V)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -323,8 +323,8 @@ import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$Optional} from "java.util.Optional"
 import {$Mob$$Type} from "net.minecraft.world.entity.Mob"
 import {$Direction, $Direction$$Type} from "net.minecraft.core.Direction"
-import {$ServerPlayer$RespawnPosAngle} from "net.minecraft.server.level.ServerPlayer$RespawnPosAngle"
 import {$Level$$Type} from "net.minecraft.world.level.Level"
+import {$ServerPlayer$RespawnPosAngle} from "net.minecraft.server.level.ServerPlayer$RespawnPosAngle"
 import {$ItemAbility$$Type} from "net.neoforged.neoforge.common.ItemAbility"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$Vec3$$Type} from "net.minecraft.world.phys.Vec3"
@@ -362,64 +362,64 @@ export interface $IBlockExtension$$Interface extends $FabricBlock$$Interface, $I
 export class $IBlockExtension implements $IBlockExtension$$Interface {
  "isEmpty"(arg0: $BlockState$$Type): boolean
  "rotate"(arg0: $BlockState$$Type, arg1: $LevelAccessor$$Type, arg2: $BlockPos$$Type, arg3: $Rotation$$Type): $BlockState
- "collisionExtendsVertically"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Entity$$Type): boolean
- "getPistonPushReaction"(arg0: $BlockState$$Type): $PushReaction
- "getCloneItemStack"(arg0: $BlockState$$Type, arg1: $HitResult$$Type, arg2: $LevelReader$$Type, arg3: $BlockPos$$Type, arg4: $Player$$Type): $ItemStack
- "addRunningEffects"(arg0: $BlockState$$Type, arg1: $Level$$Type, arg2: $BlockPos$$Type, arg3: $Entity$$Type): boolean
- "onBlockStateChange"(arg0: $LevelReader$$Type, arg1: $BlockPos$$Type, arg2: $BlockState$$Type, arg3: $BlockState$$Type): void
- "getLightEmission"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type): integer
- "addLandingEffects"(arg0: $BlockState$$Type, arg1: $ServerLevel$$Type, arg2: $BlockPos$$Type, arg3: $BlockState$$Type, arg4: $LivingEntity$$Type, arg5: integer): boolean
- "onNeighborChange"(arg0: $BlockState$$Type, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type, arg3: $BlockPos$$Type): void
- "getWeakChanges"(arg0: $BlockState$$Type, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type): boolean
- "makesOpenTrapdoorAboveClimbable"(arg0: $BlockState$$Type, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type, arg3: $BlockState$$Type): boolean
- "shouldHideAdjacentFluidFace"(arg0: $BlockState$$Type, arg1: $Direction$$Type, arg2: $FluidState$$Type): boolean
- "isBed"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $LivingEntity$$Type): boolean
- "shouldCheckWeakPower"(arg0: $BlockState$$Type, arg1: $SignalGetter$$Type, arg2: $BlockPos$$Type, arg3: $Direction$$Type): boolean
- "hidesNeighborFace"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $BlockState$$Type, arg3: $BlockState$$Type, arg4: $Direction$$Type): boolean
- "getFireSpreadSpeed"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Direction$$Type): integer
- "canSustainPlant"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Direction$$Type, arg4: $BlockState$$Type): $TriState
- "isSlimeBlock"(arg0: $BlockState$$Type): boolean
- "getRespawnPosition"(arg0: $BlockState$$Type, arg1: $EntityType$$Type<(never)>, arg2: $LevelReader$$Type, arg3: $BlockPos$$Type, arg4: float): $Optional<($ServerPlayer$RespawnPosAngle)>
- "isFireSource"(arg0: $BlockState$$Type, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type, arg3: $Direction$$Type): boolean
- "onBlockExploded"(arg0: $BlockState$$Type, arg1: $Level$$Type, arg2: $BlockPos$$Type, arg3: $Explosion$$Type): void
- "canEntityDestroy"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Entity$$Type): boolean
- "isFlammable"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Direction$$Type): boolean
- "isConduitFrame"(arg0: $BlockState$$Type, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type, arg3: $BlockPos$$Type): boolean
- "ignitedByLava"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Direction$$Type): boolean
- "isPortalFrame"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type): boolean
- "getFlammability"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Direction$$Type): integer
- "canHarvestBlock"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Player$$Type): boolean
- "isStickyBlock"(arg0: $BlockState$$Type): boolean
- "onCaughtFire"(arg0: $BlockState$$Type, arg1: $Level$$Type, arg2: $BlockPos$$Type, arg3: $Direction$$Type, arg4: $LivingEntity$$Type): void
- "getBlockPathType"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Mob$$Type): $PathType
- "canStickTo"(arg0: $BlockState$$Type, arg1: $BlockState$$Type): boolean
- "isLadder"(arg0: $BlockState$$Type, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type, arg3: $LivingEntity$$Type): boolean
- "getExpDrop"(arg0: $BlockState$$Type, arg1: $LevelAccessor$$Type, arg2: $BlockPos$$Type, arg3: $BlockEntity$$Type, arg4: $Entity$$Type, arg5: $ItemStack$$Type): integer
- "isBurning"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type): boolean
- "isFertile"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type): boolean
- "onTreeGrow"(arg0: $BlockState$$Type, arg1: $LevelReader$$Type, arg2: $BiConsumer$$Type<($BlockPos), ($BlockState)>, arg3: $RandomSource$$Type, arg4: $BlockPos$$Type, arg5: $TreeConfiguration$$Type): boolean
- "canConnectRedstone"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Direction$$Type): boolean
- "canBeHydrated"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $FluidState$$Type, arg4: $BlockPos$$Type): boolean
- "getMapColor"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $MapColor$$Type): $MapColor
- "getAppearance"(arg0: $BlockState$$Type, arg1: $BlockAndTintGetter$$Type, arg2: $BlockPos$$Type, arg3: $Direction$$Type, arg4: $BlockState$$Type, arg5: $BlockPos$$Type): $BlockState
- "getToolModifiedState"(arg0: $BlockState$$Type, arg1: $UseOnContext$$Type, arg2: $ItemAbility$$Type, arg3: boolean): $BlockState
- "getStateAtViewpoint"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Vec3$$Type): $BlockState
- "onDestroyedByPushReaction"(arg0: $BlockState$$Type, arg1: $Level$$Type, arg2: $BlockPos$$Type, arg3: $Direction$$Type, arg4: $FluidState$$Type): void
- "getEnchantPowerBonus"(arg0: $BlockState$$Type, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type): float
- "getBeaconColorMultiplier"(arg0: $BlockState$$Type, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type, arg3: $BlockPos$$Type): integer
- "hasDynamicLightEmission"(arg0: $BlockState$$Type): boolean
+ "getAdjacentBlockPathType"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Mob$$Type, arg4: $PathType$$Type): $PathType
+ "getExplosionResistance"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Explosion$$Type): float
+ "supportsExternalFaceHiding"(arg0: $BlockState$$Type): boolean
  "onDestroyedByPlayer"(arg0: $BlockState$$Type, arg1: $Level$$Type, arg2: $BlockPos$$Type, arg3: $Player$$Type, arg4: boolean, arg5: $FluidState$$Type): boolean
+ "getBeaconColorMultiplier"(arg0: $BlockState$$Type, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type, arg3: $BlockPos$$Type): integer
+ "getEnchantPowerBonus"(arg0: $BlockState$$Type, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type): float
+ "canDropFromExplosion"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Explosion$$Type): boolean
  "shouldDisplayFluidOverlay"(arg0: $BlockState$$Type, arg1: $BlockAndTintGetter$$Type, arg2: $BlockPos$$Type, arg3: $FluidState$$Type): boolean
  "getBubbleColumnDirection"(arg0: $BlockState$$Type): $BubbleColumnDirection
- "canDropFromExplosion"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Explosion$$Type): boolean
- "supportsExternalFaceHiding"(arg0: $BlockState$$Type): boolean
- "getExplosionResistance"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Explosion$$Type): float
+ "getToolModifiedState"(arg0: $BlockState$$Type, arg1: $UseOnContext$$Type, arg2: $ItemAbility$$Type, arg3: boolean): $BlockState
+ "hasDynamicLightEmission"(arg0: $BlockState$$Type): boolean
+ "getStateAtViewpoint"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Vec3$$Type): $BlockState
+ "onDestroyedByPushReaction"(arg0: $BlockState$$Type, arg1: $Level$$Type, arg2: $BlockPos$$Type, arg3: $Direction$$Type, arg4: $FluidState$$Type): void
+ "getBlockPathType"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Mob$$Type): $PathType
+ "hidesNeighborFace"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $BlockState$$Type, arg3: $BlockState$$Type, arg4: $Direction$$Type): boolean
+ "canHarvestBlock"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Player$$Type): boolean
+ "canSustainPlant"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Direction$$Type, arg4: $BlockState$$Type): $TriState
+ "getRespawnPosition"(arg0: $BlockState$$Type, arg1: $EntityType$$Type<(never)>, arg2: $LevelReader$$Type, arg3: $BlockPos$$Type, arg4: float): $Optional<($ServerPlayer$RespawnPosAngle)>
+ "isConduitFrame"(arg0: $BlockState$$Type, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type, arg3: $BlockPos$$Type): boolean
+ "isPortalFrame"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type): boolean
+ "isStickyBlock"(arg0: $BlockState$$Type): boolean
+ "getFlammability"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Direction$$Type): integer
+ "ignitedByLava"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Direction$$Type): boolean
+ "isSlimeBlock"(arg0: $BlockState$$Type): boolean
+ "isFlammable"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Direction$$Type): boolean
+ "onCaughtFire"(arg0: $BlockState$$Type, arg1: $Level$$Type, arg2: $BlockPos$$Type, arg3: $Direction$$Type, arg4: $LivingEntity$$Type): void
+ "getFireSpreadSpeed"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Direction$$Type): integer
+ "canEntityDestroy"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Entity$$Type): boolean
+ "isFireSource"(arg0: $BlockState$$Type, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type, arg3: $Direction$$Type): boolean
+ "canBeHydrated"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $FluidState$$Type, arg4: $BlockPos$$Type): boolean
+ "getAppearance"(arg0: $BlockState$$Type, arg1: $BlockAndTintGetter$$Type, arg2: $BlockPos$$Type, arg3: $Direction$$Type, arg4: $BlockState$$Type, arg5: $BlockPos$$Type): $BlockState
+ "getMapColor"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $MapColor$$Type): $MapColor
+ "onBlockExploded"(arg0: $BlockState$$Type, arg1: $Level$$Type, arg2: $BlockPos$$Type, arg3: $Explosion$$Type): void
+ "canConnectRedstone"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Direction$$Type): boolean
  "getSoundType"(arg0: $BlockState$$Type, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type, arg3: $Entity$$Type): $SoundType
- "getFriction"(arg0: $BlockState$$Type, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type, arg3: $Entity$$Type): float
+ "addLandingEffects"(arg0: $BlockState$$Type, arg1: $ServerLevel$$Type, arg2: $BlockPos$$Type, arg3: $BlockState$$Type, arg4: $LivingEntity$$Type, arg5: integer): boolean
  "isScaffolding"(arg0: $BlockState$$Type, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type, arg3: $LivingEntity$$Type): boolean
- "setBedOccupied"(arg0: $BlockState$$Type, arg1: $Level$$Type, arg2: $BlockPos$$Type, arg3: $LivingEntity$$Type, arg4: boolean): void
+ "getFriction"(arg0: $BlockState$$Type, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type, arg3: $Entity$$Type): float
+ "shouldCheckWeakPower"(arg0: $BlockState$$Type, arg1: $SignalGetter$$Type, arg2: $BlockPos$$Type, arg3: $Direction$$Type): boolean
+ "collisionExtendsVertically"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Entity$$Type): boolean
+ "addRunningEffects"(arg0: $BlockState$$Type, arg1: $Level$$Type, arg2: $BlockPos$$Type, arg3: $Entity$$Type): boolean
+ "getPistonPushReaction"(arg0: $BlockState$$Type): $PushReaction
+ "getLightEmission"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type): integer
+ "onBlockStateChange"(arg0: $LevelReader$$Type, arg1: $BlockPos$$Type, arg2: $BlockState$$Type, arg3: $BlockState$$Type): void
+ "onNeighborChange"(arg0: $BlockState$$Type, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type, arg3: $BlockPos$$Type): void
+ "getWeakChanges"(arg0: $BlockState$$Type, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type): boolean
+ "isBed"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $LivingEntity$$Type): boolean
  "getBedDirection"(arg0: $BlockState$$Type, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type): $Direction
- "getAdjacentBlockPathType"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Mob$$Type, arg4: $PathType$$Type): $PathType
+ "setBedOccupied"(arg0: $BlockState$$Type, arg1: $Level$$Type, arg2: $BlockPos$$Type, arg3: $LivingEntity$$Type, arg4: boolean): void
+ "getCloneItemStack"(arg0: $BlockState$$Type, arg1: $HitResult$$Type, arg2: $LevelReader$$Type, arg3: $BlockPos$$Type, arg4: $Player$$Type): $ItemStack
+ "makesOpenTrapdoorAboveClimbable"(arg0: $BlockState$$Type, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type, arg3: $BlockState$$Type): boolean
+ "shouldHideAdjacentFluidFace"(arg0: $BlockState$$Type, arg1: $Direction$$Type, arg2: $FluidState$$Type): boolean
+ "isFertile"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type): boolean
+ "isLadder"(arg0: $BlockState$$Type, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type, arg3: $LivingEntity$$Type): boolean
+ "getExpDrop"(arg0: $BlockState$$Type, arg1: $LevelAccessor$$Type, arg2: $BlockPos$$Type, arg3: $BlockEntity$$Type, arg4: $Entity$$Type, arg5: $ItemStack$$Type): integer
+ "onTreeGrow"(arg0: $BlockState$$Type, arg1: $LevelReader$$Type, arg2: $BiConsumer$$Type<($BlockPos), ($BlockState)>, arg3: $RandomSource$$Type, arg4: $BlockPos$$Type, arg5: $TreeConfiguration$$Type): boolean
+ "canStickTo"(arg0: $BlockState$$Type, arg1: $BlockState$$Type): boolean
+ "isBurning"(arg0: $BlockState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -432,22 +432,22 @@ export type $IBlockExtension$$Type = ($IBlockExtension);
 export type $IBlockExtension$$Original = $IBlockExtension;}
 declare module "net.neoforged.neoforge.common.world.ModifiableBiomeInfo$BiomeInfo$Builder" {
 import {$MobSpawnSettingsBuilder} from "net.neoforged.neoforge.common.world.MobSpawnSettingsBuilder"
-import {$BiomeSpecialEffectsBuilder} from "net.neoforged.neoforge.common.world.BiomeSpecialEffectsBuilder"
 import {$ClimateSettingsBuilder} from "net.neoforged.neoforge.common.world.ClimateSettingsBuilder"
+import {$BiomeSpecialEffectsBuilder} from "net.neoforged.neoforge.common.world.BiomeSpecialEffectsBuilder"
 import {$BiomeGenerationSettingsBuilder} from "net.neoforged.neoforge.common.world.BiomeGenerationSettingsBuilder"
 import {$ModifiableBiomeInfo$BiomeInfo, $ModifiableBiomeInfo$BiomeInfo$$Type} from "net.neoforged.neoforge.common.world.ModifiableBiomeInfo$BiomeInfo"
 
 export class $ModifiableBiomeInfo$BiomeInfo$Builder {
 public static "copyOf"(arg0: $ModifiableBiomeInfo$BiomeInfo$$Type): $ModifiableBiomeInfo$BiomeInfo$Builder
 public "build"(): $ModifiableBiomeInfo$BiomeInfo
+public "getMobSpawnSettings"(): $MobSpawnSettingsBuilder
 public "getGenerationSettings"(): $BiomeGenerationSettingsBuilder
 public "getSpecialEffects"(): $BiomeSpecialEffectsBuilder
 public "getClimateSettings"(): $ClimateSettingsBuilder
-public "getMobSpawnSettings"(): $MobSpawnSettingsBuilder
+get "mobSpawnSettings"(): $MobSpawnSettingsBuilder
 get "generationSettings"(): $BiomeGenerationSettingsBuilder
 get "specialEffects"(): $BiomeSpecialEffectsBuilder
 get "climateSettings"(): $ClimateSettingsBuilder
-get "mobSpawnSettings"(): $MobSpawnSettingsBuilder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -472,8 +472,8 @@ constructor(codec: $MapCodec$$Type<(T)>, streamCodec: $StreamCodec$$Type<($Regis
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public "codec"(): $MapCodec<(T)>
 public "streamCodec"(): $StreamCodec<($RegistryFriendlyByteBuf), (T)>
+public "codec"(): $MapCodec<(T)>
 /**
  * This field is a type stub generated by ProbeJS and shall not be used in any sense.
  */
@@ -546,20 +546,20 @@ export class $ClimateSettingsBuilder {
 public static "copyOf"(arg0: $Biome$ClimateSettings$$Type): $ClimateSettingsBuilder
 public static "create"(arg0: boolean, arg1: float, arg2: $Biome$TemperatureModifier$$Type, arg3: float): $ClimateSettingsBuilder
 public "build"(): $Biome$ClimateSettings
-public "getDownfall"(): float
-public "hasPrecipitation"(): boolean
 public "getTemperature"(): float
-public "setTemperatureModifier"(arg0: $Biome$TemperatureModifier$$Type): void
+public "setTemperature"(arg0: float): void
+public "hasPrecipitation"(): boolean
+public "getDownfall"(): float
 public "getTemperatureModifier"(): $Biome$TemperatureModifier
+public "setTemperatureModifier"(arg0: $Biome$TemperatureModifier$$Type): void
 public "setHasPrecipitation"(arg0: boolean): void
 public "setDownfall"(arg0: float): void
-public "setTemperature"(arg0: float): void
-get "downfall"(): float
 get "temperature"(): float
-set "temperatureModifier"(value: $Biome$TemperatureModifier$$Type)
-get "temperatureModifier"(): $Biome$TemperatureModifier
-set "downfall"(value: float)
 set "temperature"(value: float)
+get "downfall"(): float
+get "temperatureModifier"(): $Biome$TemperatureModifier
+set "temperatureModifier"(value: $Biome$TemperatureModifier$$Type)
+set "downfall"(value: float)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -680,14 +680,14 @@ constructor(nonTicking: $LongSet$$Type, ticking: $LongSet$$Type)
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public "ticking"(): $LongSet
 public "nonTicking"(): $LongSet
+public "ticking"(): $LongSet
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $TicketSet$$Type = ({"ticking"?: $LongSet$$Type, "nonTicking"?: $LongSet$$Type}) | ([ticking?: $LongSet$$Type, nonTicking?: $LongSet$$Type]);
+export type $TicketSet$$Type = ({"nonTicking"?: $LongSet$$Type, "ticking"?: $LongSet$$Type}) | ([nonTicking?: $LongSet$$Type, ticking?: $LongSet$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -696,20 +696,20 @@ declare module "net.neoforged.neoforge.common.extensions.IAbstractMinecartExtens
 import {$BlockPos, $BlockPos$$Type} from "net.minecraft.core.BlockPos"
 
 export interface $IAbstractMinecartExtension$$Interface {
-get "slopeAdjustment"(): double
-get "poweredCart"(): boolean
-get "dragAir"(): double
-set "dragAir"(value: double)
-get "maxSpeedAirVertical"(): float
+get "maxCartSpeedOnRail"(): float
 get "maxSpeedAirLateral"(): float
-set "maxSpeedAirVertical"(value: float)
+get "maxSpeedAirVertical"(): float
+get "comparatorLevel"(): integer
+get "currentCartSpeedCapOnRail"(): float
+set "currentCartSpeedCapOnRail"(value: float)
+get "poweredCart"(): boolean
+get "slopeAdjustment"(): double
 get "maxSpeedWithRail"(): double
 get "currentRailPosition"(): $BlockPos
-get "maxCartSpeedOnRail"(): float
+set "maxSpeedAirVertical"(value: float)
 set "maxSpeedAirLateral"(value: float)
-set "currentCartSpeedCapOnRail"(value: float)
-get "currentCartSpeedCapOnRail"(): float
-get "comparatorLevel"(): integer
+get "dragAir"(): double
+set "dragAir"(value: double)
 }
 
 export class $IAbstractMinecartExtension implements $IAbstractMinecartExtension$$Interface {
@@ -717,25 +717,25 @@ static readonly "DEFAULT_AIR_DRAG": double
 static readonly "DEFAULT_MAX_SPEED_AIR_VERTICAL": float
 static readonly "DEFAULT_MAX_SPEED_AIR_LATERAL": float
 
- "getSlopeAdjustment"(): double
- "moveMinecartOnRail"(arg0: $BlockPos$$Type): void
- "setCanUseRail"(arg0: boolean): void
- "isPoweredCart"(): boolean
- "canBeRidden"(): boolean
- "getDragAir"(): double
- "setDragAir"(arg0: double): void
- "canUseRail"(): boolean
- "getMaxSpeedAirVertical"(): float
- "getMaxSpeedAirLateral"(): float
- "setMaxSpeedAirVertical"(arg0: float): void
- "getMaxSpeedWithRail"(): double
- "shouldDoRailFunctions"(): boolean
- "getCurrentRailPosition"(): $BlockPos
  "getMaxCartSpeedOnRail"(): float
- "setMaxSpeedAirLateral"(arg0: float): void
- "setCurrentCartSpeedCapOnRail"(arg0: float): void
- "getCurrentCartSpeedCapOnRail"(): float
+ "getMaxSpeedAirLateral"(): float
+ "getMaxSpeedAirVertical"(): float
+ "shouldDoRailFunctions"(): boolean
  "getComparatorLevel"(): integer
+ "getCurrentCartSpeedCapOnRail"(): float
+ "setCurrentCartSpeedCapOnRail"(arg0: float): void
+ "canBeRidden"(): boolean
+ "moveMinecartOnRail"(arg0: $BlockPos$$Type): void
+ "isPoweredCart"(): boolean
+ "setCanUseRail"(arg0: boolean): void
+ "getSlopeAdjustment"(): double
+ "getMaxSpeedWithRail"(): double
+ "getCurrentRailPosition"(): $BlockPos
+ "setMaxSpeedAirVertical"(arg0: float): void
+ "setMaxSpeedAirLateral"(arg0: float): void
+ "getDragAir"(): double
+ "canUseRail"(): boolean
+ "setDragAir"(arg0: double): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -756,26 +756,26 @@ export class $DamageContainer {
 constructor(arg0: $DamageSource$$Type, arg1: float)
 
 public "getSource"(): $DamageSource
-public "getPostAttackInvulnerabilityTicks"(): integer
+public "getOriginalDamage"(): float
 public "getShieldDamage"(): float
 public "addModifier"(arg0: $DamageContainer$Reduction$$Type, arg1: $IReductionFunction$$Type): void
-public "getOriginalDamage"(): float
-public "setPostAttackInvulnerabilityTicks"(arg0: integer): void
-public "getNewDamage"(): float
-public "setBlockedDamage"(arg0: $LivingShieldBlockEvent$$Type): void
-public "setNewDamage"(arg0: float): void
-public "getBlockedDamage"(): float
-public "setReduction"(arg0: $DamageContainer$Reduction$$Type, arg1: float): void
 public "getReduction"(arg0: $DamageContainer$Reduction$$Type): float
+public "getNewDamage"(): float
+public "setReduction"(arg0: $DamageContainer$Reduction$$Type, arg1: float): void
+public "setNewDamage"(arg0: float): void
+public "setBlockedDamage"(arg0: $LivingShieldBlockEvent$$Type): void
+public "getBlockedDamage"(): float
+public "setPostAttackInvulnerabilityTicks"(arg0: integer): void
+public "getPostAttackInvulnerabilityTicks"(): integer
 get "source"(): $DamageSource
-get "postAttackInvulnerabilityTicks"(): integer
-get "shieldDamage"(): float
 get "originalDamage"(): float
-set "postAttackInvulnerabilityTicks"(value: integer)
+get "shieldDamage"(): float
 get "newDamage"(): float
-set "blockedDamage"(value: $LivingShieldBlockEvent$$Type)
 set "newDamage"(value: float)
+set "blockedDamage"(value: $LivingShieldBlockEvent$$Type)
 get "blockedDamage"(): float
+set "postAttackInvulnerabilityTicks"(value: integer)
+get "postAttackInvulnerabilityTicks"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -791,8 +791,8 @@ import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$Optional} from "java.util.Optional"
 import {$Mob$$Type} from "net.minecraft.world.entity.Mob"
 import {$Direction, $Direction$$Type} from "net.minecraft.core.Direction"
-import {$ServerPlayer$RespawnPosAngle} from "net.minecraft.server.level.ServerPlayer$RespawnPosAngle"
 import {$Level$$Type} from "net.minecraft.world.level.Level"
+import {$ServerPlayer$RespawnPosAngle} from "net.minecraft.server.level.ServerPlayer$RespawnPosAngle"
 import {$ItemAbility$$Type} from "net.neoforged.neoforge.common.ItemAbility"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$Vec3$$Type} from "net.minecraft.world.phys.Vec3"
@@ -826,70 +826,70 @@ import {$BlockEntity$$Type} from "net.minecraft.world.level.block.entity.BlockEn
 
 export interface $IBlockStateExtension$$Interface extends $IBlockStateExtensionMixin$$Interface, $FabricBlockState$$Interface {
 get "empty"(): boolean
-get "slimeBlock"(): boolean
-get "stickyBlock"(): boolean
 get "bubbleColumnDirection"(): $BubbleColumnDirection
+get "stickyBlock"(): boolean
+get "slimeBlock"(): boolean
 }
 
 export class $IBlockStateExtension implements $IBlockStateExtension$$Interface {
  "isEmpty"(): boolean
  "rotate"(arg0: $LevelAccessor$$Type, arg1: $BlockPos$$Type, arg2: $Rotation$$Type): $BlockState
- "collisionExtendsVertically"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Entity$$Type): boolean
- "getCloneItemStack"(arg0: $HitResult$$Type, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type, arg3: $Player$$Type): $ItemStack
- "canRedstoneConnectTo"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Direction$$Type): boolean
- "addRunningEffects"(arg0: $Level$$Type, arg1: $BlockPos$$Type, arg2: $Entity$$Type): boolean
- "onBlockStateChange"(arg0: $LevelReader$$Type, arg1: $BlockPos$$Type, arg2: $BlockState$$Type): void
- "getLightEmission"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type): integer
- "addLandingEffects"(arg0: $ServerLevel$$Type, arg1: $BlockPos$$Type, arg2: $BlockState$$Type, arg3: $LivingEntity$$Type, arg4: integer): boolean
- "onNeighborChange"(arg0: $LevelReader$$Type, arg1: $BlockPos$$Type, arg2: $BlockPos$$Type): void
- "getWeakChanges"(arg0: $LevelReader$$Type, arg1: $BlockPos$$Type): boolean
- "shouldHideAdjacentFluidFace"(arg0: $Direction$$Type, arg1: $FluidState$$Type): boolean
- "isBed"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $LivingEntity$$Type): boolean
- "shouldCheckWeakPower"(arg0: $SignalGetter$$Type, arg1: $BlockPos$$Type, arg2: $Direction$$Type): boolean
- "hidesNeighborFace"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $BlockState$$Type, arg3: $Direction$$Type): boolean
- "getFireSpreadSpeed"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Direction$$Type): integer
- "canSustainPlant"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Direction$$Type, arg3: $BlockState$$Type): $TriState
- "isSlimeBlock"(): boolean
- "getRespawnPosition"(arg0: $EntityType$$Type<(never)>, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type, arg3: float): $Optional<($ServerPlayer$RespawnPosAngle)>
- "isFireSource"(arg0: $LevelReader$$Type, arg1: $BlockPos$$Type, arg2: $Direction$$Type): boolean
- "onBlockExploded"(arg0: $Level$$Type, arg1: $BlockPos$$Type, arg2: $Explosion$$Type): void
- "canEntityDestroy"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Entity$$Type): boolean
- "isFlammable"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Direction$$Type): boolean
- "isConduitFrame"(arg0: $LevelReader$$Type, arg1: $BlockPos$$Type, arg2: $BlockPos$$Type): boolean
- "ignitedByLava"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Direction$$Type): boolean
- "isPortalFrame"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type): boolean
- "getFlammability"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Direction$$Type): integer
- "canHarvestBlock"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Player$$Type): boolean
- "isStickyBlock"(): boolean
- "onCaughtFire"(arg0: $Level$$Type, arg1: $BlockPos$$Type, arg2: $Direction$$Type, arg3: $LivingEntity$$Type): void
- "getBlockPathType"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Mob$$Type): $PathType
- "canStickTo"(arg0: $BlockState$$Type): boolean
- "isLadder"(arg0: $LevelReader$$Type, arg1: $BlockPos$$Type, arg2: $LivingEntity$$Type): boolean
- "getExpDrop"(arg0: $LevelAccessor$$Type, arg1: $BlockPos$$Type, arg2: $BlockEntity$$Type, arg3: $Entity$$Type, arg4: $ItemStack$$Type): integer
- "isBurning"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type): boolean
- "isFertile"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type): boolean
- "onTreeGrow"(arg0: $LevelReader$$Type, arg1: $BiConsumer$$Type<($BlockPos), ($BlockState)>, arg2: $RandomSource$$Type, arg3: $BlockPos$$Type, arg4: $TreeConfiguration$$Type): boolean
- "canBeHydrated"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $FluidState$$Type, arg3: $BlockPos$$Type): boolean
- "getAppearance"(arg0: $BlockAndTintGetter$$Type, arg1: $BlockPos$$Type, arg2: $Direction$$Type, arg3: $BlockState$$Type, arg4: $BlockPos$$Type): $BlockState
- "getToolModifiedState"(arg0: $UseOnContext$$Type, arg1: $ItemAbility$$Type, arg2: boolean): $BlockState
- "getStateAtViewpoint"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Vec3$$Type): $BlockState
- "onDestroyedByPushReaction"(arg0: $Level$$Type, arg1: $BlockPos$$Type, arg2: $Direction$$Type, arg3: $FluidState$$Type): void
- "getEnchantPowerBonus"(arg0: $LevelReader$$Type, arg1: $BlockPos$$Type): float
- "getBeaconColorMultiplier"(arg0: $LevelReader$$Type, arg1: $BlockPos$$Type, arg2: $BlockPos$$Type): integer
- "hasDynamicLightEmission"(): boolean
+ "getAdjacentBlockPathType"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Mob$$Type, arg3: $PathType$$Type): $PathType
+ "getExplosionResistance"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Explosion$$Type): float
+ "supportsExternalFaceHiding"(): boolean
  "onDestroyedByPlayer"(arg0: $Level$$Type, arg1: $BlockPos$$Type, arg2: $Player$$Type, arg3: boolean, arg4: $FluidState$$Type): boolean
+ "getBeaconColorMultiplier"(arg0: $LevelReader$$Type, arg1: $BlockPos$$Type, arg2: $BlockPos$$Type): integer
+ "getEnchantPowerBonus"(arg0: $LevelReader$$Type, arg1: $BlockPos$$Type): float
+ "canDropFromExplosion"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Explosion$$Type): boolean
  "shouldDisplayFluidOverlay"(arg0: $BlockAndTintGetter$$Type, arg1: $BlockPos$$Type, arg2: $FluidState$$Type): boolean
  "getBubbleColumnDirection"(): $BubbleColumnDirection
- "canDropFromExplosion"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Explosion$$Type): boolean
- "supportsExternalFaceHiding"(): boolean
- "getExplosionResistance"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Explosion$$Type): float
+ "getToolModifiedState"(arg0: $UseOnContext$$Type, arg1: $ItemAbility$$Type, arg2: boolean): $BlockState
+ "hasDynamicLightEmission"(): boolean
+ "getStateAtViewpoint"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Vec3$$Type): $BlockState
+ "onDestroyedByPushReaction"(arg0: $Level$$Type, arg1: $BlockPos$$Type, arg2: $Direction$$Type, arg3: $FluidState$$Type): void
+ "getBlockPathType"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Mob$$Type): $PathType
+ "hidesNeighborFace"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $BlockState$$Type, arg3: $Direction$$Type): boolean
+ "canHarvestBlock"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Player$$Type): boolean
+ "canSustainPlant"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Direction$$Type, arg3: $BlockState$$Type): $TriState
+ "getRespawnPosition"(arg0: $EntityType$$Type<(never)>, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type, arg3: float): $Optional<($ServerPlayer$RespawnPosAngle)>
+ "isConduitFrame"(arg0: $LevelReader$$Type, arg1: $BlockPos$$Type, arg2: $BlockPos$$Type): boolean
+ "isPortalFrame"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type): boolean
+ "isStickyBlock"(): boolean
+ "getFlammability"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Direction$$Type): integer
+ "ignitedByLava"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Direction$$Type): boolean
+ "isSlimeBlock"(): boolean
+ "isFlammable"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Direction$$Type): boolean
+ "onCaughtFire"(arg0: $Level$$Type, arg1: $BlockPos$$Type, arg2: $Direction$$Type, arg3: $LivingEntity$$Type): void
+ "getFireSpreadSpeed"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Direction$$Type): integer
+ "canEntityDestroy"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Entity$$Type): boolean
+ "isFireSource"(arg0: $LevelReader$$Type, arg1: $BlockPos$$Type, arg2: $Direction$$Type): boolean
+ "canBeHydrated"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $FluidState$$Type, arg3: $BlockPos$$Type): boolean
+ "getAppearance"(arg0: $BlockAndTintGetter$$Type, arg1: $BlockPos$$Type, arg2: $Direction$$Type, arg3: $BlockState$$Type, arg4: $BlockPos$$Type): $BlockState
+ "onBlockExploded"(arg0: $Level$$Type, arg1: $BlockPos$$Type, arg2: $Explosion$$Type): void
  "getSoundType"(arg0: $LevelReader$$Type, arg1: $BlockPos$$Type, arg2: $Entity$$Type): $SoundType
- "getFriction"(arg0: $LevelReader$$Type, arg1: $BlockPos$$Type, arg2: $Entity$$Type): float
- "isScaffolding"(arg0: $LivingEntity$$Type): boolean
- "setBedOccupied"(arg0: $Level$$Type, arg1: $BlockPos$$Type, arg2: $LivingEntity$$Type, arg3: boolean): void
- "getBedDirection"(arg0: $LevelReader$$Type, arg1: $BlockPos$$Type): $Direction
  "handler$zdl000$fabric_rendering_fluids_v1$shouldDisplayFluidOverlay"(arg0: $BlockAndTintGetter$$Type, arg1: $BlockPos$$Type, arg2: $FluidState$$Type, arg3: $CallbackInfoReturnable$$Type): void
- "getAdjacentBlockPathType"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Mob$$Type, arg3: $PathType$$Type): $PathType
+ "addLandingEffects"(arg0: $ServerLevel$$Type, arg1: $BlockPos$$Type, arg2: $BlockState$$Type, arg3: $LivingEntity$$Type, arg4: integer): boolean
+ "isScaffolding"(arg0: $LivingEntity$$Type): boolean
+ "getFriction"(arg0: $LevelReader$$Type, arg1: $BlockPos$$Type, arg2: $Entity$$Type): float
+ "shouldCheckWeakPower"(arg0: $SignalGetter$$Type, arg1: $BlockPos$$Type, arg2: $Direction$$Type): boolean
+ "collisionExtendsVertically"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Entity$$Type): boolean
+ "addRunningEffects"(arg0: $Level$$Type, arg1: $BlockPos$$Type, arg2: $Entity$$Type): boolean
+ "canRedstoneConnectTo"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Direction$$Type): boolean
+ "getLightEmission"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type): integer
+ "onBlockStateChange"(arg0: $LevelReader$$Type, arg1: $BlockPos$$Type, arg2: $BlockState$$Type): void
+ "onNeighborChange"(arg0: $LevelReader$$Type, arg1: $BlockPos$$Type, arg2: $BlockPos$$Type): void
+ "getWeakChanges"(arg0: $LevelReader$$Type, arg1: $BlockPos$$Type): boolean
+ "isBed"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $LivingEntity$$Type): boolean
+ "getBedDirection"(arg0: $LevelReader$$Type, arg1: $BlockPos$$Type): $Direction
+ "setBedOccupied"(arg0: $Level$$Type, arg1: $BlockPos$$Type, arg2: $LivingEntity$$Type, arg3: boolean): void
+ "getCloneItemStack"(arg0: $HitResult$$Type, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type, arg3: $Player$$Type): $ItemStack
+ "shouldHideAdjacentFluidFace"(arg0: $Direction$$Type, arg1: $FluidState$$Type): boolean
+ "isFertile"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type): boolean
+ "isLadder"(arg0: $LevelReader$$Type, arg1: $BlockPos$$Type, arg2: $LivingEntity$$Type): boolean
+ "getExpDrop"(arg0: $LevelAccessor$$Type, arg1: $BlockPos$$Type, arg2: $BlockEntity$$Type, arg3: $Entity$$Type, arg4: $ItemStack$$Type): integer
+ "onTreeGrow"(arg0: $LevelReader$$Type, arg1: $BiConsumer$$Type<($BlockPos), ($BlockState)>, arg2: $RandomSource$$Type, arg3: $BlockPos$$Type, arg4: $TreeConfiguration$$Type): boolean
+ "canStickTo"(arg0: $BlockState$$Type): boolean
+ "isBurning"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -916,15 +916,15 @@ get "persistentData"(): $CompoundTag
 }
 
 export class $IBlockEntityExtension implements $IBlockEntityExtension$$Interface {
- "onChunkUnloaded"(): void
- "handleUpdateTag"(arg0: $CompoundTag$$Type, arg1: $HolderLookup$Provider$$Type): void
- "onDataPacket"(arg0: $Connection$$Type, arg1: $ClientboundBlockEntityDataPacket$$Type, arg2: $HolderLookup$Provider$$Type): void
- "hasCustomOutlineRendering"(arg0: $Player$$Type): boolean
- "invalidateCapabilities"(): void
  "onLoad"(): void
- "getModelData"(): $ModelData
- "getPersistentData"(): $CompoundTag
+ "invalidateCapabilities"(): void
  "requestModelDataUpdate"(): void
+ "getModelData"(): $ModelData
+ "hasCustomOutlineRendering"(arg0: $Player$$Type): boolean
+ "onChunkUnloaded"(): void
+ "onDataPacket"(arg0: $Connection$$Type, arg1: $ClientboundBlockEntityDataPacket$$Type, arg2: $HolderLookup$Provider$$Type): void
+ "handleUpdateTag"(arg0: $CompoundTag$$Type, arg1: $HolderLookup$Provider$$Type): void
+ "getPersistentData"(): $CompoundTag
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -945,13 +945,13 @@ import {$Component$$Type} from "net.minecraft.network.chat.Component"
 import {$CustomPacketPayload$$Type} from "net.minecraft.network.protocol.common.custom.CustomPacketPayload"
 import {$DisconnectionDetails, $DisconnectionDetails$$Type} from "net.minecraft.network.DisconnectionDetails"
 import {$ConnectionType} from "net.neoforged.neoforge.network.connection.ConnectionType"
+import {$IServerCommonPacketListenerExtension$$Interface} from "net.neoforged.neoforge.common.extensions.IServerCommonPacketListenerExtension"
 import {$Exception$$Type} from "java.lang.Exception"
 import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
-import {$IServerCommonPacketListenerExtension$$Interface} from "net.neoforged.neoforge.common.extensions.IServerCommonPacketListenerExtension"
 import {$ConnectionProtocol} from "net.minecraft.network.ConnectionProtocol"
 import {$Packet$$Type} from "net.minecraft.network.protocol.Packet"
-import {$Throwable$$Type} from "java.lang.Throwable"
 import {$ReentrantBlockableEventLoop} from "net.minecraft.util.thread.ReentrantBlockableEventLoop"
+import {$Throwable$$Type} from "java.lang.Throwable"
 import {$Connection} from "net.minecraft.network.Connection"
 import {$CrashReportCategory$$Type} from "net.minecraft.CrashReportCategory"
 
@@ -969,22 +969,22 @@ export class $IServerGamePacketListenerExtension implements $IServerGamePacketLi
  "send"(arg0: $Packet$$Type<(never)>, arg1: $PacketSendListener$$Type): void
  "send"(arg0: $CustomPacketPayload$$Type, arg1: $PacketSendListener$$Type): void
  "getConnection"(): $Connection
- "hasChannel"(arg0: $CustomPacketPayload$Type$$Type<(never)>): boolean
- "hasChannel"(arg0: $CustomPacketPayload$$Type): boolean
- "hasChannel"(arg0: $ResourceLocation$$Type): boolean
+ "getMainThreadEventLoop"(): $ReentrantBlockableEventLoop<(never)>
  "disconnect"(arg0: $Component$$Type): void
  "send"(arg0: $Packet$$Type<(never)>): void
- "getMainThreadEventLoop"(): $ReentrantBlockableEventLoop<(never)>
  "getConnectionType"(): $ConnectionType
+ "hasChannel"(arg0: $ResourceLocation$$Type): boolean
+ "hasChannel"(arg0: $CustomPacketPayload$$Type): boolean
+ "hasChannel"(arg0: $CustomPacketPayload$Type$$Type<(never)>): boolean
  "protocol"(): $ConnectionProtocol
+ "isAcceptingMessages"(): boolean
+ "shouldHandleMessage"(arg0: $Packet$$Type<(never)>): boolean
+ "createDisconnectionInfo"(arg0: $Component$$Type, arg1: $Throwable$$Type): $DisconnectionDetails
+ "onPacketError"(arg0: $Packet$$Type, arg1: $Exception$$Type): void
+ "flow"(): $PacketFlow
  "fillListenerSpecificCrashDetails"(arg0: $CrashReport$$Type, arg1: $CrashReportCategory$$Type): void
  "fillCrashReport"(arg0: $CrashReport$$Type): void
  "onDisconnect"(arg0: $DisconnectionDetails$$Type): void
- "createDisconnectionInfo"(arg0: $Component$$Type, arg1: $Throwable$$Type): $DisconnectionDetails
- "isAcceptingMessages"(): boolean
- "shouldHandleMessage"(arg0: $Packet$$Type<(never)>): boolean
- "onPacketError"(arg0: $Packet$$Type, arg1: $Exception$$Type): void
- "flow"(): $PacketFlow
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1013,17 +1013,17 @@ import {$ItemEnchantments} from "net.minecraft.world.item.enchantment.ItemEnchan
 import {$EquipmentSlot, $EquipmentSlot$$Type} from "net.minecraft.world.entity.EquipmentSlot"
 import {$Item$$Type} from "net.minecraft.world.item.Item"
 import {$UseOnContext$$Type} from "net.minecraft.world.item.context.UseOnContext"
-import {$Entity, $Entity$$Type} from "net.minecraft.world.entity.Entity"
 import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
+import {$Entity, $Entity$$Type} from "net.minecraft.world.entity.Entity"
 import {$EnchantingContext$$Type} from "net.fabricmc.fabric.api.item.v1.EnchantingContext"
 import {$FabricItem$$Interface} from "net.fabricmc.fabric.api.item.v1.FabricItem"
 import {$InteractionHand$$Type} from "net.minecraft.world.InteractionHand"
-import {$HolderLookup$RegistryLookup$$Type} from "net.minecraft.core.HolderLookup$RegistryLookup"
 import {$RecipeType$$Type} from "net.minecraft.world.item.crafting.RecipeType"
+import {$HolderLookup$RegistryLookup$$Type} from "net.minecraft.core.HolderLookup$RegistryLookup"
 import {$ItemEntity$$Type} from "net.minecraft.world.entity.item.ItemEntity"
 import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
-import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$EnderMan$$Type} from "net.minecraft.world.entity.monster.EnderMan"
+import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$InteractionResult} from "net.minecraft.world.InteractionResult"
 import {$Enchantment$$Type} from "net.minecraft.world.item.enchantment.Enchantment"
 import {$DamageSource$$Type} from "net.minecraft.world.damagesource.DamageSource"
@@ -1037,73 +1037,73 @@ export interface $IItemExtension$$Interface extends $FabricItem$$Interface {
 }
 
 export class $IItemExtension implements $IItemExtension$$Interface {
- "createEntity"(arg0: $Level$$Type, arg1: $Entity$$Type, arg2: $ItemStack$$Type): $Entity
- "getSweepHitBox"(arg0: $ItemStack$$Type, arg1: $Player$$Type, arg2: $Entity$$Type): $AABB
- "canElytraFly"(arg0: $ItemStack$$Type, arg1: $LivingEntity$$Type): boolean
- "makesPiglinsNeutral"(arg0: $ItemStack$$Type, arg1: $LivingEntity$$Type): boolean
- "canWalkOnPowderedSnow"(arg0: $ItemStack$$Type, arg1: $LivingEntity$$Type): boolean
- "getEquipmentSlot"(arg0: $ItemStack$$Type): $EquipmentSlot
- "getMaxStackSize"(arg0: $ItemStack$$Type): integer
- "getDamage"(arg0: $ItemStack$$Type): integer
- "handler$dal000$fabric_item_api_v1$shouldCauseBlockBreakReset"(arg0: $ItemStack$$Type, arg1: $ItemStack$$Type, arg2: $CallbackInfoReturnable$$Type): void
  "getCraftingRemainingItem"(arg0: $ItemStack$$Type): $ItemStack
+ "hasCraftingRemainingItem"(arg0: $ItemStack$$Type): boolean
  "canFitInsideContainerItems"(arg0: $ItemStack$$Type): boolean
  "getEnchantmentValue"(arg0: $ItemStack$$Type): integer
- "hasCraftingRemainingItem"(arg0: $ItemStack$$Type): boolean
- "isDamaged"(arg0: $ItemStack$$Type): boolean
- "handler$dag000$fabric_item_api_v1$hasCraftingRemainingItem"(arg0: $ItemStack$$Type, arg1: $CallbackInfoReturnable$$Type): void
- "handler$dag000$fabric_item_api_v1$getCraftingRemainingItem"(arg0: $ItemStack$$Type, arg1: $CallbackInfoReturnable$$Type): void
- "getBurnTime"(arg0: $ItemStack$$Type, arg1: $RecipeType$$Type<(never)>): integer
- "getAllEnchantments"(arg0: $ItemStack$$Type, arg1: $HolderLookup$RegistryLookup$$Type<($Enchantment$$Type)>): $ItemEnchantments
- "getCreatorModId"(arg0: $ItemStack$$Type): StringJS
- "canBeHurtBy"(arg0: $ItemStack$$Type, arg1: $DamageSource$$Type): boolean
- "doesSneakBypassUse"(arg0: $ItemStack$$Type, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type, arg3: $Player$$Type): boolean
- "onAnimalArmorTick"(arg0: $ItemStack$$Type, arg1: $Level$$Type, arg2: $Mob$$Type): void
- "isEnderMask"(arg0: $ItemStack$$Type, arg1: $Player$$Type, arg2: $EnderMan$$Type): boolean
- "applyEnchantments"(arg0: $ItemStack$$Type, arg1: $List$$Type<($EnchantmentInstance$$Type)>): $ItemStack
- "shouldCauseBlockBreakReset"(arg0: $ItemStack$$Type, arg1: $ItemStack$$Type): boolean
  "supportsEnchantment"(arg0: $ItemStack$$Type, arg1: $Holder$$Type<($Enchantment)>): boolean
- "getEnchantmentLevel"(arg0: $ItemStack$$Type, arg1: $Holder$$Type<($Enchantment)>): integer
  "canGrindstoneRepair"(arg0: $ItemStack$$Type): boolean
- "onDestroyed"(arg0: $ItemEntity$$Type, arg1: $DamageSource$$Type): void
- "isRepairable"(arg0: $ItemStack$$Type): boolean
- "isDamageable"(arg0: $ItemStack$$Type): boolean
- "getMaxDamage"(arg0: $ItemStack$$Type): integer
- "shouldCauseReequipAnimation"(arg0: $ItemStack$$Type, arg1: $ItemStack$$Type, arg2: boolean): boolean
- "isNotReplaceableByPickAction"(arg0: $ItemStack$$Type, arg1: $Player$$Type, arg2: integer): boolean
- "getDefaultAttributeModifiers"(arg0: $ItemStack$$Type): $ItemAttributeModifiers
- "onDroppedByPlayer"(arg0: $ItemStack$$Type, arg1: $Player$$Type): boolean
- "getXpRepairRatio"(arg0: $ItemStack$$Type): float
- "isPiglinCurrency"(arg0: $ItemStack$$Type): boolean
- "onItemUseFirst"(arg0: $ItemStack$$Type, arg1: $UseOnContext$$Type): $InteractionResult
- "onLeftClickEntity"(arg0: $ItemStack$$Type, arg1: $Player$$Type, arg2: $Entity$$Type): boolean
- "getEntityLifespan"(arg0: $ItemStack$$Type, arg1: $Level$$Type): integer
- "hasCustomEntity"(arg0: $ItemStack$$Type): boolean
- "getArmorTexture"(arg0: $ItemStack$$Type, arg1: $Entity$$Type, arg2: $EquipmentSlot$$Type, arg3: $ArmorMaterial$Layer$$Type, arg4: boolean): $ResourceLocation
- "isPrimaryItemFor"(arg0: $ItemStack$$Type, arg1: $Holder$$Type<($Enchantment)>): boolean
- "isBookEnchantable"(arg0: $ItemStack$$Type, arg1: $ItemStack$$Type): boolean
- "getHighlightTip"(arg0: $ItemStack$$Type, arg1: $Component$$Type): $Component
- "onEntityItemUpdate"(arg0: $ItemStack$$Type, arg1: $ItemEntity$$Type): boolean
- "canEquip"(arg0: $ItemStack$$Type, arg1: $EquipmentSlot$$Type, arg2: $LivingEntity$$Type): boolean
- "setDamage"(arg0: $ItemStack$$Type, arg1: integer): void
- "damageItem"<T extends $LivingEntity>(arg0: $ItemStack$$Type, arg1: integer, arg2: T, arg3: $Consumer$$Type<($Item)>): integer
+ "getEnchantmentLevel"(arg0: $ItemStack$$Type, arg1: $Holder$$Type<($Enchantment)>): integer
+ "shouldCauseBlockBreakReset"(arg0: $ItemStack$$Type, arg1: $ItemStack$$Type): boolean
+ "createEntity"(arg0: $Level$$Type, arg1: $Entity$$Type, arg2: $ItemStack$$Type): $Entity
  "onEntitySwing"(arg0: $ItemStack$$Type, arg1: $LivingEntity$$Type, arg2: $InteractionHand$$Type): boolean
 /**
  * 
  * @deprecated
  */
  "onEntitySwing"(arg0: $ItemStack$$Type, arg1: $LivingEntity$$Type): boolean
- "elytraFlightTick"(arg0: $ItemStack$$Type, arg1: $LivingEntity$$Type, arg2: integer): boolean
- "canContinueUsing"(arg0: $ItemStack$$Type, arg1: $ItemStack$$Type): boolean
- "getFoodProperties"(arg0: $ItemStack$$Type, arg1: $LivingEntity$$Type): $FoodProperties
+ "canElytraFly"(arg0: $ItemStack$$Type, arg1: $LivingEntity$$Type): boolean
+ "modifyReturnValue$dgi000$fabric_item_api_v1$shouldCauseReequipAnimation"(arg0: boolean, arg1: $ItemStack$$Type, arg2: $ItemStack$$Type, arg3: boolean): boolean
  "canPerformAction"(arg0: $ItemStack$$Type, arg1: $ItemAbility$$Type): boolean
- "canDisableShield"(arg0: $ItemStack$$Type, arg1: $ItemStack$$Type, arg2: $LivingEntity$$Type, arg3: $LivingEntity$$Type): boolean
+ "canContinueUsing"(arg0: $ItemStack$$Type, arg1: $ItemStack$$Type): boolean
  "onStopUsing"(arg0: $ItemStack$$Type, arg1: $LivingEntity$$Type, arg2: integer): void
- "handler$dkk000$connector$redirectIsPiglinCurrency"(arg0: $ItemStack$$Type, arg1: $CallbackInfoReturnable$$Type): void
- "handler$dag000$fabric_item_api_v1$getEquipmentSlot"(arg0: $ItemStack$$Type, arg1: $CallbackInfoReturnable$$Type): void
- "modifyReturnValue$dal000$fabric_item_api_v1$shouldCauseReequipAnimation"(arg0: boolean, arg1: $ItemStack$$Type, arg2: $ItemStack$$Type, arg3: boolean): boolean
- "canBeEnchantedWith"(arg0: $ItemStack$$Type, arg1: $Holder$$Type<($Enchantment)>, arg2: $EnchantingContext$$Type): boolean
+ "elytraFlightTick"(arg0: $ItemStack$$Type, arg1: $LivingEntity$$Type, arg2: integer): boolean
+ "handler$dgd000$fabric_item_api_v1$getEquipmentSlot"(arg0: $ItemStack$$Type, arg1: $CallbackInfoReturnable$$Type): void
+ "handler$ean000$connector$redirectIsPiglinCurrency"(arg0: $ItemStack$$Type, arg1: $CallbackInfoReturnable$$Type): void
+ "onLeftClickEntity"(arg0: $ItemStack$$Type, arg1: $Player$$Type, arg2: $Entity$$Type): boolean
+ "hasCustomEntity"(arg0: $ItemStack$$Type): boolean
+ "isBookEnchantable"(arg0: $ItemStack$$Type, arg1: $ItemStack$$Type): boolean
+ "getXpRepairRatio"(arg0: $ItemStack$$Type): float
+ "getArmorTexture"(arg0: $ItemStack$$Type, arg1: $Entity$$Type, arg2: $EquipmentSlot$$Type, arg3: $ArmorMaterial$Layer$$Type, arg4: boolean): $ResourceLocation
+ "isPrimaryItemFor"(arg0: $ItemStack$$Type, arg1: $Holder$$Type<($Enchantment)>): boolean
+ "getEntityLifespan"(arg0: $ItemStack$$Type, arg1: $Level$$Type): integer
+ "getMaxDamage"(arg0: $ItemStack$$Type): integer
+ "onEntityItemUpdate"(arg0: $ItemStack$$Type, arg1: $ItemEntity$$Type): boolean
+ "isRepairable"(arg0: $ItemStack$$Type): boolean
+ "getAllEnchantments"(arg0: $ItemStack$$Type, arg1: $HolderLookup$RegistryLookup$$Type<($Enchantment$$Type)>): $ItemEnchantments
+ "onDroppedByPlayer"(arg0: $ItemStack$$Type, arg1: $Player$$Type): boolean
+ "getHighlightTip"(arg0: $ItemStack$$Type, arg1: $Component$$Type): $Component
+ "onItemUseFirst"(arg0: $ItemStack$$Type, arg1: $UseOnContext$$Type): $InteractionResult
+ "onDestroyed"(arg0: $ItemEntity$$Type, arg1: $DamageSource$$Type): void
+ "isDamageable"(arg0: $ItemStack$$Type): boolean
+ "isPiglinCurrency"(arg0: $ItemStack$$Type): boolean
+ "isEnderMask"(arg0: $ItemStack$$Type, arg1: $Player$$Type, arg2: $EnderMan$$Type): boolean
+ "doesSneakBypassUse"(arg0: $ItemStack$$Type, arg1: $LevelReader$$Type, arg2: $BlockPos$$Type, arg3: $Player$$Type): boolean
+ "getBurnTime"(arg0: $ItemStack$$Type, arg1: $RecipeType$$Type<(never)>): integer
+ "applyEnchantments"(arg0: $ItemStack$$Type, arg1: $List$$Type<($EnchantmentInstance$$Type)>): $ItemStack
+ "canBeHurtBy"(arg0: $ItemStack$$Type, arg1: $DamageSource$$Type): boolean
+ "getCreatorModId"(arg0: $ItemStack$$Type): StringJS
+ "onAnimalArmorTick"(arg0: $ItemStack$$Type, arg1: $Level$$Type, arg2: $Mob$$Type): void
+ "getSweepHitBox"(arg0: $ItemStack$$Type, arg1: $Player$$Type, arg2: $Entity$$Type): $AABB
+ "getMaxStackSize"(arg0: $ItemStack$$Type): integer
+ "handler$dgd000$fabric_item_api_v1$getCraftingRemainingItem"(arg0: $ItemStack$$Type, arg1: $CallbackInfoReturnable$$Type): void
+ "handler$dgd000$fabric_item_api_v1$hasCraftingRemainingItem"(arg0: $ItemStack$$Type, arg1: $CallbackInfoReturnable$$Type): void
+ "makesPiglinsNeutral"(arg0: $ItemStack$$Type, arg1: $LivingEntity$$Type): boolean
+ "canWalkOnPowderedSnow"(arg0: $ItemStack$$Type, arg1: $LivingEntity$$Type): boolean
+ "getDamage"(arg0: $ItemStack$$Type): integer
+ "handler$dgi000$fabric_item_api_v1$shouldCauseBlockBreakReset"(arg0: $ItemStack$$Type, arg1: $ItemStack$$Type, arg2: $CallbackInfoReturnable$$Type): void
+ "canDisableShield"(arg0: $ItemStack$$Type, arg1: $ItemStack$$Type, arg2: $LivingEntity$$Type, arg3: $LivingEntity$$Type): boolean
+ "getFoodProperties"(arg0: $ItemStack$$Type, arg1: $LivingEntity$$Type): $FoodProperties
+ "isNotReplaceableByPickAction"(arg0: $ItemStack$$Type, arg1: $Player$$Type, arg2: integer): boolean
+ "shouldCauseReequipAnimation"(arg0: $ItemStack$$Type, arg1: $ItemStack$$Type, arg2: boolean): boolean
+ "getDefaultAttributeModifiers"(arg0: $ItemStack$$Type): $ItemAttributeModifiers
+ "isDamaged"(arg0: $ItemStack$$Type): boolean
+ "setDamage"(arg0: $ItemStack$$Type, arg1: integer): void
+ "damageItem"<T extends $LivingEntity>(arg0: $ItemStack$$Type, arg1: integer, arg2: T, arg3: $Consumer$$Type<($Item)>): integer
+ "canEquip"(arg0: $ItemStack$$Type, arg1: $EquipmentSlot$$Type, arg2: $LivingEntity$$Type): boolean
+ "getEquipmentSlot"(arg0: $ItemStack$$Type): $EquipmentSlot
  "getRecipeRemainder"(arg0: $ItemStack$$Type): $ItemStack
+ "canBeEnchantedWith"(arg0: $ItemStack$$Type, arg1: $Holder$$Type<($Enchantment)>, arg2: $EnchantingContext$$Type): boolean
  "allowComponentsUpdateAnimation"(arg0: $Player$$Type, arg1: $InteractionHand$$Type, arg2: $ItemStack$$Type, arg3: $ItemStack$$Type): boolean
  "allowContinuingBlockBreaking"(arg0: $Player$$Type, arg1: $ItemStack$$Type, arg2: $ItemStack$$Type): boolean
 }
@@ -1156,21 +1156,21 @@ public static "create"(arg0: $ResourceKey$$Type<($Level)>, arg1: $LevelAccessor$
 public "getLevel"(): $LevelAccessor
 public "getFlags"(): integer
 public "getTag"(): $CompoundTag
+public "getDimension"(): $ResourceKey<($Level)>
+public "getCurrentState"(): $BlockState
+public "getPos"(): $BlockPos
 public "restore"(): boolean
 public "restore"(arg0: integer): boolean
-public "getDimension"(): $ResourceKey<($Level)>
-public "getPos"(): $BlockPos
-public "getCurrentState"(): $BlockState
-public "recreateBlockEntity"(arg0: $HolderLookup$Provider$$Type): $BlockEntity
-public "restoreBlockEntity"(arg0: $LevelAccessor$$Type, arg1: $BlockPos$$Type): boolean
 public "restoreToLocation"(arg0: $LevelAccessor$$Type, arg1: $BlockPos$$Type, arg2: integer): boolean
+public "restoreBlockEntity"(arg0: $LevelAccessor$$Type, arg1: $BlockPos$$Type): boolean
+public "recreateBlockEntity"(arg0: $HolderLookup$Provider$$Type): $BlockEntity
 get "state"(): $BlockState
 get "level"(): $LevelAccessor
 get "flags"(): integer
 get "tag"(): $CompoundTag
 get "dimension"(): $ResourceKey<($Level)>
-get "pos"(): $BlockPos
 get "currentState"(): $BlockState
+get "pos"(): $BlockPos
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1188,8 +1188,8 @@ import {$Hash$Strategy$$Type} from "it.unimi.dsi.fastutil.Hash$Strategy"
 import {$SequencedSet} from "java.util.SequencedSet"
 import {$SortedSet} from "java.util.SortedSet"
 import {$ObjectSet} from "it.unimi.dsi.fastutil.objects.ObjectSet"
-import {$ObjectIterator} from "it.unimi.dsi.fastutil.objects.ObjectIterator"
 import {$Spliterator} from "java.util.Spliterator"
+import {$ObjectIterator} from "it.unimi.dsi.fastutil.objects.ObjectIterator"
 import {$Set} from "java.util.Set"
 import {$ObjectLinkedOpenCustomHashSet} from "it.unimi.dsi.fastutil.objects.ObjectLinkedOpenCustomHashSet"
 
@@ -1199,8 +1199,8 @@ constructor(arg0: $Hash$Strategy$$Type<(T)>)
 
 public "addFirst"(arg0: T): void
 public "addLast"(arg0: T): void
-public "addBefore"(arg0: T, arg1: T): boolean
 public "addAfter"(arg0: T, arg1: T): boolean
+public "addBefore"(arg0: T, arg1: T): boolean
 public "iterator"(): $ObjectIterator
 public "iterator"(arg0: any): $ObjectBidirectionalIterator
 public "spliterator"(): $Spliterator
@@ -1238,8 +1238,8 @@ export type $InsertableLinkedOpenCustomHashSet$$Type<T> = ($InsertableLinkedOpen
 export type $InsertableLinkedOpenCustomHashSet$$Original<T> = $InsertableLinkedOpenCustomHashSet<(T)>;}
 declare module "net.neoforged.neoforge.common.extensions.ITagBuilderExtension" {
 import {$TagEntry$$Type} from "net.minecraft.tags.TagEntry"
-import {$TagBuilder} from "net.minecraft.tags.TagBuilder"
 import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
+import {$TagBuilder} from "net.minecraft.tags.TagBuilder"
 
 export interface $ITagBuilderExtension$$Interface {
 get "rawBuilder"(): $TagBuilder
@@ -1257,13 +1257,13 @@ export class $ITagBuilderExtension implements $ITagBuilderExtension$$Interface {
  */
  "removeElement"(arg0: $ResourceLocation$$Type, arg1: StringJS): $TagBuilder
  "removeElement"(arg0: $ResourceLocation$$Type): $TagBuilder
- "getRawBuilder"(): $TagBuilder
 /**
  * 
  * @deprecated
  */
  "removeTag"(arg0: $ResourceLocation$$Type, arg1: StringJS): $TagBuilder
  "removeTag"(arg0: $ResourceLocation$$Type): $TagBuilder
+ "getRawBuilder"(): $TagBuilder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1331,8 +1331,8 @@ export interface $IMobEffectExtension$$Interface {
 }
 
 export class $IMobEffectExtension implements $IMobEffectExtension$$Interface {
- "getSortOrder"(arg0: $MobEffectInstance$$Type): integer
  "fillEffectCures"(arg0: $Set$$Type<($EffectCure$$Type)>, arg1: $MobEffectInstance$$Type): void
+ "getSortOrder"(arg0: $MobEffectInstance$$Type): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1349,6 +1349,7 @@ import {$Enum} from "java.lang.Enum"
 export class $DamageContainer$Reduction extends $Enum<($DamageContainer$Reduction)> {
 static readonly "MOB_EFFECTS": $DamageContainer$Reduction
 static readonly "ENCHANTMENTS": $DamageContainer$Reduction
+static readonly "INNATE_RESISTANCE": $DamageContainer$Reduction
 static readonly "ARMOR": $DamageContainer$Reduction
 static readonly "ABSORPTION": $DamageContainer$Reduction
 static readonly "INVULNERABILITY": $DamageContainer$Reduction
@@ -1360,7 +1361,7 @@ public static "valueOf"(arg0: StringJS): $DamageContainer$Reduction
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $DamageContainer$Reduction$$Type = (("invulnerability") | ("armor") | ("enchantments") | ("mob_effects") | ("absorption"));
+export type $DamageContainer$Reduction$$Type = (("invulnerability") | ("armor") | ("enchantments") | ("mob_effects") | ("absorption") | ("innate_resistance"));
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -1374,8 +1375,8 @@ export interface $IMinecartCollisionHandler$$Interface {
 }
 
 export class $IMinecartCollisionHandler implements $IMinecartCollisionHandler$$Interface {
- "onEntityCollision"(arg0: $AbstractMinecart$$Type, arg1: $Entity$$Type): void
  "getMinecartCollisionBox"(arg0: $AbstractMinecart$$Type): $AABB
+ "onEntityCollision"(arg0: $AbstractMinecart$$Type, arg1: $Entity$$Type): void
  "getBoundingBox"(arg0: $AbstractMinecart$$Type): $AABB
  "getCollisionBox"(arg0: $AbstractMinecart$$Type, arg1: $Entity$$Type): $AABB
 }
@@ -1395,14 +1396,14 @@ import {$TicketSet} from "net.neoforged.neoforge.common.world.chunk.TicketSet"
 import {$BlockPos, $BlockPos$$Type} from "net.minecraft.core.BlockPos"
 
 export class $TicketHelper {
-public "getBlockTickets"(): $Map<($BlockPos), ($TicketSet)>
 public "getEntityTickets"(): $Map<($UUID), ($TicketSet)>
-public "removeTicket"(arg0: $UUID$$Type, arg1: long, arg2: boolean): void
-public "removeTicket"(arg0: $BlockPos$$Type, arg1: long, arg2: boolean): void
+public "getBlockTickets"(): $Map<($BlockPos), ($TicketSet)>
 public "removeAllTickets"(arg0: $UUID$$Type): void
 public "removeAllTickets"(arg0: $BlockPos$$Type): void
-get "blockTickets"(): $Map<($BlockPos), ($TicketSet)>
+public "removeTicket"(arg0: $UUID$$Type, arg1: long, arg2: boolean): void
+public "removeTicket"(arg0: $BlockPos$$Type, arg1: long, arg2: boolean): void
 get "entityTickets"(): $Map<($UUID), ($TicketSet)>
+get "blockTickets"(): $Map<($BlockPos), ($TicketSet)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1426,16 +1427,16 @@ constructor(climateSettings: $Biome$ClimateSettings$$Type, effects: $BiomeSpecia
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public "generationSettings"(): $BiomeGenerationSettings
-public "mobSpawnSettings"(): $MobSpawnSettings
 public "climateSettings"(): $Biome$ClimateSettings
+public "mobSpawnSettings"(): $MobSpawnSettings
+public "generationSettings"(): $BiomeGenerationSettings
 public "effects"(): $BiomeSpecialEffects
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $ModifiableBiomeInfo$BiomeInfo$$Type = ({"generationSettings"?: $BiomeGenerationSettings$$Type, "effects"?: $BiomeSpecialEffects$$Type, "climateSettings"?: $Biome$ClimateSettings$$Type, "mobSpawnSettings"?: $MobSpawnSettings$$Type}) | ([generationSettings?: $BiomeGenerationSettings$$Type, effects?: $BiomeSpecialEffects$$Type, climateSettings?: $Biome$ClimateSettings$$Type, mobSpawnSettings?: $MobSpawnSettings$$Type]);
+export type $ModifiableBiomeInfo$BiomeInfo$$Type = ({"mobSpawnSettings"?: $MobSpawnSettings$$Type, "climateSettings"?: $Biome$ClimateSettings$$Type, "effects"?: $BiomeSpecialEffects$$Type, "generationSettings"?: $BiomeGenerationSettings$$Type}) | ([mobSpawnSettings?: $MobSpawnSettings$$Type, climateSettings?: $Biome$ClimateSettings$$Type, effects?: $BiomeSpecialEffects$$Type, generationSettings?: $BiomeGenerationSettings$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -1465,8 +1466,8 @@ import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$TooltipProvider} from "net.minecraft.world.item.component.TooltipProvider"
 import {$DataComponentType$$Type} from "net.minecraft.core.component.DataComponentType"
 import {$Component$$Type} from "net.minecraft.network.chat.Component"
-import {$Item$TooltipContext$$Type} from "net.minecraft.world.item.Item$TooltipContext"
 import {$TooltipFlag$$Type} from "net.minecraft.world.item.TooltipFlag"
+import {$Item$TooltipContext$$Type} from "net.minecraft.world.item.Item$TooltipContext"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 
 export interface $IDataComponentHolderExtension$$Interface {
@@ -1500,8 +1501,8 @@ export interface $ILevelReaderExtension$$Interface {
 
 export class $ILevelReaderExtension implements $ILevelReaderExtension$$Interface {
  "holder"<T>(arg0: $ResourceKey$$Type<(T)>): $Optional<($Holder$Reference<(T)>)>
- "isAreaLoaded"(arg0: $BlockPos$$Type, arg1: integer): boolean
  "holderOrThrow"<T>(arg0: $ResourceKey$$Type<(T)>): $Holder<(T)>
+ "isAreaLoaded"(arg0: $BlockPos$$Type, arg1: integer): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1644,7 +1645,7 @@ public "conditions"(): $List<($ICondition)>
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $WithConditions$$Type<A> = ({"conditions"?: $List$$Type<($ICondition$$Type)>, "carrier"?: A}) | ([conditions?: $List$$Type<($ICondition$$Type)>, carrier?: A]);
+export type $WithConditions$$Type<A> = ({"carrier"?: A, "conditions"?: $List$$Type<($ICondition$$Type)>}) | ([carrier?: A, conditions?: $List$$Type<($ICondition$$Type)>]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -1678,8 +1679,8 @@ import {$List} from "java.util.List"
 import {$MobSpawnSettings$Builder} from "net.minecraft.world.level.biome.MobSpawnSettings$Builder"
 import {$Set} from "java.util.Set"
 import {$MobSpawnSettings$SpawnerData} from "net.minecraft.world.level.biome.MobSpawnSettings$SpawnerData"
-import {$MobSpawnSettings$MobSpawnCost} from "net.minecraft.world.level.biome.MobSpawnSettings$MobSpawnCost"
 import {$EntityType, $EntityType$$Type} from "net.minecraft.world.entity.EntityType"
+import {$MobSpawnSettings$MobSpawnCost} from "net.minecraft.world.level.biome.MobSpawnSettings$MobSpawnCost"
 
 export class $MobSpawnSettingsBuilder extends $MobSpawnSettings$Builder {
 readonly "mobSpawnCosts": $Map<($EntityType<(never)>), ($MobSpawnSettings$MobSpawnCost)>
@@ -1687,15 +1688,15 @@ readonly "spawners": $Map<($MobCategory), ($List<($MobSpawnSettings$SpawnerData)
 
 constructor(arg0: $MobSpawnSettings$$Type)
 
-public "getEntityTypes"(): $Set<($EntityType<(never)>)>
-public "getSpawner"(arg0: $MobCategory$$Type): $List<($MobSpawnSettings$SpawnerData)>
-public "getCost"(arg0: $EntityType$$Type<(never)>): $MobSpawnSettings$MobSpawnCost
 public "getSpawnerTypes"(): $Set<($MobCategory)>
+public "getSpawner"(arg0: $MobCategory$$Type): $List<($MobSpawnSettings$SpawnerData)>
+public "getEntityTypes"(): $Set<($EntityType<(never)>)>
+public "getCost"(arg0: $EntityType$$Type<(never)>): $MobSpawnSettings$MobSpawnCost
 public "removeSpawnCost"(...arg0: ($EntityType$$Type<(never)>)[]): $MobSpawnSettingsBuilder
 public "getProbability"(): float
 public "disablePlayerSpawn"(): $MobSpawnSettingsBuilder
-get "entityTypes"(): $Set<($EntityType<(never)>)>
 get "spawnerTypes"(): $Set<($MobCategory)>
+get "entityTypes"(): $Set<($EntityType<(never)>)>
 get "probability"(): float
 }
 /**
@@ -1720,9 +1721,9 @@ import {$Exception$$Type} from "java.lang.Exception"
 import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
 import {$ConnectionProtocol} from "net.minecraft.network.ConnectionProtocol"
 import {$Packet$$Type} from "net.minecraft.network.protocol.Packet"
-import {$ICommonPacketListener$$Interface} from "net.neoforged.neoforge.common.extensions.ICommonPacketListener"
-import {$Throwable$$Type} from "java.lang.Throwable"
 import {$ReentrantBlockableEventLoop} from "net.minecraft.util.thread.ReentrantBlockableEventLoop"
+import {$Throwable$$Type} from "java.lang.Throwable"
+import {$ICommonPacketListener$$Interface} from "net.neoforged.neoforge.common.extensions.ICommonPacketListener"
 import {$Connection} from "net.minecraft.network.Connection"
 import {$CrashReportCategory$$Type} from "net.minecraft.CrashReportCategory"
 
@@ -1738,22 +1739,22 @@ export class $IServerCommonPacketListenerExtension implements $IServerCommonPack
  "send"(arg0: $Packet$$Type<(never)>, arg1: $PacketSendListener$$Type): void
  "send"(arg0: $CustomPacketPayload$$Type, arg1: $PacketSendListener$$Type): void
  "getConnection"(): $Connection
- "hasChannel"(arg0: $CustomPacketPayload$Type$$Type<(never)>): boolean
- "hasChannel"(arg0: $CustomPacketPayload$$Type): boolean
- "hasChannel"(arg0: $ResourceLocation$$Type): boolean
+ "getMainThreadEventLoop"(): $ReentrantBlockableEventLoop<(never)>
  "disconnect"(arg0: $Component$$Type): void
  "send"(arg0: $Packet$$Type<(never)>): void
- "getMainThreadEventLoop"(): $ReentrantBlockableEventLoop<(never)>
  "getConnectionType"(): $ConnectionType
+ "hasChannel"(arg0: $ResourceLocation$$Type): boolean
+ "hasChannel"(arg0: $CustomPacketPayload$$Type): boolean
+ "hasChannel"(arg0: $CustomPacketPayload$Type$$Type<(never)>): boolean
  "protocol"(): $ConnectionProtocol
+ "isAcceptingMessages"(): boolean
+ "shouldHandleMessage"(arg0: $Packet$$Type<(never)>): boolean
+ "createDisconnectionInfo"(arg0: $Component$$Type, arg1: $Throwable$$Type): $DisconnectionDetails
+ "onPacketError"(arg0: $Packet$$Type, arg1: $Exception$$Type): void
+ "flow"(): $PacketFlow
  "fillListenerSpecificCrashDetails"(arg0: $CrashReport$$Type, arg1: $CrashReportCategory$$Type): void
  "fillCrashReport"(arg0: $CrashReport$$Type): void
  "onDisconnect"(arg0: $DisconnectionDetails$$Type): void
- "createDisconnectionInfo"(arg0: $Component$$Type, arg1: $Throwable$$Type): $DisconnectionDetails
- "isAcceptingMessages"(): boolean
- "shouldHandleMessage"(arg0: $Packet$$Type<(never)>): boolean
- "onPacketError"(arg0: $Packet$$Type, arg1: $Exception$$Type): void
- "flow"(): $PacketFlow
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1774,13 +1775,13 @@ import {$Component$$Type} from "net.minecraft.network.chat.Component"
 import {$CustomPacketPayload$$Type} from "net.minecraft.network.protocol.common.custom.CustomPacketPayload"
 import {$DisconnectionDetails, $DisconnectionDetails$$Type} from "net.minecraft.network.DisconnectionDetails"
 import {$ConnectionType} from "net.neoforged.neoforge.network.connection.ConnectionType"
+import {$IServerCommonPacketListenerExtension$$Interface} from "net.neoforged.neoforge.common.extensions.IServerCommonPacketListenerExtension"
 import {$Exception$$Type} from "java.lang.Exception"
 import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
-import {$IServerCommonPacketListenerExtension$$Interface} from "net.neoforged.neoforge.common.extensions.IServerCommonPacketListenerExtension"
 import {$ConnectionProtocol} from "net.minecraft.network.ConnectionProtocol"
 import {$Packet$$Type} from "net.minecraft.network.protocol.Packet"
-import {$Throwable$$Type} from "java.lang.Throwable"
 import {$ReentrantBlockableEventLoop} from "net.minecraft.util.thread.ReentrantBlockableEventLoop"
+import {$Throwable$$Type} from "java.lang.Throwable"
 import {$Connection} from "net.minecraft.network.Connection"
 import {$CrashReportCategory$$Type} from "net.minecraft.CrashReportCategory"
 
@@ -1797,22 +1798,22 @@ export class $IServerConfigurationPacketListenerExtension implements $IServerCon
  "send"(arg0: $Packet$$Type<(never)>, arg1: $PacketSendListener$$Type): void
  "send"(arg0: $CustomPacketPayload$$Type, arg1: $PacketSendListener$$Type): void
  "getConnection"(): $Connection
- "hasChannel"(arg0: $CustomPacketPayload$Type$$Type<(never)>): boolean
- "hasChannel"(arg0: $CustomPacketPayload$$Type): boolean
- "hasChannel"(arg0: $ResourceLocation$$Type): boolean
+ "getMainThreadEventLoop"(): $ReentrantBlockableEventLoop<(never)>
  "disconnect"(arg0: $Component$$Type): void
  "send"(arg0: $Packet$$Type<(never)>): void
- "getMainThreadEventLoop"(): $ReentrantBlockableEventLoop<(never)>
  "getConnectionType"(): $ConnectionType
+ "hasChannel"(arg0: $ResourceLocation$$Type): boolean
+ "hasChannel"(arg0: $CustomPacketPayload$$Type): boolean
+ "hasChannel"(arg0: $CustomPacketPayload$Type$$Type<(never)>): boolean
  "protocol"(): $ConnectionProtocol
+ "isAcceptingMessages"(): boolean
+ "shouldHandleMessage"(arg0: $Packet$$Type<(never)>): boolean
+ "createDisconnectionInfo"(arg0: $Component$$Type, arg1: $Throwable$$Type): $DisconnectionDetails
+ "onPacketError"(arg0: $Packet$$Type, arg1: $Exception$$Type): void
+ "flow"(): $PacketFlow
  "fillListenerSpecificCrashDetails"(arg0: $CrashReport$$Type, arg1: $CrashReportCategory$$Type): void
  "fillCrashReport"(arg0: $CrashReport$$Type): void
  "onDisconnect"(arg0: $DisconnectionDetails$$Type): void
- "createDisconnectionInfo"(arg0: $Component$$Type, arg1: $Throwable$$Type): $DisconnectionDetails
- "isAcceptingMessages"(): boolean
- "shouldHandleMessage"(arg0: $Packet$$Type<(never)>): boolean
- "onPacketError"(arg0: $Packet$$Type, arg1: $Exception$$Type): void
- "flow"(): $PacketFlow
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1862,14 +1863,14 @@ get "fluidType"(): $FluidType
 
 export class $IFluidStateExtension implements $IFluidStateExtension$$Interface {
  "move"(arg0: $LivingEntity$$Type, arg1: $Vec3$$Type, arg2: double): boolean
- "canHydrate"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $BlockState$$Type, arg3: $BlockPos$$Type): boolean
- "supportsBoating"(arg0: $Boat$$Type): boolean
- "canConvertToSource"(arg0: $Level$$Type, arg1: $BlockPos$$Type): boolean
- "getBlockPathType"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Mob$$Type, arg3: boolean): $PathType
- "getExplosionResistance"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Explosion$$Type): float
- "canExtinguish"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type): boolean
- "getFluidType"(): $FluidType
  "getAdjacentBlockPathType"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Mob$$Type, arg3: $PathType$$Type): $PathType
+ "getExplosionResistance"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Explosion$$Type): float
+ "getBlockPathType"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $Mob$$Type, arg3: boolean): $PathType
+ "canConvertToSource"(arg0: $Level$$Type, arg1: $BlockPos$$Type): boolean
+ "supportsBoating"(arg0: $Boat$$Type): boolean
+ "getFluidType"(): $FluidType
+ "canHydrate"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type, arg2: $BlockState$$Type, arg3: $BlockPos$$Type): boolean
+ "canExtinguish"(arg0: $BlockGetter$$Type, arg1: $BlockPos$$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1882,8 +1883,8 @@ export type $IFluidStateExtension$$Type = ($IFluidStateExtension);
 export type $IFluidStateExtension$$Original = $IFluidStateExtension;}
 declare module "net.neoforged.neoforge.common.extensions.ICommonPacketListener" {
 import {$PacketFlow} from "net.minecraft.network.protocol.PacketFlow"
-import {$PacketListener$$Interface} from "net.minecraft.network.PacketListener"
 import {$CrashReport$$Type} from "net.minecraft.CrashReport"
+import {$PacketListener$$Interface} from "net.minecraft.network.PacketListener"
 import {$CustomPacketPayload$Type$$Type} from "net.minecraft.network.protocol.common.custom.CustomPacketPayload$Type"
 import {$Component$$Type} from "net.minecraft.network.chat.Component"
 import {$CustomPacketPayload$$Type} from "net.minecraft.network.protocol.common.custom.CustomPacketPayload"
@@ -1893,8 +1894,8 @@ import {$Exception$$Type} from "java.lang.Exception"
 import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
 import {$ConnectionProtocol} from "net.minecraft.network.ConnectionProtocol"
 import {$Packet$$Type} from "net.minecraft.network.protocol.Packet"
-import {$Throwable$$Type} from "java.lang.Throwable"
 import {$ReentrantBlockableEventLoop} from "net.minecraft.util.thread.ReentrantBlockableEventLoop"
+import {$Throwable$$Type} from "java.lang.Throwable"
 import {$Connection} from "net.minecraft.network.Connection"
 import {$CrashReportCategory$$Type} from "net.minecraft.CrashReportCategory"
 
@@ -1907,23 +1908,23 @@ get "acceptingMessages"(): boolean
 
 export class $ICommonPacketListener implements $ICommonPacketListener$$Interface {
  "getConnection"(): $Connection
- "hasChannel"(arg0: $CustomPacketPayload$Type$$Type<(never)>): boolean
- "hasChannel"(arg0: $CustomPacketPayload$$Type): boolean
- "hasChannel"(arg0: $ResourceLocation$$Type): boolean
- "disconnect"(arg0: $Component$$Type): void
- "send"(arg0: $CustomPacketPayload$$Type): void
- "send"(arg0: $Packet$$Type<(never)>): void
  "getMainThreadEventLoop"(): $ReentrantBlockableEventLoop<(never)>
+ "disconnect"(arg0: $Component$$Type): void
+ "send"(arg0: $Packet$$Type<(never)>): void
+ "send"(arg0: $CustomPacketPayload$$Type): void
  "getConnectionType"(): $ConnectionType
+ "hasChannel"(arg0: $ResourceLocation$$Type): boolean
+ "hasChannel"(arg0: $CustomPacketPayload$$Type): boolean
+ "hasChannel"(arg0: $CustomPacketPayload$Type$$Type<(never)>): boolean
  "protocol"(): $ConnectionProtocol
+ "isAcceptingMessages"(): boolean
+ "shouldHandleMessage"(arg0: $Packet$$Type<(never)>): boolean
+ "createDisconnectionInfo"(arg0: $Component$$Type, arg1: $Throwable$$Type): $DisconnectionDetails
+ "onPacketError"(arg0: $Packet$$Type, arg1: $Exception$$Type): void
+ "flow"(): $PacketFlow
  "fillListenerSpecificCrashDetails"(arg0: $CrashReport$$Type, arg1: $CrashReportCategory$$Type): void
  "fillCrashReport"(arg0: $CrashReport$$Type): void
  "onDisconnect"(arg0: $DisconnectionDetails$$Type): void
- "createDisconnectionInfo"(arg0: $Component$$Type, arg1: $Throwable$$Type): $DisconnectionDetails
- "isAcceptingMessages"(): boolean
- "shouldHandleMessage"(arg0: $Packet$$Type<(never)>): boolean
- "onPacketError"(arg0: $Packet$$Type, arg1: $Exception$$Type): void
- "flow"(): $PacketFlow
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1938,8 +1939,8 @@ declare module "net.neoforged.neoforge.common.util.AttributeTooltipContext" {
 import {$Player, $Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$MapId$$Type} from "net.minecraft.world.level.saveddata.maps.MapId"
 import {$Level, $Level$$Type} from "net.minecraft.world.level.Level"
-import {$TooltipFlag, $TooltipFlag$$Type} from "net.minecraft.world.item.TooltipFlag"
 import {$Item$TooltipContext, $Item$TooltipContext$$Type, $Item$TooltipContext$$Interface} from "net.minecraft.world.item.Item$TooltipContext"
+import {$TooltipFlag, $TooltipFlag$$Type} from "net.minecraft.world.item.TooltipFlag"
 import {$MapItemSavedData} from "net.minecraft.world.level.saveddata.maps.MapItemSavedData"
 import {$HolderLookup$Provider, $HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 
@@ -1953,9 +1954,9 @@ static "of"(arg0: $Player$$Type, arg1: $Item$TooltipContext$$Type, arg2: $Toolti
 static "of"(arg0: $Level$$Type): $Item$TooltipContext
 static "of"(arg0: $HolderLookup$Provider$$Type): $Item$TooltipContext
  "level"(): $Level
+ "tickRate"(): float
  "registries"(): $HolderLookup$Provider
  "mapData"(arg0: $MapId$$Type): $MapItemSavedData
- "tickRate"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1977,9 +1978,9 @@ export interface $IShearable$$Interface {
 }
 
 export class $IShearable implements $IShearable$$Interface {
- "onSheared"(arg0: $Player$$Type, arg1: $ItemStack$$Type, arg2: $Level$$Type, arg3: $BlockPos$$Type): $List<($ItemStack)>
- "spawnShearedDrop"(arg0: $Level$$Type, arg1: $BlockPos$$Type, arg2: $ItemStack$$Type): void
  "isShearable"(arg0: $Player$$Type, arg1: $ItemStack$$Type, arg2: $Level$$Type, arg3: $BlockPos$$Type): boolean
+ "spawnShearedDrop"(arg0: $Level$$Type, arg1: $BlockPos$$Type, arg2: $ItemStack$$Type): void
+ "onSheared"(arg0: $Player$$Type, arg1: $ItemStack$$Type, arg2: $Level$$Type, arg3: $BlockPos$$Type): $List<($ItemStack)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2021,8 +2022,8 @@ export interface $IHolderSetExtension$$Interface<T> {
 }
 
 export class $IHolderSetExtension<T> implements $IHolderSetExtension$$Interface {
- "serializationType"(): $IHolderSetExtension$SerializationType
  "addInvalidationListener"(arg0: $Runnable$$Type): void
+ "serializationType"(): $IHolderSetExtension$SerializationType
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2036,39 +2037,39 @@ export type $IHolderSetExtension$$Original<T> = $IHolderSetExtension<(T)>;}
 declare module "net.neoforged.neoforge.common.util.FakePlayer" {
 import {$Iterable} from "java.lang.Iterable"
 import {$HumanoidArm} from "net.minecraft.world.entity.HumanoidArm"
-import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$Brain} from "net.minecraft.world.entity.ai.Brain"
+import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$Optional} from "java.util.Optional"
 import {$ServerGamePacketListenerImpl} from "net.minecraft.server.network.ServerGamePacketListenerImpl"
 import {$Inventory} from "net.minecraft.world.entity.player.Inventory"
 import {$EntityDataAccessor} from "net.minecraft.network.syncher.EntityDataAccessor"
+import {$EquipmentSlot$$Type} from "net.minecraft.world.entity.EquipmentSlot"
 import {$FluidType} from "net.neoforged.neoforge.fluids.FluidType"
-import {$BlockState} from "net.minecraft.world.level.block.state.BlockState"
 import {$EntityType} from "net.minecraft.world.entity.EntityType"
+import {$BlockState} from "net.minecraft.world.level.block.state.BlockState"
 import {$InteractionHand} from "net.minecraft.world.InteractionHand"
 import {$Entity$RemovalReason} from "net.minecraft.world.entity.Entity$RemovalReason"
 import {$PlayerEnderChestContainer} from "net.minecraft.world.inventory.PlayerEnderChestContainer"
-import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$ClientInformation$$Type} from "net.minecraft.server.level.ClientInformation"
 import {$RandomSource} from "net.minecraft.util.RandomSource"
 import {$Fluid} from "net.minecraft.world.level.material.Fluid"
-import {$DamageSource$$Type} from "net.minecraft.world.damagesource.DamageSource"
 import {$AbstractHorse$$Type} from "net.minecraft.world.entity.animal.horse.AbstractHorse"
+import {$DamageSource$$Type} from "net.minecraft.world.damagesource.DamageSource"
 import {$AbstractContainerMenu} from "net.minecraft.world.inventory.AbstractContainerMenu"
 import {$Stat$$Type} from "net.minecraft.stats.Stat"
 import {$OptionalInt} from "java.util.OptionalInt"
 import {$Object2DoubleMap} from "it.unimi.dsi.fastutil.objects.Object2DoubleMap"
-import {$LivingEntity} from "net.minecraft.world.entity.LivingEntity"
-import {$ServerPlayer} from "net.minecraft.server.level.ServerPlayer"
+import {$LivingEntity, $LivingEntity$$Type} from "net.minecraft.world.entity.LivingEntity"
 import {$InventoryMenu} from "net.minecraft.world.inventory.InventoryMenu"
+import {$ServerPlayer} from "net.minecraft.server.level.ServerPlayer"
 import {$UUID} from "java.util.UUID"
 import {$ServerPlayerGameMode} from "net.minecraft.server.level.ServerPlayerGameMode"
 import {$Level} from "net.minecraft.world.level.Level"
 import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component"
 import {$SynchedEntityData} from "net.minecraft.network.syncher.SynchedEntityData"
-import {$Player, $Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$FoodData} from "net.minecraft.world.food.FoodData"
+import {$Player, $Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$Pose} from "net.minecraft.world.entity.Pose"
 import {$Vec3} from "net.minecraft.world.phys.Vec3"
 import {$Abilities} from "net.minecraft.world.entity.player.Abilities"
@@ -2077,20 +2078,19 @@ import {$DamageContainer} from "net.neoforged.neoforge.common.damagesource.Damag
 import {$FishingHook} from "net.minecraft.world.entity.projectile.FishingHook"
 import {$WalkAnimationState} from "net.minecraft.world.entity.WalkAnimationState"
 import {$ScoreHolder} from "net.minecraft.world.scores.ScoreHolder"
-import {$Entity, $Entity$$Type} from "net.minecraft.world.entity.Entity"
 import {$PortalProcessor} from "net.minecraft.world.entity.PortalProcessor"
+import {$Entity, $Entity$$Type} from "net.minecraft.world.entity.Entity"
 import {$BlockPos} from "net.minecraft.core.BlockPos"
 import {$CompoundTag} from "net.minecraft.nbt.CompoundTag"
 import {$EntityDimensions} from "net.minecraft.world.entity.EntityDimensions"
 import {$LevelRenderer$$Type} from "net.minecraft.client.renderer.LevelRenderer"
 import {$ChangeSubscriber, $ChangeSubscriber$$Type} from "net.caffeinemc.mods.lithium.common.util.change_tracking.ChangeSubscriber"
-import {$Team} from "net.minecraft.world.scores.Team"
 import {$Container$$Type} from "net.minecraft.world.Container"
+import {$Team} from "net.minecraft.world.scores.Team"
 import {$RegistryFriendlyByteBuf$$Type} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$TagKey} from "net.minecraft.tags.TagKey"
-import {$AtomicInteger} from "java.util.concurrent.atomic.AtomicInteger"
 import {$Stack} from "java.util.Stack"
-import {$Tag} from "net.minecraft.nbt.Tag"
+import {$AtomicInteger} from "java.util.concurrent.atomic.AtomicInteger"
 import {$ServerLevel$$Type} from "net.minecraft.server.level.ServerLevel"
 import {$GameProfile$$Type} from "com.mojang.authlib.GameProfile"
 import {$MinecraftServer} from "net.minecraft.server.MinecraftServer"
@@ -2258,7 +2258,6 @@ static readonly "CONTENTS_SLOT_INDEX": integer
  "oRun": float
  "bob": float
  "experienceProgress": float
- "create_diesel_generators$turretPos": $BlockPos
  "totalExperience": integer
  "wasInPowderSnow": boolean
  "hurtMarked": boolean
@@ -2301,66 +2300,62 @@ static readonly "DATA_SHOULDER_RIGHT": $EntityDataAccessor<($CompoundTag)>
 constructor(arg0: $ServerLevel$$Type, arg1: $GameProfile$$Type)
 
 public "tick"(): void
+public "openMenu"(arg0: $MenuProvider$$Type, arg1: $Consumer$$Type<($RegistryFriendlyByteBuf)>): $OptionalInt
+public "awardStat"(arg0: $Stat$$Type<(never)>, arg1: integer): void
+public "isFakePlayer"(): boolean
 public "die"(arg0: $DamageSource$$Type): void
-public "startRiding"(arg0: $Entity$$Type, arg1: boolean): boolean
+public "displayClientMessage"(arg0: $Component$$Type, arg1: boolean): void
+public "isInvulnerableTo"(arg0: $DamageSource$$Type): boolean
 public "canHarmPlayer"(arg0: $Player$$Type): boolean
 public "openHorseInventory"(arg0: $AbstractHorse$$Type, arg1: $Container$$Type): void
-public "updateOptions"(arg0: $ClientInformation$$Type): void
-public "isInvulnerableTo"(arg0: $DamageSource$$Type): boolean
-public "isFakePlayer"(): boolean
-public "openMenu"(arg0: $MenuProvider$$Type, arg1: $Consumer$$Type<($RegistryFriendlyByteBuf)>): $OptionalInt
-public "displayClientMessage"(arg0: $Component$$Type, arg1: boolean): void
 public "getServer"(): $MinecraftServer
-public "awardStat"(arg0: $Stat$$Type<(never)>, arg1: integer): void
+public "updateOptions"(arg0: $ClientInformation$$Type): void
+public "startRiding"(arg0: $Entity$$Type, arg1: boolean): boolean
 public "self"(): $Player
-public "northstar$setRelativeEntity"(entity: $Entity$$Type, ticks: integer): void
 public "northstar$getRelativeEntity"(): $Entity
-public "sdl$getDynamicLightY"(): double
-public "sdl$getDynamicLightLevel"(): $Level
-public "sdl$resetDynamicLight"(): void
-public "sdl$getDynamicLightX"(): double
-public "sdl$getDynamicLightZ"(): double
+public "northstar$setRelativeEntity"(entity: $Entity$$Type, ticks: integer): void
+public "sodiumdynamiclights$scheduleTrackedChunksRebuild"(arg0: $LevelRenderer$$Type): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "sodiumdynamiclights$updateDynamicLight"(arg0: $LevelRenderer$$Type): boolean
-public "sodiumdynamiclights$scheduleTrackedChunksRebuild"(arg0: $LevelRenderer$$Type): void
-public "etf$getScoreboardTeam"(): $Team
-public "etf$getItemsEquipped"(): $Iterable<($ItemStack)>
+public "sdl$getDynamicLightX"(): double
+public "sdl$getDynamicLightY"(): double
+public "sdl$getDynamicLightZ"(): double
+public "sdl$getDynamicLightLevel"(): $Level
+public "sdl$resetDynamicLight"(): void
 public "etf$getType"(): $EntityType<(never)>
-public "etf$getHandItems"(): $Iterable<($ItemStack)>
 public "etf$hasCustomName"(): boolean
+public "etf$getBlockY"(): integer
 public "etf$getCustomName"(): $Component
+public "etf$getHandItems"(): $Iterable<($ItemStack)>
+public "etf$getArmorItems"(): $Iterable<($ItemStack)>
+public "etf$getUuid"(): $UUID
+public "etf$getOptifineId"(): integer
+public "etf$canBeBright"(): boolean
+public "etf$isBlockEntity"(): boolean
+public "etf$getVelocity"(): $Vec3
+public "etf$distanceTo"(arg0: $Entity$$Type): float
 /**
  * 
  * @deprecated
  */
 public "etf$getPose"(): $Pose
-public "etf$distanceTo"(arg0: $Entity$$Type): float
-public "etf$getVelocity"(): $Vec3
-public "etf$getUuid"(): $UUID
-public "etf$getOptifineId"(): integer
-public "etf$getArmorItems"(): $Iterable<($ItemStack)>
-public "etf$canBeBright"(): boolean
-public "etf$isBlockEntity"(): boolean
-public "etf$getBlockY"(): integer
-public "etf$getNbt"(): $CompoundTag
-public "etf$getBlockPos"(): $BlockPos
 public "etf$getEntityKey"(): StringJS
 public "etf$getWorld"(): $Level
+public "etf$getBlockPos"(): $BlockPos
+public "etf$getItemsEquipped"(): $Iterable<($ItemStack)>
+public "etf$getScoreboardTeam"(): $Team
+public "etf$getNbt"(): $CompoundTag
+public static "getAlternativeStack"(livingEntity: $LivingEntity$$Type, equipmentSlot: $EquipmentSlot$$Type, consumer: $Consumer$$Type<($ItemStack)>): void
 public "lithium$getCachedFeetBlockState"(): $BlockState
-/**
- * 
- * @deprecated
- */
-public "serializeNBT"(arg0: $HolderLookup$Provider$$Type): $Tag
-public static "combine"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: integer, arg2: $ChangeSubscriber$$Type<(T)>, arg3: integer): $ChangeSubscriber<(T)>
 public static "without"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: $ChangeSubscriber$$Type<(T)>, arg2: integer, arg3: boolean): $ChangeSubscriber<(T)>
 public static "without"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: $ChangeSubscriber$$Type<(T)>): $ChangeSubscriber<(T)>
+public static "combine"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: integer, arg2: $ChangeSubscriber$$Type<(T)>, arg3: integer): $ChangeSubscriber<(T)>
 public static "dataOf"(arg0: $ChangeSubscriber$$Type<(never)>, arg1: $ChangeSubscriber$$Type<(never)>, arg2: integer): integer
-public static "containsSubscriber"(arg0: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg1: integer, arg2: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg3: integer): boolean
 public static "dataWithout"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: $ChangeSubscriber$$Type<(T)>, arg2: integer, arg3: integer, arg4: boolean): integer
 public static "dataWithout"<T>(arg0: $ChangeSubscriber$$Type<(T)>, arg1: $ChangeSubscriber$$Type<(T)>, arg2: integer): integer
-public static "forNameOnly"(arg0: StringJS): $ScoreHolder
+public static "containsSubscriber"(arg0: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg1: integer, arg2: $ChangeSubscriber$$Type<($ItemStack$$Type)>, arg3: integer): boolean
 public static "fromGameProfile"(arg0: $GameProfile$$Type): $ScoreHolder
+public static "forNameOnly"(arg0: StringJS): $ScoreHolder
 get "fakePlayer"(): boolean
 }
 /**
@@ -2395,10 +2390,11 @@ export type $IHolderSetExtension$SerializationType$$Type = (("unknown") | ("stri
 export type $IHolderSetExtension$SerializationType$$Original = $IHolderSetExtension$SerializationType;}
 declare module "net.neoforged.neoforge.common.extensions.IPlayerExtension" {
 import {$MenuProvider$$Type} from "net.minecraft.world.MenuProvider"
-import {$OptionalInt} from "java.util.OptionalInt"
 import {$RegistryFriendlyByteBuf$$Type} from "net.minecraft.network.RegistryFriendlyByteBuf"
+import {$OptionalInt} from "java.util.OptionalInt"
 import {$Entity$$Type} from "net.minecraft.world.entity.Entity"
 import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
+import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 
 export interface $IPlayerExtension$$Interface {
@@ -2406,11 +2402,12 @@ get "fakePlayer"(): boolean
 }
 
 export class $IPlayerExtension implements $IPlayerExtension$$Interface {
+ "openMenu"(arg0: $MenuProvider$$Type, arg1: $Consumer$$Type<($RegistryFriendlyByteBuf)>): $OptionalInt
+ "openMenu"(arg0: $MenuProvider$$Type, arg1: $BlockPos$$Type): $OptionalInt
+ "mayFly"(): boolean
  "isCloseEnough"(arg0: $Entity$$Type, arg1: double): boolean
  "isFakePlayer"(): boolean
- "openMenu"(arg0: $MenuProvider$$Type, arg1: $BlockPos$$Type): $OptionalInt
- "openMenu"(arg0: $MenuProvider$$Type, arg1: $Consumer$$Type<($RegistryFriendlyByteBuf)>): $OptionalInt
- "mayFly"(): boolean
+ "handler$enh000$create_hypertube$createHypertube$mayFly"(arg0: $CallbackInfoReturnable$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2434,8 +2431,8 @@ constructor(arg0: $ModifiableBiomeInfo$BiomeInfo$$Type)
 
 public "get"(): $ModifiableBiomeInfo$BiomeInfo
 public "getOriginalBiomeInfo"(): $ModifiableBiomeInfo$BiomeInfo
-public "applyBiomeModifiers"(arg0: $Holder$$Type<($Biome)>, arg1: $List$$Type<($BiomeModifier$$Type)>, arg2: $RegistryAccess$$Type): boolean
 public "getModifiedBiomeInfo"(): $ModifiableBiomeInfo$BiomeInfo
+public "applyBiomeModifiers"(arg0: $Holder$$Type<($Biome)>, arg1: $List$$Type<($BiomeModifier$$Type)>, arg2: $RegistryAccess$$Type): boolean
 get "originalBiomeInfo"(): $ModifiableBiomeInfo$BiomeInfo
 get "modifiedBiomeInfo"(): $ModifiableBiomeInfo$BiomeInfo
 }
@@ -2467,13 +2464,13 @@ constructor(arg0: $Collection$$Type<($Path$$Type)>, arg1: $Set$$Type<(StringJS)>
 public "isEnabled"(): boolean
 public "getResource"(arg0: $ResourceLocation$$Type, arg1: $PackType$$Type, arg2: StringJS, arg3: StringJS): $Resource
 public "getResource"(arg0: $ResourceLocation$$Type, arg1: $PackType$$Type): $Resource
-public "exists"(arg0: $ResourceLocation$$Type, arg1: $PackType$$Type, arg2: StringJS, arg3: StringJS): boolean
-public "exists"(arg0: $ResourceLocation$$Type, arg1: $PackType$$Type): boolean
 public "exists"(arg0: $ResourceLocation$$Type, arg1: $ExistingFileHelper$IResourceType$$Type): boolean
-public "getResourceStack"(arg0: $ResourceLocation$$Type, arg1: $PackType$$Type): $List<($Resource)>
-public "invokeGetManager"(arg0: $PackType$$Type): $ResourceManager
+public "exists"(arg0: $ResourceLocation$$Type, arg1: $PackType$$Type): boolean
+public "exists"(arg0: $ResourceLocation$$Type, arg1: $PackType$$Type, arg2: StringJS, arg3: StringJS): boolean
 public "trackGenerated"(arg0: $ResourceLocation$$Type, arg1: $PackType$$Type, arg2: StringJS, arg3: StringJS): void
 public "trackGenerated"(arg0: $ResourceLocation$$Type, arg1: $ExistingFileHelper$IResourceType$$Type): void
+public "getResourceStack"(arg0: $ResourceLocation$$Type, arg1: $PackType$$Type): $List<($Resource)>
+public "invokeGetManager"(arg0: $PackType$$Type): $ResourceManager
 get "enabled"(): boolean
 }
 /**
@@ -2490,16 +2487,16 @@ import {$PacketFlow} from "net.minecraft.network.protocol.PacketFlow"
 import {$LogicalSide} from "net.neoforged.fml.LogicalSide"
 
 export interface $IPacketFlowExtension$$Interface {
-get "receptionSide"(): $LogicalSide
 get "clientbound"(): boolean
 get "serverbound"(): boolean
+get "receptionSide"(): $LogicalSide
 }
 
 export class $IPacketFlowExtension implements $IPacketFlowExtension$$Interface {
  "self"(): $PacketFlow
- "getReceptionSide"(): $LogicalSide
  "isClientbound"(): boolean
  "isServerbound"(): boolean
+ "getReceptionSide"(): $LogicalSide
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2583,8 +2580,8 @@ import {$IngredientType} from "net.neoforged.neoforge.common.crafting.Ingredient
 import {$ItemStackSet} from "dev.latvian.mods.kubejs.item.ItemStackSet"
 import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$Ingredient} from "net.minecraft.world.item.crafting.Ingredient"
-import {$ItemPredicate} from "dev.latvian.mods.kubejs.item.ItemPredicate"
 import {$Predicate, $Predicate$$Type} from "java.util.function.Predicate"
+import {$ItemPredicate} from "dev.latvian.mods.kubejs.item.ItemPredicate"
 import {$CustomIngredientKJS$$Interface} from "dev.latvian.mods.kubejs.core.CustomIngredientKJS"
 import {$Item, $Item$$Type} from "net.minecraft.world.item.Item"
 import {$Set} from "java.util.Set"
@@ -2594,14 +2591,14 @@ export interface $ICustomIngredient$$Interface extends $CustomIngredientKJS$$Int
 get "type"(): $IngredientType<(never)>
 get "simple"(): boolean
 get "items"(): $Stream<($ItemStack)>
-get "stackArray"(): ($ItemStack)[]
 get "displayStacks"(): $ItemStackSet
-get "itemIds"(): $Set<(StringJS)>
-get "first"(): $ItemStack
-get "itemTypes"(): $Set<($Item)>
-get "itemStream"(): $Stream<($Item)>
+get "stackArray"(): ($ItemStack)[]
 get "wildcard"(): boolean
 get "stacks"(): $ItemStackSet
+get "itemIds"(): $Set<(StringJS)>
+get "itemTypes"(): $Set<($Item)>
+get "first"(): $ItemStack
+get "itemStream"(): $Stream<($Item)>
 }
 
 export class $ICustomIngredient implements $ICustomIngredient$$Interface {
@@ -2610,19 +2607,19 @@ export class $ICustomIngredient implements $ICustomIngredient$$Interface {
  "isSimple"(): boolean
  "getItems"(): $Stream<($ItemStack)>
  "toVanilla"(): $Ingredient
- "getStackArray"(): ($ItemStack)[]
  "canBeUsedForMatching"(): boolean
  "getDisplayStacks"(): $ItemStackSet
  "asIngredient"(): $Ingredient
+ "getStackArray"(): ($ItemStack)[]
  "test"(itemStack: any): boolean
 static "wrap"(from: any): $ItemPredicate
- "testItem"(item: $Item$$Type): boolean
- "getItemIds"(): $Set<(StringJS)>
- "getFirst"(): $ItemStack
- "getItemTypes"(): $Set<($Item)>
- "getItemStream"(): $Stream<($Item)>
  "isWildcard"(): boolean
+ "testItem"(item: $Item$$Type): boolean
  "getStacks"(): $ItemStackSet
+ "getItemIds"(): $Set<(StringJS)>
+ "getItemTypes"(): $Set<($Item)>
+ "getFirst"(): $ItemStack
+ "getItemStream"(): $Stream<($Item)>
  "or"(arg0: $Predicate$$Type<($ItemStack)>): $Predicate<($ItemStack)>
  "negate"(): $Predicate<($ItemStack)>
  "and"(arg0: $Predicate$$Type<($ItemStack)>): $Predicate<($ItemStack)>
@@ -2657,29 +2654,29 @@ export class $BiomeSpecialEffectsBuilder extends $BiomeSpecialEffects$Builder {
 
 public static "copyOf"(arg0: $BiomeSpecialEffects$$Type): $BiomeSpecialEffectsBuilder
 public static "create"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): $BiomeSpecialEffectsBuilder
-public "getBackgroundMusic"(): $Optional<($Music)>
-public "waterColor"(): integer
-public "getFogColor"(): integer
-public "getWaterFogColor"(): integer
-public "getAmbientParticle"(): $Optional<($AmbientParticleSettings)>
-public "getSkyColor"(): integer
 public "getGrassColorOverride"(): $Optional<(integer)>
 public "getFoliageColorOverride"(): $Optional<(integer)>
 public "getGrassColorModifier"(): $BiomeSpecialEffects$GrassColorModifier
-public "getAmbientMoodSound"(): $Optional<($AmbientMoodSettings)>
-public "getAmbientAdditionsSound"(): $Optional<($AmbientAdditionsSettings)>
+public "getFogColor"(): integer
+public "getWaterFogColor"(): integer
+public "getSkyColor"(): integer
+public "getBackgroundMusic"(): $Optional<($Music)>
+public "waterColor"(): integer
+public "getAmbientParticle"(): $Optional<($AmbientParticleSettings)>
 public "getAmbientLoopSound"(): $Optional<($Holder<($SoundEvent)>)>
-get "backgroundMusic"(): $Optional<($Music)>
-get "fogColor"(): integer
-get "waterFogColor"(): integer
-get "ambientParticle"(): $Optional<($AmbientParticleSettings)>
-get "skyColor"(): integer
+public "getAmbientAdditionsSound"(): $Optional<($AmbientAdditionsSettings)>
+public "getAmbientMoodSound"(): $Optional<($AmbientMoodSettings)>
 get "grassColorOverride"(): $Optional<(integer)>
 get "foliageColorOverride"(): $Optional<(integer)>
 get "grassColorModifier"(): $BiomeSpecialEffects$GrassColorModifier
-get "ambientMoodSound"(): $Optional<($AmbientMoodSettings)>
-get "ambientAdditionsSound"(): $Optional<($AmbientAdditionsSettings)>
+get "fogColor"(): integer
+get "waterFogColor"(): integer
+get "skyColor"(): integer
+get "backgroundMusic"(): $Optional<($Music)>
+get "ambientParticle"(): $Optional<($AmbientParticleSettings)>
 get "ambientLoopSound"(): $Optional<($Holder<($SoundEvent)>)>
+get "ambientAdditionsSound"(): $Optional<($AmbientAdditionsSettings)>
+get "ambientMoodSound"(): $Optional<($AmbientMoodSettings)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2708,8 +2705,8 @@ import {$UseOnContext$$Type} from "net.minecraft.world.item.context.UseOnContext
 import {$Entity$$Type} from "net.minecraft.world.entity.Entity"
 import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
 import {$InteractionHand$$Type} from "net.minecraft.world.InteractionHand"
-import {$HolderLookup$RegistryLookup$$Type} from "net.minecraft.core.HolderLookup$RegistryLookup"
 import {$RecipeType$$Type} from "net.minecraft.world.item.crafting.RecipeType"
+import {$HolderLookup$RegistryLookup$$Type} from "net.minecraft.core.HolderLookup$RegistryLookup"
 import {$ItemEntity$$Type} from "net.minecraft.world.entity.item.ItemEntity"
 import {$CallbackInfoReturnable$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
 import {$EnderMan$$Type} from "net.minecraft.world.entity.monster.EnderMan"
@@ -2720,62 +2717,62 @@ import {$LivingEntity$$Type} from "net.minecraft.world.entity.LivingEntity"
 import {$AABB} from "net.minecraft.world.phys.AABB"
 
 export interface $IItemStackExtension$$Interface {
-get "equipmentSlot"(): $EquipmentSlot
 get "craftingRemainingItem"(): $ItemStack
 get "enchantmentValue"(): integer
-get "repairable"(): boolean
-get "xpRepairRatio"(): float
-get "piglinCurrency"(): boolean
 get "attributeModifiers"(): $ItemAttributeModifiers
+get "xpRepairRatio"(): float
+get "repairable"(): boolean
+get "piglinCurrency"(): boolean
+get "equipmentSlot"(): $EquipmentSlot
 }
 
 export class $IItemStackExtension implements $IItemStackExtension$$Interface {
- "handler$bhe000$fabric_entity_events_v1$canElytraFly"(arg0: $LivingEntity$$Type, arg1: $CallbackInfoReturnable$$Type): void
- "getSweepHitBox"(arg0: $Player$$Type, arg1: $Entity$$Type): $AABB
- "canElytraFly"(arg0: $LivingEntity$$Type): boolean
- "getCapability"<T, C>(arg0: $ItemCapability$$Type<(T), (C)>, arg1: C): T
- "getCapability"<T>(arg0: $ItemCapability$$Type<(T), (void)>): T
- "makesPiglinsNeutral"(arg0: $LivingEntity$$Type): boolean
- "canWalkOnPowderedSnow"(arg0: $LivingEntity$$Type): boolean
- "getEquipmentSlot"(): $EquipmentSlot
  "getCraftingRemainingItem"(): $ItemStack
+ "hasCraftingRemainingItem"(): boolean
  "canFitInsideContainerItems"(): boolean
  "getEnchantmentValue"(): integer
- "hasCraftingRemainingItem"(): boolean
- "getBurnTime"(arg0: $RecipeType$$Type<(never)>): integer
- "getAllEnchantments"(arg0: $HolderLookup$RegistryLookup$$Type<($Enchantment$$Type)>): $ItemEnchantments
- "doesSneakBypassUse"(arg0: $LevelReader$$Type, arg1: $BlockPos$$Type, arg2: $Player$$Type): boolean
- "onAnimalArmorTick"(arg0: $Level$$Type, arg1: $Mob$$Type): void
- "isEnderMask"(arg0: $Player$$Type, arg1: $EnderMan$$Type): boolean
- "shouldCauseBlockBreakReset"(arg0: $ItemStack$$Type): boolean
  "supportsEnchantment"(arg0: $Holder$$Type<($Enchantment)>): boolean
- "getEnchantmentLevel"(arg0: $Holder$$Type<($Enchantment)>): integer
  "canGrindstoneRepair"(): boolean
- "onDestroyed"(arg0: $ItemEntity$$Type, arg1: $DamageSource$$Type): void
- "isRepairable"(): boolean
- "isNotReplaceableByPickAction"(arg0: $Player$$Type, arg1: integer): boolean
- "onDroppedByPlayer"(arg0: $Player$$Type): boolean
- "getXpRepairRatio"(): float
- "isPiglinCurrency"(): boolean
- "onItemUseFirst"(arg0: $UseOnContext$$Type): $InteractionResult
- "getEntityLifespan"(arg0: $Level$$Type): integer
- "isPrimaryItemFor"(arg0: $Holder$$Type<($Enchantment)>): boolean
- "isBookEnchantable"(arg0: $ItemStack$$Type): boolean
- "getHighlightTip"(arg0: $Component$$Type): $Component
- "onEntityItemUpdate"(arg0: $ItemEntity$$Type): boolean
- "canEquip"(arg0: $EquipmentSlot$$Type, arg1: $LivingEntity$$Type): boolean
+ "getEnchantmentLevel"(arg0: $Holder$$Type<($Enchantment)>): integer
+ "shouldCauseBlockBreakReset"(arg0: $ItemStack$$Type): boolean
+ "getAttributeModifiers"(): $ItemAttributeModifiers
 /**
  * 
  * @deprecated
  */
  "onEntitySwing"(arg0: $LivingEntity$$Type): boolean
  "onEntitySwing"(arg0: $LivingEntity$$Type, arg1: $InteractionHand$$Type): boolean
- "elytraFlightTick"(arg0: $LivingEntity$$Type, arg1: integer): boolean
- "getFoodProperties"(arg0: $LivingEntity$$Type): $FoodProperties
+ "canElytraFly"(arg0: $LivingEntity$$Type): boolean
  "canPerformAction"(arg0: $ItemAbility$$Type): boolean
- "canDisableShield"(arg0: $ItemStack$$Type, arg1: $LivingEntity$$Type, arg2: $LivingEntity$$Type): boolean
  "onStopUsing"(arg0: $LivingEntity$$Type, arg1: integer): void
- "getAttributeModifiers"(): $ItemAttributeModifiers
+ "elytraFlightTick"(arg0: $LivingEntity$$Type, arg1: integer): boolean
+ "isBookEnchantable"(arg0: $ItemStack$$Type): boolean
+ "getXpRepairRatio"(): float
+ "isPrimaryItemFor"(arg0: $Holder$$Type<($Enchantment)>): boolean
+ "getEntityLifespan"(arg0: $Level$$Type): integer
+ "onEntityItemUpdate"(arg0: $ItemEntity$$Type): boolean
+ "isRepairable"(): boolean
+ "getAllEnchantments"(arg0: $HolderLookup$RegistryLookup$$Type<($Enchantment$$Type)>): $ItemEnchantments
+ "onDroppedByPlayer"(arg0: $Player$$Type): boolean
+ "getHighlightTip"(arg0: $Component$$Type): $Component
+ "onItemUseFirst"(arg0: $UseOnContext$$Type): $InteractionResult
+ "onDestroyed"(arg0: $ItemEntity$$Type, arg1: $DamageSource$$Type): void
+ "isPiglinCurrency"(): boolean
+ "isEnderMask"(arg0: $Player$$Type, arg1: $EnderMan$$Type): boolean
+ "doesSneakBypassUse"(arg0: $LevelReader$$Type, arg1: $BlockPos$$Type, arg2: $Player$$Type): boolean
+ "getBurnTime"(arg0: $RecipeType$$Type<(never)>): integer
+ "onAnimalArmorTick"(arg0: $Level$$Type, arg1: $Mob$$Type): void
+ "getCapability"<T>(arg0: $ItemCapability$$Type<(T), (void)>): T
+ "getCapability"<T, C>(arg0: $ItemCapability$$Type<(T), (C)>, arg1: C): T
+ "getSweepHitBox"(arg0: $Player$$Type, arg1: $Entity$$Type): $AABB
+ "makesPiglinsNeutral"(arg0: $LivingEntity$$Type): boolean
+ "canWalkOnPowderedSnow"(arg0: $LivingEntity$$Type): boolean
+ "handler$bie000$fabric_entity_events_v1$canElytraFly"(arg0: $LivingEntity$$Type, arg1: $CallbackInfoReturnable$$Type): void
+ "canDisableShield"(arg0: $ItemStack$$Type, arg1: $LivingEntity$$Type, arg2: $LivingEntity$$Type): boolean
+ "getFoodProperties"(arg0: $LivingEntity$$Type): $FoodProperties
+ "isNotReplaceableByPickAction"(arg0: $Player$$Type, arg1: integer): boolean
+ "canEquip"(arg0: $EquipmentSlot$$Type, arg1: $LivingEntity$$Type): boolean
+ "getEquipmentSlot"(): $EquipmentSlot
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2794,8 +2791,8 @@ import {$LevelChunk$$Type} from "net.minecraft.world.level.chunk.LevelChunk"
 import {$Packet} from "net.minecraft.network.protocol.Packet"
 import {$Tag, $Tag$$Type} from "net.minecraft.nbt.Tag"
 import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
-import {$INBTSerializable$$Interface} from "net.neoforged.neoforge.common.util.INBTSerializable"
 import {$ListTag, $ListTag$$Type} from "net.minecraft.nbt.ListTag"
+import {$INBTSerializable$$Interface} from "net.neoforged.neoforge.common.util.INBTSerializable"
 import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 
 export class $LevelChunkAuxiliaryLightManager implements $AuxiliaryLightManager$$Interface, $INBTSerializable$$Interface<($ListTag)> {
@@ -2805,8 +2802,8 @@ constructor(arg0: $LevelChunk$$Type)
 
 public "setLightAt"(arg0: $BlockPos$$Type, arg1: integer): void
 public "getLightAt"(arg0: $BlockPos$$Type): integer
-public "deserializeNBT"(arg0: $HolderLookup$Provider$$Type, arg1: $ListTag$$Type): void
 public "deserializeNBT"(arg0: $HolderLookup$Provider$$Type, arg1: $Tag$$Type): void
+public "deserializeNBT"(arg0: $HolderLookup$Provider$$Type, arg1: $ListTag$$Type): void
 public "serializeNBT"(arg0: $HolderLookup$Provider$$Type): $Tag
 public "sendLightDataTo"(arg0: $ClientboundLevelChunkWithLightPacket$$Type): $Packet<(never)>
 public "handleLightDataSync"(arg0: $Map$$Type<($BlockPos$$Type), (byte)>): void
@@ -2900,11 +2897,11 @@ export class $ModifiableStructureInfo {
 constructor(arg0: $ModifiableStructureInfo$StructureInfo$$Type)
 
 public "get"(): $ModifiableStructureInfo$StructureInfo
+public "getModifiedStructureInfo"(): $ModifiableStructureInfo$StructureInfo
 public "getOriginalStructureInfo"(): $ModifiableStructureInfo$StructureInfo
 public "applyStructureModifiers"(arg0: $Holder$$Type<($Structure)>, arg1: $List$$Type<($StructureModifier$$Type)>): void
-public "getModifiedStructureInfo"(): $ModifiableStructureInfo$StructureInfo
-get "originalStructureInfo"(): $ModifiableStructureInfo$StructureInfo
 get "modifiedStructureInfo"(): $ModifiableStructureInfo$StructureInfo
+get "originalStructureInfo"(): $ModifiableStructureInfo$StructureInfo
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2917,8 +2914,8 @@ export type $ModifiableStructureInfo$$Type = ($ModifiableStructureInfo);
 export type $ModifiableStructureInfo$$Original = $ModifiableStructureInfo;}
 declare module "net.neoforged.neoforge.common.MutableDataComponentHolder" {
 import {$Potion$$Type} from "net.minecraft.world.item.alchemy.Potion"
-import {$DataComponentMap, $DataComponentMap$$Type} from "net.minecraft.core.component.DataComponentMap"
 import {$ComponentFunctions} from "dev.latvian.mods.kubejs.component.ComponentFunctions"
+import {$DataComponentMap, $DataComponentMap$$Type} from "net.minecraft.core.component.DataComponentMap"
 import {$UUID$$Type} from "java.util.UUID"
 import {$List$$Type} from "java.util.List"
 import {$DataComponentType$$Type} from "net.minecraft.core.component.DataComponentType"
@@ -2926,17 +2923,17 @@ import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component
 import {$Holder$$Type} from "net.minecraft.core.Holder"
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$DyeColor$$Type} from "net.minecraft.world.item.DyeColor"
+import {$MutableDataComponentHolderFunctions, $MutableDataComponentHolderFunctions$$Interface} from "dev.latvian.mods.kubejs.component.MutableDataComponentHolderFunctions"
 import {$ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
 import {$TooltipProvider} from "net.minecraft.world.item.component.TooltipProvider"
-import {$MutableDataComponentHolderFunctions, $MutableDataComponentHolderFunctions$$Interface} from "dev.latvian.mods.kubejs.component.MutableDataComponentHolderFunctions"
 import {$PotionContents$$Type} from "net.minecraft.world.item.alchemy.PotionContents"
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
 import {$CompoundTag, $CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
 import {$Map$$Type} from "java.util.Map"
 import {$Rarity$$Type} from "net.minecraft.world.item.Rarity"
 import {$LootTable$$Type} from "net.minecraft.world.level.storage.loot.LootTable"
-import {$Item$TooltipContext$$Type} from "net.minecraft.world.item.Item$TooltipContext"
 import {$TooltipFlag$$Type} from "net.minecraft.world.item.TooltipFlag"
+import {$Item$TooltipContext$$Type} from "net.minecraft.world.item.Item$TooltipContext"
 import {$DataComponentHolder$$Type, $DataComponentHolder$$Interface} from "net.minecraft.core.component.DataComponentHolder"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$BiFunction$$Type} from "java.util.function.BiFunction"
@@ -2949,30 +2946,30 @@ export interface $MutableDataComponentHolder$$Interface extends $DataComponentHo
 
 (): $DataComponentMap$$Type
 get "components"(): $DataComponentMap
-get "componentMap"(): $DataComponentMap
 get "componentHolder"(): $MutableDataComponentHolder
-set "lore"(value: $List$$Type<($Component$$Type)>)
+get "componentMap"(): $DataComponentMap
 set "customData"(value: $CompoundTag$$Type)
-set "rarity"(value: $Rarity$$Type)
-set "dyedColor"(value: $KubeColor$$Type)
-set "customName"(value: $Component$$Type)
-set "unit"(value: $DataComponentType$$Type<($Unit$$Type)>)
-get "customName"(): $Component
-get "customData"(): $CompoundTag
-set "lockCode"(value: StringJS)
 set "profile"(value: $GameProfile$$Type)
-set "baseColor"(value: $DyeColor$$Type)
-set "potionId"(value: $Holder$$Type<($Potion)>)
+set "dyedColor"(value: $KubeColor$$Type)
 set "entityData"(value: $CompoundTag$$Type)
+set "potionId"(value: $Holder$$Type<($Potion)>)
+set "unit"(value: $DataComponentType$$Type<($Unit$$Type)>)
+set "customName"(value: $Component$$Type)
+set "rarity"(value: $Rarity$$Type)
+get "customName"(): $Component
+set "baseColor"(value: $DyeColor$$Type)
+set "lore"(value: $List$$Type<($Component$$Type)>)
+set "lockCode"(value: StringJS)
+get "customData"(): $CompoundTag
 get "additionalTooltipHidden"(): void
 set "blockStateProperties"(value: $Map$$Type<(StringJS), (StringJS)>)
 set "dyedColorWithTooltip"(value: $KubeColor$$Type)
 set "potionContents"(value: $PotionContents$$Type)
-get "componentString"(): StringJS
-get "tooltipHidden"(): void
 set "customModelData"(value: integer)
 set "glintOverride"(value: boolean)
 set "containerLootTable"(value: $ResourceKey$$Type<($LootTable)>)
+get "componentString"(): StringJS
+get "tooltipHidden"(): void
 }
 
 export class $MutableDataComponentHolder implements $MutableDataComponentHolder$$Interface {
@@ -2986,44 +2983,44 @@ export class $MutableDataComponentHolder implements $MutableDataComponentHolder$
  "getOrDefault"<T>(arg0: $DataComponentType$$Type<(T)>, arg1: T): T
  "has"(arg0: $DataComponentType$$Type<(never)>): boolean
  "getComponents"(): $DataComponentMap
- "patch"(components: $DataComponentPatch$$Type): $ComponentFunctions
- "set"(components: $DataComponentMap$$Type): $MutableDataComponentHolderFunctions
- "getComponentMap"(): $DataComponentMap
  "getComponentHolder"(): $MutableDataComponentHolder
+ "getComponentMap"(): $DataComponentMap
+ "patch"(components: $DataComponentPatch$$Type): $MutableDataComponentHolderFunctions
+ "set"(components: $DataComponentMap$$Type): $ComponentFunctions
  "get"<T>(arg0: $Supplier$$Type<($DataComponentType$$Type<(T)>)>): T
  "getOrDefault"<T>(arg0: $Supplier$$Type<($DataComponentType$$Type<(T)>)>, arg1: T): T
  "has"(arg0: $Supplier$$Type<($DataComponentType$$Type<(never)>)>): boolean
  "addToTooltip"<T extends $TooltipProvider>(arg0: $DataComponentType$$Type<(T)>, arg1: $Item$TooltipContext$$Type, arg2: $Consumer$$Type<($Component)>, arg3: $TooltipFlag$$Type): void
  "addToTooltip"<T extends $TooltipProvider>(arg0: $Supplier$$Type<($DataComponentType$$Type<(T)>)>, arg1: $Item$TooltipContext$$Type, arg2: $Consumer$$Type<($Component)>, arg3: $TooltipFlag$$Type): void
- "remove"(type: $DataComponentType$$Type<(never)>): $ComponentFunctions
- "get"<T>(type: $DataComponentType$$Type<(T)>): T
- "set"(component: $DataComponentType$$Type<(never)>, value: any): $ComponentFunctions
- "setLore"(lines: $List$$Type<($Component$$Type)>): void
- "setLore"(lines: $List$$Type<($Component$$Type)>, styledLines: $List$$Type<($Component$$Type)>): void
  "setCustomData"(tag: $CompoundTag$$Type): void
- "setRarity"(rarity: $Rarity$$Type): void
- "setDyedColor"(color: $KubeColor$$Type): void
- "setCustomName"(name: $Component$$Type): void
- "setUnit"(component: $DataComponentType$$Type<($Unit$$Type)>): $ComponentFunctions
- "getCustomName"(): $Component
- "getCustomData"(): $CompoundTag
- "setLockCode"(lock: StringJS): void
  "setProfile"(name: StringJS, uuid: $UUID$$Type): void
  "setProfile"(profile: $GameProfile$$Type): void
- "setBaseColor"(color: $DyeColor$$Type): void
- "setPotionId"(potion: $Holder$$Type<($Potion)>): void
+ "setDyedColor"(color: $KubeColor$$Type): void
  "setEntityData"(tag: $CompoundTag$$Type): void
+ "setPotionId"(potion: $Holder$$Type<($Potion)>): void
+ "setUnit"(component: $DataComponentType$$Type<($Unit$$Type)>): $ComponentFunctions
+ "setCustomName"(name: $Component$$Type): void
+ "setRarity"(rarity: $Rarity$$Type): void
+ "getCustomName"(): $Component
+ "setBaseColor"(color: $DyeColor$$Type): void
+ "setLore"(lines: $List$$Type<($Component$$Type)>, styledLines: $List$$Type<($Component$$Type)>): void
+ "setLore"(lines: $List$$Type<($Component$$Type)>): void
+ "setLockCode"(lock: StringJS): void
+ "getCustomData"(): $CompoundTag
  "setAdditionalTooltipHidden"(): void
  "setBlockStateProperties"(properties: $Map$$Type<(StringJS), (StringJS)>): void
  "setDyedColorWithTooltip"(color: $KubeColor$$Type): void
  "setPotionContents"(contents: $PotionContents$$Type): void
- "getComponentString"(): StringJS
  "resetComponents"(): $ComponentFunctions
- "setTooltipHidden"(): void
  "setCustomModelData"(data: integer): void
  "setGlintOverride"(override: boolean): void
- "setContainerLootTable"(lootTable: $ResourceKey$$Type<($LootTable)>): void
  "setContainerLootTable"(lootTable: $ResourceKey$$Type<($LootTable)>, seed: long): void
+ "setContainerLootTable"(lootTable: $ResourceKey$$Type<($LootTable)>): void
+ "getComponentString"(): StringJS
+ "setTooltipHidden"(): void
+ "get"<T>(type: $DataComponentType$$Type<(T)>): T
+ "remove"(type: $DataComponentType$$Type<(never)>): $ComponentFunctions
+ "set"(component: $DataComponentType$$Type<(never)>, value: any): $ComponentFunctions
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3048,10 +3045,10 @@ export class $ITransformationExtension implements $ITransformationExtension$$Int
  "isIdentity"(): boolean
  "transformNormal"(arg0: $Vector3f$$Type): void
  "transformPosition"(arg0: $Vector4f$$Type): void
- "applyOrigin"(arg0: $Vector3f$$Type): $Transformation
- "blockCenterToCorner"(): $Transformation
- "blockCornerToCenter"(): $Transformation
  "rotateTransform"(arg0: $Direction$$Type): $Direction
+ "applyOrigin"(arg0: $Vector3f$$Type): $Transformation
+ "blockCornerToCenter"(): $Transformation
+ "blockCenterToCorner"(): $Transformation
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3067,35 +3064,35 @@ import {$BlockCapability$$Type} from "net.neoforged.neoforge.capabilities.BlockC
 import {$ModelDataManager} from "net.neoforged.neoforge.client.model.data.ModelDataManager"
 import {$PartEntity} from "net.neoforged.neoforge.entity.PartEntity"
 import {$Collection} from "java.util.Collection"
-import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
 import {$Component} from "net.minecraft.network.chat.Component"
+import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
 import {$ChunkPos$$Type} from "net.minecraft.world.level.ChunkPos"
 import {$BlockEntity$$Type} from "net.minecraft.world.level.block.entity.BlockEntity"
 import {$BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
 
 export interface $ILevelExtension$$Interface {
 get "description"(): $Component
-get "maxEntityRadius"(): double
-get "partEntities"(): $Collection<($PartEntity<(never)>)>
 get "modelDataManager"(): $ModelDataManager
 get "descriptionKey"(): StringJS
+get "maxEntityRadius"(): double
+get "partEntities"(): $Collection<($PartEntity<(never)>)>
 }
 
 export class $ILevelExtension implements $ILevelExtension$$Interface {
 static readonly "TRANSLATION_PREFIX": StringJS
 
  "getDescription"(): $Component
- "getCapability"<T>(arg0: $BlockCapability$$Type<(T), (void)>, arg1: $BlockPos$$Type, arg2: $BlockState$$Type, arg3: $BlockEntity$$Type): T
+ "increaseMaxEntityRadius"(arg0: double): double
+ "invalidateCapabilities"(arg0: $BlockPos$$Type): void
+ "invalidateCapabilities"(arg0: $ChunkPos$$Type): void
+ "getModelDataManager"(): $ModelDataManager
  "getCapability"<T, C>(arg0: $BlockCapability$$Type<(T), (C)>, arg1: $BlockPos$$Type, arg2: $BlockState$$Type, arg3: $BlockEntity$$Type, arg4: C): T
+ "getCapability"<T>(arg0: $BlockCapability$$Type<(T), (void)>, arg1: $BlockPos$$Type, arg2: $BlockState$$Type, arg3: $BlockEntity$$Type): T
  "getCapability"<T, C>(arg0: $BlockCapability$$Type<(T), (C)>, arg1: $BlockPos$$Type, arg2: C): T
  "getCapability"<T>(arg0: $BlockCapability$$Type<(T), (void)>, arg1: $BlockPos$$Type): T
+ "getDescriptionKey"(): StringJS
  "getMaxEntityRadius"(): double
  "getPartEntities"(): $Collection<($PartEntity<(never)>)>
- "invalidateCapabilities"(arg0: $ChunkPos$$Type): void
- "invalidateCapabilities"(arg0: $BlockPos$$Type): void
- "getModelDataManager"(): $ModelDataManager
- "getDescriptionKey"(): StringJS
- "increaseMaxEntityRadius"(arg0: double): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3137,8 +3134,8 @@ import {$Explosion$$Type} from "net.minecraft.world.level.Explosion"
 import {$PathType, $PathType$$Type} from "net.minecraft.world.level.pathfinder.PathType"
 import {$LivingEntity$$Type} from "net.minecraft.world.entity.LivingEntity"
 import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
-import {$FluidType, $FluidType$$Type} from "net.neoforged.neoforge.fluids.FluidType"
 import {$FluidState$$Type} from "net.minecraft.world.level.material.FluidState"
+import {$FluidType, $FluidType$$Type} from "net.neoforged.neoforge.fluids.FluidType"
 import {$Boat$$Type} from "net.minecraft.world.entity.vehicle.Boat"
 import {$BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
 
@@ -3150,14 +3147,14 @@ get "fluidType"(): $FluidType
 
 export class $IFluidExtension implements $IFluidExtension$$Interface {
  "move"(arg0: $FluidState$$Type, arg1: $LivingEntity$$Type, arg2: $Vec3$$Type, arg3: double): boolean
- "canHydrate"(arg0: $FluidState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $BlockState$$Type, arg4: $BlockPos$$Type): boolean
- "supportsBoating"(arg0: $FluidState$$Type, arg1: $Boat$$Type): boolean
- "canConvertToSource"(arg0: $FluidState$$Type, arg1: $Level$$Type, arg2: $BlockPos$$Type): boolean
- "getBlockPathType"(arg0: $FluidState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Mob$$Type, arg4: boolean): $PathType
- "getExplosionResistance"(arg0: $FluidState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Explosion$$Type): float
- "canExtinguish"(arg0: $FluidState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type): boolean
- "getFluidType"(): $FluidType
  "getAdjacentBlockPathType"(arg0: $FluidState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Mob$$Type, arg4: $PathType$$Type): $PathType
+ "getExplosionResistance"(arg0: $FluidState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Explosion$$Type): float
+ "getBlockPathType"(arg0: $FluidState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $Mob$$Type, arg4: boolean): $PathType
+ "canConvertToSource"(arg0: $FluidState$$Type, arg1: $Level$$Type, arg2: $BlockPos$$Type): boolean
+ "supportsBoating"(arg0: $FluidState$$Type, arg1: $Boat$$Type): boolean
+ "getFluidType"(): $FluidType
+ "canHydrate"(arg0: $FluidState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type, arg3: $BlockState$$Type, arg4: $BlockPos$$Type): boolean
+ "canExtinguish"(arg0: $FluidState$$Type, arg1: $BlockGetter$$Type, arg2: $BlockPos$$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3182,8 +3179,8 @@ get "scoreboard"(): $Scoreboard
 }
 
 export class $ICommandSourceStackExtension implements $ICommandSourceStackExtension$$Interface {
- "getUnsidedLevel"(): $Level
  "getAdvancement"(arg0: $ResourceLocation$$Type): $AdvancementHolder
+ "getUnsidedLevel"(): $Level
  "getRecipeManager"(): $RecipeManager
  "getScoreboard"(): $Scoreboard
 }
@@ -3198,9 +3195,9 @@ export type $ICommandSourceStackExtension$$Type = ($ICommandSourceStackExtension
 export type $ICommandSourceStackExtension$$Original = $ICommandSourceStackExtension;}
 declare module "net.neoforged.neoforge.common.conditions.ICondition" {
 import {$DynamicOps$$Type} from "com.mojang.serialization.DynamicOps"
-import {$Codec, $Codec$$Type} from "com.mojang.serialization.Codec"
-import {$Optional, $Optional$$Type} from "java.util.Optional"
 import {$WithConditions$$Type} from "net.neoforged.neoforge.common.conditions.WithConditions"
+import {$Optional, $Optional$$Type} from "java.util.Optional"
+import {$Codec, $Codec$$Type} from "com.mojang.serialization.Codec"
 import {$ICondition$IContext$$Type} from "net.neoforged.neoforge.common.conditions.ICondition$IContext"
 import {$JsonElement$$Type} from "com.google.gson.JsonElement"
 import {$List, $List$$Type} from "java.util.List"
@@ -3216,14 +3213,14 @@ static readonly "CODEC": $Codec<($ICondition)>
 static readonly "LIST_CODEC": $Codec<($List<($ICondition)>)>
 
  "test"(arg0: $ICondition$IContext$$Type): boolean
-static "getConditionally"<V, T>(arg0: $Codec$$Type<(T)>, arg1: $DynamicOps$$Type<(V)>, arg2: V): $Optional<(T)>
-static "writeConditions"(arg0: $HolderLookup$Provider$$Type, arg1: $JsonObject$$Type, arg2: $List$$Type<($ICondition$$Type)>): void
-static "writeConditions"(arg0: $HolderLookup$Provider$$Type, arg1: $JsonObject$$Type, ...arg2: ($ICondition$$Type)[]): void
-static "writeConditions"(arg0: $DynamicOps$$Type<($JsonElement$$Type)>, arg1: $JsonObject$$Type, arg2: $List$$Type<($ICondition$$Type)>): void
-static "conditionsMatched"<V>(arg0: $DynamicOps$$Type<(V)>, arg1: V): boolean
-static "getWithConditionalCodec"<V, T>(arg0: $Codec$$Type<((T)?)>, arg1: $DynamicOps$$Type<(V)>, arg2: V): $Optional<(T)>
-static "getWithWithConditionsCodec"<V, T>(arg0: $Codec$$Type<(($WithConditions$$Type<(T)>)?)>, arg1: $DynamicOps$$Type<(V)>, arg2: V): $Optional<(T)>
  "codec"(): $MapCodec<($ICondition)>
+static "getWithWithConditionsCodec"<V, T>(arg0: $Codec$$Type<(($WithConditions$$Type<(T)>)?)>, arg1: $DynamicOps$$Type<(V)>, arg2: V): $Optional<(T)>
+static "getWithConditionalCodec"<V, T>(arg0: $Codec$$Type<((T)?)>, arg1: $DynamicOps$$Type<(V)>, arg2: V): $Optional<(T)>
+static "conditionsMatched"<V>(arg0: $DynamicOps$$Type<(V)>, arg1: V): boolean
+static "writeConditions"(arg0: $HolderLookup$Provider$$Type, arg1: $JsonObject$$Type, ...arg2: ($ICondition$$Type)[]): void
+static "writeConditions"(arg0: $HolderLookup$Provider$$Type, arg1: $JsonObject$$Type, arg2: $List$$Type<($ICondition$$Type)>): void
+static "writeConditions"(arg0: $DynamicOps$$Type<($JsonElement$$Type)>, arg1: $JsonObject$$Type, arg2: $List$$Type<($ICondition$$Type)>): void
+static "getConditionally"<V, T>(arg0: $Codec$$Type<(T)>, arg1: $DynamicOps$$Type<(V)>, arg2: V): $Optional<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3241,8 +3238,8 @@ import {$AttributeModifier$Operation$$Type} from "net.minecraft.world.entity.ai.
 import {$MutableComponent} from "net.minecraft.network.chat.MutableComponent"
 import {$Component} from "net.minecraft.network.chat.Component"
 import {$TooltipFlag$$Type} from "net.minecraft.world.item.TooltipFlag"
-import {$TextColor, $TextColor$$Type} from "net.minecraft.network.chat.TextColor"
 import {$DecimalFormat} from "java.text.DecimalFormat"
+import {$TextColor, $TextColor$$Type} from "net.minecraft.network.chat.TextColor"
 
 export interface $IAttributeExtension$$Interface {
 
@@ -3254,12 +3251,12 @@ export class $IAttributeExtension implements $IAttributeExtension$$Interface {
 static readonly "FORMAT": $DecimalFormat
 
  "getBaseId"(): $ResourceLocation
- "getDebugInfo"(arg0: $AttributeModifier$$Type, arg1: $TooltipFlag$$Type): $Component
-static "isNullOrAddition"(arg0: $AttributeModifier$Operation$$Type): boolean
  "getMergedStyle"(arg0: boolean): $TextColor
  "toBaseComponent"(arg0: double, arg1: double, arg2: boolean, arg3: $TooltipFlag$$Type): $MutableComponent
- "toComponent"(arg0: $AttributeModifier$$Type, arg1: $TooltipFlag$$Type): $MutableComponent
+static "isNullOrAddition"(arg0: $AttributeModifier$Operation$$Type): boolean
  "toValueComponent"(arg0: $AttributeModifier$Operation$$Type, arg1: double, arg2: $TooltipFlag$$Type): $MutableComponent
+ "getDebugInfo"(arg0: $AttributeModifier$$Type, arg1: $TooltipFlag$$Type): $Component
+ "toComponent"(arg0: $AttributeModifier$$Type, arg1: $TooltipFlag$$Type): $MutableComponent
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3295,8 +3292,8 @@ static readonly "DIRECT_CODEC": $Codec<($StructureModifier)>
 static readonly "LIST_CODEC": $Codec<($HolderSet<($StructureModifier)>)>
 static readonly "REFERENCE_CODEC": $Codec<($Holder<($StructureModifier)>)>
 
- "modify"(arg0: $Holder$$Type<($Structure)>, arg1: $StructureModifier$Phase$$Type, arg2: $ModifiableStructureInfo$StructureInfo$Builder$$Type): void
  "codec"(): $MapCodec<($StructureModifier)>
+ "modify"(arg0: $Holder$$Type<($Structure)>, arg1: $StructureModifier$Phase$$Type, arg2: $ModifiableStructureInfo$StructureInfo$Builder$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3333,11 +3330,11 @@ export type $IMenuTypeExtension$$Type<T> = ((arg0: integer, arg1: $Inventory, ar
  */
 export type $IMenuTypeExtension$$Original<T> = $IMenuTypeExtension<(T)>;}
 declare module "net.neoforged.neoforge.common.world.BiomeModifier" {
-import {$Codec} from "com.mojang.serialization.Codec"
 import {$ModifiableBiomeInfo$BiomeInfo$Builder$$Type} from "net.neoforged.neoforge.common.world.ModifiableBiomeInfo$BiomeInfo$Builder"
+import {$Codec} from "com.mojang.serialization.Codec"
 import {$HolderSet} from "net.minecraft.core.HolderSet"
-import {$BiomeModifier$Phase$$Type} from "net.neoforged.neoforge.common.world.BiomeModifier$Phase"
 import {$Biome$$Type} from "net.minecraft.world.level.biome.Biome"
+import {$BiomeModifier$Phase$$Type} from "net.neoforged.neoforge.common.world.BiomeModifier$Phase"
 import {$MapCodec} from "com.mojang.serialization.MapCodec"
 import {$Holder, $Holder$$Type} from "net.minecraft.core.Holder"
 
@@ -3357,8 +3354,8 @@ static readonly "DIRECT_CODEC": $Codec<($BiomeModifier)>
 static readonly "LIST_CODEC": $Codec<($HolderSet<($BiomeModifier)>)>
 static readonly "REFERENCE_CODEC": $Codec<($Holder<($BiomeModifier)>)>
 
- "modify"(arg0: $Holder$$Type<($Biome)>, arg1: $BiomeModifier$Phase$$Type, arg2: $ModifiableBiomeInfo$BiomeInfo$Builder$$Type): void
  "codec"(): $MapCodec<($BiomeModifier)>
+ "modify"(arg0: $Holder$$Type<($Biome)>, arg1: $BiomeModifier$Phase$$Type, arg2: $ModifiableBiomeInfo$BiomeInfo$Builder$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3403,9 +3400,9 @@ import {$Exception$$Type} from "java.lang.Exception"
 import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
 import {$ConnectionProtocol} from "net.minecraft.network.ConnectionProtocol"
 import {$Packet$$Type} from "net.minecraft.network.protocol.Packet"
-import {$ICommonPacketListener$$Interface} from "net.neoforged.neoforge.common.extensions.ICommonPacketListener"
-import {$Throwable$$Type} from "java.lang.Throwable"
 import {$ReentrantBlockableEventLoop} from "net.minecraft.util.thread.ReentrantBlockableEventLoop"
+import {$Throwable$$Type} from "java.lang.Throwable"
+import {$ICommonPacketListener$$Interface} from "net.neoforged.neoforge.common.extensions.ICommonPacketListener"
 import {$Connection} from "net.minecraft.network.Connection"
 import {$CrashReportCategory$$Type} from "net.minecraft.CrashReportCategory"
 
@@ -3417,24 +3414,24 @@ get "acceptingMessages"(): boolean
 }
 
 export class $IClientCommonPacketListenerExtension implements $IClientCommonPacketListenerExtension$$Interface {
+ "getMainThreadEventLoop"(): $ReentrantBlockableEventLoop<(never)>
  "disconnect"(arg0: $Component$$Type): void
  "send"(arg0: $CustomPacketPayload$$Type): void
- "getMainThreadEventLoop"(): $ReentrantBlockableEventLoop<(never)>
  "getConnection"(): $Connection
- "hasChannel"(arg0: $CustomPacketPayload$Type$$Type<(never)>): boolean
- "hasChannel"(arg0: $CustomPacketPayload$$Type): boolean
- "hasChannel"(arg0: $ResourceLocation$$Type): boolean
  "send"(arg0: $Packet$$Type<(never)>): void
  "getConnectionType"(): $ConnectionType
+ "hasChannel"(arg0: $ResourceLocation$$Type): boolean
+ "hasChannel"(arg0: $CustomPacketPayload$$Type): boolean
+ "hasChannel"(arg0: $CustomPacketPayload$Type$$Type<(never)>): boolean
  "protocol"(): $ConnectionProtocol
+ "isAcceptingMessages"(): boolean
+ "shouldHandleMessage"(arg0: $Packet$$Type<(never)>): boolean
+ "createDisconnectionInfo"(arg0: $Component$$Type, arg1: $Throwable$$Type): $DisconnectionDetails
+ "onPacketError"(arg0: $Packet$$Type, arg1: $Exception$$Type): void
+ "flow"(): $PacketFlow
  "fillListenerSpecificCrashDetails"(arg0: $CrashReport$$Type, arg1: $CrashReportCategory$$Type): void
  "fillCrashReport"(arg0: $CrashReport$$Type): void
  "onDisconnect"(arg0: $DisconnectionDetails$$Type): void
- "createDisconnectionInfo"(arg0: $Component$$Type, arg1: $Throwable$$Type): $DisconnectionDetails
- "isAcceptingMessages"(): boolean
- "shouldHandleMessage"(arg0: $Packet$$Type<(never)>): boolean
- "onPacketError"(arg0: $Packet$$Type, arg1: $Exception$$Type): void
- "flow"(): $PacketFlow
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3453,8 +3450,8 @@ export interface $IBrewingRecipe$$Interface {
 
 export class $IBrewingRecipe implements $IBrewingRecipe$$Interface {
  "getOutput"(arg0: $ItemStack$$Type, arg1: $ItemStack$$Type): $ItemStack
- "isInput"(arg0: $ItemStack$$Type): boolean
  "isIngredient"(arg0: $ItemStack$$Type): boolean
+ "isInput"(arg0: $ItemStack$$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3467,8 +3464,8 @@ export type $IBrewingRecipe$$Type = ($IBrewingRecipe);
 export type $IBrewingRecipe$$Original = $IBrewingRecipe;}
 declare module "net.neoforged.neoforge.common.extensions.IDataComponentMapBuilderExtensions" {
 import {$Supplier$$Type} from "java.util.function.Supplier"
-import {$DataComponentMap$Builder} from "net.minecraft.core.component.DataComponentMap$Builder"
 import {$DataComponentType$$Type} from "net.minecraft.core.component.DataComponentType"
+import {$DataComponentMap$Builder} from "net.minecraft.core.component.DataComponentMap$Builder"
 
 export interface $IDataComponentMapBuilderExtensions$$Interface {
 }
@@ -3539,48 +3536,52 @@ import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
 import {$PartEntity} from "net.neoforged.neoforge.entity.PartEntity"
 import {$MobCategory} from "net.minecraft.world.entity.MobCategory"
-import {$Tag, $Tag$$Type} from "net.minecraft.nbt.Tag"
+import {$Tag$$Type} from "net.minecraft.nbt.Tag"
 import {$Entity$$Type} from "net.minecraft.world.entity.Entity"
-import {$ServerPlayer$$Type} from "net.minecraft.server.level.ServerPlayer"
 import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
+import {$ServerPlayer$$Type} from "net.minecraft.server.level.ServerPlayer"
 import {$FluidState$$Type} from "net.minecraft.world.level.material.FluidState"
 import {$FluidType, $FluidType$$Type} from "net.neoforged.neoforge.fluids.FluidType"
-import {$BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
 import {$SoundAction$$Type} from "net.neoforged.neoforge.common.SoundAction"
+import {$BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
 
 export interface $IEntityExtension$$Interface extends $INBTSerializable$$Interface<($CompoundTag)> {
-get "maxHeightFluidType"(): $FluidType
 get "inFluidType"(): boolean
 get "parts"(): ($PartEntity<(never)>)[]
+get "maxHeightFluidType"(): $FluidType
 get "eyeInFluidType"(): $FluidType
-get "multipartEntity"(): boolean
 get "persistentData"(): $CompoundTag
 get "addedToLevel"(): boolean
+get "multipartEntity"(): boolean
 }
 
 export class $IEntityExtension implements $IEntityExtension$$Interface {
- "getMaxHeightFluidType"(): $FluidType
- "copyAttachmentsFrom"(arg0: $Entity$$Type, arg1: boolean): void
- "canHydrateInFluidType"(arg0: $FluidType$$Type): boolean
- "canBeRiddenUnderFluidType"(arg0: $FluidType$$Type, arg1: $Entity$$Type): boolean
- "getFluidMotionScale"(arg0: $FluidType$$Type): double
- "hasCustomOutlineRendering"(arg0: $Player$$Type): boolean
- "getSoundFromFluidType"(arg0: $FluidType$$Type, arg1: $SoundAction$$Type): $SoundEvent
- "getPickedResult"(arg0: $HitResult$$Type): $ItemStack
- "isInFluidType"(arg0: $BiPredicate$$Type<($FluidType), (double)>, arg1: boolean): boolean
+ "captureDrops"(arg0: $Collection$$Type<($ItemEntity$$Type)>): $Collection<($ItemEntity)>
+ "captureDrops"(): $Collection<($ItemEntity)>
  "isInFluidType"(arg0: $FluidState$$Type): boolean
  "isInFluidType"(arg0: $FluidType$$Type): boolean
  "isInFluidType"(arg0: $BiPredicate$$Type<($FluidType), (double)>): boolean
  "isInFluidType"(): boolean
+ "isInFluidType"(arg0: $BiPredicate$$Type<($FluidType), (double)>, arg1: boolean): boolean
+ "getFluidTypeHeight"(arg0: $FluidType$$Type): double
  "getParts"(): ($PartEntity<(never)>)[]
  "canTrample"(arg0: $BlockState$$Type, arg1: $BlockPos$$Type, arg2: float): boolean
  "revive"(): void
  "getFluidFallDistanceModifier"(arg0: $FluidType$$Type): float
- "canSwimInFluidType"(arg0: $FluidType$$Type): boolean
+ "getMaxHeightFluidType"(): $FluidType
+ "getFluidMotionScale"(arg0: $FluidType$$Type): double
+ "canHydrateInFluidType"(arg0: $FluidType$$Type): boolean
+ "getSoundFromFluidType"(arg0: $FluidType$$Type, arg1: $SoundAction$$Type): $SoundEvent
+ "canBeRiddenUnderFluidType"(arg0: $FluidType$$Type, arg1: $Entity$$Type): boolean
+ "copyAttachmentsFrom"(arg0: $Entity$$Type, arg1: boolean): void
+ "hasCustomOutlineRendering"(arg0: $Player$$Type): boolean
  "getEyeInFluidType"(): $FluidType
- "shouldRiderSit"(): boolean
- "isEyeInFluidType"(arg0: $FluidType$$Type): boolean
- "isMultipartEntity"(): boolean
+ "isPushedByFluid"(arg0: $FluidType$$Type): boolean
+ "getPersistentData"(): $CompoundTag
+ "canRiderInteract"(): boolean
+ "canSwimInFluidType"(arg0: $FluidType$$Type): boolean
+ "isAddedToLevel"(): boolean
+ "onAddedToLevel"(): void
 /**
  * 
  * @deprecated
@@ -3591,24 +3592,20 @@ export class $IEntityExtension implements $IEntityExtension$$Interface {
  * @deprecated
  */
  "deserializeNBT"(arg0: $HolderLookup$Provider$$Type, arg1: $CompoundTag$$Type): void
- "getPersistentData"(): $CompoundTag
- "canStartSwimming"(): boolean
- "getClassification"(arg0: boolean): $MobCategory
- "canRiderInteract"(): boolean
- "isPushedByFluid"(arg0: $FluidType$$Type): boolean
- "onAddedToLevel"(): void
- "onRemovedFromLevel"(): void
 /**
  * 
  * @deprecated
  */
- "serializeNBT"(arg0: $HolderLookup$Provider$$Type): $Tag
- "isAddedToLevel"(): boolean
- "sendPairingData"(arg0: $ServerPlayer$$Type, arg1: $Consumer$$Type<($CustomPacketPayload)>): void
- "captureDrops"(arg0: $Collection$$Type<($ItemEntity$$Type)>): $Collection<($ItemEntity)>
- "captureDrops"(): $Collection<($ItemEntity)>
- "getFluidTypeHeight"(arg0: $FluidType$$Type): double
+ "serializeNBT"(arg0: $HolderLookup$Provider$$Type): $CompoundTag
+ "shouldRiderSit"(): boolean
+ "getClassification"(arg0: boolean): $MobCategory
  "canFluidExtinguish"(arg0: $FluidType$$Type): boolean
+ "getPickedResult"(arg0: $HitResult$$Type): $ItemStack
+ "canStartSwimming"(): boolean
+ "isMultipartEntity"(): boolean
+ "isEyeInFluidType"(arg0: $FluidType$$Type): boolean
+ "sendPairingData"(arg0: $ServerPlayer$$Type, arg1: $Consumer$$Type<($CustomPacketPayload)>): void
+ "onRemovedFromLevel"(): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

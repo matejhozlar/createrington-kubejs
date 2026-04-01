@@ -157,8 +157,8 @@ get "modelPartsFancyMenu"(): $Set<($PlayerModelPart)>
 }
 
 export class $IMixinOptions implements $IMixinOptions$$Interface {
- "invokeProcessOptionsFancyMenu"(arg0: $Options$FieldAccess$$Type): void
  "getModelPartsFancyMenu"(): $Set<($PlayerModelPart)>
+ "invokeProcessOptionsFancyMenu"(arg0: $Options$FieldAccess$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -287,11 +287,11 @@ get "narratablesFancyMenu"(): $List<($NarratableEntry)>
 }
 
 export class $IMixinScreen implements $IMixinScreen$$Interface {
+ "invokeRemoveWidgetFancyMenu"(arg0: $GuiEventListener$$Type): void
  "get_initialized_FancyMenu"(): boolean
  "getRenderablesFancyMenu"(): $List<($Renderable)>
  "getChildrenFancyMenu"(): $List<($GuiEventListener)>
  "getNarratablesFancyMenu"(): $List<($NarratableEntry)>
- "invokeRemoveWidgetFancyMenu"(arg0: $GuiEventListener$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

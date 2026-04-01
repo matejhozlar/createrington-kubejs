@@ -3,13 +3,13 @@ import {$CommandDispatcher, $CommandDispatcher$$Type} from "com.mojang.brigadier
 import {$SharedSuggestionProvider, $SharedSuggestionProvider$$Type} from "net.minecraft.commands.SharedSuggestionProvider"
 
 export interface $IMixinClientPacketListener$$Interface {
-set "commandsKonkrete"(value: $CommandDispatcher$$Type<($SharedSuggestionProvider$$Type)>)
 get "commandsKonkrete"(): $CommandDispatcher<($SharedSuggestionProvider)>
+set "commandsKonkrete"(value: $CommandDispatcher$$Type<($SharedSuggestionProvider$$Type)>)
 }
 
 export class $IMixinClientPacketListener implements $IMixinClientPacketListener$$Interface {
- "setCommandsKonkrete"(arg0: $CommandDispatcher$$Type<($SharedSuggestionProvider$$Type)>): void
  "getCommandsKonkrete"(): $CommandDispatcher<($SharedSuggestionProvider)>
+ "setCommandsKonkrete"(arg0: $CommandDispatcher$$Type<($SharedSuggestionProvider$$Type)>): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -135,11 +135,11 @@ set "fontKonkrete"(value: $Font$$Type)
 }
 
 export class $IMixinScreen implements $IMixinScreen$$Interface {
+ "invokeAddRenderableWidgetKonkrete"<T extends $GuiEventListener>(arg0: T): T
+ "invokeAddWidgetKonkrete"<T extends $GuiEventListener>(arg0: T): T
  "getRenderablesKonkrete"(): $List<($Renderable)>
  "getChildrenKonkrete"(): $List<($GuiEventListener)>
- "invokeAddWidgetKonkrete"<T extends $GuiEventListener>(arg0: T): T
  "setFontKonkrete"(arg0: $Font$$Type): void
- "invokeAddRenderableWidgetKonkrete"<T extends $GuiEventListener>(arg0: T): T
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

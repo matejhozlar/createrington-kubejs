@@ -8,15 +8,15 @@ public "isConnected"(arg0: $Level$$Type): boolean
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public static "of"(arg0: $BlockPos$$Type, arg1: $BlockPos$$Type): $Connection
-public "getOtherNode"(arg0: $IElectricityNode$$Type): $IElectricityNode
-public "isPowered"(arg0: $Level$$Type): boolean
-public "getPosA"(): $BlockPos
-public "isCrossingPowerableZone"(arg0: $Level$$Type): boolean
 public "getPosB"(): $BlockPos
 public "getNodeB"(arg0: $Level$$Type): $IElectricityNode
+public "isPowered"(arg0: $Level$$Type): boolean
+public "getPosA"(): $BlockPos
+public "getOtherNode"(arg0: $IElectricityNode$$Type): $IElectricityNode
+public "isCrossingPowerableZone"(arg0: $Level$$Type): boolean
 public "getNodeA"(arg0: $Level$$Type): $IElectricityNode
-get "posA"(): $BlockPos
 get "posB"(): $BlockPos
+get "posA"(): $BlockPos
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -125,8 +125,8 @@ constructor(arg0: $Level$$Type)
 
 public static "get"(arg0: $Level$$Type): $ElectricityTicker
 public "tick"(): void
-public "addElectricityNode"(arg0: $IElectricityNode$$Type): void
 public "earlyTick"(): void
+public "addElectricityNode"(arg0: $IElectricityNode$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -171,59 +171,59 @@ import {$AABB} from "net.minecraft.world.phys.AABB"
 import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 
 export interface $IElectricityNode$$Interface {
-get "nodeValid"(): boolean
-set "nodeReceivingPower"(value: boolean)
-get "nodeMaximumConnections"(): integer
+get "powerSources"(): $Set<($BlockPos)>
+get "positionedNodeInteractBox"(): $AABB
+get "nodeConnectionLimitReached"(): boolean
 get "nodeReceivingPower"(): boolean
 get "nodeInPowerableNetwork"(): boolean
-set "nodePowered"(value: boolean)
-get "nodePosition"(): $BlockPos
+set "nodeReceivingPower"(value: boolean)
+get "nodeMaximumConnections"(): integer
+get "nodePowered"(): boolean
 get "nodeLevel"(): $Level
 get "nodeOwner"(): $BlockEntity
-get "nodePowered"(): boolean
-get "nodeConnections"(): $Set<($Connection)>
 get "sourceNode"(): boolean
+get "nodePosition"(): $BlockPos
+get "nodeConnections"(): $Set<($Connection)>
+set "nodePowered"(value: boolean)
+get "nodeValid"(): boolean
 get "nodeInteractBox"(): $AABB
-get "powerSources"(): $Set<($BlockPos)>
-get "nodeConnectionLimitReached"(): boolean
-get "positionedNodeInteractBox"(): $AABB
 }
 
 export class $IElectricityNode implements $IElectricityNode$$Interface {
-static "searchNodes"(arg0: $IElectricityNode$$Type, arg1: integer, arg2: boolean, arg3: $Predicate$$Type<($IElectricityNode)>, arg4: $Predicate$$Type<($IElectricityNode)>): $List<($IElectricityNode)>
-static "searchNodes"(arg0: $IElectricityNode$$Type): $List<($IElectricityNode)>
- "isNodeValid"(): boolean
- "isConnectedToNode"(arg0: $IElectricityNode$$Type): boolean
- "setNodeReceivingPower"(arg0: boolean): void
- "getNodeMaximumConnections"(): integer
+ "onNodeDestroyed"(): void
+ "getPowerSources"(): $Set<($BlockPos)>
+ "updateAndGetNodeConnections"(): $Set<($Connection)>
+ "getPositionedNodeInteractBox"(): $AABB
+ "isNodeConnectionLimitReached"(): boolean
+ "registerElectricityNodeTicker"(arg0: $Level$$Type): void
  "isNodeReceivingPower"(): boolean
- "removeAllNodeConnections"(): void
- "updateNodeConnections"(): void
+ "removeNodeConnection"(arg0: $Connection$$Type): void
  "isNodeInPowerableNetwork"(arg0: $BlockPos$$Type): boolean
  "isNodeInPowerableNetwork"(): boolean
- "removeNodeConnection"(arg0: $Connection$$Type): void
- "syncDataToTrackingClients"(): void
+ "setNodeReceivingPower"(arg0: boolean): void
+ "updateNodeConnections"(): void
+ "getNodeMaximumConnections"(): integer
  "canPowerTraverseNode"(): boolean
- "setNodePowered"(arg0: boolean): void
- "earlyNodeTick"(arg0: $Level$$Type): void
- "getNodePosition"(): $BlockPos
- "connectToNode"(arg0: $IElectricityNode$$Type): boolean
- "readNodeNbt"(arg0: $CompoundTag$$Type): void
- "onNodeConnectedTo"(arg0: $IElectricityNode$$Type): void
- "writeNodeNbt"(arg0: $CompoundTag$$Type): void
+ "removeAllNodeConnections"(): void
+ "syncDataToTrackingClients"(): void
+ "isNodePowered"(): boolean
  "saveNodeNbtToItem"(arg0: $ItemStack$$Type, arg1: $HolderLookup$Provider$$Type): void
+ "onNodeConnectedTo"(arg0: $IElectricityNode$$Type): void
+ "isConnectedToNode"(arg0: $IElectricityNode$$Type): boolean
  "getNodeLevel"(): $Level
  "getNodeOwner"(): $BlockEntity
- "isNodePowered"(): boolean
- "getNodeConnections"(): $Set<($Connection)>
  "isSourceNode"(): boolean
+ "getNodePosition"(): $BlockPos
+ "readNodeNbt"(arg0: $CompoundTag$$Type): void
+ "writeNodeNbt"(arg0: $CompoundTag$$Type): void
+ "getNodeConnections"(): $Set<($Connection)>
+ "connectToNode"(arg0: $IElectricityNode$$Type): boolean
+ "setNodePowered"(arg0: boolean): void
+static "searchNodes"(arg0: $IElectricityNode$$Type): $List<($IElectricityNode)>
+static "searchNodes"(arg0: $IElectricityNode$$Type, arg1: integer, arg2: boolean, arg3: $Predicate$$Type<($IElectricityNode)>, arg4: $Predicate$$Type<($IElectricityNode)>): $List<($IElectricityNode)>
+ "isNodeValid"(): boolean
+ "earlyNodeTick"(arg0: $Level$$Type): void
  "getNodeInteractBox"(): $AABB
- "getPowerSources"(): $Set<($BlockPos)>
- "onNodeDestroyed"(): void
- "updateAndGetNodeConnections"(): $Set<($Connection)>
- "isNodeConnectionLimitReached"(): boolean
- "getPositionedNodeInteractBox"(): $AABB
- "registerElectricityNodeTicker"(arg0: $Level$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

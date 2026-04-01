@@ -64,8 +64,8 @@ export class $FloatIterable implements $FloatIterable$$Interface {
  */
  "forEach"(arg0: $Consumer$$Type<(float)>): void
  "forEach"(arg0: $DoubleConsumer$$Type): void
- "doubleSpliterator"(): $DoubleSpliterator
  "doubleIterator"(): $DoubleIterator
+ "doubleSpliterator"(): $DoubleSpliterator
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -77,15 +77,15 @@ export type $FloatIterable$$Type = ($FloatIterable);
  */
 export type $FloatIterable$$Original = $FloatIterable;}
 declare module "it.unimi.dsi.fastutil.objects.ObjectLinkedOpenCustomHashSet" {
-import {$ObjectBidirectionalIterator} from "it.unimi.dsi.fastutil.objects.ObjectBidirectionalIterator"
 import {$Iterator$$Type} from "java.util.Iterator"
+import {$ObjectBidirectionalIterator} from "it.unimi.dsi.fastutil.objects.ObjectBidirectionalIterator"
 import {$Collection$$Type} from "java.util.Collection"
-import {$SortedSet} from "java.util.SortedSet"
 import {$AbstractObjectSortedSet} from "it.unimi.dsi.fastutil.objects.AbstractObjectSortedSet"
-import {$ObjectIterator} from "it.unimi.dsi.fastutil.objects.ObjectIterator"
-import {$Hash$$Interface} from "it.unimi.dsi.fastutil.Hash"
+import {$SortedSet} from "java.util.SortedSet"
 import {$Comparator} from "java.util.Comparator"
+import {$ObjectIterator} from "it.unimi.dsi.fastutil.objects.ObjectIterator"
 import {$Spliterator} from "java.util.Spliterator"
+import {$Hash$$Interface} from "it.unimi.dsi.fastutil.Hash"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$ObjectCollection$$Type} from "it.unimi.dsi.fastutil.objects.ObjectCollection"
 import {$Hash$Strategy, $Hash$Strategy$$Type} from "it.unimi.dsi.fastutil.Hash$Strategy"
@@ -136,9 +136,9 @@ public "subSet"(arg0: any, arg1: any): $SortedSet
 public "headSet"(arg0: any): $SortedSet
 public "tailSet"(arg0: any): $SortedSet
 public "strategy"(): $Hash$Strategy<(K)>
+public "addOrGet"(arg0: K): K
 public "addAndMoveToFirst"(arg0: K): boolean
 public "addAndMoveToLast"(arg0: K): boolean
-public "addOrGet"(arg0: K): K
 public static "of"<K>(arg0: K, arg1: K): $ObjectSet<(K)>
 public static "of"<K>(...arg0: (K)[]): $ObjectSet<(K)>
 public static "of"<K>(arg0: K, arg1: K, arg2: K): $ObjectSet<(K)>
@@ -187,8 +187,8 @@ import {$Short2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2Do
 import {$Object2CharFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2CharFunction"
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Int2ShortFunction} from "it.unimi.dsi.fastutil.ints.Int2ShortFunction"
-import {$Short2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Float2ShortFunction} from "it.unimi.dsi.fastutil.floats.Float2ShortFunction"
+import {$Short2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Double2CharFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2CharFunction"
 import {$Char2CharFunction, $Char2CharFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2CharFunction"
 import {$Char2LongFunction} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
@@ -221,36 +221,36 @@ export class $Char2ShortFunction implements $Char2ShortFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): short
+ "get"(arg0: any): any
  "get"(arg0: character): short
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: character, arg1: short): short
 /**
  * 
  * @deprecated
  */
  "put"(arg0: character, arg1: short): short
- "containsKey"(arg0: character): boolean
+ "put"(arg0: character, arg1: short): short
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: character): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: character, arg1: short): short
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: short): short
+ "getOrDefault"(arg0: character, arg1: short): short
 /**
  * 
  * @deprecated
@@ -266,26 +266,26 @@ export class $Char2ShortFunction implements $Char2ShortFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(short), (T)>): $Function$0<(character), (T)>
- "andThenInt"(arg0: $Short2IntFunction$$Type): $Char2IntFunction
- "composeInt"(arg0: $Int2CharFunction$$Type): $Int2ShortFunction
- "andThenReference"<T>(arg0: $Short2ReferenceFunction$$Type<(T)>): $Char2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Short2ObjectFunction$$Type<(T)>): $Char2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2CharFunction$$Type): $Short2ShortFunction
+ "andThenDouble"(arg0: $Short2DoubleFunction$$Type): $Char2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2CharFunction$$Type<(T)>): $Reference2ShortFunction<(T)>
+ "composeDouble"(arg0: $Double2CharFunction$$Type): $Double2ShortFunction
+ "andThenChar"(arg0: $Short2CharFunction$$Type): $Char2CharFunction
+ "defaultReturnValue"(): short
+ "defaultReturnValue"(arg0: short): void
  "composeObject"<T>(arg0: $Object2CharFunction$$Type<(T)>): $Object2ShortFunction<(T)>
+ "andThenByte"(arg0: $Short2ByteFunction$$Type): $Char2ByteFunction
+ "composeByte"(arg0: $Byte2CharFunction$$Type): $Byte2ShortFunction
+ "andThenReference"<T>(arg0: $Short2ReferenceFunction$$Type<(T)>): $Char2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2CharFunction$$Type): $Long2ShortFunction
+ "composeFloat"(arg0: $Float2CharFunction$$Type): $Float2ShortFunction
+ "andThenShort"(arg0: $Short2ShortFunction$$Type): $Char2ShortFunction
+ "composeChar"(arg0: $Char2CharFunction$$Type): $Char2ShortFunction
  "andThenLong"(arg0: $Short2LongFunction$$Type): $Char2LongFunction
  "andThenFloat"(arg0: $Short2FloatFunction$$Type): $Char2FloatFunction
- "composeShort"(arg0: $Short2CharFunction$$Type): $Short2ShortFunction
- "andThenObject"<T>(arg0: $Short2ObjectFunction$$Type<(T)>): $Char2ObjectFunction<(T)>
- "andThenByte"(arg0: $Short2ByteFunction$$Type): $Char2ByteFunction
- "andThenChar"(arg0: $Short2CharFunction$$Type): $Char2CharFunction
- "composeReference"<T>(arg0: $Reference2CharFunction$$Type<(T)>): $Reference2ShortFunction<(T)>
- "defaultReturnValue"(arg0: short): void
- "defaultReturnValue"(): short
- "composeByte"(arg0: $Byte2CharFunction$$Type): $Byte2ShortFunction
- "andThenShort"(arg0: $Short2ShortFunction$$Type): $Char2ShortFunction
- "composeLong"(arg0: $Long2CharFunction$$Type): $Long2ShortFunction
- "composeChar"(arg0: $Char2CharFunction$$Type): $Char2ShortFunction
- "composeFloat"(arg0: $Float2CharFunction$$Type): $Float2ShortFunction
- "andThenDouble"(arg0: $Short2DoubleFunction$$Type): $Char2DoubleFunction
- "composeDouble"(arg0: $Double2CharFunction$$Type): $Double2ShortFunction
+ "andThenInt"(arg0: $Short2IntFunction$$Type): $Char2IntFunction
+ "composeInt"(arg0: $Int2CharFunction$$Type): $Int2ShortFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: character): short
@@ -316,21 +316,21 @@ import {$Long2ShortFunction} from "it.unimi.dsi.fastutil.longs.Long2ShortFunctio
 import {$Int2ReferenceFunction} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
 import {$Short2CharFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
 import {$Int2ObjectFunction} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
-import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Char2ShortFunction} from "it.unimi.dsi.fastutil.chars.Char2ShortFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
+import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Short2ShortFunction, $Short2ShortFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ShortFunction"
 import {$Byte2ShortFunction} from "it.unimi.dsi.fastutil.bytes.Byte2ShortFunction"
 import {$Int2DoubleFunction} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
 import {$Short2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2DoubleFunction"
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
-import {$Short2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Float2ShortFunction} from "it.unimi.dsi.fastutil.floats.Float2ShortFunction"
+import {$Short2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$IntUnaryOperator, $IntUnaryOperator$$Type, $IntUnaryOperator$$Interface} from "java.util.function.IntUnaryOperator"
 import {$Short2LongFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$Int2LongFunction} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
-import {$Char2IntFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
 import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
+import {$Char2IntFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
 import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Double2IntFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2IntFunction"
 import {$Short2FloatFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2FloatFunction"
@@ -354,36 +354,36 @@ export class $Int2ShortFunction implements $Int2ShortFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): short
+ "get"(arg0: any): any
  "get"(arg0: integer): short
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: integer, arg1: short): short
 /**
  * 
  * @deprecated
  */
  "put"(arg0: integer, arg1: short): short
- "containsKey"(arg0: integer): boolean
+ "put"(arg0: integer, arg1: short): short
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: integer): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: integer, arg1: short): short
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: short): short
+ "getOrDefault"(arg0: integer, arg1: short): short
  "applyAsInt"(arg0: integer): integer
 /**
  * 
@@ -395,26 +395,26 @@ export class $Int2ShortFunction implements $Int2ShortFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(short), (T)>): $Function$0<(integer), (T)>
- "andThenInt"(arg0: $Short2IntFunction$$Type): $Int2IntFunction
- "composeInt"(arg0: $Int2IntFunction$$Type): $Int2ShortFunction
- "andThenReference"<T>(arg0: $Short2ReferenceFunction$$Type<(T)>): $Int2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Short2ObjectFunction$$Type<(T)>): $Int2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2IntFunction$$Type): $Short2ShortFunction
+ "andThenDouble"(arg0: $Short2DoubleFunction$$Type): $Int2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2IntFunction$$Type<(T)>): $Reference2ShortFunction<(T)>
+ "composeDouble"(arg0: $Double2IntFunction$$Type): $Double2ShortFunction
+ "andThenChar"(arg0: $Short2CharFunction$$Type): $Int2CharFunction
+ "defaultReturnValue"(): short
+ "defaultReturnValue"(arg0: short): void
  "composeObject"<T>(arg0: $Object2IntFunction$$Type<(T)>): $Object2ShortFunction<(T)>
+ "andThenByte"(arg0: $Short2ByteFunction$$Type): $Int2ByteFunction
+ "composeByte"(arg0: $Byte2IntFunction$$Type): $Byte2ShortFunction
+ "andThenReference"<T>(arg0: $Short2ReferenceFunction$$Type<(T)>): $Int2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2IntFunction$$Type): $Long2ShortFunction
+ "composeFloat"(arg0: $Float2IntFunction$$Type): $Float2ShortFunction
+ "andThenShort"(arg0: $Short2ShortFunction$$Type): $Int2ShortFunction
+ "composeChar"(arg0: $Char2IntFunction$$Type): $Char2ShortFunction
  "andThenLong"(arg0: $Short2LongFunction$$Type): $Int2LongFunction
  "andThenFloat"(arg0: $Short2FloatFunction$$Type): $Int2FloatFunction
- "composeShort"(arg0: $Short2IntFunction$$Type): $Short2ShortFunction
- "andThenObject"<T>(arg0: $Short2ObjectFunction$$Type<(T)>): $Int2ObjectFunction<(T)>
- "andThenByte"(arg0: $Short2ByteFunction$$Type): $Int2ByteFunction
- "andThenChar"(arg0: $Short2CharFunction$$Type): $Int2CharFunction
- "composeReference"<T>(arg0: $Reference2IntFunction$$Type<(T)>): $Reference2ShortFunction<(T)>
- "defaultReturnValue"(arg0: short): void
- "defaultReturnValue"(): short
- "composeByte"(arg0: $Byte2IntFunction$$Type): $Byte2ShortFunction
- "andThenShort"(arg0: $Short2ShortFunction$$Type): $Int2ShortFunction
- "composeLong"(arg0: $Long2IntFunction$$Type): $Long2ShortFunction
- "composeChar"(arg0: $Char2IntFunction$$Type): $Char2ShortFunction
- "composeFloat"(arg0: $Float2IntFunction$$Type): $Float2ShortFunction
- "andThenDouble"(arg0: $Short2DoubleFunction$$Type): $Int2DoubleFunction
- "composeDouble"(arg0: $Double2IntFunction$$Type): $Double2ShortFunction
+ "andThenInt"(arg0: $Short2IntFunction$$Type): $Int2IntFunction
+ "composeInt"(arg0: $Int2IntFunction$$Type): $Int2ShortFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: integer): short
@@ -432,9 +432,9 @@ export type $Int2ShortFunction$$Type = ((arg0: integer) => short);
  */
 export type $Int2ShortFunction$$Original = $Int2ShortFunction;}
 declare module "it.unimi.dsi.fastutil.ints.IntIterator" {
-import {$IntConsumer$$Type} from "java.util.function.IntConsumer"
+import {$IntConsumer$$Type as $IntConsumer$0$$Type} from "java.util.function.IntConsumer"
 import {$PrimitiveIterator$OfInt$$Interface} from "java.util.PrimitiveIterator$OfInt"
-import {$IntConsumer$$Type as $IntConsumer$0$$Type} from "it.unimi.dsi.fastutil.ints.IntConsumer"
+import {$IntConsumer$$Type} from "it.unimi.dsi.fastutil.ints.IntConsumer"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 
 export interface $IntIterator$$Interface extends $PrimitiveIterator$OfInt$$Interface {
@@ -446,7 +446,7 @@ export class $IntIterator implements $IntIterator$$Interface {
  * @deprecated
  */
  "forEachRemaining"(arg0: $Consumer$$Type<(integer)>): void
- "forEachRemaining"(arg0: $IntConsumer$0$$Type): void
+ "forEachRemaining"(arg0: $IntConsumer$$Type): void
 /**
  * 
  * @deprecated
@@ -455,7 +455,7 @@ export class $IntIterator implements $IntIterator$$Interface {
  "skip"(arg0: integer): integer
  "nextInt"(): integer
  "forEachRemaining"(arg0: any): void
- "forEachRemaining"(arg0: $IntConsumer$$Type): void
+ "forEachRemaining"(arg0: $IntConsumer$0$$Type): void
  "remove"(): void
  "hasNext"(): boolean
 }
@@ -511,8 +511,8 @@ export type $FloatBinaryOperator$$Type = ((arg0: float, arg1: float) => float);
  */
 export type $FloatBinaryOperator$$Original = $FloatBinaryOperator;}
 declare module "it.unimi.dsi.fastutil.objects.Object2FloatMap$Entry" {
-import {$Comparable} from "java.lang.Comparable"
 import {$Comparator, $Comparator$$Type} from "java.util.Comparator"
+import {$Comparable} from "java.lang.Comparable"
 import {$Map$Entry, $Map$Entry$$Type, $Map$Entry$$Interface} from "java.util.Map$Entry"
 
 export interface $Object2FloatMap$Entry$$Interface<K> extends $Map$Entry$$Interface<(K), (float)> {
@@ -608,8 +608,8 @@ import {$Byte2ByteFunction, $Byte2ByteFunction$$Type} from "it.unimi.dsi.fastuti
 import {$Byte2DoubleFunction} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Float2ByteFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ByteFunction"
 import {$Long2CharFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2CharFunction"
-import {$Long2IntFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
 import {$Long2ByteFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
+import {$Long2IntFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
 import {$Byte2IntFunction} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
 import {$Reference2LongFunction} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
 import {$Long2ShortFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
@@ -625,10 +625,10 @@ import {$Long2LongFunction, $Long2LongFunction$$Type} from "it.unimi.dsi.fastuti
 import {$Float2LongFunction} from "it.unimi.dsi.fastutil.floats.Float2LongFunction"
 import {$Object2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ByteFunction"
 import {$Long2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
-import {$Double2LongFunction} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
 import {$Char2LongFunction} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
-import {$Short2LongFunction} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
+import {$Double2LongFunction} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
 import {$IntToLongFunction$$Interface} from "java.util.function.IntToLongFunction"
+import {$Short2LongFunction} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$Double2ByteFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ByteFunction"
 import {$Char2ByteFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ByteFunction"
 import {$Int2LongFunction} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
@@ -655,36 +655,36 @@ export class $Byte2LongFunction implements $Byte2LongFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): long
+ "get"(arg0: any): any
  "get"(arg0: byte): long
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: byte, arg1: long): long
 /**
  * 
  * @deprecated
  */
  "put"(arg0: byte, arg1: long): long
- "containsKey"(arg0: byte): boolean
+ "put"(arg0: byte, arg1: long): long
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: byte): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: byte, arg1: long): long
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: long): long
+ "getOrDefault"(arg0: byte, arg1: long): long
 /**
  * 
  * @deprecated
@@ -700,26 +700,26 @@ export class $Byte2LongFunction implements $Byte2LongFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(long), (T)>): $Function$0<(byte), (T)>
- "andThenInt"(arg0: $Long2IntFunction$$Type): $Byte2IntFunction
- "composeInt"(arg0: $Int2ByteFunction$$Type): $Int2LongFunction
- "andThenReference"<T>(arg0: $Long2ReferenceFunction$$Type<(T)>): $Byte2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Long2ObjectFunction$$Type<(T)>): $Byte2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2ByteFunction$$Type): $Short2LongFunction
+ "andThenDouble"(arg0: $Long2DoubleFunction$$Type): $Byte2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2ByteFunction$$Type<(T)>): $Reference2LongFunction<(T)>
+ "composeDouble"(arg0: $Double2ByteFunction$$Type): $Double2LongFunction
+ "andThenChar"(arg0: $Long2CharFunction$$Type): $Byte2CharFunction
+ "defaultReturnValue"(): long
+ "defaultReturnValue"(arg0: long): void
  "composeObject"<T>(arg0: $Object2ByteFunction$$Type<(T)>): $Object2LongFunction<(T)>
+ "andThenByte"(arg0: $Long2ByteFunction$$Type): $Byte2ByteFunction
+ "composeByte"(arg0: $Byte2ByteFunction$$Type): $Byte2LongFunction
+ "andThenReference"<T>(arg0: $Long2ReferenceFunction$$Type<(T)>): $Byte2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2ByteFunction$$Type): $Long2LongFunction
+ "composeFloat"(arg0: $Float2ByteFunction$$Type): $Float2LongFunction
+ "andThenShort"(arg0: $Long2ShortFunction$$Type): $Byte2ShortFunction
+ "composeChar"(arg0: $Char2ByteFunction$$Type): $Char2LongFunction
  "andThenLong"(arg0: $Long2LongFunction$$Type): $Byte2LongFunction
  "andThenFloat"(arg0: $Long2FloatFunction$$Type): $Byte2FloatFunction
- "composeShort"(arg0: $Short2ByteFunction$$Type): $Short2LongFunction
- "andThenObject"<T>(arg0: $Long2ObjectFunction$$Type<(T)>): $Byte2ObjectFunction<(T)>
- "andThenByte"(arg0: $Long2ByteFunction$$Type): $Byte2ByteFunction
- "andThenChar"(arg0: $Long2CharFunction$$Type): $Byte2CharFunction
- "composeReference"<T>(arg0: $Reference2ByteFunction$$Type<(T)>): $Reference2LongFunction<(T)>
- "defaultReturnValue"(arg0: long): void
- "defaultReturnValue"(): long
- "composeByte"(arg0: $Byte2ByteFunction$$Type): $Byte2LongFunction
- "andThenShort"(arg0: $Long2ShortFunction$$Type): $Byte2ShortFunction
- "composeLong"(arg0: $Long2ByteFunction$$Type): $Long2LongFunction
- "composeChar"(arg0: $Char2ByteFunction$$Type): $Char2LongFunction
- "composeFloat"(arg0: $Float2ByteFunction$$Type): $Float2LongFunction
- "andThenDouble"(arg0: $Long2DoubleFunction$$Type): $Byte2DoubleFunction
- "composeDouble"(arg0: $Double2ByteFunction$$Type): $Double2LongFunction
+ "andThenInt"(arg0: $Long2IntFunction$$Type): $Byte2IntFunction
+ "composeInt"(arg0: $Int2ByteFunction$$Type): $Int2LongFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: byte): long
@@ -735,8 +735,8 @@ export type $Byte2LongFunction$$Type = ((arg0: byte) => long);
  */
 export type $Byte2LongFunction$$Original = $Byte2LongFunction;}
 declare module "it.unimi.dsi.fastutil.objects.Object2LongMap$Entry" {
-import {$Comparable} from "java.lang.Comparable"
 import {$Comparator, $Comparator$$Type} from "java.util.Comparator"
+import {$Comparable} from "java.lang.Comparable"
 import {$Map$Entry, $Map$Entry$$Type, $Map$Entry$$Interface} from "java.util.Map$Entry"
 
 export interface $Object2LongMap$Entry$$Interface<K> extends $Map$Entry$$Interface<(K), (long)> {
@@ -833,8 +833,8 @@ export type $Hash$$Original = $Hash;}
 declare module "it.unimi.dsi.fastutil.shorts.ShortIterable" {
 import {$Iterator} from "java.util.Iterator"
 import {$Iterable$$Interface} from "java.lang.Iterable"
-import {$ShortConsumer$$Type} from "it.unimi.dsi.fastutil.shorts.ShortConsumer"
 import {$IntIterator} from "it.unimi.dsi.fastutil.ints.IntIterator"
+import {$ShortConsumer$$Type} from "it.unimi.dsi.fastutil.shorts.ShortConsumer"
 import {$Spliterator} from "java.util.Spliterator"
 import {$IntConsumer$$Type} from "java.util.function.IntConsumer"
 import {$IntSpliterator} from "it.unimi.dsi.fastutil.ints.IntSpliterator"
@@ -869,8 +869,8 @@ declare module "it.unimi.dsi.fastutil.doubles.Double2CharFunction" {
 import {$Char2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2DoubleFunction"
 import {$Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Long2CharFunction} from "it.unimi.dsi.fastutil.longs.Long2CharFunction"
-import {$Double2FloatFunction} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Int2CharFunction} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
+import {$Double2FloatFunction} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Double2ReferenceFunction} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
 import {$Short2CharFunction} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
 import {$Char2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ObjectFunction"
@@ -888,12 +888,12 @@ import {$Long2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2Doubl
 import {$Char2CharFunction, $Char2CharFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2CharFunction"
 import {$Double2LongFunction} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
 import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
-import {$Double2ByteFunction} from "it.unimi.dsi.fastutil.doubles.Double2ByteFunction"
 import {$Char2ByteFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ByteFunction"
+import {$Double2ByteFunction} from "it.unimi.dsi.fastutil.doubles.Double2ByteFunction"
 import {$Reference2CharFunction} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
 import {$Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
-import {$Char2IntFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
 import {$DoubleToIntFunction$$Interface} from "java.util.function.DoubleToIntFunction"
+import {$Char2IntFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
 import {$Char2FloatFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
 import {$Double2IntFunction} from "it.unimi.dsi.fastutil.doubles.Double2IntFunction"
 import {$Reference2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2DoubleFunction"
@@ -917,36 +917,36 @@ export class $Double2CharFunction implements $Double2CharFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): character
+ "get"(arg0: any): any
  "get"(arg0: double): character
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: double, arg1: character): character
 /**
  * 
  * @deprecated
  */
  "put"(arg0: double, arg1: character): character
- "containsKey"(arg0: double): boolean
+ "put"(arg0: double, arg1: character): character
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: double): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: double, arg1: character): character
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: character): character
+ "getOrDefault"(arg0: double, arg1: character): character
  "applyAsInt"(arg0: double): integer
 /**
  * 
@@ -958,26 +958,26 @@ export class $Double2CharFunction implements $Double2CharFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(character), (T)>): $Function$0<(double), (T)>
- "andThenInt"(arg0: $Char2IntFunction$$Type): $Double2IntFunction
- "composeInt"(arg0: $Int2DoubleFunction$$Type): $Int2CharFunction
- "andThenReference"<T>(arg0: $Char2ReferenceFunction$$Type<(T)>): $Double2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Char2ObjectFunction$$Type<(T)>): $Double2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2DoubleFunction$$Type): $Short2CharFunction
+ "andThenDouble"(arg0: $Char2DoubleFunction$$Type): $Double2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2DoubleFunction$$Type<(T)>): $Reference2CharFunction<(T)>
+ "composeDouble"(arg0: $Double2DoubleFunction$$Type): $Double2CharFunction
+ "andThenChar"(arg0: $Char2CharFunction$$Type): $Double2CharFunction
+ "defaultReturnValue"(): character
+ "defaultReturnValue"(arg0: character): void
  "composeObject"<T>(arg0: $Object2DoubleFunction$$Type<(T)>): $Object2CharFunction<(T)>
+ "andThenByte"(arg0: $Char2ByteFunction$$Type): $Double2ByteFunction
+ "composeByte"(arg0: $Byte2DoubleFunction$$Type): $Byte2CharFunction
+ "andThenReference"<T>(arg0: $Char2ReferenceFunction$$Type<(T)>): $Double2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2DoubleFunction$$Type): $Long2CharFunction
+ "composeFloat"(arg0: $Float2DoubleFunction$$Type): $Float2CharFunction
+ "andThenShort"(arg0: $Char2ShortFunction$$Type): $Double2ShortFunction
+ "composeChar"(arg0: $Char2DoubleFunction$$Type): $Char2CharFunction
  "andThenLong"(arg0: $Char2LongFunction$$Type): $Double2LongFunction
  "andThenFloat"(arg0: $Char2FloatFunction$$Type): $Double2FloatFunction
- "composeShort"(arg0: $Short2DoubleFunction$$Type): $Short2CharFunction
- "andThenObject"<T>(arg0: $Char2ObjectFunction$$Type<(T)>): $Double2ObjectFunction<(T)>
- "andThenByte"(arg0: $Char2ByteFunction$$Type): $Double2ByteFunction
- "andThenChar"(arg0: $Char2CharFunction$$Type): $Double2CharFunction
- "composeReference"<T>(arg0: $Reference2DoubleFunction$$Type<(T)>): $Reference2CharFunction<(T)>
- "defaultReturnValue"(arg0: character): void
- "defaultReturnValue"(): character
- "composeByte"(arg0: $Byte2DoubleFunction$$Type): $Byte2CharFunction
- "andThenShort"(arg0: $Char2ShortFunction$$Type): $Double2ShortFunction
- "composeLong"(arg0: $Long2DoubleFunction$$Type): $Long2CharFunction
- "composeChar"(arg0: $Char2DoubleFunction$$Type): $Char2CharFunction
- "composeFloat"(arg0: $Float2DoubleFunction$$Type): $Float2CharFunction
- "andThenDouble"(arg0: $Char2DoubleFunction$$Type): $Double2DoubleFunction
- "composeDouble"(arg0: $Double2DoubleFunction$$Type): $Double2CharFunction
+ "andThenInt"(arg0: $Char2IntFunction$$Type): $Double2IntFunction
+ "composeInt"(arg0: $Int2DoubleFunction$$Type): $Int2CharFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: double): character
@@ -995,8 +995,8 @@ export type $Double2CharFunction$$Original = $Double2CharFunction;}
 declare module "it.unimi.dsi.fastutil.doubles.Double2ByteFunction" {
 import {$Char2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2DoubleFunction"
 import {$Byte2ByteFunction, $Byte2ByteFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ByteFunction"
-import {$Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Float2ByteFunction} from "it.unimi.dsi.fastutil.floats.Float2ByteFunction"
+import {$Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Long2ByteFunction} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
 import {$Byte2IntFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
 import {$Double2FloatFunction} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
@@ -1044,36 +1044,36 @@ export class $Double2ByteFunction implements $Double2ByteFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): byte
+ "get"(arg0: any): any
  "get"(arg0: double): byte
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: double, arg1: byte): byte
 /**
  * 
  * @deprecated
  */
  "put"(arg0: double, arg1: byte): byte
- "containsKey"(arg0: double): boolean
+ "put"(arg0: double, arg1: byte): byte
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: double): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: double, arg1: byte): byte
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: byte): byte
+ "getOrDefault"(arg0: double, arg1: byte): byte
  "applyAsInt"(arg0: double): integer
 /**
  * 
@@ -1085,26 +1085,26 @@ export class $Double2ByteFunction implements $Double2ByteFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(byte), (T)>): $Function$0<(double), (T)>
- "andThenInt"(arg0: $Byte2IntFunction$$Type): $Double2IntFunction
- "composeInt"(arg0: $Int2DoubleFunction$$Type): $Int2ByteFunction
- "andThenReference"<T>(arg0: $Byte2ReferenceFunction$$Type<(T)>): $Double2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Byte2ObjectFunction$$Type<(T)>): $Double2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2DoubleFunction$$Type): $Short2ByteFunction
+ "andThenDouble"(arg0: $Byte2DoubleFunction$$Type): $Double2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2DoubleFunction$$Type<(T)>): $Reference2ByteFunction<(T)>
+ "composeDouble"(arg0: $Double2DoubleFunction$$Type): $Double2ByteFunction
+ "andThenChar"(arg0: $Byte2CharFunction$$Type): $Double2CharFunction
+ "defaultReturnValue"(): byte
+ "defaultReturnValue"(arg0: byte): void
  "composeObject"<T>(arg0: $Object2DoubleFunction$$Type<(T)>): $Object2ByteFunction<(T)>
+ "andThenByte"(arg0: $Byte2ByteFunction$$Type): $Double2ByteFunction
+ "composeByte"(arg0: $Byte2DoubleFunction$$Type): $Byte2ByteFunction
+ "andThenReference"<T>(arg0: $Byte2ReferenceFunction$$Type<(T)>): $Double2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2DoubleFunction$$Type): $Long2ByteFunction
+ "composeFloat"(arg0: $Float2DoubleFunction$$Type): $Float2ByteFunction
+ "andThenShort"(arg0: $Byte2ShortFunction$$Type): $Double2ShortFunction
+ "composeChar"(arg0: $Char2DoubleFunction$$Type): $Char2ByteFunction
  "andThenLong"(arg0: $Byte2LongFunction$$Type): $Double2LongFunction
  "andThenFloat"(arg0: $Byte2FloatFunction$$Type): $Double2FloatFunction
- "composeShort"(arg0: $Short2DoubleFunction$$Type): $Short2ByteFunction
- "andThenObject"<T>(arg0: $Byte2ObjectFunction$$Type<(T)>): $Double2ObjectFunction<(T)>
- "andThenByte"(arg0: $Byte2ByteFunction$$Type): $Double2ByteFunction
- "andThenChar"(arg0: $Byte2CharFunction$$Type): $Double2CharFunction
- "composeReference"<T>(arg0: $Reference2DoubleFunction$$Type<(T)>): $Reference2ByteFunction<(T)>
- "defaultReturnValue"(arg0: byte): void
- "defaultReturnValue"(): byte
- "composeByte"(arg0: $Byte2DoubleFunction$$Type): $Byte2ByteFunction
- "andThenShort"(arg0: $Byte2ShortFunction$$Type): $Double2ShortFunction
- "composeLong"(arg0: $Long2DoubleFunction$$Type): $Long2ByteFunction
- "composeChar"(arg0: $Char2DoubleFunction$$Type): $Char2ByteFunction
- "composeFloat"(arg0: $Float2DoubleFunction$$Type): $Float2ByteFunction
- "andThenDouble"(arg0: $Byte2DoubleFunction$$Type): $Double2DoubleFunction
- "composeDouble"(arg0: $Double2DoubleFunction$$Type): $Double2ByteFunction
+ "andThenInt"(arg0: $Byte2IntFunction$$Type): $Double2IntFunction
+ "composeInt"(arg0: $Int2DoubleFunction$$Type): $Int2ByteFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: double): byte
@@ -1128,10 +1128,10 @@ import {$Map$Entry, $Map$Entry$$Type} from "java.util.Map$Entry"
 import {$Reference2ShortFunction} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
 import {$Reference2LongFunction} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
 import {$Double2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
-import {$Reference2ByteFunction} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Int2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
-import {$Int2ObjectFunction} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
+import {$Reference2ByteFunction} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Byte2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
+import {$Int2ObjectFunction} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
 import {$Char2ObjectFunction} from "it.unimi.dsi.fastutil.chars.Char2ObjectFunction"
 import {$Object2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2DoubleFunction"
 import {$Function, $Function$$Type} from "java.util.function.Function"
@@ -1152,10 +1152,10 @@ import {$BiFunction$$Type} from "java.util.function.BiFunction"
 import {$Float2ObjectFunction} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$ObjectSet} from "it.unimi.dsi.fastutil.objects.ObjectSet"
 import {$Reference2CharFunction} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
-import {$Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
-import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
-import {$Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
 import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
+import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
+import {$Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
+import {$Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
 import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$Object2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
 import {$Reference2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Reference2DoubleFunction"
@@ -1186,7 +1186,6 @@ export class $Reference2ObjectMap<K, V> implements $Reference2ObjectMap$$Interfa
  "keySet"(): $Set
  "getOrDefault"(arg0: any, arg1: V): V
  "computeIfPresent"(arg0: K, arg1: $BiFunction$$Type<(K), (V), (V)>): V
- "reference2ObjectEntrySet"(): $ObjectSet<($Reference2ObjectMap$Entry<(K), (V)>)>
  "defaultReturnValue"(arg0: V): void
  "defaultReturnValue"(): V
 /**
@@ -1194,25 +1193,26 @@ export class $Reference2ObjectMap<K, V> implements $Reference2ObjectMap$$Interfa
  * @deprecated
  */
  "computeObjectIfAbsentPartial"(arg0: K, arg1: $Reference2ObjectFunction$$Type<(K), (V)>): V
+ "reference2ObjectEntrySet"(): $ObjectSet<($Reference2ObjectMap$Entry<(K), (V)>)>
  "get"(arg0: any): V
- "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Reference2IntFunction<(K)>
- "composeInt"(arg0: $Int2ReferenceFunction$$Type<(K)>): $Int2ObjectFunction<(V)>
- "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Reference2ReferenceFunction<(K), (T)>
+ "andThenObject"<T>(arg0: $Object2ObjectFunction$$Type<(V), (T)>): $Reference2ObjectFunction<(K), (T)>
+ "composeShort"(arg0: $Short2ReferenceFunction$$Type<(K)>): $Short2ObjectFunction<(V)>
+ "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Reference2DoubleFunction<(K)>
+ "composeReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(T), (K)>): $Reference2ObjectFunction<(T), (V)>
+ "composeDouble"(arg0: $Double2ReferenceFunction$$Type<(K)>): $Double2ObjectFunction<(V)>
+ "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Reference2CharFunction<(K)>
  "composeObject"<T>(arg0: $Object2ReferenceFunction$$Type<(T), (K)>): $Object2ObjectFunction<(T), (V)>
+ "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Reference2ByteFunction<(K)>
+ "composeByte"(arg0: $Byte2ReferenceFunction$$Type<(K)>): $Byte2ObjectFunction<(V)>
+ "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Reference2ReferenceFunction<(K), (T)>
+ "composeLong"(arg0: $Long2ReferenceFunction$$Type<(K)>): $Long2ObjectFunction<(V)>
+ "composeFloat"(arg0: $Float2ReferenceFunction$$Type<(K)>): $Float2ObjectFunction<(V)>
+ "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Reference2ShortFunction<(K)>
+ "composeChar"(arg0: $Char2ReferenceFunction$$Type<(K)>): $Char2ObjectFunction<(V)>
  "andThenLong"(arg0: $Object2LongFunction$$Type<(V)>): $Reference2LongFunction<(K)>
  "andThenFloat"(arg0: $Object2FloatFunction$$Type<(V)>): $Reference2FloatFunction<(K)>
- "composeShort"(arg0: $Short2ReferenceFunction$$Type<(K)>): $Short2ObjectFunction<(V)>
- "andThenObject"<T>(arg0: $Object2ObjectFunction$$Type<(V), (T)>): $Reference2ObjectFunction<(K), (T)>
- "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Reference2ByteFunction<(K)>
- "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Reference2CharFunction<(K)>
- "composeReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(T), (K)>): $Reference2ObjectFunction<(T), (V)>
- "composeByte"(arg0: $Byte2ReferenceFunction$$Type<(K)>): $Byte2ObjectFunction<(V)>
- "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Reference2ShortFunction<(K)>
- "composeLong"(arg0: $Long2ReferenceFunction$$Type<(K)>): $Long2ObjectFunction<(V)>
- "composeChar"(arg0: $Char2ReferenceFunction$$Type<(K)>): $Char2ObjectFunction<(V)>
- "composeFloat"(arg0: $Float2ReferenceFunction$$Type<(K)>): $Float2ObjectFunction<(V)>
- "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Reference2DoubleFunction<(K)>
- "composeDouble"(arg0: $Double2ReferenceFunction$$Type<(K)>): $Double2ObjectFunction<(V)>
+ "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Reference2IntFunction<(K)>
+ "composeInt"(arg0: $Int2ReferenceFunction$$Type<(K)>): $Int2ObjectFunction<(V)>
  "equals"(arg0: any): boolean
  "hashCode"(): integer
 static "copyOf"<K, V>(arg0: $Map$$Type<(K), (V)>): $Map<(K), (V)>
@@ -1270,10 +1270,10 @@ import {$Boolean2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.booleans.B
 import {$Long2ReferenceFunction} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
 import {$Double2BooleanFunction} from "it.unimi.dsi.fastutil.doubles.Double2BooleanFunction"
 import {$Byte2LongFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2LongFunction"
-import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Double2LongFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
-import {$Short2LongFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
+import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Short2BooleanFunction} from "it.unimi.dsi.fastutil.shorts.Short2BooleanFunction"
+import {$Short2LongFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$Int2LongFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
 import {$Boolean2ByteFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ByteFunction"
 import {$Boolean2IntFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2IntFunction"
@@ -1281,9 +1281,9 @@ import {$Long2FloatFunction} from "it.unimi.dsi.fastutil.longs.Long2FloatFunctio
 import {$Byte2BooleanFunction} from "it.unimi.dsi.fastutil.bytes.Byte2BooleanFunction"
 import {$Int2BooleanFunction} from "it.unimi.dsi.fastutil.ints.Int2BooleanFunction"
 import {$Object2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
-import {$Boolean2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ObjectFunction"
-import {$Object2BooleanFunction} from "it.unimi.dsi.fastutil.objects.Object2BooleanFunction"
 import {$Boolean2ShortFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ShortFunction"
+import {$Object2BooleanFunction} from "it.unimi.dsi.fastutil.objects.Object2BooleanFunction"
+import {$Boolean2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ObjectFunction"
 import {$Boolean2LongFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2LongFunction"
 import {$Long2ObjectFunction} from "it.unimi.dsi.fastutil.longs.Long2ObjectFunction"
 
@@ -1310,25 +1310,25 @@ export class $Long2BooleanFunction implements $Long2BooleanFunction$$Interface {
  * @deprecated
  */
  "put"(arg0: long, arg1: boolean): boolean
- "put"(arg0: long, arg1: boolean): boolean
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
+ "put"(arg0: long, arg1: boolean): boolean
  "test"(arg0: long): boolean
- "containsKey"(arg0: long): boolean
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: long): boolean
+ "getOrDefault"(arg0: long, arg1: boolean): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: long, arg1: boolean): boolean
 /**
  * 
  * @deprecated
@@ -1344,26 +1344,26 @@ export class $Long2BooleanFunction implements $Long2BooleanFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(boolean), (T)>): $Function$0<(long), (T)>
- "andThenInt"(arg0: $Boolean2IntFunction$$Type): $Long2IntFunction
- "composeInt"(arg0: $Int2LongFunction$$Type): $Int2BooleanFunction
- "andThenReference"<T>(arg0: $Boolean2ReferenceFunction$$Type<(T)>): $Long2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Boolean2ObjectFunction$$Type<(T)>): $Long2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2LongFunction$$Type): $Short2BooleanFunction
+ "andThenDouble"(arg0: $Boolean2DoubleFunction$$Type): $Long2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2LongFunction$$Type<(T)>): $Reference2BooleanFunction<(T)>
+ "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2BooleanFunction
+ "andThenChar"(arg0: $Boolean2CharFunction$$Type): $Long2CharFunction
+ "defaultReturnValue"(): boolean
+ "defaultReturnValue"(arg0: boolean): void
  "composeObject"<T>(arg0: $Object2LongFunction$$Type<(T)>): $Object2BooleanFunction<(T)>
+ "andThenByte"(arg0: $Boolean2ByteFunction$$Type): $Long2ByteFunction
+ "composeByte"(arg0: $Byte2LongFunction$$Type): $Byte2BooleanFunction
+ "andThenReference"<T>(arg0: $Boolean2ReferenceFunction$$Type<(T)>): $Long2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2LongFunction$$Type): $Long2BooleanFunction
+ "composeFloat"(arg0: $Float2LongFunction$$Type): $Float2BooleanFunction
+ "andThenShort"(arg0: $Boolean2ShortFunction$$Type): $Long2ShortFunction
+ "composeChar"(arg0: $Char2LongFunction$$Type): $Char2BooleanFunction
  "andThenLong"(arg0: $Boolean2LongFunction$$Type): $Long2LongFunction
  "andThenFloat"(arg0: $Boolean2FloatFunction$$Type): $Long2FloatFunction
- "composeShort"(arg0: $Short2LongFunction$$Type): $Short2BooleanFunction
- "andThenObject"<T>(arg0: $Boolean2ObjectFunction$$Type<(T)>): $Long2ObjectFunction<(T)>
- "andThenByte"(arg0: $Boolean2ByteFunction$$Type): $Long2ByteFunction
- "andThenChar"(arg0: $Boolean2CharFunction$$Type): $Long2CharFunction
- "composeReference"<T>(arg0: $Reference2LongFunction$$Type<(T)>): $Reference2BooleanFunction<(T)>
- "defaultReturnValue"(arg0: boolean): void
- "defaultReturnValue"(): boolean
- "composeByte"(arg0: $Byte2LongFunction$$Type): $Byte2BooleanFunction
- "andThenShort"(arg0: $Boolean2ShortFunction$$Type): $Long2ShortFunction
- "composeLong"(arg0: $Long2LongFunction$$Type): $Long2BooleanFunction
- "composeChar"(arg0: $Char2LongFunction$$Type): $Char2BooleanFunction
- "composeFloat"(arg0: $Float2LongFunction$$Type): $Float2BooleanFunction
- "andThenDouble"(arg0: $Boolean2DoubleFunction$$Type): $Long2DoubleFunction
- "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2BooleanFunction
+ "andThenInt"(arg0: $Boolean2IntFunction$$Type): $Long2IntFunction
+ "composeInt"(arg0: $Int2LongFunction$$Type): $Int2BooleanFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: long): boolean
@@ -1386,9 +1386,9 @@ import {$Iterator} from "java.util.Iterator"
 import {$Iterable$$Interface} from "java.lang.Iterable"
 import {$IntIterator} from "it.unimi.dsi.fastutil.ints.IntIterator"
 import {$Spliterator} from "java.util.Spliterator"
-import {$IntConsumer$$Type} from "java.util.function.IntConsumer"
+import {$IntConsumer$$Type as $IntConsumer$0$$Type} from "java.util.function.IntConsumer"
 import {$IntSpliterator} from "it.unimi.dsi.fastutil.ints.IntSpliterator"
-import {$IntConsumer$$Type as $IntConsumer$0$$Type} from "it.unimi.dsi.fastutil.ints.IntConsumer"
+import {$IntConsumer$$Type} from "it.unimi.dsi.fastutil.ints.IntConsumer"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 
 export interface $IntIterable$$Interface extends $Iterable$$Interface<(integer)> {
@@ -1397,13 +1397,13 @@ export interface $IntIterable$$Interface extends $Iterable$$Interface<(integer)>
 export class $IntIterable implements $IntIterable$$Interface {
  "iterator"(): $Iterator
  "spliterator"(): $Spliterator
- "forEach"(arg0: $IntConsumer$$Type): void
+ "forEach"(arg0: $IntConsumer$0$$Type): void
 /**
  * 
  * @deprecated
  */
  "forEach"(arg0: $Consumer$$Type<(integer)>): void
- "forEach"(arg0: $IntConsumer$0$$Type): void
+ "forEach"(arg0: $IntConsumer$$Type): void
  "intSpliterator"(): $IntSpliterator
  "intIterator"(): $IntIterator
 }
@@ -1423,15 +1423,15 @@ import {$Long2BooleanFunction} from "it.unimi.dsi.fastutil.longs.Long2BooleanFun
 import {$Short2IntFunction} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction"
 import {$IntPredicate, $IntPredicate$$Type} from "java.util.function.IntPredicate"
 import {$Map$Entry, $Map$Entry$$Type} from "java.util.Map$Entry"
-import {$IntFunction$$Type} from "java.util.function.IntFunction"
 import {$Reference2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
+import {$IntFunction$$Type} from "java.util.function.IntFunction"
 import {$BooleanCollection} from "it.unimi.dsi.fastutil.booleans.BooleanCollection"
 import {$Long2ShortFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
 import {$Short2CharFunction} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
 import {$Function, $Function$$Type} from "java.util.function.Function"
 import {$Char2ShortFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ShortFunction"
-import {$Boolean2FloatFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2FloatFunction"
 import {$Short2ShortFunction, $Short2ShortFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ShortFunction"
+import {$Boolean2FloatFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2FloatFunction"
 import {$Set} from "java.util.Set"
 import {$Byte2ShortFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ShortFunction"
 import {$Short2DoubleFunction} from "it.unimi.dsi.fastutil.shorts.Short2DoubleFunction"
@@ -1449,16 +1449,16 @@ import {$BiFunction$$Type} from "java.util.function.BiFunction"
 import {$Short2LongFunction} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$Short2BooleanFunction, $Short2BooleanFunction$$Type, $Short2BooleanFunction$$Interface} from "it.unimi.dsi.fastutil.shorts.Short2BooleanFunction"
 import {$ObjectSet} from "it.unimi.dsi.fastutil.objects.ObjectSet"
-import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
+import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Boolean2ByteFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ByteFunction"
-import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$Boolean2IntFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2IntFunction"
+import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$Byte2BooleanFunction} from "it.unimi.dsi.fastutil.bytes.Byte2BooleanFunction"
 import {$Int2BooleanFunction} from "it.unimi.dsi.fastutil.ints.Int2BooleanFunction"
 import {$Short2FloatFunction} from "it.unimi.dsi.fastutil.shorts.Short2FloatFunction"
-import {$Object2BooleanFunction} from "it.unimi.dsi.fastutil.objects.Object2BooleanFunction"
 import {$Boolean2ShortFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ShortFunction"
+import {$Object2BooleanFunction} from "it.unimi.dsi.fastutil.objects.Object2BooleanFunction"
 import {$Boolean2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ObjectFunction"
 import {$Short2ByteFunction} from "it.unimi.dsi.fastutil.shorts.Short2ByteFunction"
 import {$Boolean2LongFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2LongFunction"
@@ -1532,15 +1532,15 @@ export class $Short2BooleanMap implements $Short2BooleanMap$$Interface {
  */
  "getOrDefault"(arg0: any, arg1: boolean): boolean
  "computeIfPresent"(arg0: short, arg1: $BiFunction$$Type<(short), (boolean), (boolean)>): boolean
- "computeIfAbsentNullable"(arg0: short, arg1: $IntFunction$$Type<(boolean)>): boolean
  "defaultReturnValue"(arg0: boolean): void
  "defaultReturnValue"(): boolean
+ "short2BooleanEntrySet"(): $ObjectSet<($Short2BooleanMap$Entry)>
+ "computeIfAbsentNullable"(arg0: short, arg1: $IntFunction$$Type<(boolean)>): boolean
 /**
  * 
  * @deprecated
  */
  "computeIfAbsentPartial"(arg0: short, arg1: $Short2BooleanFunction$$Type): boolean
- "short2BooleanEntrySet"(): $ObjectSet<($Short2BooleanMap$Entry)>
  "remove"(arg0: short): boolean
  "get"(arg0: short): boolean
  "put"(arg0: short, arg1: boolean): boolean
@@ -1559,24 +1559,24 @@ export class $Short2BooleanMap implements $Short2BooleanMap$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$$Type<(boolean), (T)>): $Function<(short), (T)>
- "andThenInt"(arg0: $Boolean2IntFunction$$Type): $Short2IntFunction
- "composeInt"(arg0: $Int2ShortFunction$$Type): $Int2BooleanFunction
- "andThenReference"<T>(arg0: $Boolean2ReferenceFunction$$Type<(T)>): $Short2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Boolean2ObjectFunction$$Type<(T)>): $Short2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2ShortFunction$$Type): $Short2BooleanFunction
+ "andThenDouble"(arg0: $Boolean2DoubleFunction$$Type): $Short2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2ShortFunction$$Type<(T)>): $Reference2BooleanFunction<(T)>
+ "composeDouble"(arg0: $Double2ShortFunction$$Type): $Double2BooleanFunction
+ "andThenChar"(arg0: $Boolean2CharFunction$$Type): $Short2CharFunction
  "composeObject"<T>(arg0: $Object2ShortFunction$$Type<(T)>): $Object2BooleanFunction<(T)>
+ "andThenByte"(arg0: $Boolean2ByteFunction$$Type): $Short2ByteFunction
+ "composeByte"(arg0: $Byte2ShortFunction$$Type): $Byte2BooleanFunction
+ "andThenReference"<T>(arg0: $Boolean2ReferenceFunction$$Type<(T)>): $Short2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2ShortFunction$$Type): $Long2BooleanFunction
+ "composeFloat"(arg0: $Float2ShortFunction$$Type): $Float2BooleanFunction
+ "andThenShort"(arg0: $Boolean2ShortFunction$$Type): $Short2ShortFunction
+ "composeChar"(arg0: $Char2ShortFunction$$Type): $Char2BooleanFunction
  "andThenLong"(arg0: $Boolean2LongFunction$$Type): $Short2LongFunction
  "andThenFloat"(arg0: $Boolean2FloatFunction$$Type): $Short2FloatFunction
- "composeShort"(arg0: $Short2ShortFunction$$Type): $Short2BooleanFunction
- "andThenObject"<T>(arg0: $Boolean2ObjectFunction$$Type<(T)>): $Short2ObjectFunction<(T)>
- "andThenByte"(arg0: $Boolean2ByteFunction$$Type): $Short2ByteFunction
- "andThenChar"(arg0: $Boolean2CharFunction$$Type): $Short2CharFunction
- "composeReference"<T>(arg0: $Reference2ShortFunction$$Type<(T)>): $Reference2BooleanFunction<(T)>
- "composeByte"(arg0: $Byte2ShortFunction$$Type): $Byte2BooleanFunction
- "andThenShort"(arg0: $Boolean2ShortFunction$$Type): $Short2ShortFunction
- "composeLong"(arg0: $Long2ShortFunction$$Type): $Long2BooleanFunction
- "composeChar"(arg0: $Char2ShortFunction$$Type): $Char2BooleanFunction
- "composeFloat"(arg0: $Float2ShortFunction$$Type): $Float2BooleanFunction
- "andThenDouble"(arg0: $Boolean2DoubleFunction$$Type): $Short2DoubleFunction
- "composeDouble"(arg0: $Double2ShortFunction$$Type): $Double2BooleanFunction
+ "andThenInt"(arg0: $Boolean2IntFunction$$Type): $Short2IntFunction
+ "composeInt"(arg0: $Int2ShortFunction$$Type): $Int2BooleanFunction
  "remove"(arg0: any, arg1: any): boolean
  "equals"(arg0: any): boolean
  "hashCode"(): integer
@@ -1625,15 +1625,15 @@ import {$DoubleIterable$$Interface} from "it.unimi.dsi.fastutil.doubles.DoubleIt
 import {$Spliterator} from "java.util.Spliterator"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$DoubleIterator} from "it.unimi.dsi.fastutil.doubles.DoubleIterator"
-import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$IntFunction$$Type} from "java.util.function.IntFunction"
-import {$DoubleConsumer$$Type} from "java.util.function.DoubleConsumer"
-import {$DoublePredicate$$Type} from "it.unimi.dsi.fastutil.doubles.DoublePredicate"
+import {$Consumer$$Type} from "java.util.function.Consumer"
+import {$DoubleConsumer$$Type as $DoubleConsumer$0$$Type} from "java.util.function.DoubleConsumer"
+import {$DoublePredicate$$Type as $DoublePredicate$0$$Type} from "it.unimi.dsi.fastutil.doubles.DoublePredicate"
 import {$DoubleSpliterator} from "it.unimi.dsi.fastutil.doubles.DoubleSpliterator"
-import {$DoubleConsumer$$Type as $DoubleConsumer$0$$Type} from "it.unimi.dsi.fastutil.doubles.DoubleConsumer"
+import {$DoubleConsumer$$Type} from "it.unimi.dsi.fastutil.doubles.DoubleConsumer"
 import {$Stream} from "java.util.stream.Stream"
 import {$DoubleStream} from "java.util.stream.DoubleStream"
-import {$DoublePredicate$$Type as $DoublePredicate$0$$Type} from "java.util.function.DoublePredicate"
+import {$DoublePredicate$$Type} from "java.util.function.DoublePredicate"
 
 export interface $DoubleCollection$$Interface extends $Collection$$Interface<(double)>, $DoubleIterable$$Interface {
 get "empty"(): boolean
@@ -1671,13 +1671,13 @@ export class $DoubleCollection implements $DoubleCollection$$Interface {
  "contains"(arg0: any): boolean
  "spliterator"(): $Spliterator
  "addAll"(arg0: $DoubleCollection$$Type): boolean
- "removeIf"(arg0: $DoublePredicate$0$$Type): boolean
+ "removeIf"(arg0: $DoublePredicate$$Type): boolean
 /**
  * 
  * @deprecated
  */
  "removeIf"(arg0: $Predicate$$Type<(double)>): boolean
- "removeIf"(arg0: $DoublePredicate$$Type): boolean
+ "removeIf"(arg0: $DoublePredicate$0$$Type): boolean
  "removeAll"(arg0: $DoubleCollection$$Type): boolean
  "retainAll"(arg0: $DoubleCollection$$Type): boolean
  "containsAll"(arg0: $DoubleCollection$$Type): boolean
@@ -1688,15 +1688,15 @@ export class $DoubleCollection implements $DoubleCollection$$Interface {
  "parallelStream"(): $Stream<(double)>
  "rem"(arg0: double): boolean
  "doubleStream"(): $DoubleStream
- "doubleParallelStream"(): $DoubleStream
- "toDoubleArray"(): (double)[]
 /**
  * 
  * @deprecated
  */
  "toDoubleArray"(arg0: (double)[]): (double)[]
- "doubleSpliterator"(): $DoubleSpliterator
+ "toDoubleArray"(): (double)[]
+ "doubleParallelStream"(): $DoubleStream
  "doubleIterator"(): $DoubleIterator
+ "doubleSpliterator"(): $DoubleSpliterator
  "size"(): integer
  "equals"(arg0: any): boolean
  "hashCode"(): integer
@@ -1709,13 +1709,13 @@ export class $DoubleCollection implements $DoubleCollection$$Interface {
  "removeAll"(arg0: $Collection$$Type<(never)>): boolean
  "retainAll"(arg0: $Collection$$Type<(never)>): boolean
  "containsAll"(arg0: $Collection$$Type<(never)>): boolean
- "forEach"(arg0: $DoubleConsumer$$Type): void
+ "forEach"(arg0: $DoubleConsumer$0$$Type): void
 /**
  * 
  * @deprecated
  */
  "forEach"(arg0: $Consumer$$Type<(double)>): void
- "forEach"(arg0: $DoubleConsumer$0$$Type): void
+ "forEach"(arg0: $DoubleConsumer$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1732,8 +1732,8 @@ import {$Float2ByteFunction} from "it.unimi.dsi.fastutil.floats.Float2ByteFuncti
 import {$Object2IntFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2IntFunction"
 import {$Object2ObjectFunction, $Object2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ObjectFunction"
 import {$Int2FloatFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
-import {$Double2FloatFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Float2IntFunction} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
+import {$Double2FloatFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Int2ObjectFunction} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
 import {$Char2ObjectFunction} from "it.unimi.dsi.fastutil.chars.Char2ObjectFunction"
 import {$Object2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2DoubleFunction"
@@ -1749,16 +1749,16 @@ import {$Object2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2B
 import {$Float2ShortFunction} from "it.unimi.dsi.fastutil.floats.Float2ShortFunction"
 import {$Reference2FloatFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
 import {$Float2FloatFunction, $Float2FloatFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2FloatFunction"
-import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
-import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
-import {$Char2FloatFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
+import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
+import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Long2FloatFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2FloatFunction"
-import {$Object2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
+import {$Char2FloatFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
 import {$Short2FloatFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2FloatFunction"
+import {$Object2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
 import {$Double2ObjectFunction} from "it.unimi.dsi.fastutil.doubles.Double2ObjectFunction"
-import {$Byte2FloatFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2FloatFunction"
 import {$DoubleFunction$$Interface} from "java.util.function.DoubleFunction"
+import {$Byte2FloatFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2FloatFunction"
 import {$Float2DoubleFunction} from "it.unimi.dsi.fastutil.floats.Float2DoubleFunction"
 import {$Long2ObjectFunction} from "it.unimi.dsi.fastutil.longs.Long2ObjectFunction"
 
@@ -1768,12 +1768,12 @@ export interface $Float2ObjectFunction$$Interface<V> extends $Function$$Interfac
 }
 
 export class $Float2ObjectFunction<V> implements $Float2ObjectFunction$$Interface {
- "remove"(arg0: float): V
 /**
  * 
  * @deprecated
  */
  "remove"(arg0: any): V
+ "remove"(arg0: float): V
 /**
  * 
  * @deprecated
@@ -1784,13 +1784,13 @@ export class $Float2ObjectFunction<V> implements $Float2ObjectFunction$$Interfac
  * 
  * @deprecated
  */
- "put"(arg0: float, arg1: V): V
- "put"(arg0: float, arg1: V): V
+ "put"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
  */
- "put"(arg0: any, arg1: any): any
+ "put"(arg0: float, arg1: V): V
+ "put"(arg0: float, arg1: V): V
 /**
  * 
  * @deprecated
@@ -1813,26 +1813,26 @@ export class $Float2ObjectFunction<V> implements $Float2ObjectFunction$$Interfac
  * @deprecated
  */
  "compose"<T>(arg0: $Function$0$$Type<(T), (float)>): $Function$0<(T), (V)>
- "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Float2IntFunction
- "composeInt"(arg0: $Int2FloatFunction$$Type): $Int2ObjectFunction<(V)>
- "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Float2ReferenceFunction<(T)>
- "composeObject"<T>(arg0: $Object2FloatFunction$$Type<(T)>): $Object2ObjectFunction<(T), (V)>
- "andThenLong"(arg0: $Object2LongFunction$$Type<(V)>): $Float2LongFunction
- "andThenFloat"(arg0: $Object2FloatFunction$$Type<(V)>): $Float2FloatFunction
- "composeShort"(arg0: $Short2FloatFunction$$Type): $Short2ObjectFunction<(V)>
  "andThenObject"<T>(arg0: $Object2ObjectFunction$$Type<(V), (T)>): $Float2ObjectFunction<(T)>
- "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Float2ByteFunction
- "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Float2CharFunction
+ "composeShort"(arg0: $Short2FloatFunction$$Type): $Short2ObjectFunction<(V)>
+ "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Float2DoubleFunction
  "composeReference"<T>(arg0: $Reference2FloatFunction$$Type<(T)>): $Reference2ObjectFunction<(T), (V)>
+ "composeDouble"(arg0: $Double2FloatFunction$$Type): $Double2ObjectFunction<(V)>
+ "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Float2CharFunction
  "defaultReturnValue"(): V
  "defaultReturnValue"(arg0: V): void
+ "composeObject"<T>(arg0: $Object2FloatFunction$$Type<(T)>): $Object2ObjectFunction<(T), (V)>
+ "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Float2ByteFunction
  "composeByte"(arg0: $Byte2FloatFunction$$Type): $Byte2ObjectFunction<(V)>
- "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Float2ShortFunction
+ "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Float2ReferenceFunction<(T)>
  "composeLong"(arg0: $Long2FloatFunction$$Type): $Long2ObjectFunction<(V)>
- "composeChar"(arg0: $Char2FloatFunction$$Type): $Char2ObjectFunction<(V)>
  "composeFloat"(arg0: $Float2FloatFunction$$Type): $Float2ObjectFunction<(V)>
- "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Float2DoubleFunction
- "composeDouble"(arg0: $Double2FloatFunction$$Type): $Double2ObjectFunction<(V)>
+ "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Float2ShortFunction
+ "composeChar"(arg0: $Char2FloatFunction$$Type): $Char2ObjectFunction<(V)>
+ "andThenLong"(arg0: $Object2LongFunction$$Type<(V)>): $Float2LongFunction
+ "andThenFloat"(arg0: $Object2FloatFunction$$Type<(V)>): $Float2FloatFunction
+ "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Float2IntFunction
+ "composeInt"(arg0: $Int2FloatFunction$$Type): $Int2ObjectFunction<(V)>
  "size"(): integer
  "clear"(): void
  "apply"(arg0: float): V
@@ -1852,8 +1852,8 @@ declare module "it.unimi.dsi.fastutil.longs.LongComparator" {
 import {$ToIntFunction$$Type} from "java.util.function.ToIntFunction"
 import {$ToLongFunction$$Type} from "java.util.function.ToLongFunction"
 import {$ToDoubleFunction$$Type} from "java.util.function.ToDoubleFunction"
-import {$Comparable} from "java.lang.Comparable"
 import {$Comparator, $Comparator$$Type, $Comparator$$Interface} from "java.util.Comparator"
+import {$Comparable} from "java.lang.Comparable"
 import {$Function$$Type} from "java.util.function.Function"
 
 export interface $LongComparator$$Interface extends $Comparator$$Interface<(long)> {
@@ -1940,8 +1940,8 @@ declare module "it.unimi.dsi.fastutil.ints.IntOpenHashSet" {
 import {$Iterator$$Type} from "java.util.Iterator"
 import {$AbstractIntSet} from "it.unimi.dsi.fastutil.ints.AbstractIntSet"
 import {$Collection$$Type} from "java.util.Collection"
-import {$Hash$$Interface} from "it.unimi.dsi.fastutil.Hash"
 import {$Spliterator} from "java.util.Spliterator"
+import {$Hash$$Interface} from "it.unimi.dsi.fastutil.Hash"
 import {$IntStream$$Type} from "java.util.stream.IntStream"
 import {$IntCollection$$Type} from "it.unimi.dsi.fastutil.ints.IntCollection"
 import {$IntIterator, $IntIterator$$Type} from "it.unimi.dsi.fastutil.ints.IntIterator"
@@ -1984,8 +1984,8 @@ public static "of"(arg0: integer): $IntOpenHashSet
 public static "of"(arg0: integer, arg1: integer, arg2: integer): $IntOpenHashSet
 public "contains"(arg0: integer): boolean
 public "spliterator"(): $Spliterator
-public "addAll"(arg0: $IntCollection$$Type): boolean
 public "addAll"(arg0: $Collection$$Type<(integer)>): boolean
+public "addAll"(arg0: $IntCollection$$Type): boolean
 public "forEach"(arg0: $IntConsumer$$Type): void
 public static "toSet"(arg0: $IntStream$$Type): $IntOpenHashSet
 public "ensureCapacity"(arg0: integer): void
@@ -2041,8 +2041,8 @@ import {$Float2ByteFunction} from "it.unimi.dsi.fastutil.floats.Float2ByteFuncti
 import {$Short2IntFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction"
 import {$Int2FloatFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
 import {$Reference2ShortFunction} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
-import {$Double2FloatFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Float2IntFunction} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
+import {$Double2FloatFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Long2ShortFunction} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
 import {$Short2CharFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
 import {$Char2ShortFunction} from "it.unimi.dsi.fastutil.chars.Char2ShortFunction"
@@ -2061,10 +2061,10 @@ import {$Float2ObjectFunction} from "it.unimi.dsi.fastutil.floats.Float2ObjectFu
 import {$Short2LongFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$Float2FloatFunction, $Float2FloatFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2FloatFunction"
 import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
-import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$DoubleToIntFunction$$Interface} from "java.util.function.DoubleToIntFunction"
-import {$Char2FloatFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
+import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Long2FloatFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2FloatFunction"
+import {$Char2FloatFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
 import {$Short2FloatFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2FloatFunction"
 import {$Byte2FloatFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2FloatFunction"
 import {$Short2ByteFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ByteFunction"
@@ -2087,36 +2087,36 @@ export class $Float2ShortFunction implements $Float2ShortFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): short
+ "get"(arg0: any): any
  "get"(arg0: float): short
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: float, arg1: short): short
 /**
  * 
  * @deprecated
  */
  "put"(arg0: float, arg1: short): short
- "containsKey"(arg0: float): boolean
+ "put"(arg0: float, arg1: short): short
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: float): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: float, arg1: short): short
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: short): short
+ "getOrDefault"(arg0: float, arg1: short): short
 /**
  * 
  * @deprecated
@@ -2132,26 +2132,26 @@ export class $Float2ShortFunction implements $Float2ShortFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(short), (T)>): $Function$0<(float), (T)>
- "andThenInt"(arg0: $Short2IntFunction$$Type): $Float2IntFunction
- "composeInt"(arg0: $Int2FloatFunction$$Type): $Int2ShortFunction
- "andThenReference"<T>(arg0: $Short2ReferenceFunction$$Type<(T)>): $Float2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Short2ObjectFunction$$Type<(T)>): $Float2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2FloatFunction$$Type): $Short2ShortFunction
+ "andThenDouble"(arg0: $Short2DoubleFunction$$Type): $Float2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2FloatFunction$$Type<(T)>): $Reference2ShortFunction<(T)>
+ "composeDouble"(arg0: $Double2FloatFunction$$Type): $Double2ShortFunction
+ "andThenChar"(arg0: $Short2CharFunction$$Type): $Float2CharFunction
+ "defaultReturnValue"(): short
+ "defaultReturnValue"(arg0: short): void
  "composeObject"<T>(arg0: $Object2FloatFunction$$Type<(T)>): $Object2ShortFunction<(T)>
+ "andThenByte"(arg0: $Short2ByteFunction$$Type): $Float2ByteFunction
+ "composeByte"(arg0: $Byte2FloatFunction$$Type): $Byte2ShortFunction
+ "andThenReference"<T>(arg0: $Short2ReferenceFunction$$Type<(T)>): $Float2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2FloatFunction$$Type): $Long2ShortFunction
+ "composeFloat"(arg0: $Float2FloatFunction$$Type): $Float2ShortFunction
+ "andThenShort"(arg0: $Short2ShortFunction$$Type): $Float2ShortFunction
+ "composeChar"(arg0: $Char2FloatFunction$$Type): $Char2ShortFunction
  "andThenLong"(arg0: $Short2LongFunction$$Type): $Float2LongFunction
  "andThenFloat"(arg0: $Short2FloatFunction$$Type): $Float2FloatFunction
- "composeShort"(arg0: $Short2FloatFunction$$Type): $Short2ShortFunction
- "andThenObject"<T>(arg0: $Short2ObjectFunction$$Type<(T)>): $Float2ObjectFunction<(T)>
- "andThenByte"(arg0: $Short2ByteFunction$$Type): $Float2ByteFunction
- "andThenChar"(arg0: $Short2CharFunction$$Type): $Float2CharFunction
- "composeReference"<T>(arg0: $Reference2FloatFunction$$Type<(T)>): $Reference2ShortFunction<(T)>
- "defaultReturnValue"(arg0: short): void
- "defaultReturnValue"(): short
- "composeByte"(arg0: $Byte2FloatFunction$$Type): $Byte2ShortFunction
- "andThenShort"(arg0: $Short2ShortFunction$$Type): $Float2ShortFunction
- "composeLong"(arg0: $Long2FloatFunction$$Type): $Long2ShortFunction
- "composeChar"(arg0: $Char2FloatFunction$$Type): $Char2ShortFunction
- "composeFloat"(arg0: $Float2FloatFunction$$Type): $Float2ShortFunction
- "andThenDouble"(arg0: $Short2DoubleFunction$$Type): $Float2DoubleFunction
- "composeDouble"(arg0: $Double2FloatFunction$$Type): $Double2ShortFunction
+ "andThenInt"(arg0: $Short2IntFunction$$Type): $Float2IntFunction
+ "composeInt"(arg0: $Int2FloatFunction$$Type): $Int2ShortFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: float): short
@@ -2174,16 +2174,16 @@ import {$Float2ByteFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2Byte
 import {$Long2ByteFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
 import {$Int2FloatFunction} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
 import {$Byte2IntFunction} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
-import {$Double2FloatFunction} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Float2IntFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
+import {$Double2FloatFunction} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Byte2ReferenceFunction} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
 import {$Object2FloatFunction} from "it.unimi.dsi.fastutil.objects.Object2FloatFunction"
 import {$Byte2ObjectFunction} from "it.unimi.dsi.fastutil.bytes.Byte2ObjectFunction"
+import {$IntToDoubleFunction$$Interface} from "java.util.function.IntToDoubleFunction"
 import {$Float2CharFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2CharFunction"
 import {$Byte2ShortFunction} from "it.unimi.dsi.fastutil.bytes.Byte2ShortFunction"
-import {$IntToDoubleFunction$$Interface} from "java.util.function.IntToDoubleFunction"
 import {$Byte2CharFunction} from "it.unimi.dsi.fastutil.bytes.Byte2CharFunction"
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Float2LongFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2LongFunction"
@@ -2218,36 +2218,36 @@ export class $Byte2FloatFunction implements $Byte2FloatFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): float
+ "get"(arg0: any): any
  "get"(arg0: byte): float
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: byte, arg1: float): float
 /**
  * 
  * @deprecated
  */
  "put"(arg0: byte, arg1: float): float
- "containsKey"(arg0: byte): boolean
+ "put"(arg0: byte, arg1: float): float
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: byte): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: byte, arg1: float): float
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: float): float
+ "getOrDefault"(arg0: byte, arg1: float): float
 /**
  * 
  * @deprecated
@@ -2263,26 +2263,26 @@ export class $Byte2FloatFunction implements $Byte2FloatFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(float), (T)>): $Function$0<(byte), (T)>
- "andThenInt"(arg0: $Float2IntFunction$$Type): $Byte2IntFunction
- "composeInt"(arg0: $Int2ByteFunction$$Type): $Int2FloatFunction
- "andThenReference"<T>(arg0: $Float2ReferenceFunction$$Type<(T)>): $Byte2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Float2ObjectFunction$$Type<(T)>): $Byte2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2ByteFunction$$Type): $Short2FloatFunction
+ "andThenDouble"(arg0: $Float2DoubleFunction$$Type): $Byte2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2ByteFunction$$Type<(T)>): $Reference2FloatFunction<(T)>
+ "composeDouble"(arg0: $Double2ByteFunction$$Type): $Double2FloatFunction
+ "andThenChar"(arg0: $Float2CharFunction$$Type): $Byte2CharFunction
+ "defaultReturnValue"(): float
+ "defaultReturnValue"(arg0: float): void
  "composeObject"<T>(arg0: $Object2ByteFunction$$Type<(T)>): $Object2FloatFunction<(T)>
+ "andThenByte"(arg0: $Float2ByteFunction$$Type): $Byte2ByteFunction
+ "composeByte"(arg0: $Byte2ByteFunction$$Type): $Byte2FloatFunction
+ "andThenReference"<T>(arg0: $Float2ReferenceFunction$$Type<(T)>): $Byte2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2ByteFunction$$Type): $Long2FloatFunction
+ "composeFloat"(arg0: $Float2ByteFunction$$Type): $Float2FloatFunction
+ "andThenShort"(arg0: $Float2ShortFunction$$Type): $Byte2ShortFunction
+ "composeChar"(arg0: $Char2ByteFunction$$Type): $Char2FloatFunction
  "andThenLong"(arg0: $Float2LongFunction$$Type): $Byte2LongFunction
  "andThenFloat"(arg0: $Float2FloatFunction$$Type): $Byte2FloatFunction
- "composeShort"(arg0: $Short2ByteFunction$$Type): $Short2FloatFunction
- "andThenObject"<T>(arg0: $Float2ObjectFunction$$Type<(T)>): $Byte2ObjectFunction<(T)>
- "andThenByte"(arg0: $Float2ByteFunction$$Type): $Byte2ByteFunction
- "andThenChar"(arg0: $Float2CharFunction$$Type): $Byte2CharFunction
- "composeReference"<T>(arg0: $Reference2ByteFunction$$Type<(T)>): $Reference2FloatFunction<(T)>
- "defaultReturnValue"(arg0: float): void
- "defaultReturnValue"(): float
- "composeByte"(arg0: $Byte2ByteFunction$$Type): $Byte2FloatFunction
- "andThenShort"(arg0: $Float2ShortFunction$$Type): $Byte2ShortFunction
- "composeLong"(arg0: $Long2ByteFunction$$Type): $Long2FloatFunction
- "composeChar"(arg0: $Char2ByteFunction$$Type): $Char2FloatFunction
- "composeFloat"(arg0: $Float2ByteFunction$$Type): $Float2FloatFunction
- "andThenDouble"(arg0: $Float2DoubleFunction$$Type): $Byte2DoubleFunction
- "composeDouble"(arg0: $Double2ByteFunction$$Type): $Double2FloatFunction
+ "andThenInt"(arg0: $Float2IntFunction$$Type): $Byte2IntFunction
+ "composeInt"(arg0: $Int2ByteFunction$$Type): $Int2FloatFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: byte): float
@@ -2340,22 +2340,22 @@ export type $IntBinaryOperator$$Type = ((arg0: integer, arg1: integer) => intege
  */
 export type $IntBinaryOperator$$Original = $IntBinaryOperator;}
 declare module "it.unimi.dsi.fastutil.ints.IntList" {
-import {$Comparable$$Interface} from "java.lang.Comparable"
 import {$Spliterator} from "java.util.Spliterator"
+import {$Comparable$$Interface} from "java.lang.Comparable"
 import {$List, $List$$Type, $List$$Interface} from "java.util.List"
 import {$IntPredicate$$Type} from "java.util.function.IntPredicate"
 import {$IntFunction$$Type} from "java.util.function.IntFunction"
-import {$IntConsumer$$Type} from "java.util.function.IntConsumer"
+import {$IntConsumer$$Type as $IntConsumer$0$$Type} from "java.util.function.IntConsumer"
 import {$IntUnaryOperator$$Type as $IntUnaryOperator$0$$Type} from "it.unimi.dsi.fastutil.ints.IntUnaryOperator"
-import {$IntComparator$$Type} from "it.unimi.dsi.fastutil.ints.IntComparator"
 import {$Stream} from "java.util.stream.Stream"
+import {$IntComparator$$Type} from "it.unimi.dsi.fastutil.ints.IntComparator"
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
 import {$Collection$$Type} from "java.util.Collection"
-import {$IntStream} from "java.util.stream.IntStream"
-import {$Comparator$$Type} from "java.util.Comparator"
 import {$SequencedCollection} from "java.util.SequencedCollection"
-import {$Predicate$$Type} from "java.util.function.Predicate"
+import {$Comparator$$Type} from "java.util.Comparator"
+import {$IntStream} from "java.util.stream.IntStream"
 import {$IntCollection$$Type, $IntCollection$$Interface} from "it.unimi.dsi.fastutil.ints.IntCollection"
+import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$IntSpliterator} from "it.unimi.dsi.fastutil.ints.IntSpliterator"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$IntListIterator} from "it.unimi.dsi.fastutil.ints.IntListIterator"
@@ -2363,7 +2363,7 @@ import {$IntUnaryOperator$$Type} from "java.util.function.IntUnaryOperator"
 import {$IntIterator} from "it.unimi.dsi.fastutil.ints.IntIterator"
 import {$ListIterator} from "java.util.ListIterator"
 import {$IntPredicate$$Type as $IntPredicate$0$$Type} from "it.unimi.dsi.fastutil.ints.IntPredicate"
-import {$IntConsumer$$Type as $IntConsumer$0$$Type} from "it.unimi.dsi.fastutil.ints.IntConsumer"
+import {$IntConsumer$$Type} from "it.unimi.dsi.fastutil.ints.IntConsumer"
 
 export interface $IntList$$Interface extends $List$$Interface<(integer)>, $Comparable$$Interface<($List<(integer)>)>, $IntCollection$$Interface {
 set "elements"(value: (integer)[])
@@ -2467,19 +2467,19 @@ static "of"(arg0: integer, arg1: integer, arg2: integer): $IntList
  "listIterator"(arg0: integer): $ListIterator
  "listIterator"(): $ListIterator
  "getElements"(arg0: integer, arg1: (integer)[], arg2: integer, arg3: integer): void
+ "unstableSort"(arg0: $IntComparator$$Type): void
 /**
  * 
  * @deprecated
  */
  "unstableSort"(arg0: $Comparator$$Type<(integer)>): void
- "unstableSort"(arg0: $IntComparator$$Type): void
- "setElements"(arg0: (integer)[]): void
- "setElements"(arg0: integer, arg1: (integer)[]): void
- "setElements"(arg0: integer, arg1: (integer)[], arg2: integer, arg3: integer): void
  "removeInt"(arg0: integer): integer
- "removeElements"(arg0: integer, arg1: integer): void
+ "setElements"(arg0: (integer)[]): void
+ "setElements"(arg0: integer, arg1: (integer)[], arg2: integer, arg3: integer): void
+ "setElements"(arg0: integer, arg1: (integer)[]): void
  "addElements"(arg0: integer, arg1: (integer)[], arg2: integer, arg3: integer): void
  "addElements"(arg0: integer, arg1: (integer)[]): void
+ "removeElements"(arg0: integer, arg1: integer): void
  "size"(): integer
  "equals"(arg0: any): boolean
  "hashCode"(): integer
@@ -2543,17 +2543,17 @@ static "of"<E>(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4:
  */
  "toIntArray"(arg0: (integer)[]): (integer)[]
  "toIntArray"(): (integer)[]
+ "intParallelStream"(): $IntStream
  "intSpliterator"(): $IntSpliterator
  "intIterator"(): $IntIterator
- "intParallelStream"(): $IntStream
  "toArray"<T>(arg0: $IntFunction$$Type<((T)[])>): (T)[]
- "forEach"(arg0: $IntConsumer$$Type): void
+ "forEach"(arg0: $IntConsumer$0$$Type): void
 /**
  * 
  * @deprecated
  */
  "forEach"(arg0: $Consumer$$Type<(integer)>): void
- "forEach"(arg0: $IntConsumer$0$$Type): void
+ "forEach"(arg0: $IntConsumer$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2565,17 +2565,17 @@ export type $IntList$$Type = ($IntList);
  */
 export type $IntList$$Original = $IntList;}
 declare module "it.unimi.dsi.fastutil.objects.ObjectList" {
-import {$Iterator} from "java.util.Iterator"
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
+import {$Iterator} from "java.util.Iterator"
 import {$Collection$$Type} from "java.util.Collection"
+import {$Comparable$$Interface} from "java.lang.Comparable"
 import {$SequencedCollection} from "java.util.SequencedCollection"
 import {$Comparator$$Type} from "java.util.Comparator"
-import {$Comparable$$Interface} from "java.lang.Comparable"
 import {$Spliterator} from "java.util.Spliterator"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$List, $List$$Type, $List$$Interface} from "java.util.List"
-import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$IntFunction$$Type} from "java.util.function.IntFunction"
+import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$ObjectCollection$$Interface} from "it.unimi.dsi.fastutil.objects.ObjectCollection"
 import {$ListIterator} from "java.util.ListIterator"
 import {$Stream} from "java.util.stream.Stream"
@@ -2608,9 +2608,9 @@ static "of"<K>(arg0: K): $ObjectList<(K)>
  "setElements"(arg0: integer, arg1: (K)[]): void
  "setElements"(arg0: (K)[]): void
  "setElements"(arg0: integer, arg1: (K)[], arg2: integer, arg3: integer): void
- "removeElements"(arg0: integer, arg1: integer): void
- "addElements"(arg0: integer, arg1: (K)[]): void
  "addElements"(arg0: integer, arg1: (K)[], arg2: integer, arg3: integer): void
+ "addElements"(arg0: integer, arg1: (K)[]): void
+ "removeElements"(arg0: integer, arg1: integer): void
  "remove"(arg0: any): boolean
  "remove"(arg0: integer): K
  "size"(): integer
@@ -2736,15 +2736,15 @@ import {$Byte2IntFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunct
 import {$DoubleBinaryOperator$$Type as $DoubleBinaryOperator$0$$Type} from "java.util.function.DoubleBinaryOperator"
 import {$Map$Entry, $Map$Entry$$Type} from "java.util.Map$Entry"
 import {$IntFunction$$Type} from "java.util.function.IntFunction"
+import {$Int2CharFunction} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Float2IntFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
 import {$Double2FloatFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
-import {$Int2CharFunction} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Double2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
 import {$Int2ReferenceFunction} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
 import {$Int2ObjectFunction} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
 import {$Object2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Object2DoubleFunction"
-import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Function, $Function$$Type} from "java.util.function.Function"
+import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Set} from "java.util.Set"
 import {$IntToDoubleFunction$$Type} from "java.util.function.IntToDoubleFunction"
 import {$Int2DoubleFunction, $Int2DoubleFunction$$Type, $Int2DoubleFunction$$Interface} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
@@ -2759,13 +2759,13 @@ import {$Double2CharFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2C
 import {$BiFunction$$Type} from "java.util.function.BiFunction"
 import {$Double2LongFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
 import {$Double2ByteFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ByteFunction"
-import {$Int2LongFunction} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
 import {$ObjectSet} from "it.unimi.dsi.fastutil.objects.ObjectSet"
+import {$Int2LongFunction} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
 import {$Char2IntFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
 import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$Double2IntFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2IntFunction"
-import {$Reference2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Reference2DoubleFunction"
 import {$Double2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ObjectFunction"
+import {$Reference2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Reference2DoubleFunction"
 import {$DoubleBinaryOperator$$Type} from "it.unimi.dsi.fastutil.doubles.DoubleBinaryOperator"
 import {$Float2DoubleFunction} from "it.unimi.dsi.fastutil.floats.Float2DoubleFunction"
 import {$Int2ByteFunction} from "it.unimi.dsi.fastutil.ints.Int2ByteFunction"
@@ -2914,16 +2914,16 @@ export class $Int2DoubleMap implements $Int2DoubleMap$$Interface {
  * @deprecated
  */
  "computeIfPresent"(arg0: integer, arg1: $BiFunction$$Type<(integer), (double), (double)>): double
- "computeIfAbsentNullable"(arg0: integer, arg1: $IntFunction$$Type<(double)>): double
  "defaultReturnValue"(arg0: double): void
  "defaultReturnValue"(): double
+ "computeIfAbsentNullable"(arg0: integer, arg1: $IntFunction$$Type<(double)>): double
+ "mergeDouble"(arg0: integer, arg1: double, arg2: $DoubleBinaryOperator$$Type): double
+ "mergeDouble"(arg0: integer, arg1: double, arg2: $DoubleBinaryOperator$0$$Type): double
 /**
  * 
  * @deprecated
  */
  "computeIfAbsentPartial"(arg0: integer, arg1: $Int2DoubleFunction$$Type): double
- "mergeDouble"(arg0: integer, arg1: double, arg2: $DoubleBinaryOperator$$Type): double
- "mergeDouble"(arg0: integer, arg1: double, arg2: $DoubleBinaryOperator$0$$Type): double
  "int2DoubleEntrySet"(): $ObjectSet<($Int2DoubleMap$Entry)>
  "remove"(arg0: integer): double
  "get"(arg0: integer): double
@@ -2939,24 +2939,24 @@ export class $Int2DoubleMap implements $Int2DoubleMap$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$$Type<(double), (T)>): $Function<(integer), (T)>
- "andThenInt"(arg0: $Double2IntFunction$$Type): $Int2IntFunction
- "composeInt"(arg0: $Int2IntFunction$$Type): $Int2DoubleFunction
- "andThenReference"<T>(arg0: $Double2ReferenceFunction$$Type<(T)>): $Int2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Double2ObjectFunction$$Type<(T)>): $Int2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2IntFunction$$Type): $Short2DoubleFunction
+ "andThenDouble"(arg0: $Double2DoubleFunction$$Type): $Int2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2IntFunction$$Type<(T)>): $Reference2DoubleFunction<(T)>
+ "composeDouble"(arg0: $Double2IntFunction$$Type): $Double2DoubleFunction
+ "andThenChar"(arg0: $Double2CharFunction$$Type): $Int2CharFunction
  "composeObject"<T>(arg0: $Object2IntFunction$$Type<(T)>): $Object2DoubleFunction<(T)>
+ "andThenByte"(arg0: $Double2ByteFunction$$Type): $Int2ByteFunction
+ "composeByte"(arg0: $Byte2IntFunction$$Type): $Byte2DoubleFunction
+ "andThenReference"<T>(arg0: $Double2ReferenceFunction$$Type<(T)>): $Int2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2IntFunction$$Type): $Long2DoubleFunction
+ "composeFloat"(arg0: $Float2IntFunction$$Type): $Float2DoubleFunction
+ "andThenShort"(arg0: $Double2ShortFunction$$Type): $Int2ShortFunction
+ "composeChar"(arg0: $Char2IntFunction$$Type): $Char2DoubleFunction
  "andThenLong"(arg0: $Double2LongFunction$$Type): $Int2LongFunction
  "andThenFloat"(arg0: $Double2FloatFunction$$Type): $Int2FloatFunction
- "composeShort"(arg0: $Short2IntFunction$$Type): $Short2DoubleFunction
- "andThenObject"<T>(arg0: $Double2ObjectFunction$$Type<(T)>): $Int2ObjectFunction<(T)>
- "andThenByte"(arg0: $Double2ByteFunction$$Type): $Int2ByteFunction
- "andThenChar"(arg0: $Double2CharFunction$$Type): $Int2CharFunction
- "composeReference"<T>(arg0: $Reference2IntFunction$$Type<(T)>): $Reference2DoubleFunction<(T)>
- "composeByte"(arg0: $Byte2IntFunction$$Type): $Byte2DoubleFunction
- "andThenShort"(arg0: $Double2ShortFunction$$Type): $Int2ShortFunction
- "composeLong"(arg0: $Long2IntFunction$$Type): $Long2DoubleFunction
- "composeChar"(arg0: $Char2IntFunction$$Type): $Char2DoubleFunction
- "composeFloat"(arg0: $Float2IntFunction$$Type): $Float2DoubleFunction
- "andThenDouble"(arg0: $Double2DoubleFunction$$Type): $Int2DoubleFunction
- "composeDouble"(arg0: $Double2IntFunction$$Type): $Double2DoubleFunction
+ "andThenInt"(arg0: $Double2IntFunction$$Type): $Int2IntFunction
+ "composeInt"(arg0: $Int2IntFunction$$Type): $Int2DoubleFunction
  "equals"(arg0: any): boolean
  "hashCode"(): integer
 static "copyOf"<K, V>(arg0: $Map$$Type<(integer), (double)>): $Map<(integer), (double)>
@@ -3061,8 +3061,8 @@ import {$ObjectSet} from "it.unimi.dsi.fastutil.objects.ObjectSet"
 import {$FloatCollection} from "it.unimi.dsi.fastutil.floats.FloatCollection"
 import {$Serializable$$Interface} from "java.io.Serializable"
 import {$Function} from "java.util.function.Function"
-import {$Object2FloatFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2FloatFunction"
 import {$Cloneable$$Interface} from "java.lang.Cloneable"
+import {$Object2FloatFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2FloatFunction"
 
 export class $Object2FloatOpenHashMap<K> extends $AbstractObject2FloatMap<(K)> implements $Serializable$$Interface, $Cloneable$$Interface, $Hash$$Interface {
 constructor(arg0: $Map$$Type<(K), (float)>)
@@ -3101,8 +3101,8 @@ public "ensureCapacity"(arg0: integer): void
 public "addTo"(arg0: K, arg1: float): float
 public "computeFloat"(arg0: K, arg1: $BiFunction$$Type<(K), (float), (float)>): float
 public "removeFloat"(arg0: any): float
-public "computeFloatIfPresent"(arg0: K, arg1: $BiFunction$$Type<(K), (float), (float)>): float
 public "object2FloatEntrySet"(): $Object2FloatMap$FastEntrySet<(K)>
+public "computeFloatIfPresent"(arg0: K, arg1: $BiFunction$$Type<(K), (float), (float)>): float
 /**
  * 
  * @deprecated
@@ -3143,11 +3143,11 @@ import {$Byte2DoubleFunction} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunct
 import {$ToDoubleFunction$$Interface} from "java.util.function.ToDoubleFunction"
 import {$Reference2IntFunction} from "it.unimi.dsi.fastutil.objects.Reference2IntFunction"
 import {$Reference2ShortFunction} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
-import {$Double2FloatFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Reference2LongFunction} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
+import {$Double2FloatFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Double2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
-import {$Reference2ByteFunction} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Int2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
+import {$Reference2ByteFunction} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Byte2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
 import {$Object2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Object2DoubleFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
@@ -3159,14 +3159,14 @@ import {$Double2DoubleFunction, $Double2DoubleFunction$$Type} from "it.unimi.dsi
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Long2DoubleFunction} from "it.unimi.dsi.fastutil.longs.Long2DoubleFunction"
 import {$Short2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
-import {$Double2CharFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2CharFunction"
 import {$Long2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
+import {$Double2CharFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2CharFunction"
 import {$Reference2FloatFunction} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
 import {$Double2LongFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
 import {$Double2ByteFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ByteFunction"
 import {$Reference2CharFunction} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
-import {$Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
 import {$Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
+import {$Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
 import {$Double2IntFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2IntFunction"
 import {$Double2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ObjectFunction"
 import {$Float2DoubleFunction} from "it.unimi.dsi.fastutil.floats.Float2DoubleFunction"
@@ -3182,35 +3182,35 @@ export class $Reference2DoubleFunction<K> implements $Reference2DoubleFunction$$
  * 
  * @deprecated
  */
- "remove"(arg0: any): double
+ "remove"(arg0: any): any
 /**
  * 
  * @deprecated
  */
  "get"(arg0: any): double
- "put"(arg0: K, arg1: double): double
-/**
- * 
- * @deprecated
- */
- "put"(arg0: K, arg1: double): double
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
+/**
+ * 
+ * @deprecated
+ */
+ "put"(arg0: K, arg1: double): double
+ "put"(arg0: K, arg1: double): double
  "getDouble"(arg0: any): double
+/**
+ * 
+ * @deprecated
+ */
+ "getOrDefault"(arg0: any, arg1: double): double
  "getOrDefault"(arg0: any, arg1: double): double
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
-/**
- * 
- * @deprecated
- */
- "getOrDefault"(arg0: any, arg1: double): double
  "applyAsDouble"(arg0: K): double
 /**
  * 
@@ -3218,26 +3218,26 @@ export class $Reference2DoubleFunction<K> implements $Reference2DoubleFunction$$
  */
  "andThen"<T>(arg0: $Function$0$$Type<(double), (T)>): $Function$0<(K), (T)>
  "removeDouble"(arg0: any): double
- "andThenInt"(arg0: $Double2IntFunction$$Type): $Reference2IntFunction<(K)>
- "composeInt"(arg0: $Int2ReferenceFunction$$Type<(K)>): $Int2DoubleFunction
- "andThenReference"<T>(arg0: $Double2ReferenceFunction$$Type<(T)>): $Reference2ReferenceFunction<(K), (T)>
- "composeObject"<T>(arg0: $Object2ReferenceFunction$$Type<(T), (K)>): $Object2DoubleFunction<(T)>
- "andThenLong"(arg0: $Double2LongFunction$$Type): $Reference2LongFunction<(K)>
- "andThenFloat"(arg0: $Double2FloatFunction$$Type): $Reference2FloatFunction<(K)>
- "composeShort"(arg0: $Short2ReferenceFunction$$Type<(K)>): $Short2DoubleFunction
  "andThenObject"<T>(arg0: $Double2ObjectFunction$$Type<(T)>): $Reference2ObjectFunction<(K), (T)>
- "andThenByte"(arg0: $Double2ByteFunction$$Type): $Reference2ByteFunction<(K)>
- "andThenChar"(arg0: $Double2CharFunction$$Type): $Reference2CharFunction<(K)>
+ "composeShort"(arg0: $Short2ReferenceFunction$$Type<(K)>): $Short2DoubleFunction
+ "andThenDouble"(arg0: $Double2DoubleFunction$$Type): $Reference2DoubleFunction<(K)>
  "composeReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(T), (K)>): $Reference2DoubleFunction<(T)>
+ "composeDouble"(arg0: $Double2ReferenceFunction$$Type<(K)>): $Double2DoubleFunction
+ "andThenChar"(arg0: $Double2CharFunction$$Type): $Reference2CharFunction<(K)>
  "defaultReturnValue"(arg0: double): void
  "defaultReturnValue"(): double
+ "composeObject"<T>(arg0: $Object2ReferenceFunction$$Type<(T), (K)>): $Object2DoubleFunction<(T)>
+ "andThenByte"(arg0: $Double2ByteFunction$$Type): $Reference2ByteFunction<(K)>
  "composeByte"(arg0: $Byte2ReferenceFunction$$Type<(K)>): $Byte2DoubleFunction
- "andThenShort"(arg0: $Double2ShortFunction$$Type): $Reference2ShortFunction<(K)>
+ "andThenReference"<T>(arg0: $Double2ReferenceFunction$$Type<(T)>): $Reference2ReferenceFunction<(K), (T)>
  "composeLong"(arg0: $Long2ReferenceFunction$$Type<(K)>): $Long2DoubleFunction
- "composeChar"(arg0: $Char2ReferenceFunction$$Type<(K)>): $Char2DoubleFunction
  "composeFloat"(arg0: $Float2ReferenceFunction$$Type<(K)>): $Float2DoubleFunction
- "andThenDouble"(arg0: $Double2DoubleFunction$$Type): $Reference2DoubleFunction<(K)>
- "composeDouble"(arg0: $Double2ReferenceFunction$$Type<(K)>): $Double2DoubleFunction
+ "andThenShort"(arg0: $Double2ShortFunction$$Type): $Reference2ShortFunction<(K)>
+ "composeChar"(arg0: $Char2ReferenceFunction$$Type<(K)>): $Char2DoubleFunction
+ "andThenLong"(arg0: $Double2LongFunction$$Type): $Reference2LongFunction<(K)>
+ "andThenFloat"(arg0: $Double2FloatFunction$$Type): $Reference2FloatFunction<(K)>
+ "andThenInt"(arg0: $Double2IntFunction$$Type): $Reference2IntFunction<(K)>
+ "composeInt"(arg0: $Int2ReferenceFunction$$Type<(K)>): $Int2DoubleFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: K): double
@@ -3255,8 +3255,8 @@ export type $Reference2DoubleFunction$$Type<K> = ((arg0: any) => double);
  */
 export type $Reference2DoubleFunction$$Original<K> = $Reference2DoubleFunction<(K)>;}
 declare module "it.unimi.dsi.fastutil.bytes.Byte2ByteFunction" {
-import {$Byte2DoubleFunction, $Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Float2ByteFunction, $Float2ByteFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ByteFunction"
+import {$Byte2DoubleFunction, $Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Long2ByteFunction, $Long2ByteFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
 import {$Byte2IntFunction, $Byte2IntFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
@@ -3265,8 +3265,8 @@ import {$Byte2LongFunction, $Byte2LongFunction$$Type} from "it.unimi.dsi.fastuti
 import {$IntUnaryOperator, $IntUnaryOperator$$Type, $IntUnaryOperator$$Interface} from "java.util.function.IntUnaryOperator"
 import {$Reference2ByteFunction, $Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Byte2ReferenceFunction, $Byte2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
-import {$Double2ByteFunction, $Double2ByteFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ByteFunction"
 import {$Char2ByteFunction, $Char2ByteFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ByteFunction"
+import {$Double2ByteFunction, $Double2ByteFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ByteFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
 import {$Byte2ObjectFunction, $Byte2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ObjectFunction"
 import {$Byte2ShortFunction, $Byte2ShortFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ShortFunction"
@@ -3281,47 +3281,47 @@ export interface $Byte2ByteFunction$$Interface extends $Function$$Interface<(byt
 }
 
 export class $Byte2ByteFunction implements $Byte2ByteFunction$$Interface {
-/**
- * 
- * @deprecated
- */
- "remove"(arg0: any): any
  "remove"(arg0: byte): byte
 /**
  * 
  * @deprecated
  */
- "get"(arg0: any): byte
- "get"(arg0: byte): byte
+ "remove"(arg0: any): byte
 /**
  * 
  * @deprecated
  */
- "put"(arg0: byte, arg1: byte): byte
+ "get"(arg0: any): any
+ "get"(arg0: byte): byte
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
  "put"(arg0: byte, arg1: byte): byte
+/**
+ * 
+ * @deprecated
+ */
+ "put"(arg0: byte, arg1: byte): byte
 static "identity"(): $Byte2ByteFunction
- "containsKey"(arg0: byte): boolean
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
- "getOrDefault"(arg0: byte, arg1: byte): byte
-/**
- * 
- * @deprecated
- */
- "getOrDefault"(arg0: any, arg1: byte): byte
+ "containsKey"(arg0: byte): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
+/**
+ * 
+ * @deprecated
+ */
+ "getOrDefault"(arg0: any, arg1: byte): byte
+ "getOrDefault"(arg0: byte, arg1: byte): byte
 /**
  * 
  * @deprecated
@@ -3337,26 +3337,26 @@ static "identity"(): $Byte2ByteFunction
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(byte), (T)>): $Function$0<(byte), (T)>
- "andThenInt"(arg0: $Byte2IntFunction$$Type): $Byte2IntFunction
- "composeInt"(arg0: $Int2ByteFunction$$Type): $Int2ByteFunction
- "andThenReference"<T>(arg0: $Byte2ReferenceFunction$$Type<(T)>): $Byte2ReferenceFunction<(T)>
- "composeObject"<T>(arg0: $Object2ByteFunction$$Type<(T)>): $Object2ByteFunction<(T)>
- "andThenLong"(arg0: $Byte2LongFunction$$Type): $Byte2LongFunction
- "andThenFloat"(arg0: $Byte2FloatFunction$$Type): $Byte2FloatFunction
- "composeShort"(arg0: $Short2ByteFunction$$Type): $Short2ByteFunction
  "andThenObject"<T>(arg0: $Byte2ObjectFunction$$Type<(T)>): $Byte2ObjectFunction<(T)>
- "andThenByte"(arg0: $Byte2ByteFunction$$Type): $Byte2ByteFunction
- "andThenChar"(arg0: $Byte2CharFunction$$Type): $Byte2CharFunction
+ "composeShort"(arg0: $Short2ByteFunction$$Type): $Short2ByteFunction
+ "andThenDouble"(arg0: $Byte2DoubleFunction$$Type): $Byte2DoubleFunction
  "composeReference"<T>(arg0: $Reference2ByteFunction$$Type<(T)>): $Reference2ByteFunction<(T)>
+ "composeDouble"(arg0: $Double2ByteFunction$$Type): $Double2ByteFunction
+ "andThenChar"(arg0: $Byte2CharFunction$$Type): $Byte2CharFunction
  "defaultReturnValue"(): byte
  "defaultReturnValue"(arg0: byte): void
+ "composeObject"<T>(arg0: $Object2ByteFunction$$Type<(T)>): $Object2ByteFunction<(T)>
+ "andThenByte"(arg0: $Byte2ByteFunction$$Type): $Byte2ByteFunction
  "composeByte"(arg0: $Byte2ByteFunction$$Type): $Byte2ByteFunction
- "andThenShort"(arg0: $Byte2ShortFunction$$Type): $Byte2ShortFunction
+ "andThenReference"<T>(arg0: $Byte2ReferenceFunction$$Type<(T)>): $Byte2ReferenceFunction<(T)>
  "composeLong"(arg0: $Long2ByteFunction$$Type): $Long2ByteFunction
- "composeChar"(arg0: $Char2ByteFunction$$Type): $Char2ByteFunction
  "composeFloat"(arg0: $Float2ByteFunction$$Type): $Float2ByteFunction
- "andThenDouble"(arg0: $Byte2DoubleFunction$$Type): $Byte2DoubleFunction
- "composeDouble"(arg0: $Double2ByteFunction$$Type): $Double2ByteFunction
+ "andThenShort"(arg0: $Byte2ShortFunction$$Type): $Byte2ShortFunction
+ "composeChar"(arg0: $Char2ByteFunction$$Type): $Char2ByteFunction
+ "andThenLong"(arg0: $Byte2LongFunction$$Type): $Byte2LongFunction
+ "andThenFloat"(arg0: $Byte2FloatFunction$$Type): $Byte2FloatFunction
+ "andThenInt"(arg0: $Byte2IntFunction$$Type): $Byte2IntFunction
+ "composeInt"(arg0: $Int2ByteFunction$$Type): $Int2ByteFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: byte): byte
@@ -3381,15 +3381,15 @@ import {$Long2IntFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2IntFunct
 import {$Short2IntFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction"
 import {$Int2FloatFunction} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
 import {$Byte2IntFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
-import {$Double2FloatFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Int2CharFunction} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Float2IntFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
+import {$Double2FloatFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Double2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
 import {$Int2ReferenceFunction} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
 import {$Int2ObjectFunction} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
 import {$Object2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Object2DoubleFunction"
-import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
+import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$IntToDoubleFunction$$Interface} from "java.util.function.IntToDoubleFunction"
 import {$Short2DoubleFunction} from "it.unimi.dsi.fastutil.shorts.Short2DoubleFunction"
 import {$Double2DoubleFunction, $Double2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2DoubleFunction"
@@ -3424,36 +3424,36 @@ export class $Int2DoubleFunction implements $Int2DoubleFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): double
+ "get"(arg0: any): any
  "get"(arg0: integer): double
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: integer, arg1: double): double
 /**
  * 
  * @deprecated
  */
  "put"(arg0: integer, arg1: double): double
- "containsKey"(arg0: integer): boolean
+ "put"(arg0: integer, arg1: double): double
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: integer): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: integer, arg1: double): double
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: double): double
+ "getOrDefault"(arg0: integer, arg1: double): double
  "applyAsDouble"(arg0: integer): double
 /**
  * 
@@ -3465,26 +3465,26 @@ export class $Int2DoubleFunction implements $Int2DoubleFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(double), (T)>): $Function$0<(integer), (T)>
- "andThenInt"(arg0: $Double2IntFunction$$Type): $Int2IntFunction
- "composeInt"(arg0: $Int2IntFunction$$Type): $Int2DoubleFunction
- "andThenReference"<T>(arg0: $Double2ReferenceFunction$$Type<(T)>): $Int2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Double2ObjectFunction$$Type<(T)>): $Int2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2IntFunction$$Type): $Short2DoubleFunction
+ "andThenDouble"(arg0: $Double2DoubleFunction$$Type): $Int2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2IntFunction$$Type<(T)>): $Reference2DoubleFunction<(T)>
+ "composeDouble"(arg0: $Double2IntFunction$$Type): $Double2DoubleFunction
+ "andThenChar"(arg0: $Double2CharFunction$$Type): $Int2CharFunction
+ "defaultReturnValue"(): double
+ "defaultReturnValue"(arg0: double): void
  "composeObject"<T>(arg0: $Object2IntFunction$$Type<(T)>): $Object2DoubleFunction<(T)>
+ "andThenByte"(arg0: $Double2ByteFunction$$Type): $Int2ByteFunction
+ "composeByte"(arg0: $Byte2IntFunction$$Type): $Byte2DoubleFunction
+ "andThenReference"<T>(arg0: $Double2ReferenceFunction$$Type<(T)>): $Int2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2IntFunction$$Type): $Long2DoubleFunction
+ "composeFloat"(arg0: $Float2IntFunction$$Type): $Float2DoubleFunction
+ "andThenShort"(arg0: $Double2ShortFunction$$Type): $Int2ShortFunction
+ "composeChar"(arg0: $Char2IntFunction$$Type): $Char2DoubleFunction
  "andThenLong"(arg0: $Double2LongFunction$$Type): $Int2LongFunction
  "andThenFloat"(arg0: $Double2FloatFunction$$Type): $Int2FloatFunction
- "composeShort"(arg0: $Short2IntFunction$$Type): $Short2DoubleFunction
- "andThenObject"<T>(arg0: $Double2ObjectFunction$$Type<(T)>): $Int2ObjectFunction<(T)>
- "andThenByte"(arg0: $Double2ByteFunction$$Type): $Int2ByteFunction
- "andThenChar"(arg0: $Double2CharFunction$$Type): $Int2CharFunction
- "composeReference"<T>(arg0: $Reference2IntFunction$$Type<(T)>): $Reference2DoubleFunction<(T)>
- "defaultReturnValue"(arg0: double): void
- "defaultReturnValue"(): double
- "composeByte"(arg0: $Byte2IntFunction$$Type): $Byte2DoubleFunction
- "andThenShort"(arg0: $Double2ShortFunction$$Type): $Int2ShortFunction
- "composeLong"(arg0: $Long2IntFunction$$Type): $Long2DoubleFunction
- "composeChar"(arg0: $Char2IntFunction$$Type): $Char2DoubleFunction
- "composeFloat"(arg0: $Float2IntFunction$$Type): $Float2DoubleFunction
- "andThenDouble"(arg0: $Double2DoubleFunction$$Type): $Int2DoubleFunction
- "composeDouble"(arg0: $Double2IntFunction$$Type): $Double2DoubleFunction
+ "andThenInt"(arg0: $Double2IntFunction$$Type): $Int2IntFunction
+ "composeInt"(arg0: $Int2IntFunction$$Type): $Int2DoubleFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: integer): double
@@ -3531,25 +3531,25 @@ export type $Function$$Type<K, V> = ((arg0: any) => V);
 export type $Function$$Original<K, V> = $Function<(K), (V)>;}
 declare module "it.unimi.dsi.fastutil.longs.LongList" {
 import {$LongPredicate$$Type as $LongPredicate$0$$Type} from "java.util.function.LongPredicate"
-import {$Comparable$$Interface} from "java.lang.Comparable"
 import {$Spliterator} from "java.util.Spliterator"
+import {$Comparable$$Interface} from "java.lang.Comparable"
 import {$List, $List$$Type, $List$$Interface} from "java.util.List"
 import {$LongComparator$$Type} from "it.unimi.dsi.fastutil.longs.LongComparator"
-import {$IntFunction$$Type} from "java.util.function.IntFunction"
 import {$LongPredicate$$Type} from "it.unimi.dsi.fastutil.longs.LongPredicate"
+import {$IntFunction$$Type} from "java.util.function.IntFunction"
 import {$LongSpliterator} from "it.unimi.dsi.fastutil.longs.LongSpliterator"
-import {$LongConsumer$$Type} from "java.util.function.LongConsumer"
+import {$LongConsumer$$Type as $LongConsumer$0$$Type} from "java.util.function.LongConsumer"
 import {$Stream} from "java.util.stream.Stream"
 import {$LongCollection$$Type, $LongCollection$$Interface} from "it.unimi.dsi.fastutil.longs.LongCollection"
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
 import {$Collection$$Type} from "java.util.Collection"
-import {$Comparator$$Type} from "java.util.Comparator"
 import {$SequencedCollection} from "java.util.SequencedCollection"
+import {$Comparator$$Type} from "java.util.Comparator"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$LongStream} from "java.util.stream.LongStream"
 import {$LongUnaryOperator$$Type} from "it.unimi.dsi.fastutil.longs.LongUnaryOperator"
 import {$LongUnaryOperator$$Type as $LongUnaryOperator$0$$Type} from "java.util.function.LongUnaryOperator"
-import {$LongConsumer$$Type as $LongConsumer$0$$Type} from "it.unimi.dsi.fastutil.longs.LongConsumer"
+import {$LongConsumer$$Type} from "it.unimi.dsi.fastutil.longs.LongConsumer"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$LongListIterator} from "it.unimi.dsi.fastutil.longs.LongListIterator"
 import {$ListIterator} from "java.util.ListIterator"
@@ -3656,20 +3656,20 @@ static "of"(arg0: long, arg1: long, arg2: long): $LongList
  "sort"(arg0: $Comparator$$Type<(long)>): void
  "listIterator"(arg0: integer): $ListIterator
  "listIterator"(): $ListIterator
- "getElements"(arg0: integer, arg1: (long)[], arg2: integer, arg3: integer): void
  "removeLong"(arg0: integer): long
+ "getElements"(arg0: integer, arg1: (long)[], arg2: integer, arg3: integer): void
 /**
  * 
  * @deprecated
  */
  "unstableSort"(arg0: $Comparator$$Type<(long)>): void
  "unstableSort"(arg0: $LongComparator$$Type): void
- "setElements"(arg0: integer, arg1: (long)[], arg2: integer, arg3: integer): void
  "setElements"(arg0: integer, arg1: (long)[]): void
+ "setElements"(arg0: integer, arg1: (long)[], arg2: integer, arg3: integer): void
  "setElements"(arg0: (long)[]): void
- "removeElements"(arg0: integer, arg1: integer): void
  "addElements"(arg0: integer, arg1: (long)[], arg2: integer, arg3: integer): void
  "addElements"(arg0: integer, arg1: (long)[]): void
+ "removeElements"(arg0: integer, arg1: integer): void
  "size"(): integer
  "equals"(arg0: any): boolean
  "hashCode"(): integer
@@ -3727,23 +3727,23 @@ static "of"<E>(arg0: long, arg1: long, arg2: long, arg3: long, arg4: long, arg5:
  "parallelStream"(): $Stream<(long)>
  "rem"(arg0: long): boolean
  "longStream"(): $LongStream
- "toLongArray"(): (long)[]
 /**
  * 
  * @deprecated
  */
  "toLongArray"(arg0: (long)[]): (long)[]
- "longIterator"(): $LongIterator
+ "toLongArray"(): (long)[]
  "longParallelStream"(): $LongStream
  "longSpliterator"(): $LongSpliterator
+ "longIterator"(): $LongIterator
  "toArray"<T>(arg0: $IntFunction$$Type<((T)[])>): (T)[]
- "forEach"(arg0: $LongConsumer$$Type): void
+ "forEach"(arg0: $LongConsumer$0$$Type): void
 /**
  * 
  * @deprecated
  */
  "forEach"(arg0: $Consumer$$Type<(long)>): void
- "forEach"(arg0: $LongConsumer$0$$Type): void
+ "forEach"(arg0: $LongConsumer$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3756,28 +3756,28 @@ export type $LongList$$Type = ($LongList);
 export type $LongList$$Original = $LongList;}
 declare module "it.unimi.dsi.fastutil.doubles.DoubleList" {
 import {$DoubleUnaryOperator$$Type} from "java.util.function.DoubleUnaryOperator"
-import {$Comparable$$Interface} from "java.lang.Comparable"
 import {$Spliterator} from "java.util.Spliterator"
+import {$Comparable$$Interface} from "java.lang.Comparable"
 import {$List, $List$$Type, $List$$Interface} from "java.util.List"
 import {$DoubleIterator} from "it.unimi.dsi.fastutil.doubles.DoubleIterator"
 import {$IntFunction$$Type} from "java.util.function.IntFunction"
-import {$DoublePredicate$$Type} from "it.unimi.dsi.fastutil.doubles.DoublePredicate"
+import {$DoublePredicate$$Type as $DoublePredicate$0$$Type} from "it.unimi.dsi.fastutil.doubles.DoublePredicate"
 import {$Stream} from "java.util.stream.Stream"
-import {$DoublePredicate$$Type as $DoublePredicate$0$$Type} from "java.util.function.DoublePredicate"
 import {$DoubleUnaryOperator$$Type as $DoubleUnaryOperator$0$$Type} from "it.unimi.dsi.fastutil.doubles.DoubleUnaryOperator"
+import {$DoublePredicate$$Type} from "java.util.function.DoublePredicate"
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
-import {$DoubleComparator$$Type} from "it.unimi.dsi.fastutil.doubles.DoubleComparator"
 import {$Collection$$Type} from "java.util.Collection"
+import {$DoubleComparator$$Type} from "it.unimi.dsi.fastutil.doubles.DoubleComparator"
 import {$DoubleCollection$$Type, $DoubleCollection$$Interface} from "it.unimi.dsi.fastutil.doubles.DoubleCollection"
-import {$Comparator$$Type} from "java.util.Comparator"
 import {$SequencedCollection} from "java.util.SequencedCollection"
+import {$Comparator$$Type} from "java.util.Comparator"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$DoubleListIterator} from "it.unimi.dsi.fastutil.doubles.DoubleListIterator"
 import {$Consumer$$Type} from "java.util.function.Consumer"
-import {$DoubleConsumer$$Type} from "java.util.function.DoubleConsumer"
+import {$DoubleConsumer$$Type as $DoubleConsumer$0$$Type} from "java.util.function.DoubleConsumer"
 import {$ListIterator} from "java.util.ListIterator"
 import {$DoubleSpliterator} from "it.unimi.dsi.fastutil.doubles.DoubleSpliterator"
-import {$DoubleConsumer$$Type as $DoubleConsumer$0$$Type} from "it.unimi.dsi.fastutil.doubles.DoubleConsumer"
+import {$DoubleConsumer$$Type} from "it.unimi.dsi.fastutil.doubles.DoubleConsumer"
 import {$DoubleStream} from "java.util.stream.DoubleStream"
 
 export interface $DoubleList$$Interface extends $List$$Interface<(double)>, $Comparable$$Interface<($List<(double)>)>, $DoubleCollection$$Interface {
@@ -3881,20 +3881,20 @@ static "of"(arg0: double, arg1: double, arg2: double): $DoubleList
  "sort"(arg0: $Comparator$$Type<(double)>): void
  "listIterator"(arg0: integer): $ListIterator
  "listIterator"(): $ListIterator
- "getElements"(arg0: integer, arg1: (double)[], arg2: integer, arg3: integer): void
  "removeDouble"(arg0: integer): double
+ "getElements"(arg0: integer, arg1: (double)[], arg2: integer, arg3: integer): void
 /**
  * 
  * @deprecated
  */
  "unstableSort"(arg0: $Comparator$$Type<(double)>): void
  "unstableSort"(arg0: $DoubleComparator$$Type): void
- "setElements"(arg0: integer, arg1: (double)[], arg2: integer, arg3: integer): void
  "setElements"(arg0: integer, arg1: (double)[]): void
+ "setElements"(arg0: integer, arg1: (double)[], arg2: integer, arg3: integer): void
  "setElements"(arg0: (double)[]): void
- "removeElements"(arg0: integer, arg1: integer): void
  "addElements"(arg0: integer, arg1: (double)[], arg2: integer, arg3: integer): void
  "addElements"(arg0: integer, arg1: (double)[]): void
+ "removeElements"(arg0: integer, arg1: integer): void
  "size"(): integer
  "equals"(arg0: any): boolean
  "hashCode"(): integer
@@ -3935,13 +3935,13 @@ static "of"<E>(arg0: double, arg1: double, arg2: double, arg3: double, arg4: dou
  "stream"(): $Stream<(double)>
  "contains"(arg0: double): boolean
  "addAll"(arg0: $DoubleCollection$$Type): boolean
- "removeIf"(arg0: $DoublePredicate$0$$Type): boolean
+ "removeIf"(arg0: $DoublePredicate$$Type): boolean
 /**
  * 
  * @deprecated
  */
  "removeIf"(arg0: $Predicate$$Type<(double)>): boolean
- "removeIf"(arg0: $DoublePredicate$$Type): boolean
+ "removeIf"(arg0: $DoublePredicate$0$$Type): boolean
  "removeAll"(arg0: $DoubleCollection$$Type): boolean
  "retainAll"(arg0: $DoubleCollection$$Type): boolean
  "containsAll"(arg0: $DoubleCollection$$Type): boolean
@@ -3952,23 +3952,23 @@ static "of"<E>(arg0: double, arg1: double, arg2: double, arg3: double, arg4: dou
  "parallelStream"(): $Stream<(double)>
  "rem"(arg0: double): boolean
  "doubleStream"(): $DoubleStream
- "doubleParallelStream"(): $DoubleStream
- "toDoubleArray"(): (double)[]
 /**
  * 
  * @deprecated
  */
  "toDoubleArray"(arg0: (double)[]): (double)[]
- "doubleSpliterator"(): $DoubleSpliterator
+ "toDoubleArray"(): (double)[]
+ "doubleParallelStream"(): $DoubleStream
  "doubleIterator"(): $DoubleIterator
+ "doubleSpliterator"(): $DoubleSpliterator
  "toArray"<T>(arg0: $IntFunction$$Type<((T)[])>): (T)[]
- "forEach"(arg0: $DoubleConsumer$$Type): void
+ "forEach"(arg0: $DoubleConsumer$0$$Type): void
 /**
  * 
  * @deprecated
  */
  "forEach"(arg0: $Consumer$$Type<(double)>): void
- "forEach"(arg0: $DoubleConsumer$0$$Type): void
+ "forEach"(arg0: $DoubleConsumer$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3987,8 +3987,8 @@ import {$Object2ObjectFunction, $Object2ObjectFunction$$Type} from "it.unimi.dsi
 import {$Reference2ShortFunction} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
 import {$Reference2LongFunction} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
 import {$Double2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
-import {$Reference2ByteFunction} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Int2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
+import {$Reference2ByteFunction} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Int2ObjectFunction} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
 import {$Byte2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
 import {$Char2ObjectFunction} from "it.unimi.dsi.fastutil.chars.Char2ObjectFunction"
@@ -4005,13 +4005,13 @@ import {$Long2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2Re
 import {$Reference2FloatFunction} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
 import {$Float2ObjectFunction} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Reference2CharFunction} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
-import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
-import {$Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
-import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
+import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
+import {$Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
+import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
-import {$Double2ObjectFunction} from "it.unimi.dsi.fastutil.doubles.Double2ObjectFunction"
 import {$Reference2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Reference2DoubleFunction"
+import {$Double2ObjectFunction} from "it.unimi.dsi.fastutil.doubles.Double2ObjectFunction"
 import {$Long2ObjectFunction} from "it.unimi.dsi.fastutil.longs.Long2ObjectFunction"
 
 export interface $Reference2ObjectFunction$$Interface<K, V> extends $Function$$Interface<(K), (V)> {
@@ -4024,26 +4024,26 @@ export class $Reference2ObjectFunction<K, V> implements $Reference2ObjectFunctio
  "get"(arg0: any): V
  "put"(arg0: K, arg1: V): V
  "getOrDefault"(arg0: any, arg1: V): V
- "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Reference2IntFunction<(K)>
- "composeInt"(arg0: $Int2ReferenceFunction$$Type<(K)>): $Int2ObjectFunction<(V)>
- "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Reference2ReferenceFunction<(K), (T)>
+ "andThenObject"<T>(arg0: $Object2ObjectFunction$$Type<(V), (T)>): $Reference2ObjectFunction<(K), (T)>
+ "composeShort"(arg0: $Short2ReferenceFunction$$Type<(K)>): $Short2ObjectFunction<(V)>
+ "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Reference2DoubleFunction<(K)>
+ "composeReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(T), (K)>): $Reference2ObjectFunction<(T), (V)>
+ "composeDouble"(arg0: $Double2ReferenceFunction$$Type<(K)>): $Double2ObjectFunction<(V)>
+ "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Reference2CharFunction<(K)>
+ "defaultReturnValue"(): V
+ "defaultReturnValue"(arg0: V): void
  "composeObject"<T>(arg0: $Object2ReferenceFunction$$Type<(T), (K)>): $Object2ObjectFunction<(T), (V)>
+ "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Reference2ByteFunction<(K)>
+ "composeByte"(arg0: $Byte2ReferenceFunction$$Type<(K)>): $Byte2ObjectFunction<(V)>
+ "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Reference2ReferenceFunction<(K), (T)>
+ "composeLong"(arg0: $Long2ReferenceFunction$$Type<(K)>): $Long2ObjectFunction<(V)>
+ "composeFloat"(arg0: $Float2ReferenceFunction$$Type<(K)>): $Float2ObjectFunction<(V)>
+ "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Reference2ShortFunction<(K)>
+ "composeChar"(arg0: $Char2ReferenceFunction$$Type<(K)>): $Char2ObjectFunction<(V)>
  "andThenLong"(arg0: $Object2LongFunction$$Type<(V)>): $Reference2LongFunction<(K)>
  "andThenFloat"(arg0: $Object2FloatFunction$$Type<(V)>): $Reference2FloatFunction<(K)>
- "composeShort"(arg0: $Short2ReferenceFunction$$Type<(K)>): $Short2ObjectFunction<(V)>
- "andThenObject"<T>(arg0: $Object2ObjectFunction$$Type<(V), (T)>): $Reference2ObjectFunction<(K), (T)>
- "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Reference2ByteFunction<(K)>
- "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Reference2CharFunction<(K)>
- "composeReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(T), (K)>): $Reference2ObjectFunction<(T), (V)>
- "defaultReturnValue"(arg0: V): void
- "defaultReturnValue"(): V
- "composeByte"(arg0: $Byte2ReferenceFunction$$Type<(K)>): $Byte2ObjectFunction<(V)>
- "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Reference2ShortFunction<(K)>
- "composeLong"(arg0: $Long2ReferenceFunction$$Type<(K)>): $Long2ObjectFunction<(V)>
- "composeChar"(arg0: $Char2ReferenceFunction$$Type<(K)>): $Char2ObjectFunction<(V)>
- "composeFloat"(arg0: $Float2ReferenceFunction$$Type<(K)>): $Float2ObjectFunction<(V)>
- "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Reference2DoubleFunction<(K)>
- "composeDouble"(arg0: $Double2ReferenceFunction$$Type<(K)>): $Double2ObjectFunction<(V)>
+ "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Reference2IntFunction<(K)>
+ "composeInt"(arg0: $Int2ReferenceFunction$$Type<(K)>): $Int2ObjectFunction<(V)>
  "size"(): integer
  "clear"(): void
  "apply"(arg0: K): V
@@ -4063,17 +4063,17 @@ export type $Reference2ObjectFunction$$Type<K, V> = ((arg0: any) => V);
 export type $Reference2ObjectFunction$$Original<K, V> = $Reference2ObjectFunction<(K), (V)>;}
 declare module "it.unimi.dsi.fastutil.objects.Reference2FloatFunction" {
 import {$Float2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ReferenceFunction"
-import {$ToDoubleFunction$$Interface} from "java.util.function.ToDoubleFunction"
 import {$Float2ByteFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ByteFunction"
+import {$ToDoubleFunction$$Interface} from "java.util.function.ToDoubleFunction"
 import {$Reference2IntFunction} from "it.unimi.dsi.fastutil.objects.Reference2IntFunction"
 import {$Int2FloatFunction} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
 import {$Reference2ShortFunction} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
+import {$Float2IntFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
 import {$Reference2LongFunction} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
 import {$Double2FloatFunction} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
-import {$Float2IntFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
 import {$Double2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
-import {$Reference2ByteFunction} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Int2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
+import {$Reference2ByteFunction} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Byte2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
 import {$Object2FloatFunction} from "it.unimi.dsi.fastutil.objects.Object2FloatFunction"
@@ -4082,14 +4082,14 @@ import {$Reference2ReferenceFunction, $Reference2ReferenceFunction$$Type} from "
 import {$Reference2ObjectFunction} from "it.unimi.dsi.fastutil.objects.Reference2ObjectFunction"
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Float2LongFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2LongFunction"
-import {$Short2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Float2ShortFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ShortFunction"
+import {$Short2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Long2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
 import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Float2FloatFunction, $Float2FloatFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2FloatFunction"
 import {$Reference2CharFunction} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
-import {$Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
 import {$Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
+import {$Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
 import {$Char2FloatFunction} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
 import {$Long2FloatFunction} from "it.unimi.dsi.fastutil.longs.Long2FloatFunction"
 import {$Short2FloatFunction} from "it.unimi.dsi.fastutil.shorts.Short2FloatFunction"
@@ -4107,61 +4107,61 @@ export class $Reference2FloatFunction<K> implements $Reference2FloatFunction$$In
  * 
  * @deprecated
  */
- "remove"(arg0: any): float
+ "remove"(arg0: any): any
 /**
  * 
  * @deprecated
  */
- "get"(arg0: any): float
+ "get"(arg0: any): any
 /**
  * 
  * @deprecated
  */
+ "put"(arg0: K, arg1: float): float
  "put"(arg0: K, arg1: float): float
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: K, arg1: float): float
  "getFloat"(arg0: any): float
 /**
  * 
  * @deprecated
  */
- "getOrDefault"(arg0: any, arg1: float): float
- "getOrDefault"(arg0: any, arg1: float): float
+ "getOrDefault"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
  */
- "getOrDefault"(arg0: any, arg1: any): any
+ "getOrDefault"(arg0: any, arg1: float): float
+ "getOrDefault"(arg0: any, arg1: float): float
  "applyAsDouble"(arg0: K): double
 /**
  * 
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(float), (T)>): $Function$0<(K), (T)>
- "andThenInt"(arg0: $Float2IntFunction$$Type): $Reference2IntFunction<(K)>
- "composeInt"(arg0: $Int2ReferenceFunction$$Type<(K)>): $Int2FloatFunction
- "andThenReference"<T>(arg0: $Float2ReferenceFunction$$Type<(T)>): $Reference2ReferenceFunction<(K), (T)>
- "composeObject"<T>(arg0: $Object2ReferenceFunction$$Type<(T), (K)>): $Object2FloatFunction<(T)>
- "andThenLong"(arg0: $Float2LongFunction$$Type): $Reference2LongFunction<(K)>
- "andThenFloat"(arg0: $Float2FloatFunction$$Type): $Reference2FloatFunction<(K)>
- "composeShort"(arg0: $Short2ReferenceFunction$$Type<(K)>): $Short2FloatFunction
  "andThenObject"<T>(arg0: $Float2ObjectFunction$$Type<(T)>): $Reference2ObjectFunction<(K), (T)>
- "andThenByte"(arg0: $Float2ByteFunction$$Type): $Reference2ByteFunction<(K)>
- "andThenChar"(arg0: $Float2CharFunction$$Type): $Reference2CharFunction<(K)>
+ "composeShort"(arg0: $Short2ReferenceFunction$$Type<(K)>): $Short2FloatFunction
+ "andThenDouble"(arg0: $Float2DoubleFunction$$Type): $Reference2DoubleFunction<(K)>
  "composeReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(T), (K)>): $Reference2FloatFunction<(T)>
+ "composeDouble"(arg0: $Double2ReferenceFunction$$Type<(K)>): $Double2FloatFunction
+ "andThenChar"(arg0: $Float2CharFunction$$Type): $Reference2CharFunction<(K)>
  "defaultReturnValue"(): float
  "defaultReturnValue"(arg0: float): void
+ "composeObject"<T>(arg0: $Object2ReferenceFunction$$Type<(T), (K)>): $Object2FloatFunction<(T)>
+ "andThenByte"(arg0: $Float2ByteFunction$$Type): $Reference2ByteFunction<(K)>
  "composeByte"(arg0: $Byte2ReferenceFunction$$Type<(K)>): $Byte2FloatFunction
- "andThenShort"(arg0: $Float2ShortFunction$$Type): $Reference2ShortFunction<(K)>
+ "andThenReference"<T>(arg0: $Float2ReferenceFunction$$Type<(T)>): $Reference2ReferenceFunction<(K), (T)>
  "composeLong"(arg0: $Long2ReferenceFunction$$Type<(K)>): $Long2FloatFunction
- "composeChar"(arg0: $Char2ReferenceFunction$$Type<(K)>): $Char2FloatFunction
  "composeFloat"(arg0: $Float2ReferenceFunction$$Type<(K)>): $Float2FloatFunction
- "andThenDouble"(arg0: $Float2DoubleFunction$$Type): $Reference2DoubleFunction<(K)>
- "composeDouble"(arg0: $Double2ReferenceFunction$$Type<(K)>): $Double2FloatFunction
+ "andThenShort"(arg0: $Float2ShortFunction$$Type): $Reference2ShortFunction<(K)>
+ "composeChar"(arg0: $Char2ReferenceFunction$$Type<(K)>): $Char2FloatFunction
+ "andThenLong"(arg0: $Float2LongFunction$$Type): $Reference2LongFunction<(K)>
+ "andThenFloat"(arg0: $Float2FloatFunction$$Type): $Reference2FloatFunction<(K)>
+ "andThenInt"(arg0: $Float2IntFunction$$Type): $Reference2IntFunction<(K)>
+ "composeInt"(arg0: $Int2ReferenceFunction$$Type<(K)>): $Int2FloatFunction
  "removeFloat"(arg0: any): float
  "size"(): integer
  "clear"(): void
@@ -4183,8 +4183,8 @@ declare module "it.unimi.dsi.fastutil.longs.Long2ObjectFunction" {
 import {$Object2IntFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2IntFunction"
 import {$Long2CharFunction} from "it.unimi.dsi.fastutil.longs.Long2CharFunction"
 import {$Long2IntFunction} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
-import {$Long2ByteFunction} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
 import {$LongFunction$$Interface} from "java.util.function.LongFunction"
+import {$Long2ByteFunction} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
 import {$Object2ObjectFunction, $Object2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ObjectFunction"
 import {$Reference2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
 import {$Long2ShortFunction} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
@@ -4204,13 +4204,13 @@ import {$Object2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2B
 import {$Long2ReferenceFunction} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
 import {$Byte2LongFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2LongFunction"
 import {$Float2ObjectFunction} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
-import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Double2LongFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
+import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Short2LongFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$Int2LongFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
-import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
-import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
+import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
+import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Long2FloatFunction} from "it.unimi.dsi.fastutil.longs.Long2FloatFunction"
 import {$Object2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
 import {$Double2ObjectFunction} from "it.unimi.dsi.fastutil.doubles.Double2ObjectFunction"
@@ -4221,12 +4221,12 @@ export interface $Long2ObjectFunction$$Interface<V> extends $Function$$Interface
 }
 
 export class $Long2ObjectFunction<V> implements $Long2ObjectFunction$$Interface {
- "remove"(arg0: long): V
 /**
  * 
  * @deprecated
  */
  "remove"(arg0: any): V
+ "remove"(arg0: long): V
 /**
  * 
  * @deprecated
@@ -4237,13 +4237,13 @@ export class $Long2ObjectFunction<V> implements $Long2ObjectFunction$$Interface 
  * 
  * @deprecated
  */
- "put"(arg0: long, arg1: V): V
- "put"(arg0: long, arg1: V): V
+ "put"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
  */
- "put"(arg0: any, arg1: any): any
+ "put"(arg0: long, arg1: V): V
+ "put"(arg0: long, arg1: V): V
  "apply"(arg0: long): V
  "containsKey"(arg0: long): boolean
 /**
@@ -4262,26 +4262,26 @@ export class $Long2ObjectFunction<V> implements $Long2ObjectFunction$$Interface 
  * @deprecated
  */
  "compose"<T>(arg0: $Function$0$$Type<(T), (long)>): $Function$0<(T), (V)>
- "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Long2IntFunction
- "composeInt"(arg0: $Int2LongFunction$$Type): $Int2ObjectFunction<(V)>
- "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Long2ReferenceFunction<(T)>
- "composeObject"<T>(arg0: $Object2LongFunction$$Type<(T)>): $Object2ObjectFunction<(T), (V)>
- "andThenLong"(arg0: $Object2LongFunction$$Type<(V)>): $Long2LongFunction
- "andThenFloat"(arg0: $Object2FloatFunction$$Type<(V)>): $Long2FloatFunction
- "composeShort"(arg0: $Short2LongFunction$$Type): $Short2ObjectFunction<(V)>
  "andThenObject"<T>(arg0: $Object2ObjectFunction$$Type<(V), (T)>): $Long2ObjectFunction<(T)>
- "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Long2ByteFunction
- "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Long2CharFunction
+ "composeShort"(arg0: $Short2LongFunction$$Type): $Short2ObjectFunction<(V)>
+ "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Long2DoubleFunction
  "composeReference"<T>(arg0: $Reference2LongFunction$$Type<(T)>): $Reference2ObjectFunction<(T), (V)>
+ "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2ObjectFunction<(V)>
+ "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Long2CharFunction
  "defaultReturnValue"(): V
  "defaultReturnValue"(arg0: V): void
+ "composeObject"<T>(arg0: $Object2LongFunction$$Type<(T)>): $Object2ObjectFunction<(T), (V)>
+ "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Long2ByteFunction
  "composeByte"(arg0: $Byte2LongFunction$$Type): $Byte2ObjectFunction<(V)>
- "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Long2ShortFunction
+ "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Long2ReferenceFunction<(T)>
  "composeLong"(arg0: $Long2LongFunction$$Type): $Long2ObjectFunction<(V)>
- "composeChar"(arg0: $Char2LongFunction$$Type): $Char2ObjectFunction<(V)>
  "composeFloat"(arg0: $Float2LongFunction$$Type): $Float2ObjectFunction<(V)>
- "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Long2DoubleFunction
- "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2ObjectFunction<(V)>
+ "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Long2ShortFunction
+ "composeChar"(arg0: $Char2LongFunction$$Type): $Char2ObjectFunction<(V)>
+ "andThenLong"(arg0: $Object2LongFunction$$Type<(V)>): $Long2LongFunction
+ "andThenFloat"(arg0: $Object2FloatFunction$$Type<(V)>): $Long2FloatFunction
+ "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Long2IntFunction
+ "composeInt"(arg0: $Int2LongFunction$$Type): $Int2ObjectFunction<(V)>
  "size"(): integer
  "clear"(): void
  "apply"(arg0: long): V
@@ -4303,10 +4303,10 @@ import {$Collection$$Type, $Collection$$Interface} from "java.util.Collection"
 import {$IntStream} from "java.util.stream.IntStream"
 import {$Spliterator} from "java.util.Spliterator"
 import {$Predicate$$Type} from "java.util.function.Predicate"
-import {$IntPredicate$$Type} from "java.util.function.IntPredicate"
 import {$IntSpliterator} from "it.unimi.dsi.fastutil.ints.IntSpliterator"
-import {$Consumer$$Type} from "java.util.function.Consumer"
+import {$IntPredicate$$Type} from "java.util.function.IntPredicate"
 import {$IntFunction$$Type} from "java.util.function.IntFunction"
+import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$IntIterator} from "it.unimi.dsi.fastutil.ints.IntIterator"
 import {$ShortConsumer$$Type} from "it.unimi.dsi.fastutil.shorts.ShortConsumer"
 import {$IntConsumer$$Type} from "java.util.function.IntConsumer"
@@ -4373,9 +4373,9 @@ export class $ShortCollection implements $ShortCollection$$Interface {
  */
  "toShortArray"(arg0: (short)[]): (short)[]
  "toShortArray"(): (short)[]
+ "intParallelStream"(): $IntStream
  "intSpliterator"(): $IntSpliterator
  "intIterator"(): $IntIterator
- "intParallelStream"(): $IntStream
  "size"(): integer
  "equals"(arg0: any): boolean
  "hashCode"(): integer
@@ -4445,7 +4445,6 @@ public "forEach"(arg0: $BiConsumer$$Type<(K), (V)>): void
 public "computeIfAbsent"(arg0: K, arg1: $Reference2ObjectFunction$$Type<(K), (V)>): V
 public "getOrDefault"(arg0: any, arg1: V): V
 public "computeIfPresent"(arg0: K, arg1: $BiFunction$$Type<(K), (V), (V)>): V
-public "reference2ObjectEntrySet"(): $ObjectSet<($Reference2ObjectMap$Entry<(K), (V)>)>
 public "defaultReturnValue"(arg0: V): void
 public "defaultReturnValue"(): V
 /**
@@ -4453,6 +4452,7 @@ public "defaultReturnValue"(): V
  * @deprecated
  */
 public "computeObjectIfAbsentPartial"(arg0: K, arg1: $Reference2ObjectFunction$$Type<(K), (V)>): V
+public "reference2ObjectEntrySet"(): $ObjectSet<($Reference2ObjectMap$Entry<(K), (V)>)>
 public static "copyOf"<K, V>(arg0: $Map$$Type<(K), (V)>): $Map<(K), (V)>
 public "replaceAll"(arg0: $BiFunction$$Type<(K), (V), (V)>): void
 public static "of"<K, V>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V): $Map<(K), (V)>
@@ -4488,8 +4488,8 @@ import {$Map$Entry, $Map$Entry$$Type} from "java.util.Map$Entry"
 import {$Reference2ShortFunction, $Reference2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
 import {$Reference2LongFunction, $Reference2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
 import {$Double2ReferenceFunction, $Double2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
-import {$Reference2ByteFunction, $Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Int2ReferenceFunction, $Int2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
+import {$Reference2ByteFunction, $Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Byte2ReferenceFunction, $Byte2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
 import {$Function, $Function$$Type} from "java.util.function.Function"
 import {$Set} from "java.util.Set"
@@ -4500,10 +4500,10 @@ import {$Collection} from "java.util.Collection"
 import {$Map, $Map$$Type, $Map$$Interface} from "java.util.Map"
 import {$Short2ReferenceFunction, $Short2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Long2ReferenceFunction, $Long2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
-import {$Reference2FloatFunction, $Reference2FloatFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
 import {$BiFunction$$Type} from "java.util.function.BiFunction"
-import {$Reference2CharFunction, $Reference2CharFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
+import {$Reference2FloatFunction, $Reference2FloatFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
 import {$ObjectSet} from "it.unimi.dsi.fastutil.objects.ObjectSet"
+import {$Reference2CharFunction, $Reference2CharFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
 import {$Object2ReferenceFunction, $Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
 import {$Char2ReferenceFunction, $Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
 import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
@@ -4533,33 +4533,33 @@ export class $Reference2ReferenceMap<K, V> implements $Reference2ReferenceMap$$I
  "keySet"(): $Set
  "getOrDefault"(arg0: any, arg1: V): V
  "computeIfPresent"(arg0: K, arg1: $BiFunction$$Type<(K), (V), (V)>): V
+ "defaultReturnValue"(arg0: V): void
+ "defaultReturnValue"(): V
+ "reference2ReferenceEntrySet"(): $ObjectSet<($Reference2ReferenceMap$Entry<(K), (V)>)>
 /**
  * 
  * @deprecated
  */
  "computeReferenceIfAbsentPartial"(arg0: K, arg1: $Reference2ReferenceFunction$$Type<(K), (V)>): V
- "defaultReturnValue"(arg0: V): void
- "defaultReturnValue"(): V
- "reference2ReferenceEntrySet"(): $ObjectSet<($Reference2ReferenceMap$Entry<(K), (V)>)>
  "get"(arg0: any): V
- "andThenInt"(arg0: $Reference2IntFunction$$Type<(V)>): $Reference2IntFunction<(K)>
- "composeInt"(arg0: $Int2ReferenceFunction$$Type<(K)>): $Int2ReferenceFunction<(V)>
- "andThenReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(V), (T)>): $Reference2ReferenceFunction<(K), (T)>
+ "andThenObject"<T>(arg0: $Reference2ObjectFunction$$Type<(V), (T)>): $Reference2ObjectFunction<(K), (T)>
+ "composeShort"(arg0: $Short2ReferenceFunction$$Type<(K)>): $Short2ReferenceFunction<(V)>
+ "andThenDouble"(arg0: $Reference2DoubleFunction$$Type<(V)>): $Reference2DoubleFunction<(K)>
+ "composeReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(T), (K)>): $Reference2ReferenceFunction<(T), (V)>
+ "composeDouble"(arg0: $Double2ReferenceFunction$$Type<(K)>): $Double2ReferenceFunction<(V)>
+ "andThenChar"(arg0: $Reference2CharFunction$$Type<(V)>): $Reference2CharFunction<(K)>
  "composeObject"<T>(arg0: $Object2ReferenceFunction$$Type<(T), (K)>): $Object2ReferenceFunction<(T), (V)>
+ "andThenByte"(arg0: $Reference2ByteFunction$$Type<(V)>): $Reference2ByteFunction<(K)>
+ "composeByte"(arg0: $Byte2ReferenceFunction$$Type<(K)>): $Byte2ReferenceFunction<(V)>
+ "andThenReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(V), (T)>): $Reference2ReferenceFunction<(K), (T)>
+ "composeLong"(arg0: $Long2ReferenceFunction$$Type<(K)>): $Long2ReferenceFunction<(V)>
+ "composeFloat"(arg0: $Float2ReferenceFunction$$Type<(K)>): $Float2ReferenceFunction<(V)>
+ "andThenShort"(arg0: $Reference2ShortFunction$$Type<(V)>): $Reference2ShortFunction<(K)>
+ "composeChar"(arg0: $Char2ReferenceFunction$$Type<(K)>): $Char2ReferenceFunction<(V)>
  "andThenLong"(arg0: $Reference2LongFunction$$Type<(V)>): $Reference2LongFunction<(K)>
  "andThenFloat"(arg0: $Reference2FloatFunction$$Type<(V)>): $Reference2FloatFunction<(K)>
- "composeShort"(arg0: $Short2ReferenceFunction$$Type<(K)>): $Short2ReferenceFunction<(V)>
- "andThenObject"<T>(arg0: $Reference2ObjectFunction$$Type<(V), (T)>): $Reference2ObjectFunction<(K), (T)>
- "andThenByte"(arg0: $Reference2ByteFunction$$Type<(V)>): $Reference2ByteFunction<(K)>
- "andThenChar"(arg0: $Reference2CharFunction$$Type<(V)>): $Reference2CharFunction<(K)>
- "composeReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(T), (K)>): $Reference2ReferenceFunction<(T), (V)>
- "composeByte"(arg0: $Byte2ReferenceFunction$$Type<(K)>): $Byte2ReferenceFunction<(V)>
- "andThenShort"(arg0: $Reference2ShortFunction$$Type<(V)>): $Reference2ShortFunction<(K)>
- "composeLong"(arg0: $Long2ReferenceFunction$$Type<(K)>): $Long2ReferenceFunction<(V)>
- "composeChar"(arg0: $Char2ReferenceFunction$$Type<(K)>): $Char2ReferenceFunction<(V)>
- "composeFloat"(arg0: $Float2ReferenceFunction$$Type<(K)>): $Float2ReferenceFunction<(V)>
- "andThenDouble"(arg0: $Reference2DoubleFunction$$Type<(V)>): $Reference2DoubleFunction<(K)>
- "composeDouble"(arg0: $Double2ReferenceFunction$$Type<(K)>): $Double2ReferenceFunction<(V)>
+ "andThenInt"(arg0: $Reference2IntFunction$$Type<(V)>): $Reference2IntFunction<(K)>
+ "composeInt"(arg0: $Int2ReferenceFunction$$Type<(K)>): $Int2ReferenceFunction<(V)>
  "equals"(arg0: any): boolean
  "hashCode"(): integer
 static "copyOf"<K, V>(arg0: $Map$$Type<(K), (V)>): $Map<(K), (V)>
@@ -4621,10 +4621,10 @@ import {$Float2LongFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2Long
 import {$Short2ReferenceFunction} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Long2ReferenceFunction, $Long2ReferenceFunction$$Type, $Long2ReferenceFunction$$Interface} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
 import {$Byte2LongFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2LongFunction"
-import {$Reference2FloatFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
 import {$BiFunction$$Type} from "java.util.function.BiFunction"
-import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
+import {$Reference2FloatFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
 import {$Double2LongFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
+import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Long2ReferenceMap$Entry} from "it.unimi.dsi.fastutil.longs.Long2ReferenceMap$Entry"
 import {$Short2LongFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$ObjectSet} from "it.unimi.dsi.fastutil.objects.ObjectSet"
@@ -4632,8 +4632,8 @@ import {$Int2LongFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2LongFuncti
 import {$Reference2CharFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
 import {$Object2ReferenceFunction} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
 import {$Char2ReferenceFunction} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
-import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$ReferenceCollection} from "it.unimi.dsi.fastutil.objects.ReferenceCollection"
+import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$Long2FloatFunction} from "it.unimi.dsi.fastutil.longs.Long2FloatFunction"
 import {$Object2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
 import {$Reference2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2DoubleFunction"
@@ -4713,24 +4713,24 @@ export class $Long2ReferenceMap<V> implements $Long2ReferenceMap$$Interface {
  * @deprecated
  */
  "compose"<T>(arg0: $Function$$Type<(T), (long)>): $Function<(T), (V)>
- "andThenInt"(arg0: $Reference2IntFunction$$Type<(V)>): $Long2IntFunction
- "composeInt"(arg0: $Int2LongFunction$$Type): $Int2ReferenceFunction<(V)>
- "andThenReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(V), (T)>): $Long2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Reference2ObjectFunction$$Type<(V), (T)>): $Long2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2LongFunction$$Type): $Short2ReferenceFunction<(V)>
+ "andThenDouble"(arg0: $Reference2DoubleFunction$$Type<(V)>): $Long2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2LongFunction$$Type<(T)>): $Reference2ReferenceFunction<(T), (V)>
+ "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2ReferenceFunction<(V)>
+ "andThenChar"(arg0: $Reference2CharFunction$$Type<(V)>): $Long2CharFunction
  "composeObject"<T>(arg0: $Object2LongFunction$$Type<(T)>): $Object2ReferenceFunction<(T), (V)>
+ "andThenByte"(arg0: $Reference2ByteFunction$$Type<(V)>): $Long2ByteFunction
+ "composeByte"(arg0: $Byte2LongFunction$$Type): $Byte2ReferenceFunction<(V)>
+ "andThenReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(V), (T)>): $Long2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2LongFunction$$Type): $Long2ReferenceFunction<(V)>
+ "composeFloat"(arg0: $Float2LongFunction$$Type): $Float2ReferenceFunction<(V)>
+ "andThenShort"(arg0: $Reference2ShortFunction$$Type<(V)>): $Long2ShortFunction
+ "composeChar"(arg0: $Char2LongFunction$$Type): $Char2ReferenceFunction<(V)>
  "andThenLong"(arg0: $Reference2LongFunction$$Type<(V)>): $Long2LongFunction
  "andThenFloat"(arg0: $Reference2FloatFunction$$Type<(V)>): $Long2FloatFunction
- "composeShort"(arg0: $Short2LongFunction$$Type): $Short2ReferenceFunction<(V)>
- "andThenObject"<T>(arg0: $Reference2ObjectFunction$$Type<(V), (T)>): $Long2ObjectFunction<(T)>
- "andThenByte"(arg0: $Reference2ByteFunction$$Type<(V)>): $Long2ByteFunction
- "andThenChar"(arg0: $Reference2CharFunction$$Type<(V)>): $Long2CharFunction
- "composeReference"<T>(arg0: $Reference2LongFunction$$Type<(T)>): $Reference2ReferenceFunction<(T), (V)>
- "composeByte"(arg0: $Byte2LongFunction$$Type): $Byte2ReferenceFunction<(V)>
- "andThenShort"(arg0: $Reference2ShortFunction$$Type<(V)>): $Long2ShortFunction
- "composeLong"(arg0: $Long2LongFunction$$Type): $Long2ReferenceFunction<(V)>
- "composeChar"(arg0: $Char2LongFunction$$Type): $Char2ReferenceFunction<(V)>
- "composeFloat"(arg0: $Float2LongFunction$$Type): $Float2ReferenceFunction<(V)>
- "andThenDouble"(arg0: $Reference2DoubleFunction$$Type<(V)>): $Long2DoubleFunction
- "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2ReferenceFunction<(V)>
+ "andThenInt"(arg0: $Reference2IntFunction$$Type<(V)>): $Long2IntFunction
+ "composeInt"(arg0: $Int2LongFunction$$Type): $Int2ReferenceFunction<(V)>
  "remove"(arg0: any, arg1: any): boolean
  "equals"(arg0: any): boolean
  "hashCode"(): integer
@@ -4773,8 +4773,8 @@ export type $Long2ReferenceMap$$Type<V> = ($Long2ReferenceMap<(V)>);
  */
 export type $Long2ReferenceMap$$Original<V> = $Long2ReferenceMap<(V)>;}
 declare module "it.unimi.dsi.fastutil.objects.Reference2ReferenceMap$Entry" {
-import {$Comparable} from "java.lang.Comparable"
 import {$Comparator, $Comparator$$Type} from "java.util.Comparator"
+import {$Comparable} from "java.lang.Comparable"
 import {$Map$Entry, $Map$Entry$$Type, $Map$Entry$$Interface} from "java.util.Map$Entry"
 
 export interface $Reference2ReferenceMap$Entry$$Interface<K, V> extends $Map$Entry$$Interface<(K), (V)> {
@@ -4860,11 +4860,11 @@ export type $BytePredicate$$Original = $BytePredicate;}
 declare module "it.unimi.dsi.fastutil.doubles.DoubleIterable" {
 import {$Iterator} from "java.util.Iterator"
 import {$Iterable$$Interface} from "java.lang.Iterable"
-import {$DoubleConsumer$$Type as $DoubleConsumer$0$$Type} from "java.util.function.DoubleConsumer"
+import {$DoubleConsumer$$Type} from "java.util.function.DoubleConsumer"
 import {$Spliterator} from "java.util.Spliterator"
 import {$DoubleSpliterator} from "it.unimi.dsi.fastutil.doubles.DoubleSpliterator"
 import {$DoubleIterator} from "it.unimi.dsi.fastutil.doubles.DoubleIterator"
-import {$DoubleConsumer$$Type} from "it.unimi.dsi.fastutil.doubles.DoubleConsumer"
+import {$DoubleConsumer$$Type as $DoubleConsumer$0$$Type} from "it.unimi.dsi.fastutil.doubles.DoubleConsumer"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 
 export interface $DoubleIterable$$Interface extends $Iterable$$Interface<(double)> {
@@ -4873,15 +4873,15 @@ export interface $DoubleIterable$$Interface extends $Iterable$$Interface<(double
 export class $DoubleIterable implements $DoubleIterable$$Interface {
  "iterator"(): $Iterator
  "spliterator"(): $Spliterator
- "forEach"(arg0: $DoubleConsumer$0$$Type): void
+ "forEach"(arg0: $DoubleConsumer$$Type): void
 /**
  * 
  * @deprecated
  */
  "forEach"(arg0: $Consumer$$Type<(double)>): void
- "forEach"(arg0: $DoubleConsumer$$Type): void
- "doubleSpliterator"(): $DoubleSpliterator
+ "forEach"(arg0: $DoubleConsumer$0$$Type): void
  "doubleIterator"(): $DoubleIterator
+ "doubleSpliterator"(): $DoubleSpliterator
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4997,11 +4997,11 @@ static "of"(arg0: double, arg1: double): $DoubleDoublePair
  */
  "right"(): double
  "right"(arg0: double): $DoubleDoublePair
+ "leftDouble"(): double
+ "rightDouble"(): double
 static "lexComparator"(): $Comparator<($DoubleDoublePair)>
  "secondDouble"(): double
  "valueDouble"(): double
- "leftDouble"(): double
- "rightDouble"(): double
  "keyDouble"(): double
  "firstDouble"(): double
 static "of"<L, R>(arg0: double, arg1: double): $Pair<(double), (double)>
@@ -5023,10 +5023,10 @@ import {$ObjectIterator} from "it.unimi.dsi.fastutil.objects.ObjectIterator"
 import {$Spliterator} from "java.util.Spliterator"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$Set} from "java.util.Set"
-import {$Stream} from "java.util.stream.Stream"
 import {$Int2ObjectMap$Entry, $Int2ObjectMap$Entry$$Type} from "it.unimi.dsi.fastutil.ints.Int2ObjectMap$Entry"
-import {$Consumer$$Type} from "java.util.function.Consumer"
+import {$Stream} from "java.util.stream.Stream"
 import {$IntFunction$$Type} from "java.util.function.IntFunction"
+import {$Consumer$$Type} from "java.util.function.Consumer"
 
 export interface $Int2ObjectMap$FastEntrySet$$Interface<V> extends $ObjectSet$$Interface<($Int2ObjectMap$Entry<(V)>)> {
 get "empty"(): boolean
@@ -5133,8 +5133,8 @@ import {$Char2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2Objec
 import {$Object2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Object2DoubleFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
 import {$Object2FloatFunction} from "it.unimi.dsi.fastutil.objects.Object2FloatFunction"
-import {$Byte2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ObjectFunction"
 import {$Boolean2FloatFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2FloatFunction"
+import {$Byte2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ObjectFunction"
 import {$Reference2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ObjectFunction"
 import {$Boolean2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2DoubleFunction"
 import {$Object2CharFunction} from "it.unimi.dsi.fastutil.objects.Object2CharFunction"
@@ -5147,8 +5147,8 @@ import {$Boolean2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.booleans.B
 import {$Double2BooleanFunction} from "it.unimi.dsi.fastutil.doubles.Double2BooleanFunction"
 import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Short2BooleanFunction} from "it.unimi.dsi.fastutil.shorts.Short2BooleanFunction"
-import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2ReferenceFunction} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
+import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Boolean2ByteFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ByteFunction"
 import {$Boolean2IntFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2IntFunction"
@@ -5156,8 +5156,8 @@ import {$Byte2BooleanFunction} from "it.unimi.dsi.fastutil.bytes.Byte2BooleanFun
 import {$Int2BooleanFunction} from "it.unimi.dsi.fastutil.ints.Int2BooleanFunction"
 import {$Object2LongFunction} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
 import {$Double2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ObjectFunction"
-import {$Boolean2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ObjectFunction"
 import {$Boolean2ShortFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ShortFunction"
+import {$Boolean2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ObjectFunction"
 import {$Boolean2LongFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2LongFunction"
 import {$Long2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ObjectFunction"
 
@@ -5206,26 +5206,26 @@ export class $Object2BooleanFunction<K> implements $Object2BooleanFunction$$Inte
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(boolean), (T)>): $Function$0<(K), (T)>
- "andThenInt"(arg0: $Boolean2IntFunction$$Type): $Object2IntFunction<(K)>
- "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2BooleanFunction
- "andThenReference"<T>(arg0: $Boolean2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
- "composeObject"<T>(arg0: $Object2ObjectFunction$$Type<(T), (K)>): $Object2BooleanFunction<(T)>
- "andThenLong"(arg0: $Boolean2LongFunction$$Type): $Object2LongFunction<(K)>
- "andThenFloat"(arg0: $Boolean2FloatFunction$$Type): $Object2FloatFunction<(K)>
- "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2BooleanFunction
  "andThenObject"<T>(arg0: $Boolean2ObjectFunction$$Type<(T)>): $Object2ObjectFunction<(K), (T)>
- "andThenByte"(arg0: $Boolean2ByteFunction$$Type): $Object2ByteFunction<(K)>
- "andThenChar"(arg0: $Boolean2CharFunction$$Type): $Object2CharFunction<(K)>
+ "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2BooleanFunction
+ "andThenDouble"(arg0: $Boolean2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
  "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2BooleanFunction<(T)>
+ "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2BooleanFunction
+ "andThenChar"(arg0: $Boolean2CharFunction$$Type): $Object2CharFunction<(K)>
  "defaultReturnValue"(): boolean
  "defaultReturnValue"(arg0: boolean): void
+ "composeObject"<T>(arg0: $Object2ObjectFunction$$Type<(T), (K)>): $Object2BooleanFunction<(T)>
+ "andThenByte"(arg0: $Boolean2ByteFunction$$Type): $Object2ByteFunction<(K)>
  "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2BooleanFunction
- "andThenShort"(arg0: $Boolean2ShortFunction$$Type): $Object2ShortFunction<(K)>
+ "andThenReference"<T>(arg0: $Boolean2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
  "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2BooleanFunction
- "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2BooleanFunction
  "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2BooleanFunction
- "andThenDouble"(arg0: $Boolean2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
- "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2BooleanFunction
+ "andThenShort"(arg0: $Boolean2ShortFunction$$Type): $Object2ShortFunction<(K)>
+ "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2BooleanFunction
+ "andThenLong"(arg0: $Boolean2LongFunction$$Type): $Object2LongFunction<(K)>
+ "andThenFloat"(arg0: $Boolean2FloatFunction$$Type): $Object2FloatFunction<(K)>
+ "andThenInt"(arg0: $Boolean2IntFunction$$Type): $Object2IntFunction<(K)>
+ "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2BooleanFunction
  "removeBoolean"(arg0: any): boolean
  "size"(): integer
  "clear"(): void
@@ -5252,11 +5252,11 @@ declare module "it.unimi.dsi.fastutil.floats.Float2DoubleFunction" {
 import {$Char2DoubleFunction} from "it.unimi.dsi.fastutil.chars.Char2DoubleFunction"
 import {$Float2ReferenceFunction} from "it.unimi.dsi.fastutil.floats.Float2ReferenceFunction"
 import {$DoubleUnaryOperator, $DoubleUnaryOperator$$Type, $DoubleUnaryOperator$$Interface} from "java.util.function.DoubleUnaryOperator"
-import {$Byte2DoubleFunction} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Float2ByteFunction} from "it.unimi.dsi.fastutil.floats.Float2ByteFunction"
+import {$Byte2DoubleFunction} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Int2FloatFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
-import {$Double2FloatFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Float2IntFunction} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
+import {$Double2FloatFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Double2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
 import {$Object2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Object2DoubleFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
@@ -5275,8 +5275,8 @@ import {$Float2ObjectFunction} from "it.unimi.dsi.fastutil.floats.Float2ObjectFu
 import {$Double2LongFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
 import {$Float2FloatFunction, $Float2FloatFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2FloatFunction"
 import {$Double2ByteFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ByteFunction"
-import {$Char2FloatFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
 import {$Long2FloatFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2FloatFunction"
+import {$Char2FloatFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
 import {$Double2IntFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2IntFunction"
 import {$Short2FloatFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2FloatFunction"
 import {$Double2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ObjectFunction"
@@ -5300,36 +5300,36 @@ export class $Float2DoubleFunction implements $Float2DoubleFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): double
+ "get"(arg0: any): any
  "get"(arg0: float): double
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: float, arg1: double): double
 /**
  * 
  * @deprecated
  */
  "put"(arg0: float, arg1: double): double
- "containsKey"(arg0: float): boolean
+ "put"(arg0: float, arg1: double): double
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: float): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: float, arg1: double): double
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: double): double
+ "getOrDefault"(arg0: float, arg1: double): double
 /**
  * 
  * @deprecated
@@ -5345,26 +5345,26 @@ export class $Float2DoubleFunction implements $Float2DoubleFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(double), (T)>): $Function$0<(float), (T)>
- "andThenInt"(arg0: $Double2IntFunction$$Type): $Float2IntFunction
- "composeInt"(arg0: $Int2FloatFunction$$Type): $Int2DoubleFunction
- "andThenReference"<T>(arg0: $Double2ReferenceFunction$$Type<(T)>): $Float2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Double2ObjectFunction$$Type<(T)>): $Float2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2FloatFunction$$Type): $Short2DoubleFunction
+ "andThenDouble"(arg0: $Double2DoubleFunction$$Type): $Float2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2FloatFunction$$Type<(T)>): $Reference2DoubleFunction<(T)>
+ "composeDouble"(arg0: $Double2FloatFunction$$Type): $Double2DoubleFunction
+ "andThenChar"(arg0: $Double2CharFunction$$Type): $Float2CharFunction
+ "defaultReturnValue"(): double
+ "defaultReturnValue"(arg0: double): void
  "composeObject"<T>(arg0: $Object2FloatFunction$$Type<(T)>): $Object2DoubleFunction<(T)>
+ "andThenByte"(arg0: $Double2ByteFunction$$Type): $Float2ByteFunction
+ "composeByte"(arg0: $Byte2FloatFunction$$Type): $Byte2DoubleFunction
+ "andThenReference"<T>(arg0: $Double2ReferenceFunction$$Type<(T)>): $Float2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2FloatFunction$$Type): $Long2DoubleFunction
+ "composeFloat"(arg0: $Float2FloatFunction$$Type): $Float2DoubleFunction
+ "andThenShort"(arg0: $Double2ShortFunction$$Type): $Float2ShortFunction
+ "composeChar"(arg0: $Char2FloatFunction$$Type): $Char2DoubleFunction
  "andThenLong"(arg0: $Double2LongFunction$$Type): $Float2LongFunction
  "andThenFloat"(arg0: $Double2FloatFunction$$Type): $Float2FloatFunction
- "composeShort"(arg0: $Short2FloatFunction$$Type): $Short2DoubleFunction
- "andThenObject"<T>(arg0: $Double2ObjectFunction$$Type<(T)>): $Float2ObjectFunction<(T)>
- "andThenByte"(arg0: $Double2ByteFunction$$Type): $Float2ByteFunction
- "andThenChar"(arg0: $Double2CharFunction$$Type): $Float2CharFunction
- "composeReference"<T>(arg0: $Reference2FloatFunction$$Type<(T)>): $Reference2DoubleFunction<(T)>
- "defaultReturnValue"(arg0: double): void
- "defaultReturnValue"(): double
- "composeByte"(arg0: $Byte2FloatFunction$$Type): $Byte2DoubleFunction
- "andThenShort"(arg0: $Double2ShortFunction$$Type): $Float2ShortFunction
- "composeLong"(arg0: $Long2FloatFunction$$Type): $Long2DoubleFunction
- "composeChar"(arg0: $Char2FloatFunction$$Type): $Char2DoubleFunction
- "composeFloat"(arg0: $Float2FloatFunction$$Type): $Float2DoubleFunction
- "andThenDouble"(arg0: $Double2DoubleFunction$$Type): $Float2DoubleFunction
- "composeDouble"(arg0: $Double2FloatFunction$$Type): $Double2DoubleFunction
+ "andThenInt"(arg0: $Double2IntFunction$$Type): $Float2IntFunction
+ "composeInt"(arg0: $Int2FloatFunction$$Type): $Int2DoubleFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: float): double
@@ -5407,9 +5407,9 @@ import {$Byte2LongFunction} from "it.unimi.dsi.fastutil.bytes.Byte2LongFunction"
 import {$Float2ObjectFunction} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Double2ByteFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ByteFunction"
 import {$Char2ByteFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ByteFunction"
-import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
-import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
+import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
+import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
 import {$Double2ObjectFunction} from "it.unimi.dsi.fastutil.doubles.Double2ObjectFunction"
 import {$Byte2FloatFunction} from "it.unimi.dsi.fastutil.bytes.Byte2FloatFunction"
@@ -5423,12 +5423,12 @@ export interface $Byte2ObjectFunction$$Interface<V> extends $Function$$Interface
 }
 
 export class $Byte2ObjectFunction<V> implements $Byte2ObjectFunction$$Interface {
- "remove"(arg0: byte): V
 /**
  * 
  * @deprecated
  */
  "remove"(arg0: any): V
+ "remove"(arg0: byte): V
 /**
  * 
  * @deprecated
@@ -5439,13 +5439,13 @@ export class $Byte2ObjectFunction<V> implements $Byte2ObjectFunction$$Interface 
  * 
  * @deprecated
  */
- "put"(arg0: byte, arg1: V): V
- "put"(arg0: byte, arg1: V): V
+ "put"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
  */
- "put"(arg0: any, arg1: any): any
+ "put"(arg0: byte, arg1: V): V
+ "put"(arg0: byte, arg1: V): V
 /**
  * 
  * @deprecated
@@ -5468,26 +5468,26 @@ export class $Byte2ObjectFunction<V> implements $Byte2ObjectFunction$$Interface 
  * @deprecated
  */
  "compose"<T>(arg0: $Function$0$$Type<(T), (byte)>): $Function$0<(T), (V)>
- "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Byte2IntFunction
- "composeInt"(arg0: $Int2ByteFunction$$Type): $Int2ObjectFunction<(V)>
- "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Byte2ReferenceFunction<(T)>
- "composeObject"<T>(arg0: $Object2ByteFunction$$Type<(T)>): $Object2ObjectFunction<(T), (V)>
- "andThenLong"(arg0: $Object2LongFunction$$Type<(V)>): $Byte2LongFunction
- "andThenFloat"(arg0: $Object2FloatFunction$$Type<(V)>): $Byte2FloatFunction
- "composeShort"(arg0: $Short2ByteFunction$$Type): $Short2ObjectFunction<(V)>
  "andThenObject"<T>(arg0: $Object2ObjectFunction$$Type<(V), (T)>): $Byte2ObjectFunction<(T)>
- "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Byte2ByteFunction
- "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Byte2CharFunction
+ "composeShort"(arg0: $Short2ByteFunction$$Type): $Short2ObjectFunction<(V)>
+ "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Byte2DoubleFunction
  "composeReference"<T>(arg0: $Reference2ByteFunction$$Type<(T)>): $Reference2ObjectFunction<(T), (V)>
+ "composeDouble"(arg0: $Double2ByteFunction$$Type): $Double2ObjectFunction<(V)>
+ "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Byte2CharFunction
  "defaultReturnValue"(): V
  "defaultReturnValue"(arg0: V): void
+ "composeObject"<T>(arg0: $Object2ByteFunction$$Type<(T)>): $Object2ObjectFunction<(T), (V)>
+ "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Byte2ByteFunction
  "composeByte"(arg0: $Byte2ByteFunction$$Type): $Byte2ObjectFunction<(V)>
- "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Byte2ShortFunction
+ "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Byte2ReferenceFunction<(T)>
  "composeLong"(arg0: $Long2ByteFunction$$Type): $Long2ObjectFunction<(V)>
- "composeChar"(arg0: $Char2ByteFunction$$Type): $Char2ObjectFunction<(V)>
  "composeFloat"(arg0: $Float2ByteFunction$$Type): $Float2ObjectFunction<(V)>
- "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Byte2DoubleFunction
- "composeDouble"(arg0: $Double2ByteFunction$$Type): $Double2ObjectFunction<(V)>
+ "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Byte2ShortFunction
+ "composeChar"(arg0: $Char2ByteFunction$$Type): $Char2ObjectFunction<(V)>
+ "andThenLong"(arg0: $Object2LongFunction$$Type<(V)>): $Byte2LongFunction
+ "andThenFloat"(arg0: $Object2FloatFunction$$Type<(V)>): $Byte2FloatFunction
+ "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Byte2IntFunction
+ "composeInt"(arg0: $Int2ByteFunction$$Type): $Int2ObjectFunction<(V)>
  "size"(): integer
  "clear"(): void
  "apply"(arg0: byte): V
@@ -5628,13 +5628,6 @@ public "getOrDefault"(arg0: any, arg1: float): float
  */
 public "getOrDefault"(arg0: any, arg1: any): any
 public "computeFloat"(arg0: K, arg1: $BiFunction$$Type<(K), (float), (float)>): float
-/**
- * 
- * @deprecated
- */
-public "mergeFloat"(arg0: K, arg1: float, arg2: $BiFunction$$Type<(float), (float), (float)>): float
-public "mergeFloat"(arg0: K, arg1: float, arg2: $DoubleBinaryOperator$$Type): float
-public "mergeFloat"(arg0: K, arg1: float, arg2: $FloatBinaryOperator$$Type): float
 public "defaultReturnValue"(arg0: float): void
 public "defaultReturnValue"(): float
 /**
@@ -5642,13 +5635,20 @@ public "defaultReturnValue"(): float
  * @deprecated
  */
 public "computeFloatIfAbsentPartial"(arg0: K, arg1: $Object2FloatFunction$$Type<(K)>): float
-public "computeFloatIfPresent"(arg0: K, arg1: $BiFunction$$Type<(K), (float), (float)>): float
 public "object2FloatEntrySet"(): $ObjectSet<($Object2FloatMap$Entry<(K)>)>
+public "computeFloatIfPresent"(arg0: K, arg1: $BiFunction$$Type<(K), (float), (float)>): float
 /**
  * 
  * @deprecated
  */
 public "computeFloatIfAbsent"(arg0: K, arg1: $ToDoubleFunction$$Type<(K)>): float
+/**
+ * 
+ * @deprecated
+ */
+public "mergeFloat"(arg0: K, arg1: float, arg2: $BiFunction$$Type<(float), (float), (float)>): float
+public "mergeFloat"(arg0: K, arg1: float, arg2: $DoubleBinaryOperator$$Type): float
+public "mergeFloat"(arg0: K, arg1: float, arg2: $FloatBinaryOperator$$Type): float
 public static "copyOf"<K, V>(arg0: $Map$$Type<(K), (float)>): $Map<(K), (float)>
 public "replaceAll"(arg0: $BiFunction$$Type<(K), (float), (float)>): void
 public static "of"<K, V>(arg0: K, arg1: float, arg2: K, arg3: float, arg4: K, arg5: float, arg6: K, arg7: float): $Map<(K), (float)>
@@ -5688,14 +5688,14 @@ import {$Short2IntFunction} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction
 import {$Object2ObjectFunction, $Object2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ObjectFunction"
 import {$Int2FloatFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
 import {$Byte2IntFunction} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
-import {$Int2CharFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Float2IntFunction} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
+import {$Int2CharFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Int2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
 import {$Int2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
 import {$Char2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ObjectFunction"
 import {$Object2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Object2DoubleFunction"
-import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Function, $Function$$Type} from "java.util.function.Function"
+import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Object2FloatFunction} from "it.unimi.dsi.fastutil.objects.Object2FloatFunction"
 import {$Byte2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ObjectFunction"
 import {$Int2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
@@ -5705,11 +5705,11 @@ import {$Int2ShortFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ShortFunc
 import {$Object2ByteFunction} from "it.unimi.dsi.fastutil.objects.Object2ByteFunction"
 import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Int2LongFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
-import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2ReferenceFunction} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
+import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Char2IntFunction} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
-import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Serializable$$Interface} from "java.io.Serializable"
+import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Double2IntFunction} from "it.unimi.dsi.fastutil.doubles.Double2IntFunction"
 import {$Object2LongFunction} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
 import {$Double2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ObjectFunction"
@@ -5723,59 +5723,59 @@ public "defaultReturnValue"(): integer
  * 
  * @deprecated
  */
-public "remove"(arg0: any): integer
+public "remove"(arg0: any): any
 /**
  * 
  * @deprecated
  */
-public "get"(arg0: any): integer
+public "get"(arg0: any): any
 /**
  * 
  * @deprecated
  */
+public "put"(arg0: K, arg1: integer): integer
 public "put"(arg0: K, arg1: integer): integer
 /**
  * 
  * @deprecated
  */
 public "put"(arg0: any, arg1: any): any
-public "put"(arg0: K, arg1: integer): integer
 public "getInt"(arg0: any): integer
 /**
  * 
  * @deprecated
  */
-public "getOrDefault"(arg0: any, arg1: integer): integer
-public "getOrDefault"(arg0: any, arg1: integer): integer
+public "getOrDefault"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
  */
-public "getOrDefault"(arg0: any, arg1: any): any
+public "getOrDefault"(arg0: any, arg1: integer): integer
+public "getOrDefault"(arg0: any, arg1: integer): integer
 public "applyAsInt"(arg0: K): integer
 /**
  * 
  * @deprecated
  */
 public "andThen"<T>(arg0: $Function$$Type<(integer), (T)>): $Function<(K), (T)>
-public "andThenInt"(arg0: $Int2IntFunction$$Type): $Object2IntFunction<(K)>
-public "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2IntFunction
-public "andThenReference"<T>(arg0: $Int2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
+public "andThenObject"<T>(arg0: $Int2ObjectFunction$$Type<(T)>): $Object2ObjectFunction<(K), (T)>
+public "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2IntFunction
+public "andThenDouble"(arg0: $Int2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
+public "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2IntFunction<(T)>
+public "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2IntFunction
+public "andThenChar"(arg0: $Int2CharFunction$$Type): $Object2CharFunction<(K)>
 public "composeObject"<T>(arg0: $Object2ObjectFunction$$Type<(T), (K)>): $Object2IntFunction<(T)>
+public "andThenByte"(arg0: $Int2ByteFunction$$Type): $Object2ByteFunction<(K)>
+public "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2IntFunction
+public "andThenReference"<T>(arg0: $Int2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
+public "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2IntFunction
+public "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2IntFunction
+public "andThenShort"(arg0: $Int2ShortFunction$$Type): $Object2ShortFunction<(K)>
+public "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2IntFunction
 public "andThenLong"(arg0: $Int2LongFunction$$Type): $Object2LongFunction<(K)>
 public "andThenFloat"(arg0: $Int2FloatFunction$$Type): $Object2FloatFunction<(K)>
-public "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2IntFunction
-public "andThenObject"<T>(arg0: $Int2ObjectFunction$$Type<(T)>): $Object2ObjectFunction<(K), (T)>
-public "andThenByte"(arg0: $Int2ByteFunction$$Type): $Object2ByteFunction<(K)>
-public "andThenChar"(arg0: $Int2CharFunction$$Type): $Object2CharFunction<(K)>
-public "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2IntFunction<(T)>
-public "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2IntFunction
-public "andThenShort"(arg0: $Int2ShortFunction$$Type): $Object2ShortFunction<(K)>
-public "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2IntFunction
-public "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2IntFunction
-public "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2IntFunction
-public "andThenDouble"(arg0: $Int2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
-public "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2IntFunction
+public "andThenInt"(arg0: $Int2IntFunction$$Type): $Object2IntFunction<(K)>
+public "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2IntFunction
 public "removeInt"(arg0: any): integer
 public "size"(): integer
 public "clear"(): void
@@ -5796,8 +5796,8 @@ export type $AbstractObject2IntFunction$$Original<K> = $AbstractObject2IntFuncti
 declare module "it.unimi.dsi.fastutil.objects.Object2ObjectLinkedOpenHashMap" {
 import {$Object2ObjectSortedMap} from "it.unimi.dsi.fastutil.objects.Object2ObjectSortedMap"
 import {$Map, $Map$$Type} from "java.util.Map"
-import {$Hash$$Interface} from "it.unimi.dsi.fastutil.Hash"
 import {$Comparator} from "java.util.Comparator"
+import {$Hash$$Interface} from "it.unimi.dsi.fastutil.Hash"
 import {$Object2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ObjectFunction"
 import {$Object2ObjectMap$$Type} from "it.unimi.dsi.fastutil.objects.Object2ObjectMap"
 import {$Map$Entry, $Map$Entry$$Type} from "java.util.Map$Entry"
@@ -5856,10 +5856,10 @@ public "headMap"(arg0: any): $SortedMap
 public "tailMap"(arg0: any): $SortedMap
 public "lastKey"(): K
 public "object2ObjectEntrySet"(): $ObjectSet
-public "putAndMoveToLast"(arg0: K, arg1: V): V
 public "getAndMoveToFirst"(arg0: K): V
 public "putAndMoveToFirst"(arg0: K, arg1: V): V
 public "getAndMoveToLast"(arg0: K): V
+public "putAndMoveToLast"(arg0: K, arg1: V): V
 public "entrySet"(): $ObjectSet
 public "defaultReturnValue"(arg0: V): void
 public "defaultReturnValue"(): V
@@ -5897,16 +5897,16 @@ import {$Reference2IntFunction$$Type} from "it.unimi.dsi.fastutil.objects.Refere
 import {$Long2IntFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
 import {$Short2IntFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction"
 import {$Byte2IntFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
-import {$Double2FloatFunction} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Int2CharFunction} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Float2IntFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
+import {$Double2FloatFunction} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Int2ReferenceFunction} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
 import {$Int2ObjectFunction} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
-import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
+import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Object2FloatFunction} from "it.unimi.dsi.fastutil.objects.Object2FloatFunction"
-import {$Float2CharFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2CharFunction"
 import {$IntToDoubleFunction$$Interface} from "java.util.function.IntToDoubleFunction"
+import {$Float2CharFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2CharFunction"
 import {$Int2DoubleFunction} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Int2ShortFunction} from "it.unimi.dsi.fastutil.ints.Int2ShortFunction"
@@ -5941,36 +5941,36 @@ export class $Int2FloatFunction implements $Int2FloatFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): float
+ "get"(arg0: any): any
  "get"(arg0: integer): float
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: integer, arg1: float): float
 /**
  * 
  * @deprecated
  */
  "put"(arg0: integer, arg1: float): float
- "containsKey"(arg0: integer): boolean
+ "put"(arg0: integer, arg1: float): float
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: integer): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: integer, arg1: float): float
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: float): float
+ "getOrDefault"(arg0: integer, arg1: float): float
  "applyAsDouble"(arg0: integer): double
 /**
  * 
@@ -5982,26 +5982,26 @@ export class $Int2FloatFunction implements $Int2FloatFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(float), (T)>): $Function$0<(integer), (T)>
- "andThenInt"(arg0: $Float2IntFunction$$Type): $Int2IntFunction
- "composeInt"(arg0: $Int2IntFunction$$Type): $Int2FloatFunction
- "andThenReference"<T>(arg0: $Float2ReferenceFunction$$Type<(T)>): $Int2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Float2ObjectFunction$$Type<(T)>): $Int2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2IntFunction$$Type): $Short2FloatFunction
+ "andThenDouble"(arg0: $Float2DoubleFunction$$Type): $Int2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2IntFunction$$Type<(T)>): $Reference2FloatFunction<(T)>
+ "composeDouble"(arg0: $Double2IntFunction$$Type): $Double2FloatFunction
+ "andThenChar"(arg0: $Float2CharFunction$$Type): $Int2CharFunction
+ "defaultReturnValue"(): float
+ "defaultReturnValue"(arg0: float): void
  "composeObject"<T>(arg0: $Object2IntFunction$$Type<(T)>): $Object2FloatFunction<(T)>
+ "andThenByte"(arg0: $Float2ByteFunction$$Type): $Int2ByteFunction
+ "composeByte"(arg0: $Byte2IntFunction$$Type): $Byte2FloatFunction
+ "andThenReference"<T>(arg0: $Float2ReferenceFunction$$Type<(T)>): $Int2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2IntFunction$$Type): $Long2FloatFunction
+ "composeFloat"(arg0: $Float2IntFunction$$Type): $Float2FloatFunction
+ "andThenShort"(arg0: $Float2ShortFunction$$Type): $Int2ShortFunction
+ "composeChar"(arg0: $Char2IntFunction$$Type): $Char2FloatFunction
  "andThenLong"(arg0: $Float2LongFunction$$Type): $Int2LongFunction
  "andThenFloat"(arg0: $Float2FloatFunction$$Type): $Int2FloatFunction
- "composeShort"(arg0: $Short2IntFunction$$Type): $Short2FloatFunction
- "andThenObject"<T>(arg0: $Float2ObjectFunction$$Type<(T)>): $Int2ObjectFunction<(T)>
- "andThenByte"(arg0: $Float2ByteFunction$$Type): $Int2ByteFunction
- "andThenChar"(arg0: $Float2CharFunction$$Type): $Int2CharFunction
- "composeReference"<T>(arg0: $Reference2IntFunction$$Type<(T)>): $Reference2FloatFunction<(T)>
- "defaultReturnValue"(arg0: float): void
- "defaultReturnValue"(): float
- "composeByte"(arg0: $Byte2IntFunction$$Type): $Byte2FloatFunction
- "andThenShort"(arg0: $Float2ShortFunction$$Type): $Int2ShortFunction
- "composeLong"(arg0: $Long2IntFunction$$Type): $Long2FloatFunction
- "composeChar"(arg0: $Char2IntFunction$$Type): $Char2FloatFunction
- "composeFloat"(arg0: $Float2IntFunction$$Type): $Float2FloatFunction
- "andThenDouble"(arg0: $Float2DoubleFunction$$Type): $Int2DoubleFunction
- "composeDouble"(arg0: $Double2IntFunction$$Type): $Double2FloatFunction
+ "andThenInt"(arg0: $Float2IntFunction$$Type): $Int2IntFunction
+ "composeInt"(arg0: $Int2IntFunction$$Type): $Int2FloatFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: integer): float
@@ -6027,8 +6027,8 @@ import {$Long2ShortFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ShortF
 import {$Short2CharFunction} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
 import {$Char2ShortFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ShortFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
-import {$Short2ShortFunction, $Short2ShortFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ShortFunction"
 import {$Boolean2FloatFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2FloatFunction"
+import {$Short2ShortFunction, $Short2ShortFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ShortFunction"
 import {$Byte2ShortFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ShortFunction"
 import {$Short2DoubleFunction} from "it.unimi.dsi.fastutil.shorts.Short2DoubleFunction"
 import {$Boolean2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2DoubleFunction"
@@ -6036,21 +6036,21 @@ import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Boolean2CharFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2CharFunction"
 import {$Int2ShortFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ShortFunction"
 import {$Char2BooleanFunction} from "it.unimi.dsi.fastutil.chars.Char2BooleanFunction"
-import {$Boolean2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ReferenceFunction"
-import {$Short2ReferenceFunction} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Float2ShortFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ShortFunction"
+import {$Short2ReferenceFunction} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
+import {$Boolean2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ReferenceFunction"
 import {$Double2BooleanFunction} from "it.unimi.dsi.fastutil.doubles.Double2BooleanFunction"
 import {$Short2LongFunction} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
-import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
+import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Boolean2ByteFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ByteFunction"
 import {$Boolean2IntFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2IntFunction"
 import {$Byte2BooleanFunction} from "it.unimi.dsi.fastutil.bytes.Byte2BooleanFunction"
 import {$Int2BooleanFunction} from "it.unimi.dsi.fastutil.ints.Int2BooleanFunction"
 import {$Short2FloatFunction} from "it.unimi.dsi.fastutil.shorts.Short2FloatFunction"
-import {$Boolean2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ObjectFunction"
-import {$Object2BooleanFunction} from "it.unimi.dsi.fastutil.objects.Object2BooleanFunction"
 import {$Boolean2ShortFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ShortFunction"
+import {$Object2BooleanFunction} from "it.unimi.dsi.fastutil.objects.Object2BooleanFunction"
+import {$Boolean2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ObjectFunction"
 import {$Short2ByteFunction} from "it.unimi.dsi.fastutil.shorts.Short2ByteFunction"
 import {$Boolean2LongFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2LongFunction"
 import {$Double2ShortFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ShortFunction"
@@ -6078,29 +6078,29 @@ export class $Short2BooleanFunction implements $Short2BooleanFunction$$Interface
  * @deprecated
  */
  "put"(arg0: short, arg1: boolean): boolean
- "put"(arg0: short, arg1: boolean): boolean
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
+ "put"(arg0: short, arg1: boolean): boolean
 /**
  * 
  * @deprecated
  */
  "test"(arg0: integer): boolean
- "containsKey"(arg0: short): boolean
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: short): boolean
+ "getOrDefault"(arg0: short, arg1: boolean): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: short, arg1: boolean): boolean
 /**
  * 
  * @deprecated
@@ -6116,26 +6116,26 @@ export class $Short2BooleanFunction implements $Short2BooleanFunction$$Interface
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(boolean), (T)>): $Function$0<(short), (T)>
- "andThenInt"(arg0: $Boolean2IntFunction$$Type): $Short2IntFunction
- "composeInt"(arg0: $Int2ShortFunction$$Type): $Int2BooleanFunction
- "andThenReference"<T>(arg0: $Boolean2ReferenceFunction$$Type<(T)>): $Short2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Boolean2ObjectFunction$$Type<(T)>): $Short2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2ShortFunction$$Type): $Short2BooleanFunction
+ "andThenDouble"(arg0: $Boolean2DoubleFunction$$Type): $Short2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2ShortFunction$$Type<(T)>): $Reference2BooleanFunction<(T)>
+ "composeDouble"(arg0: $Double2ShortFunction$$Type): $Double2BooleanFunction
+ "andThenChar"(arg0: $Boolean2CharFunction$$Type): $Short2CharFunction
+ "defaultReturnValue"(): boolean
+ "defaultReturnValue"(arg0: boolean): void
  "composeObject"<T>(arg0: $Object2ShortFunction$$Type<(T)>): $Object2BooleanFunction<(T)>
+ "andThenByte"(arg0: $Boolean2ByteFunction$$Type): $Short2ByteFunction
+ "composeByte"(arg0: $Byte2ShortFunction$$Type): $Byte2BooleanFunction
+ "andThenReference"<T>(arg0: $Boolean2ReferenceFunction$$Type<(T)>): $Short2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2ShortFunction$$Type): $Long2BooleanFunction
+ "composeFloat"(arg0: $Float2ShortFunction$$Type): $Float2BooleanFunction
+ "andThenShort"(arg0: $Boolean2ShortFunction$$Type): $Short2ShortFunction
+ "composeChar"(arg0: $Char2ShortFunction$$Type): $Char2BooleanFunction
  "andThenLong"(arg0: $Boolean2LongFunction$$Type): $Short2LongFunction
  "andThenFloat"(arg0: $Boolean2FloatFunction$$Type): $Short2FloatFunction
- "composeShort"(arg0: $Short2ShortFunction$$Type): $Short2BooleanFunction
- "andThenObject"<T>(arg0: $Boolean2ObjectFunction$$Type<(T)>): $Short2ObjectFunction<(T)>
- "andThenByte"(arg0: $Boolean2ByteFunction$$Type): $Short2ByteFunction
- "andThenChar"(arg0: $Boolean2CharFunction$$Type): $Short2CharFunction
- "composeReference"<T>(arg0: $Reference2ShortFunction$$Type<(T)>): $Reference2BooleanFunction<(T)>
- "defaultReturnValue"(arg0: boolean): void
- "defaultReturnValue"(): boolean
- "composeByte"(arg0: $Byte2ShortFunction$$Type): $Byte2BooleanFunction
- "andThenShort"(arg0: $Boolean2ShortFunction$$Type): $Short2ShortFunction
- "composeLong"(arg0: $Long2ShortFunction$$Type): $Long2BooleanFunction
- "composeChar"(arg0: $Char2ShortFunction$$Type): $Char2BooleanFunction
- "composeFloat"(arg0: $Float2ShortFunction$$Type): $Float2BooleanFunction
- "andThenDouble"(arg0: $Boolean2DoubleFunction$$Type): $Short2DoubleFunction
- "composeDouble"(arg0: $Double2ShortFunction$$Type): $Double2BooleanFunction
+ "andThenInt"(arg0: $Boolean2IntFunction$$Type): $Short2IntFunction
+ "composeInt"(arg0: $Int2ShortFunction$$Type): $Int2BooleanFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: short): boolean
@@ -6175,15 +6175,15 @@ import {$Object2CharFunction} from "it.unimi.dsi.fastutil.objects.Object2CharFun
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Int2ShortFunction} from "it.unimi.dsi.fastutil.ints.Int2ShortFunction"
 import {$Object2ByteFunction} from "it.unimi.dsi.fastutil.objects.Object2ByteFunction"
-import {$Short2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Float2ShortFunction} from "it.unimi.dsi.fastutil.floats.Float2ShortFunction"
-import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
+import {$Short2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$ToIntFunction$$Interface} from "java.util.function.ToIntFunction"
+import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Short2LongFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
-import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2ReferenceFunction} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
-import {$Short2FloatFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2FloatFunction"
+import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2LongFunction} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
+import {$Short2FloatFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2FloatFunction"
 import {$Double2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ObjectFunction"
 import {$Short2ByteFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ByteFunction"
 import {$Double2ShortFunction} from "it.unimi.dsi.fastutil.doubles.Double2ShortFunction"
@@ -6199,61 +6199,61 @@ export class $Object2ShortFunction<K> implements $Object2ShortFunction$$Interfac
  * 
  * @deprecated
  */
- "remove"(arg0: any): short
+ "remove"(arg0: any): any
 /**
  * 
  * @deprecated
  */
- "get"(arg0: any): short
+ "get"(arg0: any): any
 /**
  * 
  * @deprecated
  */
+ "put"(arg0: K, arg1: short): short
  "put"(arg0: K, arg1: short): short
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: K, arg1: short): short
  "getShort"(arg0: any): short
 /**
  * 
  * @deprecated
  */
- "getOrDefault"(arg0: any, arg1: short): short
- "getOrDefault"(arg0: any, arg1: short): short
+ "getOrDefault"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
  */
- "getOrDefault"(arg0: any, arg1: any): any
+ "getOrDefault"(arg0: any, arg1: short): short
+ "getOrDefault"(arg0: any, arg1: short): short
  "applyAsInt"(arg0: K): integer
 /**
  * 
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(short), (T)>): $Function$0<(K), (T)>
- "andThenInt"(arg0: $Short2IntFunction$$Type): $Object2IntFunction<(K)>
- "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2ShortFunction
- "andThenReference"<T>(arg0: $Short2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
- "composeObject"<T>(arg0: $Object2ObjectFunction$$Type<(T), (K)>): $Object2ShortFunction<(T)>
- "andThenLong"(arg0: $Short2LongFunction$$Type): $Object2LongFunction<(K)>
- "andThenFloat"(arg0: $Short2FloatFunction$$Type): $Object2FloatFunction<(K)>
- "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2ShortFunction
  "andThenObject"<T>(arg0: $Short2ObjectFunction$$Type<(T)>): $Object2ObjectFunction<(K), (T)>
- "andThenByte"(arg0: $Short2ByteFunction$$Type): $Object2ByteFunction<(K)>
- "andThenChar"(arg0: $Short2CharFunction$$Type): $Object2CharFunction<(K)>
+ "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2ShortFunction
+ "andThenDouble"(arg0: $Short2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
  "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2ShortFunction<(T)>
+ "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2ShortFunction
+ "andThenChar"(arg0: $Short2CharFunction$$Type): $Object2CharFunction<(K)>
  "defaultReturnValue"(): short
  "defaultReturnValue"(arg0: short): void
+ "composeObject"<T>(arg0: $Object2ObjectFunction$$Type<(T), (K)>): $Object2ShortFunction<(T)>
+ "andThenByte"(arg0: $Short2ByteFunction$$Type): $Object2ByteFunction<(K)>
  "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2ShortFunction
- "andThenShort"(arg0: $Short2ShortFunction$$Type): $Object2ShortFunction<(K)>
+ "andThenReference"<T>(arg0: $Short2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
  "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2ShortFunction
- "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2ShortFunction
  "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2ShortFunction
- "andThenDouble"(arg0: $Short2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
- "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2ShortFunction
+ "andThenShort"(arg0: $Short2ShortFunction$$Type): $Object2ShortFunction<(K)>
+ "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2ShortFunction
+ "andThenLong"(arg0: $Short2LongFunction$$Type): $Object2LongFunction<(K)>
+ "andThenFloat"(arg0: $Short2FloatFunction$$Type): $Object2FloatFunction<(K)>
+ "andThenInt"(arg0: $Short2IntFunction$$Type): $Object2IntFunction<(K)>
+ "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2ShortFunction
  "removeShort"(arg0: any): short
  "size"(): integer
  "clear"(): void
@@ -6282,8 +6282,8 @@ import {$Char2ObjectFunction} from "it.unimi.dsi.fastutil.chars.Char2ObjectFunct
 import {$Object2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Object2DoubleFunction"
 import {$Char2ShortFunction} from "it.unimi.dsi.fastutil.chars.Char2ShortFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
-import {$Float2CharFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2CharFunction"
 import {$IntToDoubleFunction$$Interface} from "java.util.function.IntToDoubleFunction"
+import {$Float2CharFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2CharFunction"
 import {$Int2DoubleFunction} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
 import {$Byte2CharFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2CharFunction"
 import {$Short2DoubleFunction} from "it.unimi.dsi.fastutil.shorts.Short2DoubleFunction"
@@ -6295,8 +6295,8 @@ import {$Double2CharFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2C
 import {$Char2CharFunction, $Char2CharFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2CharFunction"
 import {$Char2LongFunction} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Double2LongFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
-import {$Char2ByteFunction} from "it.unimi.dsi.fastutil.chars.Char2ByteFunction"
 import {$Double2ByteFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ByteFunction"
+import {$Char2ByteFunction} from "it.unimi.dsi.fastutil.chars.Char2ByteFunction"
 import {$Reference2CharFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
 import {$Char2IntFunction} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
 import {$Char2ReferenceFunction} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
@@ -6323,36 +6323,36 @@ export class $Char2DoubleFunction implements $Char2DoubleFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): double
+ "get"(arg0: any): any
  "get"(arg0: character): double
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: character, arg1: double): double
 /**
  * 
  * @deprecated
  */
  "put"(arg0: character, arg1: double): double
- "containsKey"(arg0: character): boolean
+ "put"(arg0: character, arg1: double): double
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: character): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: character, arg1: double): double
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: double): double
+ "getOrDefault"(arg0: character, arg1: double): double
 /**
  * 
  * @deprecated
@@ -6368,26 +6368,26 @@ export class $Char2DoubleFunction implements $Char2DoubleFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(double), (T)>): $Function$0<(character), (T)>
- "andThenInt"(arg0: $Double2IntFunction$$Type): $Char2IntFunction
- "composeInt"(arg0: $Int2CharFunction$$Type): $Int2DoubleFunction
- "andThenReference"<T>(arg0: $Double2ReferenceFunction$$Type<(T)>): $Char2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Double2ObjectFunction$$Type<(T)>): $Char2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2CharFunction$$Type): $Short2DoubleFunction
+ "andThenDouble"(arg0: $Double2DoubleFunction$$Type): $Char2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2CharFunction$$Type<(T)>): $Reference2DoubleFunction<(T)>
+ "composeDouble"(arg0: $Double2CharFunction$$Type): $Double2DoubleFunction
+ "andThenChar"(arg0: $Double2CharFunction$$Type): $Char2CharFunction
+ "defaultReturnValue"(): double
+ "defaultReturnValue"(arg0: double): void
  "composeObject"<T>(arg0: $Object2CharFunction$$Type<(T)>): $Object2DoubleFunction<(T)>
+ "andThenByte"(arg0: $Double2ByteFunction$$Type): $Char2ByteFunction
+ "composeByte"(arg0: $Byte2CharFunction$$Type): $Byte2DoubleFunction
+ "andThenReference"<T>(arg0: $Double2ReferenceFunction$$Type<(T)>): $Char2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2CharFunction$$Type): $Long2DoubleFunction
+ "composeFloat"(arg0: $Float2CharFunction$$Type): $Float2DoubleFunction
+ "andThenShort"(arg0: $Double2ShortFunction$$Type): $Char2ShortFunction
+ "composeChar"(arg0: $Char2CharFunction$$Type): $Char2DoubleFunction
  "andThenLong"(arg0: $Double2LongFunction$$Type): $Char2LongFunction
  "andThenFloat"(arg0: $Double2FloatFunction$$Type): $Char2FloatFunction
- "composeShort"(arg0: $Short2CharFunction$$Type): $Short2DoubleFunction
- "andThenObject"<T>(arg0: $Double2ObjectFunction$$Type<(T)>): $Char2ObjectFunction<(T)>
- "andThenByte"(arg0: $Double2ByteFunction$$Type): $Char2ByteFunction
- "andThenChar"(arg0: $Double2CharFunction$$Type): $Char2CharFunction
- "composeReference"<T>(arg0: $Reference2CharFunction$$Type<(T)>): $Reference2DoubleFunction<(T)>
- "defaultReturnValue"(arg0: double): void
- "defaultReturnValue"(): double
- "composeByte"(arg0: $Byte2CharFunction$$Type): $Byte2DoubleFunction
- "andThenShort"(arg0: $Double2ShortFunction$$Type): $Char2ShortFunction
- "composeLong"(arg0: $Long2CharFunction$$Type): $Long2DoubleFunction
- "composeChar"(arg0: $Char2CharFunction$$Type): $Char2DoubleFunction
- "composeFloat"(arg0: $Float2CharFunction$$Type): $Float2DoubleFunction
- "andThenDouble"(arg0: $Double2DoubleFunction$$Type): $Char2DoubleFunction
- "composeDouble"(arg0: $Double2CharFunction$$Type): $Double2DoubleFunction
+ "andThenInt"(arg0: $Double2IntFunction$$Type): $Char2IntFunction
+ "composeInt"(arg0: $Int2CharFunction$$Type): $Int2DoubleFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: character): double
@@ -6466,21 +6466,21 @@ import {$Reference2IntFunction$$Type} from "it.unimi.dsi.fastutil.objects.Refere
 import {$Long2IntFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
 import {$Short2IntFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction"
 import {$Int2FloatFunction} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
-import {$IntPredicate, $IntPredicate$$Type, $IntPredicate$$Interface} from "java.util.function.IntPredicate"
 import {$Byte2IntFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
+import {$IntPredicate, $IntPredicate$$Type, $IntPredicate$$Interface} from "java.util.function.IntPredicate"
 import {$Int2CharFunction} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Float2IntFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
 import {$Int2ReferenceFunction} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
 import {$Int2ObjectFunction} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
-import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
+import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Boolean2FloatFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2FloatFunction"
 import {$Int2DoubleFunction} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
 import {$Boolean2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2DoubleFunction"
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Boolean2CharFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2CharFunction"
-import {$Int2ShortFunction} from "it.unimi.dsi.fastutil.ints.Int2ShortFunction"
 import {$Char2BooleanFunction} from "it.unimi.dsi.fastutil.chars.Char2BooleanFunction"
+import {$Int2ShortFunction} from "it.unimi.dsi.fastutil.ints.Int2ShortFunction"
 import {$Boolean2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ReferenceFunction"
 import {$Double2BooleanFunction} from "it.unimi.dsi.fastutil.doubles.Double2BooleanFunction"
 import {$Short2BooleanFunction} from "it.unimi.dsi.fastutil.shorts.Short2BooleanFunction"
@@ -6490,9 +6490,9 @@ import {$Boolean2ByteFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolea
 import {$Boolean2IntFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2IntFunction"
 import {$Byte2BooleanFunction} from "it.unimi.dsi.fastutil.bytes.Byte2BooleanFunction"
 import {$Double2IntFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2IntFunction"
-import {$Boolean2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ObjectFunction"
-import {$Object2BooleanFunction} from "it.unimi.dsi.fastutil.objects.Object2BooleanFunction"
 import {$Boolean2ShortFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ShortFunction"
+import {$Object2BooleanFunction} from "it.unimi.dsi.fastutil.objects.Object2BooleanFunction"
+import {$Boolean2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ObjectFunction"
 import {$Boolean2LongFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2LongFunction"
 import {$Int2ByteFunction} from "it.unimi.dsi.fastutil.ints.Int2ByteFunction"
 
@@ -6519,25 +6519,25 @@ export class $Int2BooleanFunction implements $Int2BooleanFunction$$Interface {
  * @deprecated
  */
  "put"(arg0: integer, arg1: boolean): boolean
- "put"(arg0: integer, arg1: boolean): boolean
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
+ "put"(arg0: integer, arg1: boolean): boolean
  "test"(arg0: integer): boolean
- "containsKey"(arg0: integer): boolean
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: integer): boolean
+ "getOrDefault"(arg0: integer, arg1: boolean): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: integer, arg1: boolean): boolean
 /**
  * 
  * @deprecated
@@ -6553,26 +6553,26 @@ export class $Int2BooleanFunction implements $Int2BooleanFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(boolean), (T)>): $Function$0<(integer), (T)>
- "andThenInt"(arg0: $Boolean2IntFunction$$Type): $Int2IntFunction
- "composeInt"(arg0: $Int2IntFunction$$Type): $Int2BooleanFunction
- "andThenReference"<T>(arg0: $Boolean2ReferenceFunction$$Type<(T)>): $Int2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Boolean2ObjectFunction$$Type<(T)>): $Int2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2IntFunction$$Type): $Short2BooleanFunction
+ "andThenDouble"(arg0: $Boolean2DoubleFunction$$Type): $Int2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2IntFunction$$Type<(T)>): $Reference2BooleanFunction<(T)>
+ "composeDouble"(arg0: $Double2IntFunction$$Type): $Double2BooleanFunction
+ "andThenChar"(arg0: $Boolean2CharFunction$$Type): $Int2CharFunction
+ "defaultReturnValue"(): boolean
+ "defaultReturnValue"(arg0: boolean): void
  "composeObject"<T>(arg0: $Object2IntFunction$$Type<(T)>): $Object2BooleanFunction<(T)>
+ "andThenByte"(arg0: $Boolean2ByteFunction$$Type): $Int2ByteFunction
+ "composeByte"(arg0: $Byte2IntFunction$$Type): $Byte2BooleanFunction
+ "andThenReference"<T>(arg0: $Boolean2ReferenceFunction$$Type<(T)>): $Int2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2IntFunction$$Type): $Long2BooleanFunction
+ "composeFloat"(arg0: $Float2IntFunction$$Type): $Float2BooleanFunction
+ "andThenShort"(arg0: $Boolean2ShortFunction$$Type): $Int2ShortFunction
+ "composeChar"(arg0: $Char2IntFunction$$Type): $Char2BooleanFunction
  "andThenLong"(arg0: $Boolean2LongFunction$$Type): $Int2LongFunction
  "andThenFloat"(arg0: $Boolean2FloatFunction$$Type): $Int2FloatFunction
- "composeShort"(arg0: $Short2IntFunction$$Type): $Short2BooleanFunction
- "andThenObject"<T>(arg0: $Boolean2ObjectFunction$$Type<(T)>): $Int2ObjectFunction<(T)>
- "andThenByte"(arg0: $Boolean2ByteFunction$$Type): $Int2ByteFunction
- "andThenChar"(arg0: $Boolean2CharFunction$$Type): $Int2CharFunction
- "composeReference"<T>(arg0: $Reference2IntFunction$$Type<(T)>): $Reference2BooleanFunction<(T)>
- "defaultReturnValue"(arg0: boolean): void
- "defaultReturnValue"(): boolean
- "composeByte"(arg0: $Byte2IntFunction$$Type): $Byte2BooleanFunction
- "andThenShort"(arg0: $Boolean2ShortFunction$$Type): $Int2ShortFunction
- "composeLong"(arg0: $Long2IntFunction$$Type): $Long2BooleanFunction
- "composeChar"(arg0: $Char2IntFunction$$Type): $Char2BooleanFunction
- "composeFloat"(arg0: $Float2IntFunction$$Type): $Float2BooleanFunction
- "andThenDouble"(arg0: $Boolean2DoubleFunction$$Type): $Int2DoubleFunction
- "composeDouble"(arg0: $Double2IntFunction$$Type): $Double2BooleanFunction
+ "andThenInt"(arg0: $Boolean2IntFunction$$Type): $Int2IntFunction
+ "composeInt"(arg0: $Int2IntFunction$$Type): $Int2BooleanFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: integer): boolean
@@ -6711,8 +6711,8 @@ export type $AbstractLong2ReferenceMap$$Original<V> = $AbstractLong2ReferenceMap
 declare module "it.unimi.dsi.fastutil.chars.Char2LongFunction" {
 import {$Char2DoubleFunction} from "it.unimi.dsi.fastutil.chars.Char2DoubleFunction"
 import {$Long2CharFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2CharFunction"
-import {$Long2IntFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
 import {$Long2ByteFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
+import {$Long2IntFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
 import {$Reference2LongFunction} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
 import {$Int2CharFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Long2ShortFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
@@ -6727,20 +6727,20 @@ import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Long2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2DoubleFunction"
 import {$Long2LongFunction, $Long2LongFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2LongFunction"
 import {$Float2LongFunction} from "it.unimi.dsi.fastutil.floats.Float2LongFunction"
-import {$Double2CharFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2CharFunction"
 import {$Long2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
+import {$Double2CharFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2CharFunction"
 import {$Char2CharFunction, $Char2CharFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2CharFunction"
 import {$Byte2LongFunction} from "it.unimi.dsi.fastutil.bytes.Byte2LongFunction"
 import {$Double2LongFunction} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
-import {$Short2LongFunction} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$IntToLongFunction$$Interface} from "java.util.function.IntToLongFunction"
+import {$Short2LongFunction} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$Char2ByteFunction} from "it.unimi.dsi.fastutil.chars.Char2ByteFunction"
-import {$Reference2CharFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
 import {$Int2LongFunction} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
+import {$Reference2CharFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
 import {$Char2IntFunction} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
 import {$Char2ReferenceFunction} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
-import {$Long2FloatFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2FloatFunction"
 import {$Char2FloatFunction} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
+import {$Long2FloatFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2FloatFunction"
 import {$Object2LongFunction} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
 import {$Long2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ObjectFunction"
 
@@ -6760,36 +6760,36 @@ export class $Char2LongFunction implements $Char2LongFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): long
+ "get"(arg0: any): any
  "get"(arg0: character): long
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: character, arg1: long): long
 /**
  * 
  * @deprecated
  */
  "put"(arg0: character, arg1: long): long
- "containsKey"(arg0: character): boolean
+ "put"(arg0: character, arg1: long): long
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: character): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: character, arg1: long): long
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: long): long
+ "getOrDefault"(arg0: character, arg1: long): long
 /**
  * 
  * @deprecated
@@ -6805,26 +6805,26 @@ export class $Char2LongFunction implements $Char2LongFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(long), (T)>): $Function$0<(character), (T)>
- "andThenInt"(arg0: $Long2IntFunction$$Type): $Char2IntFunction
- "composeInt"(arg0: $Int2CharFunction$$Type): $Int2LongFunction
- "andThenReference"<T>(arg0: $Long2ReferenceFunction$$Type<(T)>): $Char2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Long2ObjectFunction$$Type<(T)>): $Char2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2CharFunction$$Type): $Short2LongFunction
+ "andThenDouble"(arg0: $Long2DoubleFunction$$Type): $Char2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2CharFunction$$Type<(T)>): $Reference2LongFunction<(T)>
+ "composeDouble"(arg0: $Double2CharFunction$$Type): $Double2LongFunction
+ "andThenChar"(arg0: $Long2CharFunction$$Type): $Char2CharFunction
+ "defaultReturnValue"(): long
+ "defaultReturnValue"(arg0: long): void
  "composeObject"<T>(arg0: $Object2CharFunction$$Type<(T)>): $Object2LongFunction<(T)>
+ "andThenByte"(arg0: $Long2ByteFunction$$Type): $Char2ByteFunction
+ "composeByte"(arg0: $Byte2CharFunction$$Type): $Byte2LongFunction
+ "andThenReference"<T>(arg0: $Long2ReferenceFunction$$Type<(T)>): $Char2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2CharFunction$$Type): $Long2LongFunction
+ "composeFloat"(arg0: $Float2CharFunction$$Type): $Float2LongFunction
+ "andThenShort"(arg0: $Long2ShortFunction$$Type): $Char2ShortFunction
+ "composeChar"(arg0: $Char2CharFunction$$Type): $Char2LongFunction
  "andThenLong"(arg0: $Long2LongFunction$$Type): $Char2LongFunction
  "andThenFloat"(arg0: $Long2FloatFunction$$Type): $Char2FloatFunction
- "composeShort"(arg0: $Short2CharFunction$$Type): $Short2LongFunction
- "andThenObject"<T>(arg0: $Long2ObjectFunction$$Type<(T)>): $Char2ObjectFunction<(T)>
- "andThenByte"(arg0: $Long2ByteFunction$$Type): $Char2ByteFunction
- "andThenChar"(arg0: $Long2CharFunction$$Type): $Char2CharFunction
- "composeReference"<T>(arg0: $Reference2CharFunction$$Type<(T)>): $Reference2LongFunction<(T)>
- "defaultReturnValue"(arg0: long): void
- "defaultReturnValue"(): long
- "composeByte"(arg0: $Byte2CharFunction$$Type): $Byte2LongFunction
- "andThenShort"(arg0: $Long2ShortFunction$$Type): $Char2ShortFunction
- "composeLong"(arg0: $Long2CharFunction$$Type): $Long2LongFunction
- "composeChar"(arg0: $Char2CharFunction$$Type): $Char2LongFunction
- "composeFloat"(arg0: $Float2CharFunction$$Type): $Float2LongFunction
- "andThenDouble"(arg0: $Long2DoubleFunction$$Type): $Char2DoubleFunction
- "composeDouble"(arg0: $Double2CharFunction$$Type): $Double2LongFunction
+ "andThenInt"(arg0: $Long2IntFunction$$Type): $Char2IntFunction
+ "composeInt"(arg0: $Int2CharFunction$$Type): $Int2LongFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: character): long
@@ -6843,14 +6843,14 @@ declare module "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction" {
 import {$Float2ReferenceFunction} from "it.unimi.dsi.fastutil.floats.Float2ReferenceFunction"
 import {$Reference2IntFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2IntFunction"
 import {$Short2IntFunction} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction"
-import {$Reference2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
 import {$IntFunction$$Interface} from "java.util.function.IntFunction"
+import {$Reference2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
 import {$Reference2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
-import {$Long2ShortFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
 import {$Double2ReferenceFunction} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
-import {$Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
-import {$Short2CharFunction} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
+import {$Long2ShortFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
 import {$Int2ReferenceFunction} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
+import {$Short2CharFunction} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
+import {$Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Byte2ReferenceFunction} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
 import {$Char2ShortFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ShortFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
@@ -6866,9 +6866,9 @@ import {$Long2ReferenceFunction} from "it.unimi.dsi.fastutil.longs.Long2Referenc
 import {$Reference2FloatFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
 import {$Short2LongFunction} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$Reference2CharFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
-import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
-import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Object2ReferenceFunction} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
+import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
+import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Char2ReferenceFunction} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
 import {$Short2FloatFunction} from "it.unimi.dsi.fastutil.shorts.Short2FloatFunction"
 import {$Reference2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2DoubleFunction"
@@ -6881,12 +6881,12 @@ export interface $Short2ReferenceFunction$$Interface<V> extends $Function$$Inter
 }
 
 export class $Short2ReferenceFunction<V> implements $Short2ReferenceFunction$$Interface {
- "remove"(arg0: short): V
 /**
  * 
  * @deprecated
  */
  "remove"(arg0: any): V
+ "remove"(arg0: short): V
 /**
  * 
  * @deprecated
@@ -6897,13 +6897,13 @@ export class $Short2ReferenceFunction<V> implements $Short2ReferenceFunction$$In
  * 
  * @deprecated
  */
- "put"(arg0: short, arg1: V): V
- "put"(arg0: short, arg1: V): V
+ "put"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
  */
- "put"(arg0: any, arg1: any): any
+ "put"(arg0: short, arg1: V): V
+ "put"(arg0: short, arg1: V): V
 /**
  * 
  * @deprecated
@@ -6926,26 +6926,26 @@ export class $Short2ReferenceFunction<V> implements $Short2ReferenceFunction$$In
  * @deprecated
  */
  "compose"<T>(arg0: $Function$0$$Type<(T), (short)>): $Function$0<(T), (V)>
- "andThenInt"(arg0: $Reference2IntFunction$$Type<(V)>): $Short2IntFunction
- "composeInt"(arg0: $Int2ShortFunction$$Type): $Int2ReferenceFunction<(V)>
- "andThenReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(V), (T)>): $Short2ReferenceFunction<(T)>
- "composeObject"<T>(arg0: $Object2ShortFunction$$Type<(T)>): $Object2ReferenceFunction<(T), (V)>
- "andThenLong"(arg0: $Reference2LongFunction$$Type<(V)>): $Short2LongFunction
- "andThenFloat"(arg0: $Reference2FloatFunction$$Type<(V)>): $Short2FloatFunction
- "composeShort"(arg0: $Short2ShortFunction$$Type): $Short2ReferenceFunction<(V)>
  "andThenObject"<T>(arg0: $Reference2ObjectFunction$$Type<(V), (T)>): $Short2ObjectFunction<(T)>
- "andThenByte"(arg0: $Reference2ByteFunction$$Type<(V)>): $Short2ByteFunction
- "andThenChar"(arg0: $Reference2CharFunction$$Type<(V)>): $Short2CharFunction
+ "composeShort"(arg0: $Short2ShortFunction$$Type): $Short2ReferenceFunction<(V)>
+ "andThenDouble"(arg0: $Reference2DoubleFunction$$Type<(V)>): $Short2DoubleFunction
  "composeReference"<T>(arg0: $Reference2ShortFunction$$Type<(T)>): $Reference2ReferenceFunction<(T), (V)>
+ "composeDouble"(arg0: $Double2ShortFunction$$Type): $Double2ReferenceFunction<(V)>
+ "andThenChar"(arg0: $Reference2CharFunction$$Type<(V)>): $Short2CharFunction
  "defaultReturnValue"(): V
  "defaultReturnValue"(arg0: V): void
+ "composeObject"<T>(arg0: $Object2ShortFunction$$Type<(T)>): $Object2ReferenceFunction<(T), (V)>
+ "andThenByte"(arg0: $Reference2ByteFunction$$Type<(V)>): $Short2ByteFunction
  "composeByte"(arg0: $Byte2ShortFunction$$Type): $Byte2ReferenceFunction<(V)>
- "andThenShort"(arg0: $Reference2ShortFunction$$Type<(V)>): $Short2ShortFunction
+ "andThenReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(V), (T)>): $Short2ReferenceFunction<(T)>
  "composeLong"(arg0: $Long2ShortFunction$$Type): $Long2ReferenceFunction<(V)>
- "composeChar"(arg0: $Char2ShortFunction$$Type): $Char2ReferenceFunction<(V)>
  "composeFloat"(arg0: $Float2ShortFunction$$Type): $Float2ReferenceFunction<(V)>
- "andThenDouble"(arg0: $Reference2DoubleFunction$$Type<(V)>): $Short2DoubleFunction
- "composeDouble"(arg0: $Double2ShortFunction$$Type): $Double2ReferenceFunction<(V)>
+ "andThenShort"(arg0: $Reference2ShortFunction$$Type<(V)>): $Short2ShortFunction
+ "composeChar"(arg0: $Char2ShortFunction$$Type): $Char2ReferenceFunction<(V)>
+ "andThenLong"(arg0: $Reference2LongFunction$$Type<(V)>): $Short2LongFunction
+ "andThenFloat"(arg0: $Reference2FloatFunction$$Type<(V)>): $Short2FloatFunction
+ "andThenInt"(arg0: $Reference2IntFunction$$Type<(V)>): $Short2IntFunction
+ "composeInt"(arg0: $Int2ShortFunction$$Type): $Int2ReferenceFunction<(V)>
  "size"(): integer
  "clear"(): void
  "apply"(arg0: short): V
@@ -6969,17 +6969,17 @@ import {$Long2IntFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2IntFunct
 import {$Short2IntFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction"
 import {$Int2FloatFunction} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
 import {$Byte2IntFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
-import {$Reference2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
 import {$IntFunction$$Interface} from "java.util.function.IntFunction"
+import {$Reference2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
 import {$Int2CharFunction} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
-import {$Reference2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
 import {$Float2IntFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
+import {$Reference2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
 import {$Double2ReferenceFunction} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
 import {$Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Byte2ReferenceFunction} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
 import {$Int2ObjectFunction} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
-import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
+import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Int2DoubleFunction} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
 import {$Reference2ReferenceFunction, $Reference2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ReferenceFunction"
 import {$Reference2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ObjectFunction"
@@ -6988,11 +6988,11 @@ import {$Int2ShortFunction} from "it.unimi.dsi.fastutil.ints.Int2ShortFunction"
 import {$Short2ReferenceFunction} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Long2ReferenceFunction} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
 import {$Reference2FloatFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
-import {$Reference2CharFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
 import {$Int2LongFunction} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
-import {$Char2IntFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
+import {$Reference2CharFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
 import {$Object2ReferenceFunction} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
 import {$Char2ReferenceFunction} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
+import {$Char2IntFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
 import {$Double2IntFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2IntFunction"
 import {$Reference2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2DoubleFunction"
 import {$Int2ByteFunction} from "it.unimi.dsi.fastutil.ints.Int2ByteFunction"
@@ -7003,12 +7003,12 @@ export interface $Int2ReferenceFunction$$Interface<V> extends $Function$$Interfa
 }
 
 export class $Int2ReferenceFunction<V> implements $Int2ReferenceFunction$$Interface {
- "remove"(arg0: integer): V
 /**
  * 
  * @deprecated
  */
  "remove"(arg0: any): V
+ "remove"(arg0: integer): V
 /**
  * 
  * @deprecated
@@ -7019,13 +7019,13 @@ export class $Int2ReferenceFunction<V> implements $Int2ReferenceFunction$$Interf
  * 
  * @deprecated
  */
- "put"(arg0: integer, arg1: V): V
- "put"(arg0: integer, arg1: V): V
+ "put"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
  */
- "put"(arg0: any, arg1: any): any
+ "put"(arg0: integer, arg1: V): V
+ "put"(arg0: integer, arg1: V): V
  "apply"(arg0: integer): V
  "containsKey"(arg0: integer): boolean
 /**
@@ -7044,26 +7044,26 @@ export class $Int2ReferenceFunction<V> implements $Int2ReferenceFunction$$Interf
  * @deprecated
  */
  "compose"<T>(arg0: $Function$0$$Type<(T), (integer)>): $Function$0<(T), (V)>
- "andThenInt"(arg0: $Reference2IntFunction$$Type<(V)>): $Int2IntFunction
- "composeInt"(arg0: $Int2IntFunction$$Type): $Int2ReferenceFunction<(V)>
- "andThenReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(V), (T)>): $Int2ReferenceFunction<(T)>
- "composeObject"<T>(arg0: $Object2IntFunction$$Type<(T)>): $Object2ReferenceFunction<(T), (V)>
- "andThenLong"(arg0: $Reference2LongFunction$$Type<(V)>): $Int2LongFunction
- "andThenFloat"(arg0: $Reference2FloatFunction$$Type<(V)>): $Int2FloatFunction
- "composeShort"(arg0: $Short2IntFunction$$Type): $Short2ReferenceFunction<(V)>
  "andThenObject"<T>(arg0: $Reference2ObjectFunction$$Type<(V), (T)>): $Int2ObjectFunction<(T)>
- "andThenByte"(arg0: $Reference2ByteFunction$$Type<(V)>): $Int2ByteFunction
- "andThenChar"(arg0: $Reference2CharFunction$$Type<(V)>): $Int2CharFunction
+ "composeShort"(arg0: $Short2IntFunction$$Type): $Short2ReferenceFunction<(V)>
+ "andThenDouble"(arg0: $Reference2DoubleFunction$$Type<(V)>): $Int2DoubleFunction
  "composeReference"<T>(arg0: $Reference2IntFunction$$Type<(T)>): $Reference2ReferenceFunction<(T), (V)>
+ "composeDouble"(arg0: $Double2IntFunction$$Type): $Double2ReferenceFunction<(V)>
+ "andThenChar"(arg0: $Reference2CharFunction$$Type<(V)>): $Int2CharFunction
  "defaultReturnValue"(): V
  "defaultReturnValue"(arg0: V): void
+ "composeObject"<T>(arg0: $Object2IntFunction$$Type<(T)>): $Object2ReferenceFunction<(T), (V)>
+ "andThenByte"(arg0: $Reference2ByteFunction$$Type<(V)>): $Int2ByteFunction
  "composeByte"(arg0: $Byte2IntFunction$$Type): $Byte2ReferenceFunction<(V)>
- "andThenShort"(arg0: $Reference2ShortFunction$$Type<(V)>): $Int2ShortFunction
+ "andThenReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(V), (T)>): $Int2ReferenceFunction<(T)>
  "composeLong"(arg0: $Long2IntFunction$$Type): $Long2ReferenceFunction<(V)>
- "composeChar"(arg0: $Char2IntFunction$$Type): $Char2ReferenceFunction<(V)>
  "composeFloat"(arg0: $Float2IntFunction$$Type): $Float2ReferenceFunction<(V)>
- "andThenDouble"(arg0: $Reference2DoubleFunction$$Type<(V)>): $Int2DoubleFunction
- "composeDouble"(arg0: $Double2IntFunction$$Type): $Double2ReferenceFunction<(V)>
+ "andThenShort"(arg0: $Reference2ShortFunction$$Type<(V)>): $Int2ShortFunction
+ "composeChar"(arg0: $Char2IntFunction$$Type): $Char2ReferenceFunction<(V)>
+ "andThenLong"(arg0: $Reference2LongFunction$$Type<(V)>): $Int2LongFunction
+ "andThenFloat"(arg0: $Reference2FloatFunction$$Type<(V)>): $Int2FloatFunction
+ "andThenInt"(arg0: $Reference2IntFunction$$Type<(V)>): $Int2IntFunction
+ "composeInt"(arg0: $Int2IntFunction$$Type): $Int2ReferenceFunction<(V)>
  "size"(): integer
  "clear"(): void
  "apply"(arg0: integer): V
@@ -7080,7 +7080,6 @@ export type $Int2ReferenceFunction$$Type<V> = ((arg0: integer) => V);
  */
 export type $Int2ReferenceFunction$$Original<V> = $Int2ReferenceFunction<(V)>;}
 declare module "it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap" {
-import {$Object2IntMap$FastEntrySet} from "it.unimi.dsi.fastutil.objects.Object2IntMap$FastEntrySet"
 import {$AbstractObject2IntMap} from "it.unimi.dsi.fastutil.objects.AbstractObject2IntMap"
 import {$Map, $Map$$Type} from "java.util.Map"
 import {$Hash$$Interface} from "it.unimi.dsi.fastutil.Hash"
@@ -7131,9 +7130,9 @@ public "getOrDefault"(arg0: any, arg1: integer): integer
 public "ensureCapacity"(arg0: integer): void
 public "addTo"(arg0: K, arg1: integer): integer
 public "computeIntIfPresent"(arg0: K, arg1: $BiFunction$$Type<(K), (integer), (integer)>): integer
-public "object2IntEntrySet"(): $Object2IntMap$FastEntrySet<(K)>
 public "removeInt"(arg0: any): integer
 public "computeInt"(arg0: K, arg1: $BiFunction$$Type<(K), (integer), (integer)>): integer
+public "object2IntEntrySet"(): $ObjectSet
 /**
  * 
  * @deprecated
@@ -7177,14 +7176,14 @@ import {$Long2IntFunction} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
 import {$Long2ByteFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
 import {$Short2IntFunction} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction"
 import {$Int2FloatFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
-import {$Int2CharFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Float2IntFunction} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
-import {$Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
+import {$Int2CharFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Int2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
-import {$Int2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
+import {$Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Byte2ReferenceFunction} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
-import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
+import {$Int2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
+import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Byte2ObjectFunction} from "it.unimi.dsi.fastutil.bytes.Byte2ObjectFunction"
 import {$Byte2ShortFunction} from "it.unimi.dsi.fastutil.bytes.Byte2ShortFunction"
 import {$Int2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
@@ -7219,36 +7218,36 @@ export class $Byte2IntFunction implements $Byte2IntFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): integer
+ "get"(arg0: any): any
  "get"(arg0: byte): integer
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: byte, arg1: integer): integer
 /**
  * 
  * @deprecated
  */
  "put"(arg0: byte, arg1: integer): integer
- "containsKey"(arg0: byte): boolean
+ "put"(arg0: byte, arg1: integer): integer
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: byte): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: byte, arg1: integer): integer
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: integer): integer
+ "getOrDefault"(arg0: byte, arg1: integer): integer
 /**
  * 
  * @deprecated
@@ -7264,26 +7263,26 @@ export class $Byte2IntFunction implements $Byte2IntFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(integer), (T)>): $Function$0<(byte), (T)>
- "andThenInt"(arg0: $Int2IntFunction$$Type): $Byte2IntFunction
- "composeInt"(arg0: $Int2ByteFunction$$Type): $Int2IntFunction
- "andThenReference"<T>(arg0: $Int2ReferenceFunction$$Type<(T)>): $Byte2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Int2ObjectFunction$$Type<(T)>): $Byte2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2ByteFunction$$Type): $Short2IntFunction
+ "andThenDouble"(arg0: $Int2DoubleFunction$$Type): $Byte2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2ByteFunction$$Type<(T)>): $Reference2IntFunction<(T)>
+ "composeDouble"(arg0: $Double2ByteFunction$$Type): $Double2IntFunction
+ "andThenChar"(arg0: $Int2CharFunction$$Type): $Byte2CharFunction
+ "defaultReturnValue"(): integer
+ "defaultReturnValue"(arg0: integer): void
  "composeObject"<T>(arg0: $Object2ByteFunction$$Type<(T)>): $Object2IntFunction<(T)>
+ "andThenByte"(arg0: $Int2ByteFunction$$Type): $Byte2ByteFunction
+ "composeByte"(arg0: $Byte2ByteFunction$$Type): $Byte2IntFunction
+ "andThenReference"<T>(arg0: $Int2ReferenceFunction$$Type<(T)>): $Byte2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2ByteFunction$$Type): $Long2IntFunction
+ "composeFloat"(arg0: $Float2ByteFunction$$Type): $Float2IntFunction
+ "andThenShort"(arg0: $Int2ShortFunction$$Type): $Byte2ShortFunction
+ "composeChar"(arg0: $Char2ByteFunction$$Type): $Char2IntFunction
  "andThenLong"(arg0: $Int2LongFunction$$Type): $Byte2LongFunction
  "andThenFloat"(arg0: $Int2FloatFunction$$Type): $Byte2FloatFunction
- "composeShort"(arg0: $Short2ByteFunction$$Type): $Short2IntFunction
- "andThenObject"<T>(arg0: $Int2ObjectFunction$$Type<(T)>): $Byte2ObjectFunction<(T)>
- "andThenByte"(arg0: $Int2ByteFunction$$Type): $Byte2ByteFunction
- "andThenChar"(arg0: $Int2CharFunction$$Type): $Byte2CharFunction
- "composeReference"<T>(arg0: $Reference2ByteFunction$$Type<(T)>): $Reference2IntFunction<(T)>
- "defaultReturnValue"(arg0: integer): void
- "defaultReturnValue"(): integer
- "composeByte"(arg0: $Byte2ByteFunction$$Type): $Byte2IntFunction
- "andThenShort"(arg0: $Int2ShortFunction$$Type): $Byte2ShortFunction
- "composeLong"(arg0: $Long2ByteFunction$$Type): $Long2IntFunction
- "composeChar"(arg0: $Char2ByteFunction$$Type): $Char2IntFunction
- "composeFloat"(arg0: $Float2ByteFunction$$Type): $Float2IntFunction
- "andThenDouble"(arg0: $Int2DoubleFunction$$Type): $Byte2DoubleFunction
- "composeDouble"(arg0: $Double2ByteFunction$$Type): $Double2IntFunction
+ "andThenInt"(arg0: $Int2IntFunction$$Type): $Byte2IntFunction
+ "composeInt"(arg0: $Int2ByteFunction$$Type): $Int2IntFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: byte): integer
@@ -7351,12 +7350,12 @@ import {$Float2ByteFunction} from "it.unimi.dsi.fastutil.floats.Float2ByteFuncti
 import {$Reference2IntFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2IntFunction"
 import {$Int2FloatFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
 import {$Reference2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
-import {$Double2FloatFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Float2IntFunction} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
 import {$Reference2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
+import {$Double2FloatFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Double2ReferenceFunction} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
-import {$Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Int2ReferenceFunction} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
+import {$Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Byte2ReferenceFunction} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
 import {$Object2FloatFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2FloatFunction"
@@ -7374,12 +7373,12 @@ import {$Float2FloatFunction, $Float2FloatFunction$$Type} from "it.unimi.dsi.fas
 import {$Reference2CharFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
 import {$Object2ReferenceFunction} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
 import {$Char2ReferenceFunction} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
-import {$Char2FloatFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
 import {$Long2FloatFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2FloatFunction"
+import {$Char2FloatFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
 import {$Short2FloatFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2FloatFunction"
 import {$Reference2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2DoubleFunction"
-import {$Byte2FloatFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2FloatFunction"
 import {$DoubleFunction$$Interface} from "java.util.function.DoubleFunction"
+import {$Byte2FloatFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2FloatFunction"
 import {$Float2DoubleFunction} from "it.unimi.dsi.fastutil.floats.Float2DoubleFunction"
 
 export interface $Float2ReferenceFunction$$Interface<V> extends $Function$$Interface<(float), (V)>, $DoubleFunction$$Interface<(V)> {
@@ -7388,12 +7387,12 @@ export interface $Float2ReferenceFunction$$Interface<V> extends $Function$$Inter
 }
 
 export class $Float2ReferenceFunction<V> implements $Float2ReferenceFunction$$Interface {
- "remove"(arg0: float): V
 /**
  * 
  * @deprecated
  */
  "remove"(arg0: any): V
+ "remove"(arg0: float): V
 /**
  * 
  * @deprecated
@@ -7404,13 +7403,13 @@ export class $Float2ReferenceFunction<V> implements $Float2ReferenceFunction$$In
  * 
  * @deprecated
  */
- "put"(arg0: float, arg1: V): V
- "put"(arg0: float, arg1: V): V
+ "put"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
  */
- "put"(arg0: any, arg1: any): any
+ "put"(arg0: float, arg1: V): V
+ "put"(arg0: float, arg1: V): V
 /**
  * 
  * @deprecated
@@ -7433,26 +7432,26 @@ export class $Float2ReferenceFunction<V> implements $Float2ReferenceFunction$$In
  * @deprecated
  */
  "compose"<T>(arg0: $Function$0$$Type<(T), (float)>): $Function$0<(T), (V)>
- "andThenInt"(arg0: $Reference2IntFunction$$Type<(V)>): $Float2IntFunction
- "composeInt"(arg0: $Int2FloatFunction$$Type): $Int2ReferenceFunction<(V)>
- "andThenReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(V), (T)>): $Float2ReferenceFunction<(T)>
- "composeObject"<T>(arg0: $Object2FloatFunction$$Type<(T)>): $Object2ReferenceFunction<(T), (V)>
- "andThenLong"(arg0: $Reference2LongFunction$$Type<(V)>): $Float2LongFunction
- "andThenFloat"(arg0: $Reference2FloatFunction$$Type<(V)>): $Float2FloatFunction
- "composeShort"(arg0: $Short2FloatFunction$$Type): $Short2ReferenceFunction<(V)>
  "andThenObject"<T>(arg0: $Reference2ObjectFunction$$Type<(V), (T)>): $Float2ObjectFunction<(T)>
- "andThenByte"(arg0: $Reference2ByteFunction$$Type<(V)>): $Float2ByteFunction
- "andThenChar"(arg0: $Reference2CharFunction$$Type<(V)>): $Float2CharFunction
+ "composeShort"(arg0: $Short2FloatFunction$$Type): $Short2ReferenceFunction<(V)>
+ "andThenDouble"(arg0: $Reference2DoubleFunction$$Type<(V)>): $Float2DoubleFunction
  "composeReference"<T>(arg0: $Reference2FloatFunction$$Type<(T)>): $Reference2ReferenceFunction<(T), (V)>
+ "composeDouble"(arg0: $Double2FloatFunction$$Type): $Double2ReferenceFunction<(V)>
+ "andThenChar"(arg0: $Reference2CharFunction$$Type<(V)>): $Float2CharFunction
  "defaultReturnValue"(): V
  "defaultReturnValue"(arg0: V): void
+ "composeObject"<T>(arg0: $Object2FloatFunction$$Type<(T)>): $Object2ReferenceFunction<(T), (V)>
+ "andThenByte"(arg0: $Reference2ByteFunction$$Type<(V)>): $Float2ByteFunction
  "composeByte"(arg0: $Byte2FloatFunction$$Type): $Byte2ReferenceFunction<(V)>
- "andThenShort"(arg0: $Reference2ShortFunction$$Type<(V)>): $Float2ShortFunction
+ "andThenReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(V), (T)>): $Float2ReferenceFunction<(T)>
  "composeLong"(arg0: $Long2FloatFunction$$Type): $Long2ReferenceFunction<(V)>
- "composeChar"(arg0: $Char2FloatFunction$$Type): $Char2ReferenceFunction<(V)>
  "composeFloat"(arg0: $Float2FloatFunction$$Type): $Float2ReferenceFunction<(V)>
- "andThenDouble"(arg0: $Reference2DoubleFunction$$Type<(V)>): $Float2DoubleFunction
- "composeDouble"(arg0: $Double2FloatFunction$$Type): $Double2ReferenceFunction<(V)>
+ "andThenShort"(arg0: $Reference2ShortFunction$$Type<(V)>): $Float2ShortFunction
+ "composeChar"(arg0: $Char2FloatFunction$$Type): $Char2ReferenceFunction<(V)>
+ "andThenLong"(arg0: $Reference2LongFunction$$Type<(V)>): $Float2LongFunction
+ "andThenFloat"(arg0: $Reference2FloatFunction$$Type<(V)>): $Float2FloatFunction
+ "andThenInt"(arg0: $Reference2IntFunction$$Type<(V)>): $Float2IntFunction
+ "composeInt"(arg0: $Int2FloatFunction$$Type): $Int2ReferenceFunction<(V)>
  "size"(): integer
  "clear"(): void
  "apply"(arg0: float): V
@@ -7477,8 +7476,8 @@ import {$Short2IntFunction, $Short2IntFunction$$Type} from "it.unimi.dsi.fastuti
 import {$Int2ShortFunction, $Int2ShortFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ShortFunction"
 import {$Int2FloatFunction, $Int2FloatFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
 import {$Byte2IntFunction, $Byte2IntFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
-import {$Int2CharFunction, $Int2CharFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Float2IntFunction, $Float2IntFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
+import {$Int2CharFunction, $Int2CharFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$IntUnaryOperator, $IntUnaryOperator$$Type, $IntUnaryOperator$$Interface} from "java.util.function.IntUnaryOperator"
 import {$Int2ReferenceFunction, $Int2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
 import {$Int2ObjectFunction, $Int2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
@@ -7495,47 +7494,47 @@ export interface $Int2IntFunction$$Interface extends $Function$$Interface<(integ
 }
 
 export class $Int2IntFunction implements $Int2IntFunction$$Interface {
-/**
- * 
- * @deprecated
- */
- "remove"(arg0: any): any
  "remove"(arg0: integer): integer
 /**
  * 
  * @deprecated
  */
- "get"(arg0: any): integer
- "get"(arg0: integer): integer
+ "remove"(arg0: any): integer
 /**
  * 
  * @deprecated
  */
- "put"(arg0: integer, arg1: integer): integer
+ "get"(arg0: any): any
+ "get"(arg0: integer): integer
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
  "put"(arg0: integer, arg1: integer): integer
+/**
+ * 
+ * @deprecated
+ */
+ "put"(arg0: integer, arg1: integer): integer
 static "identity"(): $Int2IntFunction
- "containsKey"(arg0: integer): boolean
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
- "getOrDefault"(arg0: integer, arg1: integer): integer
-/**
- * 
- * @deprecated
- */
- "getOrDefault"(arg0: any, arg1: integer): integer
+ "containsKey"(arg0: integer): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
+/**
+ * 
+ * @deprecated
+ */
+ "getOrDefault"(arg0: any, arg1: integer): integer
+ "getOrDefault"(arg0: integer, arg1: integer): integer
  "applyAsInt"(arg0: integer): integer
 /**
  * 
@@ -7547,26 +7546,26 @@ static "identity"(): $Int2IntFunction
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(integer), (T)>): $Function$0<(integer), (T)>
- "andThenInt"(arg0: $Int2IntFunction$$Type): $Int2IntFunction
- "composeInt"(arg0: $Int2IntFunction$$Type): $Int2IntFunction
- "andThenReference"<T>(arg0: $Int2ReferenceFunction$$Type<(T)>): $Int2ReferenceFunction<(T)>
- "composeObject"<T>(arg0: $Object2IntFunction$$Type<(T)>): $Object2IntFunction<(T)>
- "andThenLong"(arg0: $Int2LongFunction$$Type): $Int2LongFunction
- "andThenFloat"(arg0: $Int2FloatFunction$$Type): $Int2FloatFunction
- "composeShort"(arg0: $Short2IntFunction$$Type): $Short2IntFunction
  "andThenObject"<T>(arg0: $Int2ObjectFunction$$Type<(T)>): $Int2ObjectFunction<(T)>
- "andThenByte"(arg0: $Int2ByteFunction$$Type): $Int2ByteFunction
- "andThenChar"(arg0: $Int2CharFunction$$Type): $Int2CharFunction
+ "composeShort"(arg0: $Short2IntFunction$$Type): $Short2IntFunction
+ "andThenDouble"(arg0: $Int2DoubleFunction$$Type): $Int2DoubleFunction
  "composeReference"<T>(arg0: $Reference2IntFunction$$Type<(T)>): $Reference2IntFunction<(T)>
+ "composeDouble"(arg0: $Double2IntFunction$$Type): $Double2IntFunction
+ "andThenChar"(arg0: $Int2CharFunction$$Type): $Int2CharFunction
  "defaultReturnValue"(): integer
  "defaultReturnValue"(arg0: integer): void
+ "composeObject"<T>(arg0: $Object2IntFunction$$Type<(T)>): $Object2IntFunction<(T)>
+ "andThenByte"(arg0: $Int2ByteFunction$$Type): $Int2ByteFunction
  "composeByte"(arg0: $Byte2IntFunction$$Type): $Byte2IntFunction
- "andThenShort"(arg0: $Int2ShortFunction$$Type): $Int2ShortFunction
+ "andThenReference"<T>(arg0: $Int2ReferenceFunction$$Type<(T)>): $Int2ReferenceFunction<(T)>
  "composeLong"(arg0: $Long2IntFunction$$Type): $Long2IntFunction
- "composeChar"(arg0: $Char2IntFunction$$Type): $Char2IntFunction
  "composeFloat"(arg0: $Float2IntFunction$$Type): $Float2IntFunction
- "andThenDouble"(arg0: $Int2DoubleFunction$$Type): $Int2DoubleFunction
- "composeDouble"(arg0: $Double2IntFunction$$Type): $Double2IntFunction
+ "andThenShort"(arg0: $Int2ShortFunction$$Type): $Int2ShortFunction
+ "composeChar"(arg0: $Char2IntFunction$$Type): $Char2IntFunction
+ "andThenLong"(arg0: $Int2LongFunction$$Type): $Int2LongFunction
+ "andThenFloat"(arg0: $Int2FloatFunction$$Type): $Int2FloatFunction
+ "andThenInt"(arg0: $Int2IntFunction$$Type): $Int2IntFunction
+ "composeInt"(arg0: $Int2IntFunction$$Type): $Int2IntFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: integer): integer
@@ -7592,8 +7591,8 @@ import {$Reference2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Refe
 import {$Reference2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
 import {$Long2ShortFunction} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
 import {$Double2ReferenceFunction} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
-import {$Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Int2ReferenceFunction} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
+import {$Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Byte2ReferenceFunction} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
 import {$Function, $Function$$Type} from "java.util.function.Function"
 import {$Reference2ReferenceFunction, $Reference2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ReferenceFunction"
@@ -7605,14 +7604,14 @@ import {$Short2ReferenceFunction} from "it.unimi.dsi.fastutil.shorts.Short2Refer
 import {$Long2ReferenceFunction, $Long2ReferenceFunction$$Interface} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
 import {$Byte2LongFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2LongFunction"
 import {$Reference2FloatFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
-import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Double2LongFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
+import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Short2LongFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
-import {$Reference2CharFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
 import {$Int2LongFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
+import {$Reference2CharFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
 import {$Object2ReferenceFunction} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
-import {$Char2ReferenceFunction} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
 import {$Serializable$$Interface} from "java.io.Serializable"
+import {$Char2ReferenceFunction} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
 import {$Long2FloatFunction} from "it.unimi.dsi.fastutil.longs.Long2FloatFunction"
 import {$Object2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
 import {$Reference2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2DoubleFunction"
@@ -7621,12 +7620,12 @@ import {$Long2ObjectFunction} from "it.unimi.dsi.fastutil.longs.Long2ObjectFunct
 export class $AbstractLong2ReferenceFunction<V> implements $Long2ReferenceFunction$$Interface<(V)>, $Serializable$$Interface {
 public "defaultReturnValue"(arg0: V): void
 public "defaultReturnValue"(): V
-public "remove"(arg0: long): V
 /**
  * 
  * @deprecated
  */
 public "remove"(arg0: any): V
+public "remove"(arg0: long): V
 /**
  * 
  * @deprecated
@@ -7637,13 +7636,13 @@ public "get"(arg0: long): V
  * 
  * @deprecated
  */
-public "put"(arg0: long, arg1: V): V
-public "put"(arg0: long, arg1: V): V
+public "put"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
  */
-public "put"(arg0: any, arg1: any): any
+public "put"(arg0: long, arg1: V): V
+public "put"(arg0: long, arg1: V): V
 public "apply"(arg0: long): V
 public "containsKey"(arg0: long): boolean
 /**
@@ -7662,24 +7661,24 @@ public "getOrDefault"(arg0: any, arg1: V): V
  * @deprecated
  */
 public "compose"<T>(arg0: $Function$$Type<(T), (long)>): $Function<(T), (V)>
-public "andThenInt"(arg0: $Reference2IntFunction$$Type<(V)>): $Long2IntFunction
-public "composeInt"(arg0: $Int2LongFunction$$Type): $Int2ReferenceFunction<(V)>
-public "andThenReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(V), (T)>): $Long2ReferenceFunction<(T)>
+public "andThenObject"<T>(arg0: $Reference2ObjectFunction$$Type<(V), (T)>): $Long2ObjectFunction<(T)>
+public "composeShort"(arg0: $Short2LongFunction$$Type): $Short2ReferenceFunction<(V)>
+public "andThenDouble"(arg0: $Reference2DoubleFunction$$Type<(V)>): $Long2DoubleFunction
+public "composeReference"<T>(arg0: $Reference2LongFunction$$Type<(T)>): $Reference2ReferenceFunction<(T), (V)>
+public "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2ReferenceFunction<(V)>
+public "andThenChar"(arg0: $Reference2CharFunction$$Type<(V)>): $Long2CharFunction
 public "composeObject"<T>(arg0: $Object2LongFunction$$Type<(T)>): $Object2ReferenceFunction<(T), (V)>
+public "andThenByte"(arg0: $Reference2ByteFunction$$Type<(V)>): $Long2ByteFunction
+public "composeByte"(arg0: $Byte2LongFunction$$Type): $Byte2ReferenceFunction<(V)>
+public "andThenReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(V), (T)>): $Long2ReferenceFunction<(T)>
+public "composeLong"(arg0: $Long2LongFunction$$Type): $Long2ReferenceFunction<(V)>
+public "composeFloat"(arg0: $Float2LongFunction$$Type): $Float2ReferenceFunction<(V)>
+public "andThenShort"(arg0: $Reference2ShortFunction$$Type<(V)>): $Long2ShortFunction
+public "composeChar"(arg0: $Char2LongFunction$$Type): $Char2ReferenceFunction<(V)>
 public "andThenLong"(arg0: $Reference2LongFunction$$Type<(V)>): $Long2LongFunction
 public "andThenFloat"(arg0: $Reference2FloatFunction$$Type<(V)>): $Long2FloatFunction
-public "composeShort"(arg0: $Short2LongFunction$$Type): $Short2ReferenceFunction<(V)>
-public "andThenObject"<T>(arg0: $Reference2ObjectFunction$$Type<(V), (T)>): $Long2ObjectFunction<(T)>
-public "andThenByte"(arg0: $Reference2ByteFunction$$Type<(V)>): $Long2ByteFunction
-public "andThenChar"(arg0: $Reference2CharFunction$$Type<(V)>): $Long2CharFunction
-public "composeReference"<T>(arg0: $Reference2LongFunction$$Type<(T)>): $Reference2ReferenceFunction<(T), (V)>
-public "composeByte"(arg0: $Byte2LongFunction$$Type): $Byte2ReferenceFunction<(V)>
-public "andThenShort"(arg0: $Reference2ShortFunction$$Type<(V)>): $Long2ShortFunction
-public "composeLong"(arg0: $Long2LongFunction$$Type): $Long2ReferenceFunction<(V)>
-public "composeChar"(arg0: $Char2LongFunction$$Type): $Char2ReferenceFunction<(V)>
-public "composeFloat"(arg0: $Float2LongFunction$$Type): $Float2ReferenceFunction<(V)>
-public "andThenDouble"(arg0: $Reference2DoubleFunction$$Type<(V)>): $Long2DoubleFunction
-public "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2ReferenceFunction<(V)>
+public "andThenInt"(arg0: $Reference2IntFunction$$Type<(V)>): $Long2IntFunction
+public "composeInt"(arg0: $Int2LongFunction$$Type): $Int2ReferenceFunction<(V)>
 public "size"(): integer
 public "clear"(): void
 public "apply"(arg0: long): V
@@ -7696,8 +7695,8 @@ export type $AbstractLong2ReferenceFunction$$Type<V> = ($AbstractLong2ReferenceF
  */
 export type $AbstractLong2ReferenceFunction$$Original<V> = $AbstractLong2ReferenceFunction<(V)>;}
 declare module "it.unimi.dsi.fastutil.objects.Reference2ObjectMap$Entry" {
-import {$Comparable} from "java.lang.Comparable"
 import {$Comparator, $Comparator$$Type} from "java.util.Comparator"
+import {$Comparable} from "java.lang.Comparable"
 import {$Map$Entry, $Map$Entry$$Type, $Map$Entry$$Interface} from "java.util.Map$Entry"
 
 export interface $Reference2ObjectMap$Entry$$Interface<K, V> extends $Map$Entry$$Interface<(K), (V)> {
@@ -7774,8 +7773,8 @@ import {$Long2CharFunction} from "it.unimi.dsi.fastutil.longs.Long2CharFunction"
 import {$Long2ByteFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
 import {$Byte2IntFunction} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
 import {$Int2CharFunction} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
-import {$Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Short2CharFunction} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
+import {$Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Byte2ReferenceFunction} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
 import {$Char2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ObjectFunction"
 import {$Char2ShortFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ShortFunction"
@@ -7789,8 +7788,8 @@ import {$Object2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2B
 import {$Char2CharFunction, $Char2CharFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2CharFunction"
 import {$Double2CharFunction} from "it.unimi.dsi.fastutil.doubles.Double2CharFunction"
 import {$Byte2LongFunction} from "it.unimi.dsi.fastutil.bytes.Byte2LongFunction"
-import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$IntUnaryOperator, $IntUnaryOperator$$Type, $IntUnaryOperator$$Interface} from "java.util.function.IntUnaryOperator"
+import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Double2ByteFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ByteFunction"
 import {$Char2ByteFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ByteFunction"
 import {$Reference2CharFunction} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
@@ -7817,36 +7816,36 @@ export class $Byte2CharFunction implements $Byte2CharFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): character
+ "get"(arg0: any): any
  "get"(arg0: byte): character
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: byte, arg1: character): character
 /**
  * 
  * @deprecated
  */
  "put"(arg0: byte, arg1: character): character
- "containsKey"(arg0: byte): boolean
+ "put"(arg0: byte, arg1: character): character
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: byte): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: byte, arg1: character): character
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: character): character
+ "getOrDefault"(arg0: byte, arg1: character): character
 /**
  * 
  * @deprecated
@@ -7862,26 +7861,26 @@ export class $Byte2CharFunction implements $Byte2CharFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(character), (T)>): $Function$0<(byte), (T)>
- "andThenInt"(arg0: $Char2IntFunction$$Type): $Byte2IntFunction
- "composeInt"(arg0: $Int2ByteFunction$$Type): $Int2CharFunction
- "andThenReference"<T>(arg0: $Char2ReferenceFunction$$Type<(T)>): $Byte2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Char2ObjectFunction$$Type<(T)>): $Byte2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2ByteFunction$$Type): $Short2CharFunction
+ "andThenDouble"(arg0: $Char2DoubleFunction$$Type): $Byte2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2ByteFunction$$Type<(T)>): $Reference2CharFunction<(T)>
+ "composeDouble"(arg0: $Double2ByteFunction$$Type): $Double2CharFunction
+ "andThenChar"(arg0: $Char2CharFunction$$Type): $Byte2CharFunction
+ "defaultReturnValue"(): character
+ "defaultReturnValue"(arg0: character): void
  "composeObject"<T>(arg0: $Object2ByteFunction$$Type<(T)>): $Object2CharFunction<(T)>
+ "andThenByte"(arg0: $Char2ByteFunction$$Type): $Byte2ByteFunction
+ "composeByte"(arg0: $Byte2ByteFunction$$Type): $Byte2CharFunction
+ "andThenReference"<T>(arg0: $Char2ReferenceFunction$$Type<(T)>): $Byte2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2ByteFunction$$Type): $Long2CharFunction
+ "composeFloat"(arg0: $Float2ByteFunction$$Type): $Float2CharFunction
+ "andThenShort"(arg0: $Char2ShortFunction$$Type): $Byte2ShortFunction
+ "composeChar"(arg0: $Char2ByteFunction$$Type): $Char2CharFunction
  "andThenLong"(arg0: $Char2LongFunction$$Type): $Byte2LongFunction
  "andThenFloat"(arg0: $Char2FloatFunction$$Type): $Byte2FloatFunction
- "composeShort"(arg0: $Short2ByteFunction$$Type): $Short2CharFunction
- "andThenObject"<T>(arg0: $Char2ObjectFunction$$Type<(T)>): $Byte2ObjectFunction<(T)>
- "andThenByte"(arg0: $Char2ByteFunction$$Type): $Byte2ByteFunction
- "andThenChar"(arg0: $Char2CharFunction$$Type): $Byte2CharFunction
- "composeReference"<T>(arg0: $Reference2ByteFunction$$Type<(T)>): $Reference2CharFunction<(T)>
- "defaultReturnValue"(arg0: character): void
- "defaultReturnValue"(): character
- "composeByte"(arg0: $Byte2ByteFunction$$Type): $Byte2CharFunction
- "andThenShort"(arg0: $Char2ShortFunction$$Type): $Byte2ShortFunction
- "composeLong"(arg0: $Long2ByteFunction$$Type): $Long2CharFunction
- "composeChar"(arg0: $Char2ByteFunction$$Type): $Char2CharFunction
- "composeFloat"(arg0: $Float2ByteFunction$$Type): $Float2CharFunction
- "andThenDouble"(arg0: $Char2DoubleFunction$$Type): $Byte2DoubleFunction
- "composeDouble"(arg0: $Double2ByteFunction$$Type): $Double2CharFunction
+ "andThenInt"(arg0: $Char2IntFunction$$Type): $Byte2IntFunction
+ "composeInt"(arg0: $Int2ByteFunction$$Type): $Int2CharFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: byte): character
@@ -7913,26 +7912,26 @@ import {$Object2FloatFunction} from "it.unimi.dsi.fastutil.objects.Object2FloatF
 import {$Byte2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ObjectFunction"
 import {$Int2DoubleFunction} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
 import {$Short2DoubleFunction} from "it.unimi.dsi.fastutil.shorts.Short2DoubleFunction"
-import {$Reference2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ObjectFunction"
 import {$Double2DoubleFunction, $Double2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2DoubleFunction"
+import {$Reference2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ObjectFunction"
 import {$Object2CharFunction} from "it.unimi.dsi.fastutil.objects.Object2CharFunction"
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Long2DoubleFunction} from "it.unimi.dsi.fastutil.longs.Long2DoubleFunction"
 import {$Object2ByteFunction} from "it.unimi.dsi.fastutil.objects.Object2ByteFunction"
 import {$Double2CharFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2CharFunction"
-import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Double2LongFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
+import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Double2ByteFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ByteFunction"
-import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2ReferenceFunction} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
+import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Double2IntFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2IntFunction"
 import {$Object2LongFunction} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
 import {$Double2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ObjectFunction"
 import {$Reference2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Reference2DoubleFunction"
 import {$Float2DoubleFunction} from "it.unimi.dsi.fastutil.floats.Float2DoubleFunction"
-import {$Long2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ObjectFunction"
 import {$Double2ShortFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ShortFunction"
+import {$Long2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ObjectFunction"
 
 export interface $Object2DoubleFunction$$Interface<K> extends $Function$$Interface<(K), (double)>, $ToDoubleFunction$$Interface<(K)> {
 
@@ -7944,35 +7943,35 @@ export class $Object2DoubleFunction<K> implements $Object2DoubleFunction$$Interf
  * 
  * @deprecated
  */
- "remove"(arg0: any): double
+ "remove"(arg0: any): any
 /**
  * 
  * @deprecated
  */
  "get"(arg0: any): double
- "put"(arg0: K, arg1: double): double
-/**
- * 
- * @deprecated
- */
- "put"(arg0: K, arg1: double): double
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
+/**
+ * 
+ * @deprecated
+ */
+ "put"(arg0: K, arg1: double): double
+ "put"(arg0: K, arg1: double): double
  "getDouble"(arg0: any): double
+/**
+ * 
+ * @deprecated
+ */
+ "getOrDefault"(arg0: any, arg1: double): double
  "getOrDefault"(arg0: any, arg1: double): double
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
-/**
- * 
- * @deprecated
- */
- "getOrDefault"(arg0: any, arg1: double): double
  "applyAsDouble"(arg0: K): double
 /**
  * 
@@ -7980,26 +7979,26 @@ export class $Object2DoubleFunction<K> implements $Object2DoubleFunction$$Interf
  */
  "andThen"<T>(arg0: $Function$0$$Type<(double), (T)>): $Function$0<(K), (T)>
  "removeDouble"(arg0: any): double
- "andThenInt"(arg0: $Double2IntFunction$$Type): $Object2IntFunction<(K)>
- "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2DoubleFunction
- "andThenReference"<T>(arg0: $Double2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
- "composeObject"<T>(arg0: $Object2ObjectFunction$$Type<(T), (K)>): $Object2DoubleFunction<(T)>
- "andThenLong"(arg0: $Double2LongFunction$$Type): $Object2LongFunction<(K)>
- "andThenFloat"(arg0: $Double2FloatFunction$$Type): $Object2FloatFunction<(K)>
- "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2DoubleFunction
  "andThenObject"<T>(arg0: $Double2ObjectFunction$$Type<(T)>): $Object2ObjectFunction<(K), (T)>
- "andThenByte"(arg0: $Double2ByteFunction$$Type): $Object2ByteFunction<(K)>
- "andThenChar"(arg0: $Double2CharFunction$$Type): $Object2CharFunction<(K)>
+ "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2DoubleFunction
+ "andThenDouble"(arg0: $Double2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
  "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2DoubleFunction<(T)>
+ "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2DoubleFunction
+ "andThenChar"(arg0: $Double2CharFunction$$Type): $Object2CharFunction<(K)>
  "defaultReturnValue"(arg0: double): void
  "defaultReturnValue"(): double
+ "composeObject"<T>(arg0: $Object2ObjectFunction$$Type<(T), (K)>): $Object2DoubleFunction<(T)>
+ "andThenByte"(arg0: $Double2ByteFunction$$Type): $Object2ByteFunction<(K)>
  "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2DoubleFunction
- "andThenShort"(arg0: $Double2ShortFunction$$Type): $Object2ShortFunction<(K)>
+ "andThenReference"<T>(arg0: $Double2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
  "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2DoubleFunction
- "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2DoubleFunction
  "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2DoubleFunction
- "andThenDouble"(arg0: $Double2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
- "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2DoubleFunction
+ "andThenShort"(arg0: $Double2ShortFunction$$Type): $Object2ShortFunction<(K)>
+ "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2DoubleFunction
+ "andThenLong"(arg0: $Double2LongFunction$$Type): $Object2LongFunction<(K)>
+ "andThenFloat"(arg0: $Double2FloatFunction$$Type): $Object2FloatFunction<(K)>
+ "andThenInt"(arg0: $Double2IntFunction$$Type): $Object2IntFunction<(K)>
+ "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2DoubleFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: K): double
@@ -8035,16 +8034,16 @@ import {$Long2LongFunction, $Long2LongFunction$$Type} from "it.unimi.dsi.fastuti
 import {$Long2DoubleFunction} from "it.unimi.dsi.fastutil.longs.Long2DoubleFunction"
 import {$Float2LongFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2LongFunction"
 import {$LongToIntFunction$$Interface} from "java.util.function.LongToIntFunction"
-import {$Long2ReferenceFunction} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
 import {$Char2CharFunction, $Char2CharFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2CharFunction"
+import {$Long2ReferenceFunction} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
 import {$Double2CharFunction} from "it.unimi.dsi.fastutil.doubles.Double2CharFunction"
 import {$Byte2LongFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2LongFunction"
-import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Double2LongFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
+import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Short2LongFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$Char2ByteFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ByteFunction"
-import {$Reference2CharFunction} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
 import {$Int2LongFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
+import {$Reference2CharFunction} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
 import {$Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
 import {$Char2IntFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
 import {$Char2FloatFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
@@ -8068,36 +8067,36 @@ export class $Long2CharFunction implements $Long2CharFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): character
+ "get"(arg0: any): any
  "get"(arg0: long): character
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: long, arg1: character): character
 /**
  * 
  * @deprecated
  */
  "put"(arg0: long, arg1: character): character
- "containsKey"(arg0: long): boolean
+ "put"(arg0: long, arg1: character): character
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: long): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: long, arg1: character): character
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: character): character
+ "getOrDefault"(arg0: long, arg1: character): character
  "applyAsInt"(arg0: long): integer
 /**
  * 
@@ -8109,26 +8108,26 @@ export class $Long2CharFunction implements $Long2CharFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(character), (T)>): $Function$0<(long), (T)>
- "andThenInt"(arg0: $Char2IntFunction$$Type): $Long2IntFunction
- "composeInt"(arg0: $Int2LongFunction$$Type): $Int2CharFunction
- "andThenReference"<T>(arg0: $Char2ReferenceFunction$$Type<(T)>): $Long2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Char2ObjectFunction$$Type<(T)>): $Long2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2LongFunction$$Type): $Short2CharFunction
+ "andThenDouble"(arg0: $Char2DoubleFunction$$Type): $Long2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2LongFunction$$Type<(T)>): $Reference2CharFunction<(T)>
+ "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2CharFunction
+ "andThenChar"(arg0: $Char2CharFunction$$Type): $Long2CharFunction
+ "defaultReturnValue"(): character
+ "defaultReturnValue"(arg0: character): void
  "composeObject"<T>(arg0: $Object2LongFunction$$Type<(T)>): $Object2CharFunction<(T)>
+ "andThenByte"(arg0: $Char2ByteFunction$$Type): $Long2ByteFunction
+ "composeByte"(arg0: $Byte2LongFunction$$Type): $Byte2CharFunction
+ "andThenReference"<T>(arg0: $Char2ReferenceFunction$$Type<(T)>): $Long2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2LongFunction$$Type): $Long2CharFunction
+ "composeFloat"(arg0: $Float2LongFunction$$Type): $Float2CharFunction
+ "andThenShort"(arg0: $Char2ShortFunction$$Type): $Long2ShortFunction
+ "composeChar"(arg0: $Char2LongFunction$$Type): $Char2CharFunction
  "andThenLong"(arg0: $Char2LongFunction$$Type): $Long2LongFunction
  "andThenFloat"(arg0: $Char2FloatFunction$$Type): $Long2FloatFunction
- "composeShort"(arg0: $Short2LongFunction$$Type): $Short2CharFunction
- "andThenObject"<T>(arg0: $Char2ObjectFunction$$Type<(T)>): $Long2ObjectFunction<(T)>
- "andThenByte"(arg0: $Char2ByteFunction$$Type): $Long2ByteFunction
- "andThenChar"(arg0: $Char2CharFunction$$Type): $Long2CharFunction
- "composeReference"<T>(arg0: $Reference2LongFunction$$Type<(T)>): $Reference2CharFunction<(T)>
- "defaultReturnValue"(arg0: character): void
- "defaultReturnValue"(): character
- "composeByte"(arg0: $Byte2LongFunction$$Type): $Byte2CharFunction
- "andThenShort"(arg0: $Char2ShortFunction$$Type): $Long2ShortFunction
- "composeLong"(arg0: $Long2LongFunction$$Type): $Long2CharFunction
- "composeChar"(arg0: $Char2LongFunction$$Type): $Char2CharFunction
- "composeFloat"(arg0: $Float2LongFunction$$Type): $Float2CharFunction
- "andThenDouble"(arg0: $Char2DoubleFunction$$Type): $Long2DoubleFunction
- "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2CharFunction
+ "andThenInt"(arg0: $Char2IntFunction$$Type): $Long2IntFunction
+ "composeInt"(arg0: $Int2LongFunction$$Type): $Int2CharFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: long): character
@@ -8205,15 +8204,15 @@ import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Object2ByteFunction} from "it.unimi.dsi.fastutil.objects.Object2ByteFunction"
 import {$Char2CharFunction, $Char2CharFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2CharFunction"
 import {$Double2CharFunction} from "it.unimi.dsi.fastutil.doubles.Double2CharFunction"
-import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$ToIntFunction$$Interface} from "java.util.function.ToIntFunction"
+import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Char2ByteFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ByteFunction"
 import {$Reference2CharFunction} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
+import {$Object2ReferenceFunction} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
+import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
 import {$Char2IntFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
-import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
-import {$Object2ReferenceFunction} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
 import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Char2FloatFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
 import {$Object2LongFunction} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
@@ -8230,61 +8229,61 @@ export class $Object2CharFunction<K> implements $Object2CharFunction$$Interface 
  * 
  * @deprecated
  */
- "remove"(arg0: any): character
+ "remove"(arg0: any): any
 /**
  * 
  * @deprecated
  */
- "get"(arg0: any): character
+ "get"(arg0: any): any
 /**
  * 
  * @deprecated
  */
+ "put"(arg0: K, arg1: character): character
  "put"(arg0: K, arg1: character): character
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: K, arg1: character): character
  "getChar"(arg0: any): character
 /**
  * 
  * @deprecated
  */
- "getOrDefault"(arg0: any, arg1: character): character
- "getOrDefault"(arg0: any, arg1: character): character
+ "getOrDefault"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
  */
- "getOrDefault"(arg0: any, arg1: any): any
+ "getOrDefault"(arg0: any, arg1: character): character
+ "getOrDefault"(arg0: any, arg1: character): character
  "applyAsInt"(arg0: K): integer
 /**
  * 
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(character), (T)>): $Function$0<(K), (T)>
- "andThenInt"(arg0: $Char2IntFunction$$Type): $Object2IntFunction<(K)>
- "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2CharFunction
- "andThenReference"<T>(arg0: $Char2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
- "composeObject"<T>(arg0: $Object2ObjectFunction$$Type<(T), (K)>): $Object2CharFunction<(T)>
- "andThenLong"(arg0: $Char2LongFunction$$Type): $Object2LongFunction<(K)>
- "andThenFloat"(arg0: $Char2FloatFunction$$Type): $Object2FloatFunction<(K)>
- "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2CharFunction
  "andThenObject"<T>(arg0: $Char2ObjectFunction$$Type<(T)>): $Object2ObjectFunction<(K), (T)>
- "andThenByte"(arg0: $Char2ByteFunction$$Type): $Object2ByteFunction<(K)>
- "andThenChar"(arg0: $Char2CharFunction$$Type): $Object2CharFunction<(K)>
+ "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2CharFunction
+ "andThenDouble"(arg0: $Char2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
  "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2CharFunction<(T)>
+ "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2CharFunction
+ "andThenChar"(arg0: $Char2CharFunction$$Type): $Object2CharFunction<(K)>
  "defaultReturnValue"(): character
  "defaultReturnValue"(arg0: character): void
+ "composeObject"<T>(arg0: $Object2ObjectFunction$$Type<(T), (K)>): $Object2CharFunction<(T)>
+ "andThenByte"(arg0: $Char2ByteFunction$$Type): $Object2ByteFunction<(K)>
  "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2CharFunction
- "andThenShort"(arg0: $Char2ShortFunction$$Type): $Object2ShortFunction<(K)>
+ "andThenReference"<T>(arg0: $Char2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
  "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2CharFunction
- "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2CharFunction
  "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2CharFunction
- "andThenDouble"(arg0: $Char2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
- "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2CharFunction
+ "andThenShort"(arg0: $Char2ShortFunction$$Type): $Object2ShortFunction<(K)>
+ "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2CharFunction
+ "andThenLong"(arg0: $Char2LongFunction$$Type): $Object2LongFunction<(K)>
+ "andThenFloat"(arg0: $Char2FloatFunction$$Type): $Object2FloatFunction<(K)>
+ "andThenInt"(arg0: $Char2IntFunction$$Type): $Object2IntFunction<(K)>
+ "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2CharFunction
  "removeChar"(arg0: any): character
  "size"(): integer
  "clear"(): void
@@ -8306,19 +8305,19 @@ declare module "it.unimi.dsi.fastutil.ints.Int2LongFunction" {
 import {$Object2IntFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2IntFunction"
 import {$Long2CharFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2CharFunction"
 import {$Reference2IntFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2IntFunction"
-import {$Long2IntFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
 import {$Long2ByteFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
+import {$Long2IntFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
 import {$Short2IntFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction"
 import {$Int2FloatFunction} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
 import {$Byte2IntFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
-import {$Reference2LongFunction} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
 import {$Int2CharFunction} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Float2IntFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
+import {$Reference2LongFunction} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
 import {$Long2ShortFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
 import {$Int2ReferenceFunction} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
 import {$Int2ObjectFunction} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
-import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
+import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Int2DoubleFunction} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Long2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2DoubleFunction"
@@ -8327,10 +8326,10 @@ import {$Int2ShortFunction} from "it.unimi.dsi.fastutil.ints.Int2ShortFunction"
 import {$Float2LongFunction} from "it.unimi.dsi.fastutil.floats.Float2LongFunction"
 import {$Long2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
 import {$Byte2LongFunction} from "it.unimi.dsi.fastutil.bytes.Byte2LongFunction"
-import {$Double2LongFunction} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
 import {$Char2LongFunction} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
-import {$Short2LongFunction} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
+import {$Double2LongFunction} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
 import {$IntToLongFunction$$Interface} from "java.util.function.IntToLongFunction"
+import {$Short2LongFunction} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$Char2IntFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
 import {$Long2FloatFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2FloatFunction"
 import {$Double2IntFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2IntFunction"
@@ -8354,36 +8353,36 @@ export class $Int2LongFunction implements $Int2LongFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): long
+ "get"(arg0: any): any
  "get"(arg0: integer): long
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: integer, arg1: long): long
 /**
  * 
  * @deprecated
  */
  "put"(arg0: integer, arg1: long): long
- "containsKey"(arg0: integer): boolean
+ "put"(arg0: integer, arg1: long): long
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: integer): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: integer, arg1: long): long
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: long): long
+ "getOrDefault"(arg0: integer, arg1: long): long
  "applyAsLong"(arg0: integer): long
 /**
  * 
@@ -8395,26 +8394,26 @@ export class $Int2LongFunction implements $Int2LongFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(long), (T)>): $Function$0<(integer), (T)>
- "andThenInt"(arg0: $Long2IntFunction$$Type): $Int2IntFunction
- "composeInt"(arg0: $Int2IntFunction$$Type): $Int2LongFunction
- "andThenReference"<T>(arg0: $Long2ReferenceFunction$$Type<(T)>): $Int2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Long2ObjectFunction$$Type<(T)>): $Int2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2IntFunction$$Type): $Short2LongFunction
+ "andThenDouble"(arg0: $Long2DoubleFunction$$Type): $Int2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2IntFunction$$Type<(T)>): $Reference2LongFunction<(T)>
+ "composeDouble"(arg0: $Double2IntFunction$$Type): $Double2LongFunction
+ "andThenChar"(arg0: $Long2CharFunction$$Type): $Int2CharFunction
+ "defaultReturnValue"(): long
+ "defaultReturnValue"(arg0: long): void
  "composeObject"<T>(arg0: $Object2IntFunction$$Type<(T)>): $Object2LongFunction<(T)>
+ "andThenByte"(arg0: $Long2ByteFunction$$Type): $Int2ByteFunction
+ "composeByte"(arg0: $Byte2IntFunction$$Type): $Byte2LongFunction
+ "andThenReference"<T>(arg0: $Long2ReferenceFunction$$Type<(T)>): $Int2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2IntFunction$$Type): $Long2LongFunction
+ "composeFloat"(arg0: $Float2IntFunction$$Type): $Float2LongFunction
+ "andThenShort"(arg0: $Long2ShortFunction$$Type): $Int2ShortFunction
+ "composeChar"(arg0: $Char2IntFunction$$Type): $Char2LongFunction
  "andThenLong"(arg0: $Long2LongFunction$$Type): $Int2LongFunction
  "andThenFloat"(arg0: $Long2FloatFunction$$Type): $Int2FloatFunction
- "composeShort"(arg0: $Short2IntFunction$$Type): $Short2LongFunction
- "andThenObject"<T>(arg0: $Long2ObjectFunction$$Type<(T)>): $Int2ObjectFunction<(T)>
- "andThenByte"(arg0: $Long2ByteFunction$$Type): $Int2ByteFunction
- "andThenChar"(arg0: $Long2CharFunction$$Type): $Int2CharFunction
- "composeReference"<T>(arg0: $Reference2IntFunction$$Type<(T)>): $Reference2LongFunction<(T)>
- "defaultReturnValue"(arg0: long): void
- "defaultReturnValue"(): long
- "composeByte"(arg0: $Byte2IntFunction$$Type): $Byte2LongFunction
- "andThenShort"(arg0: $Long2ShortFunction$$Type): $Int2ShortFunction
- "composeLong"(arg0: $Long2IntFunction$$Type): $Long2LongFunction
- "composeChar"(arg0: $Char2IntFunction$$Type): $Char2LongFunction
- "composeFloat"(arg0: $Float2IntFunction$$Type): $Float2LongFunction
- "andThenDouble"(arg0: $Long2DoubleFunction$$Type): $Int2DoubleFunction
- "composeDouble"(arg0: $Double2IntFunction$$Type): $Double2LongFunction
+ "andThenInt"(arg0: $Long2IntFunction$$Type): $Int2IntFunction
+ "composeInt"(arg0: $Int2IntFunction$$Type): $Int2LongFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: integer): long
@@ -8522,11 +8521,11 @@ declare module "it.unimi.dsi.fastutil.ints.Int2IntMap" {
 import {$Object2IntFunction, $Object2IntFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2IntFunction"
 import {$Reference2IntFunction, $Reference2IntFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2IntFunction"
 import {$Long2IntFunction, $Long2IntFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
-import {$Short2IntFunction, $Short2IntFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction"
 import {$Int2IntMap$Entry} from "it.unimi.dsi.fastutil.ints.Int2IntMap$Entry"
+import {$Short2IntFunction, $Short2IntFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction"
 import {$Int2FloatFunction, $Int2FloatFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
 import {$Byte2IntFunction, $Byte2IntFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
-import {$IntBinaryOperator$$Type as $IntBinaryOperator$0$$Type} from "java.util.function.IntBinaryOperator"
+import {$IntBinaryOperator$$Type} from "java.util.function.IntBinaryOperator"
 import {$Map$Entry, $Map$Entry$$Type} from "java.util.Map$Entry"
 import {$IntFunction$$Type} from "java.util.function.IntFunction"
 import {$Float2IntFunction, $Float2IntFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
@@ -8538,7 +8537,7 @@ import {$Int2IntFunction, $Int2IntFunction$$Type, $Int2IntFunction$$Interface} f
 import {$Set} from "java.util.Set"
 import {$Int2DoubleFunction, $Int2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
 import {$Map, $Map$$Type, $Map$$Interface} from "java.util.Map"
-import {$IntBinaryOperator$$Type} from "it.unimi.dsi.fastutil.ints.IntBinaryOperator"
+import {$IntBinaryOperator$$Type as $IntBinaryOperator$0$$Type} from "it.unimi.dsi.fastutil.ints.IntBinaryOperator"
 import {$IntCollection} from "it.unimi.dsi.fastutil.ints.IntCollection"
 import {$Int2ShortFunction, $Int2ShortFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ShortFunction"
 import {$BiFunction$$Type} from "java.util.function.BiFunction"
@@ -8693,17 +8692,17 @@ export class $Int2IntMap implements $Int2IntMap$$Interface {
  * @deprecated
  */
  "computeIfPresent"(arg0: integer, arg1: $BiFunction$$Type<(integer), (integer), (integer)>): integer
- "computeIfAbsentNullable"(arg0: integer, arg1: $IntFunction$$Type<(integer)>): integer
  "defaultReturnValue"(arg0: integer): void
  "defaultReturnValue"(): integer
+ "mergeInt"(arg0: integer, arg1: integer, arg2: $IntBinaryOperator$0$$Type): integer
+ "mergeInt"(arg0: integer, arg1: integer, arg2: $IntBinaryOperator$$Type): integer
  "int2IntEntrySet"(): $ObjectSet<($Int2IntMap$Entry)>
+ "computeIfAbsentNullable"(arg0: integer, arg1: $IntFunction$$Type<(integer)>): integer
 /**
  * 
  * @deprecated
  */
  "computeIfAbsentPartial"(arg0: integer, arg1: $Int2IntFunction$$Type): integer
- "mergeInt"(arg0: integer, arg1: integer, arg2: $IntBinaryOperator$0$$Type): integer
- "mergeInt"(arg0: integer, arg1: integer, arg2: $IntBinaryOperator$$Type): integer
  "remove"(arg0: integer): integer
  "get"(arg0: integer): integer
  "put"(arg0: integer, arg1: integer): integer
@@ -8719,24 +8718,24 @@ static "identity"(): $Int2IntFunction
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$$Type<(integer), (T)>): $Function<(integer), (T)>
- "andThenInt"(arg0: $Int2IntFunction$$Type): $Int2IntFunction
- "composeInt"(arg0: $Int2IntFunction$$Type): $Int2IntFunction
- "andThenReference"<T>(arg0: $Int2ReferenceFunction$$Type<(T)>): $Int2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Int2ObjectFunction$$Type<(T)>): $Int2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2IntFunction$$Type): $Short2IntFunction
+ "andThenDouble"(arg0: $Int2DoubleFunction$$Type): $Int2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2IntFunction$$Type<(T)>): $Reference2IntFunction<(T)>
+ "composeDouble"(arg0: $Double2IntFunction$$Type): $Double2IntFunction
+ "andThenChar"(arg0: $Int2CharFunction$$Type): $Int2CharFunction
  "composeObject"<T>(arg0: $Object2IntFunction$$Type<(T)>): $Object2IntFunction<(T)>
+ "andThenByte"(arg0: $Int2ByteFunction$$Type): $Int2ByteFunction
+ "composeByte"(arg0: $Byte2IntFunction$$Type): $Byte2IntFunction
+ "andThenReference"<T>(arg0: $Int2ReferenceFunction$$Type<(T)>): $Int2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2IntFunction$$Type): $Long2IntFunction
+ "composeFloat"(arg0: $Float2IntFunction$$Type): $Float2IntFunction
+ "andThenShort"(arg0: $Int2ShortFunction$$Type): $Int2ShortFunction
+ "composeChar"(arg0: $Char2IntFunction$$Type): $Char2IntFunction
  "andThenLong"(arg0: $Int2LongFunction$$Type): $Int2LongFunction
  "andThenFloat"(arg0: $Int2FloatFunction$$Type): $Int2FloatFunction
- "composeShort"(arg0: $Short2IntFunction$$Type): $Short2IntFunction
- "andThenObject"<T>(arg0: $Int2ObjectFunction$$Type<(T)>): $Int2ObjectFunction<(T)>
- "andThenByte"(arg0: $Int2ByteFunction$$Type): $Int2ByteFunction
- "andThenChar"(arg0: $Int2CharFunction$$Type): $Int2CharFunction
- "composeReference"<T>(arg0: $Reference2IntFunction$$Type<(T)>): $Reference2IntFunction<(T)>
- "composeByte"(arg0: $Byte2IntFunction$$Type): $Byte2IntFunction
- "andThenShort"(arg0: $Int2ShortFunction$$Type): $Int2ShortFunction
- "composeLong"(arg0: $Long2IntFunction$$Type): $Long2IntFunction
- "composeChar"(arg0: $Char2IntFunction$$Type): $Char2IntFunction
- "composeFloat"(arg0: $Float2IntFunction$$Type): $Float2IntFunction
- "andThenDouble"(arg0: $Int2DoubleFunction$$Type): $Int2DoubleFunction
- "composeDouble"(arg0: $Double2IntFunction$$Type): $Double2IntFunction
+ "andThenInt"(arg0: $Int2IntFunction$$Type): $Int2IntFunction
+ "composeInt"(arg0: $Int2IntFunction$$Type): $Int2IntFunction
  "equals"(arg0: any): boolean
  "hashCode"(): integer
 static "copyOf"<K, V>(arg0: $Map$$Type<(integer), (integer)>): $Map<(integer), (integer)>
@@ -8774,14 +8773,14 @@ import {$Char2DoubleFunction} from "it.unimi.dsi.fastutil.chars.Char2DoubleFunct
 import {$Float2ReferenceFunction} from "it.unimi.dsi.fastutil.floats.Float2ReferenceFunction"
 import {$Long2CharFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2CharFunction"
 import {$Reference2IntFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2IntFunction"
-import {$Reference2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
 import {$IntFunction$$Interface} from "java.util.function.IntFunction"
-import {$Int2CharFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
+import {$Reference2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
 import {$Reference2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
+import {$Int2CharFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Double2ReferenceFunction} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
-import {$Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Int2ReferenceFunction} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
 import {$Short2CharFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
+import {$Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Byte2ReferenceFunction} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
 import {$Char2ObjectFunction} from "it.unimi.dsi.fastutil.chars.Char2ObjectFunction"
 import {$Char2ShortFunction} from "it.unimi.dsi.fastutil.chars.Char2ShortFunction"
@@ -8793,9 +8792,9 @@ import {$Reference2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Ref
 import {$Object2CharFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2CharFunction"
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Short2ReferenceFunction} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
-import {$Long2ReferenceFunction} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
 import {$Double2CharFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2CharFunction"
 import {$Char2CharFunction, $Char2CharFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2CharFunction"
+import {$Long2ReferenceFunction} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
 import {$Reference2FloatFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
 import {$Char2LongFunction} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Char2ByteFunction} from "it.unimi.dsi.fastutil.chars.Char2ByteFunction"
@@ -8811,12 +8810,12 @@ export interface $Char2ReferenceFunction$$Interface<V> extends $Function$$Interf
 }
 
 export class $Char2ReferenceFunction<V> implements $Char2ReferenceFunction$$Interface {
- "remove"(arg0: character): V
 /**
  * 
  * @deprecated
  */
  "remove"(arg0: any): V
+ "remove"(arg0: character): V
 /**
  * 
  * @deprecated
@@ -8827,13 +8826,13 @@ export class $Char2ReferenceFunction<V> implements $Char2ReferenceFunction$$Inte
  * 
  * @deprecated
  */
- "put"(arg0: character, arg1: V): V
- "put"(arg0: character, arg1: V): V
+ "put"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
  */
- "put"(arg0: any, arg1: any): any
+ "put"(arg0: character, arg1: V): V
+ "put"(arg0: character, arg1: V): V
 /**
  * 
  * @deprecated
@@ -8856,26 +8855,26 @@ export class $Char2ReferenceFunction<V> implements $Char2ReferenceFunction$$Inte
  * @deprecated
  */
  "compose"<T>(arg0: $Function$0$$Type<(T), (character)>): $Function$0<(T), (V)>
- "andThenInt"(arg0: $Reference2IntFunction$$Type<(V)>): $Char2IntFunction
- "composeInt"(arg0: $Int2CharFunction$$Type): $Int2ReferenceFunction<(V)>
- "andThenReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(V), (T)>): $Char2ReferenceFunction<(T)>
- "composeObject"<T>(arg0: $Object2CharFunction$$Type<(T)>): $Object2ReferenceFunction<(T), (V)>
- "andThenLong"(arg0: $Reference2LongFunction$$Type<(V)>): $Char2LongFunction
- "andThenFloat"(arg0: $Reference2FloatFunction$$Type<(V)>): $Char2FloatFunction
- "composeShort"(arg0: $Short2CharFunction$$Type): $Short2ReferenceFunction<(V)>
  "andThenObject"<T>(arg0: $Reference2ObjectFunction$$Type<(V), (T)>): $Char2ObjectFunction<(T)>
- "andThenByte"(arg0: $Reference2ByteFunction$$Type<(V)>): $Char2ByteFunction
- "andThenChar"(arg0: $Reference2CharFunction$$Type<(V)>): $Char2CharFunction
+ "composeShort"(arg0: $Short2CharFunction$$Type): $Short2ReferenceFunction<(V)>
+ "andThenDouble"(arg0: $Reference2DoubleFunction$$Type<(V)>): $Char2DoubleFunction
  "composeReference"<T>(arg0: $Reference2CharFunction$$Type<(T)>): $Reference2ReferenceFunction<(T), (V)>
+ "composeDouble"(arg0: $Double2CharFunction$$Type): $Double2ReferenceFunction<(V)>
+ "andThenChar"(arg0: $Reference2CharFunction$$Type<(V)>): $Char2CharFunction
  "defaultReturnValue"(): V
  "defaultReturnValue"(arg0: V): void
+ "composeObject"<T>(arg0: $Object2CharFunction$$Type<(T)>): $Object2ReferenceFunction<(T), (V)>
+ "andThenByte"(arg0: $Reference2ByteFunction$$Type<(V)>): $Char2ByteFunction
  "composeByte"(arg0: $Byte2CharFunction$$Type): $Byte2ReferenceFunction<(V)>
- "andThenShort"(arg0: $Reference2ShortFunction$$Type<(V)>): $Char2ShortFunction
+ "andThenReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(V), (T)>): $Char2ReferenceFunction<(T)>
  "composeLong"(arg0: $Long2CharFunction$$Type): $Long2ReferenceFunction<(V)>
- "composeChar"(arg0: $Char2CharFunction$$Type): $Char2ReferenceFunction<(V)>
  "composeFloat"(arg0: $Float2CharFunction$$Type): $Float2ReferenceFunction<(V)>
- "andThenDouble"(arg0: $Reference2DoubleFunction$$Type<(V)>): $Char2DoubleFunction
- "composeDouble"(arg0: $Double2CharFunction$$Type): $Double2ReferenceFunction<(V)>
+ "andThenShort"(arg0: $Reference2ShortFunction$$Type<(V)>): $Char2ShortFunction
+ "composeChar"(arg0: $Char2CharFunction$$Type): $Char2ReferenceFunction<(V)>
+ "andThenLong"(arg0: $Reference2LongFunction$$Type<(V)>): $Char2LongFunction
+ "andThenFloat"(arg0: $Reference2FloatFunction$$Type<(V)>): $Char2FloatFunction
+ "andThenInt"(arg0: $Reference2IntFunction$$Type<(V)>): $Char2IntFunction
+ "composeInt"(arg0: $Int2CharFunction$$Type): $Int2ReferenceFunction<(V)>
  "size"(): integer
  "clear"(): void
  "apply"(arg0: character): V
@@ -8895,8 +8894,8 @@ declare module "it.unimi.dsi.fastutil.doubles.DoubleSpliterator" {
 import {$DoubleConsumer$$Type as $DoubleConsumer$0$$Type} from "java.util.function.DoubleConsumer"
 import {$Comparator} from "java.util.Comparator"
 import {$Spliterator} from "java.util.Spliterator"
-import {$DoubleConsumer$$Type} from "it.unimi.dsi.fastutil.doubles.DoubleConsumer"
 import {$Spliterator$OfDouble$$Interface} from "java.util.Spliterator$OfDouble"
+import {$DoubleConsumer$$Type} from "it.unimi.dsi.fastutil.doubles.DoubleConsumer"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 
 export interface $DoubleSpliterator$$Interface extends $Spliterator$OfDouble$$Interface {
@@ -8939,8 +8938,8 @@ export type $DoubleSpliterator$$Type = ($DoubleSpliterator);
  */
 export type $DoubleSpliterator$$Original = $DoubleSpliterator;}
 declare module "it.unimi.dsi.fastutil.chars.Char2BooleanFunction" {
-import {$Reference2BooleanFunction} from "it.unimi.dsi.fastutil.objects.Reference2BooleanFunction"
 import {$Char2DoubleFunction} from "it.unimi.dsi.fastutil.chars.Char2DoubleFunction"
+import {$Reference2BooleanFunction} from "it.unimi.dsi.fastutil.objects.Reference2BooleanFunction"
 import {$Float2BooleanFunction} from "it.unimi.dsi.fastutil.floats.Float2BooleanFunction"
 import {$Long2BooleanFunction} from "it.unimi.dsi.fastutil.longs.Long2BooleanFunction"
 import {$Long2CharFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2CharFunction"
@@ -8968,13 +8967,13 @@ import {$Reference2CharFunction$$Type} from "it.unimi.dsi.fastutil.objects.Refer
 import {$Char2IntFunction} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
 import {$Char2ReferenceFunction} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
 import {$Boolean2ByteFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ByteFunction"
-import {$Char2FloatFunction} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
 import {$Boolean2IntFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2IntFunction"
+import {$Char2FloatFunction} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
 import {$Byte2BooleanFunction} from "it.unimi.dsi.fastutil.bytes.Byte2BooleanFunction"
 import {$Int2BooleanFunction} from "it.unimi.dsi.fastutil.ints.Int2BooleanFunction"
-import {$Boolean2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ObjectFunction"
-import {$Object2BooleanFunction} from "it.unimi.dsi.fastutil.objects.Object2BooleanFunction"
 import {$Boolean2ShortFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ShortFunction"
+import {$Object2BooleanFunction} from "it.unimi.dsi.fastutil.objects.Object2BooleanFunction"
+import {$Boolean2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ObjectFunction"
 import {$Boolean2LongFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2LongFunction"
 
 export interface $Char2BooleanFunction$$Interface extends $Function$$Interface<(character), (boolean)>, $IntPredicate$$Interface {
@@ -9000,29 +8999,29 @@ export class $Char2BooleanFunction implements $Char2BooleanFunction$$Interface {
  * @deprecated
  */
  "put"(arg0: character, arg1: boolean): boolean
- "put"(arg0: character, arg1: boolean): boolean
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
+ "put"(arg0: character, arg1: boolean): boolean
 /**
  * 
  * @deprecated
  */
  "test"(arg0: integer): boolean
- "containsKey"(arg0: character): boolean
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: character): boolean
+ "getOrDefault"(arg0: character, arg1: boolean): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: character, arg1: boolean): boolean
 /**
  * 
  * @deprecated
@@ -9038,26 +9037,26 @@ export class $Char2BooleanFunction implements $Char2BooleanFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(boolean), (T)>): $Function$0<(character), (T)>
- "andThenInt"(arg0: $Boolean2IntFunction$$Type): $Char2IntFunction
- "composeInt"(arg0: $Int2CharFunction$$Type): $Int2BooleanFunction
- "andThenReference"<T>(arg0: $Boolean2ReferenceFunction$$Type<(T)>): $Char2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Boolean2ObjectFunction$$Type<(T)>): $Char2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2CharFunction$$Type): $Short2BooleanFunction
+ "andThenDouble"(arg0: $Boolean2DoubleFunction$$Type): $Char2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2CharFunction$$Type<(T)>): $Reference2BooleanFunction<(T)>
+ "composeDouble"(arg0: $Double2CharFunction$$Type): $Double2BooleanFunction
+ "andThenChar"(arg0: $Boolean2CharFunction$$Type): $Char2CharFunction
+ "defaultReturnValue"(): boolean
+ "defaultReturnValue"(arg0: boolean): void
  "composeObject"<T>(arg0: $Object2CharFunction$$Type<(T)>): $Object2BooleanFunction<(T)>
+ "andThenByte"(arg0: $Boolean2ByteFunction$$Type): $Char2ByteFunction
+ "composeByte"(arg0: $Byte2CharFunction$$Type): $Byte2BooleanFunction
+ "andThenReference"<T>(arg0: $Boolean2ReferenceFunction$$Type<(T)>): $Char2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2CharFunction$$Type): $Long2BooleanFunction
+ "composeFloat"(arg0: $Float2CharFunction$$Type): $Float2BooleanFunction
+ "andThenShort"(arg0: $Boolean2ShortFunction$$Type): $Char2ShortFunction
+ "composeChar"(arg0: $Char2CharFunction$$Type): $Char2BooleanFunction
  "andThenLong"(arg0: $Boolean2LongFunction$$Type): $Char2LongFunction
  "andThenFloat"(arg0: $Boolean2FloatFunction$$Type): $Char2FloatFunction
- "composeShort"(arg0: $Short2CharFunction$$Type): $Short2BooleanFunction
- "andThenObject"<T>(arg0: $Boolean2ObjectFunction$$Type<(T)>): $Char2ObjectFunction<(T)>
- "andThenByte"(arg0: $Boolean2ByteFunction$$Type): $Char2ByteFunction
- "andThenChar"(arg0: $Boolean2CharFunction$$Type): $Char2CharFunction
- "composeReference"<T>(arg0: $Reference2CharFunction$$Type<(T)>): $Reference2BooleanFunction<(T)>
- "defaultReturnValue"(arg0: boolean): void
- "defaultReturnValue"(): boolean
- "composeByte"(arg0: $Byte2CharFunction$$Type): $Byte2BooleanFunction
- "andThenShort"(arg0: $Boolean2ShortFunction$$Type): $Char2ShortFunction
- "composeLong"(arg0: $Long2CharFunction$$Type): $Long2BooleanFunction
- "composeChar"(arg0: $Char2CharFunction$$Type): $Char2BooleanFunction
- "composeFloat"(arg0: $Float2CharFunction$$Type): $Float2BooleanFunction
- "andThenDouble"(arg0: $Boolean2DoubleFunction$$Type): $Char2DoubleFunction
- "composeDouble"(arg0: $Double2CharFunction$$Type): $Double2BooleanFunction
+ "andThenInt"(arg0: $Boolean2IntFunction$$Type): $Char2IntFunction
+ "composeInt"(arg0: $Int2CharFunction$$Type): $Int2BooleanFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: character): boolean
@@ -9083,11 +9082,11 @@ import {$Reference2IntFunction, $Reference2IntFunction$$Type} from "it.unimi.dsi
 import {$Short2ReferenceFunction, $Short2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Long2ReferenceFunction, $Long2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
 import {$Reference2ShortFunction, $Reference2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
-import {$Reference2FloatFunction, $Reference2FloatFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
 import {$Reference2LongFunction, $Reference2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
+import {$Reference2FloatFunction, $Reference2FloatFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
 import {$Double2ReferenceFunction, $Double2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
-import {$Reference2ByteFunction, $Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Int2ReferenceFunction, $Int2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
+import {$Reference2ByteFunction, $Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Byte2ReferenceFunction, $Byte2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
 import {$Reference2CharFunction, $Reference2CharFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
 import {$Object2ReferenceFunction, $Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
@@ -9105,26 +9104,26 @@ export class $Reference2ReferenceFunction<K, V> implements $Reference2ReferenceF
  "get"(arg0: any): V
  "put"(arg0: K, arg1: V): V
  "getOrDefault"(arg0: any, arg1: V): V
- "andThenInt"(arg0: $Reference2IntFunction$$Type<(V)>): $Reference2IntFunction<(K)>
- "composeInt"(arg0: $Int2ReferenceFunction$$Type<(K)>): $Int2ReferenceFunction<(V)>
- "andThenReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(V), (T)>): $Reference2ReferenceFunction<(K), (T)>
+ "andThenObject"<T>(arg0: $Reference2ObjectFunction$$Type<(V), (T)>): $Reference2ObjectFunction<(K), (T)>
+ "composeShort"(arg0: $Short2ReferenceFunction$$Type<(K)>): $Short2ReferenceFunction<(V)>
+ "andThenDouble"(arg0: $Reference2DoubleFunction$$Type<(V)>): $Reference2DoubleFunction<(K)>
+ "composeReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(T), (K)>): $Reference2ReferenceFunction<(T), (V)>
+ "composeDouble"(arg0: $Double2ReferenceFunction$$Type<(K)>): $Double2ReferenceFunction<(V)>
+ "andThenChar"(arg0: $Reference2CharFunction$$Type<(V)>): $Reference2CharFunction<(K)>
+ "defaultReturnValue"(): V
+ "defaultReturnValue"(arg0: V): void
  "composeObject"<T>(arg0: $Object2ReferenceFunction$$Type<(T), (K)>): $Object2ReferenceFunction<(T), (V)>
+ "andThenByte"(arg0: $Reference2ByteFunction$$Type<(V)>): $Reference2ByteFunction<(K)>
+ "composeByte"(arg0: $Byte2ReferenceFunction$$Type<(K)>): $Byte2ReferenceFunction<(V)>
+ "andThenReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(V), (T)>): $Reference2ReferenceFunction<(K), (T)>
+ "composeLong"(arg0: $Long2ReferenceFunction$$Type<(K)>): $Long2ReferenceFunction<(V)>
+ "composeFloat"(arg0: $Float2ReferenceFunction$$Type<(K)>): $Float2ReferenceFunction<(V)>
+ "andThenShort"(arg0: $Reference2ShortFunction$$Type<(V)>): $Reference2ShortFunction<(K)>
+ "composeChar"(arg0: $Char2ReferenceFunction$$Type<(K)>): $Char2ReferenceFunction<(V)>
  "andThenLong"(arg0: $Reference2LongFunction$$Type<(V)>): $Reference2LongFunction<(K)>
  "andThenFloat"(arg0: $Reference2FloatFunction$$Type<(V)>): $Reference2FloatFunction<(K)>
- "composeShort"(arg0: $Short2ReferenceFunction$$Type<(K)>): $Short2ReferenceFunction<(V)>
- "andThenObject"<T>(arg0: $Reference2ObjectFunction$$Type<(V), (T)>): $Reference2ObjectFunction<(K), (T)>
- "andThenByte"(arg0: $Reference2ByteFunction$$Type<(V)>): $Reference2ByteFunction<(K)>
- "andThenChar"(arg0: $Reference2CharFunction$$Type<(V)>): $Reference2CharFunction<(K)>
- "composeReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(T), (K)>): $Reference2ReferenceFunction<(T), (V)>
- "defaultReturnValue"(arg0: V): void
- "defaultReturnValue"(): V
- "composeByte"(arg0: $Byte2ReferenceFunction$$Type<(K)>): $Byte2ReferenceFunction<(V)>
- "andThenShort"(arg0: $Reference2ShortFunction$$Type<(V)>): $Reference2ShortFunction<(K)>
- "composeLong"(arg0: $Long2ReferenceFunction$$Type<(K)>): $Long2ReferenceFunction<(V)>
- "composeChar"(arg0: $Char2ReferenceFunction$$Type<(K)>): $Char2ReferenceFunction<(V)>
- "composeFloat"(arg0: $Float2ReferenceFunction$$Type<(K)>): $Float2ReferenceFunction<(V)>
- "andThenDouble"(arg0: $Reference2DoubleFunction$$Type<(V)>): $Reference2DoubleFunction<(K)>
- "composeDouble"(arg0: $Double2ReferenceFunction$$Type<(K)>): $Double2ReferenceFunction<(V)>
+ "andThenInt"(arg0: $Reference2IntFunction$$Type<(V)>): $Reference2IntFunction<(K)>
+ "composeInt"(arg0: $Int2ReferenceFunction$$Type<(K)>): $Int2ReferenceFunction<(V)>
  "size"(): integer
  "clear"(): void
  "apply"(arg0: K): V
@@ -9307,18 +9306,18 @@ import {$ShortUnaryOperator$$Type} from "it.unimi.dsi.fastutil.shorts.ShortUnary
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
 import {$ShortPredicate$$Type} from "it.unimi.dsi.fastutil.shorts.ShortPredicate"
 import {$Collection$$Type} from "java.util.Collection"
-import {$IntStream} from "java.util.stream.IntStream"
-import {$Comparator$$Type} from "java.util.Comparator"
 import {$SequencedCollection} from "java.util.SequencedCollection"
+import {$Comparator$$Type} from "java.util.Comparator"
+import {$IntStream} from "java.util.stream.IntStream"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$IntSpliterator} from "it.unimi.dsi.fastutil.ints.IntSpliterator"
-import {$ShortSpliterator} from "it.unimi.dsi.fastutil.shorts.ShortSpliterator"
 import {$ShortComparator$$Type} from "it.unimi.dsi.fastutil.shorts.ShortComparator"
+import {$ShortSpliterator} from "it.unimi.dsi.fastutil.shorts.ShortSpliterator"
 import {$Consumer$$Type} from "java.util.function.Consumer"
-import {$ShortListIterator} from "it.unimi.dsi.fastutil.shorts.ShortListIterator"
 import {$IntUnaryOperator$$Type} from "java.util.function.IntUnaryOperator"
-import {$ShortCollection$$Type, $ShortCollection$$Interface} from "it.unimi.dsi.fastutil.shorts.ShortCollection"
+import {$ShortListIterator} from "it.unimi.dsi.fastutil.shorts.ShortListIterator"
 import {$IntIterator} from "it.unimi.dsi.fastutil.ints.IntIterator"
+import {$ShortCollection$$Type, $ShortCollection$$Interface} from "it.unimi.dsi.fastutil.shorts.ShortCollection"
 import {$ListIterator} from "java.util.ListIterator"
 
 export interface $ShortList$$Interface extends $List$$Interface<(short)>, $Comparable$$Interface<($List<(short)>)>, $ShortCollection$$Interface {
@@ -9430,11 +9429,11 @@ static "of"(arg0: short, arg1: short): $ShortList
  "unstableSort"(arg0: $Comparator$$Type<(short)>): void
  "unstableSort"(arg0: $ShortComparator$$Type): void
  "setElements"(arg0: integer, arg1: (short)[], arg2: integer, arg3: integer): void
- "setElements"(arg0: (short)[]): void
  "setElements"(arg0: integer, arg1: (short)[]): void
- "removeElements"(arg0: integer, arg1: integer): void
+ "setElements"(arg0: (short)[]): void
  "addElements"(arg0: integer, arg1: (short)[]): void
  "addElements"(arg0: integer, arg1: (short)[], arg2: integer, arg3: integer): void
+ "removeElements"(arg0: integer, arg1: integer): void
  "removeShort"(arg0: integer): short
  "size"(): integer
  "equals"(arg0: any): boolean
@@ -9499,9 +9498,9 @@ static "of"<E>(arg0: short, arg1: short, arg2: short, arg3: short, arg4: short, 
  */
  "toShortArray"(arg0: (short)[]): (short)[]
  "toShortArray"(): (short)[]
+ "intParallelStream"(): $IntStream
  "intSpliterator"(): $IntSpliterator
  "intIterator"(): $IntIterator
- "intParallelStream"(): $IntStream
  "toArray"<T>(arg0: $IntFunction$$Type<((T)[])>): (T)[]
  "forEach"(arg0: $ShortConsumer$$Type): void
 /**
@@ -9526,8 +9525,8 @@ import {$Float2ReferenceFunction} from "it.unimi.dsi.fastutil.floats.Float2Refer
 import {$Float2ByteFunction} from "it.unimi.dsi.fastutil.floats.Float2ByteFunction"
 import {$Long2BooleanFunction} from "it.unimi.dsi.fastutil.longs.Long2BooleanFunction"
 import {$Int2FloatFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
-import {$Double2FloatFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Float2IntFunction} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
+import {$Double2FloatFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
 import {$Object2FloatFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2FloatFunction"
 import {$Boolean2FloatFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2FloatFunction"
@@ -9543,21 +9542,21 @@ import {$Boolean2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.booleans.B
 import {$Double2BooleanFunction} from "it.unimi.dsi.fastutil.doubles.Double2BooleanFunction"
 import {$Reference2FloatFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
 import {$Float2ObjectFunction} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
-import {$Float2FloatFunction, $Float2FloatFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2FloatFunction"
 import {$Short2BooleanFunction} from "it.unimi.dsi.fastutil.shorts.Short2BooleanFunction"
+import {$Float2FloatFunction, $Float2FloatFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2FloatFunction"
 import {$Boolean2ByteFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ByteFunction"
-import {$Char2FloatFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
-import {$Long2FloatFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2FloatFunction"
 import {$Boolean2IntFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2IntFunction"
+import {$Long2FloatFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2FloatFunction"
+import {$Char2FloatFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
 import {$Byte2BooleanFunction} from "it.unimi.dsi.fastutil.bytes.Byte2BooleanFunction"
 import {$Int2BooleanFunction} from "it.unimi.dsi.fastutil.ints.Int2BooleanFunction"
 import {$Short2FloatFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2FloatFunction"
-import {$Boolean2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ObjectFunction"
+import {$Boolean2ShortFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ShortFunction"
 import {$Object2BooleanFunction} from "it.unimi.dsi.fastutil.objects.Object2BooleanFunction"
 import {$Byte2FloatFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2FloatFunction"
-import {$Boolean2ShortFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ShortFunction"
-import {$Boolean2LongFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2LongFunction"
+import {$Boolean2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ObjectFunction"
 import {$Float2DoubleFunction} from "it.unimi.dsi.fastutil.floats.Float2DoubleFunction"
+import {$Boolean2LongFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2LongFunction"
 
 export interface $Float2BooleanFunction$$Interface extends $Function$$Interface<(float), (boolean)>, $DoublePredicate$$Interface {
 
@@ -9582,29 +9581,29 @@ export class $Float2BooleanFunction implements $Float2BooleanFunction$$Interface
  * @deprecated
  */
  "put"(arg0: float, arg1: boolean): boolean
- "put"(arg0: float, arg1: boolean): boolean
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
+ "put"(arg0: float, arg1: boolean): boolean
 /**
  * 
  * @deprecated
  */
  "test"(arg0: double): boolean
- "containsKey"(arg0: float): boolean
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: float): boolean
+ "getOrDefault"(arg0: float, arg1: boolean): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: float, arg1: boolean): boolean
 /**
  * 
  * @deprecated
@@ -9620,26 +9619,26 @@ export class $Float2BooleanFunction implements $Float2BooleanFunction$$Interface
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(boolean), (T)>): $Function$0<(float), (T)>
- "andThenInt"(arg0: $Boolean2IntFunction$$Type): $Float2IntFunction
- "composeInt"(arg0: $Int2FloatFunction$$Type): $Int2BooleanFunction
- "andThenReference"<T>(arg0: $Boolean2ReferenceFunction$$Type<(T)>): $Float2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Boolean2ObjectFunction$$Type<(T)>): $Float2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2FloatFunction$$Type): $Short2BooleanFunction
+ "andThenDouble"(arg0: $Boolean2DoubleFunction$$Type): $Float2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2FloatFunction$$Type<(T)>): $Reference2BooleanFunction<(T)>
+ "composeDouble"(arg0: $Double2FloatFunction$$Type): $Double2BooleanFunction
+ "andThenChar"(arg0: $Boolean2CharFunction$$Type): $Float2CharFunction
+ "defaultReturnValue"(): boolean
+ "defaultReturnValue"(arg0: boolean): void
  "composeObject"<T>(arg0: $Object2FloatFunction$$Type<(T)>): $Object2BooleanFunction<(T)>
+ "andThenByte"(arg0: $Boolean2ByteFunction$$Type): $Float2ByteFunction
+ "composeByte"(arg0: $Byte2FloatFunction$$Type): $Byte2BooleanFunction
+ "andThenReference"<T>(arg0: $Boolean2ReferenceFunction$$Type<(T)>): $Float2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2FloatFunction$$Type): $Long2BooleanFunction
+ "composeFloat"(arg0: $Float2FloatFunction$$Type): $Float2BooleanFunction
+ "andThenShort"(arg0: $Boolean2ShortFunction$$Type): $Float2ShortFunction
+ "composeChar"(arg0: $Char2FloatFunction$$Type): $Char2BooleanFunction
  "andThenLong"(arg0: $Boolean2LongFunction$$Type): $Float2LongFunction
  "andThenFloat"(arg0: $Boolean2FloatFunction$$Type): $Float2FloatFunction
- "composeShort"(arg0: $Short2FloatFunction$$Type): $Short2BooleanFunction
- "andThenObject"<T>(arg0: $Boolean2ObjectFunction$$Type<(T)>): $Float2ObjectFunction<(T)>
- "andThenByte"(arg0: $Boolean2ByteFunction$$Type): $Float2ByteFunction
- "andThenChar"(arg0: $Boolean2CharFunction$$Type): $Float2CharFunction
- "composeReference"<T>(arg0: $Reference2FloatFunction$$Type<(T)>): $Reference2BooleanFunction<(T)>
- "defaultReturnValue"(arg0: boolean): void
- "defaultReturnValue"(): boolean
- "composeByte"(arg0: $Byte2FloatFunction$$Type): $Byte2BooleanFunction
- "andThenShort"(arg0: $Boolean2ShortFunction$$Type): $Float2ShortFunction
- "composeLong"(arg0: $Long2FloatFunction$$Type): $Long2BooleanFunction
- "composeChar"(arg0: $Char2FloatFunction$$Type): $Char2BooleanFunction
- "composeFloat"(arg0: $Float2FloatFunction$$Type): $Float2BooleanFunction
- "andThenDouble"(arg0: $Boolean2DoubleFunction$$Type): $Float2DoubleFunction
- "composeDouble"(arg0: $Double2FloatFunction$$Type): $Double2BooleanFunction
+ "andThenInt"(arg0: $Boolean2IntFunction$$Type): $Float2IntFunction
+ "composeInt"(arg0: $Int2FloatFunction$$Type): $Int2BooleanFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: float): boolean
@@ -9661,39 +9660,39 @@ declare module "it.unimi.dsi.fastutil.objects.Object2IntMap" {
 import {$Object2IntFunction, $Object2IntFunction$$Type, $Object2IntFunction$$Interface} from "it.unimi.dsi.fastutil.objects.Object2IntFunction"
 import {$Reference2IntFunction} from "it.unimi.dsi.fastutil.objects.Reference2IntFunction"
 import {$Long2IntFunction} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
-import {$Short2IntFunction} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction"
 import {$Object2ObjectFunction, $Object2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ObjectFunction"
+import {$Short2IntFunction} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction"
 import {$Int2FloatFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
 import {$Byte2IntFunction} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
-import {$IntBinaryOperator$$Type as $IntBinaryOperator$0$$Type} from "java.util.function.IntBinaryOperator"
+import {$IntBinaryOperator$$Type} from "java.util.function.IntBinaryOperator"
 import {$Map$Entry, $Map$Entry$$Type} from "java.util.Map$Entry"
-import {$Int2CharFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Float2IntFunction} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
+import {$Int2CharFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Int2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
 import {$Int2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
 import {$Char2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ObjectFunction"
 import {$Object2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Object2DoubleFunction"
-import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Function, $Function$$Type} from "java.util.function.Function"
+import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Object2FloatFunction} from "it.unimi.dsi.fastutil.objects.Object2FloatFunction"
 import {$Byte2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ObjectFunction"
 import {$Int2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
 import {$Reference2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ObjectFunction"
 import {$Collection} from "java.util.Collection"
 import {$Map, $Map$$Type, $Map$$Interface} from "java.util.Map"
-import {$IntBinaryOperator$$Type} from "it.unimi.dsi.fastutil.ints.IntBinaryOperator"
+import {$IntBinaryOperator$$Type as $IntBinaryOperator$0$$Type} from "it.unimi.dsi.fastutil.ints.IntBinaryOperator"
 import {$Object2CharFunction} from "it.unimi.dsi.fastutil.objects.Object2CharFunction"
 import {$Int2ShortFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ShortFunction"
 import {$Object2ByteFunction} from "it.unimi.dsi.fastutil.objects.Object2ByteFunction"
 import {$BiFunction$$Type} from "java.util.function.BiFunction"
-import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$ToIntFunction$$Type} from "java.util.function.ToIntFunction"
+import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$ObjectSet} from "it.unimi.dsi.fastutil.objects.ObjectSet"
 import {$Int2LongFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
+import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
+import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Object2ReferenceFunction} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
 import {$Char2IntFunction} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
-import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
-import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$Double2IntFunction} from "it.unimi.dsi.fastutil.doubles.Double2IntFunction"
 import {$Object2LongFunction} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
@@ -9816,20 +9815,20 @@ export class $Object2IntMap<K> implements $Object2IntMap$$Interface {
  "computeIntIfAbsentPartial"(arg0: K, arg1: $Object2IntFunction$$Type<(K)>): integer
  "defaultReturnValue"(): integer
  "defaultReturnValue"(arg0: integer): void
+/**
+ * 
+ * @deprecated
+ */
+ "mergeInt"(arg0: K, arg1: integer, arg2: $BiFunction$$Type<(integer), (integer), (integer)>): integer
+ "mergeInt"(arg0: K, arg1: integer, arg2: $IntBinaryOperator$0$$Type): integer
+ "mergeInt"(arg0: K, arg1: integer, arg2: $IntBinaryOperator$$Type): integer
+ "computeInt"(arg0: K, arg1: $BiFunction$$Type<(K), (integer), (integer)>): integer
  "object2IntEntrySet"(): $ObjectSet<($Object2IntMap$Entry<(K)>)>
 /**
  * 
  * @deprecated
  */
  "computeIntIfAbsent"(arg0: K, arg1: $ToIntFunction$$Type<(K)>): integer
- "computeInt"(arg0: K, arg1: $BiFunction$$Type<(K), (integer), (integer)>): integer
- "mergeInt"(arg0: K, arg1: integer, arg2: $IntBinaryOperator$$Type): integer
- "mergeInt"(arg0: K, arg1: integer, arg2: $IntBinaryOperator$0$$Type): integer
-/**
- * 
- * @deprecated
- */
- "mergeInt"(arg0: K, arg1: integer, arg2: $BiFunction$$Type<(integer), (integer), (integer)>): integer
  "put"(arg0: K, arg1: integer): integer
  "getInt"(arg0: any): integer
  "applyAsInt"(arg0: K): integer
@@ -9838,24 +9837,24 @@ export class $Object2IntMap<K> implements $Object2IntMap$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$$Type<(integer), (T)>): $Function<(K), (T)>
- "andThenInt"(arg0: $Int2IntFunction$$Type): $Object2IntFunction<(K)>
- "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2IntFunction
- "andThenReference"<T>(arg0: $Int2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
+ "andThenObject"<T>(arg0: $Int2ObjectFunction$$Type<(T)>): $Object2ObjectFunction<(K), (T)>
+ "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2IntFunction
+ "andThenDouble"(arg0: $Int2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
+ "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2IntFunction<(T)>
+ "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2IntFunction
+ "andThenChar"(arg0: $Int2CharFunction$$Type): $Object2CharFunction<(K)>
  "composeObject"<T>(arg0: $Object2ObjectFunction$$Type<(T), (K)>): $Object2IntFunction<(T)>
+ "andThenByte"(arg0: $Int2ByteFunction$$Type): $Object2ByteFunction<(K)>
+ "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2IntFunction
+ "andThenReference"<T>(arg0: $Int2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
+ "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2IntFunction
+ "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2IntFunction
+ "andThenShort"(arg0: $Int2ShortFunction$$Type): $Object2ShortFunction<(K)>
+ "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2IntFunction
  "andThenLong"(arg0: $Int2LongFunction$$Type): $Object2LongFunction<(K)>
  "andThenFloat"(arg0: $Int2FloatFunction$$Type): $Object2FloatFunction<(K)>
- "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2IntFunction
- "andThenObject"<T>(arg0: $Int2ObjectFunction$$Type<(T)>): $Object2ObjectFunction<(K), (T)>
- "andThenByte"(arg0: $Int2ByteFunction$$Type): $Object2ByteFunction<(K)>
- "andThenChar"(arg0: $Int2CharFunction$$Type): $Object2CharFunction<(K)>
- "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2IntFunction<(T)>
- "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2IntFunction
- "andThenShort"(arg0: $Int2ShortFunction$$Type): $Object2ShortFunction<(K)>
- "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2IntFunction
- "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2IntFunction
- "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2IntFunction
- "andThenDouble"(arg0: $Int2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
- "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2IntFunction
+ "andThenInt"(arg0: $Int2IntFunction$$Type): $Object2IntFunction<(K)>
+ "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2IntFunction
  "removeInt"(arg0: any): integer
  "equals"(arg0: any): boolean
  "hashCode"(): integer
@@ -9905,8 +9904,8 @@ import {$Byte2ReferenceFunction} from "it.unimi.dsi.fastutil.bytes.Byte2Referenc
 import {$Object2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Object2DoubleFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
 import {$Byte2ObjectFunction} from "it.unimi.dsi.fastutil.bytes.Byte2ObjectFunction"
-import {$Byte2ShortFunction} from "it.unimi.dsi.fastutil.bytes.Byte2ShortFunction"
 import {$IntToDoubleFunction$$Interface} from "java.util.function.IntToDoubleFunction"
+import {$Byte2ShortFunction} from "it.unimi.dsi.fastutil.bytes.Byte2ShortFunction"
 import {$Int2DoubleFunction} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
 import {$Byte2CharFunction} from "it.unimi.dsi.fastutil.bytes.Byte2CharFunction"
 import {$Short2DoubleFunction} from "it.unimi.dsi.fastutil.shorts.Short2DoubleFunction"
@@ -9944,36 +9943,36 @@ export class $Byte2DoubleFunction implements $Byte2DoubleFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): double
+ "get"(arg0: any): any
  "get"(arg0: byte): double
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: byte, arg1: double): double
 /**
  * 
  * @deprecated
  */
  "put"(arg0: byte, arg1: double): double
- "containsKey"(arg0: byte): boolean
+ "put"(arg0: byte, arg1: double): double
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: byte): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: byte, arg1: double): double
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: double): double
+ "getOrDefault"(arg0: byte, arg1: double): double
 /**
  * 
  * @deprecated
@@ -9989,26 +9988,26 @@ export class $Byte2DoubleFunction implements $Byte2DoubleFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(double), (T)>): $Function$0<(byte), (T)>
- "andThenInt"(arg0: $Double2IntFunction$$Type): $Byte2IntFunction
- "composeInt"(arg0: $Int2ByteFunction$$Type): $Int2DoubleFunction
- "andThenReference"<T>(arg0: $Double2ReferenceFunction$$Type<(T)>): $Byte2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Double2ObjectFunction$$Type<(T)>): $Byte2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2ByteFunction$$Type): $Short2DoubleFunction
+ "andThenDouble"(arg0: $Double2DoubleFunction$$Type): $Byte2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2ByteFunction$$Type<(T)>): $Reference2DoubleFunction<(T)>
+ "composeDouble"(arg0: $Double2ByteFunction$$Type): $Double2DoubleFunction
+ "andThenChar"(arg0: $Double2CharFunction$$Type): $Byte2CharFunction
+ "defaultReturnValue"(): double
+ "defaultReturnValue"(arg0: double): void
  "composeObject"<T>(arg0: $Object2ByteFunction$$Type<(T)>): $Object2DoubleFunction<(T)>
+ "andThenByte"(arg0: $Double2ByteFunction$$Type): $Byte2ByteFunction
+ "composeByte"(arg0: $Byte2ByteFunction$$Type): $Byte2DoubleFunction
+ "andThenReference"<T>(arg0: $Double2ReferenceFunction$$Type<(T)>): $Byte2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2ByteFunction$$Type): $Long2DoubleFunction
+ "composeFloat"(arg0: $Float2ByteFunction$$Type): $Float2DoubleFunction
+ "andThenShort"(arg0: $Double2ShortFunction$$Type): $Byte2ShortFunction
+ "composeChar"(arg0: $Char2ByteFunction$$Type): $Char2DoubleFunction
  "andThenLong"(arg0: $Double2LongFunction$$Type): $Byte2LongFunction
  "andThenFloat"(arg0: $Double2FloatFunction$$Type): $Byte2FloatFunction
- "composeShort"(arg0: $Short2ByteFunction$$Type): $Short2DoubleFunction
- "andThenObject"<T>(arg0: $Double2ObjectFunction$$Type<(T)>): $Byte2ObjectFunction<(T)>
- "andThenByte"(arg0: $Double2ByteFunction$$Type): $Byte2ByteFunction
- "andThenChar"(arg0: $Double2CharFunction$$Type): $Byte2CharFunction
- "composeReference"<T>(arg0: $Reference2ByteFunction$$Type<(T)>): $Reference2DoubleFunction<(T)>
- "defaultReturnValue"(arg0: double): void
- "defaultReturnValue"(): double
- "composeByte"(arg0: $Byte2ByteFunction$$Type): $Byte2DoubleFunction
- "andThenShort"(arg0: $Double2ShortFunction$$Type): $Byte2ShortFunction
- "composeLong"(arg0: $Long2ByteFunction$$Type): $Long2DoubleFunction
- "composeChar"(arg0: $Char2ByteFunction$$Type): $Char2DoubleFunction
- "composeFloat"(arg0: $Float2ByteFunction$$Type): $Float2DoubleFunction
- "andThenDouble"(arg0: $Double2DoubleFunction$$Type): $Byte2DoubleFunction
- "composeDouble"(arg0: $Double2ByteFunction$$Type): $Double2DoubleFunction
+ "andThenInt"(arg0: $Double2IntFunction$$Type): $Byte2IntFunction
+ "composeInt"(arg0: $Int2ByteFunction$$Type): $Int2DoubleFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: byte): double
@@ -10025,16 +10024,16 @@ export type $Byte2DoubleFunction$$Type = ((arg0: byte) => double);
 export type $Byte2DoubleFunction$$Original = $Byte2DoubleFunction;}
 declare module "it.unimi.dsi.fastutil.objects.Object2ObjectFunction" {
 import {$Reference2ObjectFunction, $Reference2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ObjectFunction"
-import {$Object2IntFunction, $Object2IntFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2IntFunction"
 import {$Object2CharFunction, $Object2CharFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2CharFunction"
+import {$Object2IntFunction, $Object2IntFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2IntFunction"
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Object2ByteFunction, $Object2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ByteFunction"
 import {$Float2ObjectFunction, $Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Int2ObjectFunction, $Int2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
 import {$Char2ObjectFunction, $Char2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ObjectFunction"
+import {$Object2ReferenceFunction, $Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
 import {$Short2ObjectFunction, $Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2DoubleFunction, $Object2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2DoubleFunction"
-import {$Object2ReferenceFunction, $Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
 import {$Object2ShortFunction, $Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
 import {$Object2FloatFunction, $Object2FloatFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2FloatFunction"
@@ -10053,26 +10052,26 @@ export class $Object2ObjectFunction<K, V> implements $Object2ObjectFunction$$Int
  "get"(arg0: any): V
  "put"(arg0: K, arg1: V): V
  "getOrDefault"(arg0: any, arg1: V): V
- "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Object2IntFunction<(K)>
- "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2ObjectFunction<(V)>
- "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Object2ReferenceFunction<(K), (T)>
+ "andThenObject"<T>(arg0: $Object2ObjectFunction$$Type<(V), (T)>): $Object2ObjectFunction<(K), (T)>
+ "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2ObjectFunction<(V)>
+ "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Object2DoubleFunction<(K)>
+ "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2ObjectFunction<(T), (V)>
+ "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2ObjectFunction<(V)>
+ "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Object2CharFunction<(K)>
+ "defaultReturnValue"(): V
+ "defaultReturnValue"(arg0: V): void
  "composeObject"<T>(arg0: $Object2ObjectFunction$$Type<(T), (K)>): $Object2ObjectFunction<(T), (V)>
+ "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Object2ByteFunction<(K)>
+ "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2ObjectFunction<(V)>
+ "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Object2ReferenceFunction<(K), (T)>
+ "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2ObjectFunction<(V)>
+ "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2ObjectFunction<(V)>
+ "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Object2ShortFunction<(K)>
+ "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2ObjectFunction<(V)>
  "andThenLong"(arg0: $Object2LongFunction$$Type<(V)>): $Object2LongFunction<(K)>
  "andThenFloat"(arg0: $Object2FloatFunction$$Type<(V)>): $Object2FloatFunction<(K)>
- "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2ObjectFunction<(V)>
- "andThenObject"<T>(arg0: $Object2ObjectFunction$$Type<(V), (T)>): $Object2ObjectFunction<(K), (T)>
- "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Object2ByteFunction<(K)>
- "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Object2CharFunction<(K)>
- "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2ObjectFunction<(T), (V)>
- "defaultReturnValue"(arg0: V): void
- "defaultReturnValue"(): V
- "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2ObjectFunction<(V)>
- "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Object2ShortFunction<(K)>
- "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2ObjectFunction<(V)>
- "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2ObjectFunction<(V)>
- "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2ObjectFunction<(V)>
- "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Object2DoubleFunction<(K)>
- "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2ObjectFunction<(V)>
+ "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Object2IntFunction<(K)>
+ "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2ObjectFunction<(V)>
  "size"(): integer
  "clear"(): void
  "apply"(arg0: K): V
@@ -10092,8 +10091,8 @@ export type $Object2ObjectFunction$$Type<K, V> = ((arg0: any) => V);
 export type $Object2ObjectFunction$$Original<K, V> = $Object2ObjectFunction<(K), (V)>;}
 declare module "it.unimi.dsi.fastutil.objects.AbstractObject2ByteFunction" {
 import {$Byte2ByteFunction, $Byte2ByteFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ByteFunction"
-import {$Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Float2ByteFunction} from "it.unimi.dsi.fastutil.floats.Float2ByteFunction"
+import {$Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Object2IntFunction} from "it.unimi.dsi.fastutil.objects.Object2IntFunction"
 import {$Long2ByteFunction} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
 import {$Object2ObjectFunction, $Object2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ObjectFunction"
@@ -10115,10 +10114,10 @@ import {$Byte2LongFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2LongFun
 import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Char2ByteFunction} from "it.unimi.dsi.fastutil.chars.Char2ByteFunction"
 import {$Double2ByteFunction} from "it.unimi.dsi.fastutil.doubles.Double2ByteFunction"
-import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2ReferenceFunction} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
-import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
+import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Serializable$$Interface} from "java.io.Serializable"
+import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Object2LongFunction} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
 import {$Double2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ObjectFunction"
 import {$Byte2FloatFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2FloatFunction"
@@ -10133,17 +10132,17 @@ public "defaultReturnValue"(): byte
  * 
  * @deprecated
  */
-public "remove"(arg0: any): byte
+public "remove"(arg0: any): any
 /**
  * 
  * @deprecated
  */
-public "get"(arg0: any): byte
+public "get"(arg0: any): any
+/**
+ * 
+ * @deprecated
+ */
 public "put"(arg0: K, arg1: byte): byte
-/**
- * 
- * @deprecated
- */
 public "put"(arg0: K, arg1: byte): byte
 /**
  * 
@@ -10151,7 +10150,6 @@ public "put"(arg0: K, arg1: byte): byte
  */
 public "put"(arg0: any, arg1: any): any
 public "getByte"(arg0: any): byte
-public "getOrDefault"(arg0: any, arg1: byte): byte
 /**
  * 
  * @deprecated
@@ -10162,31 +10160,32 @@ public "getOrDefault"(arg0: any, arg1: any): any
  * @deprecated
  */
 public "getOrDefault"(arg0: any, arg1: byte): byte
+public "getOrDefault"(arg0: any, arg1: byte): byte
 public "applyAsInt"(arg0: K): integer
 /**
  * 
  * @deprecated
  */
 public "andThen"<T>(arg0: $Function$$Type<(byte), (T)>): $Function<(K), (T)>
-public "removeByte"(arg0: any): byte
-public "andThenInt"(arg0: $Byte2IntFunction$$Type): $Object2IntFunction<(K)>
-public "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2ByteFunction
-public "andThenReference"<T>(arg0: $Byte2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
+public "andThenObject"<T>(arg0: $Byte2ObjectFunction$$Type<(T)>): $Object2ObjectFunction<(K), (T)>
+public "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2ByteFunction
+public "andThenDouble"(arg0: $Byte2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
+public "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2ByteFunction<(T)>
+public "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2ByteFunction
+public "andThenChar"(arg0: $Byte2CharFunction$$Type): $Object2CharFunction<(K)>
 public "composeObject"<T>(arg0: $Object2ObjectFunction$$Type<(T), (K)>): $Object2ByteFunction<(T)>
+public "andThenByte"(arg0: $Byte2ByteFunction$$Type): $Object2ByteFunction<(K)>
+public "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2ByteFunction
+public "andThenReference"<T>(arg0: $Byte2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
+public "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2ByteFunction
+public "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2ByteFunction
+public "andThenShort"(arg0: $Byte2ShortFunction$$Type): $Object2ShortFunction<(K)>
+public "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2ByteFunction
 public "andThenLong"(arg0: $Byte2LongFunction$$Type): $Object2LongFunction<(K)>
 public "andThenFloat"(arg0: $Byte2FloatFunction$$Type): $Object2FloatFunction<(K)>
-public "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2ByteFunction
-public "andThenObject"<T>(arg0: $Byte2ObjectFunction$$Type<(T)>): $Object2ObjectFunction<(K), (T)>
-public "andThenByte"(arg0: $Byte2ByteFunction$$Type): $Object2ByteFunction<(K)>
-public "andThenChar"(arg0: $Byte2CharFunction$$Type): $Object2CharFunction<(K)>
-public "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2ByteFunction<(T)>
-public "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2ByteFunction
-public "andThenShort"(arg0: $Byte2ShortFunction$$Type): $Object2ShortFunction<(K)>
-public "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2ByteFunction
-public "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2ByteFunction
-public "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2ByteFunction
-public "andThenDouble"(arg0: $Byte2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
-public "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2ByteFunction
+public "andThenInt"(arg0: $Byte2IntFunction$$Type): $Object2IntFunction<(K)>
+public "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2ByteFunction
+public "removeByte"(arg0: any): byte
 public "size"(): integer
 public "clear"(): void
 public "apply"(arg0: K): byte
@@ -10265,8 +10264,8 @@ export type $Reference2ObjectArrayMap$$Type<K, V> = ($Reference2ObjectArrayMap<(
 export type $Reference2ObjectArrayMap$$Original<K, V> = $Reference2ObjectArrayMap<(K), (V)>;}
 declare module "it.unimi.dsi.fastutil.shorts.Short2LongFunction" {
 import {$Long2CharFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2CharFunction"
-import {$Long2IntFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
 import {$Long2ByteFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
+import {$Long2IntFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
 import {$Short2IntFunction} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction"
 import {$Reference2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
 import {$Reference2LongFunction} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
@@ -10282,22 +10281,22 @@ import {$Long2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2Doubl
 import {$Long2LongFunction, $Long2LongFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2LongFunction"
 import {$Int2ShortFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ShortFunction"
 import {$Float2LongFunction} from "it.unimi.dsi.fastutil.floats.Float2LongFunction"
-import {$Short2ReferenceFunction} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Float2ShortFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ShortFunction"
+import {$Short2ReferenceFunction} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Long2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
 import {$Byte2LongFunction} from "it.unimi.dsi.fastutil.bytes.Byte2LongFunction"
-import {$Double2LongFunction} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
 import {$Char2LongFunction} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
+import {$Double2LongFunction} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
 import {$IntToLongFunction$$Interface} from "java.util.function.IntToLongFunction"
 import {$Int2LongFunction} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
-import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
+import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Long2FloatFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2FloatFunction"
 import {$Object2LongFunction} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
 import {$Short2FloatFunction} from "it.unimi.dsi.fastutil.shorts.Short2FloatFunction"
 import {$Short2ByteFunction} from "it.unimi.dsi.fastutil.shorts.Short2ByteFunction"
-import {$Long2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ObjectFunction"
 import {$Double2ShortFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ShortFunction"
+import {$Long2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ObjectFunction"
 
 export interface $Short2LongFunction$$Interface extends $Function$$Interface<(short), (long)>, $IntToLongFunction$$Interface {
 
@@ -10315,36 +10314,36 @@ export class $Short2LongFunction implements $Short2LongFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): long
+ "get"(arg0: any): any
  "get"(arg0: short): long
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: short, arg1: long): long
 /**
  * 
  * @deprecated
  */
  "put"(arg0: short, arg1: long): long
- "containsKey"(arg0: short): boolean
+ "put"(arg0: short, arg1: long): long
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: short): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: short, arg1: long): long
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: long): long
+ "getOrDefault"(arg0: short, arg1: long): long
 /**
  * 
  * @deprecated
@@ -10360,26 +10359,26 @@ export class $Short2LongFunction implements $Short2LongFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(long), (T)>): $Function$0<(short), (T)>
- "andThenInt"(arg0: $Long2IntFunction$$Type): $Short2IntFunction
- "composeInt"(arg0: $Int2ShortFunction$$Type): $Int2LongFunction
- "andThenReference"<T>(arg0: $Long2ReferenceFunction$$Type<(T)>): $Short2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Long2ObjectFunction$$Type<(T)>): $Short2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2ShortFunction$$Type): $Short2LongFunction
+ "andThenDouble"(arg0: $Long2DoubleFunction$$Type): $Short2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2ShortFunction$$Type<(T)>): $Reference2LongFunction<(T)>
+ "composeDouble"(arg0: $Double2ShortFunction$$Type): $Double2LongFunction
+ "andThenChar"(arg0: $Long2CharFunction$$Type): $Short2CharFunction
+ "defaultReturnValue"(): long
+ "defaultReturnValue"(arg0: long): void
  "composeObject"<T>(arg0: $Object2ShortFunction$$Type<(T)>): $Object2LongFunction<(T)>
+ "andThenByte"(arg0: $Long2ByteFunction$$Type): $Short2ByteFunction
+ "composeByte"(arg0: $Byte2ShortFunction$$Type): $Byte2LongFunction
+ "andThenReference"<T>(arg0: $Long2ReferenceFunction$$Type<(T)>): $Short2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2ShortFunction$$Type): $Long2LongFunction
+ "composeFloat"(arg0: $Float2ShortFunction$$Type): $Float2LongFunction
+ "andThenShort"(arg0: $Long2ShortFunction$$Type): $Short2ShortFunction
+ "composeChar"(arg0: $Char2ShortFunction$$Type): $Char2LongFunction
  "andThenLong"(arg0: $Long2LongFunction$$Type): $Short2LongFunction
  "andThenFloat"(arg0: $Long2FloatFunction$$Type): $Short2FloatFunction
- "composeShort"(arg0: $Short2ShortFunction$$Type): $Short2LongFunction
- "andThenObject"<T>(arg0: $Long2ObjectFunction$$Type<(T)>): $Short2ObjectFunction<(T)>
- "andThenByte"(arg0: $Long2ByteFunction$$Type): $Short2ByteFunction
- "andThenChar"(arg0: $Long2CharFunction$$Type): $Short2CharFunction
- "composeReference"<T>(arg0: $Reference2ShortFunction$$Type<(T)>): $Reference2LongFunction<(T)>
- "defaultReturnValue"(arg0: long): void
- "defaultReturnValue"(): long
- "composeByte"(arg0: $Byte2ShortFunction$$Type): $Byte2LongFunction
- "andThenShort"(arg0: $Long2ShortFunction$$Type): $Short2ShortFunction
- "composeLong"(arg0: $Long2ShortFunction$$Type): $Long2LongFunction
- "composeChar"(arg0: $Char2ShortFunction$$Type): $Char2LongFunction
- "composeFloat"(arg0: $Float2ShortFunction$$Type): $Float2LongFunction
- "andThenDouble"(arg0: $Long2DoubleFunction$$Type): $Short2DoubleFunction
- "composeDouble"(arg0: $Double2ShortFunction$$Type): $Double2LongFunction
+ "andThenInt"(arg0: $Long2IntFunction$$Type): $Short2IntFunction
+ "composeInt"(arg0: $Int2ShortFunction$$Type): $Int2LongFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: short): long
@@ -10402,10 +10401,10 @@ import {$ObjectIterator} from "it.unimi.dsi.fastutil.objects.ObjectIterator"
 import {$Spliterator} from "java.util.Spliterator"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$Set} from "java.util.Set"
-import {$Stream} from "java.util.stream.Stream"
 import {$Object2IntMap$Entry, $Object2IntMap$Entry$$Type} from "it.unimi.dsi.fastutil.objects.Object2IntMap$Entry"
-import {$Consumer$$Type} from "java.util.function.Consumer"
+import {$Stream} from "java.util.stream.Stream"
 import {$IntFunction$$Type} from "java.util.function.IntFunction"
+import {$Consumer$$Type} from "java.util.function.Consumer"
 
 export interface $Object2IntMap$FastEntrySet$$Interface<K> extends $ObjectSet$$Interface<($Object2IntMap$Entry<(K)>)> {
 get "empty"(): boolean
@@ -10466,8 +10465,8 @@ import {$Object2ObjectFunction, $Object2ObjectFunction$$Type} from "it.unimi.dsi
 import {$Reference2ShortFunction} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
 import {$Reference2LongFunction} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
 import {$Double2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
-import {$Reference2ByteFunction} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Int2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
+import {$Reference2ByteFunction} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Int2ObjectFunction} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
 import {$Byte2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
 import {$Char2ObjectFunction} from "it.unimi.dsi.fastutil.chars.Char2ObjectFunction"
@@ -10484,14 +10483,14 @@ import {$Long2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2Re
 import {$Reference2FloatFunction} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
 import {$Float2ObjectFunction} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Reference2CharFunction} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
-import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
-import {$Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
-import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
+import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
+import {$Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
 import {$Serializable$$Interface} from "java.io.Serializable"
+import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
-import {$Double2ObjectFunction} from "it.unimi.dsi.fastutil.doubles.Double2ObjectFunction"
 import {$Reference2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Reference2DoubleFunction"
+import {$Double2ObjectFunction} from "it.unimi.dsi.fastutil.doubles.Double2ObjectFunction"
 import {$Long2ObjectFunction} from "it.unimi.dsi.fastutil.longs.Long2ObjectFunction"
 
 export class $AbstractReference2ObjectFunction<K, V> implements $Reference2ObjectFunction$$Interface<(K), (V)>, $Serializable$$Interface {
@@ -10501,24 +10500,24 @@ public "remove"(arg0: any): V
 public "get"(arg0: any): V
 public "put"(arg0: K, arg1: V): V
 public "getOrDefault"(arg0: any, arg1: V): V
-public "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Reference2IntFunction<(K)>
-public "composeInt"(arg0: $Int2ReferenceFunction$$Type<(K)>): $Int2ObjectFunction<(V)>
-public "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Reference2ReferenceFunction<(K), (T)>
+public "andThenObject"<T>(arg0: $Object2ObjectFunction$$Type<(V), (T)>): $Reference2ObjectFunction<(K), (T)>
+public "composeShort"(arg0: $Short2ReferenceFunction$$Type<(K)>): $Short2ObjectFunction<(V)>
+public "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Reference2DoubleFunction<(K)>
+public "composeReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(T), (K)>): $Reference2ObjectFunction<(T), (V)>
+public "composeDouble"(arg0: $Double2ReferenceFunction$$Type<(K)>): $Double2ObjectFunction<(V)>
+public "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Reference2CharFunction<(K)>
 public "composeObject"<T>(arg0: $Object2ReferenceFunction$$Type<(T), (K)>): $Object2ObjectFunction<(T), (V)>
+public "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Reference2ByteFunction<(K)>
+public "composeByte"(arg0: $Byte2ReferenceFunction$$Type<(K)>): $Byte2ObjectFunction<(V)>
+public "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Reference2ReferenceFunction<(K), (T)>
+public "composeLong"(arg0: $Long2ReferenceFunction$$Type<(K)>): $Long2ObjectFunction<(V)>
+public "composeFloat"(arg0: $Float2ReferenceFunction$$Type<(K)>): $Float2ObjectFunction<(V)>
+public "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Reference2ShortFunction<(K)>
+public "composeChar"(arg0: $Char2ReferenceFunction$$Type<(K)>): $Char2ObjectFunction<(V)>
 public "andThenLong"(arg0: $Object2LongFunction$$Type<(V)>): $Reference2LongFunction<(K)>
 public "andThenFloat"(arg0: $Object2FloatFunction$$Type<(V)>): $Reference2FloatFunction<(K)>
-public "composeShort"(arg0: $Short2ReferenceFunction$$Type<(K)>): $Short2ObjectFunction<(V)>
-public "andThenObject"<T>(arg0: $Object2ObjectFunction$$Type<(V), (T)>): $Reference2ObjectFunction<(K), (T)>
-public "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Reference2ByteFunction<(K)>
-public "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Reference2CharFunction<(K)>
-public "composeReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(T), (K)>): $Reference2ObjectFunction<(T), (V)>
-public "composeByte"(arg0: $Byte2ReferenceFunction$$Type<(K)>): $Byte2ObjectFunction<(V)>
-public "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Reference2ShortFunction<(K)>
-public "composeLong"(arg0: $Long2ReferenceFunction$$Type<(K)>): $Long2ObjectFunction<(V)>
-public "composeChar"(arg0: $Char2ReferenceFunction$$Type<(K)>): $Char2ObjectFunction<(V)>
-public "composeFloat"(arg0: $Float2ReferenceFunction$$Type<(K)>): $Float2ObjectFunction<(V)>
-public "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Reference2DoubleFunction<(K)>
-public "composeDouble"(arg0: $Double2ReferenceFunction$$Type<(K)>): $Double2ObjectFunction<(V)>
+public "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Reference2IntFunction<(K)>
+public "composeInt"(arg0: $Int2ReferenceFunction$$Type<(K)>): $Int2ObjectFunction<(V)>
 public "size"(): integer
 public "clear"(): void
 public "apply"(arg0: K): V
@@ -10540,8 +10539,8 @@ declare module "it.unimi.dsi.fastutil.ints.IntSpliterator" {
 import {$Comparator} from "java.util.Comparator"
 import {$Spliterator} from "java.util.Spliterator"
 import {$Spliterator$OfInt$$Interface} from "java.util.Spliterator$OfInt"
-import {$IntConsumer$$Type} from "java.util.function.IntConsumer"
-import {$IntConsumer$$Type as $IntConsumer$0$$Type} from "it.unimi.dsi.fastutil.ints.IntConsumer"
+import {$IntConsumer$$Type as $IntConsumer$0$$Type} from "java.util.function.IntConsumer"
+import {$IntConsumer$$Type} from "it.unimi.dsi.fastutil.ints.IntConsumer"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 
 export interface $IntSpliterator$$Interface extends $Spliterator$OfInt$$Interface {
@@ -10555,7 +10554,7 @@ export class $IntSpliterator implements $IntSpliterator$$Interface {
  * @deprecated
  */
  "forEachRemaining"(arg0: $Consumer$$Type<(integer)>): void
- "forEachRemaining"(arg0: $IntConsumer$0$$Type): void
+ "forEachRemaining"(arg0: $IntConsumer$$Type): void
  "skip"(arg0: long): long
  "trySplit"(): $Spliterator
 /**
@@ -10563,11 +10562,11 @@ export class $IntSpliterator implements $IntSpliterator$$Interface {
  * @deprecated
  */
  "tryAdvance"(arg0: $Consumer$$Type<(integer)>): boolean
- "tryAdvance"(arg0: $IntConsumer$0$$Type): boolean
+ "tryAdvance"(arg0: $IntConsumer$$Type): boolean
  "getComparator"(): $Comparator
  "forEachRemaining"(arg0: any): void
- "forEachRemaining"(arg0: $IntConsumer$$Type): void
- "tryAdvance"(arg0: $IntConsumer$$Type): boolean
+ "forEachRemaining"(arg0: $IntConsumer$0$$Type): void
+ "tryAdvance"(arg0: $IntConsumer$0$$Type): boolean
  "tryAdvance"(arg0: any): boolean
  "characteristics"(): integer
  "estimateSize"(): long
@@ -10584,17 +10583,17 @@ export type $IntSpliterator$$Type = ($IntSpliterator);
  */
 export type $IntSpliterator$$Original = $IntSpliterator;}
 declare module "it.unimi.dsi.fastutil.longs.LongCollection" {
-import {$LongPredicate$$Type as $LongPredicate$0$$Type} from "java.util.function.LongPredicate"
+import {$LongPredicate$$Type} from "java.util.function.LongPredicate"
 import {$Collection$$Type, $Collection$$Interface} from "java.util.Collection"
 import {$Spliterator} from "java.util.Spliterator"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$LongStream} from "java.util.stream.LongStream"
-import {$LongConsumer$$Type as $LongConsumer$0$$Type} from "it.unimi.dsi.fastutil.longs.LongConsumer"
-import {$Consumer$$Type} from "java.util.function.Consumer"
+import {$LongConsumer$$Type} from "it.unimi.dsi.fastutil.longs.LongConsumer"
+import {$LongPredicate$$Type as $LongPredicate$0$$Type} from "it.unimi.dsi.fastutil.longs.LongPredicate"
 import {$IntFunction$$Type} from "java.util.function.IntFunction"
-import {$LongPredicate$$Type} from "it.unimi.dsi.fastutil.longs.LongPredicate"
+import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$LongSpliterator} from "it.unimi.dsi.fastutil.longs.LongSpliterator"
-import {$LongConsumer$$Type} from "java.util.function.LongConsumer"
+import {$LongConsumer$$Type as $LongConsumer$0$$Type} from "java.util.function.LongConsumer"
 import {$LongIterator} from "it.unimi.dsi.fastutil.longs.LongIterator"
 import {$Stream} from "java.util.stream.Stream"
 import {$LongIterable$$Interface} from "it.unimi.dsi.fastutil.longs.LongIterable"
@@ -10635,13 +10634,13 @@ export class $LongCollection implements $LongCollection$$Interface {
  "contains"(arg0: any): boolean
  "spliterator"(): $Spliterator
  "addAll"(arg0: $LongCollection$$Type): boolean
- "removeIf"(arg0: $LongPredicate$0$$Type): boolean
+ "removeIf"(arg0: $LongPredicate$$Type): boolean
 /**
  * 
  * @deprecated
  */
  "removeIf"(arg0: $Predicate$$Type<(long)>): boolean
- "removeIf"(arg0: $LongPredicate$$Type): boolean
+ "removeIf"(arg0: $LongPredicate$0$$Type): boolean
  "removeAll"(arg0: $LongCollection$$Type): boolean
  "retainAll"(arg0: $LongCollection$$Type): boolean
  "containsAll"(arg0: $LongCollection$$Type): boolean
@@ -10652,15 +10651,15 @@ export class $LongCollection implements $LongCollection$$Interface {
  "parallelStream"(): $Stream<(long)>
  "rem"(arg0: long): boolean
  "longStream"(): $LongStream
- "toLongArray"(): (long)[]
 /**
  * 
  * @deprecated
  */
  "toLongArray"(arg0: (long)[]): (long)[]
- "longIterator"(): $LongIterator
+ "toLongArray"(): (long)[]
  "longParallelStream"(): $LongStream
  "longSpliterator"(): $LongSpliterator
+ "longIterator"(): $LongIterator
  "size"(): integer
  "equals"(arg0: any): boolean
  "hashCode"(): integer
@@ -10673,13 +10672,13 @@ export class $LongCollection implements $LongCollection$$Interface {
  "removeAll"(arg0: $Collection$$Type<(never)>): boolean
  "retainAll"(arg0: $Collection$$Type<(never)>): boolean
  "containsAll"(arg0: $Collection$$Type<(never)>): boolean
- "forEach"(arg0: $LongConsumer$$Type): void
+ "forEach"(arg0: $LongConsumer$0$$Type): void
 /**
  * 
  * @deprecated
  */
  "forEach"(arg0: $Consumer$$Type<(long)>): void
- "forEach"(arg0: $LongConsumer$0$$Type): void
+ "forEach"(arg0: $LongConsumer$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -10691,8 +10690,8 @@ export type $LongCollection$$Type = ($LongCollection);
  */
 export type $LongCollection$$Original = $LongCollection;}
 declare module "it.unimi.dsi.fastutil.shorts.Short2BooleanMap$Entry" {
-import {$Comparable} from "java.lang.Comparable"
 import {$Comparator, $Comparator$$Type} from "java.util.Comparator"
+import {$Comparable} from "java.lang.Comparable"
 import {$Map$Entry, $Map$Entry$$Type, $Map$Entry$$Interface} from "java.util.Map$Entry"
 
 export interface $Short2BooleanMap$Entry$$Interface extends $Map$Entry$$Interface<(short), (boolean)> {
@@ -10751,14 +10750,14 @@ import {$Float2ReferenceFunction} from "it.unimi.dsi.fastutil.floats.Float2Refer
 import {$Long2CharFunction} from "it.unimi.dsi.fastutil.longs.Long2CharFunction"
 import {$Reference2IntFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2IntFunction"
 import {$Long2IntFunction} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
-import {$Long2ByteFunction} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
 import {$LongFunction$$Interface} from "java.util.function.LongFunction"
+import {$Long2ByteFunction} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
 import {$Reference2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
 import {$Reference2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
 import {$Long2ShortFunction} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
 import {$Double2ReferenceFunction} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
-import {$Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Int2ReferenceFunction} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
+import {$Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Byte2ReferenceFunction} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
 import {$Reference2ReferenceFunction, $Reference2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ReferenceFunction"
@@ -10770,11 +10769,11 @@ import {$Float2LongFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2Long
 import {$Short2ReferenceFunction} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Byte2LongFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2LongFunction"
 import {$Reference2FloatFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
-import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Double2LongFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
+import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Short2LongFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
-import {$Reference2CharFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
 import {$Int2LongFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
+import {$Reference2CharFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
 import {$Object2ReferenceFunction} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
 import {$Char2ReferenceFunction} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
 import {$Long2FloatFunction} from "it.unimi.dsi.fastutil.longs.Long2FloatFunction"
@@ -10788,12 +10787,12 @@ export interface $Long2ReferenceFunction$$Interface<V> extends $Function$$Interf
 }
 
 export class $Long2ReferenceFunction<V> implements $Long2ReferenceFunction$$Interface {
- "remove"(arg0: long): V
 /**
  * 
  * @deprecated
  */
  "remove"(arg0: any): V
+ "remove"(arg0: long): V
 /**
  * 
  * @deprecated
@@ -10804,13 +10803,13 @@ export class $Long2ReferenceFunction<V> implements $Long2ReferenceFunction$$Inte
  * 
  * @deprecated
  */
- "put"(arg0: long, arg1: V): V
- "put"(arg0: long, arg1: V): V
+ "put"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
  */
- "put"(arg0: any, arg1: any): any
+ "put"(arg0: long, arg1: V): V
+ "put"(arg0: long, arg1: V): V
  "apply"(arg0: long): V
  "containsKey"(arg0: long): boolean
 /**
@@ -10829,26 +10828,26 @@ export class $Long2ReferenceFunction<V> implements $Long2ReferenceFunction$$Inte
  * @deprecated
  */
  "compose"<T>(arg0: $Function$0$$Type<(T), (long)>): $Function$0<(T), (V)>
- "andThenInt"(arg0: $Reference2IntFunction$$Type<(V)>): $Long2IntFunction
- "composeInt"(arg0: $Int2LongFunction$$Type): $Int2ReferenceFunction<(V)>
- "andThenReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(V), (T)>): $Long2ReferenceFunction<(T)>
- "composeObject"<T>(arg0: $Object2LongFunction$$Type<(T)>): $Object2ReferenceFunction<(T), (V)>
- "andThenLong"(arg0: $Reference2LongFunction$$Type<(V)>): $Long2LongFunction
- "andThenFloat"(arg0: $Reference2FloatFunction$$Type<(V)>): $Long2FloatFunction
- "composeShort"(arg0: $Short2LongFunction$$Type): $Short2ReferenceFunction<(V)>
  "andThenObject"<T>(arg0: $Reference2ObjectFunction$$Type<(V), (T)>): $Long2ObjectFunction<(T)>
- "andThenByte"(arg0: $Reference2ByteFunction$$Type<(V)>): $Long2ByteFunction
- "andThenChar"(arg0: $Reference2CharFunction$$Type<(V)>): $Long2CharFunction
+ "composeShort"(arg0: $Short2LongFunction$$Type): $Short2ReferenceFunction<(V)>
+ "andThenDouble"(arg0: $Reference2DoubleFunction$$Type<(V)>): $Long2DoubleFunction
  "composeReference"<T>(arg0: $Reference2LongFunction$$Type<(T)>): $Reference2ReferenceFunction<(T), (V)>
+ "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2ReferenceFunction<(V)>
+ "andThenChar"(arg0: $Reference2CharFunction$$Type<(V)>): $Long2CharFunction
  "defaultReturnValue"(): V
  "defaultReturnValue"(arg0: V): void
+ "composeObject"<T>(arg0: $Object2LongFunction$$Type<(T)>): $Object2ReferenceFunction<(T), (V)>
+ "andThenByte"(arg0: $Reference2ByteFunction$$Type<(V)>): $Long2ByteFunction
  "composeByte"(arg0: $Byte2LongFunction$$Type): $Byte2ReferenceFunction<(V)>
- "andThenShort"(arg0: $Reference2ShortFunction$$Type<(V)>): $Long2ShortFunction
+ "andThenReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(V), (T)>): $Long2ReferenceFunction<(T)>
  "composeLong"(arg0: $Long2LongFunction$$Type): $Long2ReferenceFunction<(V)>
- "composeChar"(arg0: $Char2LongFunction$$Type): $Char2ReferenceFunction<(V)>
  "composeFloat"(arg0: $Float2LongFunction$$Type): $Float2ReferenceFunction<(V)>
- "andThenDouble"(arg0: $Reference2DoubleFunction$$Type<(V)>): $Long2DoubleFunction
- "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2ReferenceFunction<(V)>
+ "andThenShort"(arg0: $Reference2ShortFunction$$Type<(V)>): $Long2ShortFunction
+ "composeChar"(arg0: $Char2LongFunction$$Type): $Char2ReferenceFunction<(V)>
+ "andThenLong"(arg0: $Reference2LongFunction$$Type<(V)>): $Long2LongFunction
+ "andThenFloat"(arg0: $Reference2FloatFunction$$Type<(V)>): $Long2FloatFunction
+ "andThenInt"(arg0: $Reference2IntFunction$$Type<(V)>): $Long2IntFunction
+ "composeInt"(arg0: $Int2LongFunction$$Type): $Int2ReferenceFunction<(V)>
  "size"(): integer
  "clear"(): void
  "apply"(arg0: long): V
@@ -10865,12 +10864,12 @@ export type $Long2ReferenceFunction$$Type<V> = ((arg0: long) => V);
  */
 export type $Long2ReferenceFunction$$Original<V> = $Long2ReferenceFunction<(V)>;}
 declare module "it.unimi.dsi.fastutil.booleans.Boolean2ByteFunction" {
-import {$Byte2ByteFunction, $Byte2ByteFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ByteFunction"
 import {$Reference2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2BooleanFunction"
+import {$Byte2ByteFunction, $Byte2ByteFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ByteFunction"
 import {$Float2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2BooleanFunction"
-import {$Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
-import {$Long2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2BooleanFunction"
 import {$Float2ByteFunction} from "it.unimi.dsi.fastutil.floats.Float2ByteFunction"
+import {$Long2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2BooleanFunction"
+import {$Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Long2ByteFunction} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
 import {$Byte2IntFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
 import {$Reference2ByteFunction} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
@@ -10894,8 +10893,8 @@ import {$Double2ByteFunction} from "it.unimi.dsi.fastutil.doubles.Double2ByteFun
 import {$Boolean2IntFunction} from "it.unimi.dsi.fastutil.booleans.Boolean2IntFunction"
 import {$Byte2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2BooleanFunction"
 import {$Int2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2BooleanFunction"
-import {$Byte2FloatFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2FloatFunction"
 import {$Boolean2ObjectFunction} from "it.unimi.dsi.fastutil.booleans.Boolean2ObjectFunction"
+import {$Byte2FloatFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2FloatFunction"
 import {$Object2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2BooleanFunction"
 import {$Boolean2ShortFunction} from "it.unimi.dsi.fastutil.booleans.Boolean2ShortFunction"
 import {$Short2ByteFunction} from "it.unimi.dsi.fastutil.shorts.Short2ByteFunction"
@@ -10908,35 +10907,40 @@ export interface $Boolean2ByteFunction$$Interface extends $Function$$Interface<(
 }
 
 export class $Boolean2ByteFunction implements $Boolean2ByteFunction$$Interface {
- "remove"(arg0: boolean): byte
 /**
  * 
  * @deprecated
  */
- "remove"(arg0: any): any
+ "remove"(arg0: any): byte
+ "remove"(arg0: boolean): byte
 /**
  * 
  * @deprecated
  */
  "get"(arg0: any): byte
  "get"(arg0: boolean): byte
- "put"(arg0: boolean, arg1: byte): byte
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
+ "put"(arg0: boolean, arg1: byte): byte
 /**
  * 
  * @deprecated
  */
  "put"(arg0: boolean, arg1: byte): byte
- "containsKey"(arg0: boolean): boolean
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: boolean): boolean
+/**
+ * 
+ * @deprecated
+ */
+ "getOrDefault"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
@@ -10947,37 +10951,32 @@ export class $Boolean2ByteFunction implements $Boolean2ByteFunction$$Interface {
  * 
  * @deprecated
  */
- "getOrDefault"(arg0: any, arg1: any): any
-/**
- * 
- * @deprecated
- */
  "compose"<T>(arg0: $Function$0$$Type<(T), (boolean)>): $Function$0<(T), (byte)>
 /**
  * 
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(byte), (T)>): $Function$0<(boolean), (T)>
- "andThenInt"(arg0: $Byte2IntFunction$$Type): $Boolean2IntFunction
- "composeInt"(arg0: $Int2BooleanFunction$$Type): $Int2ByteFunction
- "andThenReference"<T>(arg0: $Byte2ReferenceFunction$$Type<(T)>): $Boolean2ReferenceFunction<(T)>
- "composeObject"<T>(arg0: $Object2BooleanFunction$$Type<(T)>): $Object2ByteFunction<(T)>
- "andThenLong"(arg0: $Byte2LongFunction$$Type): $Boolean2LongFunction
- "andThenFloat"(arg0: $Byte2FloatFunction$$Type): $Boolean2FloatFunction
- "composeShort"(arg0: $Short2BooleanFunction$$Type): $Short2ByteFunction
  "andThenObject"<T>(arg0: $Byte2ObjectFunction$$Type<(T)>): $Boolean2ObjectFunction<(T)>
- "andThenByte"(arg0: $Byte2ByteFunction$$Type): $Boolean2ByteFunction
- "andThenChar"(arg0: $Byte2CharFunction$$Type): $Boolean2CharFunction
+ "composeShort"(arg0: $Short2BooleanFunction$$Type): $Short2ByteFunction
+ "andThenDouble"(arg0: $Byte2DoubleFunction$$Type): $Boolean2DoubleFunction
  "composeReference"<T>(arg0: $Reference2BooleanFunction$$Type<(T)>): $Reference2ByteFunction<(T)>
+ "composeDouble"(arg0: $Double2BooleanFunction$$Type): $Double2ByteFunction
+ "andThenChar"(arg0: $Byte2CharFunction$$Type): $Boolean2CharFunction
  "defaultReturnValue"(arg0: byte): void
  "defaultReturnValue"(): byte
+ "composeObject"<T>(arg0: $Object2BooleanFunction$$Type<(T)>): $Object2ByteFunction<(T)>
+ "andThenByte"(arg0: $Byte2ByteFunction$$Type): $Boolean2ByteFunction
  "composeByte"(arg0: $Byte2BooleanFunction$$Type): $Byte2ByteFunction
- "andThenShort"(arg0: $Byte2ShortFunction$$Type): $Boolean2ShortFunction
+ "andThenReference"<T>(arg0: $Byte2ReferenceFunction$$Type<(T)>): $Boolean2ReferenceFunction<(T)>
  "composeLong"(arg0: $Long2BooleanFunction$$Type): $Long2ByteFunction
- "composeChar"(arg0: $Char2BooleanFunction$$Type): $Char2ByteFunction
  "composeFloat"(arg0: $Float2BooleanFunction$$Type): $Float2ByteFunction
- "andThenDouble"(arg0: $Byte2DoubleFunction$$Type): $Boolean2DoubleFunction
- "composeDouble"(arg0: $Double2BooleanFunction$$Type): $Double2ByteFunction
+ "andThenShort"(arg0: $Byte2ShortFunction$$Type): $Boolean2ShortFunction
+ "composeChar"(arg0: $Char2BooleanFunction$$Type): $Char2ByteFunction
+ "andThenLong"(arg0: $Byte2LongFunction$$Type): $Boolean2LongFunction
+ "andThenFloat"(arg0: $Byte2FloatFunction$$Type): $Boolean2FloatFunction
+ "andThenInt"(arg0: $Byte2IntFunction$$Type): $Boolean2IntFunction
+ "composeInt"(arg0: $Int2BooleanFunction$$Type): $Int2ByteFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: boolean): byte
@@ -10995,8 +10994,8 @@ export type $Boolean2ByteFunction$$Original = $Boolean2ByteFunction;}
 declare module "it.unimi.dsi.fastutil.ints.IntBidirectionalIterator" {
 import {$ObjectBidirectionalIterator$$Interface} from "it.unimi.dsi.fastutil.objects.ObjectBidirectionalIterator"
 import {$IntIterator$$Interface} from "it.unimi.dsi.fastutil.ints.IntIterator"
-import {$IntConsumer$$Type} from "java.util.function.IntConsumer"
-import {$IntConsumer$$Type as $IntConsumer$0$$Type} from "it.unimi.dsi.fastutil.ints.IntConsumer"
+import {$IntConsumer$$Type as $IntConsumer$0$$Type} from "java.util.function.IntConsumer"
+import {$IntConsumer$$Type} from "it.unimi.dsi.fastutil.ints.IntConsumer"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 
 export interface $IntBidirectionalIterator$$Interface extends $IntIterator$$Interface, $ObjectBidirectionalIterator$$Interface<(integer)> {
@@ -11016,7 +11015,7 @@ export class $IntBidirectionalIterator implements $IntBidirectionalIterator$$Int
  * @deprecated
  */
  "forEachRemaining"(arg0: $Consumer$$Type<(integer)>): void
- "forEachRemaining"(arg0: $IntConsumer$0$$Type): void
+ "forEachRemaining"(arg0: $IntConsumer$$Type): void
 /**
  * 
  * @deprecated
@@ -11024,7 +11023,7 @@ export class $IntBidirectionalIterator implements $IntBidirectionalIterator$$Int
  "next"(): any
  "nextInt"(): integer
  "forEachRemaining"(arg0: any): void
- "forEachRemaining"(arg0: $IntConsumer$$Type): void
+ "forEachRemaining"(arg0: $IntConsumer$0$$Type): void
  "hasPrevious"(): boolean
  "remove"(): void
  "hasNext"(): boolean
@@ -11066,15 +11065,15 @@ import {$Long2ReferenceFunction} from "it.unimi.dsi.fastutil.longs.Long2Referenc
 import {$Byte2LongFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2LongFunction"
 import {$BiFunction$$Type} from "java.util.function.BiFunction"
 import {$Float2ObjectFunction} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
-import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Double2LongFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
+import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Short2LongFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$ObjectCollection} from "it.unimi.dsi.fastutil.objects.ObjectCollection"
 import {$ObjectSet} from "it.unimi.dsi.fastutil.objects.ObjectSet"
 import {$Int2LongFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
-import {$Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
-import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
+import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
+import {$Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
 import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$Long2FloatFunction} from "it.unimi.dsi.fastutil.longs.Long2FloatFunction"
 import {$Long2ObjectMap$Entry} from "it.unimi.dsi.fastutil.longs.Long2ObjectMap$Entry"
@@ -11139,9 +11138,9 @@ export class $Long2ObjectMap<V> implements $Long2ObjectMap$$Interface {
  */
  "getOrDefault"(arg0: any, arg1: V): V
  "computeIfPresent"(arg0: long, arg1: $BiFunction$$Type<(long), (V), (V)>): V
- "long2ObjectEntrySet"(): $ObjectSet<($Long2ObjectMap$Entry<(V)>)>
  "defaultReturnValue"(arg0: V): void
  "defaultReturnValue"(): V
+ "long2ObjectEntrySet"(): $ObjectSet<($Long2ObjectMap$Entry<(V)>)>
 /**
  * 
  * @deprecated
@@ -11156,24 +11155,24 @@ export class $Long2ObjectMap<V> implements $Long2ObjectMap$$Interface {
  * @deprecated
  */
  "compose"<T>(arg0: $Function$$Type<(T), (long)>): $Function<(T), (V)>
- "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Long2IntFunction
- "composeInt"(arg0: $Int2LongFunction$$Type): $Int2ObjectFunction<(V)>
- "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Long2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Object2ObjectFunction$$Type<(V), (T)>): $Long2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2LongFunction$$Type): $Short2ObjectFunction<(V)>
+ "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Long2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2LongFunction$$Type<(T)>): $Reference2ObjectFunction<(T), (V)>
+ "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2ObjectFunction<(V)>
+ "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Long2CharFunction
  "composeObject"<T>(arg0: $Object2LongFunction$$Type<(T)>): $Object2ObjectFunction<(T), (V)>
+ "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Long2ByteFunction
+ "composeByte"(arg0: $Byte2LongFunction$$Type): $Byte2ObjectFunction<(V)>
+ "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Long2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2LongFunction$$Type): $Long2ObjectFunction<(V)>
+ "composeFloat"(arg0: $Float2LongFunction$$Type): $Float2ObjectFunction<(V)>
+ "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Long2ShortFunction
+ "composeChar"(arg0: $Char2LongFunction$$Type): $Char2ObjectFunction<(V)>
  "andThenLong"(arg0: $Object2LongFunction$$Type<(V)>): $Long2LongFunction
  "andThenFloat"(arg0: $Object2FloatFunction$$Type<(V)>): $Long2FloatFunction
- "composeShort"(arg0: $Short2LongFunction$$Type): $Short2ObjectFunction<(V)>
- "andThenObject"<T>(arg0: $Object2ObjectFunction$$Type<(V), (T)>): $Long2ObjectFunction<(T)>
- "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Long2ByteFunction
- "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Long2CharFunction
- "composeReference"<T>(arg0: $Reference2LongFunction$$Type<(T)>): $Reference2ObjectFunction<(T), (V)>
- "composeByte"(arg0: $Byte2LongFunction$$Type): $Byte2ObjectFunction<(V)>
- "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Long2ShortFunction
- "composeLong"(arg0: $Long2LongFunction$$Type): $Long2ObjectFunction<(V)>
- "composeChar"(arg0: $Char2LongFunction$$Type): $Char2ObjectFunction<(V)>
- "composeFloat"(arg0: $Float2LongFunction$$Type): $Float2ObjectFunction<(V)>
- "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Long2DoubleFunction
- "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2ObjectFunction<(V)>
+ "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Long2IntFunction
+ "composeInt"(arg0: $Int2LongFunction$$Type): $Int2ObjectFunction<(V)>
  "remove"(arg0: any, arg1: any): boolean
  "equals"(arg0: any): boolean
  "hashCode"(): integer
@@ -11225,13 +11224,13 @@ import {$Short2IntFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2IntFu
 import {$Int2FloatFunction} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
 import {$Byte2IntFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
 import {$Float2IntFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
-import {$Short2CharFunction} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
 import {$Int2ReferenceFunction} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
+import {$Short2CharFunction} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
 import {$Int2ObjectFunction} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
 import {$Char2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ObjectFunction"
 import {$Char2ShortFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ShortFunction"
-import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
+import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Float2CharFunction} from "it.unimi.dsi.fastutil.floats.Float2CharFunction"
 import {$Int2DoubleFunction} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
 import {$Byte2CharFunction} from "it.unimi.dsi.fastutil.bytes.Byte2CharFunction"
@@ -11240,11 +11239,11 @@ import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Int2ShortFunction} from "it.unimi.dsi.fastutil.ints.Int2ShortFunction"
 import {$Char2CharFunction, $Char2CharFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2CharFunction"
 import {$Double2CharFunction} from "it.unimi.dsi.fastutil.doubles.Double2CharFunction"
-import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$IntUnaryOperator, $IntUnaryOperator$$Type, $IntUnaryOperator$$Interface} from "java.util.function.IntUnaryOperator"
+import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Char2ByteFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ByteFunction"
-import {$Reference2CharFunction} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
 import {$Int2LongFunction} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
+import {$Reference2CharFunction} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
 import {$Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
 import {$Char2IntFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
 import {$Char2FloatFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
@@ -11267,36 +11266,36 @@ export class $Int2CharFunction implements $Int2CharFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): character
+ "get"(arg0: any): any
  "get"(arg0: integer): character
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: integer, arg1: character): character
 /**
  * 
  * @deprecated
  */
  "put"(arg0: integer, arg1: character): character
- "containsKey"(arg0: integer): boolean
+ "put"(arg0: integer, arg1: character): character
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: integer): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: integer, arg1: character): character
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: character): character
+ "getOrDefault"(arg0: integer, arg1: character): character
  "applyAsInt"(arg0: integer): integer
 /**
  * 
@@ -11308,26 +11307,26 @@ export class $Int2CharFunction implements $Int2CharFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(character), (T)>): $Function$0<(integer), (T)>
- "andThenInt"(arg0: $Char2IntFunction$$Type): $Int2IntFunction
- "composeInt"(arg0: $Int2IntFunction$$Type): $Int2CharFunction
- "andThenReference"<T>(arg0: $Char2ReferenceFunction$$Type<(T)>): $Int2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Char2ObjectFunction$$Type<(T)>): $Int2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2IntFunction$$Type): $Short2CharFunction
+ "andThenDouble"(arg0: $Char2DoubleFunction$$Type): $Int2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2IntFunction$$Type<(T)>): $Reference2CharFunction<(T)>
+ "composeDouble"(arg0: $Double2IntFunction$$Type): $Double2CharFunction
+ "andThenChar"(arg0: $Char2CharFunction$$Type): $Int2CharFunction
+ "defaultReturnValue"(): character
+ "defaultReturnValue"(arg0: character): void
  "composeObject"<T>(arg0: $Object2IntFunction$$Type<(T)>): $Object2CharFunction<(T)>
+ "andThenByte"(arg0: $Char2ByteFunction$$Type): $Int2ByteFunction
+ "composeByte"(arg0: $Byte2IntFunction$$Type): $Byte2CharFunction
+ "andThenReference"<T>(arg0: $Char2ReferenceFunction$$Type<(T)>): $Int2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2IntFunction$$Type): $Long2CharFunction
+ "composeFloat"(arg0: $Float2IntFunction$$Type): $Float2CharFunction
+ "andThenShort"(arg0: $Char2ShortFunction$$Type): $Int2ShortFunction
+ "composeChar"(arg0: $Char2IntFunction$$Type): $Char2CharFunction
  "andThenLong"(arg0: $Char2LongFunction$$Type): $Int2LongFunction
  "andThenFloat"(arg0: $Char2FloatFunction$$Type): $Int2FloatFunction
- "composeShort"(arg0: $Short2IntFunction$$Type): $Short2CharFunction
- "andThenObject"<T>(arg0: $Char2ObjectFunction$$Type<(T)>): $Int2ObjectFunction<(T)>
- "andThenByte"(arg0: $Char2ByteFunction$$Type): $Int2ByteFunction
- "andThenChar"(arg0: $Char2CharFunction$$Type): $Int2CharFunction
- "composeReference"<T>(arg0: $Reference2IntFunction$$Type<(T)>): $Reference2CharFunction<(T)>
- "defaultReturnValue"(arg0: character): void
- "defaultReturnValue"(): character
- "composeByte"(arg0: $Byte2IntFunction$$Type): $Byte2CharFunction
- "andThenShort"(arg0: $Char2ShortFunction$$Type): $Int2ShortFunction
- "composeLong"(arg0: $Long2IntFunction$$Type): $Long2CharFunction
- "composeChar"(arg0: $Char2IntFunction$$Type): $Char2CharFunction
- "composeFloat"(arg0: $Float2IntFunction$$Type): $Float2CharFunction
- "andThenDouble"(arg0: $Char2DoubleFunction$$Type): $Int2DoubleFunction
- "composeDouble"(arg0: $Double2IntFunction$$Type): $Double2CharFunction
+ "andThenInt"(arg0: $Char2IntFunction$$Type): $Int2IntFunction
+ "composeInt"(arg0: $Int2IntFunction$$Type): $Int2CharFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: integer): character
@@ -11350,16 +11349,16 @@ import {$Collection$$Type} from "java.util.Collection"
 import {$IntStream} from "java.util.stream.IntStream"
 import {$IntCollection$$Type, $IntCollection$$Interface} from "it.unimi.dsi.fastutil.ints.IntCollection"
 import {$Predicate$$Type} from "java.util.function.Predicate"
-import {$IntPredicate$$Type as $IntPredicate$0$$Type} from "java.util.function.IntPredicate"
 import {$IntSpliterator} from "it.unimi.dsi.fastutil.ints.IntSpliterator"
-import {$Consumer$$Type} from "java.util.function.Consumer"
+import {$IntPredicate$$Type} from "java.util.function.IntPredicate"
 import {$IntFunction$$Type} from "java.util.function.IntFunction"
+import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$IntIterator} from "it.unimi.dsi.fastutil.ints.IntIterator"
-import {$IntPredicate$$Type} from "it.unimi.dsi.fastutil.ints.IntPredicate"
-import {$IntConsumer$$Type} from "java.util.function.IntConsumer"
+import {$IntPredicate$$Type as $IntPredicate$0$$Type} from "it.unimi.dsi.fastutil.ints.IntPredicate"
+import {$IntConsumer$$Type as $IntConsumer$0$$Type} from "java.util.function.IntConsumer"
 import {$Set, $Set$$Interface} from "java.util.Set"
 import {$Stream} from "java.util.stream.Stream"
-import {$IntConsumer$$Type as $IntConsumer$0$$Type} from "it.unimi.dsi.fastutil.ints.IntConsumer"
+import {$IntConsumer$$Type} from "it.unimi.dsi.fastutil.ints.IntConsumer"
 
 export interface $IntSet$$Interface extends $IntCollection$$Interface, $Set$$Interface<(integer)> {
 get "empty"(): boolean
@@ -11414,8 +11413,8 @@ static "of"(arg0: integer, arg1: integer, arg2: integer): $IntSet
  * @deprecated
  */
  "removeIf"(arg0: $Predicate$$Type<(integer)>): boolean
- "removeIf"(arg0: $IntPredicate$0$$Type): boolean
  "removeIf"(arg0: $IntPredicate$$Type): boolean
+ "removeIf"(arg0: $IntPredicate$0$$Type): boolean
  "removeAll"(arg0: $IntCollection$$Type): boolean
  "retainAll"(arg0: $IntCollection$$Type): boolean
  "containsAll"(arg0: $IntCollection$$Type): boolean
@@ -11430,9 +11429,9 @@ static "of"(arg0: integer, arg1: integer, arg2: integer): $IntSet
  */
  "toIntArray"(arg0: (integer)[]): (integer)[]
  "toIntArray"(): (integer)[]
+ "intParallelStream"(): $IntStream
  "intSpliterator"(): $IntSpliterator
  "intIterator"(): $IntIterator
- "intParallelStream"(): $IntStream
  "size"(): integer
  "equals"(arg0: any): boolean
  "hashCode"(): integer
@@ -11457,13 +11456,13 @@ static "of"<E>(arg0: integer, arg1: integer): $Set<(integer)>
  "retainAll"(arg0: $Collection$$Type<(never)>): boolean
  "containsAll"(arg0: $Collection$$Type<(never)>): boolean
  "toArray"<T>(arg0: $IntFunction$$Type<((T)[])>): (T)[]
- "forEach"(arg0: $IntConsumer$$Type): void
+ "forEach"(arg0: $IntConsumer$0$$Type): void
 /**
  * 
  * @deprecated
  */
  "forEach"(arg0: $Consumer$$Type<(integer)>): void
- "forEach"(arg0: $IntConsumer$0$$Type): void
+ "forEach"(arg0: $IntConsumer$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -11478,8 +11477,8 @@ declare module "it.unimi.dsi.fastutil.shorts.ShortComparator" {
 import {$ToIntFunction$$Type} from "java.util.function.ToIntFunction"
 import {$ToLongFunction$$Type} from "java.util.function.ToLongFunction"
 import {$ToDoubleFunction$$Type} from "java.util.function.ToDoubleFunction"
-import {$Comparable} from "java.lang.Comparable"
 import {$Comparator, $Comparator$$Type, $Comparator$$Interface} from "java.util.Comparator"
+import {$Comparable} from "java.lang.Comparable"
 import {$Function$$Type} from "java.util.function.Function"
 
 export interface $ShortComparator$$Interface extends $Comparator$$Interface<(short)> {
@@ -11526,8 +11525,8 @@ export type $ShortComparator$$Type = ($ShortComparator);
  */
 export type $ShortComparator$$Original = $ShortComparator;}
 declare module "it.unimi.dsi.fastutil.longs.Long2ReferenceMap$Entry" {
-import {$Comparable} from "java.lang.Comparable"
 import {$Comparator, $Comparator$$Type} from "java.util.Comparator"
+import {$Comparable} from "java.lang.Comparable"
 import {$Map$Entry, $Map$Entry$$Type, $Map$Entry$$Interface} from "java.util.Map$Entry"
 
 export interface $Long2ReferenceMap$Entry$$Interface<V> extends $Map$Entry$$Interface<(long), (V)> {
@@ -11565,10 +11564,10 @@ export type $Long2ReferenceMap$Entry$$Type<V> = ($Long2ReferenceMap$Entry<(V)>);
 export type $Long2ReferenceMap$Entry$$Original<V> = $Long2ReferenceMap$Entry<(V)>;}
 declare module "it.unimi.dsi.fastutil.objects.AbstractObjectSet" {
 import {$Collection$$Type} from "java.util.Collection"
-import {$AbstractObjectCollection} from "it.unimi.dsi.fastutil.objects.AbstractObjectCollection"
 import {$ObjectSet, $ObjectSet$$Interface} from "it.unimi.dsi.fastutil.objects.ObjectSet"
-import {$ObjectIterator} from "it.unimi.dsi.fastutil.objects.ObjectIterator"
+import {$AbstractObjectCollection} from "it.unimi.dsi.fastutil.objects.AbstractObjectCollection"
 import {$Spliterator} from "java.util.Spliterator"
+import {$ObjectIterator} from "it.unimi.dsi.fastutil.objects.ObjectIterator"
 import {$Cloneable$$Interface} from "java.lang.Cloneable"
 import {$Set} from "java.util.Set"
 
@@ -11651,17 +11650,17 @@ export type $FloatIterator$$Type = ($FloatIterator);
  */
 export type $FloatIterator$$Original = $FloatIterator;}
 declare module "it.unimi.dsi.fastutil.longs.LongSet" {
-import {$LongPredicate$$Type as $LongPredicate$0$$Type} from "java.util.function.LongPredicate"
 import {$Iterator} from "java.util.Iterator"
+import {$LongPredicate$$Type} from "java.util.function.LongPredicate"
 import {$Collection$$Type} from "java.util.Collection"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$LongStream} from "java.util.stream.LongStream"
-import {$LongConsumer$$Type as $LongConsumer$0$$Type} from "it.unimi.dsi.fastutil.longs.LongConsumer"
-import {$Consumer$$Type} from "java.util.function.Consumer"
+import {$LongConsumer$$Type} from "it.unimi.dsi.fastutil.longs.LongConsumer"
+import {$LongPredicate$$Type as $LongPredicate$0$$Type} from "it.unimi.dsi.fastutil.longs.LongPredicate"
 import {$IntFunction$$Type} from "java.util.function.IntFunction"
-import {$LongPredicate$$Type} from "it.unimi.dsi.fastutil.longs.LongPredicate"
+import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$LongSpliterator} from "it.unimi.dsi.fastutil.longs.LongSpliterator"
-import {$LongConsumer$$Type} from "java.util.function.LongConsumer"
+import {$LongConsumer$$Type as $LongConsumer$0$$Type} from "java.util.function.LongConsumer"
 import {$Set, $Set$$Interface} from "java.util.Set"
 import {$LongIterator} from "it.unimi.dsi.fastutil.longs.LongIterator"
 import {$Stream} from "java.util.stream.Stream"
@@ -11714,13 +11713,13 @@ static "of"(arg0: long, arg1: long, arg2: long): $LongSet
  "stream"(): $Stream<(long)>
  "contains"(arg0: long): boolean
  "addAll"(arg0: $LongCollection$$Type): boolean
- "removeIf"(arg0: $LongPredicate$0$$Type): boolean
+ "removeIf"(arg0: $LongPredicate$$Type): boolean
 /**
  * 
  * @deprecated
  */
  "removeIf"(arg0: $Predicate$$Type<(long)>): boolean
- "removeIf"(arg0: $LongPredicate$$Type): boolean
+ "removeIf"(arg0: $LongPredicate$0$$Type): boolean
  "removeAll"(arg0: $LongCollection$$Type): boolean
  "retainAll"(arg0: $LongCollection$$Type): boolean
  "containsAll"(arg0: $LongCollection$$Type): boolean
@@ -11730,15 +11729,15 @@ static "of"(arg0: long, arg1: long, arg2: long): $LongSet
  */
  "parallelStream"(): $Stream<(long)>
  "longStream"(): $LongStream
- "toLongArray"(): (long)[]
 /**
  * 
  * @deprecated
  */
  "toLongArray"(arg0: (long)[]): (long)[]
- "longIterator"(): $LongIterator
+ "toLongArray"(): (long)[]
  "longParallelStream"(): $LongStream
  "longSpliterator"(): $LongSpliterator
+ "longIterator"(): $LongIterator
  "size"(): integer
  "equals"(arg0: any): boolean
  "hashCode"(): integer
@@ -11763,13 +11762,13 @@ static "of"<E>(arg0: long, arg1: long): $Set<(long)>
  "retainAll"(arg0: $Collection$$Type<(never)>): boolean
  "containsAll"(arg0: $Collection$$Type<(never)>): boolean
  "toArray"<T>(arg0: $IntFunction$$Type<((T)[])>): (T)[]
- "forEach"(arg0: $LongConsumer$$Type): void
+ "forEach"(arg0: $LongConsumer$0$$Type): void
 /**
  * 
  * @deprecated
  */
  "forEach"(arg0: $Consumer$$Type<(long)>): void
- "forEach"(arg0: $LongConsumer$0$$Type): void
+ "forEach"(arg0: $LongConsumer$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -11794,8 +11793,8 @@ import {$Float2IntFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2IntFu
 import {$Int2ReferenceFunction} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
 import {$Char2ObjectFunction} from "it.unimi.dsi.fastutil.chars.Char2ObjectFunction"
 import {$Object2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2DoubleFunction"
-import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
+import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Object2FloatFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2FloatFunction"
 import {$Byte2ObjectFunction} from "it.unimi.dsi.fastutil.bytes.Byte2ObjectFunction"
 import {$Int2DoubleFunction} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
@@ -11806,10 +11805,10 @@ import {$Int2ShortFunction} from "it.unimi.dsi.fastutil.ints.Int2ShortFunction"
 import {$Object2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ByteFunction"
 import {$Float2ObjectFunction} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Int2LongFunction} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
-import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
-import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
-import {$Char2IntFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
 import {$Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
+import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
+import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
+import {$Char2IntFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
 import {$Double2IntFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2IntFunction"
 import {$Object2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
 import {$Double2ObjectFunction} from "it.unimi.dsi.fastutil.doubles.Double2ObjectFunction"
@@ -11822,12 +11821,12 @@ export interface $Int2ObjectFunction$$Interface<V> extends $Function$$Interface<
 }
 
 export class $Int2ObjectFunction<V> implements $Int2ObjectFunction$$Interface {
- "remove"(arg0: integer): V
 /**
  * 
  * @deprecated
  */
  "remove"(arg0: any): V
+ "remove"(arg0: integer): V
 /**
  * 
  * @deprecated
@@ -11838,13 +11837,13 @@ export class $Int2ObjectFunction<V> implements $Int2ObjectFunction$$Interface {
  * 
  * @deprecated
  */
- "put"(arg0: integer, arg1: V): V
- "put"(arg0: integer, arg1: V): V
+ "put"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
  */
- "put"(arg0: any, arg1: any): any
+ "put"(arg0: integer, arg1: V): V
+ "put"(arg0: integer, arg1: V): V
  "apply"(arg0: integer): V
  "containsKey"(arg0: integer): boolean
 /**
@@ -11863,26 +11862,26 @@ export class $Int2ObjectFunction<V> implements $Int2ObjectFunction$$Interface {
  * @deprecated
  */
  "compose"<T>(arg0: $Function$0$$Type<(T), (integer)>): $Function$0<(T), (V)>
- "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Int2IntFunction
- "composeInt"(arg0: $Int2IntFunction$$Type): $Int2ObjectFunction<(V)>
- "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Int2ReferenceFunction<(T)>
- "composeObject"<T>(arg0: $Object2IntFunction$$Type<(T)>): $Object2ObjectFunction<(T), (V)>
- "andThenLong"(arg0: $Object2LongFunction$$Type<(V)>): $Int2LongFunction
- "andThenFloat"(arg0: $Object2FloatFunction$$Type<(V)>): $Int2FloatFunction
- "composeShort"(arg0: $Short2IntFunction$$Type): $Short2ObjectFunction<(V)>
  "andThenObject"<T>(arg0: $Object2ObjectFunction$$Type<(V), (T)>): $Int2ObjectFunction<(T)>
- "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Int2ByteFunction
- "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Int2CharFunction
+ "composeShort"(arg0: $Short2IntFunction$$Type): $Short2ObjectFunction<(V)>
+ "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Int2DoubleFunction
  "composeReference"<T>(arg0: $Reference2IntFunction$$Type<(T)>): $Reference2ObjectFunction<(T), (V)>
+ "composeDouble"(arg0: $Double2IntFunction$$Type): $Double2ObjectFunction<(V)>
+ "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Int2CharFunction
  "defaultReturnValue"(): V
  "defaultReturnValue"(arg0: V): void
+ "composeObject"<T>(arg0: $Object2IntFunction$$Type<(T)>): $Object2ObjectFunction<(T), (V)>
+ "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Int2ByteFunction
  "composeByte"(arg0: $Byte2IntFunction$$Type): $Byte2ObjectFunction<(V)>
- "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Int2ShortFunction
+ "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Int2ReferenceFunction<(T)>
  "composeLong"(arg0: $Long2IntFunction$$Type): $Long2ObjectFunction<(V)>
- "composeChar"(arg0: $Char2IntFunction$$Type): $Char2ObjectFunction<(V)>
  "composeFloat"(arg0: $Float2IntFunction$$Type): $Float2ObjectFunction<(V)>
- "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Int2DoubleFunction
- "composeDouble"(arg0: $Double2IntFunction$$Type): $Double2ObjectFunction<(V)>
+ "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Int2ShortFunction
+ "composeChar"(arg0: $Char2IntFunction$$Type): $Char2ObjectFunction<(V)>
+ "andThenLong"(arg0: $Object2LongFunction$$Type<(V)>): $Int2LongFunction
+ "andThenFloat"(arg0: $Object2FloatFunction$$Type<(V)>): $Int2FloatFunction
+ "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Int2IntFunction
+ "composeInt"(arg0: $Int2IntFunction$$Type): $Int2ObjectFunction<(V)>
  "size"(): integer
  "clear"(): void
  "apply"(arg0: integer): V
@@ -11899,8 +11898,8 @@ export type $Int2ObjectFunction$$Type<V> = ((arg0: integer) => V);
  */
 export type $Int2ObjectFunction$$Original<V> = $Int2ObjectFunction<(V)>;}
 declare module "it.unimi.dsi.fastutil.objects.Reference2IntMap$Entry" {
-import {$Comparable} from "java.lang.Comparable"
 import {$Comparator, $Comparator$$Type} from "java.util.Comparator"
+import {$Comparable} from "java.lang.Comparable"
 import {$Map$Entry, $Map$Entry$$Type, $Map$Entry$$Interface} from "java.util.Map$Entry"
 
 export interface $Reference2IntMap$Entry$$Interface<K> extends $Map$Entry$$Interface<(K), (integer)> {
@@ -12022,9 +12021,9 @@ public "getOrDefault"(arg0: long, arg1: V): V
  */
 public "getOrDefault"(arg0: any, arg1: V): V
 public "computeIfPresent"(arg0: long, arg1: $BiFunction$$Type<(long), (V), (V)>): V
-public "long2ObjectEntrySet"(): $ObjectSet<($Long2ObjectMap$Entry<(V)>)>
 public "defaultReturnValue"(arg0: V): void
 public "defaultReturnValue"(): V
+public "long2ObjectEntrySet"(): $ObjectSet<($Long2ObjectMap$Entry<(V)>)>
 /**
  * 
  * @deprecated
@@ -12072,18 +12071,18 @@ import {$Float2ReferenceFunction} from "it.unimi.dsi.fastutil.floats.Float2Refer
 import {$Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Reference2IntFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2IntFunction"
 import {$Reference2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
-import {$Double2FloatFunction} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Reference2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
-import {$Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
+import {$Double2FloatFunction} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Int2ReferenceFunction} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
+import {$Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Byte2ReferenceFunction} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
 import {$Object2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2DoubleFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
 import {$Int2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
 import {$Short2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2DoubleFunction"
 import {$Reference2ReferenceFunction, $Reference2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ReferenceFunction"
-import {$Reference2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ObjectFunction"
 import {$Double2DoubleFunction, $Double2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2DoubleFunction"
+import {$Reference2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ObjectFunction"
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Long2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2DoubleFunction"
 import {$Short2ReferenceFunction} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
@@ -12108,12 +12107,12 @@ export interface $Double2ReferenceFunction$$Interface<V> extends $Function$$Inte
 }
 
 export class $Double2ReferenceFunction<V> implements $Double2ReferenceFunction$$Interface {
- "remove"(arg0: double): V
 /**
  * 
  * @deprecated
  */
  "remove"(arg0: any): V
+ "remove"(arg0: double): V
 /**
  * 
  * @deprecated
@@ -12124,13 +12123,13 @@ export class $Double2ReferenceFunction<V> implements $Double2ReferenceFunction$$
  * 
  * @deprecated
  */
- "put"(arg0: double, arg1: V): V
- "put"(arg0: double, arg1: V): V
+ "put"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
  */
- "put"(arg0: any, arg1: any): any
+ "put"(arg0: double, arg1: V): V
+ "put"(arg0: double, arg1: V): V
  "apply"(arg0: double): V
  "containsKey"(arg0: double): boolean
 /**
@@ -12149,26 +12148,26 @@ export class $Double2ReferenceFunction<V> implements $Double2ReferenceFunction$$
  * @deprecated
  */
  "compose"<T>(arg0: $Function$0$$Type<(T), (double)>): $Function$0<(T), (V)>
- "andThenInt"(arg0: $Reference2IntFunction$$Type<(V)>): $Double2IntFunction
- "composeInt"(arg0: $Int2DoubleFunction$$Type): $Int2ReferenceFunction<(V)>
- "andThenReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(V), (T)>): $Double2ReferenceFunction<(T)>
- "composeObject"<T>(arg0: $Object2DoubleFunction$$Type<(T)>): $Object2ReferenceFunction<(T), (V)>
- "andThenLong"(arg0: $Reference2LongFunction$$Type<(V)>): $Double2LongFunction
- "andThenFloat"(arg0: $Reference2FloatFunction$$Type<(V)>): $Double2FloatFunction
- "composeShort"(arg0: $Short2DoubleFunction$$Type): $Short2ReferenceFunction<(V)>
  "andThenObject"<T>(arg0: $Reference2ObjectFunction$$Type<(V), (T)>): $Double2ObjectFunction<(T)>
- "andThenByte"(arg0: $Reference2ByteFunction$$Type<(V)>): $Double2ByteFunction
- "andThenChar"(arg0: $Reference2CharFunction$$Type<(V)>): $Double2CharFunction
+ "composeShort"(arg0: $Short2DoubleFunction$$Type): $Short2ReferenceFunction<(V)>
+ "andThenDouble"(arg0: $Reference2DoubleFunction$$Type<(V)>): $Double2DoubleFunction
  "composeReference"<T>(arg0: $Reference2DoubleFunction$$Type<(T)>): $Reference2ReferenceFunction<(T), (V)>
+ "composeDouble"(arg0: $Double2DoubleFunction$$Type): $Double2ReferenceFunction<(V)>
+ "andThenChar"(arg0: $Reference2CharFunction$$Type<(V)>): $Double2CharFunction
  "defaultReturnValue"(): V
  "defaultReturnValue"(arg0: V): void
+ "composeObject"<T>(arg0: $Object2DoubleFunction$$Type<(T)>): $Object2ReferenceFunction<(T), (V)>
+ "andThenByte"(arg0: $Reference2ByteFunction$$Type<(V)>): $Double2ByteFunction
  "composeByte"(arg0: $Byte2DoubleFunction$$Type): $Byte2ReferenceFunction<(V)>
- "andThenShort"(arg0: $Reference2ShortFunction$$Type<(V)>): $Double2ShortFunction
+ "andThenReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(V), (T)>): $Double2ReferenceFunction<(T)>
  "composeLong"(arg0: $Long2DoubleFunction$$Type): $Long2ReferenceFunction<(V)>
- "composeChar"(arg0: $Char2DoubleFunction$$Type): $Char2ReferenceFunction<(V)>
  "composeFloat"(arg0: $Float2DoubleFunction$$Type): $Float2ReferenceFunction<(V)>
- "andThenDouble"(arg0: $Reference2DoubleFunction$$Type<(V)>): $Double2DoubleFunction
- "composeDouble"(arg0: $Double2DoubleFunction$$Type): $Double2ReferenceFunction<(V)>
+ "andThenShort"(arg0: $Reference2ShortFunction$$Type<(V)>): $Double2ShortFunction
+ "composeChar"(arg0: $Char2DoubleFunction$$Type): $Char2ReferenceFunction<(V)>
+ "andThenLong"(arg0: $Reference2LongFunction$$Type<(V)>): $Double2LongFunction
+ "andThenFloat"(arg0: $Reference2FloatFunction$$Type<(V)>): $Double2FloatFunction
+ "andThenInt"(arg0: $Reference2IntFunction$$Type<(V)>): $Double2IntFunction
+ "composeInt"(arg0: $Int2DoubleFunction$$Type): $Int2ReferenceFunction<(V)>
  "size"(): integer
  "clear"(): void
  "apply"(arg0: double): V
@@ -12185,8 +12184,8 @@ export type $Double2ReferenceFunction$$Type<V> = ((arg0: double) => V);
  */
 export type $Double2ReferenceFunction$$Original<V> = $Double2ReferenceFunction<(V)>;}
 declare module "it.unimi.dsi.fastutil.objects.Object2DoubleMap$Entry" {
-import {$Comparable} from "java.lang.Comparable"
 import {$Comparator, $Comparator$$Type} from "java.util.Comparator"
+import {$Comparable} from "java.lang.Comparable"
 import {$Map$Entry, $Map$Entry$$Type, $Map$Entry$$Interface} from "java.util.Map$Entry"
 
 export interface $Object2DoubleMap$Entry$$Interface<K> extends $Map$Entry$$Interface<(K), (double)> {
@@ -12279,8 +12278,8 @@ export type $DoubleUnaryOperator$$Type = ((arg0: double) => double);
 export type $DoubleUnaryOperator$$Original = $DoubleUnaryOperator;}
 declare module "it.unimi.dsi.fastutil.objects.Object2FloatMap" {
 import {$Float2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ReferenceFunction"
-import {$ToDoubleFunction$$Type} from "java.util.function.ToDoubleFunction"
 import {$Float2ByteFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ByteFunction"
+import {$ToDoubleFunction$$Type} from "java.util.function.ToDoubleFunction"
 import {$Object2IntFunction} from "it.unimi.dsi.fastutil.objects.Object2IntFunction"
 import {$Object2ObjectFunction, $Object2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ObjectFunction"
 import {$FloatBinaryOperator$$Type} from "it.unimi.dsi.fastutil.floats.FloatBinaryOperator"
@@ -12309,11 +12308,11 @@ import {$BiFunction$$Type} from "java.util.function.BiFunction"
 import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Float2FloatFunction, $Float2FloatFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2FloatFunction"
 import {$ObjectSet} from "it.unimi.dsi.fastutil.objects.ObjectSet"
-import {$Object2ReferenceFunction} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
-import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
-import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
+import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
+import {$Object2ReferenceFunction} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
 import {$Char2FloatFunction} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
+import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$Long2FloatFunction} from "it.unimi.dsi.fastutil.longs.Long2FloatFunction"
 import {$Object2LongFunction} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
 import {$Short2FloatFunction} from "it.unimi.dsi.fastutil.shorts.Short2FloatFunction"
@@ -12429,13 +12428,6 @@ export class $Object2FloatMap<K> implements $Object2FloatMap$$Interface {
  */
  "getOrDefault"(arg0: any, arg1: any): any
  "computeFloat"(arg0: K, arg1: $BiFunction$$Type<(K), (float), (float)>): float
-/**
- * 
- * @deprecated
- */
- "mergeFloat"(arg0: K, arg1: float, arg2: $BiFunction$$Type<(float), (float), (float)>): float
- "mergeFloat"(arg0: K, arg1: float, arg2: $DoubleBinaryOperator$$Type): float
- "mergeFloat"(arg0: K, arg1: float, arg2: $FloatBinaryOperator$$Type): float
  "defaultReturnValue"(arg0: float): void
  "defaultReturnValue"(): float
 /**
@@ -12443,13 +12435,20 @@ export class $Object2FloatMap<K> implements $Object2FloatMap$$Interface {
  * @deprecated
  */
  "computeFloatIfAbsentPartial"(arg0: K, arg1: $Object2FloatFunction$$Type<(K)>): float
- "computeFloatIfPresent"(arg0: K, arg1: $BiFunction$$Type<(K), (float), (float)>): float
  "object2FloatEntrySet"(): $ObjectSet<($Object2FloatMap$Entry<(K)>)>
+ "computeFloatIfPresent"(arg0: K, arg1: $BiFunction$$Type<(K), (float), (float)>): float
 /**
  * 
  * @deprecated
  */
  "computeFloatIfAbsent"(arg0: K, arg1: $ToDoubleFunction$$Type<(K)>): float
+/**
+ * 
+ * @deprecated
+ */
+ "mergeFloat"(arg0: K, arg1: float, arg2: $BiFunction$$Type<(float), (float), (float)>): float
+ "mergeFloat"(arg0: K, arg1: float, arg2: $DoubleBinaryOperator$$Type): float
+ "mergeFloat"(arg0: K, arg1: float, arg2: $FloatBinaryOperator$$Type): float
  "put"(arg0: K, arg1: float): float
  "getFloat"(arg0: any): float
  "applyAsDouble"(arg0: K): double
@@ -12458,24 +12457,24 @@ export class $Object2FloatMap<K> implements $Object2FloatMap$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$$Type<(float), (T)>): $Function<(K), (T)>
- "andThenInt"(arg0: $Float2IntFunction$$Type): $Object2IntFunction<(K)>
- "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2FloatFunction
- "andThenReference"<T>(arg0: $Float2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
+ "andThenObject"<T>(arg0: $Float2ObjectFunction$$Type<(T)>): $Object2ObjectFunction<(K), (T)>
+ "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2FloatFunction
+ "andThenDouble"(arg0: $Float2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
+ "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2FloatFunction<(T)>
+ "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2FloatFunction
+ "andThenChar"(arg0: $Float2CharFunction$$Type): $Object2CharFunction<(K)>
  "composeObject"<T>(arg0: $Object2ObjectFunction$$Type<(T), (K)>): $Object2FloatFunction<(T)>
+ "andThenByte"(arg0: $Float2ByteFunction$$Type): $Object2ByteFunction<(K)>
+ "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2FloatFunction
+ "andThenReference"<T>(arg0: $Float2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
+ "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2FloatFunction
+ "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2FloatFunction
+ "andThenShort"(arg0: $Float2ShortFunction$$Type): $Object2ShortFunction<(K)>
+ "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2FloatFunction
  "andThenLong"(arg0: $Float2LongFunction$$Type): $Object2LongFunction<(K)>
  "andThenFloat"(arg0: $Float2FloatFunction$$Type): $Object2FloatFunction<(K)>
- "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2FloatFunction
- "andThenObject"<T>(arg0: $Float2ObjectFunction$$Type<(T)>): $Object2ObjectFunction<(K), (T)>
- "andThenByte"(arg0: $Float2ByteFunction$$Type): $Object2ByteFunction<(K)>
- "andThenChar"(arg0: $Float2CharFunction$$Type): $Object2CharFunction<(K)>
- "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2FloatFunction<(T)>
- "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2FloatFunction
- "andThenShort"(arg0: $Float2ShortFunction$$Type): $Object2ShortFunction<(K)>
- "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2FloatFunction
- "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2FloatFunction
- "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2FloatFunction
- "andThenDouble"(arg0: $Float2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
- "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2FloatFunction
+ "andThenInt"(arg0: $Float2IntFunction$$Type): $Object2IntFunction<(K)>
+ "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2FloatFunction
  "removeFloat"(arg0: any): float
  "equals"(arg0: any): boolean
  "hashCode"(): integer
@@ -12514,8 +12513,8 @@ export type $Object2FloatMap$$Type<K> = ($Object2FloatMap<(K)>);
 export type $Object2FloatMap$$Original<K> = $Object2FloatMap<(K)>;}
 declare module "it.unimi.dsi.fastutil.ints.IntListIterator" {
 import {$ListIterator$$Interface} from "java.util.ListIterator"
-import {$IntConsumer$$Type} from "java.util.function.IntConsumer"
-import {$IntConsumer$$Type as $IntConsumer$0$$Type} from "it.unimi.dsi.fastutil.ints.IntConsumer"
+import {$IntConsumer$$Type as $IntConsumer$0$$Type} from "java.util.function.IntConsumer"
+import {$IntConsumer$$Type} from "it.unimi.dsi.fastutil.ints.IntConsumer"
 import {$IntBidirectionalIterator$$Interface} from "it.unimi.dsi.fastutil.ints.IntBidirectionalIterator"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 
@@ -12568,10 +12567,10 @@ export class $IntListIterator implements $IntListIterator$$Interface {
  * @deprecated
  */
  "forEachRemaining"(arg0: $Consumer$$Type<(integer)>): void
- "forEachRemaining"(arg0: $IntConsumer$0$$Type): void
+ "forEachRemaining"(arg0: $IntConsumer$$Type): void
  "nextInt"(): integer
  "forEachRemaining"(arg0: any): void
- "forEachRemaining"(arg0: $IntConsumer$$Type): void
+ "forEachRemaining"(arg0: $IntConsumer$0$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -12588,13 +12587,13 @@ import {$ShortPredicate$$Type} from "it.unimi.dsi.fastutil.shorts.ShortPredicate
 import {$Collection$$Type} from "java.util.Collection"
 import {$IntStream} from "java.util.stream.IntStream"
 import {$Predicate$$Type} from "java.util.function.Predicate"
-import {$IntPredicate$$Type} from "java.util.function.IntPredicate"
 import {$IntSpliterator} from "it.unimi.dsi.fastutil.ints.IntSpliterator"
+import {$IntPredicate$$Type} from "java.util.function.IntPredicate"
 import {$ShortSpliterator} from "it.unimi.dsi.fastutil.shorts.ShortSpliterator"
-import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$IntFunction$$Type} from "java.util.function.IntFunction"
-import {$ShortCollection$$Type, $ShortCollection$$Interface} from "it.unimi.dsi.fastutil.shorts.ShortCollection"
+import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$IntIterator} from "it.unimi.dsi.fastutil.ints.IntIterator"
+import {$ShortCollection$$Type, $ShortCollection$$Interface} from "it.unimi.dsi.fastutil.shorts.ShortCollection"
 import {$ShortConsumer$$Type} from "it.unimi.dsi.fastutil.shorts.ShortConsumer"
 import {$IntConsumer$$Type} from "java.util.function.IntConsumer"
 import {$Set, $Set$$Interface} from "java.util.Set"
@@ -12669,9 +12668,9 @@ static "of"(arg0: short, arg1: short, arg2: short): $ShortSet
  */
  "toShortArray"(arg0: (short)[]): (short)[]
  "toShortArray"(): (short)[]
+ "intParallelStream"(): $IntStream
  "intSpliterator"(): $IntSpliterator
  "intIterator"(): $IntIterator
- "intParallelStream"(): $IntStream
  "size"(): integer
  "equals"(arg0: any): boolean
  "hashCode"(): integer
@@ -12721,9 +12720,9 @@ import {$LongComparator} from "it.unimi.dsi.fastutil.longs.LongComparator"
 import {$Long2ObjectSortedMap, $Long2ObjectSortedMap$$Interface} from "it.unimi.dsi.fastutil.longs.Long2ObjectSortedMap"
 import {$Map$Entry, $Map$Entry$$Type} from "java.util.Map$Entry"
 import {$SequencedSet} from "java.util.SequencedSet"
-import {$ObjectSet} from "it.unimi.dsi.fastutil.objects.ObjectSet"
 import {$Function} from "java.util.function.Function"
 import {$ObjectSortedSet} from "it.unimi.dsi.fastutil.objects.ObjectSortedSet"
+import {$Long2ObjectMap$Entry} from "it.unimi.dsi.fastutil.longs.Long2ObjectMap$Entry"
 import {$Set} from "java.util.Set"
 import {$AbstractLong2ObjectMap} from "it.unimi.dsi.fastutil.longs.AbstractLong2ObjectMap"
 import {$SortedMap} from "java.util.SortedMap"
@@ -12780,9 +12779,9 @@ public "tailMap"(arg0: any): $SortedMap
  * @deprecated
  */
 public "lastKey"(): any
-public "long2ObjectEntrySet"(): $ObjectSet
-public "firstLongKey"(): long
 public "lastLongKey"(): long
+public "firstLongKey"(): long
+public "long2ObjectEntrySet"(): $ObjectSortedSet<($Long2ObjectMap$Entry<(V)>)>
 public "defaultReturnValue"(arg0: V): void
 public "defaultReturnValue"(): V
 public "reversed"(): $SortedMap<(long), (V)>
@@ -12822,13 +12821,13 @@ export type $AbstractLong2ObjectSortedMap$$Type<V> = ($AbstractLong2ObjectSorted
 export type $AbstractLong2ObjectSortedMap$$Original<V> = $AbstractLong2ObjectSortedMap<(V)>;}
 declare module "it.unimi.dsi.fastutil.longs.Long2ObjectSortedMap" {
 import {$Object2IntFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2IntFunction"
-import {$Long2CharFunction} from "it.unimi.dsi.fastutil.longs.Long2CharFunction"
 import {$Long2ObjectMap$$Interface} from "it.unimi.dsi.fastutil.longs.Long2ObjectMap"
+import {$Long2CharFunction} from "it.unimi.dsi.fastutil.longs.Long2CharFunction"
 import {$LongFunction$$Type} from "java.util.function.LongFunction"
 import {$Long2ByteFunction} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
 import {$Long2IntFunction} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
-import {$Object2ObjectFunction, $Object2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ObjectFunction"
 import {$LongComparator} from "it.unimi.dsi.fastutil.longs.LongComparator"
+import {$Object2ObjectFunction, $Object2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ObjectFunction"
 import {$LongSortedSet} from "it.unimi.dsi.fastutil.longs.LongSortedSet"
 import {$Map$Entry, $Map$Entry$$Type} from "java.util.Map$Entry"
 import {$Reference2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
@@ -12843,8 +12842,8 @@ import {$SortedMap, $SortedMap$$Interface} from "java.util.SortedMap"
 import {$Reference2ObjectFunction} from "it.unimi.dsi.fastutil.objects.Reference2ObjectFunction"
 import {$Collection} from "java.util.Collection"
 import {$Map, $Map$$Type} from "java.util.Map"
-import {$Object2CharFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2CharFunction"
 import {$SequencedCollection} from "java.util.SequencedCollection"
+import {$Object2CharFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2CharFunction"
 import {$Long2LongFunction, $Long2LongFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2LongFunction"
 import {$Long2DoubleFunction} from "it.unimi.dsi.fastutil.longs.Long2DoubleFunction"
 import {$Float2LongFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2LongFunction"
@@ -12853,18 +12852,18 @@ import {$Long2ReferenceFunction} from "it.unimi.dsi.fastutil.longs.Long2Referenc
 import {$Byte2LongFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2LongFunction"
 import {$BiFunction$$Type} from "java.util.function.BiFunction"
 import {$Float2ObjectFunction} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
-import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Double2LongFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
+import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Short2LongFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$SequencedSet} from "java.util.SequencedSet"
-import {$ObjectSet} from "it.unimi.dsi.fastutil.objects.ObjectSet"
 import {$Int2LongFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
-import {$Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
-import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
+import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
+import {$Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
 import {$ObjectSortedSet} from "it.unimi.dsi.fastutil.objects.ObjectSortedSet"
 import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$Long2FloatFunction} from "it.unimi.dsi.fastutil.longs.Long2FloatFunction"
+import {$Long2ObjectMap$Entry} from "it.unimi.dsi.fastutil.longs.Long2ObjectMap$Entry"
 import {$Object2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
 import {$Double2ObjectFunction} from "it.unimi.dsi.fastutil.doubles.Double2ObjectFunction"
 import {$Long2ObjectFunction, $Long2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ObjectFunction"
@@ -12926,9 +12925,9 @@ export class $Long2ObjectSortedMap<V> implements $Long2ObjectSortedMap$$Interfac
  * @deprecated
  */
  "lastKey"(): any
- "long2ObjectEntrySet"(): $ObjectSet
- "firstLongKey"(): long
  "lastLongKey"(): long
+ "firstLongKey"(): long
+ "long2ObjectEntrySet"(): $ObjectSortedSet<($Long2ObjectMap$Entry<(V)>)>
 /**
  * 
  * @deprecated
@@ -12992,24 +12991,24 @@ export class $Long2ObjectSortedMap<V> implements $Long2ObjectSortedMap$$Interfac
  * @deprecated
  */
  "compose"<T>(arg0: $Function$$Type<(T), (long)>): $Function<(T), (V)>
- "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Long2IntFunction
- "composeInt"(arg0: $Int2LongFunction$$Type): $Int2ObjectFunction<(V)>
- "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Long2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Object2ObjectFunction$$Type<(V), (T)>): $Long2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2LongFunction$$Type): $Short2ObjectFunction<(V)>
+ "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Long2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2LongFunction$$Type<(T)>): $Reference2ObjectFunction<(T), (V)>
+ "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2ObjectFunction<(V)>
+ "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Long2CharFunction
  "composeObject"<T>(arg0: $Object2LongFunction$$Type<(T)>): $Object2ObjectFunction<(T), (V)>
+ "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Long2ByteFunction
+ "composeByte"(arg0: $Byte2LongFunction$$Type): $Byte2ObjectFunction<(V)>
+ "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Long2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2LongFunction$$Type): $Long2ObjectFunction<(V)>
+ "composeFloat"(arg0: $Float2LongFunction$$Type): $Float2ObjectFunction<(V)>
+ "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Long2ShortFunction
+ "composeChar"(arg0: $Char2LongFunction$$Type): $Char2ObjectFunction<(V)>
  "andThenLong"(arg0: $Object2LongFunction$$Type<(V)>): $Long2LongFunction
  "andThenFloat"(arg0: $Object2FloatFunction$$Type<(V)>): $Long2FloatFunction
- "composeShort"(arg0: $Short2LongFunction$$Type): $Short2ObjectFunction<(V)>
- "andThenObject"<T>(arg0: $Object2ObjectFunction$$Type<(V), (T)>): $Long2ObjectFunction<(T)>
- "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Long2ByteFunction
- "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Long2CharFunction
- "composeReference"<T>(arg0: $Reference2LongFunction$$Type<(T)>): $Reference2ObjectFunction<(T), (V)>
- "composeByte"(arg0: $Byte2LongFunction$$Type): $Byte2ObjectFunction<(V)>
- "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Long2ShortFunction
- "composeLong"(arg0: $Long2LongFunction$$Type): $Long2ObjectFunction<(V)>
- "composeChar"(arg0: $Char2LongFunction$$Type): $Char2ObjectFunction<(V)>
- "composeFloat"(arg0: $Float2LongFunction$$Type): $Float2ObjectFunction<(V)>
- "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Long2DoubleFunction
- "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2ObjectFunction<(V)>
+ "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Long2IntFunction
+ "composeInt"(arg0: $Int2LongFunction$$Type): $Int2ObjectFunction<(V)>
  "remove"(arg0: any, arg1: any): boolean
  "equals"(arg0: any): boolean
  "hashCode"(): integer
@@ -13059,8 +13058,8 @@ export type $Long2ObjectSortedMap$$Type<V> = ($Long2ObjectSortedMap<(V)>);
  */
 export type $Long2ObjectSortedMap$$Original<V> = $Long2ObjectSortedMap<(V)>;}
 declare module "it.unimi.dsi.fastutil.shorts.Short2ObjectMap$Entry" {
-import {$Comparable} from "java.lang.Comparable"
 import {$Comparator, $Comparator$$Type} from "java.util.Comparator"
+import {$Comparable} from "java.lang.Comparable"
 import {$Map$Entry, $Map$Entry$$Type, $Map$Entry$$Interface} from "java.util.Map$Entry"
 
 export interface $Short2ObjectMap$Entry$$Interface<V> extends $Map$Entry$$Interface<(short), (V)> {
@@ -13099,8 +13098,8 @@ export type $Short2ObjectMap$Entry$$Original<V> = $Short2ObjectMap$Entry<(V)>;}
 declare module "it.unimi.dsi.fastutil.objects.Reference2ByteFunction" {
 import {$Byte2ByteFunction, $Byte2ByteFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ByteFunction"
 import {$Float2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ReferenceFunction"
-import {$Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Float2ByteFunction} from "it.unimi.dsi.fastutil.floats.Float2ByteFunction"
+import {$Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Reference2IntFunction} from "it.unimi.dsi.fastutil.objects.Reference2IntFunction"
 import {$Long2ByteFunction} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
 import {$Byte2IntFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
@@ -13125,8 +13124,8 @@ import {$ToIntFunction$$Interface} from "java.util.function.ToIntFunction"
 import {$Char2ByteFunction} from "it.unimi.dsi.fastutil.chars.Char2ByteFunction"
 import {$Double2ByteFunction} from "it.unimi.dsi.fastutil.doubles.Double2ByteFunction"
 import {$Reference2CharFunction} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
-import {$Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
 import {$Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
+import {$Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
 import {$Reference2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Reference2DoubleFunction"
 import {$Byte2FloatFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2FloatFunction"
 import {$Short2ByteFunction} from "it.unimi.dsi.fastutil.shorts.Short2ByteFunction"
@@ -13142,17 +13141,17 @@ export class $Reference2ByteFunction<K> implements $Reference2ByteFunction$$Inte
  * 
  * @deprecated
  */
- "remove"(arg0: any): byte
+ "remove"(arg0: any): any
 /**
  * 
  * @deprecated
  */
- "get"(arg0: any): byte
+ "get"(arg0: any): any
+/**
+ * 
+ * @deprecated
+ */
  "put"(arg0: K, arg1: byte): byte
-/**
- * 
- * @deprecated
- */
  "put"(arg0: K, arg1: byte): byte
 /**
  * 
@@ -13160,7 +13159,6 @@ export class $Reference2ByteFunction<K> implements $Reference2ByteFunction$$Inte
  */
  "put"(arg0: any, arg1: any): any
  "getByte"(arg0: any): byte
- "getOrDefault"(arg0: any, arg1: byte): byte
 /**
  * 
  * @deprecated
@@ -13171,33 +13169,34 @@ export class $Reference2ByteFunction<K> implements $Reference2ByteFunction$$Inte
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: byte): byte
+ "getOrDefault"(arg0: any, arg1: byte): byte
  "applyAsInt"(arg0: K): integer
 /**
  * 
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(byte), (T)>): $Function$0<(K), (T)>
- "removeByte"(arg0: any): byte
- "andThenInt"(arg0: $Byte2IntFunction$$Type): $Reference2IntFunction<(K)>
- "composeInt"(arg0: $Int2ReferenceFunction$$Type<(K)>): $Int2ByteFunction
- "andThenReference"<T>(arg0: $Byte2ReferenceFunction$$Type<(T)>): $Reference2ReferenceFunction<(K), (T)>
+ "andThenObject"<T>(arg0: $Byte2ObjectFunction$$Type<(T)>): $Reference2ObjectFunction<(K), (T)>
+ "composeShort"(arg0: $Short2ReferenceFunction$$Type<(K)>): $Short2ByteFunction
+ "andThenDouble"(arg0: $Byte2DoubleFunction$$Type): $Reference2DoubleFunction<(K)>
+ "composeReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(T), (K)>): $Reference2ByteFunction<(T)>
+ "composeDouble"(arg0: $Double2ReferenceFunction$$Type<(K)>): $Double2ByteFunction
+ "andThenChar"(arg0: $Byte2CharFunction$$Type): $Reference2CharFunction<(K)>
+ "defaultReturnValue"(): byte
+ "defaultReturnValue"(arg0: byte): void
  "composeObject"<T>(arg0: $Object2ReferenceFunction$$Type<(T), (K)>): $Object2ByteFunction<(T)>
+ "andThenByte"(arg0: $Byte2ByteFunction$$Type): $Reference2ByteFunction<(K)>
+ "composeByte"(arg0: $Byte2ReferenceFunction$$Type<(K)>): $Byte2ByteFunction
+ "andThenReference"<T>(arg0: $Byte2ReferenceFunction$$Type<(T)>): $Reference2ReferenceFunction<(K), (T)>
+ "composeLong"(arg0: $Long2ReferenceFunction$$Type<(K)>): $Long2ByteFunction
+ "composeFloat"(arg0: $Float2ReferenceFunction$$Type<(K)>): $Float2ByteFunction
+ "andThenShort"(arg0: $Byte2ShortFunction$$Type): $Reference2ShortFunction<(K)>
+ "composeChar"(arg0: $Char2ReferenceFunction$$Type<(K)>): $Char2ByteFunction
  "andThenLong"(arg0: $Byte2LongFunction$$Type): $Reference2LongFunction<(K)>
  "andThenFloat"(arg0: $Byte2FloatFunction$$Type): $Reference2FloatFunction<(K)>
- "composeShort"(arg0: $Short2ReferenceFunction$$Type<(K)>): $Short2ByteFunction
- "andThenObject"<T>(arg0: $Byte2ObjectFunction$$Type<(T)>): $Reference2ObjectFunction<(K), (T)>
- "andThenByte"(arg0: $Byte2ByteFunction$$Type): $Reference2ByteFunction<(K)>
- "andThenChar"(arg0: $Byte2CharFunction$$Type): $Reference2CharFunction<(K)>
- "composeReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(T), (K)>): $Reference2ByteFunction<(T)>
- "defaultReturnValue"(arg0: byte): void
- "defaultReturnValue"(): byte
- "composeByte"(arg0: $Byte2ReferenceFunction$$Type<(K)>): $Byte2ByteFunction
- "andThenShort"(arg0: $Byte2ShortFunction$$Type): $Reference2ShortFunction<(K)>
- "composeLong"(arg0: $Long2ReferenceFunction$$Type<(K)>): $Long2ByteFunction
- "composeChar"(arg0: $Char2ReferenceFunction$$Type<(K)>): $Char2ByteFunction
- "composeFloat"(arg0: $Float2ReferenceFunction$$Type<(K)>): $Float2ByteFunction
- "andThenDouble"(arg0: $Byte2DoubleFunction$$Type): $Reference2DoubleFunction<(K)>
- "composeDouble"(arg0: $Double2ReferenceFunction$$Type<(K)>): $Double2ByteFunction
+ "andThenInt"(arg0: $Byte2IntFunction$$Type): $Reference2IntFunction<(K)>
+ "composeInt"(arg0: $Int2ReferenceFunction$$Type<(K)>): $Int2ByteFunction
+ "removeByte"(arg0: any): byte
  "size"(): integer
  "clear"(): void
  "apply"(arg0: K): byte
@@ -13215,16 +13214,16 @@ export type $Reference2ByteFunction$$Type<K> = ((arg0: any) => byte);
  */
 export type $Reference2ByteFunction$$Original<K> = $Reference2ByteFunction<(K)>;}
 declare module "it.unimi.dsi.fastutil.objects.ObjectSortedSet" {
-import {$ObjectBidirectionalIterator} from "it.unimi.dsi.fastutil.objects.ObjectBidirectionalIterator"
 import {$Iterator} from "java.util.Iterator"
+import {$ObjectBidirectionalIterator} from "it.unimi.dsi.fastutil.objects.ObjectBidirectionalIterator"
 import {$Collection$$Type} from "java.util.Collection"
 import {$SortedSet, $SortedSet$$Interface} from "java.util.SortedSet"
 import {$Comparator} from "java.util.Comparator"
 import {$Spliterator} from "java.util.Spliterator"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$ObjectBidirectionalIterable$$Interface} from "it.unimi.dsi.fastutil.objects.ObjectBidirectionalIterable"
-import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$IntFunction$$Type} from "java.util.function.IntFunction"
+import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$SequencedSet} from "java.util.SequencedSet"
 import {$ObjectSet, $ObjectSet$$Interface} from "it.unimi.dsi.fastutil.objects.ObjectSet"
 import {$Set} from "java.util.Set"
@@ -13304,21 +13303,21 @@ import {$Long2IntFunction, $Long2IntFunction$$Type, $Long2IntFunction$$Interface
 import {$Short2IntFunction} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction"
 import {$Int2FloatFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
 import {$Byte2IntFunction} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
-import {$IntBinaryOperator$$Type as $IntBinaryOperator$0$$Type} from "java.util.function.IntBinaryOperator"
+import {$IntBinaryOperator$$Type} from "java.util.function.IntBinaryOperator"
 import {$Map$Entry, $Map$Entry$$Type} from "java.util.Map$Entry"
-import {$Int2CharFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Float2IntFunction} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
 import {$Reference2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
+import {$Int2CharFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Long2ShortFunction} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
 import {$Int2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
 import {$Int2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
-import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Function, $Function$$Type} from "java.util.function.Function"
+import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Set} from "java.util.Set"
 import {$Int2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
 import {$Long2IntMap$Entry} from "it.unimi.dsi.fastutil.longs.Long2IntMap$Entry"
 import {$Map, $Map$$Type, $Map$$Interface} from "java.util.Map"
-import {$IntBinaryOperator$$Type} from "it.unimi.dsi.fastutil.ints.IntBinaryOperator"
+import {$IntBinaryOperator$$Type as $IntBinaryOperator$0$$Type} from "it.unimi.dsi.fastutil.ints.IntBinaryOperator"
 import {$IntCollection} from "it.unimi.dsi.fastutil.ints.IntCollection"
 import {$Long2LongFunction, $Long2LongFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2LongFunction"
 import {$Long2DoubleFunction} from "it.unimi.dsi.fastutil.longs.Long2DoubleFunction"
@@ -13328,8 +13327,8 @@ import {$LongToIntFunction$$Type} from "java.util.function.LongToIntFunction"
 import {$Long2ReferenceFunction} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
 import {$Byte2LongFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2LongFunction"
 import {$BiFunction$$Type} from "java.util.function.BiFunction"
-import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Double2LongFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
+import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Short2LongFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$ObjectSet} from "it.unimi.dsi.fastutil.objects.ObjectSet"
 import {$Int2LongFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
@@ -13484,16 +13483,16 @@ export class $Long2IntMap implements $Long2IntMap$$Interface {
  * @deprecated
  */
  "computeIfPresent"(arg0: long, arg1: $BiFunction$$Type<(long), (integer), (integer)>): integer
- "computeIfAbsentNullable"(arg0: long, arg1: $LongFunction$$Type<(integer)>): integer
  "defaultReturnValue"(arg0: integer): void
  "defaultReturnValue"(): integer
+ "mergeInt"(arg0: long, arg1: integer, arg2: $IntBinaryOperator$0$$Type): integer
+ "mergeInt"(arg0: long, arg1: integer, arg2: $IntBinaryOperator$$Type): integer
+ "computeIfAbsentNullable"(arg0: long, arg1: $LongFunction$$Type<(integer)>): integer
 /**
  * 
  * @deprecated
  */
  "computeIfAbsentPartial"(arg0: long, arg1: $Long2IntFunction$$Type): integer
- "mergeInt"(arg0: long, arg1: integer, arg2: $IntBinaryOperator$$Type): integer
- "mergeInt"(arg0: long, arg1: integer, arg2: $IntBinaryOperator$0$$Type): integer
  "long2IntEntrySet"(): $ObjectSet<($Long2IntMap$Entry)>
  "remove"(arg0: long): integer
  "get"(arg0: long): integer
@@ -13509,24 +13508,24 @@ export class $Long2IntMap implements $Long2IntMap$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$$Type<(integer), (T)>): $Function<(long), (T)>
- "andThenInt"(arg0: $Int2IntFunction$$Type): $Long2IntFunction
- "composeInt"(arg0: $Int2LongFunction$$Type): $Int2IntFunction
- "andThenReference"<T>(arg0: $Int2ReferenceFunction$$Type<(T)>): $Long2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Int2ObjectFunction$$Type<(T)>): $Long2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2LongFunction$$Type): $Short2IntFunction
+ "andThenDouble"(arg0: $Int2DoubleFunction$$Type): $Long2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2LongFunction$$Type<(T)>): $Reference2IntFunction<(T)>
+ "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2IntFunction
+ "andThenChar"(arg0: $Int2CharFunction$$Type): $Long2CharFunction
  "composeObject"<T>(arg0: $Object2LongFunction$$Type<(T)>): $Object2IntFunction<(T)>
+ "andThenByte"(arg0: $Int2ByteFunction$$Type): $Long2ByteFunction
+ "composeByte"(arg0: $Byte2LongFunction$$Type): $Byte2IntFunction
+ "andThenReference"<T>(arg0: $Int2ReferenceFunction$$Type<(T)>): $Long2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2LongFunction$$Type): $Long2IntFunction
+ "composeFloat"(arg0: $Float2LongFunction$$Type): $Float2IntFunction
+ "andThenShort"(arg0: $Int2ShortFunction$$Type): $Long2ShortFunction
+ "composeChar"(arg0: $Char2LongFunction$$Type): $Char2IntFunction
  "andThenLong"(arg0: $Int2LongFunction$$Type): $Long2LongFunction
  "andThenFloat"(arg0: $Int2FloatFunction$$Type): $Long2FloatFunction
- "composeShort"(arg0: $Short2LongFunction$$Type): $Short2IntFunction
- "andThenObject"<T>(arg0: $Int2ObjectFunction$$Type<(T)>): $Long2ObjectFunction<(T)>
- "andThenByte"(arg0: $Int2ByteFunction$$Type): $Long2ByteFunction
- "andThenChar"(arg0: $Int2CharFunction$$Type): $Long2CharFunction
- "composeReference"<T>(arg0: $Reference2LongFunction$$Type<(T)>): $Reference2IntFunction<(T)>
- "composeByte"(arg0: $Byte2LongFunction$$Type): $Byte2IntFunction
- "andThenShort"(arg0: $Int2ShortFunction$$Type): $Long2ShortFunction
- "composeLong"(arg0: $Long2LongFunction$$Type): $Long2IntFunction
- "composeChar"(arg0: $Char2LongFunction$$Type): $Char2IntFunction
- "composeFloat"(arg0: $Float2LongFunction$$Type): $Float2IntFunction
- "andThenDouble"(arg0: $Int2DoubleFunction$$Type): $Long2DoubleFunction
- "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2IntFunction
+ "andThenInt"(arg0: $Int2IntFunction$$Type): $Long2IntFunction
+ "composeInt"(arg0: $Int2LongFunction$$Type): $Int2IntFunction
  "equals"(arg0: any): boolean
  "hashCode"(): integer
 static "copyOf"<K, V>(arg0: $Map$$Type<(long), (integer)>): $Map<(long), (integer)>
@@ -13725,8 +13724,8 @@ export type $AbstractIntSet$$Type = ($AbstractIntSet);
  */
 export type $AbstractIntSet$$Original = $AbstractIntSet;}
 declare module "it.unimi.dsi.fastutil.longs.Long2LongFunction" {
-import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Long2CharFunction, $Long2CharFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2CharFunction"
+import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Long2DoubleFunction, $Long2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2DoubleFunction"
 import {$Long2IntFunction, $Long2IntFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
 import {$Long2ByteFunction, $Long2ByteFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
@@ -13735,9 +13734,9 @@ import {$Long2ReferenceFunction, $Long2ReferenceFunction$$Type} from "it.unimi.d
 import {$LongUnaryOperator, $LongUnaryOperator$$Type, $LongUnaryOperator$$Interface} from "java.util.function.LongUnaryOperator"
 import {$Byte2LongFunction, $Byte2LongFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2LongFunction"
 import {$Reference2LongFunction, $Reference2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
-import {$Char2LongFunction, $Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
-import {$Double2LongFunction, $Double2LongFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
 import {$Long2ShortFunction, $Long2ShortFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
+import {$Double2LongFunction, $Double2LongFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
+import {$Char2LongFunction, $Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Short2LongFunction, $Short2LongFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$Int2LongFunction, $Int2LongFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
@@ -13751,47 +13750,47 @@ export interface $Long2LongFunction$$Interface extends $Function$$Interface<(lon
 }
 
 export class $Long2LongFunction implements $Long2LongFunction$$Interface {
-/**
- * 
- * @deprecated
- */
- "remove"(arg0: any): any
  "remove"(arg0: long): long
 /**
  * 
  * @deprecated
  */
- "get"(arg0: any): long
- "get"(arg0: long): long
+ "remove"(arg0: any): long
 /**
  * 
  * @deprecated
  */
- "put"(arg0: long, arg1: long): long
+ "get"(arg0: any): any
+ "get"(arg0: long): long
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
  "put"(arg0: long, arg1: long): long
+/**
+ * 
+ * @deprecated
+ */
+ "put"(arg0: long, arg1: long): long
 static "identity"(): $Long2LongFunction
- "containsKey"(arg0: long): boolean
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
- "getOrDefault"(arg0: long, arg1: long): long
-/**
- * 
- * @deprecated
- */
- "getOrDefault"(arg0: any, arg1: long): long
+ "containsKey"(arg0: long): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
+/**
+ * 
+ * @deprecated
+ */
+ "getOrDefault"(arg0: any, arg1: long): long
+ "getOrDefault"(arg0: long, arg1: long): long
  "applyAsLong"(arg0: long): long
 /**
  * 
@@ -13803,26 +13802,26 @@ static "identity"(): $Long2LongFunction
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(long), (T)>): $Function$0<(long), (T)>
- "andThenInt"(arg0: $Long2IntFunction$$Type): $Long2IntFunction
- "composeInt"(arg0: $Int2LongFunction$$Type): $Int2LongFunction
- "andThenReference"<T>(arg0: $Long2ReferenceFunction$$Type<(T)>): $Long2ReferenceFunction<(T)>
- "composeObject"<T>(arg0: $Object2LongFunction$$Type<(T)>): $Object2LongFunction<(T)>
- "andThenLong"(arg0: $Long2LongFunction$$Type): $Long2LongFunction
- "andThenFloat"(arg0: $Long2FloatFunction$$Type): $Long2FloatFunction
- "composeShort"(arg0: $Short2LongFunction$$Type): $Short2LongFunction
  "andThenObject"<T>(arg0: $Long2ObjectFunction$$Type<(T)>): $Long2ObjectFunction<(T)>
- "andThenByte"(arg0: $Long2ByteFunction$$Type): $Long2ByteFunction
- "andThenChar"(arg0: $Long2CharFunction$$Type): $Long2CharFunction
+ "composeShort"(arg0: $Short2LongFunction$$Type): $Short2LongFunction
+ "andThenDouble"(arg0: $Long2DoubleFunction$$Type): $Long2DoubleFunction
  "composeReference"<T>(arg0: $Reference2LongFunction$$Type<(T)>): $Reference2LongFunction<(T)>
+ "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2LongFunction
+ "andThenChar"(arg0: $Long2CharFunction$$Type): $Long2CharFunction
  "defaultReturnValue"(): long
  "defaultReturnValue"(arg0: long): void
+ "composeObject"<T>(arg0: $Object2LongFunction$$Type<(T)>): $Object2LongFunction<(T)>
+ "andThenByte"(arg0: $Long2ByteFunction$$Type): $Long2ByteFunction
  "composeByte"(arg0: $Byte2LongFunction$$Type): $Byte2LongFunction
- "andThenShort"(arg0: $Long2ShortFunction$$Type): $Long2ShortFunction
+ "andThenReference"<T>(arg0: $Long2ReferenceFunction$$Type<(T)>): $Long2ReferenceFunction<(T)>
  "composeLong"(arg0: $Long2LongFunction$$Type): $Long2LongFunction
- "composeChar"(arg0: $Char2LongFunction$$Type): $Char2LongFunction
  "composeFloat"(arg0: $Float2LongFunction$$Type): $Float2LongFunction
- "andThenDouble"(arg0: $Long2DoubleFunction$$Type): $Long2DoubleFunction
- "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2LongFunction
+ "andThenShort"(arg0: $Long2ShortFunction$$Type): $Long2ShortFunction
+ "composeChar"(arg0: $Char2LongFunction$$Type): $Char2LongFunction
+ "andThenLong"(arg0: $Long2LongFunction$$Type): $Long2LongFunction
+ "andThenFloat"(arg0: $Long2FloatFunction$$Type): $Long2FloatFunction
+ "andThenInt"(arg0: $Long2IntFunction$$Type): $Long2IntFunction
+ "composeInt"(arg0: $Int2LongFunction$$Type): $Int2LongFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: long): long
@@ -13842,12 +13841,12 @@ declare module "it.unimi.dsi.fastutil.floats.Float2LongFunction" {
 import {$Float2ReferenceFunction} from "it.unimi.dsi.fastutil.floats.Float2ReferenceFunction"
 import {$Float2ByteFunction} from "it.unimi.dsi.fastutil.floats.Float2ByteFunction"
 import {$Long2CharFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2CharFunction"
-import {$Long2IntFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
 import {$Long2ByteFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
+import {$Long2IntFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
 import {$Int2FloatFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
-import {$Double2FloatFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
-import {$Reference2LongFunction} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
 import {$Float2IntFunction} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
+import {$Reference2LongFunction} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
+import {$Double2FloatFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Long2ShortFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
 import {$Object2FloatFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2FloatFunction"
@@ -13859,16 +13858,16 @@ import {$Float2ShortFunction} from "it.unimi.dsi.fastutil.floats.Float2ShortFunc
 import {$Long2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
 import {$Byte2LongFunction} from "it.unimi.dsi.fastutil.bytes.Byte2LongFunction"
 import {$Reference2FloatFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
-import {$Double2LongFunction} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
-import {$Char2LongFunction} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Float2ObjectFunction} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
-import {$Float2FloatFunction, $Float2FloatFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2FloatFunction"
+import {$Char2LongFunction} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
+import {$Double2LongFunction} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
 import {$Short2LongFunction} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
+import {$Float2FloatFunction, $Float2FloatFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2FloatFunction"
 import {$Int2LongFunction} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
-import {$Char2FloatFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
 import {$Long2FloatFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2FloatFunction"
-import {$Short2FloatFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2FloatFunction"
+import {$Char2FloatFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
 import {$Object2LongFunction} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
+import {$Short2FloatFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2FloatFunction"
 import {$Byte2FloatFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2FloatFunction"
 import {$Float2DoubleFunction} from "it.unimi.dsi.fastutil.floats.Float2DoubleFunction"
 import {$Long2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ObjectFunction"
@@ -13890,36 +13889,36 @@ export class $Float2LongFunction implements $Float2LongFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): long
+ "get"(arg0: any): any
  "get"(arg0: float): long
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: float, arg1: long): long
 /**
  * 
  * @deprecated
  */
  "put"(arg0: float, arg1: long): long
- "containsKey"(arg0: float): boolean
+ "put"(arg0: float, arg1: long): long
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: float): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: float, arg1: long): long
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: long): long
+ "getOrDefault"(arg0: float, arg1: long): long
 /**
  * 
  * @deprecated
@@ -13935,26 +13934,26 @@ export class $Float2LongFunction implements $Float2LongFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(long), (T)>): $Function$0<(float), (T)>
- "andThenInt"(arg0: $Long2IntFunction$$Type): $Float2IntFunction
- "composeInt"(arg0: $Int2FloatFunction$$Type): $Int2LongFunction
- "andThenReference"<T>(arg0: $Long2ReferenceFunction$$Type<(T)>): $Float2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Long2ObjectFunction$$Type<(T)>): $Float2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2FloatFunction$$Type): $Short2LongFunction
+ "andThenDouble"(arg0: $Long2DoubleFunction$$Type): $Float2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2FloatFunction$$Type<(T)>): $Reference2LongFunction<(T)>
+ "composeDouble"(arg0: $Double2FloatFunction$$Type): $Double2LongFunction
+ "andThenChar"(arg0: $Long2CharFunction$$Type): $Float2CharFunction
+ "defaultReturnValue"(): long
+ "defaultReturnValue"(arg0: long): void
  "composeObject"<T>(arg0: $Object2FloatFunction$$Type<(T)>): $Object2LongFunction<(T)>
+ "andThenByte"(arg0: $Long2ByteFunction$$Type): $Float2ByteFunction
+ "composeByte"(arg0: $Byte2FloatFunction$$Type): $Byte2LongFunction
+ "andThenReference"<T>(arg0: $Long2ReferenceFunction$$Type<(T)>): $Float2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2FloatFunction$$Type): $Long2LongFunction
+ "composeFloat"(arg0: $Float2FloatFunction$$Type): $Float2LongFunction
+ "andThenShort"(arg0: $Long2ShortFunction$$Type): $Float2ShortFunction
+ "composeChar"(arg0: $Char2FloatFunction$$Type): $Char2LongFunction
  "andThenLong"(arg0: $Long2LongFunction$$Type): $Float2LongFunction
  "andThenFloat"(arg0: $Long2FloatFunction$$Type): $Float2FloatFunction
- "composeShort"(arg0: $Short2FloatFunction$$Type): $Short2LongFunction
- "andThenObject"<T>(arg0: $Long2ObjectFunction$$Type<(T)>): $Float2ObjectFunction<(T)>
- "andThenByte"(arg0: $Long2ByteFunction$$Type): $Float2ByteFunction
- "andThenChar"(arg0: $Long2CharFunction$$Type): $Float2CharFunction
- "composeReference"<T>(arg0: $Reference2FloatFunction$$Type<(T)>): $Reference2LongFunction<(T)>
- "defaultReturnValue"(arg0: long): void
- "defaultReturnValue"(): long
- "composeByte"(arg0: $Byte2FloatFunction$$Type): $Byte2LongFunction
- "andThenShort"(arg0: $Long2ShortFunction$$Type): $Float2ShortFunction
- "composeLong"(arg0: $Long2FloatFunction$$Type): $Long2LongFunction
- "composeChar"(arg0: $Char2FloatFunction$$Type): $Char2LongFunction
- "composeFloat"(arg0: $Float2FloatFunction$$Type): $Float2LongFunction
- "andThenDouble"(arg0: $Long2DoubleFunction$$Type): $Float2DoubleFunction
- "composeDouble"(arg0: $Double2FloatFunction$$Type): $Double2LongFunction
+ "andThenInt"(arg0: $Long2IntFunction$$Type): $Float2IntFunction
+ "composeInt"(arg0: $Int2FloatFunction$$Type): $Int2LongFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: float): long
@@ -13973,8 +13972,8 @@ declare module "it.unimi.dsi.fastutil.ints.IntComparator" {
 import {$ToIntFunction$$Type} from "java.util.function.ToIntFunction"
 import {$ToLongFunction$$Type} from "java.util.function.ToLongFunction"
 import {$ToDoubleFunction$$Type} from "java.util.function.ToDoubleFunction"
-import {$Comparable} from "java.lang.Comparable"
 import {$Comparator, $Comparator$$Type, $Comparator$$Interface} from "java.util.Comparator"
+import {$Comparable} from "java.lang.Comparable"
 import {$Function$$Type} from "java.util.function.Function"
 
 export interface $IntComparator$$Interface extends $Comparator$$Interface<(integer)> {
@@ -14033,9 +14032,9 @@ import {$Comparator} from "java.util.Comparator"
 import {$Object2ByteFunction, $Object2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ByteFunction"
 import {$BiFunction$$Type} from "java.util.function.BiFunction"
 import {$Char2ByteFunction} from "it.unimi.dsi.fastutil.chars.Char2ByteFunction"
-import {$Object2ReferenceFunction} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
-import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
+import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
+import {$Object2ReferenceFunction} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
 import {$ObjectSortedSet} from "it.unimi.dsi.fastutil.objects.ObjectSortedSet"
 import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$Byte2FloatFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2FloatFunction"
@@ -14059,11 +14058,11 @@ import {$ByteBinaryOperator$$Type} from "it.unimi.dsi.fastutil.bytes.ByteBinaryO
 import {$Reference2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ObjectFunction"
 import {$Collection} from "java.util.Collection"
 import {$Map, $Map$$Type} from "java.util.Map"
-import {$Object2CharFunction} from "it.unimi.dsi.fastutil.objects.Object2CharFunction"
 import {$SequencedCollection} from "java.util.SequencedCollection"
+import {$Object2CharFunction} from "it.unimi.dsi.fastutil.objects.Object2CharFunction"
 import {$Byte2LongFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2LongFunction"
-import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$ToIntFunction$$Type} from "java.util.function.ToIntFunction"
+import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$SequencedSet} from "java.util.SequencedSet"
 import {$Double2ByteFunction} from "it.unimi.dsi.fastutil.doubles.Double2ByteFunction"
 import {$ObjectSet} from "it.unimi.dsi.fastutil.objects.ObjectSet"
@@ -14182,13 +14181,16 @@ export class $Object2ByteSortedMap<K> implements $Object2ByteSortedMap$$Interfac
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
+ "computeByte"(arg0: K, arg1: $BiFunction$$Type<(K), (byte), (byte)>): byte
+ "defaultReturnValue"(arg0: byte): void
+ "defaultReturnValue"(): byte
+ "mergeByte"(arg0: K, arg1: byte, arg2: $ByteBinaryOperator$$Type): byte
+ "mergeByte"(arg0: K, arg1: byte, arg2: $IntBinaryOperator$$Type): byte
 /**
  * 
  * @deprecated
  */
  "mergeByte"(arg0: K, arg1: byte, arg2: $BiFunction$$Type<(byte), (byte), (byte)>): byte
- "mergeByte"(arg0: K, arg1: byte, arg2: $ByteBinaryOperator$$Type): byte
- "mergeByte"(arg0: K, arg1: byte, arg2: $IntBinaryOperator$$Type): byte
 /**
  * 
  * @deprecated
@@ -14200,9 +14202,6 @@ export class $Object2ByteSortedMap<K> implements $Object2ByteSortedMap$$Interfac
  * @deprecated
  */
  "computeByteIfAbsent"(arg0: K, arg1: $ToIntFunction$$Type<(K)>): byte
- "computeByte"(arg0: K, arg1: $BiFunction$$Type<(K), (byte), (byte)>): byte
- "defaultReturnValue"(arg0: byte): void
- "defaultReturnValue"(): byte
  "reversed"(): $SortedMap<(K), (byte)>
  "firstKey"(): K
  "putFirst"(arg0: K, arg1: byte): byte
@@ -14216,25 +14215,25 @@ export class $Object2ByteSortedMap<K> implements $Object2ByteSortedMap$$Interfac
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$$Type<(byte), (T)>): $Function<(K), (T)>
- "removeByte"(arg0: any): byte
- "andThenInt"(arg0: $Byte2IntFunction$$Type): $Object2IntFunction<(K)>
- "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2ByteFunction
- "andThenReference"<T>(arg0: $Byte2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
+ "andThenObject"<T>(arg0: $Byte2ObjectFunction$$Type<(T)>): $Object2ObjectFunction<(K), (T)>
+ "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2ByteFunction
+ "andThenDouble"(arg0: $Byte2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
+ "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2ByteFunction<(T)>
+ "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2ByteFunction
+ "andThenChar"(arg0: $Byte2CharFunction$$Type): $Object2CharFunction<(K)>
  "composeObject"<T>(arg0: $Object2ObjectFunction$$Type<(T), (K)>): $Object2ByteFunction<(T)>
+ "andThenByte"(arg0: $Byte2ByteFunction$$Type): $Object2ByteFunction<(K)>
+ "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2ByteFunction
+ "andThenReference"<T>(arg0: $Byte2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
+ "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2ByteFunction
+ "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2ByteFunction
+ "andThenShort"(arg0: $Byte2ShortFunction$$Type): $Object2ShortFunction<(K)>
+ "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2ByteFunction
  "andThenLong"(arg0: $Byte2LongFunction$$Type): $Object2LongFunction<(K)>
  "andThenFloat"(arg0: $Byte2FloatFunction$$Type): $Object2FloatFunction<(K)>
- "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2ByteFunction
- "andThenObject"<T>(arg0: $Byte2ObjectFunction$$Type<(T)>): $Object2ObjectFunction<(K), (T)>
- "andThenByte"(arg0: $Byte2ByteFunction$$Type): $Object2ByteFunction<(K)>
- "andThenChar"(arg0: $Byte2CharFunction$$Type): $Object2CharFunction<(K)>
- "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2ByteFunction<(T)>
- "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2ByteFunction
- "andThenShort"(arg0: $Byte2ShortFunction$$Type): $Object2ShortFunction<(K)>
- "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2ByteFunction
- "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2ByteFunction
- "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2ByteFunction
- "andThenDouble"(arg0: $Byte2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
- "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2ByteFunction
+ "andThenInt"(arg0: $Byte2IntFunction$$Type): $Object2IntFunction<(K)>
+ "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2ByteFunction
+ "removeByte"(arg0: any): byte
  "equals"(arg0: any): boolean
  "hashCode"(): integer
 static "copyOf"<K, V>(arg0: $Map$$Type<(K), (byte)>): $Map<(K), (byte)>
@@ -14309,15 +14308,15 @@ export type $Pair$$Type<L, R> = ($Pair<(L), (R)>);
  */
 export type $Pair$$Original<L, R> = $Pair<(L), (R)>;}
 declare module "it.unimi.dsi.fastutil.objects.Reference2BooleanFunction" {
-import {$Float2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ReferenceFunction"
 import {$Float2BooleanFunction} from "it.unimi.dsi.fastutil.floats.Float2BooleanFunction"
+import {$Float2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ReferenceFunction"
 import {$Long2BooleanFunction} from "it.unimi.dsi.fastutil.longs.Long2BooleanFunction"
 import {$Reference2IntFunction} from "it.unimi.dsi.fastutil.objects.Reference2IntFunction"
 import {$Reference2ShortFunction} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
 import {$Reference2LongFunction} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
 import {$Double2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
-import {$Reference2ByteFunction} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Int2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
+import {$Reference2ByteFunction} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Byte2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
 import {$Boolean2FloatFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2FloatFunction"
@@ -14335,16 +14334,16 @@ import {$Double2BooleanFunction} from "it.unimi.dsi.fastutil.doubles.Double2Bool
 import {$Reference2FloatFunction} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
 import {$Short2BooleanFunction} from "it.unimi.dsi.fastutil.shorts.Short2BooleanFunction"
 import {$Reference2CharFunction} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
-import {$Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
 import {$Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
+import {$Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
 import {$Boolean2ByteFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ByteFunction"
 import {$Boolean2IntFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2IntFunction"
 import {$Byte2BooleanFunction} from "it.unimi.dsi.fastutil.bytes.Byte2BooleanFunction"
 import {$Int2BooleanFunction} from "it.unimi.dsi.fastutil.ints.Int2BooleanFunction"
 import {$Reference2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Reference2DoubleFunction"
-import {$Boolean2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ObjectFunction"
-import {$Object2BooleanFunction} from "it.unimi.dsi.fastutil.objects.Object2BooleanFunction"
 import {$Boolean2ShortFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ShortFunction"
+import {$Object2BooleanFunction} from "it.unimi.dsi.fastutil.objects.Object2BooleanFunction"
+import {$Boolean2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ObjectFunction"
 import {$Boolean2LongFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2LongFunction"
 
 export interface $Reference2BooleanFunction$$Interface<K> extends $Function$$Interface<(K), (boolean)>, $Predicate$$Interface<(K)> {
@@ -14392,26 +14391,26 @@ export class $Reference2BooleanFunction<K> implements $Reference2BooleanFunction
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(boolean), (T)>): $Function$0<(K), (T)>
- "andThenInt"(arg0: $Boolean2IntFunction$$Type): $Reference2IntFunction<(K)>
- "composeInt"(arg0: $Int2ReferenceFunction$$Type<(K)>): $Int2BooleanFunction
- "andThenReference"<T>(arg0: $Boolean2ReferenceFunction$$Type<(T)>): $Reference2ReferenceFunction<(K), (T)>
- "composeObject"<T>(arg0: $Object2ReferenceFunction$$Type<(T), (K)>): $Object2BooleanFunction<(T)>
- "andThenLong"(arg0: $Boolean2LongFunction$$Type): $Reference2LongFunction<(K)>
- "andThenFloat"(arg0: $Boolean2FloatFunction$$Type): $Reference2FloatFunction<(K)>
- "composeShort"(arg0: $Short2ReferenceFunction$$Type<(K)>): $Short2BooleanFunction
  "andThenObject"<T>(arg0: $Boolean2ObjectFunction$$Type<(T)>): $Reference2ObjectFunction<(K), (T)>
- "andThenByte"(arg0: $Boolean2ByteFunction$$Type): $Reference2ByteFunction<(K)>
- "andThenChar"(arg0: $Boolean2CharFunction$$Type): $Reference2CharFunction<(K)>
+ "composeShort"(arg0: $Short2ReferenceFunction$$Type<(K)>): $Short2BooleanFunction
+ "andThenDouble"(arg0: $Boolean2DoubleFunction$$Type): $Reference2DoubleFunction<(K)>
  "composeReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(T), (K)>): $Reference2BooleanFunction<(T)>
+ "composeDouble"(arg0: $Double2ReferenceFunction$$Type<(K)>): $Double2BooleanFunction
+ "andThenChar"(arg0: $Boolean2CharFunction$$Type): $Reference2CharFunction<(K)>
  "defaultReturnValue"(): boolean
  "defaultReturnValue"(arg0: boolean): void
+ "composeObject"<T>(arg0: $Object2ReferenceFunction$$Type<(T), (K)>): $Object2BooleanFunction<(T)>
+ "andThenByte"(arg0: $Boolean2ByteFunction$$Type): $Reference2ByteFunction<(K)>
  "composeByte"(arg0: $Byte2ReferenceFunction$$Type<(K)>): $Byte2BooleanFunction
- "andThenShort"(arg0: $Boolean2ShortFunction$$Type): $Reference2ShortFunction<(K)>
+ "andThenReference"<T>(arg0: $Boolean2ReferenceFunction$$Type<(T)>): $Reference2ReferenceFunction<(K), (T)>
  "composeLong"(arg0: $Long2ReferenceFunction$$Type<(K)>): $Long2BooleanFunction
- "composeChar"(arg0: $Char2ReferenceFunction$$Type<(K)>): $Char2BooleanFunction
  "composeFloat"(arg0: $Float2ReferenceFunction$$Type<(K)>): $Float2BooleanFunction
- "andThenDouble"(arg0: $Boolean2DoubleFunction$$Type): $Reference2DoubleFunction<(K)>
- "composeDouble"(arg0: $Double2ReferenceFunction$$Type<(K)>): $Double2BooleanFunction
+ "andThenShort"(arg0: $Boolean2ShortFunction$$Type): $Reference2ShortFunction<(K)>
+ "composeChar"(arg0: $Char2ReferenceFunction$$Type<(K)>): $Char2BooleanFunction
+ "andThenLong"(arg0: $Boolean2LongFunction$$Type): $Reference2LongFunction<(K)>
+ "andThenFloat"(arg0: $Boolean2FloatFunction$$Type): $Reference2FloatFunction<(K)>
+ "andThenInt"(arg0: $Boolean2IntFunction$$Type): $Reference2IntFunction<(K)>
+ "composeInt"(arg0: $Int2ReferenceFunction$$Type<(K)>): $Int2BooleanFunction
  "removeBoolean"(arg0: any): boolean
  "size"(): integer
  "clear"(): void
@@ -14440,8 +14439,8 @@ import {$Map, $Map$$Type} from "java.util.Map"
 import {$Comparator} from "java.util.Comparator"
 import {$SequencedCollection} from "java.util.SequencedCollection"
 import {$AbstractObject2ByteMap} from "it.unimi.dsi.fastutil.objects.AbstractObject2ByteMap"
-import {$Object2ByteSortedMap$$Interface} from "it.unimi.dsi.fastutil.objects.Object2ByteSortedMap"
 import {$Map$Entry, $Map$Entry$$Type} from "java.util.Map$Entry"
+import {$Object2ByteSortedMap$$Interface} from "it.unimi.dsi.fastutil.objects.Object2ByteSortedMap"
 import {$SequencedSet} from "java.util.SequencedSet"
 import {$ObjectSet} from "it.unimi.dsi.fastutil.objects.ObjectSet"
 import {$Function} from "java.util.function.Function"
@@ -14510,18 +14509,18 @@ export type $AbstractObject2ByteSortedMap$$Original<K> = $AbstractObject2ByteSor
 declare module "it.unimi.dsi.fastutil.chars.Char2CharFunction" {
 import {$Char2DoubleFunction, $Char2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2DoubleFunction"
 import {$Object2CharFunction, $Object2CharFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2CharFunction"
-import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Long2CharFunction, $Long2CharFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2CharFunction"
+import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Double2CharFunction, $Double2CharFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2CharFunction"
 import {$Int2CharFunction, $Int2CharFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
-import {$Char2LongFunction, $Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$IntUnaryOperator, $IntUnaryOperator$$Type, $IntUnaryOperator$$Interface} from "java.util.function.IntUnaryOperator"
+import {$Char2LongFunction, $Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Short2CharFunction, $Short2CharFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
 import {$Char2ByteFunction, $Char2ByteFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ByteFunction"
 import {$Reference2CharFunction, $Reference2CharFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
 import {$Char2ObjectFunction, $Char2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ObjectFunction"
-import {$Char2IntFunction, $Char2IntFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
 import {$Char2ReferenceFunction, $Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
+import {$Char2IntFunction, $Char2IntFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
 import {$Char2ShortFunction, $Char2ShortFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ShortFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
 import {$Char2FloatFunction, $Char2FloatFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
@@ -14534,47 +14533,47 @@ export interface $Char2CharFunction$$Interface extends $Function$$Interface<(cha
 }
 
 export class $Char2CharFunction implements $Char2CharFunction$$Interface {
-/**
- * 
- * @deprecated
- */
- "remove"(arg0: any): any
  "remove"(arg0: character): character
 /**
  * 
  * @deprecated
  */
- "get"(arg0: any): character
- "get"(arg0: character): character
+ "remove"(arg0: any): character
 /**
  * 
  * @deprecated
  */
- "put"(arg0: character, arg1: character): character
+ "get"(arg0: any): any
+ "get"(arg0: character): character
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
  "put"(arg0: character, arg1: character): character
+/**
+ * 
+ * @deprecated
+ */
+ "put"(arg0: character, arg1: character): character
 static "identity"(): $Char2CharFunction
- "containsKey"(arg0: character): boolean
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
- "getOrDefault"(arg0: character, arg1: character): character
-/**
- * 
- * @deprecated
- */
- "getOrDefault"(arg0: any, arg1: character): character
+ "containsKey"(arg0: character): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
+/**
+ * 
+ * @deprecated
+ */
+ "getOrDefault"(arg0: any, arg1: character): character
+ "getOrDefault"(arg0: character, arg1: character): character
 /**
  * 
  * @deprecated
@@ -14590,26 +14589,26 @@ static "identity"(): $Char2CharFunction
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(character), (T)>): $Function$0<(character), (T)>
- "andThenInt"(arg0: $Char2IntFunction$$Type): $Char2IntFunction
- "composeInt"(arg0: $Int2CharFunction$$Type): $Int2CharFunction
- "andThenReference"<T>(arg0: $Char2ReferenceFunction$$Type<(T)>): $Char2ReferenceFunction<(T)>
- "composeObject"<T>(arg0: $Object2CharFunction$$Type<(T)>): $Object2CharFunction<(T)>
- "andThenLong"(arg0: $Char2LongFunction$$Type): $Char2LongFunction
- "andThenFloat"(arg0: $Char2FloatFunction$$Type): $Char2FloatFunction
- "composeShort"(arg0: $Short2CharFunction$$Type): $Short2CharFunction
  "andThenObject"<T>(arg0: $Char2ObjectFunction$$Type<(T)>): $Char2ObjectFunction<(T)>
- "andThenByte"(arg0: $Char2ByteFunction$$Type): $Char2ByteFunction
- "andThenChar"(arg0: $Char2CharFunction$$Type): $Char2CharFunction
+ "composeShort"(arg0: $Short2CharFunction$$Type): $Short2CharFunction
+ "andThenDouble"(arg0: $Char2DoubleFunction$$Type): $Char2DoubleFunction
  "composeReference"<T>(arg0: $Reference2CharFunction$$Type<(T)>): $Reference2CharFunction<(T)>
+ "composeDouble"(arg0: $Double2CharFunction$$Type): $Double2CharFunction
+ "andThenChar"(arg0: $Char2CharFunction$$Type): $Char2CharFunction
  "defaultReturnValue"(): character
  "defaultReturnValue"(arg0: character): void
+ "composeObject"<T>(arg0: $Object2CharFunction$$Type<(T)>): $Object2CharFunction<(T)>
+ "andThenByte"(arg0: $Char2ByteFunction$$Type): $Char2ByteFunction
  "composeByte"(arg0: $Byte2CharFunction$$Type): $Byte2CharFunction
- "andThenShort"(arg0: $Char2ShortFunction$$Type): $Char2ShortFunction
+ "andThenReference"<T>(arg0: $Char2ReferenceFunction$$Type<(T)>): $Char2ReferenceFunction<(T)>
  "composeLong"(arg0: $Long2CharFunction$$Type): $Long2CharFunction
- "composeChar"(arg0: $Char2CharFunction$$Type): $Char2CharFunction
  "composeFloat"(arg0: $Float2CharFunction$$Type): $Float2CharFunction
- "andThenDouble"(arg0: $Char2DoubleFunction$$Type): $Char2DoubleFunction
- "composeDouble"(arg0: $Double2CharFunction$$Type): $Double2CharFunction
+ "andThenShort"(arg0: $Char2ShortFunction$$Type): $Char2ShortFunction
+ "composeChar"(arg0: $Char2CharFunction$$Type): $Char2CharFunction
+ "andThenLong"(arg0: $Char2LongFunction$$Type): $Char2LongFunction
+ "andThenFloat"(arg0: $Char2FloatFunction$$Type): $Char2FloatFunction
+ "andThenInt"(arg0: $Char2IntFunction$$Type): $Char2IntFunction
+ "composeInt"(arg0: $Int2CharFunction$$Type): $Int2CharFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: character): character
@@ -14626,8 +14625,8 @@ export type $Char2CharFunction$$Type = ((arg0: character) => character);
  */
 export type $Char2CharFunction$$Original = $Char2CharFunction;}
 declare module "it.unimi.dsi.fastutil.objects.Object2ObjectMap$Entry" {
-import {$Comparable} from "java.lang.Comparable"
 import {$Comparator, $Comparator$$Type} from "java.util.Comparator"
+import {$Comparable} from "java.lang.Comparable"
 import {$Map$Entry, $Map$Entry$$Type, $Map$Entry$$Interface} from "java.util.Map$Entry"
 
 export interface $Object2ObjectMap$Entry$$Interface<K, V> extends $Map$Entry$$Interface<(K), (V)> {
@@ -14712,18 +14711,18 @@ import {$Short2DoubleFunction} from "it.unimi.dsi.fastutil.shorts.Short2DoubleFu
 import {$Object2CharFunction} from "it.unimi.dsi.fastutil.objects.Object2CharFunction"
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Int2ShortFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ShortFunction"
-import {$Short2ReferenceFunction} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Float2ShortFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ShortFunction"
+import {$Short2ReferenceFunction} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Char2CharFunction, $Char2CharFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2CharFunction"
 import {$Double2CharFunction} from "it.unimi.dsi.fastutil.doubles.Double2CharFunction"
-import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$IntUnaryOperator, $IntUnaryOperator$$Type, $IntUnaryOperator$$Interface} from "java.util.function.IntUnaryOperator"
+import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Short2LongFunction} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$Char2ByteFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ByteFunction"
 import {$Reference2CharFunction} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
-import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
-import {$Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
 import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
+import {$Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
+import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Char2IntFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
 import {$Char2FloatFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
 import {$Short2FloatFunction} from "it.unimi.dsi.fastutil.shorts.Short2FloatFunction"
@@ -14746,36 +14745,36 @@ export class $Short2CharFunction implements $Short2CharFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): character
+ "get"(arg0: any): any
  "get"(arg0: short): character
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: short, arg1: character): character
 /**
  * 
  * @deprecated
  */
  "put"(arg0: short, arg1: character): character
- "containsKey"(arg0: short): boolean
+ "put"(arg0: short, arg1: character): character
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: short): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: short, arg1: character): character
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: character): character
+ "getOrDefault"(arg0: short, arg1: character): character
 /**
  * 
  * @deprecated
@@ -14791,26 +14790,26 @@ export class $Short2CharFunction implements $Short2CharFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(character), (T)>): $Function$0<(short), (T)>
- "andThenInt"(arg0: $Char2IntFunction$$Type): $Short2IntFunction
- "composeInt"(arg0: $Int2ShortFunction$$Type): $Int2CharFunction
- "andThenReference"<T>(arg0: $Char2ReferenceFunction$$Type<(T)>): $Short2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Char2ObjectFunction$$Type<(T)>): $Short2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2ShortFunction$$Type): $Short2CharFunction
+ "andThenDouble"(arg0: $Char2DoubleFunction$$Type): $Short2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2ShortFunction$$Type<(T)>): $Reference2CharFunction<(T)>
+ "composeDouble"(arg0: $Double2ShortFunction$$Type): $Double2CharFunction
+ "andThenChar"(arg0: $Char2CharFunction$$Type): $Short2CharFunction
+ "defaultReturnValue"(): character
+ "defaultReturnValue"(arg0: character): void
  "composeObject"<T>(arg0: $Object2ShortFunction$$Type<(T)>): $Object2CharFunction<(T)>
+ "andThenByte"(arg0: $Char2ByteFunction$$Type): $Short2ByteFunction
+ "composeByte"(arg0: $Byte2ShortFunction$$Type): $Byte2CharFunction
+ "andThenReference"<T>(arg0: $Char2ReferenceFunction$$Type<(T)>): $Short2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2ShortFunction$$Type): $Long2CharFunction
+ "composeFloat"(arg0: $Float2ShortFunction$$Type): $Float2CharFunction
+ "andThenShort"(arg0: $Char2ShortFunction$$Type): $Short2ShortFunction
+ "composeChar"(arg0: $Char2ShortFunction$$Type): $Char2CharFunction
  "andThenLong"(arg0: $Char2LongFunction$$Type): $Short2LongFunction
  "andThenFloat"(arg0: $Char2FloatFunction$$Type): $Short2FloatFunction
- "composeShort"(arg0: $Short2ShortFunction$$Type): $Short2CharFunction
- "andThenObject"<T>(arg0: $Char2ObjectFunction$$Type<(T)>): $Short2ObjectFunction<(T)>
- "andThenByte"(arg0: $Char2ByteFunction$$Type): $Short2ByteFunction
- "andThenChar"(arg0: $Char2CharFunction$$Type): $Short2CharFunction
- "composeReference"<T>(arg0: $Reference2ShortFunction$$Type<(T)>): $Reference2CharFunction<(T)>
- "defaultReturnValue"(arg0: character): void
- "defaultReturnValue"(): character
- "composeByte"(arg0: $Byte2ShortFunction$$Type): $Byte2CharFunction
- "andThenShort"(arg0: $Char2ShortFunction$$Type): $Short2ShortFunction
- "composeLong"(arg0: $Long2ShortFunction$$Type): $Long2CharFunction
- "composeChar"(arg0: $Char2ShortFunction$$Type): $Char2CharFunction
- "composeFloat"(arg0: $Float2ShortFunction$$Type): $Float2CharFunction
- "andThenDouble"(arg0: $Char2DoubleFunction$$Type): $Short2DoubleFunction
- "composeDouble"(arg0: $Double2ShortFunction$$Type): $Double2CharFunction
+ "andThenInt"(arg0: $Char2IntFunction$$Type): $Short2IntFunction
+ "composeInt"(arg0: $Int2ShortFunction$$Type): $Int2CharFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: short): character
@@ -14833,8 +14832,8 @@ import {$Float2ByteFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2Byte
 import {$Object2IntFunction} from "it.unimi.dsi.fastutil.objects.Object2IntFunction"
 import {$Object2ObjectFunction, $Object2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ObjectFunction"
 import {$Int2FloatFunction} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
-import {$Double2FloatFunction} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Float2IntFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
+import {$Double2FloatFunction} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Int2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
 import {$Char2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ObjectFunction"
 import {$Object2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Object2DoubleFunction"
@@ -14850,10 +14849,10 @@ import {$Float2ShortFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2Sho
 import {$Reference2FloatFunction} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
 import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Float2FloatFunction, $Float2FloatFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2FloatFunction"
-import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2ReferenceFunction} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
-import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
+import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Serializable$$Interface} from "java.io.Serializable"
+import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Char2FloatFunction} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
 import {$Long2FloatFunction} from "it.unimi.dsi.fastutil.longs.Long2FloatFunction"
 import {$Object2LongFunction} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
@@ -14870,59 +14869,59 @@ public "defaultReturnValue"(): float
  * 
  * @deprecated
  */
-public "remove"(arg0: any): float
+public "remove"(arg0: any): any
 /**
  * 
  * @deprecated
  */
-public "get"(arg0: any): float
+public "get"(arg0: any): any
 /**
  * 
  * @deprecated
  */
+public "put"(arg0: K, arg1: float): float
 public "put"(arg0: K, arg1: float): float
 /**
  * 
  * @deprecated
  */
 public "put"(arg0: any, arg1: any): any
-public "put"(arg0: K, arg1: float): float
 public "getFloat"(arg0: any): float
 /**
  * 
  * @deprecated
  */
-public "getOrDefault"(arg0: any, arg1: float): float
-public "getOrDefault"(arg0: any, arg1: float): float
+public "getOrDefault"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
  */
-public "getOrDefault"(arg0: any, arg1: any): any
+public "getOrDefault"(arg0: any, arg1: float): float
+public "getOrDefault"(arg0: any, arg1: float): float
 public "applyAsDouble"(arg0: K): double
 /**
  * 
  * @deprecated
  */
 public "andThen"<T>(arg0: $Function$$Type<(float), (T)>): $Function<(K), (T)>
-public "andThenInt"(arg0: $Float2IntFunction$$Type): $Object2IntFunction<(K)>
-public "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2FloatFunction
-public "andThenReference"<T>(arg0: $Float2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
+public "andThenObject"<T>(arg0: $Float2ObjectFunction$$Type<(T)>): $Object2ObjectFunction<(K), (T)>
+public "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2FloatFunction
+public "andThenDouble"(arg0: $Float2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
+public "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2FloatFunction<(T)>
+public "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2FloatFunction
+public "andThenChar"(arg0: $Float2CharFunction$$Type): $Object2CharFunction<(K)>
 public "composeObject"<T>(arg0: $Object2ObjectFunction$$Type<(T), (K)>): $Object2FloatFunction<(T)>
+public "andThenByte"(arg0: $Float2ByteFunction$$Type): $Object2ByteFunction<(K)>
+public "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2FloatFunction
+public "andThenReference"<T>(arg0: $Float2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
+public "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2FloatFunction
+public "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2FloatFunction
+public "andThenShort"(arg0: $Float2ShortFunction$$Type): $Object2ShortFunction<(K)>
+public "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2FloatFunction
 public "andThenLong"(arg0: $Float2LongFunction$$Type): $Object2LongFunction<(K)>
 public "andThenFloat"(arg0: $Float2FloatFunction$$Type): $Object2FloatFunction<(K)>
-public "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2FloatFunction
-public "andThenObject"<T>(arg0: $Float2ObjectFunction$$Type<(T)>): $Object2ObjectFunction<(K), (T)>
-public "andThenByte"(arg0: $Float2ByteFunction$$Type): $Object2ByteFunction<(K)>
-public "andThenChar"(arg0: $Float2CharFunction$$Type): $Object2CharFunction<(K)>
-public "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2FloatFunction<(T)>
-public "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2FloatFunction
-public "andThenShort"(arg0: $Float2ShortFunction$$Type): $Object2ShortFunction<(K)>
-public "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2FloatFunction
-public "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2FloatFunction
-public "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2FloatFunction
-public "andThenDouble"(arg0: $Float2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
-public "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2FloatFunction
+public "andThenInt"(arg0: $Float2IntFunction$$Type): $Object2IntFunction<(K)>
+public "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2FloatFunction
 public "removeFloat"(arg0: any): float
 public "size"(): integer
 public "clear"(): void
@@ -14942,8 +14941,8 @@ export type $AbstractObject2FloatFunction$$Type<K> = ($AbstractObject2FloatFunct
 export type $AbstractObject2FloatFunction$$Original<K> = $AbstractObject2FloatFunction<(K)>;}
 declare module "it.unimi.dsi.fastutil.objects.Object2ByteMap" {
 import {$Byte2ByteFunction, $Byte2ByteFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ByteFunction"
-import {$Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Float2ByteFunction} from "it.unimi.dsi.fastutil.floats.Float2ByteFunction"
+import {$Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Object2IntFunction} from "it.unimi.dsi.fastutil.objects.Object2IntFunction"
 import {$Long2ByteFunction} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
 import {$Object2ObjectFunction, $Object2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ObjectFunction"
@@ -14951,16 +14950,16 @@ import {$Byte2IntFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunct
 import {$IntBinaryOperator$$Type} from "java.util.function.IntBinaryOperator"
 import {$Map$Entry, $Map$Entry$$Type} from "java.util.Map$Entry"
 import {$Reference2ByteFunction} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
-import {$Int2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
 import {$Byte2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
+import {$Int2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
 import {$Char2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ObjectFunction"
 import {$Object2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Object2DoubleFunction"
 import {$Function, $Function$$Type} from "java.util.function.Function"
 import {$Object2FloatFunction} from "it.unimi.dsi.fastutil.objects.Object2FloatFunction"
 import {$Byte2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ObjectFunction"
 import {$Byte2ShortFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ShortFunction"
-import {$Object2ByteMap$Entry} from "it.unimi.dsi.fastutil.objects.Object2ByteMap$Entry"
 import {$Byte2CharFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2CharFunction"
+import {$Object2ByteMap$Entry} from "it.unimi.dsi.fastutil.objects.Object2ByteMap$Entry"
 import {$ByteBinaryOperator$$Type} from "it.unimi.dsi.fastutil.bytes.ByteBinaryOperator"
 import {$Reference2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ObjectFunction"
 import {$Collection} from "java.util.Collection"
@@ -14969,14 +14968,14 @@ import {$Object2CharFunction} from "it.unimi.dsi.fastutil.objects.Object2CharFun
 import {$Object2ByteFunction, $Object2ByteFunction$$Type, $Object2ByteFunction$$Interface} from "it.unimi.dsi.fastutil.objects.Object2ByteFunction"
 import {$Byte2LongFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2LongFunction"
 import {$BiFunction$$Type} from "java.util.function.BiFunction"
-import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$ToIntFunction$$Type} from "java.util.function.ToIntFunction"
+import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Char2ByteFunction} from "it.unimi.dsi.fastutil.chars.Char2ByteFunction"
 import {$Double2ByteFunction} from "it.unimi.dsi.fastutil.doubles.Double2ByteFunction"
 import {$ObjectSet} from "it.unimi.dsi.fastutil.objects.ObjectSet"
-import {$Object2ReferenceFunction} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
-import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
+import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
+import {$Object2ReferenceFunction} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
 import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$Object2LongFunction} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
 import {$Double2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ObjectFunction"
@@ -15091,13 +15090,16 @@ export class $Object2ByteMap<K> implements $Object2ByteMap$$Interface {
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
+ "computeByte"(arg0: K, arg1: $BiFunction$$Type<(K), (byte), (byte)>): byte
+ "defaultReturnValue"(arg0: byte): void
+ "defaultReturnValue"(): byte
+ "mergeByte"(arg0: K, arg1: byte, arg2: $ByteBinaryOperator$$Type): byte
+ "mergeByte"(arg0: K, arg1: byte, arg2: $IntBinaryOperator$$Type): byte
 /**
  * 
  * @deprecated
  */
  "mergeByte"(arg0: K, arg1: byte, arg2: $BiFunction$$Type<(byte), (byte), (byte)>): byte
- "mergeByte"(arg0: K, arg1: byte, arg2: $ByteBinaryOperator$$Type): byte
- "mergeByte"(arg0: K, arg1: byte, arg2: $IntBinaryOperator$$Type): byte
 /**
  * 
  * @deprecated
@@ -15110,9 +15112,6 @@ export class $Object2ByteMap<K> implements $Object2ByteMap$$Interface {
  * @deprecated
  */
  "computeByteIfAbsent"(arg0: K, arg1: $ToIntFunction$$Type<(K)>): byte
- "computeByte"(arg0: K, arg1: $BiFunction$$Type<(K), (byte), (byte)>): byte
- "defaultReturnValue"(arg0: byte): void
- "defaultReturnValue"(): byte
  "put"(arg0: K, arg1: byte): byte
  "getByte"(arg0: any): byte
  "applyAsInt"(arg0: K): integer
@@ -15121,25 +15120,25 @@ export class $Object2ByteMap<K> implements $Object2ByteMap$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$$Type<(byte), (T)>): $Function<(K), (T)>
- "removeByte"(arg0: any): byte
- "andThenInt"(arg0: $Byte2IntFunction$$Type): $Object2IntFunction<(K)>
- "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2ByteFunction
- "andThenReference"<T>(arg0: $Byte2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
+ "andThenObject"<T>(arg0: $Byte2ObjectFunction$$Type<(T)>): $Object2ObjectFunction<(K), (T)>
+ "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2ByteFunction
+ "andThenDouble"(arg0: $Byte2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
+ "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2ByteFunction<(T)>
+ "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2ByteFunction
+ "andThenChar"(arg0: $Byte2CharFunction$$Type): $Object2CharFunction<(K)>
  "composeObject"<T>(arg0: $Object2ObjectFunction$$Type<(T), (K)>): $Object2ByteFunction<(T)>
+ "andThenByte"(arg0: $Byte2ByteFunction$$Type): $Object2ByteFunction<(K)>
+ "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2ByteFunction
+ "andThenReference"<T>(arg0: $Byte2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
+ "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2ByteFunction
+ "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2ByteFunction
+ "andThenShort"(arg0: $Byte2ShortFunction$$Type): $Object2ShortFunction<(K)>
+ "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2ByteFunction
  "andThenLong"(arg0: $Byte2LongFunction$$Type): $Object2LongFunction<(K)>
  "andThenFloat"(arg0: $Byte2FloatFunction$$Type): $Object2FloatFunction<(K)>
- "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2ByteFunction
- "andThenObject"<T>(arg0: $Byte2ObjectFunction$$Type<(T)>): $Object2ObjectFunction<(K), (T)>
- "andThenByte"(arg0: $Byte2ByteFunction$$Type): $Object2ByteFunction<(K)>
- "andThenChar"(arg0: $Byte2CharFunction$$Type): $Object2CharFunction<(K)>
- "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2ByteFunction<(T)>
- "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2ByteFunction
- "andThenShort"(arg0: $Byte2ShortFunction$$Type): $Object2ShortFunction<(K)>
- "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2ByteFunction
- "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2ByteFunction
- "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2ByteFunction
- "andThenDouble"(arg0: $Byte2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
- "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2ByteFunction
+ "andThenInt"(arg0: $Byte2IntFunction$$Type): $Object2IntFunction<(K)>
+ "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2ByteFunction
+ "removeByte"(arg0: any): byte
  "equals"(arg0: any): boolean
  "hashCode"(): integer
 static "copyOf"<K, V>(arg0: $Map$$Type<(K), (byte)>): $Map<(K), (byte)>
@@ -15177,8 +15176,8 @@ export type $Object2ByteMap$$Type<K> = ($Object2ByteMap<(K)>);
 export type $Object2ByteMap$$Original<K> = $Object2ByteMap<(K)>;}
 declare module "it.unimi.dsi.fastutil.longs.Long2ReferenceOpenHashMap" {
 import {$Map, $Map$$Type} from "java.util.Map"
-import {$Hash$$Interface} from "it.unimi.dsi.fastutil.Hash"
 import {$LongSet} from "it.unimi.dsi.fastutil.longs.LongSet"
+import {$Hash$$Interface} from "it.unimi.dsi.fastutil.Hash"
 import {$LongFunction$$Type} from "java.util.function.LongFunction"
 import {$AbstractLong2ReferenceMap} from "it.unimi.dsi.fastutil.longs.AbstractLong2ReferenceMap"
 import {$Long2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
@@ -15265,13 +15264,13 @@ export type $Long2ReferenceOpenHashMap$$Type<V> = ($Long2ReferenceOpenHashMap<(V
 export type $Long2ReferenceOpenHashMap$$Original<V> = $Long2ReferenceOpenHashMap<(V)>;}
 declare module "it.unimi.dsi.fastutil.objects.Object2FloatFunction" {
 import {$Float2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ReferenceFunction"
-import {$ToDoubleFunction$$Interface} from "java.util.function.ToDoubleFunction"
 import {$Float2ByteFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ByteFunction"
+import {$ToDoubleFunction$$Interface} from "java.util.function.ToDoubleFunction"
 import {$Object2IntFunction} from "it.unimi.dsi.fastutil.objects.Object2IntFunction"
 import {$Object2ObjectFunction, $Object2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ObjectFunction"
 import {$Int2FloatFunction} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
-import {$Double2FloatFunction} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Float2IntFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
+import {$Double2FloatFunction} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Int2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
 import {$Char2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ObjectFunction"
 import {$Object2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Object2DoubleFunction"
@@ -15287,8 +15286,8 @@ import {$Float2ShortFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2Sho
 import {$Reference2FloatFunction} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
 import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Float2FloatFunction, $Float2FloatFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2FloatFunction"
-import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2ReferenceFunction} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
+import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Char2FloatFunction} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
 import {$Long2FloatFunction} from "it.unimi.dsi.fastutil.longs.Long2FloatFunction"
@@ -15309,61 +15308,61 @@ export class $Object2FloatFunction<K> implements $Object2FloatFunction$$Interfac
  * 
  * @deprecated
  */
- "remove"(arg0: any): float
+ "remove"(arg0: any): any
 /**
  * 
  * @deprecated
  */
- "get"(arg0: any): float
+ "get"(arg0: any): any
 /**
  * 
  * @deprecated
  */
+ "put"(arg0: K, arg1: float): float
  "put"(arg0: K, arg1: float): float
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: K, arg1: float): float
  "getFloat"(arg0: any): float
 /**
  * 
  * @deprecated
  */
- "getOrDefault"(arg0: any, arg1: float): float
- "getOrDefault"(arg0: any, arg1: float): float
+ "getOrDefault"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
  */
- "getOrDefault"(arg0: any, arg1: any): any
+ "getOrDefault"(arg0: any, arg1: float): float
+ "getOrDefault"(arg0: any, arg1: float): float
  "applyAsDouble"(arg0: K): double
 /**
  * 
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(float), (T)>): $Function$0<(K), (T)>
- "andThenInt"(arg0: $Float2IntFunction$$Type): $Object2IntFunction<(K)>
- "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2FloatFunction
- "andThenReference"<T>(arg0: $Float2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
- "composeObject"<T>(arg0: $Object2ObjectFunction$$Type<(T), (K)>): $Object2FloatFunction<(T)>
- "andThenLong"(arg0: $Float2LongFunction$$Type): $Object2LongFunction<(K)>
- "andThenFloat"(arg0: $Float2FloatFunction$$Type): $Object2FloatFunction<(K)>
- "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2FloatFunction
  "andThenObject"<T>(arg0: $Float2ObjectFunction$$Type<(T)>): $Object2ObjectFunction<(K), (T)>
- "andThenByte"(arg0: $Float2ByteFunction$$Type): $Object2ByteFunction<(K)>
- "andThenChar"(arg0: $Float2CharFunction$$Type): $Object2CharFunction<(K)>
+ "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2FloatFunction
+ "andThenDouble"(arg0: $Float2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
  "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2FloatFunction<(T)>
+ "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2FloatFunction
+ "andThenChar"(arg0: $Float2CharFunction$$Type): $Object2CharFunction<(K)>
  "defaultReturnValue"(): float
  "defaultReturnValue"(arg0: float): void
+ "composeObject"<T>(arg0: $Object2ObjectFunction$$Type<(T), (K)>): $Object2FloatFunction<(T)>
+ "andThenByte"(arg0: $Float2ByteFunction$$Type): $Object2ByteFunction<(K)>
  "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2FloatFunction
- "andThenShort"(arg0: $Float2ShortFunction$$Type): $Object2ShortFunction<(K)>
+ "andThenReference"<T>(arg0: $Float2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
  "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2FloatFunction
- "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2FloatFunction
  "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2FloatFunction
- "andThenDouble"(arg0: $Float2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
- "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2FloatFunction
+ "andThenShort"(arg0: $Float2ShortFunction$$Type): $Object2ShortFunction<(K)>
+ "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2FloatFunction
+ "andThenLong"(arg0: $Float2LongFunction$$Type): $Object2LongFunction<(K)>
+ "andThenFloat"(arg0: $Float2FloatFunction$$Type): $Object2FloatFunction<(K)>
+ "andThenInt"(arg0: $Float2IntFunction$$Type): $Object2IntFunction<(K)>
+ "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2FloatFunction
  "removeFloat"(arg0: any): float
  "size"(): integer
  "clear"(): void
@@ -15439,14 +15438,14 @@ import {$ByteIterator} from "it.unimi.dsi.fastutil.bytes.ByteIterator"
 import {$Collection$$Type, $Collection$$Interface} from "java.util.Collection"
 import {$ByteConsumer$$Type} from "it.unimi.dsi.fastutil.bytes.ByteConsumer"
 import {$IntStream} from "java.util.stream.IntStream"
-import {$Spliterator} from "java.util.Spliterator"
 import {$ByteIterable$$Interface} from "it.unimi.dsi.fastutil.bytes.ByteIterable"
+import {$Spliterator} from "java.util.Spliterator"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$BytePredicate$$Type} from "it.unimi.dsi.fastutil.bytes.BytePredicate"
-import {$IntPredicate$$Type} from "java.util.function.IntPredicate"
 import {$IntSpliterator} from "it.unimi.dsi.fastutil.ints.IntSpliterator"
-import {$Consumer$$Type} from "java.util.function.Consumer"
+import {$IntPredicate$$Type} from "java.util.function.IntPredicate"
 import {$IntFunction$$Type} from "java.util.function.IntFunction"
+import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$IntIterator} from "it.unimi.dsi.fastutil.ints.IntIterator"
 import {$IntConsumer$$Type} from "java.util.function.IntConsumer"
 import {$Stream} from "java.util.stream.Stream"
@@ -15510,9 +15509,9 @@ export class $ByteCollection implements $ByteCollection$$Interface {
  */
  "toByteArray"(arg0: (byte)[]): (byte)[]
  "toByteArray"(): (byte)[]
+ "intParallelStream"(): $IntStream
  "intSpliterator"(): $IntSpliterator
  "intIterator"(): $IntIterator
- "intParallelStream"(): $IntStream
  "size"(): integer
  "equals"(arg0: any): boolean
  "hashCode"(): integer
@@ -15552,11 +15551,11 @@ import {$IntSet} from "it.unimi.dsi.fastutil.ints.IntSet"
 import {$BiFunction$$Type} from "java.util.function.BiFunction"
 import {$ObjectCollection} from "it.unimi.dsi.fastutil.objects.ObjectCollection"
 import {$Int2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
+import {$ObjectSet} from "it.unimi.dsi.fastutil.objects.ObjectSet"
 import {$Serializable$$Interface} from "java.io.Serializable"
 import {$Function} from "java.util.function.Function"
 import {$Cloneable$$Interface} from "java.lang.Cloneable"
 import {$Set} from "java.util.Set"
-import {$Int2ObjectMap$FastEntrySet} from "it.unimi.dsi.fastutil.ints.Int2ObjectMap$FastEntrySet"
 import {$Int2ObjectMap$$Type} from "it.unimi.dsi.fastutil.ints.Int2ObjectMap"
 
 export class $Int2ObjectOpenHashMap<V> extends $AbstractInt2ObjectMap<(V)> implements $Serializable$$Interface, $Cloneable$$Interface, $Hash$$Interface {
@@ -15596,7 +15595,7 @@ public "containsValue"(arg0: any): boolean
 public "getOrDefault"(arg0: integer, arg1: V): V
 public "computeIfPresent"(arg0: integer, arg1: $BiFunction$$Type<(integer), (V), (V)>): V
 public "ensureCapacity"(arg0: integer): void
-public "int2ObjectEntrySet"(): $Int2ObjectMap$FastEntrySet<(V)>
+public "int2ObjectEntrySet"(): $ObjectSet
 /**
  * 
  * @deprecated
@@ -15637,8 +15636,8 @@ import {$Spliterator} from "java.util.Spliterator"
 import {$Serializable$$Interface} from "java.io.Serializable"
 import {$AbstractReferenceSet} from "it.unimi.dsi.fastutil.objects.AbstractReferenceSet"
 import {$ReferenceSet, $ReferenceSet$$Type} from "it.unimi.dsi.fastutil.objects.ReferenceSet"
-import {$ReferenceCollection$$Type} from "it.unimi.dsi.fastutil.objects.ReferenceCollection"
 import {$Cloneable$$Interface} from "java.lang.Cloneable"
+import {$ReferenceCollection$$Type} from "it.unimi.dsi.fastutil.objects.ReferenceCollection"
 import {$Set, $Set$$Type} from "java.util.Set"
 
 export class $ReferenceArraySet<K> extends $AbstractReferenceSet<(K)> implements $Serializable$$Interface, $Cloneable$$Interface {
@@ -15696,8 +15695,8 @@ declare module "it.unimi.dsi.fastutil.doubles.Double2FloatFunction" {
 import {$Char2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2DoubleFunction"
 import {$Float2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ReferenceFunction"
 import {$DoubleUnaryOperator, $DoubleUnaryOperator$$Type, $DoubleUnaryOperator$$Interface} from "java.util.function.DoubleUnaryOperator"
-import {$Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Float2ByteFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ByteFunction"
+import {$Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Int2FloatFunction} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
 import {$Float2IntFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
 import {$Double2ReferenceFunction} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
@@ -15714,8 +15713,8 @@ import {$Float2LongFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2Long
 import {$Float2ShortFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ShortFunction"
 import {$Double2CharFunction} from "it.unimi.dsi.fastutil.doubles.Double2CharFunction"
 import {$Reference2FloatFunction} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
-import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Double2LongFunction} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
+import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Float2FloatFunction, $Float2FloatFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2FloatFunction"
 import {$Double2ByteFunction} from "it.unimi.dsi.fastutil.doubles.Double2ByteFunction"
 import {$Char2FloatFunction} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
@@ -15744,36 +15743,36 @@ export class $Double2FloatFunction implements $Double2FloatFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): float
+ "get"(arg0: any): any
  "get"(arg0: double): float
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: double, arg1: float): float
 /**
  * 
  * @deprecated
  */
  "put"(arg0: double, arg1: float): float
- "containsKey"(arg0: double): boolean
+ "put"(arg0: double, arg1: float): float
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: double): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: double, arg1: float): float
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: float): float
+ "getOrDefault"(arg0: double, arg1: float): float
  "applyAsDouble"(arg0: double): double
 /**
  * 
@@ -15785,26 +15784,26 @@ export class $Double2FloatFunction implements $Double2FloatFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(float), (T)>): $Function$0<(double), (T)>
- "andThenInt"(arg0: $Float2IntFunction$$Type): $Double2IntFunction
- "composeInt"(arg0: $Int2DoubleFunction$$Type): $Int2FloatFunction
- "andThenReference"<T>(arg0: $Float2ReferenceFunction$$Type<(T)>): $Double2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Float2ObjectFunction$$Type<(T)>): $Double2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2DoubleFunction$$Type): $Short2FloatFunction
+ "andThenDouble"(arg0: $Float2DoubleFunction$$Type): $Double2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2DoubleFunction$$Type<(T)>): $Reference2FloatFunction<(T)>
+ "composeDouble"(arg0: $Double2DoubleFunction$$Type): $Double2FloatFunction
+ "andThenChar"(arg0: $Float2CharFunction$$Type): $Double2CharFunction
+ "defaultReturnValue"(): float
+ "defaultReturnValue"(arg0: float): void
  "composeObject"<T>(arg0: $Object2DoubleFunction$$Type<(T)>): $Object2FloatFunction<(T)>
+ "andThenByte"(arg0: $Float2ByteFunction$$Type): $Double2ByteFunction
+ "composeByte"(arg0: $Byte2DoubleFunction$$Type): $Byte2FloatFunction
+ "andThenReference"<T>(arg0: $Float2ReferenceFunction$$Type<(T)>): $Double2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2DoubleFunction$$Type): $Long2FloatFunction
+ "composeFloat"(arg0: $Float2DoubleFunction$$Type): $Float2FloatFunction
+ "andThenShort"(arg0: $Float2ShortFunction$$Type): $Double2ShortFunction
+ "composeChar"(arg0: $Char2DoubleFunction$$Type): $Char2FloatFunction
  "andThenLong"(arg0: $Float2LongFunction$$Type): $Double2LongFunction
  "andThenFloat"(arg0: $Float2FloatFunction$$Type): $Double2FloatFunction
- "composeShort"(arg0: $Short2DoubleFunction$$Type): $Short2FloatFunction
- "andThenObject"<T>(arg0: $Float2ObjectFunction$$Type<(T)>): $Double2ObjectFunction<(T)>
- "andThenByte"(arg0: $Float2ByteFunction$$Type): $Double2ByteFunction
- "andThenChar"(arg0: $Float2CharFunction$$Type): $Double2CharFunction
- "composeReference"<T>(arg0: $Reference2DoubleFunction$$Type<(T)>): $Reference2FloatFunction<(T)>
- "defaultReturnValue"(arg0: float): void
- "defaultReturnValue"(): float
- "composeByte"(arg0: $Byte2DoubleFunction$$Type): $Byte2FloatFunction
- "andThenShort"(arg0: $Float2ShortFunction$$Type): $Double2ShortFunction
- "composeLong"(arg0: $Long2DoubleFunction$$Type): $Long2FloatFunction
- "composeChar"(arg0: $Char2DoubleFunction$$Type): $Char2FloatFunction
- "composeFloat"(arg0: $Float2DoubleFunction$$Type): $Float2FloatFunction
- "andThenDouble"(arg0: $Float2DoubleFunction$$Type): $Double2DoubleFunction
- "composeDouble"(arg0: $Double2DoubleFunction$$Type): $Double2FloatFunction
+ "andThenInt"(arg0: $Float2IntFunction$$Type): $Double2IntFunction
+ "composeInt"(arg0: $Int2DoubleFunction$$Type): $Int2FloatFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: double): float
@@ -15824,13 +15823,13 @@ export type $Double2FloatFunction$$Original = $Double2FloatFunction;}
 declare module "it.unimi.dsi.fastutil.objects.Object2LongFunction" {
 import {$Object2IntFunction} from "it.unimi.dsi.fastutil.objects.Object2IntFunction"
 import {$Long2CharFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2CharFunction"
-import {$Long2IntFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
 import {$Long2ByteFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
+import {$Long2IntFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
 import {$Object2ObjectFunction, $Object2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ObjectFunction"
 import {$Reference2LongFunction} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
 import {$Long2ShortFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
-import {$Int2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
 import {$ToLongFunction$$Interface} from "java.util.function.ToLongFunction"
+import {$Int2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
 import {$Char2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ObjectFunction"
 import {$Object2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Object2DoubleFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
@@ -15845,13 +15844,13 @@ import {$Float2LongFunction} from "it.unimi.dsi.fastutil.floats.Float2LongFuncti
 import {$Object2ByteFunction} from "it.unimi.dsi.fastutil.objects.Object2ByteFunction"
 import {$Long2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
 import {$Byte2LongFunction} from "it.unimi.dsi.fastutil.bytes.Byte2LongFunction"
-import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
-import {$Double2LongFunction} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
 import {$Char2LongFunction} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
+import {$Double2LongFunction} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
+import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Short2LongFunction} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$Int2LongFunction} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
-import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2ReferenceFunction} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
+import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Long2FloatFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2FloatFunction"
 import {$Double2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ObjectFunction"
@@ -15867,35 +15866,35 @@ export class $Object2LongFunction<K> implements $Object2LongFunction$$Interface 
  * 
  * @deprecated
  */
- "remove"(arg0: any): long
+ "remove"(arg0: any): any
 /**
  * 
  * @deprecated
  */
  "get"(arg0: any): long
- "put"(arg0: K, arg1: long): long
-/**
- * 
- * @deprecated
- */
- "put"(arg0: K, arg1: long): long
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
+/**
+ * 
+ * @deprecated
+ */
+ "put"(arg0: K, arg1: long): long
+ "put"(arg0: K, arg1: long): long
  "getLong"(arg0: any): long
+/**
+ * 
+ * @deprecated
+ */
+ "getOrDefault"(arg0: any, arg1: long): long
  "getOrDefault"(arg0: any, arg1: long): long
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
-/**
- * 
- * @deprecated
- */
- "getOrDefault"(arg0: any, arg1: long): long
  "applyAsLong"(arg0: K): long
 /**
  * 
@@ -15903,26 +15902,26 @@ export class $Object2LongFunction<K> implements $Object2LongFunction$$Interface 
  */
  "andThen"<T>(arg0: $Function$0$$Type<(long), (T)>): $Function$0<(K), (T)>
  "removeLong"(arg0: any): long
- "andThenInt"(arg0: $Long2IntFunction$$Type): $Object2IntFunction<(K)>
- "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2LongFunction
- "andThenReference"<T>(arg0: $Long2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
- "composeObject"<T>(arg0: $Object2ObjectFunction$$Type<(T), (K)>): $Object2LongFunction<(T)>
- "andThenLong"(arg0: $Long2LongFunction$$Type): $Object2LongFunction<(K)>
- "andThenFloat"(arg0: $Long2FloatFunction$$Type): $Object2FloatFunction<(K)>
- "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2LongFunction
  "andThenObject"<T>(arg0: $Long2ObjectFunction$$Type<(T)>): $Object2ObjectFunction<(K), (T)>
- "andThenByte"(arg0: $Long2ByteFunction$$Type): $Object2ByteFunction<(K)>
- "andThenChar"(arg0: $Long2CharFunction$$Type): $Object2CharFunction<(K)>
+ "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2LongFunction
+ "andThenDouble"(arg0: $Long2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
  "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2LongFunction<(T)>
+ "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2LongFunction
+ "andThenChar"(arg0: $Long2CharFunction$$Type): $Object2CharFunction<(K)>
  "defaultReturnValue"(arg0: long): void
  "defaultReturnValue"(): long
+ "composeObject"<T>(arg0: $Object2ObjectFunction$$Type<(T), (K)>): $Object2LongFunction<(T)>
+ "andThenByte"(arg0: $Long2ByteFunction$$Type): $Object2ByteFunction<(K)>
  "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2LongFunction
- "andThenShort"(arg0: $Long2ShortFunction$$Type): $Object2ShortFunction<(K)>
+ "andThenReference"<T>(arg0: $Long2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
  "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2LongFunction
- "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2LongFunction
  "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2LongFunction
- "andThenDouble"(arg0: $Long2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
- "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2LongFunction
+ "andThenShort"(arg0: $Long2ShortFunction$$Type): $Object2ShortFunction<(K)>
+ "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2LongFunction
+ "andThenLong"(arg0: $Long2LongFunction$$Type): $Object2LongFunction<(K)>
+ "andThenFloat"(arg0: $Long2FloatFunction$$Type): $Object2FloatFunction<(K)>
+ "andThenInt"(arg0: $Long2IntFunction$$Type): $Object2IntFunction<(K)>
+ "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2LongFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: K): long
@@ -15946,8 +15945,8 @@ import {$Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2Doubl
 import {$Long2ByteFunction} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
 import {$Int2FloatFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
 import {$Byte2IntFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
-import {$Double2FloatFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Float2IntFunction} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
+import {$Double2FloatFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Reference2ByteFunction} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Byte2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
@@ -15967,8 +15966,8 @@ import {$Float2FloatFunction, $Float2FloatFunction$$Type} from "it.unimi.dsi.fas
 import {$Char2ByteFunction} from "it.unimi.dsi.fastutil.chars.Char2ByteFunction"
 import {$Double2ByteFunction} from "it.unimi.dsi.fastutil.doubles.Double2ByteFunction"
 import {$DoubleToIntFunction$$Interface} from "java.util.function.DoubleToIntFunction"
-import {$Char2FloatFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
 import {$Long2FloatFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2FloatFunction"
+import {$Char2FloatFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
 import {$Short2FloatFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2FloatFunction"
 import {$Byte2FloatFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2FloatFunction"
 import {$Short2ByteFunction} from "it.unimi.dsi.fastutil.shorts.Short2ByteFunction"
@@ -15991,36 +15990,36 @@ export class $Float2ByteFunction implements $Float2ByteFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): byte
+ "get"(arg0: any): any
  "get"(arg0: float): byte
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: float, arg1: byte): byte
 /**
  * 
  * @deprecated
  */
  "put"(arg0: float, arg1: byte): byte
- "containsKey"(arg0: float): boolean
+ "put"(arg0: float, arg1: byte): byte
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: float): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: float, arg1: byte): byte
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: byte): byte
+ "getOrDefault"(arg0: float, arg1: byte): byte
 /**
  * 
  * @deprecated
@@ -16036,26 +16035,26 @@ export class $Float2ByteFunction implements $Float2ByteFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(byte), (T)>): $Function$0<(float), (T)>
- "andThenInt"(arg0: $Byte2IntFunction$$Type): $Float2IntFunction
- "composeInt"(arg0: $Int2FloatFunction$$Type): $Int2ByteFunction
- "andThenReference"<T>(arg0: $Byte2ReferenceFunction$$Type<(T)>): $Float2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Byte2ObjectFunction$$Type<(T)>): $Float2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2FloatFunction$$Type): $Short2ByteFunction
+ "andThenDouble"(arg0: $Byte2DoubleFunction$$Type): $Float2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2FloatFunction$$Type<(T)>): $Reference2ByteFunction<(T)>
+ "composeDouble"(arg0: $Double2FloatFunction$$Type): $Double2ByteFunction
+ "andThenChar"(arg0: $Byte2CharFunction$$Type): $Float2CharFunction
+ "defaultReturnValue"(): byte
+ "defaultReturnValue"(arg0: byte): void
  "composeObject"<T>(arg0: $Object2FloatFunction$$Type<(T)>): $Object2ByteFunction<(T)>
+ "andThenByte"(arg0: $Byte2ByteFunction$$Type): $Float2ByteFunction
+ "composeByte"(arg0: $Byte2FloatFunction$$Type): $Byte2ByteFunction
+ "andThenReference"<T>(arg0: $Byte2ReferenceFunction$$Type<(T)>): $Float2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2FloatFunction$$Type): $Long2ByteFunction
+ "composeFloat"(arg0: $Float2FloatFunction$$Type): $Float2ByteFunction
+ "andThenShort"(arg0: $Byte2ShortFunction$$Type): $Float2ShortFunction
+ "composeChar"(arg0: $Char2FloatFunction$$Type): $Char2ByteFunction
  "andThenLong"(arg0: $Byte2LongFunction$$Type): $Float2LongFunction
  "andThenFloat"(arg0: $Byte2FloatFunction$$Type): $Float2FloatFunction
- "composeShort"(arg0: $Short2FloatFunction$$Type): $Short2ByteFunction
- "andThenObject"<T>(arg0: $Byte2ObjectFunction$$Type<(T)>): $Float2ObjectFunction<(T)>
- "andThenByte"(arg0: $Byte2ByteFunction$$Type): $Float2ByteFunction
- "andThenChar"(arg0: $Byte2CharFunction$$Type): $Float2CharFunction
- "composeReference"<T>(arg0: $Reference2FloatFunction$$Type<(T)>): $Reference2ByteFunction<(T)>
- "defaultReturnValue"(arg0: byte): void
- "defaultReturnValue"(): byte
- "composeByte"(arg0: $Byte2FloatFunction$$Type): $Byte2ByteFunction
- "andThenShort"(arg0: $Byte2ShortFunction$$Type): $Float2ShortFunction
- "composeLong"(arg0: $Long2FloatFunction$$Type): $Long2ByteFunction
- "composeChar"(arg0: $Char2FloatFunction$$Type): $Char2ByteFunction
- "composeFloat"(arg0: $Float2FloatFunction$$Type): $Float2ByteFunction
- "andThenDouble"(arg0: $Byte2DoubleFunction$$Type): $Float2DoubleFunction
- "composeDouble"(arg0: $Double2FloatFunction$$Type): $Double2ByteFunction
+ "andThenInt"(arg0: $Byte2IntFunction$$Type): $Float2IntFunction
+ "composeInt"(arg0: $Int2FloatFunction$$Type): $Int2ByteFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: float): byte
@@ -16111,28 +16110,28 @@ import {$Byte2DoubleFunction} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunct
 import {$Short2IntFunction} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction"
 import {$Reference2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
 import {$Double2FloatFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
-import {$Long2ShortFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
 import {$Double2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
+import {$Long2ShortFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
 import {$Short2CharFunction} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
 import {$Object2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Object2DoubleFunction"
 import {$Char2ShortFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ShortFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
 import {$Short2ShortFunction, $Short2ShortFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ShortFunction"
-import {$Byte2ShortFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ShortFunction"
 import {$IntToDoubleFunction$$Interface} from "java.util.function.IntToDoubleFunction"
+import {$Byte2ShortFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ShortFunction"
 import {$Int2DoubleFunction} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
 import {$Double2DoubleFunction, $Double2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2DoubleFunction"
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Long2DoubleFunction} from "it.unimi.dsi.fastutil.longs.Long2DoubleFunction"
 import {$Int2ShortFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ShortFunction"
-import {$Short2ReferenceFunction} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Float2ShortFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ShortFunction"
+import {$Short2ReferenceFunction} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Double2CharFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2CharFunction"
 import {$Double2LongFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
 import {$Short2LongFunction} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$Double2ByteFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ByteFunction"
-import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
+import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Double2IntFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2IntFunction"
 import {$Short2FloatFunction} from "it.unimi.dsi.fastutil.shorts.Short2FloatFunction"
 import {$Double2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ObjectFunction"
@@ -16157,36 +16156,36 @@ export class $Short2DoubleFunction implements $Short2DoubleFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): double
+ "get"(arg0: any): any
  "get"(arg0: short): double
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: short, arg1: double): double
 /**
  * 
  * @deprecated
  */
  "put"(arg0: short, arg1: double): double
- "containsKey"(arg0: short): boolean
+ "put"(arg0: short, arg1: double): double
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: short): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: short, arg1: double): double
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: double): double
+ "getOrDefault"(arg0: short, arg1: double): double
 /**
  * 
  * @deprecated
@@ -16202,26 +16201,26 @@ export class $Short2DoubleFunction implements $Short2DoubleFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(double), (T)>): $Function$0<(short), (T)>
- "andThenInt"(arg0: $Double2IntFunction$$Type): $Short2IntFunction
- "composeInt"(arg0: $Int2ShortFunction$$Type): $Int2DoubleFunction
- "andThenReference"<T>(arg0: $Double2ReferenceFunction$$Type<(T)>): $Short2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Double2ObjectFunction$$Type<(T)>): $Short2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2ShortFunction$$Type): $Short2DoubleFunction
+ "andThenDouble"(arg0: $Double2DoubleFunction$$Type): $Short2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2ShortFunction$$Type<(T)>): $Reference2DoubleFunction<(T)>
+ "composeDouble"(arg0: $Double2ShortFunction$$Type): $Double2DoubleFunction
+ "andThenChar"(arg0: $Double2CharFunction$$Type): $Short2CharFunction
+ "defaultReturnValue"(): double
+ "defaultReturnValue"(arg0: double): void
  "composeObject"<T>(arg0: $Object2ShortFunction$$Type<(T)>): $Object2DoubleFunction<(T)>
+ "andThenByte"(arg0: $Double2ByteFunction$$Type): $Short2ByteFunction
+ "composeByte"(arg0: $Byte2ShortFunction$$Type): $Byte2DoubleFunction
+ "andThenReference"<T>(arg0: $Double2ReferenceFunction$$Type<(T)>): $Short2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2ShortFunction$$Type): $Long2DoubleFunction
+ "composeFloat"(arg0: $Float2ShortFunction$$Type): $Float2DoubleFunction
+ "andThenShort"(arg0: $Double2ShortFunction$$Type): $Short2ShortFunction
+ "composeChar"(arg0: $Char2ShortFunction$$Type): $Char2DoubleFunction
  "andThenLong"(arg0: $Double2LongFunction$$Type): $Short2LongFunction
  "andThenFloat"(arg0: $Double2FloatFunction$$Type): $Short2FloatFunction
- "composeShort"(arg0: $Short2ShortFunction$$Type): $Short2DoubleFunction
- "andThenObject"<T>(arg0: $Double2ObjectFunction$$Type<(T)>): $Short2ObjectFunction<(T)>
- "andThenByte"(arg0: $Double2ByteFunction$$Type): $Short2ByteFunction
- "andThenChar"(arg0: $Double2CharFunction$$Type): $Short2CharFunction
- "composeReference"<T>(arg0: $Reference2ShortFunction$$Type<(T)>): $Reference2DoubleFunction<(T)>
- "defaultReturnValue"(arg0: double): void
- "defaultReturnValue"(): double
- "composeByte"(arg0: $Byte2ShortFunction$$Type): $Byte2DoubleFunction
- "andThenShort"(arg0: $Double2ShortFunction$$Type): $Short2ShortFunction
- "composeLong"(arg0: $Long2ShortFunction$$Type): $Long2DoubleFunction
- "composeChar"(arg0: $Char2ShortFunction$$Type): $Char2DoubleFunction
- "composeFloat"(arg0: $Float2ShortFunction$$Type): $Float2DoubleFunction
- "andThenDouble"(arg0: $Double2DoubleFunction$$Type): $Short2DoubleFunction
- "composeDouble"(arg0: $Double2ShortFunction$$Type): $Double2DoubleFunction
+ "andThenInt"(arg0: $Double2IntFunction$$Type): $Short2IntFunction
+ "composeInt"(arg0: $Int2ShortFunction$$Type): $Int2DoubleFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: short): double
@@ -16238,8 +16237,8 @@ export type $Short2DoubleFunction$$Type = ((arg0: short) => double);
 export type $Short2DoubleFunction$$Original = $Short2DoubleFunction;}
 declare module "it.unimi.dsi.fastutil.longs.Long2ByteFunction" {
 import {$Byte2ByteFunction, $Byte2ByteFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ByteFunction"
-import {$Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Float2ByteFunction} from "it.unimi.dsi.fastutil.floats.Float2ByteFunction"
+import {$Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Long2CharFunction} from "it.unimi.dsi.fastutil.longs.Long2CharFunction"
 import {$Long2IntFunction} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
 import {$Byte2IntFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
@@ -16259,8 +16258,8 @@ import {$Object2ByteFunction} from "it.unimi.dsi.fastutil.objects.Object2ByteFun
 import {$LongToIntFunction$$Interface} from "java.util.function.LongToIntFunction"
 import {$Long2ReferenceFunction} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
 import {$Byte2LongFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2LongFunction"
-import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Double2LongFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
+import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Short2LongFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$Char2ByteFunction} from "it.unimi.dsi.fastutil.chars.Char2ByteFunction"
 import {$Double2ByteFunction} from "it.unimi.dsi.fastutil.doubles.Double2ByteFunction"
@@ -16288,36 +16287,36 @@ export class $Long2ByteFunction implements $Long2ByteFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): byte
+ "get"(arg0: any): any
  "get"(arg0: long): byte
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: long, arg1: byte): byte
 /**
  * 
  * @deprecated
  */
  "put"(arg0: long, arg1: byte): byte
- "containsKey"(arg0: long): boolean
+ "put"(arg0: long, arg1: byte): byte
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: long): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: long, arg1: byte): byte
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: byte): byte
+ "getOrDefault"(arg0: long, arg1: byte): byte
  "applyAsInt"(arg0: long): integer
 /**
  * 
@@ -16329,26 +16328,26 @@ export class $Long2ByteFunction implements $Long2ByteFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(byte), (T)>): $Function$0<(long), (T)>
- "andThenInt"(arg0: $Byte2IntFunction$$Type): $Long2IntFunction
- "composeInt"(arg0: $Int2LongFunction$$Type): $Int2ByteFunction
- "andThenReference"<T>(arg0: $Byte2ReferenceFunction$$Type<(T)>): $Long2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Byte2ObjectFunction$$Type<(T)>): $Long2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2LongFunction$$Type): $Short2ByteFunction
+ "andThenDouble"(arg0: $Byte2DoubleFunction$$Type): $Long2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2LongFunction$$Type<(T)>): $Reference2ByteFunction<(T)>
+ "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2ByteFunction
+ "andThenChar"(arg0: $Byte2CharFunction$$Type): $Long2CharFunction
+ "defaultReturnValue"(): byte
+ "defaultReturnValue"(arg0: byte): void
  "composeObject"<T>(arg0: $Object2LongFunction$$Type<(T)>): $Object2ByteFunction<(T)>
+ "andThenByte"(arg0: $Byte2ByteFunction$$Type): $Long2ByteFunction
+ "composeByte"(arg0: $Byte2LongFunction$$Type): $Byte2ByteFunction
+ "andThenReference"<T>(arg0: $Byte2ReferenceFunction$$Type<(T)>): $Long2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2LongFunction$$Type): $Long2ByteFunction
+ "composeFloat"(arg0: $Float2LongFunction$$Type): $Float2ByteFunction
+ "andThenShort"(arg0: $Byte2ShortFunction$$Type): $Long2ShortFunction
+ "composeChar"(arg0: $Char2LongFunction$$Type): $Char2ByteFunction
  "andThenLong"(arg0: $Byte2LongFunction$$Type): $Long2LongFunction
  "andThenFloat"(arg0: $Byte2FloatFunction$$Type): $Long2FloatFunction
- "composeShort"(arg0: $Short2LongFunction$$Type): $Short2ByteFunction
- "andThenObject"<T>(arg0: $Byte2ObjectFunction$$Type<(T)>): $Long2ObjectFunction<(T)>
- "andThenByte"(arg0: $Byte2ByteFunction$$Type): $Long2ByteFunction
- "andThenChar"(arg0: $Byte2CharFunction$$Type): $Long2CharFunction
- "composeReference"<T>(arg0: $Reference2LongFunction$$Type<(T)>): $Reference2ByteFunction<(T)>
- "defaultReturnValue"(arg0: byte): void
- "defaultReturnValue"(): byte
- "composeByte"(arg0: $Byte2LongFunction$$Type): $Byte2ByteFunction
- "andThenShort"(arg0: $Byte2ShortFunction$$Type): $Long2ShortFunction
- "composeLong"(arg0: $Long2LongFunction$$Type): $Long2ByteFunction
- "composeChar"(arg0: $Char2LongFunction$$Type): $Char2ByteFunction
- "composeFloat"(arg0: $Float2LongFunction$$Type): $Float2ByteFunction
- "andThenDouble"(arg0: $Byte2DoubleFunction$$Type): $Long2DoubleFunction
- "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2ByteFunction
+ "andThenInt"(arg0: $Byte2IntFunction$$Type): $Long2IntFunction
+ "composeInt"(arg0: $Int2LongFunction$$Type): $Int2ByteFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: long): byte
@@ -16367,13 +16366,13 @@ declare module "it.unimi.dsi.fastutil.objects.Reference2LongFunction" {
 import {$Float2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ReferenceFunction"
 import {$Long2CharFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2CharFunction"
 import {$Reference2IntFunction} from "it.unimi.dsi.fastutil.objects.Reference2IntFunction"
-import {$Long2IntFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
 import {$Long2ByteFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
+import {$Long2IntFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
 import {$Reference2ShortFunction} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
-import {$Long2ShortFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
 import {$Double2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
-import {$Reference2ByteFunction} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
+import {$Long2ShortFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
 import {$Int2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
+import {$Reference2ByteFunction} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$ToLongFunction$$Interface} from "java.util.function.ToLongFunction"
 import {$Byte2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
@@ -16387,13 +16386,13 @@ import {$Short2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short
 import {$Long2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
 import {$Byte2LongFunction} from "it.unimi.dsi.fastutil.bytes.Byte2LongFunction"
 import {$Reference2FloatFunction} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
-import {$Double2LongFunction} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
 import {$Char2LongFunction} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
+import {$Double2LongFunction} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
 import {$Short2LongFunction} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
-import {$Reference2CharFunction} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
 import {$Int2LongFunction} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
-import {$Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
+import {$Reference2CharFunction} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
 import {$Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
+import {$Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
 import {$Long2FloatFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2FloatFunction"
 import {$Object2LongFunction} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
 import {$Reference2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Reference2DoubleFunction"
@@ -16409,35 +16408,35 @@ export class $Reference2LongFunction<K> implements $Reference2LongFunction$$Inte
  * 
  * @deprecated
  */
- "remove"(arg0: any): long
+ "remove"(arg0: any): any
 /**
  * 
  * @deprecated
  */
  "get"(arg0: any): long
- "put"(arg0: K, arg1: long): long
-/**
- * 
- * @deprecated
- */
- "put"(arg0: K, arg1: long): long
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
+/**
+ * 
+ * @deprecated
+ */
+ "put"(arg0: K, arg1: long): long
+ "put"(arg0: K, arg1: long): long
  "getLong"(arg0: any): long
+/**
+ * 
+ * @deprecated
+ */
+ "getOrDefault"(arg0: any, arg1: long): long
  "getOrDefault"(arg0: any, arg1: long): long
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
-/**
- * 
- * @deprecated
- */
- "getOrDefault"(arg0: any, arg1: long): long
  "applyAsLong"(arg0: K): long
 /**
  * 
@@ -16445,26 +16444,26 @@ export class $Reference2LongFunction<K> implements $Reference2LongFunction$$Inte
  */
  "andThen"<T>(arg0: $Function$0$$Type<(long), (T)>): $Function$0<(K), (T)>
  "removeLong"(arg0: any): long
- "andThenInt"(arg0: $Long2IntFunction$$Type): $Reference2IntFunction<(K)>
- "composeInt"(arg0: $Int2ReferenceFunction$$Type<(K)>): $Int2LongFunction
- "andThenReference"<T>(arg0: $Long2ReferenceFunction$$Type<(T)>): $Reference2ReferenceFunction<(K), (T)>
- "composeObject"<T>(arg0: $Object2ReferenceFunction$$Type<(T), (K)>): $Object2LongFunction<(T)>
- "andThenLong"(arg0: $Long2LongFunction$$Type): $Reference2LongFunction<(K)>
- "andThenFloat"(arg0: $Long2FloatFunction$$Type): $Reference2FloatFunction<(K)>
- "composeShort"(arg0: $Short2ReferenceFunction$$Type<(K)>): $Short2LongFunction
  "andThenObject"<T>(arg0: $Long2ObjectFunction$$Type<(T)>): $Reference2ObjectFunction<(K), (T)>
- "andThenByte"(arg0: $Long2ByteFunction$$Type): $Reference2ByteFunction<(K)>
- "andThenChar"(arg0: $Long2CharFunction$$Type): $Reference2CharFunction<(K)>
+ "composeShort"(arg0: $Short2ReferenceFunction$$Type<(K)>): $Short2LongFunction
+ "andThenDouble"(arg0: $Long2DoubleFunction$$Type): $Reference2DoubleFunction<(K)>
  "composeReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(T), (K)>): $Reference2LongFunction<(T)>
+ "composeDouble"(arg0: $Double2ReferenceFunction$$Type<(K)>): $Double2LongFunction
+ "andThenChar"(arg0: $Long2CharFunction$$Type): $Reference2CharFunction<(K)>
  "defaultReturnValue"(arg0: long): void
  "defaultReturnValue"(): long
+ "composeObject"<T>(arg0: $Object2ReferenceFunction$$Type<(T), (K)>): $Object2LongFunction<(T)>
+ "andThenByte"(arg0: $Long2ByteFunction$$Type): $Reference2ByteFunction<(K)>
  "composeByte"(arg0: $Byte2ReferenceFunction$$Type<(K)>): $Byte2LongFunction
- "andThenShort"(arg0: $Long2ShortFunction$$Type): $Reference2ShortFunction<(K)>
+ "andThenReference"<T>(arg0: $Long2ReferenceFunction$$Type<(T)>): $Reference2ReferenceFunction<(K), (T)>
  "composeLong"(arg0: $Long2ReferenceFunction$$Type<(K)>): $Long2LongFunction
- "composeChar"(arg0: $Char2ReferenceFunction$$Type<(K)>): $Char2LongFunction
  "composeFloat"(arg0: $Float2ReferenceFunction$$Type<(K)>): $Float2LongFunction
- "andThenDouble"(arg0: $Long2DoubleFunction$$Type): $Reference2DoubleFunction<(K)>
- "composeDouble"(arg0: $Double2ReferenceFunction$$Type<(K)>): $Double2LongFunction
+ "andThenShort"(arg0: $Long2ShortFunction$$Type): $Reference2ShortFunction<(K)>
+ "composeChar"(arg0: $Char2ReferenceFunction$$Type<(K)>): $Char2LongFunction
+ "andThenLong"(arg0: $Long2LongFunction$$Type): $Reference2LongFunction<(K)>
+ "andThenFloat"(arg0: $Long2FloatFunction$$Type): $Reference2FloatFunction<(K)>
+ "andThenInt"(arg0: $Long2IntFunction$$Type): $Reference2IntFunction<(K)>
+ "composeInt"(arg0: $Int2ReferenceFunction$$Type<(K)>): $Int2LongFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: K): long
@@ -16490,11 +16489,11 @@ import {$Reference2ObjectMap$$Type} from "it.unimi.dsi.fastutil.objects.Referenc
 import {$Map$Entry, $Map$Entry$$Type} from "java.util.Map$Entry"
 import {$BiFunction$$Type} from "java.util.function.BiFunction"
 import {$ObjectCollection} from "it.unimi.dsi.fastutil.objects.ObjectCollection"
+import {$ObjectSet} from "it.unimi.dsi.fastutil.objects.ObjectSet"
 import {$AbstractReference2ObjectMap} from "it.unimi.dsi.fastutil.objects.AbstractReference2ObjectMap"
 import {$Serializable$$Interface} from "java.io.Serializable"
 import {$Function} from "java.util.function.Function"
 import {$Cloneable$$Interface} from "java.lang.Cloneable"
-import {$Reference2ObjectMap$FastEntrySet} from "it.unimi.dsi.fastutil.objects.Reference2ObjectMap$FastEntrySet"
 
 export class $Reference2ObjectOpenHashMap<K, V> extends $AbstractReference2ObjectMap<(K), (V)> implements $Serializable$$Interface, $Cloneable$$Interface, $Hash$$Interface {
 constructor(arg0: $Map$$Type<(K), (V)>)
@@ -16532,7 +16531,7 @@ public "containsValue"(arg0: any): boolean
 public "getOrDefault"(arg0: any, arg1: V): V
 public "computeIfPresent"(arg0: K, arg1: $BiFunction$$Type<(K), (V), (V)>): V
 public "ensureCapacity"(arg0: integer): void
-public "reference2ObjectEntrySet"(): $Reference2ObjectMap$FastEntrySet<(K), (V)>
+public "reference2ObjectEntrySet"(): $ObjectSet
 public "defaultReturnValue"(arg0: V): void
 public "defaultReturnValue"(): V
 public static "copyOf"<K, V>(arg0: $Map$$Type<(K), (V)>): $Map<(K), (V)>
@@ -16562,8 +16561,8 @@ export type $Reference2ObjectOpenHashMap$$Type<K, V> = ($Reference2ObjectOpenHas
  */
 export type $Reference2ObjectOpenHashMap$$Original<K, V> = $Reference2ObjectOpenHashMap<(K), (V)>;}
 declare module "it.unimi.dsi.fastutil.ints.Int2ObjectMap$Entry" {
-import {$Comparable} from "java.lang.Comparable"
 import {$Comparator, $Comparator$$Type} from "java.util.Comparator"
+import {$Comparable} from "java.lang.Comparable"
 import {$Map$Entry, $Map$Entry$$Type, $Map$Entry$$Interface} from "java.util.Map$Entry"
 
 export interface $Int2ObjectMap$Entry$$Interface<V> extends $Map$Entry$$Interface<(integer), (V)> {
@@ -16786,8 +16785,8 @@ export type $AbstractLongSet$$Type = ($AbstractLongSet);
  */
 export type $AbstractLongSet$$Original = $AbstractLongSet;}
 declare module "it.unimi.dsi.fastutil.booleans.Boolean2CharFunction" {
-import {$Char2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2DoubleFunction"
 import {$Reference2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2BooleanFunction"
+import {$Char2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2DoubleFunction"
 import {$Float2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2BooleanFunction"
 import {$Long2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2BooleanFunction"
 import {$Long2CharFunction} from "it.unimi.dsi.fastutil.longs.Long2CharFunction"
@@ -16829,35 +16828,40 @@ export interface $Boolean2CharFunction$$Interface extends $Function$$Interface<(
 }
 
 export class $Boolean2CharFunction implements $Boolean2CharFunction$$Interface {
- "remove"(arg0: boolean): character
 /**
  * 
  * @deprecated
  */
- "remove"(arg0: any): any
+ "remove"(arg0: any): character
+ "remove"(arg0: boolean): character
 /**
  * 
  * @deprecated
  */
  "get"(arg0: any): character
  "get"(arg0: boolean): character
- "put"(arg0: boolean, arg1: character): character
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
+ "put"(arg0: boolean, arg1: character): character
 /**
  * 
  * @deprecated
  */
  "put"(arg0: boolean, arg1: character): character
- "containsKey"(arg0: boolean): boolean
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: boolean): boolean
+/**
+ * 
+ * @deprecated
+ */
+ "getOrDefault"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
@@ -16868,37 +16872,32 @@ export class $Boolean2CharFunction implements $Boolean2CharFunction$$Interface {
  * 
  * @deprecated
  */
- "getOrDefault"(arg0: any, arg1: any): any
-/**
- * 
- * @deprecated
- */
  "compose"<T>(arg0: $Function$0$$Type<(T), (boolean)>): $Function$0<(T), (character)>
 /**
  * 
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(character), (T)>): $Function$0<(boolean), (T)>
- "andThenInt"(arg0: $Char2IntFunction$$Type): $Boolean2IntFunction
- "composeInt"(arg0: $Int2BooleanFunction$$Type): $Int2CharFunction
- "andThenReference"<T>(arg0: $Char2ReferenceFunction$$Type<(T)>): $Boolean2ReferenceFunction<(T)>
- "composeObject"<T>(arg0: $Object2BooleanFunction$$Type<(T)>): $Object2CharFunction<(T)>
- "andThenLong"(arg0: $Char2LongFunction$$Type): $Boolean2LongFunction
- "andThenFloat"(arg0: $Char2FloatFunction$$Type): $Boolean2FloatFunction
- "composeShort"(arg0: $Short2BooleanFunction$$Type): $Short2CharFunction
  "andThenObject"<T>(arg0: $Char2ObjectFunction$$Type<(T)>): $Boolean2ObjectFunction<(T)>
- "andThenByte"(arg0: $Char2ByteFunction$$Type): $Boolean2ByteFunction
- "andThenChar"(arg0: $Char2CharFunction$$Type): $Boolean2CharFunction
+ "composeShort"(arg0: $Short2BooleanFunction$$Type): $Short2CharFunction
+ "andThenDouble"(arg0: $Char2DoubleFunction$$Type): $Boolean2DoubleFunction
  "composeReference"<T>(arg0: $Reference2BooleanFunction$$Type<(T)>): $Reference2CharFunction<(T)>
+ "composeDouble"(arg0: $Double2BooleanFunction$$Type): $Double2CharFunction
+ "andThenChar"(arg0: $Char2CharFunction$$Type): $Boolean2CharFunction
  "defaultReturnValue"(arg0: character): void
  "defaultReturnValue"(): character
+ "composeObject"<T>(arg0: $Object2BooleanFunction$$Type<(T)>): $Object2CharFunction<(T)>
+ "andThenByte"(arg0: $Char2ByteFunction$$Type): $Boolean2ByteFunction
  "composeByte"(arg0: $Byte2BooleanFunction$$Type): $Byte2CharFunction
- "andThenShort"(arg0: $Char2ShortFunction$$Type): $Boolean2ShortFunction
+ "andThenReference"<T>(arg0: $Char2ReferenceFunction$$Type<(T)>): $Boolean2ReferenceFunction<(T)>
  "composeLong"(arg0: $Long2BooleanFunction$$Type): $Long2CharFunction
- "composeChar"(arg0: $Char2BooleanFunction$$Type): $Char2CharFunction
  "composeFloat"(arg0: $Float2BooleanFunction$$Type): $Float2CharFunction
- "andThenDouble"(arg0: $Char2DoubleFunction$$Type): $Boolean2DoubleFunction
- "composeDouble"(arg0: $Double2BooleanFunction$$Type): $Double2CharFunction
+ "andThenShort"(arg0: $Char2ShortFunction$$Type): $Boolean2ShortFunction
+ "composeChar"(arg0: $Char2BooleanFunction$$Type): $Char2CharFunction
+ "andThenLong"(arg0: $Char2LongFunction$$Type): $Boolean2LongFunction
+ "andThenFloat"(arg0: $Char2FloatFunction$$Type): $Boolean2FloatFunction
+ "andThenInt"(arg0: $Char2IntFunction$$Type): $Boolean2IntFunction
+ "composeInt"(arg0: $Int2BooleanFunction$$Type): $Int2CharFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: boolean): character
@@ -17037,13 +17036,16 @@ public "getOrDefault"(arg0: any, arg1: byte): byte
  * @deprecated
  */
 public "getOrDefault"(arg0: any, arg1: any): any
+public "computeByte"(arg0: K, arg1: $BiFunction$$Type<(K), (byte), (byte)>): byte
+public "defaultReturnValue"(arg0: byte): void
+public "defaultReturnValue"(): byte
+public "mergeByte"(arg0: K, arg1: byte, arg2: $ByteBinaryOperator$$Type): byte
+public "mergeByte"(arg0: K, arg1: byte, arg2: $IntBinaryOperator$$Type): byte
 /**
  * 
  * @deprecated
  */
 public "mergeByte"(arg0: K, arg1: byte, arg2: $BiFunction$$Type<(byte), (byte), (byte)>): byte
-public "mergeByte"(arg0: K, arg1: byte, arg2: $ByteBinaryOperator$$Type): byte
-public "mergeByte"(arg0: K, arg1: byte, arg2: $IntBinaryOperator$$Type): byte
 /**
  * 
  * @deprecated
@@ -17056,9 +17058,6 @@ public "computeByteIfPresent"(arg0: K, arg1: $BiFunction$$Type<(K), (byte), (byt
  * @deprecated
  */
 public "computeByteIfAbsent"(arg0: K, arg1: $ToIntFunction$$Type<(K)>): byte
-public "computeByte"(arg0: K, arg1: $BiFunction$$Type<(K), (byte), (byte)>): byte
-public "defaultReturnValue"(arg0: byte): void
-public "defaultReturnValue"(): byte
 public static "copyOf"<K, V>(arg0: $Map$$Type<(K), (byte)>): $Map<(K), (byte)>
 public "replaceAll"(arg0: $BiFunction$$Type<(K), (byte), (byte)>): void
 public static "of"<K, V>(arg0: K, arg1: byte, arg2: K, arg3: byte, arg4: K, arg5: byte, arg6: K, arg7: byte): $Map<(K), (byte)>
@@ -17093,8 +17092,8 @@ export type $AbstractObject2ByteMap$$Original<K> = $AbstractObject2ByteMap<(K)>;
 declare module "it.unimi.dsi.fastutil.chars.Char2ByteFunction" {
 import {$Char2DoubleFunction} from "it.unimi.dsi.fastutil.chars.Char2DoubleFunction"
 import {$Byte2ByteFunction, $Byte2ByteFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ByteFunction"
-import {$Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Float2ByteFunction} from "it.unimi.dsi.fastutil.floats.Float2ByteFunction"
+import {$Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Long2CharFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2CharFunction"
 import {$Long2ByteFunction} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
 import {$Byte2IntFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
@@ -17142,36 +17141,36 @@ export class $Char2ByteFunction implements $Char2ByteFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): byte
+ "get"(arg0: any): any
  "get"(arg0: character): byte
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: character, arg1: byte): byte
 /**
  * 
  * @deprecated
  */
  "put"(arg0: character, arg1: byte): byte
- "containsKey"(arg0: character): boolean
+ "put"(arg0: character, arg1: byte): byte
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: character): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: character, arg1: byte): byte
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: byte): byte
+ "getOrDefault"(arg0: character, arg1: byte): byte
 /**
  * 
  * @deprecated
@@ -17187,26 +17186,26 @@ export class $Char2ByteFunction implements $Char2ByteFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(byte), (T)>): $Function$0<(character), (T)>
- "andThenInt"(arg0: $Byte2IntFunction$$Type): $Char2IntFunction
- "composeInt"(arg0: $Int2CharFunction$$Type): $Int2ByteFunction
- "andThenReference"<T>(arg0: $Byte2ReferenceFunction$$Type<(T)>): $Char2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Byte2ObjectFunction$$Type<(T)>): $Char2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2CharFunction$$Type): $Short2ByteFunction
+ "andThenDouble"(arg0: $Byte2DoubleFunction$$Type): $Char2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2CharFunction$$Type<(T)>): $Reference2ByteFunction<(T)>
+ "composeDouble"(arg0: $Double2CharFunction$$Type): $Double2ByteFunction
+ "andThenChar"(arg0: $Byte2CharFunction$$Type): $Char2CharFunction
+ "defaultReturnValue"(): byte
+ "defaultReturnValue"(arg0: byte): void
  "composeObject"<T>(arg0: $Object2CharFunction$$Type<(T)>): $Object2ByteFunction<(T)>
+ "andThenByte"(arg0: $Byte2ByteFunction$$Type): $Char2ByteFunction
+ "composeByte"(arg0: $Byte2CharFunction$$Type): $Byte2ByteFunction
+ "andThenReference"<T>(arg0: $Byte2ReferenceFunction$$Type<(T)>): $Char2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2CharFunction$$Type): $Long2ByteFunction
+ "composeFloat"(arg0: $Float2CharFunction$$Type): $Float2ByteFunction
+ "andThenShort"(arg0: $Byte2ShortFunction$$Type): $Char2ShortFunction
+ "composeChar"(arg0: $Char2CharFunction$$Type): $Char2ByteFunction
  "andThenLong"(arg0: $Byte2LongFunction$$Type): $Char2LongFunction
  "andThenFloat"(arg0: $Byte2FloatFunction$$Type): $Char2FloatFunction
- "composeShort"(arg0: $Short2CharFunction$$Type): $Short2ByteFunction
- "andThenObject"<T>(arg0: $Byte2ObjectFunction$$Type<(T)>): $Char2ObjectFunction<(T)>
- "andThenByte"(arg0: $Byte2ByteFunction$$Type): $Char2ByteFunction
- "andThenChar"(arg0: $Byte2CharFunction$$Type): $Char2CharFunction
- "composeReference"<T>(arg0: $Reference2CharFunction$$Type<(T)>): $Reference2ByteFunction<(T)>
- "defaultReturnValue"(arg0: byte): void
- "defaultReturnValue"(): byte
- "composeByte"(arg0: $Byte2CharFunction$$Type): $Byte2ByteFunction
- "andThenShort"(arg0: $Byte2ShortFunction$$Type): $Char2ShortFunction
- "composeLong"(arg0: $Long2CharFunction$$Type): $Long2ByteFunction
- "composeChar"(arg0: $Char2CharFunction$$Type): $Char2ByteFunction
- "composeFloat"(arg0: $Float2CharFunction$$Type): $Float2ByteFunction
- "andThenDouble"(arg0: $Byte2DoubleFunction$$Type): $Char2DoubleFunction
- "composeDouble"(arg0: $Double2CharFunction$$Type): $Double2ByteFunction
+ "andThenInt"(arg0: $Byte2IntFunction$$Type): $Char2IntFunction
+ "composeInt"(arg0: $Int2CharFunction$$Type): $Int2ByteFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: character): byte
@@ -17231,10 +17230,10 @@ import {$Object2ObjectFunction, $Object2ObjectFunction$$Type} from "it.unimi.dsi
 import {$Reference2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
 import {$Reference2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
 import {$Double2ReferenceFunction} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
-import {$Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Int2ReferenceFunction} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
-import {$Int2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
+import {$Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Byte2ReferenceFunction} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
+import {$Int2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
 import {$Char2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ObjectFunction"
 import {$Object2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Object2DoubleFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
@@ -17254,8 +17253,8 @@ import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2Ob
 import {$Char2ReferenceFunction} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
 import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Object2LongFunction} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
-import {$Double2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ObjectFunction"
 import {$Reference2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2DoubleFunction"
+import {$Double2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ObjectFunction"
 import {$Long2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ObjectFunction"
 
 export interface $Object2ReferenceFunction$$Interface<K, V> extends $Function$$Interface<(K), (V)> {
@@ -17268,26 +17267,26 @@ export class $Object2ReferenceFunction<K, V> implements $Object2ReferenceFunctio
  "get"(arg0: any): V
  "put"(arg0: K, arg1: V): V
  "getOrDefault"(arg0: any, arg1: V): V
- "andThenInt"(arg0: $Reference2IntFunction$$Type<(V)>): $Object2IntFunction<(K)>
- "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2ReferenceFunction<(V)>
- "andThenReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(V), (T)>): $Object2ReferenceFunction<(K), (T)>
+ "andThenObject"<T>(arg0: $Reference2ObjectFunction$$Type<(V), (T)>): $Object2ObjectFunction<(K), (T)>
+ "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2ReferenceFunction<(V)>
+ "andThenDouble"(arg0: $Reference2DoubleFunction$$Type<(V)>): $Object2DoubleFunction<(K)>
+ "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2ReferenceFunction<(T), (V)>
+ "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2ReferenceFunction<(V)>
+ "andThenChar"(arg0: $Reference2CharFunction$$Type<(V)>): $Object2CharFunction<(K)>
+ "defaultReturnValue"(): V
+ "defaultReturnValue"(arg0: V): void
  "composeObject"<T>(arg0: $Object2ObjectFunction$$Type<(T), (K)>): $Object2ReferenceFunction<(T), (V)>
+ "andThenByte"(arg0: $Reference2ByteFunction$$Type<(V)>): $Object2ByteFunction<(K)>
+ "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2ReferenceFunction<(V)>
+ "andThenReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(V), (T)>): $Object2ReferenceFunction<(K), (T)>
+ "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2ReferenceFunction<(V)>
+ "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2ReferenceFunction<(V)>
+ "andThenShort"(arg0: $Reference2ShortFunction$$Type<(V)>): $Object2ShortFunction<(K)>
+ "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2ReferenceFunction<(V)>
  "andThenLong"(arg0: $Reference2LongFunction$$Type<(V)>): $Object2LongFunction<(K)>
  "andThenFloat"(arg0: $Reference2FloatFunction$$Type<(V)>): $Object2FloatFunction<(K)>
- "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2ReferenceFunction<(V)>
- "andThenObject"<T>(arg0: $Reference2ObjectFunction$$Type<(V), (T)>): $Object2ObjectFunction<(K), (T)>
- "andThenByte"(arg0: $Reference2ByteFunction$$Type<(V)>): $Object2ByteFunction<(K)>
- "andThenChar"(arg0: $Reference2CharFunction$$Type<(V)>): $Object2CharFunction<(K)>
- "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2ReferenceFunction<(T), (V)>
- "defaultReturnValue"(arg0: V): void
- "defaultReturnValue"(): V
- "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2ReferenceFunction<(V)>
- "andThenShort"(arg0: $Reference2ShortFunction$$Type<(V)>): $Object2ShortFunction<(K)>
- "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2ReferenceFunction<(V)>
- "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2ReferenceFunction<(V)>
- "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2ReferenceFunction<(V)>
- "andThenDouble"(arg0: $Reference2DoubleFunction$$Type<(V)>): $Object2DoubleFunction<(K)>
- "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2ReferenceFunction<(V)>
+ "andThenInt"(arg0: $Reference2IntFunction$$Type<(V)>): $Object2IntFunction<(K)>
+ "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2ReferenceFunction<(V)>
  "size"(): integer
  "clear"(): void
  "apply"(arg0: K): V
@@ -17308,8 +17307,8 @@ export type $Object2ReferenceFunction$$Original<K, V> = $Object2ReferenceFunctio
 declare module "it.unimi.dsi.fastutil.longs.Long2ObjectLinkedOpenHashMap" {
 import {$Collection} from "java.util.Collection"
 import {$Map, $Map$$Type} from "java.util.Map"
-import {$Hash$$Interface} from "it.unimi.dsi.fastutil.Hash"
 import {$LongSet} from "it.unimi.dsi.fastutil.longs.LongSet"
+import {$Hash$$Interface} from "it.unimi.dsi.fastutil.Hash"
 import {$Long2ObjectMap$$Type} from "it.unimi.dsi.fastutil.longs.Long2ObjectMap"
 import {$LongFunction$$Type} from "java.util.function.LongFunction"
 import {$LongComparator} from "it.unimi.dsi.fastutil.longs.LongComparator"
@@ -17317,10 +17316,10 @@ import {$Long2ObjectSortedMap} from "it.unimi.dsi.fastutil.longs.Long2ObjectSort
 import {$AbstractLong2ObjectSortedMap} from "it.unimi.dsi.fastutil.longs.AbstractLong2ObjectSortedMap"
 import {$Map$Entry, $Map$Entry$$Type} from "java.util.Map$Entry"
 import {$BiFunction$$Type} from "java.util.function.BiFunction"
+import {$ObjectSet} from "it.unimi.dsi.fastutil.objects.ObjectSet"
 import {$Serializable$$Interface} from "java.io.Serializable"
 import {$Function} from "java.util.function.Function"
 import {$Cloneable$$Interface} from "java.lang.Cloneable"
-import {$Long2ObjectSortedMap$FastSortedEntrySet} from "it.unimi.dsi.fastutil.longs.Long2ObjectSortedMap$FastSortedEntrySet"
 import {$Long2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ObjectFunction"
 
 export class $Long2ObjectLinkedOpenHashMap<V> extends $AbstractLong2ObjectSortedMap<(V)> implements $Serializable$$Interface, $Cloneable$$Interface, $Hash$$Interface {
@@ -17366,13 +17365,13 @@ public "comparator"(): $LongComparator
 public "subMap"(arg0: long, arg1: long): $Long2ObjectSortedMap<(V)>
 public "headMap"(arg0: long): $Long2ObjectSortedMap<(V)>
 public "tailMap"(arg0: long): $Long2ObjectSortedMap<(V)>
-public "long2ObjectEntrySet"(): $Long2ObjectSortedMap$FastSortedEntrySet<(V)>
-public "putAndMoveToLast"(arg0: long, arg1: V): V
+public "lastLongKey"(): long
+public "firstLongKey"(): long
 public "getAndMoveToFirst"(arg0: long): V
 public "putAndMoveToFirst"(arg0: long, arg1: V): V
 public "getAndMoveToLast"(arg0: long): V
-public "firstLongKey"(): long
-public "lastLongKey"(): long
+public "putAndMoveToLast"(arg0: long, arg1: V): V
+public "long2ObjectEntrySet"(): $ObjectSet
 /**
  * 
  * @deprecated
@@ -17450,8 +17449,8 @@ declare module "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction" {
 import {$Object2IntFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2IntFunction"
 import {$Short2IntFunction} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction"
 import {$Object2ObjectFunction, $Object2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ObjectFunction"
-import {$Reference2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
 import {$IntFunction$$Interface} from "java.util.function.IntFunction"
+import {$Reference2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
 import {$Long2ShortFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
 import {$Short2CharFunction} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
 import {$Int2ObjectFunction} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
@@ -17469,18 +17468,18 @@ import {$Object2CharFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2C
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Int2ShortFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ShortFunction"
 import {$Object2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ByteFunction"
-import {$Short2ReferenceFunction} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Float2ShortFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ShortFunction"
+import {$Short2ReferenceFunction} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Float2ObjectFunction} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Short2LongFunction} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
-import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
+import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Object2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
 import {$Short2FloatFunction} from "it.unimi.dsi.fastutil.shorts.Short2FloatFunction"
 import {$Double2ObjectFunction} from "it.unimi.dsi.fastutil.doubles.Double2ObjectFunction"
 import {$Short2ByteFunction} from "it.unimi.dsi.fastutil.shorts.Short2ByteFunction"
-import {$Long2ObjectFunction} from "it.unimi.dsi.fastutil.longs.Long2ObjectFunction"
 import {$Double2ShortFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ShortFunction"
+import {$Long2ObjectFunction} from "it.unimi.dsi.fastutil.longs.Long2ObjectFunction"
 
 export interface $Short2ObjectFunction$$Interface<V> extends $Function$$Interface<(short), (V)>, $IntFunction$$Interface<(V)> {
 
@@ -17488,12 +17487,12 @@ export interface $Short2ObjectFunction$$Interface<V> extends $Function$$Interfac
 }
 
 export class $Short2ObjectFunction<V> implements $Short2ObjectFunction$$Interface {
- "remove"(arg0: short): V
 /**
  * 
  * @deprecated
  */
  "remove"(arg0: any): V
+ "remove"(arg0: short): V
 /**
  * 
  * @deprecated
@@ -17504,13 +17503,13 @@ export class $Short2ObjectFunction<V> implements $Short2ObjectFunction$$Interfac
  * 
  * @deprecated
  */
- "put"(arg0: short, arg1: V): V
- "put"(arg0: short, arg1: V): V
+ "put"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
  */
- "put"(arg0: any, arg1: any): any
+ "put"(arg0: short, arg1: V): V
+ "put"(arg0: short, arg1: V): V
 /**
  * 
  * @deprecated
@@ -17533,26 +17532,26 @@ export class $Short2ObjectFunction<V> implements $Short2ObjectFunction$$Interfac
  * @deprecated
  */
  "compose"<T>(arg0: $Function$0$$Type<(T), (short)>): $Function$0<(T), (V)>
- "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Short2IntFunction
- "composeInt"(arg0: $Int2ShortFunction$$Type): $Int2ObjectFunction<(V)>
- "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Short2ReferenceFunction<(T)>
- "composeObject"<T>(arg0: $Object2ShortFunction$$Type<(T)>): $Object2ObjectFunction<(T), (V)>
- "andThenLong"(arg0: $Object2LongFunction$$Type<(V)>): $Short2LongFunction
- "andThenFloat"(arg0: $Object2FloatFunction$$Type<(V)>): $Short2FloatFunction
- "composeShort"(arg0: $Short2ShortFunction$$Type): $Short2ObjectFunction<(V)>
  "andThenObject"<T>(arg0: $Object2ObjectFunction$$Type<(V), (T)>): $Short2ObjectFunction<(T)>
- "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Short2ByteFunction
- "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Short2CharFunction
+ "composeShort"(arg0: $Short2ShortFunction$$Type): $Short2ObjectFunction<(V)>
+ "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Short2DoubleFunction
  "composeReference"<T>(arg0: $Reference2ShortFunction$$Type<(T)>): $Reference2ObjectFunction<(T), (V)>
+ "composeDouble"(arg0: $Double2ShortFunction$$Type): $Double2ObjectFunction<(V)>
+ "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Short2CharFunction
  "defaultReturnValue"(): V
  "defaultReturnValue"(arg0: V): void
+ "composeObject"<T>(arg0: $Object2ShortFunction$$Type<(T)>): $Object2ObjectFunction<(T), (V)>
+ "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Short2ByteFunction
  "composeByte"(arg0: $Byte2ShortFunction$$Type): $Byte2ObjectFunction<(V)>
- "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Short2ShortFunction
+ "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Short2ReferenceFunction<(T)>
  "composeLong"(arg0: $Long2ShortFunction$$Type): $Long2ObjectFunction<(V)>
- "composeChar"(arg0: $Char2ShortFunction$$Type): $Char2ObjectFunction<(V)>
  "composeFloat"(arg0: $Float2ShortFunction$$Type): $Float2ObjectFunction<(V)>
- "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Short2DoubleFunction
- "composeDouble"(arg0: $Double2ShortFunction$$Type): $Double2ObjectFunction<(V)>
+ "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Short2ShortFunction
+ "composeChar"(arg0: $Char2ShortFunction$$Type): $Char2ObjectFunction<(V)>
+ "andThenLong"(arg0: $Object2LongFunction$$Type<(V)>): $Short2LongFunction
+ "andThenFloat"(arg0: $Object2FloatFunction$$Type<(V)>): $Short2FloatFunction
+ "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Short2IntFunction
+ "composeInt"(arg0: $Int2ShortFunction$$Type): $Int2ObjectFunction<(V)>
  "size"(): integer
  "clear"(): void
  "apply"(arg0: short): V
@@ -17638,19 +17637,19 @@ import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Long2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2DoubleFunction"
 import {$Object2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ByteFunction"
 import {$Double2CharFunction} from "it.unimi.dsi.fastutil.doubles.Double2CharFunction"
-import {$Double2LongFunction} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
 import {$Float2ObjectFunction} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
+import {$Double2LongFunction} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
 import {$Double2ByteFunction} from "it.unimi.dsi.fastutil.doubles.Double2ByteFunction"
-import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
-import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
+import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
+import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Double2IntFunction} from "it.unimi.dsi.fastutil.doubles.Double2IntFunction"
 import {$Object2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
 import {$Reference2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2DoubleFunction"
 import {$DoubleFunction$$Interface} from "java.util.function.DoubleFunction"
 import {$Float2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2DoubleFunction"
-import {$Long2ObjectFunction} from "it.unimi.dsi.fastutil.longs.Long2ObjectFunction"
 import {$Double2ShortFunction} from "it.unimi.dsi.fastutil.doubles.Double2ShortFunction"
+import {$Long2ObjectFunction} from "it.unimi.dsi.fastutil.longs.Long2ObjectFunction"
 
 export interface $Double2ObjectFunction$$Interface<V> extends $Function$$Interface<(double), (V)>, $DoubleFunction$$Interface<(V)> {
 
@@ -17658,12 +17657,12 @@ export interface $Double2ObjectFunction$$Interface<V> extends $Function$$Interfa
 }
 
 export class $Double2ObjectFunction<V> implements $Double2ObjectFunction$$Interface {
- "remove"(arg0: double): V
 /**
  * 
  * @deprecated
  */
  "remove"(arg0: any): V
+ "remove"(arg0: double): V
 /**
  * 
  * @deprecated
@@ -17674,13 +17673,13 @@ export class $Double2ObjectFunction<V> implements $Double2ObjectFunction$$Interf
  * 
  * @deprecated
  */
- "put"(arg0: double, arg1: V): V
- "put"(arg0: double, arg1: V): V
+ "put"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
  */
- "put"(arg0: any, arg1: any): any
+ "put"(arg0: double, arg1: V): V
+ "put"(arg0: double, arg1: V): V
  "apply"(arg0: double): V
  "containsKey"(arg0: double): boolean
 /**
@@ -17699,26 +17698,26 @@ export class $Double2ObjectFunction<V> implements $Double2ObjectFunction$$Interf
  * @deprecated
  */
  "compose"<T>(arg0: $Function$0$$Type<(T), (double)>): $Function$0<(T), (V)>
- "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Double2IntFunction
- "composeInt"(arg0: $Int2DoubleFunction$$Type): $Int2ObjectFunction<(V)>
- "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Double2ReferenceFunction<(T)>
- "composeObject"<T>(arg0: $Object2DoubleFunction$$Type<(T)>): $Object2ObjectFunction<(T), (V)>
- "andThenLong"(arg0: $Object2LongFunction$$Type<(V)>): $Double2LongFunction
- "andThenFloat"(arg0: $Object2FloatFunction$$Type<(V)>): $Double2FloatFunction
- "composeShort"(arg0: $Short2DoubleFunction$$Type): $Short2ObjectFunction<(V)>
  "andThenObject"<T>(arg0: $Object2ObjectFunction$$Type<(V), (T)>): $Double2ObjectFunction<(T)>
- "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Double2ByteFunction
- "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Double2CharFunction
+ "composeShort"(arg0: $Short2DoubleFunction$$Type): $Short2ObjectFunction<(V)>
+ "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Double2DoubleFunction
  "composeReference"<T>(arg0: $Reference2DoubleFunction$$Type<(T)>): $Reference2ObjectFunction<(T), (V)>
+ "composeDouble"(arg0: $Double2DoubleFunction$$Type): $Double2ObjectFunction<(V)>
+ "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Double2CharFunction
  "defaultReturnValue"(): V
  "defaultReturnValue"(arg0: V): void
+ "composeObject"<T>(arg0: $Object2DoubleFunction$$Type<(T)>): $Object2ObjectFunction<(T), (V)>
+ "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Double2ByteFunction
  "composeByte"(arg0: $Byte2DoubleFunction$$Type): $Byte2ObjectFunction<(V)>
- "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Double2ShortFunction
+ "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Double2ReferenceFunction<(T)>
  "composeLong"(arg0: $Long2DoubleFunction$$Type): $Long2ObjectFunction<(V)>
- "composeChar"(arg0: $Char2DoubleFunction$$Type): $Char2ObjectFunction<(V)>
  "composeFloat"(arg0: $Float2DoubleFunction$$Type): $Float2ObjectFunction<(V)>
- "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Double2DoubleFunction
- "composeDouble"(arg0: $Double2DoubleFunction$$Type): $Double2ObjectFunction<(V)>
+ "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Double2ShortFunction
+ "composeChar"(arg0: $Char2DoubleFunction$$Type): $Char2ObjectFunction<(V)>
+ "andThenLong"(arg0: $Object2LongFunction$$Type<(V)>): $Double2LongFunction
+ "andThenFloat"(arg0: $Object2FloatFunction$$Type<(V)>): $Double2FloatFunction
+ "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Double2IntFunction
+ "composeInt"(arg0: $Int2DoubleFunction$$Type): $Int2ObjectFunction<(V)>
  "size"(): integer
  "clear"(): void
  "apply"(arg0: double): V
@@ -17742,12 +17741,12 @@ import {$Float2ByteFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2Byte
 import {$Reference2IntFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2IntFunction"
 import {$Long2ByteFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
 import {$Byte2IntFunction} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
-import {$Reference2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
 import {$IntFunction$$Interface} from "java.util.function.IntFunction"
+import {$Reference2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
 import {$Reference2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
 import {$Double2ReferenceFunction} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
-import {$Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Int2ReferenceFunction} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
+import {$Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
 import {$Byte2ObjectFunction} from "it.unimi.dsi.fastutil.bytes.Byte2ObjectFunction"
 import {$Byte2ShortFunction} from "it.unimi.dsi.fastutil.bytes.Byte2ShortFunction"
@@ -17776,12 +17775,12 @@ export interface $Byte2ReferenceFunction$$Interface<V> extends $Function$$Interf
 }
 
 export class $Byte2ReferenceFunction<V> implements $Byte2ReferenceFunction$$Interface {
- "remove"(arg0: byte): V
 /**
  * 
  * @deprecated
  */
  "remove"(arg0: any): V
+ "remove"(arg0: byte): V
 /**
  * 
  * @deprecated
@@ -17792,13 +17791,13 @@ export class $Byte2ReferenceFunction<V> implements $Byte2ReferenceFunction$$Inte
  * 
  * @deprecated
  */
- "put"(arg0: byte, arg1: V): V
- "put"(arg0: byte, arg1: V): V
+ "put"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
  */
- "put"(arg0: any, arg1: any): any
+ "put"(arg0: byte, arg1: V): V
+ "put"(arg0: byte, arg1: V): V
 /**
  * 
  * @deprecated
@@ -17821,26 +17820,26 @@ export class $Byte2ReferenceFunction<V> implements $Byte2ReferenceFunction$$Inte
  * @deprecated
  */
  "compose"<T>(arg0: $Function$0$$Type<(T), (byte)>): $Function$0<(T), (V)>
- "andThenInt"(arg0: $Reference2IntFunction$$Type<(V)>): $Byte2IntFunction
- "composeInt"(arg0: $Int2ByteFunction$$Type): $Int2ReferenceFunction<(V)>
- "andThenReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(V), (T)>): $Byte2ReferenceFunction<(T)>
- "composeObject"<T>(arg0: $Object2ByteFunction$$Type<(T)>): $Object2ReferenceFunction<(T), (V)>
- "andThenLong"(arg0: $Reference2LongFunction$$Type<(V)>): $Byte2LongFunction
- "andThenFloat"(arg0: $Reference2FloatFunction$$Type<(V)>): $Byte2FloatFunction
- "composeShort"(arg0: $Short2ByteFunction$$Type): $Short2ReferenceFunction<(V)>
  "andThenObject"<T>(arg0: $Reference2ObjectFunction$$Type<(V), (T)>): $Byte2ObjectFunction<(T)>
- "andThenByte"(arg0: $Reference2ByteFunction$$Type<(V)>): $Byte2ByteFunction
- "andThenChar"(arg0: $Reference2CharFunction$$Type<(V)>): $Byte2CharFunction
+ "composeShort"(arg0: $Short2ByteFunction$$Type): $Short2ReferenceFunction<(V)>
+ "andThenDouble"(arg0: $Reference2DoubleFunction$$Type<(V)>): $Byte2DoubleFunction
  "composeReference"<T>(arg0: $Reference2ByteFunction$$Type<(T)>): $Reference2ReferenceFunction<(T), (V)>
+ "composeDouble"(arg0: $Double2ByteFunction$$Type): $Double2ReferenceFunction<(V)>
+ "andThenChar"(arg0: $Reference2CharFunction$$Type<(V)>): $Byte2CharFunction
  "defaultReturnValue"(): V
  "defaultReturnValue"(arg0: V): void
+ "composeObject"<T>(arg0: $Object2ByteFunction$$Type<(T)>): $Object2ReferenceFunction<(T), (V)>
+ "andThenByte"(arg0: $Reference2ByteFunction$$Type<(V)>): $Byte2ByteFunction
  "composeByte"(arg0: $Byte2ByteFunction$$Type): $Byte2ReferenceFunction<(V)>
- "andThenShort"(arg0: $Reference2ShortFunction$$Type<(V)>): $Byte2ShortFunction
+ "andThenReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(V), (T)>): $Byte2ReferenceFunction<(T)>
  "composeLong"(arg0: $Long2ByteFunction$$Type): $Long2ReferenceFunction<(V)>
- "composeChar"(arg0: $Char2ByteFunction$$Type): $Char2ReferenceFunction<(V)>
  "composeFloat"(arg0: $Float2ByteFunction$$Type): $Float2ReferenceFunction<(V)>
- "andThenDouble"(arg0: $Reference2DoubleFunction$$Type<(V)>): $Byte2DoubleFunction
- "composeDouble"(arg0: $Double2ByteFunction$$Type): $Double2ReferenceFunction<(V)>
+ "andThenShort"(arg0: $Reference2ShortFunction$$Type<(V)>): $Byte2ShortFunction
+ "composeChar"(arg0: $Char2ByteFunction$$Type): $Char2ReferenceFunction<(V)>
+ "andThenLong"(arg0: $Reference2LongFunction$$Type<(V)>): $Byte2LongFunction
+ "andThenFloat"(arg0: $Reference2FloatFunction$$Type<(V)>): $Byte2FloatFunction
+ "andThenInt"(arg0: $Reference2IntFunction$$Type<(V)>): $Byte2IntFunction
+ "composeInt"(arg0: $Int2ByteFunction$$Type): $Int2ReferenceFunction<(V)>
  "size"(): integer
  "clear"(): void
  "apply"(arg0: byte): V
@@ -17869,8 +17868,8 @@ import {$Double2FloatFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2
 import {$Int2CharFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Int2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
 import {$Int2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
-import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
+import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Object2FloatFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2FloatFunction"
 import {$Float2CharFunction} from "it.unimi.dsi.fastutil.floats.Float2CharFunction"
 import {$Int2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
@@ -17884,8 +17883,8 @@ import {$Float2FloatFunction, $Float2FloatFunction$$Type} from "it.unimi.dsi.fas
 import {$Int2LongFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
 import {$Char2IntFunction} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
 import {$DoubleToIntFunction$$Interface} from "java.util.function.DoubleToIntFunction"
-import {$Char2FloatFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
 import {$Long2FloatFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2FloatFunction"
+import {$Char2FloatFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
 import {$Double2IntFunction} from "it.unimi.dsi.fastutil.doubles.Double2IntFunction"
 import {$Short2FloatFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2FloatFunction"
 import {$Byte2FloatFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2FloatFunction"
@@ -17908,36 +17907,36 @@ export class $Float2IntFunction implements $Float2IntFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): integer
+ "get"(arg0: any): any
  "get"(arg0: float): integer
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: float, arg1: integer): integer
 /**
  * 
  * @deprecated
  */
  "put"(arg0: float, arg1: integer): integer
- "containsKey"(arg0: float): boolean
+ "put"(arg0: float, arg1: integer): integer
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: float): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: float, arg1: integer): integer
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: integer): integer
+ "getOrDefault"(arg0: float, arg1: integer): integer
 /**
  * 
  * @deprecated
@@ -17953,26 +17952,26 @@ export class $Float2IntFunction implements $Float2IntFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(integer), (T)>): $Function$0<(float), (T)>
- "andThenInt"(arg0: $Int2IntFunction$$Type): $Float2IntFunction
- "composeInt"(arg0: $Int2FloatFunction$$Type): $Int2IntFunction
- "andThenReference"<T>(arg0: $Int2ReferenceFunction$$Type<(T)>): $Float2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Int2ObjectFunction$$Type<(T)>): $Float2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2FloatFunction$$Type): $Short2IntFunction
+ "andThenDouble"(arg0: $Int2DoubleFunction$$Type): $Float2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2FloatFunction$$Type<(T)>): $Reference2IntFunction<(T)>
+ "composeDouble"(arg0: $Double2FloatFunction$$Type): $Double2IntFunction
+ "andThenChar"(arg0: $Int2CharFunction$$Type): $Float2CharFunction
+ "defaultReturnValue"(): integer
+ "defaultReturnValue"(arg0: integer): void
  "composeObject"<T>(arg0: $Object2FloatFunction$$Type<(T)>): $Object2IntFunction<(T)>
+ "andThenByte"(arg0: $Int2ByteFunction$$Type): $Float2ByteFunction
+ "composeByte"(arg0: $Byte2FloatFunction$$Type): $Byte2IntFunction
+ "andThenReference"<T>(arg0: $Int2ReferenceFunction$$Type<(T)>): $Float2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2FloatFunction$$Type): $Long2IntFunction
+ "composeFloat"(arg0: $Float2FloatFunction$$Type): $Float2IntFunction
+ "andThenShort"(arg0: $Int2ShortFunction$$Type): $Float2ShortFunction
+ "composeChar"(arg0: $Char2FloatFunction$$Type): $Char2IntFunction
  "andThenLong"(arg0: $Int2LongFunction$$Type): $Float2LongFunction
  "andThenFloat"(arg0: $Int2FloatFunction$$Type): $Float2FloatFunction
- "composeShort"(arg0: $Short2FloatFunction$$Type): $Short2IntFunction
- "andThenObject"<T>(arg0: $Int2ObjectFunction$$Type<(T)>): $Float2ObjectFunction<(T)>
- "andThenByte"(arg0: $Int2ByteFunction$$Type): $Float2ByteFunction
- "andThenChar"(arg0: $Int2CharFunction$$Type): $Float2CharFunction
- "composeReference"<T>(arg0: $Reference2FloatFunction$$Type<(T)>): $Reference2IntFunction<(T)>
- "defaultReturnValue"(arg0: integer): void
- "defaultReturnValue"(): integer
- "composeByte"(arg0: $Byte2FloatFunction$$Type): $Byte2IntFunction
- "andThenShort"(arg0: $Int2ShortFunction$$Type): $Float2ShortFunction
- "composeLong"(arg0: $Long2FloatFunction$$Type): $Long2IntFunction
- "composeChar"(arg0: $Char2FloatFunction$$Type): $Char2IntFunction
- "composeFloat"(arg0: $Float2FloatFunction$$Type): $Float2IntFunction
- "andThenDouble"(arg0: $Int2DoubleFunction$$Type): $Float2DoubleFunction
- "composeDouble"(arg0: $Double2FloatFunction$$Type): $Double2IntFunction
+ "andThenInt"(arg0: $Int2IntFunction$$Type): $Float2IntFunction
+ "composeInt"(arg0: $Int2FloatFunction$$Type): $Int2IntFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: float): integer
@@ -18007,15 +18006,15 @@ import {$Double2DoubleFunction, $Double2DoubleFunction$$Type} from "it.unimi.dsi
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Long2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2DoubleFunction"
 import {$Int2ShortFunction} from "it.unimi.dsi.fastutil.ints.Int2ShortFunction"
-import {$Short2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Float2ShortFunction} from "it.unimi.dsi.fastutil.floats.Float2ShortFunction"
+import {$Short2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Double2CharFunction} from "it.unimi.dsi.fastutil.doubles.Double2CharFunction"
 import {$Double2LongFunction} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
 import {$Short2LongFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$Double2ByteFunction} from "it.unimi.dsi.fastutil.doubles.Double2ByteFunction"
 import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
-import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$DoubleToIntFunction$$Interface} from "java.util.function.DoubleToIntFunction"
+import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Double2IntFunction} from "it.unimi.dsi.fastutil.doubles.Double2IntFunction"
 import {$Short2FloatFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2FloatFunction"
 import {$Reference2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2DoubleFunction"
@@ -18039,36 +18038,36 @@ export class $Double2ShortFunction implements $Double2ShortFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): short
+ "get"(arg0: any): any
  "get"(arg0: double): short
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: double, arg1: short): short
 /**
  * 
  * @deprecated
  */
  "put"(arg0: double, arg1: short): short
- "containsKey"(arg0: double): boolean
+ "put"(arg0: double, arg1: short): short
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: double): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: double, arg1: short): short
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: short): short
+ "getOrDefault"(arg0: double, arg1: short): short
  "applyAsInt"(arg0: double): integer
 /**
  * 
@@ -18080,26 +18079,26 @@ export class $Double2ShortFunction implements $Double2ShortFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(short), (T)>): $Function$0<(double), (T)>
- "andThenInt"(arg0: $Short2IntFunction$$Type): $Double2IntFunction
- "composeInt"(arg0: $Int2DoubleFunction$$Type): $Int2ShortFunction
- "andThenReference"<T>(arg0: $Short2ReferenceFunction$$Type<(T)>): $Double2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Short2ObjectFunction$$Type<(T)>): $Double2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2DoubleFunction$$Type): $Short2ShortFunction
+ "andThenDouble"(arg0: $Short2DoubleFunction$$Type): $Double2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2DoubleFunction$$Type<(T)>): $Reference2ShortFunction<(T)>
+ "composeDouble"(arg0: $Double2DoubleFunction$$Type): $Double2ShortFunction
+ "andThenChar"(arg0: $Short2CharFunction$$Type): $Double2CharFunction
+ "defaultReturnValue"(): short
+ "defaultReturnValue"(arg0: short): void
  "composeObject"<T>(arg0: $Object2DoubleFunction$$Type<(T)>): $Object2ShortFunction<(T)>
+ "andThenByte"(arg0: $Short2ByteFunction$$Type): $Double2ByteFunction
+ "composeByte"(arg0: $Byte2DoubleFunction$$Type): $Byte2ShortFunction
+ "andThenReference"<T>(arg0: $Short2ReferenceFunction$$Type<(T)>): $Double2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2DoubleFunction$$Type): $Long2ShortFunction
+ "composeFloat"(arg0: $Float2DoubleFunction$$Type): $Float2ShortFunction
+ "andThenShort"(arg0: $Short2ShortFunction$$Type): $Double2ShortFunction
+ "composeChar"(arg0: $Char2DoubleFunction$$Type): $Char2ShortFunction
  "andThenLong"(arg0: $Short2LongFunction$$Type): $Double2LongFunction
  "andThenFloat"(arg0: $Short2FloatFunction$$Type): $Double2FloatFunction
- "composeShort"(arg0: $Short2DoubleFunction$$Type): $Short2ShortFunction
- "andThenObject"<T>(arg0: $Short2ObjectFunction$$Type<(T)>): $Double2ObjectFunction<(T)>
- "andThenByte"(arg0: $Short2ByteFunction$$Type): $Double2ByteFunction
- "andThenChar"(arg0: $Short2CharFunction$$Type): $Double2CharFunction
- "composeReference"<T>(arg0: $Reference2DoubleFunction$$Type<(T)>): $Reference2ShortFunction<(T)>
- "defaultReturnValue"(arg0: short): void
- "defaultReturnValue"(): short
- "composeByte"(arg0: $Byte2DoubleFunction$$Type): $Byte2ShortFunction
- "andThenShort"(arg0: $Short2ShortFunction$$Type): $Double2ShortFunction
- "composeLong"(arg0: $Long2DoubleFunction$$Type): $Long2ShortFunction
- "composeChar"(arg0: $Char2DoubleFunction$$Type): $Char2ShortFunction
- "composeFloat"(arg0: $Float2DoubleFunction$$Type): $Float2ShortFunction
- "andThenDouble"(arg0: $Short2DoubleFunction$$Type): $Double2DoubleFunction
- "composeDouble"(arg0: $Double2DoubleFunction$$Type): $Double2ShortFunction
+ "andThenInt"(arg0: $Short2IntFunction$$Type): $Double2IntFunction
+ "composeInt"(arg0: $Int2DoubleFunction$$Type): $Int2ShortFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: double): short
@@ -18116,8 +18115,8 @@ export type $Double2ShortFunction$$Type = ((arg0: double) => short);
 export type $Double2ShortFunction$$Original = $Double2ShortFunction;}
 declare module "it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap" {
 import {$Map, $Map$$Type} from "java.util.Map"
-import {$Hash$$Interface} from "it.unimi.dsi.fastutil.Hash"
 import {$LongSet} from "it.unimi.dsi.fastutil.longs.LongSet"
+import {$Hash$$Interface} from "it.unimi.dsi.fastutil.Hash"
 import {$Long2ObjectMap$$Type} from "it.unimi.dsi.fastutil.longs.Long2ObjectMap"
 import {$LongFunction$$Type} from "java.util.function.LongFunction"
 import {$Map$Entry, $Map$Entry$$Type} from "java.util.Map$Entry"
@@ -18211,8 +18210,8 @@ import {$Short2IntFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2IntFu
 import {$Byte2IntFunction} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
 import {$Reference2ShortFunction} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
 import {$Long2ShortFunction} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
-import {$Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Short2CharFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
+import {$Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Byte2ReferenceFunction} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
 import {$Char2ShortFunction} from "it.unimi.dsi.fastutil.chars.Char2ShortFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
@@ -18223,8 +18222,8 @@ import {$Short2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2Do
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Int2ShortFunction} from "it.unimi.dsi.fastutil.ints.Int2ShortFunction"
 import {$Object2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ByteFunction"
-import {$Short2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Float2ShortFunction} from "it.unimi.dsi.fastutil.floats.Float2ShortFunction"
+import {$Short2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Byte2LongFunction} from "it.unimi.dsi.fastutil.bytes.Byte2LongFunction"
 import {$IntUnaryOperator, $IntUnaryOperator$$Type, $IntUnaryOperator$$Interface} from "java.util.function.IntUnaryOperator"
 import {$Short2LongFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
@@ -18254,36 +18253,36 @@ export class $Byte2ShortFunction implements $Byte2ShortFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): short
+ "get"(arg0: any): any
  "get"(arg0: byte): short
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: byte, arg1: short): short
 /**
  * 
  * @deprecated
  */
  "put"(arg0: byte, arg1: short): short
- "containsKey"(arg0: byte): boolean
+ "put"(arg0: byte, arg1: short): short
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: byte): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: byte, arg1: short): short
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: short): short
+ "getOrDefault"(arg0: byte, arg1: short): short
 /**
  * 
  * @deprecated
@@ -18299,26 +18298,26 @@ export class $Byte2ShortFunction implements $Byte2ShortFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(short), (T)>): $Function$0<(byte), (T)>
- "andThenInt"(arg0: $Short2IntFunction$$Type): $Byte2IntFunction
- "composeInt"(arg0: $Int2ByteFunction$$Type): $Int2ShortFunction
- "andThenReference"<T>(arg0: $Short2ReferenceFunction$$Type<(T)>): $Byte2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Short2ObjectFunction$$Type<(T)>): $Byte2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2ByteFunction$$Type): $Short2ShortFunction
+ "andThenDouble"(arg0: $Short2DoubleFunction$$Type): $Byte2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2ByteFunction$$Type<(T)>): $Reference2ShortFunction<(T)>
+ "composeDouble"(arg0: $Double2ByteFunction$$Type): $Double2ShortFunction
+ "andThenChar"(arg0: $Short2CharFunction$$Type): $Byte2CharFunction
+ "defaultReturnValue"(): short
+ "defaultReturnValue"(arg0: short): void
  "composeObject"<T>(arg0: $Object2ByteFunction$$Type<(T)>): $Object2ShortFunction<(T)>
+ "andThenByte"(arg0: $Short2ByteFunction$$Type): $Byte2ByteFunction
+ "composeByte"(arg0: $Byte2ByteFunction$$Type): $Byte2ShortFunction
+ "andThenReference"<T>(arg0: $Short2ReferenceFunction$$Type<(T)>): $Byte2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2ByteFunction$$Type): $Long2ShortFunction
+ "composeFloat"(arg0: $Float2ByteFunction$$Type): $Float2ShortFunction
+ "andThenShort"(arg0: $Short2ShortFunction$$Type): $Byte2ShortFunction
+ "composeChar"(arg0: $Char2ByteFunction$$Type): $Char2ShortFunction
  "andThenLong"(arg0: $Short2LongFunction$$Type): $Byte2LongFunction
  "andThenFloat"(arg0: $Short2FloatFunction$$Type): $Byte2FloatFunction
- "composeShort"(arg0: $Short2ByteFunction$$Type): $Short2ShortFunction
- "andThenObject"<T>(arg0: $Short2ObjectFunction$$Type<(T)>): $Byte2ObjectFunction<(T)>
- "andThenByte"(arg0: $Short2ByteFunction$$Type): $Byte2ByteFunction
- "andThenChar"(arg0: $Short2CharFunction$$Type): $Byte2CharFunction
- "composeReference"<T>(arg0: $Reference2ByteFunction$$Type<(T)>): $Reference2ShortFunction<(T)>
- "defaultReturnValue"(arg0: short): void
- "defaultReturnValue"(): short
- "composeByte"(arg0: $Byte2ByteFunction$$Type): $Byte2ShortFunction
- "andThenShort"(arg0: $Short2ShortFunction$$Type): $Byte2ShortFunction
- "composeLong"(arg0: $Long2ByteFunction$$Type): $Long2ShortFunction
- "composeChar"(arg0: $Char2ByteFunction$$Type): $Char2ShortFunction
- "composeFloat"(arg0: $Float2ByteFunction$$Type): $Float2ShortFunction
- "andThenDouble"(arg0: $Short2DoubleFunction$$Type): $Byte2DoubleFunction
- "composeDouble"(arg0: $Double2ByteFunction$$Type): $Double2ShortFunction
+ "andThenInt"(arg0: $Short2IntFunction$$Type): $Byte2IntFunction
+ "composeInt"(arg0: $Int2ByteFunction$$Type): $Int2ShortFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: byte): short
@@ -18338,9 +18337,9 @@ export type $Byte2ShortFunction$$Original = $Byte2ShortFunction;}
 declare module "it.unimi.dsi.fastutil.objects.AbstractObject2IntMap" {
 import {$Collection} from "java.util.Collection"
 import {$Map, $Map$$Type} from "java.util.Map"
-import {$IntBinaryOperator$$Type} from "it.unimi.dsi.fastutil.ints.IntBinaryOperator"
+import {$IntBinaryOperator$$Type as $IntBinaryOperator$0$$Type} from "it.unimi.dsi.fastutil.ints.IntBinaryOperator"
 import {$Object2IntFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2IntFunction"
-import {$IntBinaryOperator$$Type as $IntBinaryOperator$0$$Type} from "java.util.function.IntBinaryOperator"
+import {$IntBinaryOperator$$Type} from "java.util.function.IntBinaryOperator"
 import {$Map$Entry, $Map$Entry$$Type} from "java.util.Map$Entry"
 import {$AbstractObject2IntFunction} from "it.unimi.dsi.fastutil.objects.AbstractObject2IntFunction"
 import {$BiFunction$$Type} from "java.util.function.BiFunction"
@@ -18363,7 +18362,7 @@ public "putAll"(arg0: $Map$$Type<(K), (integer)>): void
 public "containsKey"(arg0: any): boolean
 public "keySet"(): $Set
 public "containsValue"(arg0: integer): boolean
-public "mergeInt"(arg0: K, arg1: integer, arg2: $IntBinaryOperator$$Type): integer
+public "mergeInt"(arg0: K, arg1: integer, arg2: $IntBinaryOperator$0$$Type): integer
 /**
  * 
  * @deprecated
@@ -18468,19 +18467,19 @@ public "computeIntIfPresent"(arg0: K, arg1: $BiFunction$$Type<(K), (integer), (i
 public "computeIntIfAbsentPartial"(arg0: K, arg1: $Object2IntFunction$$Type<(K)>): integer
 public "defaultReturnValue"(): integer
 public "defaultReturnValue"(arg0: integer): void
+/**
+ * 
+ * @deprecated
+ */
+public "mergeInt"(arg0: K, arg1: integer, arg2: $BiFunction$$Type<(integer), (integer), (integer)>): integer
+public "mergeInt"(arg0: K, arg1: integer, arg2: $IntBinaryOperator$$Type): integer
+public "computeInt"(arg0: K, arg1: $BiFunction$$Type<(K), (integer), (integer)>): integer
 public "object2IntEntrySet"(): $ObjectSet<($Object2IntMap$Entry<(K)>)>
 /**
  * 
  * @deprecated
  */
 public "computeIntIfAbsent"(arg0: K, arg1: $ToIntFunction$$Type<(K)>): integer
-public "computeInt"(arg0: K, arg1: $BiFunction$$Type<(K), (integer), (integer)>): integer
-public "mergeInt"(arg0: K, arg1: integer, arg2: $IntBinaryOperator$0$$Type): integer
-/**
- * 
- * @deprecated
- */
-public "mergeInt"(arg0: K, arg1: integer, arg2: $BiFunction$$Type<(integer), (integer), (integer)>): integer
 public static "copyOf"<K, V>(arg0: $Map$$Type<(K), (integer)>): $Map<(K), (integer)>
 public "replaceAll"(arg0: $BiFunction$$Type<(K), (integer), (integer)>): void
 public static "of"<K, V>(arg0: K, arg1: integer, arg2: K, arg3: integer, arg4: K, arg5: integer, arg6: K, arg7: integer): $Map<(K), (integer)>
@@ -18521,26 +18520,26 @@ import {$Long2IntFunction} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
 import {$Short2IntFunction} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction"
 import {$Int2FloatFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
 import {$Byte2IntFunction} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
-import {$IntBinaryOperator$$Type as $IntBinaryOperator$0$$Type} from "java.util.function.IntBinaryOperator"
+import {$IntBinaryOperator$$Type} from "java.util.function.IntBinaryOperator"
 import {$Reference2IntMap$Entry} from "it.unimi.dsi.fastutil.objects.Reference2IntMap$Entry"
 import {$Map$Entry, $Map$Entry$$Type} from "java.util.Map$Entry"
 import {$Reference2ShortFunction} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
-import {$Int2CharFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Float2IntFunction} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
 import {$Reference2LongFunction} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
+import {$Int2CharFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Double2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
-import {$Reference2ByteFunction} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Int2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
-import {$Int2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
+import {$Reference2ByteFunction} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Byte2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
-import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
+import {$Int2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
 import {$Function, $Function$$Type} from "java.util.function.Function"
+import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Int2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
 import {$Reference2ReferenceFunction, $Reference2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ReferenceFunction"
 import {$Reference2ObjectFunction} from "it.unimi.dsi.fastutil.objects.Reference2ObjectFunction"
 import {$Collection} from "java.util.Collection"
 import {$Map, $Map$$Type, $Map$$Interface} from "java.util.Map"
-import {$IntBinaryOperator$$Type} from "it.unimi.dsi.fastutil.ints.IntBinaryOperator"
+import {$IntBinaryOperator$$Type as $IntBinaryOperator$0$$Type} from "it.unimi.dsi.fastutil.ints.IntBinaryOperator"
 import {$Int2ShortFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ShortFunction"
 import {$Short2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Long2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
@@ -18550,8 +18549,8 @@ import {$ToIntFunction$$Type} from "java.util.function.ToIntFunction"
 import {$ObjectSet} from "it.unimi.dsi.fastutil.objects.ObjectSet"
 import {$Int2LongFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
 import {$Reference2CharFunction} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
-import {$Char2IntFunction} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
 import {$Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
+import {$Char2IntFunction} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
 import {$Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
 import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$Double2IntFunction} from "it.unimi.dsi.fastutil.doubles.Double2IntFunction"
@@ -18664,28 +18663,28 @@ export class $Reference2IntMap<K> implements $Reference2IntMap$$Interface {
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
+ "reference2IntEntrySet"(): $ObjectSet<($Reference2IntMap$Entry<(K)>)>
  "computeIntIfPresent"(arg0: K, arg1: $BiFunction$$Type<(K), (integer), (integer)>): integer
 /**
  * 
  * @deprecated
  */
  "computeIntIfAbsentPartial"(arg0: K, arg1: $Reference2IntFunction$$Type<(K)>): integer
- "reference2IntEntrySet"(): $ObjectSet<($Reference2IntMap$Entry<(K)>)>
- "defaultReturnValue"(): integer
  "defaultReturnValue"(arg0: integer): void
-/**
- * 
- * @deprecated
- */
- "computeIntIfAbsent"(arg0: K, arg1: $ToIntFunction$$Type<(K)>): integer
- "computeInt"(arg0: K, arg1: $BiFunction$$Type<(K), (integer), (integer)>): integer
- "mergeInt"(arg0: K, arg1: integer, arg2: $IntBinaryOperator$$Type): integer
- "mergeInt"(arg0: K, arg1: integer, arg2: $IntBinaryOperator$0$$Type): integer
+ "defaultReturnValue"(): integer
 /**
  * 
  * @deprecated
  */
  "mergeInt"(arg0: K, arg1: integer, arg2: $BiFunction$$Type<(integer), (integer), (integer)>): integer
+ "mergeInt"(arg0: K, arg1: integer, arg2: $IntBinaryOperator$0$$Type): integer
+ "mergeInt"(arg0: K, arg1: integer, arg2: $IntBinaryOperator$$Type): integer
+ "computeInt"(arg0: K, arg1: $BiFunction$$Type<(K), (integer), (integer)>): integer
+/**
+ * 
+ * @deprecated
+ */
+ "computeIntIfAbsent"(arg0: K, arg1: $ToIntFunction$$Type<(K)>): integer
  "put"(arg0: K, arg1: integer): integer
  "getInt"(arg0: any): integer
  "applyAsInt"(arg0: K): integer
@@ -18694,24 +18693,24 @@ export class $Reference2IntMap<K> implements $Reference2IntMap$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$$Type<(integer), (T)>): $Function<(K), (T)>
- "andThenInt"(arg0: $Int2IntFunction$$Type): $Reference2IntFunction<(K)>
- "composeInt"(arg0: $Int2ReferenceFunction$$Type<(K)>): $Int2IntFunction
- "andThenReference"<T>(arg0: $Int2ReferenceFunction$$Type<(T)>): $Reference2ReferenceFunction<(K), (T)>
+ "andThenObject"<T>(arg0: $Int2ObjectFunction$$Type<(T)>): $Reference2ObjectFunction<(K), (T)>
+ "composeShort"(arg0: $Short2ReferenceFunction$$Type<(K)>): $Short2IntFunction
+ "andThenDouble"(arg0: $Int2DoubleFunction$$Type): $Reference2DoubleFunction<(K)>
+ "composeReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(T), (K)>): $Reference2IntFunction<(T)>
+ "composeDouble"(arg0: $Double2ReferenceFunction$$Type<(K)>): $Double2IntFunction
+ "andThenChar"(arg0: $Int2CharFunction$$Type): $Reference2CharFunction<(K)>
  "composeObject"<T>(arg0: $Object2ReferenceFunction$$Type<(T), (K)>): $Object2IntFunction<(T)>
+ "andThenByte"(arg0: $Int2ByteFunction$$Type): $Reference2ByteFunction<(K)>
+ "composeByte"(arg0: $Byte2ReferenceFunction$$Type<(K)>): $Byte2IntFunction
+ "andThenReference"<T>(arg0: $Int2ReferenceFunction$$Type<(T)>): $Reference2ReferenceFunction<(K), (T)>
+ "composeLong"(arg0: $Long2ReferenceFunction$$Type<(K)>): $Long2IntFunction
+ "composeFloat"(arg0: $Float2ReferenceFunction$$Type<(K)>): $Float2IntFunction
+ "andThenShort"(arg0: $Int2ShortFunction$$Type): $Reference2ShortFunction<(K)>
+ "composeChar"(arg0: $Char2ReferenceFunction$$Type<(K)>): $Char2IntFunction
  "andThenLong"(arg0: $Int2LongFunction$$Type): $Reference2LongFunction<(K)>
  "andThenFloat"(arg0: $Int2FloatFunction$$Type): $Reference2FloatFunction<(K)>
- "composeShort"(arg0: $Short2ReferenceFunction$$Type<(K)>): $Short2IntFunction
- "andThenObject"<T>(arg0: $Int2ObjectFunction$$Type<(T)>): $Reference2ObjectFunction<(K), (T)>
- "andThenByte"(arg0: $Int2ByteFunction$$Type): $Reference2ByteFunction<(K)>
- "andThenChar"(arg0: $Int2CharFunction$$Type): $Reference2CharFunction<(K)>
- "composeReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(T), (K)>): $Reference2IntFunction<(T)>
- "composeByte"(arg0: $Byte2ReferenceFunction$$Type<(K)>): $Byte2IntFunction
- "andThenShort"(arg0: $Int2ShortFunction$$Type): $Reference2ShortFunction<(K)>
- "composeLong"(arg0: $Long2ReferenceFunction$$Type<(K)>): $Long2IntFunction
- "composeChar"(arg0: $Char2ReferenceFunction$$Type<(K)>): $Char2IntFunction
- "composeFloat"(arg0: $Float2ReferenceFunction$$Type<(K)>): $Float2IntFunction
- "andThenDouble"(arg0: $Int2DoubleFunction$$Type): $Reference2DoubleFunction<(K)>
- "composeDouble"(arg0: $Double2ReferenceFunction$$Type<(K)>): $Double2IntFunction
+ "andThenInt"(arg0: $Int2IntFunction$$Type): $Reference2IntFunction<(K)>
+ "composeInt"(arg0: $Int2ReferenceFunction$$Type<(K)>): $Int2IntFunction
  "removeInt"(arg0: any): integer
  "equals"(arg0: any): boolean
  "hashCode"(): integer
@@ -18864,12 +18863,12 @@ export type $FloatConsumer$$Type = ((arg0: float) => void);
 export type $FloatConsumer$$Original = $FloatConsumer;}
 declare module "it.unimi.dsi.fastutil.shorts.Short2ObjectMap" {
 import {$Object2IntFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2IntFunction"
-import {$Short2IntFunction} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction"
 import {$Object2ObjectFunction, $Object2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ObjectFunction"
+import {$Short2IntFunction} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction"
 import {$Short2ObjectMap$Entry} from "it.unimi.dsi.fastutil.shorts.Short2ObjectMap$Entry"
 import {$Map$Entry, $Map$Entry$$Type} from "java.util.Map$Entry"
-import {$IntFunction$$Type} from "java.util.function.IntFunction"
 import {$Reference2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
+import {$IntFunction$$Type} from "java.util.function.IntFunction"
 import {$Long2ShortFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
 import {$Short2CharFunction} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
 import {$Int2ObjectFunction} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
@@ -18895,16 +18894,16 @@ import {$Float2ObjectFunction} from "it.unimi.dsi.fastutil.floats.Float2ObjectFu
 import {$Short2LongFunction} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$ObjectCollection} from "it.unimi.dsi.fastutil.objects.ObjectCollection"
 import {$ObjectSet} from "it.unimi.dsi.fastutil.objects.ObjectSet"
-import {$Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
 import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
+import {$Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
 import {$Short2ObjectFunction, $Short2ObjectFunction$$Type, $Short2ObjectFunction$$Interface} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
-import {$Object2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
 import {$Short2FloatFunction} from "it.unimi.dsi.fastutil.shorts.Short2FloatFunction"
+import {$Object2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
 import {$Double2ObjectFunction} from "it.unimi.dsi.fastutil.doubles.Double2ObjectFunction"
 import {$Short2ByteFunction} from "it.unimi.dsi.fastutil.shorts.Short2ByteFunction"
-import {$Long2ObjectFunction} from "it.unimi.dsi.fastutil.longs.Long2ObjectFunction"
 import {$Double2ShortFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ShortFunction"
+import {$Long2ObjectFunction} from "it.unimi.dsi.fastutil.longs.Long2ObjectFunction"
 
 export interface $Short2ObjectMap$$Interface<V> extends $Short2ObjectFunction$$Interface<(V)>, $Map$$Interface<(short), (V)> {
 [index: string | number]: V
@@ -18965,12 +18964,12 @@ export class $Short2ObjectMap<V> implements $Short2ObjectMap$$Interface {
  "computeIfPresent"(arg0: short, arg1: $BiFunction$$Type<(short), (V), (V)>): V
  "defaultReturnValue"(arg0: V): void
  "defaultReturnValue"(): V
+ "short2ObjectEntrySet"(): $ObjectSet<($Short2ObjectMap$Entry<(V)>)>
 /**
  * 
  * @deprecated
  */
  "computeIfAbsentPartial"(arg0: short, arg1: $Short2ObjectFunction$$Type<(V)>): V
- "short2ObjectEntrySet"(): $ObjectSet<($Short2ObjectMap$Entry<(V)>)>
  "remove"(arg0: short): V
  "get"(arg0: short): V
  "put"(arg0: short, arg1: V): V
@@ -18984,24 +18983,24 @@ export class $Short2ObjectMap<V> implements $Short2ObjectMap$$Interface {
  * @deprecated
  */
  "compose"<T>(arg0: $Function$$Type<(T), (short)>): $Function<(T), (V)>
- "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Short2IntFunction
- "composeInt"(arg0: $Int2ShortFunction$$Type): $Int2ObjectFunction<(V)>
- "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Short2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Object2ObjectFunction$$Type<(V), (T)>): $Short2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2ShortFunction$$Type): $Short2ObjectFunction<(V)>
+ "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Short2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2ShortFunction$$Type<(T)>): $Reference2ObjectFunction<(T), (V)>
+ "composeDouble"(arg0: $Double2ShortFunction$$Type): $Double2ObjectFunction<(V)>
+ "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Short2CharFunction
  "composeObject"<T>(arg0: $Object2ShortFunction$$Type<(T)>): $Object2ObjectFunction<(T), (V)>
+ "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Short2ByteFunction
+ "composeByte"(arg0: $Byte2ShortFunction$$Type): $Byte2ObjectFunction<(V)>
+ "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Short2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2ShortFunction$$Type): $Long2ObjectFunction<(V)>
+ "composeFloat"(arg0: $Float2ShortFunction$$Type): $Float2ObjectFunction<(V)>
+ "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Short2ShortFunction
+ "composeChar"(arg0: $Char2ShortFunction$$Type): $Char2ObjectFunction<(V)>
  "andThenLong"(arg0: $Object2LongFunction$$Type<(V)>): $Short2LongFunction
  "andThenFloat"(arg0: $Object2FloatFunction$$Type<(V)>): $Short2FloatFunction
- "composeShort"(arg0: $Short2ShortFunction$$Type): $Short2ObjectFunction<(V)>
- "andThenObject"<T>(arg0: $Object2ObjectFunction$$Type<(V), (T)>): $Short2ObjectFunction<(T)>
- "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Short2ByteFunction
- "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Short2CharFunction
- "composeReference"<T>(arg0: $Reference2ShortFunction$$Type<(T)>): $Reference2ObjectFunction<(T), (V)>
- "composeByte"(arg0: $Byte2ShortFunction$$Type): $Byte2ObjectFunction<(V)>
- "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Short2ShortFunction
- "composeLong"(arg0: $Long2ShortFunction$$Type): $Long2ObjectFunction<(V)>
- "composeChar"(arg0: $Char2ShortFunction$$Type): $Char2ObjectFunction<(V)>
- "composeFloat"(arg0: $Float2ShortFunction$$Type): $Float2ObjectFunction<(V)>
- "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Short2DoubleFunction
- "composeDouble"(arg0: $Double2ShortFunction$$Type): $Double2ObjectFunction<(V)>
+ "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Short2IntFunction
+ "composeInt"(arg0: $Int2ShortFunction$$Type): $Int2ObjectFunction<(V)>
  "remove"(arg0: any, arg1: any): boolean
  "equals"(arg0: any): boolean
  "hashCode"(): integer
@@ -19044,8 +19043,8 @@ export type $Short2ObjectMap$$Type<V> = ($Short2ObjectMap<(V)>);
  */
 export type $Short2ObjectMap$$Original<V> = $Short2ObjectMap<(V)>;}
 declare module "it.unimi.dsi.fastutil.objects.Object2IntMap$Entry" {
-import {$Comparable} from "java.lang.Comparable"
 import {$Comparator, $Comparator$$Type} from "java.util.Comparator"
+import {$Comparable} from "java.lang.Comparable"
 import {$Map$Entry, $Map$Entry$$Type, $Map$Entry$$Interface} from "java.util.Map$Entry"
 
 export interface $Object2IntMap$Entry$$Interface<K> extends $Map$Entry$$Interface<(K), (integer)> {
@@ -19145,28 +19144,28 @@ import {$Long2IntFunction} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
 import {$Short2IntFunction} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction"
 import {$Int2FloatFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
 import {$Byte2IntFunction} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
-import {$Int2CharFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Float2IntFunction} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
+import {$Int2CharFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Int2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
 import {$Int2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
-import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
+import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Boolean2FloatFunction} from "it.unimi.dsi.fastutil.booleans.Boolean2FloatFunction"
 import {$Int2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
 import {$Boolean2DoubleFunction} from "it.unimi.dsi.fastutil.booleans.Boolean2DoubleFunction"
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Boolean2CharFunction} from "it.unimi.dsi.fastutil.booleans.Boolean2CharFunction"
-import {$Char2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2BooleanFunction"
 import {$Int2ShortFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ShortFunction"
+import {$Char2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2BooleanFunction"
 import {$Boolean2ReferenceFunction} from "it.unimi.dsi.fastutil.booleans.Boolean2ReferenceFunction"
 import {$Double2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2BooleanFunction"
 import {$Short2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2BooleanFunction"
 import {$Int2LongFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
 import {$Char2IntFunction} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
 import {$Boolean2ByteFunction} from "it.unimi.dsi.fastutil.booleans.Boolean2ByteFunction"
-import {$Double2IntFunction} from "it.unimi.dsi.fastutil.doubles.Double2IntFunction"
 import {$Byte2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2BooleanFunction"
 import {$Int2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2BooleanFunction"
+import {$Double2IntFunction} from "it.unimi.dsi.fastutil.doubles.Double2IntFunction"
 import {$Boolean2ObjectFunction} from "it.unimi.dsi.fastutil.booleans.Boolean2ObjectFunction"
 import {$Object2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2BooleanFunction"
 import {$Boolean2ShortFunction} from "it.unimi.dsi.fastutil.booleans.Boolean2ShortFunction"
@@ -19179,35 +19178,40 @@ export interface $Boolean2IntFunction$$Interface extends $Function$$Interface<(b
 }
 
 export class $Boolean2IntFunction implements $Boolean2IntFunction$$Interface {
- "remove"(arg0: boolean): integer
 /**
  * 
  * @deprecated
  */
- "remove"(arg0: any): any
+ "remove"(arg0: any): integer
+ "remove"(arg0: boolean): integer
 /**
  * 
  * @deprecated
  */
  "get"(arg0: any): integer
  "get"(arg0: boolean): integer
- "put"(arg0: boolean, arg1: integer): integer
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
+ "put"(arg0: boolean, arg1: integer): integer
 /**
  * 
  * @deprecated
  */
  "put"(arg0: boolean, arg1: integer): integer
- "containsKey"(arg0: boolean): boolean
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: boolean): boolean
+/**
+ * 
+ * @deprecated
+ */
+ "getOrDefault"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
@@ -19218,37 +19222,32 @@ export class $Boolean2IntFunction implements $Boolean2IntFunction$$Interface {
  * 
  * @deprecated
  */
- "getOrDefault"(arg0: any, arg1: any): any
-/**
- * 
- * @deprecated
- */
  "compose"<T>(arg0: $Function$0$$Type<(T), (boolean)>): $Function$0<(T), (integer)>
 /**
  * 
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(integer), (T)>): $Function$0<(boolean), (T)>
- "andThenInt"(arg0: $Int2IntFunction$$Type): $Boolean2IntFunction
- "composeInt"(arg0: $Int2BooleanFunction$$Type): $Int2IntFunction
- "andThenReference"<T>(arg0: $Int2ReferenceFunction$$Type<(T)>): $Boolean2ReferenceFunction<(T)>
- "composeObject"<T>(arg0: $Object2BooleanFunction$$Type<(T)>): $Object2IntFunction<(T)>
- "andThenLong"(arg0: $Int2LongFunction$$Type): $Boolean2LongFunction
- "andThenFloat"(arg0: $Int2FloatFunction$$Type): $Boolean2FloatFunction
- "composeShort"(arg0: $Short2BooleanFunction$$Type): $Short2IntFunction
  "andThenObject"<T>(arg0: $Int2ObjectFunction$$Type<(T)>): $Boolean2ObjectFunction<(T)>
- "andThenByte"(arg0: $Int2ByteFunction$$Type): $Boolean2ByteFunction
- "andThenChar"(arg0: $Int2CharFunction$$Type): $Boolean2CharFunction
+ "composeShort"(arg0: $Short2BooleanFunction$$Type): $Short2IntFunction
+ "andThenDouble"(arg0: $Int2DoubleFunction$$Type): $Boolean2DoubleFunction
  "composeReference"<T>(arg0: $Reference2BooleanFunction$$Type<(T)>): $Reference2IntFunction<(T)>
+ "composeDouble"(arg0: $Double2BooleanFunction$$Type): $Double2IntFunction
+ "andThenChar"(arg0: $Int2CharFunction$$Type): $Boolean2CharFunction
  "defaultReturnValue"(arg0: integer): void
  "defaultReturnValue"(): integer
+ "composeObject"<T>(arg0: $Object2BooleanFunction$$Type<(T)>): $Object2IntFunction<(T)>
+ "andThenByte"(arg0: $Int2ByteFunction$$Type): $Boolean2ByteFunction
  "composeByte"(arg0: $Byte2BooleanFunction$$Type): $Byte2IntFunction
- "andThenShort"(arg0: $Int2ShortFunction$$Type): $Boolean2ShortFunction
+ "andThenReference"<T>(arg0: $Int2ReferenceFunction$$Type<(T)>): $Boolean2ReferenceFunction<(T)>
  "composeLong"(arg0: $Long2BooleanFunction$$Type): $Long2IntFunction
- "composeChar"(arg0: $Char2BooleanFunction$$Type): $Char2IntFunction
  "composeFloat"(arg0: $Float2BooleanFunction$$Type): $Float2IntFunction
- "andThenDouble"(arg0: $Int2DoubleFunction$$Type): $Boolean2DoubleFunction
- "composeDouble"(arg0: $Double2BooleanFunction$$Type): $Double2IntFunction
+ "andThenShort"(arg0: $Int2ShortFunction$$Type): $Boolean2ShortFunction
+ "composeChar"(arg0: $Char2BooleanFunction$$Type): $Char2IntFunction
+ "andThenLong"(arg0: $Int2LongFunction$$Type): $Boolean2LongFunction
+ "andThenFloat"(arg0: $Int2FloatFunction$$Type): $Boolean2FloatFunction
+ "andThenInt"(arg0: $Int2IntFunction$$Type): $Boolean2IntFunction
+ "composeInt"(arg0: $Int2BooleanFunction$$Type): $Int2IntFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: boolean): integer
@@ -19313,12 +19312,12 @@ export type $LongPredicate$$Type = ((arg0: long) => boolean);
 export type $LongPredicate$$Original = $LongPredicate;}
 declare module "it.unimi.dsi.fastutil.longs.Long2ByteMap" {
 import {$Byte2ByteFunction, $Byte2ByteFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ByteFunction"
-import {$Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Float2ByteFunction} from "it.unimi.dsi.fastutil.floats.Float2ByteFunction"
+import {$Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Long2CharFunction} from "it.unimi.dsi.fastutil.longs.Long2CharFunction"
 import {$LongFunction$$Type} from "java.util.function.LongFunction"
-import {$Long2ByteFunction, $Long2ByteFunction$$Type, $Long2ByteFunction$$Interface} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
 import {$Long2IntFunction} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
+import {$Long2ByteFunction, $Long2ByteFunction$$Type, $Long2ByteFunction$$Interface} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
 import {$ByteCollection} from "it.unimi.dsi.fastutil.bytes.ByteCollection"
 import {$Byte2IntFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
 import {$IntBinaryOperator$$Type} from "java.util.function.IntBinaryOperator"
@@ -19343,8 +19342,8 @@ import {$Long2ReferenceFunction} from "it.unimi.dsi.fastutil.longs.Long2Referenc
 import {$Long2ByteMap$Entry} from "it.unimi.dsi.fastutil.longs.Long2ByteMap$Entry"
 import {$Byte2LongFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2LongFunction"
 import {$BiFunction$$Type} from "java.util.function.BiFunction"
-import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Double2LongFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
+import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Short2LongFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$Char2ByteFunction} from "it.unimi.dsi.fastutil.chars.Char2ByteFunction"
 import {$Double2ByteFunction} from "it.unimi.dsi.fastutil.doubles.Double2ByteFunction"
@@ -19501,11 +19500,11 @@ export class $Long2ByteMap implements $Long2ByteMap$$Interface {
  * @deprecated
  */
  "computeIfPresent"(arg0: long, arg1: $BiFunction$$Type<(long), (byte), (byte)>): byte
- "mergeByte"(arg0: long, arg1: byte, arg2: $IntBinaryOperator$$Type): byte
- "mergeByte"(arg0: long, arg1: byte, arg2: $ByteBinaryOperator$$Type): byte
- "computeIfAbsentNullable"(arg0: long, arg1: $LongFunction$$Type<(byte)>): byte
  "defaultReturnValue"(): byte
  "defaultReturnValue"(arg0: byte): void
+ "computeIfAbsentNullable"(arg0: long, arg1: $LongFunction$$Type<(byte)>): byte
+ "mergeByte"(arg0: long, arg1: byte, arg2: $IntBinaryOperator$$Type): byte
+ "mergeByte"(arg0: long, arg1: byte, arg2: $ByteBinaryOperator$$Type): byte
 /**
  * 
  * @deprecated
@@ -19526,24 +19525,24 @@ export class $Long2ByteMap implements $Long2ByteMap$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$$Type<(byte), (T)>): $Function<(long), (T)>
- "andThenInt"(arg0: $Byte2IntFunction$$Type): $Long2IntFunction
- "composeInt"(arg0: $Int2LongFunction$$Type): $Int2ByteFunction
- "andThenReference"<T>(arg0: $Byte2ReferenceFunction$$Type<(T)>): $Long2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Byte2ObjectFunction$$Type<(T)>): $Long2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2LongFunction$$Type): $Short2ByteFunction
+ "andThenDouble"(arg0: $Byte2DoubleFunction$$Type): $Long2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2LongFunction$$Type<(T)>): $Reference2ByteFunction<(T)>
+ "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2ByteFunction
+ "andThenChar"(arg0: $Byte2CharFunction$$Type): $Long2CharFunction
  "composeObject"<T>(arg0: $Object2LongFunction$$Type<(T)>): $Object2ByteFunction<(T)>
+ "andThenByte"(arg0: $Byte2ByteFunction$$Type): $Long2ByteFunction
+ "composeByte"(arg0: $Byte2LongFunction$$Type): $Byte2ByteFunction
+ "andThenReference"<T>(arg0: $Byte2ReferenceFunction$$Type<(T)>): $Long2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2LongFunction$$Type): $Long2ByteFunction
+ "composeFloat"(arg0: $Float2LongFunction$$Type): $Float2ByteFunction
+ "andThenShort"(arg0: $Byte2ShortFunction$$Type): $Long2ShortFunction
+ "composeChar"(arg0: $Char2LongFunction$$Type): $Char2ByteFunction
  "andThenLong"(arg0: $Byte2LongFunction$$Type): $Long2LongFunction
  "andThenFloat"(arg0: $Byte2FloatFunction$$Type): $Long2FloatFunction
- "composeShort"(arg0: $Short2LongFunction$$Type): $Short2ByteFunction
- "andThenObject"<T>(arg0: $Byte2ObjectFunction$$Type<(T)>): $Long2ObjectFunction<(T)>
- "andThenByte"(arg0: $Byte2ByteFunction$$Type): $Long2ByteFunction
- "andThenChar"(arg0: $Byte2CharFunction$$Type): $Long2CharFunction
- "composeReference"<T>(arg0: $Reference2LongFunction$$Type<(T)>): $Reference2ByteFunction<(T)>
- "composeByte"(arg0: $Byte2LongFunction$$Type): $Byte2ByteFunction
- "andThenShort"(arg0: $Byte2ShortFunction$$Type): $Long2ShortFunction
- "composeLong"(arg0: $Long2LongFunction$$Type): $Long2ByteFunction
- "composeChar"(arg0: $Char2LongFunction$$Type): $Char2ByteFunction
- "composeFloat"(arg0: $Float2LongFunction$$Type): $Float2ByteFunction
- "andThenDouble"(arg0: $Byte2DoubleFunction$$Type): $Long2DoubleFunction
- "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2ByteFunction
+ "andThenInt"(arg0: $Byte2IntFunction$$Type): $Long2IntFunction
+ "composeInt"(arg0: $Int2LongFunction$$Type): $Int2ByteFunction
  "equals"(arg0: any): boolean
  "hashCode"(): integer
 static "copyOf"<K, V>(arg0: $Map$$Type<(long), (byte)>): $Map<(long), (byte)>
@@ -19581,29 +19580,29 @@ import {$Float2ByteFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2Byte
 import {$Short2IntFunction} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction"
 import {$Int2FloatFunction} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
 import {$Reference2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
-import {$Double2FloatFunction} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Float2IntFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
+import {$Double2FloatFunction} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Long2ShortFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
 import {$Short2CharFunction} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
 import {$Char2ShortFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ShortFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
 import {$Object2FloatFunction} from "it.unimi.dsi.fastutil.objects.Object2FloatFunction"
 import {$Short2ShortFunction, $Short2ShortFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ShortFunction"
-import {$Byte2ShortFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ShortFunction"
-import {$Float2CharFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2CharFunction"
 import {$IntToDoubleFunction$$Interface} from "java.util.function.IntToDoubleFunction"
+import {$Float2CharFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2CharFunction"
+import {$Byte2ShortFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ShortFunction"
 import {$Short2DoubleFunction} from "it.unimi.dsi.fastutil.shorts.Short2DoubleFunction"
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Int2ShortFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ShortFunction"
 import {$Float2LongFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2LongFunction"
-import {$Short2ReferenceFunction} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Float2ShortFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ShortFunction"
+import {$Short2ReferenceFunction} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Reference2FloatFunction} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
 import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
-import {$Float2FloatFunction, $Float2FloatFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2FloatFunction"
 import {$Short2LongFunction} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
-import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
+import {$Float2FloatFunction, $Float2FloatFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2FloatFunction"
 import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
+import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Char2FloatFunction} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
 import {$Long2FloatFunction} from "it.unimi.dsi.fastutil.longs.Long2FloatFunction"
 import {$Byte2FloatFunction} from "it.unimi.dsi.fastutil.bytes.Byte2FloatFunction"
@@ -19627,36 +19626,36 @@ export class $Short2FloatFunction implements $Short2FloatFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): float
+ "get"(arg0: any): any
  "get"(arg0: short): float
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: short, arg1: float): float
 /**
  * 
  * @deprecated
  */
  "put"(arg0: short, arg1: float): float
- "containsKey"(arg0: short): boolean
+ "put"(arg0: short, arg1: float): float
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: short): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: short, arg1: float): float
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: float): float
+ "getOrDefault"(arg0: short, arg1: float): float
 /**
  * 
  * @deprecated
@@ -19672,26 +19671,26 @@ export class $Short2FloatFunction implements $Short2FloatFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(float), (T)>): $Function$0<(short), (T)>
- "andThenInt"(arg0: $Float2IntFunction$$Type): $Short2IntFunction
- "composeInt"(arg0: $Int2ShortFunction$$Type): $Int2FloatFunction
- "andThenReference"<T>(arg0: $Float2ReferenceFunction$$Type<(T)>): $Short2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Float2ObjectFunction$$Type<(T)>): $Short2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2ShortFunction$$Type): $Short2FloatFunction
+ "andThenDouble"(arg0: $Float2DoubleFunction$$Type): $Short2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2ShortFunction$$Type<(T)>): $Reference2FloatFunction<(T)>
+ "composeDouble"(arg0: $Double2ShortFunction$$Type): $Double2FloatFunction
+ "andThenChar"(arg0: $Float2CharFunction$$Type): $Short2CharFunction
+ "defaultReturnValue"(): float
+ "defaultReturnValue"(arg0: float): void
  "composeObject"<T>(arg0: $Object2ShortFunction$$Type<(T)>): $Object2FloatFunction<(T)>
+ "andThenByte"(arg0: $Float2ByteFunction$$Type): $Short2ByteFunction
+ "composeByte"(arg0: $Byte2ShortFunction$$Type): $Byte2FloatFunction
+ "andThenReference"<T>(arg0: $Float2ReferenceFunction$$Type<(T)>): $Short2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2ShortFunction$$Type): $Long2FloatFunction
+ "composeFloat"(arg0: $Float2ShortFunction$$Type): $Float2FloatFunction
+ "andThenShort"(arg0: $Float2ShortFunction$$Type): $Short2ShortFunction
+ "composeChar"(arg0: $Char2ShortFunction$$Type): $Char2FloatFunction
  "andThenLong"(arg0: $Float2LongFunction$$Type): $Short2LongFunction
  "andThenFloat"(arg0: $Float2FloatFunction$$Type): $Short2FloatFunction
- "composeShort"(arg0: $Short2ShortFunction$$Type): $Short2FloatFunction
- "andThenObject"<T>(arg0: $Float2ObjectFunction$$Type<(T)>): $Short2ObjectFunction<(T)>
- "andThenByte"(arg0: $Float2ByteFunction$$Type): $Short2ByteFunction
- "andThenChar"(arg0: $Float2CharFunction$$Type): $Short2CharFunction
- "composeReference"<T>(arg0: $Reference2ShortFunction$$Type<(T)>): $Reference2FloatFunction<(T)>
- "defaultReturnValue"(arg0: float): void
- "defaultReturnValue"(): float
- "composeByte"(arg0: $Byte2ShortFunction$$Type): $Byte2FloatFunction
- "andThenShort"(arg0: $Float2ShortFunction$$Type): $Short2ShortFunction
- "composeLong"(arg0: $Long2ShortFunction$$Type): $Long2FloatFunction
- "composeChar"(arg0: $Char2ShortFunction$$Type): $Char2FloatFunction
- "composeFloat"(arg0: $Float2ShortFunction$$Type): $Float2FloatFunction
- "andThenDouble"(arg0: $Float2DoubleFunction$$Type): $Short2DoubleFunction
- "composeDouble"(arg0: $Double2ShortFunction$$Type): $Double2FloatFunction
+ "andThenInt"(arg0: $Float2IntFunction$$Type): $Short2IntFunction
+ "composeInt"(arg0: $Int2ShortFunction$$Type): $Int2FloatFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: short): float
@@ -19707,23 +19706,23 @@ export type $Short2FloatFunction$$Type = ((arg0: short) => float);
  */
 export type $Short2FloatFunction$$Original = $Short2FloatFunction;}
 declare module "it.unimi.dsi.fastutil.longs.LongSortedSet" {
-import {$LongPredicate$$Type as $LongPredicate$0$$Type} from "java.util.function.LongPredicate"
+import {$LongPredicate$$Type} from "java.util.function.LongPredicate"
 import {$Collection$$Type} from "java.util.Collection"
 import {$SortedSet, $SortedSet$$Interface} from "java.util.SortedSet"
 import {$Comparator} from "java.util.Comparator"
-import {$LongSet, $LongSet$$Interface} from "it.unimi.dsi.fastutil.longs.LongSet"
 import {$Spliterator} from "java.util.Spliterator"
-import {$LongBidirectionalIterator} from "it.unimi.dsi.fastutil.longs.LongBidirectionalIterator"
+import {$LongSet, $LongSet$$Interface} from "it.unimi.dsi.fastutil.longs.LongSet"
 import {$Predicate$$Type} from "java.util.function.Predicate"
+import {$LongBidirectionalIterator} from "it.unimi.dsi.fastutil.longs.LongBidirectionalIterator"
 import {$LongStream} from "java.util.stream.LongStream"
 import {$LongBidirectionalIterable$$Interface} from "it.unimi.dsi.fastutil.longs.LongBidirectionalIterable"
-import {$LongConsumer$$Type as $LongConsumer$0$$Type} from "it.unimi.dsi.fastutil.longs.LongConsumer"
-import {$Consumer$$Type} from "java.util.function.Consumer"
+import {$LongConsumer$$Type} from "it.unimi.dsi.fastutil.longs.LongConsumer"
+import {$LongPredicate$$Type as $LongPredicate$0$$Type} from "it.unimi.dsi.fastutil.longs.LongPredicate"
 import {$IntFunction$$Type} from "java.util.function.IntFunction"
-import {$LongPredicate$$Type} from "it.unimi.dsi.fastutil.longs.LongPredicate"
+import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$SequencedSet} from "java.util.SequencedSet"
 import {$LongSpliterator} from "it.unimi.dsi.fastutil.longs.LongSpliterator"
-import {$LongConsumer$$Type} from "java.util.function.LongConsumer"
+import {$LongConsumer$$Type as $LongConsumer$0$$Type} from "java.util.function.LongConsumer"
 import {$Set} from "java.util.Set"
 import {$LongIterator} from "it.unimi.dsi.fastutil.longs.LongIterator"
 import {$Stream} from "java.util.stream.Stream"
@@ -19781,8 +19780,8 @@ export class $LongSortedSet implements $LongSortedSet$$Interface {
  */
  "tailSet"(arg0: any): $SortedSet
  "tailSet"(arg0: long): $LongSortedSet
- "firstLong"(): long
  "lastLong"(): long
+ "firstLong"(): long
  "remove"(arg0: long): boolean
 /**
  * 
@@ -19830,13 +19829,13 @@ static "of"(arg0: long, arg1: long, arg2: long): $LongSet
  "stream"(): $Stream<(long)>
  "contains"(arg0: long): boolean
  "addAll"(arg0: $LongCollection$$Type): boolean
- "removeIf"(arg0: $LongPredicate$0$$Type): boolean
+ "removeIf"(arg0: $LongPredicate$$Type): boolean
 /**
  * 
  * @deprecated
  */
  "removeIf"(arg0: $Predicate$$Type<(long)>): boolean
- "removeIf"(arg0: $LongPredicate$$Type): boolean
+ "removeIf"(arg0: $LongPredicate$0$$Type): boolean
  "removeAll"(arg0: $LongCollection$$Type): boolean
  "retainAll"(arg0: $LongCollection$$Type): boolean
  "containsAll"(arg0: $LongCollection$$Type): boolean
@@ -19846,15 +19845,15 @@ static "of"(arg0: long, arg1: long, arg2: long): $LongSet
  */
  "parallelStream"(): $Stream<(long)>
  "longStream"(): $LongStream
- "toLongArray"(): (long)[]
 /**
  * 
  * @deprecated
  */
  "toLongArray"(arg0: (long)[]): (long)[]
- "longIterator"(): $LongIterator
+ "toLongArray"(): (long)[]
  "longParallelStream"(): $LongStream
  "longSpliterator"(): $LongSpliterator
+ "longIterator"(): $LongIterator
  "size"(): integer
  "equals"(arg0: any): boolean
  "hashCode"(): integer
@@ -19878,13 +19877,13 @@ static "of"<E>(arg0: long, arg1: long): $Set<(long)>
  "removeAll"(arg0: $Collection$$Type<(never)>): boolean
  "retainAll"(arg0: $Collection$$Type<(never)>): boolean
  "containsAll"(arg0: $Collection$$Type<(never)>): boolean
- "forEach"(arg0: $LongConsumer$$Type): void
+ "forEach"(arg0: $LongConsumer$0$$Type): void
 /**
  * 
  * @deprecated
  */
  "forEach"(arg0: $Consumer$$Type<(long)>): void
- "forEach"(arg0: $LongConsumer$0$$Type): void
+ "forEach"(arg0: $LongConsumer$$Type): void
  "toArray"<T>(arg0: $IntFunction$$Type<((T)[])>): (T)[]
 }
 /**
@@ -19929,15 +19928,15 @@ import {$Long2IntFunction} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
 import {$Short2IntFunction} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction"
 import {$Int2FloatFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
 import {$Byte2IntFunction} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
-import {$Int2CharFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Float2IntFunction} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
-import {$Short2CharFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
+import {$Int2CharFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Int2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
+import {$Short2CharFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
 import {$Int2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
 import {$Char2ObjectFunction} from "it.unimi.dsi.fastutil.chars.Char2ObjectFunction"
-import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Char2ShortFunction} from "it.unimi.dsi.fastutil.chars.Char2ShortFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
+import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Float2CharFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2CharFunction"
 import {$Int2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
 import {$Byte2CharFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2CharFunction"
@@ -19949,8 +19948,8 @@ import {$Char2CharFunction, $Char2CharFunction$$Type} from "it.unimi.dsi.fastuti
 import {$Char2LongFunction} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$IntUnaryOperator, $IntUnaryOperator$$Type, $IntUnaryOperator$$Interface} from "java.util.function.IntUnaryOperator"
 import {$Char2ByteFunction} from "it.unimi.dsi.fastutil.chars.Char2ByteFunction"
-import {$Reference2CharFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
 import {$Int2LongFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
+import {$Reference2CharFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
 import {$Char2ReferenceFunction} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
 import {$Char2FloatFunction} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
 import {$Double2IntFunction} from "it.unimi.dsi.fastutil.doubles.Double2IntFunction"
@@ -19972,36 +19971,36 @@ export class $Char2IntFunction implements $Char2IntFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): integer
+ "get"(arg0: any): any
  "get"(arg0: character): integer
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: character, arg1: integer): integer
 /**
  * 
  * @deprecated
  */
  "put"(arg0: character, arg1: integer): integer
- "containsKey"(arg0: character): boolean
+ "put"(arg0: character, arg1: integer): integer
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: character): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: character, arg1: integer): integer
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: integer): integer
+ "getOrDefault"(arg0: character, arg1: integer): integer
 /**
  * 
  * @deprecated
@@ -20017,26 +20016,26 @@ export class $Char2IntFunction implements $Char2IntFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(integer), (T)>): $Function$0<(character), (T)>
- "andThenInt"(arg0: $Int2IntFunction$$Type): $Char2IntFunction
- "composeInt"(arg0: $Int2CharFunction$$Type): $Int2IntFunction
- "andThenReference"<T>(arg0: $Int2ReferenceFunction$$Type<(T)>): $Char2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Int2ObjectFunction$$Type<(T)>): $Char2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2CharFunction$$Type): $Short2IntFunction
+ "andThenDouble"(arg0: $Int2DoubleFunction$$Type): $Char2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2CharFunction$$Type<(T)>): $Reference2IntFunction<(T)>
+ "composeDouble"(arg0: $Double2CharFunction$$Type): $Double2IntFunction
+ "andThenChar"(arg0: $Int2CharFunction$$Type): $Char2CharFunction
+ "defaultReturnValue"(): integer
+ "defaultReturnValue"(arg0: integer): void
  "composeObject"<T>(arg0: $Object2CharFunction$$Type<(T)>): $Object2IntFunction<(T)>
+ "andThenByte"(arg0: $Int2ByteFunction$$Type): $Char2ByteFunction
+ "composeByte"(arg0: $Byte2CharFunction$$Type): $Byte2IntFunction
+ "andThenReference"<T>(arg0: $Int2ReferenceFunction$$Type<(T)>): $Char2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2CharFunction$$Type): $Long2IntFunction
+ "composeFloat"(arg0: $Float2CharFunction$$Type): $Float2IntFunction
+ "andThenShort"(arg0: $Int2ShortFunction$$Type): $Char2ShortFunction
+ "composeChar"(arg0: $Char2CharFunction$$Type): $Char2IntFunction
  "andThenLong"(arg0: $Int2LongFunction$$Type): $Char2LongFunction
  "andThenFloat"(arg0: $Int2FloatFunction$$Type): $Char2FloatFunction
- "composeShort"(arg0: $Short2CharFunction$$Type): $Short2IntFunction
- "andThenObject"<T>(arg0: $Int2ObjectFunction$$Type<(T)>): $Char2ObjectFunction<(T)>
- "andThenByte"(arg0: $Int2ByteFunction$$Type): $Char2ByteFunction
- "andThenChar"(arg0: $Int2CharFunction$$Type): $Char2CharFunction
- "composeReference"<T>(arg0: $Reference2CharFunction$$Type<(T)>): $Reference2IntFunction<(T)>
- "defaultReturnValue"(arg0: integer): void
- "defaultReturnValue"(): integer
- "composeByte"(arg0: $Byte2CharFunction$$Type): $Byte2IntFunction
- "andThenShort"(arg0: $Int2ShortFunction$$Type): $Char2ShortFunction
- "composeLong"(arg0: $Long2CharFunction$$Type): $Long2IntFunction
- "composeChar"(arg0: $Char2CharFunction$$Type): $Char2IntFunction
- "composeFloat"(arg0: $Float2CharFunction$$Type): $Float2IntFunction
- "andThenDouble"(arg0: $Int2DoubleFunction$$Type): $Char2DoubleFunction
- "composeDouble"(arg0: $Double2CharFunction$$Type): $Double2IntFunction
+ "andThenInt"(arg0: $Int2IntFunction$$Type): $Char2IntFunction
+ "composeInt"(arg0: $Int2CharFunction$$Type): $Int2IntFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: character): integer
@@ -20081,9 +20080,9 @@ import {$Float2ReferenceFunction} from "it.unimi.dsi.fastutil.floats.Float2Refer
 import {$Float2ByteFunction} from "it.unimi.dsi.fastutil.floats.Float2ByteFunction"
 import {$Long2CharFunction} from "it.unimi.dsi.fastutil.longs.Long2CharFunction"
 import {$Int2FloatFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
-import {$Double2FloatFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Int2CharFunction} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Float2IntFunction} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
+import {$Double2FloatFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Short2CharFunction} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
 import {$Char2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ObjectFunction"
 import {$Char2ShortFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ShortFunction"
@@ -20103,10 +20102,10 @@ import {$Float2FloatFunction, $Float2FloatFunction$$Type} from "it.unimi.dsi.fas
 import {$Char2ByteFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ByteFunction"
 import {$Reference2CharFunction} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
 import {$Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
-import {$Char2IntFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
 import {$DoubleToIntFunction$$Interface} from "java.util.function.DoubleToIntFunction"
-import {$Char2FloatFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
+import {$Char2IntFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
 import {$Long2FloatFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2FloatFunction"
+import {$Char2FloatFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
 import {$Short2FloatFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2FloatFunction"
 import {$Byte2FloatFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2FloatFunction"
 import {$Float2DoubleFunction} from "it.unimi.dsi.fastutil.floats.Float2DoubleFunction"
@@ -20127,36 +20126,36 @@ export class $Float2CharFunction implements $Float2CharFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): character
+ "get"(arg0: any): any
  "get"(arg0: float): character
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: float, arg1: character): character
 /**
  * 
  * @deprecated
  */
  "put"(arg0: float, arg1: character): character
- "containsKey"(arg0: float): boolean
+ "put"(arg0: float, arg1: character): character
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: float): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: float, arg1: character): character
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: character): character
+ "getOrDefault"(arg0: float, arg1: character): character
 /**
  * 
  * @deprecated
@@ -20172,26 +20171,26 @@ export class $Float2CharFunction implements $Float2CharFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(character), (T)>): $Function$0<(float), (T)>
- "andThenInt"(arg0: $Char2IntFunction$$Type): $Float2IntFunction
- "composeInt"(arg0: $Int2FloatFunction$$Type): $Int2CharFunction
- "andThenReference"<T>(arg0: $Char2ReferenceFunction$$Type<(T)>): $Float2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Char2ObjectFunction$$Type<(T)>): $Float2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2FloatFunction$$Type): $Short2CharFunction
+ "andThenDouble"(arg0: $Char2DoubleFunction$$Type): $Float2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2FloatFunction$$Type<(T)>): $Reference2CharFunction<(T)>
+ "composeDouble"(arg0: $Double2FloatFunction$$Type): $Double2CharFunction
+ "andThenChar"(arg0: $Char2CharFunction$$Type): $Float2CharFunction
+ "defaultReturnValue"(): character
+ "defaultReturnValue"(arg0: character): void
  "composeObject"<T>(arg0: $Object2FloatFunction$$Type<(T)>): $Object2CharFunction<(T)>
+ "andThenByte"(arg0: $Char2ByteFunction$$Type): $Float2ByteFunction
+ "composeByte"(arg0: $Byte2FloatFunction$$Type): $Byte2CharFunction
+ "andThenReference"<T>(arg0: $Char2ReferenceFunction$$Type<(T)>): $Float2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2FloatFunction$$Type): $Long2CharFunction
+ "composeFloat"(arg0: $Float2FloatFunction$$Type): $Float2CharFunction
+ "andThenShort"(arg0: $Char2ShortFunction$$Type): $Float2ShortFunction
+ "composeChar"(arg0: $Char2FloatFunction$$Type): $Char2CharFunction
  "andThenLong"(arg0: $Char2LongFunction$$Type): $Float2LongFunction
  "andThenFloat"(arg0: $Char2FloatFunction$$Type): $Float2FloatFunction
- "composeShort"(arg0: $Short2FloatFunction$$Type): $Short2CharFunction
- "andThenObject"<T>(arg0: $Char2ObjectFunction$$Type<(T)>): $Float2ObjectFunction<(T)>
- "andThenByte"(arg0: $Char2ByteFunction$$Type): $Float2ByteFunction
- "andThenChar"(arg0: $Char2CharFunction$$Type): $Float2CharFunction
- "composeReference"<T>(arg0: $Reference2FloatFunction$$Type<(T)>): $Reference2CharFunction<(T)>
- "defaultReturnValue"(arg0: character): void
- "defaultReturnValue"(): character
- "composeByte"(arg0: $Byte2FloatFunction$$Type): $Byte2CharFunction
- "andThenShort"(arg0: $Char2ShortFunction$$Type): $Float2ShortFunction
- "composeLong"(arg0: $Long2FloatFunction$$Type): $Long2CharFunction
- "composeChar"(arg0: $Char2FloatFunction$$Type): $Char2CharFunction
- "composeFloat"(arg0: $Float2FloatFunction$$Type): $Float2CharFunction
- "andThenDouble"(arg0: $Char2DoubleFunction$$Type): $Float2DoubleFunction
- "composeDouble"(arg0: $Double2FloatFunction$$Type): $Double2CharFunction
+ "andThenInt"(arg0: $Char2IntFunction$$Type): $Float2IntFunction
+ "composeInt"(arg0: $Int2FloatFunction$$Type): $Int2CharFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: float): character
@@ -20244,14 +20243,14 @@ import {$Long2ByteFunction} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
 import {$Short2IntFunction} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction"
 import {$Int2FloatFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
 import {$Byte2IntFunction} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
-import {$Int2CharFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Float2IntFunction} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
 import {$Reference2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
+import {$Int2CharFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Long2ShortFunction} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
 import {$Int2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
 import {$Int2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
-import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
+import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Int2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Long2LongFunction, $Long2LongFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2LongFunction"
@@ -20261,8 +20260,8 @@ import {$Float2LongFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2Long
 import {$LongToIntFunction$$Interface} from "java.util.function.LongToIntFunction"
 import {$Long2ReferenceFunction} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
 import {$Byte2LongFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2LongFunction"
-import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Double2LongFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
+import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Short2LongFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$Int2LongFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
 import {$Char2IntFunction} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
@@ -20288,36 +20287,36 @@ export class $Long2IntFunction implements $Long2IntFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): integer
+ "get"(arg0: any): any
  "get"(arg0: long): integer
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: long, arg1: integer): integer
 /**
  * 
  * @deprecated
  */
  "put"(arg0: long, arg1: integer): integer
- "containsKey"(arg0: long): boolean
+ "put"(arg0: long, arg1: integer): integer
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: long): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: long, arg1: integer): integer
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: integer): integer
+ "getOrDefault"(arg0: long, arg1: integer): integer
  "applyAsInt"(arg0: long): integer
 /**
  * 
@@ -20329,26 +20328,26 @@ export class $Long2IntFunction implements $Long2IntFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(integer), (T)>): $Function$0<(long), (T)>
- "andThenInt"(arg0: $Int2IntFunction$$Type): $Long2IntFunction
- "composeInt"(arg0: $Int2LongFunction$$Type): $Int2IntFunction
- "andThenReference"<T>(arg0: $Int2ReferenceFunction$$Type<(T)>): $Long2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Int2ObjectFunction$$Type<(T)>): $Long2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2LongFunction$$Type): $Short2IntFunction
+ "andThenDouble"(arg0: $Int2DoubleFunction$$Type): $Long2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2LongFunction$$Type<(T)>): $Reference2IntFunction<(T)>
+ "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2IntFunction
+ "andThenChar"(arg0: $Int2CharFunction$$Type): $Long2CharFunction
+ "defaultReturnValue"(): integer
+ "defaultReturnValue"(arg0: integer): void
  "composeObject"<T>(arg0: $Object2LongFunction$$Type<(T)>): $Object2IntFunction<(T)>
+ "andThenByte"(arg0: $Int2ByteFunction$$Type): $Long2ByteFunction
+ "composeByte"(arg0: $Byte2LongFunction$$Type): $Byte2IntFunction
+ "andThenReference"<T>(arg0: $Int2ReferenceFunction$$Type<(T)>): $Long2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2LongFunction$$Type): $Long2IntFunction
+ "composeFloat"(arg0: $Float2LongFunction$$Type): $Float2IntFunction
+ "andThenShort"(arg0: $Int2ShortFunction$$Type): $Long2ShortFunction
+ "composeChar"(arg0: $Char2LongFunction$$Type): $Char2IntFunction
  "andThenLong"(arg0: $Int2LongFunction$$Type): $Long2LongFunction
  "andThenFloat"(arg0: $Int2FloatFunction$$Type): $Long2FloatFunction
- "composeShort"(arg0: $Short2LongFunction$$Type): $Short2IntFunction
- "andThenObject"<T>(arg0: $Int2ObjectFunction$$Type<(T)>): $Long2ObjectFunction<(T)>
- "andThenByte"(arg0: $Int2ByteFunction$$Type): $Long2ByteFunction
- "andThenChar"(arg0: $Int2CharFunction$$Type): $Long2CharFunction
- "composeReference"<T>(arg0: $Reference2LongFunction$$Type<(T)>): $Reference2IntFunction<(T)>
- "defaultReturnValue"(arg0: integer): void
- "defaultReturnValue"(): integer
- "composeByte"(arg0: $Byte2LongFunction$$Type): $Byte2IntFunction
- "andThenShort"(arg0: $Int2ShortFunction$$Type): $Long2ShortFunction
- "composeLong"(arg0: $Long2LongFunction$$Type): $Long2IntFunction
- "composeChar"(arg0: $Char2LongFunction$$Type): $Char2IntFunction
- "composeFloat"(arg0: $Float2LongFunction$$Type): $Float2IntFunction
- "andThenDouble"(arg0: $Int2DoubleFunction$$Type): $Long2DoubleFunction
- "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2IntFunction
+ "andThenInt"(arg0: $Int2IntFunction$$Type): $Long2IntFunction
+ "composeInt"(arg0: $Int2LongFunction$$Type): $Int2IntFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: long): integer
@@ -20492,8 +20491,8 @@ export type $DoubleDoubleImmutablePair$$Type = ($DoubleDoubleImmutablePair);
 export type $DoubleDoubleImmutablePair$$Original = $DoubleDoubleImmutablePair;}
 declare module "it.unimi.dsi.fastutil.objects.Object2DoubleMap" {
 import {$Char2DoubleFunction} from "it.unimi.dsi.fastutil.chars.Char2DoubleFunction"
-import {$ToDoubleFunction$$Type} from "java.util.function.ToDoubleFunction"
 import {$Byte2DoubleFunction} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
+import {$ToDoubleFunction$$Type} from "java.util.function.ToDoubleFunction"
 import {$Object2IntFunction} from "it.unimi.dsi.fastutil.objects.Object2IntFunction"
 import {$Object2ObjectFunction, $Object2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ObjectFunction"
 import {$DoubleBinaryOperator$$Type as $DoubleBinaryOperator$0$$Type} from "java.util.function.DoubleBinaryOperator"
@@ -20518,22 +20517,22 @@ import {$Long2DoubleFunction} from "it.unimi.dsi.fastutil.longs.Long2DoubleFunct
 import {$Object2ByteFunction} from "it.unimi.dsi.fastutil.objects.Object2ByteFunction"
 import {$Double2CharFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2CharFunction"
 import {$BiFunction$$Type} from "java.util.function.BiFunction"
-import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Double2LongFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
+import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Double2ByteFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ByteFunction"
 import {$ObjectSet} from "it.unimi.dsi.fastutil.objects.ObjectSet"
-import {$Object2ReferenceFunction} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
-import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
+import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
+import {$Object2ReferenceFunction} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
 import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$Double2IntFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2IntFunction"
 import {$Object2LongFunction} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
-import {$Reference2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Reference2DoubleFunction"
 import {$Double2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ObjectFunction"
+import {$Reference2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Reference2DoubleFunction"
 import {$DoubleBinaryOperator$$Type} from "it.unimi.dsi.fastutil.doubles.DoubleBinaryOperator"
 import {$Float2DoubleFunction} from "it.unimi.dsi.fastutil.floats.Float2DoubleFunction"
-import {$Long2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ObjectFunction"
 import {$Double2ShortFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ShortFunction"
+import {$Long2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ObjectFunction"
 
 export interface $Object2DoubleMap$$Interface<K> extends $Object2DoubleFunction$$Interface<(K)>, $Map$$Interface<(K), (double)> {
 [index: string | number]: double
@@ -20641,21 +20640,9 @@ export class $Object2DoubleMap<K> implements $Object2DoubleMap$$Interface {
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "object2DoubleEntrySet"(): $ObjectSet<($Object2DoubleMap$Entry<(K)>)>
  "defaultReturnValue"(): double
  "defaultReturnValue"(arg0: double): void
-/**
- * 
- * @deprecated
- */
- "computeDoubleIfAbsentPartial"(arg0: K, arg1: $Object2DoubleFunction$$Type<(K)>): double
- "computeDoubleIfPresent"(arg0: K, arg1: $BiFunction$$Type<(K), (double), (double)>): double
-/**
- * 
- * @deprecated
- */
- "computeDoubleIfAbsent"(arg0: K, arg1: $ToDoubleFunction$$Type<(K)>): double
- "computeDouble"(arg0: K, arg1: $BiFunction$$Type<(K), (double), (double)>): double
+ "object2DoubleEntrySet"(): $ObjectSet<($Object2DoubleMap$Entry<(K)>)>
 /**
  * 
  * @deprecated
@@ -20663,6 +20650,18 @@ export class $Object2DoubleMap<K> implements $Object2DoubleMap$$Interface {
  "mergeDouble"(arg0: K, arg1: double, arg2: $BiFunction$$Type<(double), (double), (double)>): double
  "mergeDouble"(arg0: K, arg1: double, arg2: $DoubleBinaryOperator$$Type): double
  "mergeDouble"(arg0: K, arg1: double, arg2: $DoubleBinaryOperator$0$$Type): double
+ "computeDouble"(arg0: K, arg1: $BiFunction$$Type<(K), (double), (double)>): double
+/**
+ * 
+ * @deprecated
+ */
+ "computeDoubleIfAbsent"(arg0: K, arg1: $ToDoubleFunction$$Type<(K)>): double
+ "computeDoubleIfPresent"(arg0: K, arg1: $BiFunction$$Type<(K), (double), (double)>): double
+/**
+ * 
+ * @deprecated
+ */
+ "computeDoubleIfAbsentPartial"(arg0: K, arg1: $Object2DoubleFunction$$Type<(K)>): double
  "put"(arg0: K, arg1: double): double
  "getDouble"(arg0: any): double
  "applyAsDouble"(arg0: K): double
@@ -20672,24 +20671,24 @@ export class $Object2DoubleMap<K> implements $Object2DoubleMap$$Interface {
  */
  "andThen"<T>(arg0: $Function$$Type<(double), (T)>): $Function<(K), (T)>
  "removeDouble"(arg0: any): double
- "andThenInt"(arg0: $Double2IntFunction$$Type): $Object2IntFunction<(K)>
- "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2DoubleFunction
- "andThenReference"<T>(arg0: $Double2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
+ "andThenObject"<T>(arg0: $Double2ObjectFunction$$Type<(T)>): $Object2ObjectFunction<(K), (T)>
+ "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2DoubleFunction
+ "andThenDouble"(arg0: $Double2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
+ "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2DoubleFunction<(T)>
+ "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2DoubleFunction
+ "andThenChar"(arg0: $Double2CharFunction$$Type): $Object2CharFunction<(K)>
  "composeObject"<T>(arg0: $Object2ObjectFunction$$Type<(T), (K)>): $Object2DoubleFunction<(T)>
+ "andThenByte"(arg0: $Double2ByteFunction$$Type): $Object2ByteFunction<(K)>
+ "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2DoubleFunction
+ "andThenReference"<T>(arg0: $Double2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
+ "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2DoubleFunction
+ "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2DoubleFunction
+ "andThenShort"(arg0: $Double2ShortFunction$$Type): $Object2ShortFunction<(K)>
+ "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2DoubleFunction
  "andThenLong"(arg0: $Double2LongFunction$$Type): $Object2LongFunction<(K)>
  "andThenFloat"(arg0: $Double2FloatFunction$$Type): $Object2FloatFunction<(K)>
- "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2DoubleFunction
- "andThenObject"<T>(arg0: $Double2ObjectFunction$$Type<(T)>): $Object2ObjectFunction<(K), (T)>
- "andThenByte"(arg0: $Double2ByteFunction$$Type): $Object2ByteFunction<(K)>
- "andThenChar"(arg0: $Double2CharFunction$$Type): $Object2CharFunction<(K)>
- "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2DoubleFunction<(T)>
- "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2DoubleFunction
- "andThenShort"(arg0: $Double2ShortFunction$$Type): $Object2ShortFunction<(K)>
- "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2DoubleFunction
- "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2DoubleFunction
- "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2DoubleFunction
- "andThenDouble"(arg0: $Double2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
- "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2DoubleFunction
+ "andThenInt"(arg0: $Double2IntFunction$$Type): $Object2IntFunction<(K)>
+ "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2DoubleFunction
  "equals"(arg0: any): boolean
  "hashCode"(): integer
 static "copyOf"<K, V>(arg0: $Map$$Type<(K), (double)>): $Map<(K), (double)>
@@ -20727,8 +20726,8 @@ export type $Object2DoubleMap$$Type<K> = ($Object2DoubleMap<(K)>);
 export type $Object2DoubleMap$$Original<K> = $Object2DoubleMap<(K)>;}
 declare module "it.unimi.dsi.fastutil.ints.Int2ByteFunction" {
 import {$Byte2ByteFunction, $Byte2ByteFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ByteFunction"
-import {$Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Float2ByteFunction} from "it.unimi.dsi.fastutil.floats.Float2ByteFunction"
+import {$Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Object2IntFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2IntFunction"
 import {$Reference2IntFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2IntFunction"
 import {$Long2IntFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
@@ -20738,12 +20737,12 @@ import {$Int2FloatFunction} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
 import {$Byte2IntFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
 import {$Int2CharFunction} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Float2IntFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
-import {$Reference2ByteFunction} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Int2ReferenceFunction} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
+import {$Reference2ByteFunction} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Int2ObjectFunction} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
 import {$Byte2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
-import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
+import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Byte2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ObjectFunction"
 import {$Byte2ShortFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ShortFunction"
 import {$Int2DoubleFunction} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
@@ -20777,36 +20776,36 @@ export class $Int2ByteFunction implements $Int2ByteFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): byte
+ "get"(arg0: any): any
  "get"(arg0: integer): byte
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: integer, arg1: byte): byte
 /**
  * 
  * @deprecated
  */
  "put"(arg0: integer, arg1: byte): byte
- "containsKey"(arg0: integer): boolean
+ "put"(arg0: integer, arg1: byte): byte
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: integer): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: integer, arg1: byte): byte
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: byte): byte
+ "getOrDefault"(arg0: integer, arg1: byte): byte
  "applyAsInt"(arg0: integer): integer
 /**
  * 
@@ -20818,26 +20817,26 @@ export class $Int2ByteFunction implements $Int2ByteFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(byte), (T)>): $Function$0<(integer), (T)>
- "andThenInt"(arg0: $Byte2IntFunction$$Type): $Int2IntFunction
- "composeInt"(arg0: $Int2IntFunction$$Type): $Int2ByteFunction
- "andThenReference"<T>(arg0: $Byte2ReferenceFunction$$Type<(T)>): $Int2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Byte2ObjectFunction$$Type<(T)>): $Int2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2IntFunction$$Type): $Short2ByteFunction
+ "andThenDouble"(arg0: $Byte2DoubleFunction$$Type): $Int2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2IntFunction$$Type<(T)>): $Reference2ByteFunction<(T)>
+ "composeDouble"(arg0: $Double2IntFunction$$Type): $Double2ByteFunction
+ "andThenChar"(arg0: $Byte2CharFunction$$Type): $Int2CharFunction
+ "defaultReturnValue"(): byte
+ "defaultReturnValue"(arg0: byte): void
  "composeObject"<T>(arg0: $Object2IntFunction$$Type<(T)>): $Object2ByteFunction<(T)>
+ "andThenByte"(arg0: $Byte2ByteFunction$$Type): $Int2ByteFunction
+ "composeByte"(arg0: $Byte2IntFunction$$Type): $Byte2ByteFunction
+ "andThenReference"<T>(arg0: $Byte2ReferenceFunction$$Type<(T)>): $Int2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2IntFunction$$Type): $Long2ByteFunction
+ "composeFloat"(arg0: $Float2IntFunction$$Type): $Float2ByteFunction
+ "andThenShort"(arg0: $Byte2ShortFunction$$Type): $Int2ShortFunction
+ "composeChar"(arg0: $Char2IntFunction$$Type): $Char2ByteFunction
  "andThenLong"(arg0: $Byte2LongFunction$$Type): $Int2LongFunction
  "andThenFloat"(arg0: $Byte2FloatFunction$$Type): $Int2FloatFunction
- "composeShort"(arg0: $Short2IntFunction$$Type): $Short2ByteFunction
- "andThenObject"<T>(arg0: $Byte2ObjectFunction$$Type<(T)>): $Int2ObjectFunction<(T)>
- "andThenByte"(arg0: $Byte2ByteFunction$$Type): $Int2ByteFunction
- "andThenChar"(arg0: $Byte2CharFunction$$Type): $Int2CharFunction
- "composeReference"<T>(arg0: $Reference2IntFunction$$Type<(T)>): $Reference2ByteFunction<(T)>
- "defaultReturnValue"(arg0: byte): void
- "defaultReturnValue"(): byte
- "composeByte"(arg0: $Byte2IntFunction$$Type): $Byte2ByteFunction
- "andThenShort"(arg0: $Byte2ShortFunction$$Type): $Int2ShortFunction
- "composeLong"(arg0: $Long2IntFunction$$Type): $Long2ByteFunction
- "composeChar"(arg0: $Char2IntFunction$$Type): $Char2ByteFunction
- "composeFloat"(arg0: $Float2IntFunction$$Type): $Float2ByteFunction
- "andThenDouble"(arg0: $Byte2DoubleFunction$$Type): $Int2DoubleFunction
- "composeDouble"(arg0: $Double2IntFunction$$Type): $Double2ByteFunction
+ "andThenInt"(arg0: $Byte2IntFunction$$Type): $Int2IntFunction
+ "composeInt"(arg0: $Int2IntFunction$$Type): $Int2ByteFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: integer): byte
@@ -20861,14 +20860,14 @@ import {$Short2IntFunction} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction
 import {$Object2ObjectFunction, $Object2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ObjectFunction"
 import {$Int2FloatFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
 import {$Byte2IntFunction} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
-import {$Int2CharFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Float2IntFunction} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
+import {$Int2CharFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Int2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
 import {$Int2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
 import {$Char2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ObjectFunction"
 import {$Object2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Object2DoubleFunction"
-import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
+import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Object2FloatFunction} from "it.unimi.dsi.fastutil.objects.Object2FloatFunction"
 import {$Byte2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ObjectFunction"
 import {$Int2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
@@ -20877,11 +20876,11 @@ import {$Object2CharFunction} from "it.unimi.dsi.fastutil.objects.Object2CharFun
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Int2ShortFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ShortFunction"
 import {$Object2ByteFunction} from "it.unimi.dsi.fastutil.objects.Object2ByteFunction"
-import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$ToIntFunction$$Interface} from "java.util.function.ToIntFunction"
+import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Int2LongFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
-import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2ReferenceFunction} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
+import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Char2IntFunction} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
 import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Double2IntFunction} from "it.unimi.dsi.fastutil.doubles.Double2IntFunction"
@@ -20900,61 +20899,61 @@ export class $Object2IntFunction<K> implements $Object2IntFunction$$Interface {
  * 
  * @deprecated
  */
- "remove"(arg0: any): integer
+ "remove"(arg0: any): any
 /**
  * 
  * @deprecated
  */
- "get"(arg0: any): integer
+ "get"(arg0: any): any
 /**
  * 
  * @deprecated
  */
+ "put"(arg0: K, arg1: integer): integer
  "put"(arg0: K, arg1: integer): integer
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: K, arg1: integer): integer
  "getInt"(arg0: any): integer
 /**
  * 
  * @deprecated
  */
- "getOrDefault"(arg0: any, arg1: integer): integer
- "getOrDefault"(arg0: any, arg1: integer): integer
+ "getOrDefault"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
  */
- "getOrDefault"(arg0: any, arg1: any): any
+ "getOrDefault"(arg0: any, arg1: integer): integer
+ "getOrDefault"(arg0: any, arg1: integer): integer
  "applyAsInt"(arg0: K): integer
 /**
  * 
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(integer), (T)>): $Function$0<(K), (T)>
- "andThenInt"(arg0: $Int2IntFunction$$Type): $Object2IntFunction<(K)>
- "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2IntFunction
- "andThenReference"<T>(arg0: $Int2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
- "composeObject"<T>(arg0: $Object2ObjectFunction$$Type<(T), (K)>): $Object2IntFunction<(T)>
- "andThenLong"(arg0: $Int2LongFunction$$Type): $Object2LongFunction<(K)>
- "andThenFloat"(arg0: $Int2FloatFunction$$Type): $Object2FloatFunction<(K)>
- "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2IntFunction
  "andThenObject"<T>(arg0: $Int2ObjectFunction$$Type<(T)>): $Object2ObjectFunction<(K), (T)>
- "andThenByte"(arg0: $Int2ByteFunction$$Type): $Object2ByteFunction<(K)>
- "andThenChar"(arg0: $Int2CharFunction$$Type): $Object2CharFunction<(K)>
+ "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2IntFunction
+ "andThenDouble"(arg0: $Int2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
  "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2IntFunction<(T)>
+ "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2IntFunction
+ "andThenChar"(arg0: $Int2CharFunction$$Type): $Object2CharFunction<(K)>
  "defaultReturnValue"(): integer
  "defaultReturnValue"(arg0: integer): void
+ "composeObject"<T>(arg0: $Object2ObjectFunction$$Type<(T), (K)>): $Object2IntFunction<(T)>
+ "andThenByte"(arg0: $Int2ByteFunction$$Type): $Object2ByteFunction<(K)>
  "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2IntFunction
- "andThenShort"(arg0: $Int2ShortFunction$$Type): $Object2ShortFunction<(K)>
+ "andThenReference"<T>(arg0: $Int2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
  "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2IntFunction
- "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2IntFunction
  "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2IntFunction
- "andThenDouble"(arg0: $Int2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
- "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2IntFunction
+ "andThenShort"(arg0: $Int2ShortFunction$$Type): $Object2ShortFunction<(K)>
+ "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2IntFunction
+ "andThenLong"(arg0: $Int2LongFunction$$Type): $Object2LongFunction<(K)>
+ "andThenFloat"(arg0: $Int2FloatFunction$$Type): $Object2FloatFunction<(K)>
+ "andThenInt"(arg0: $Int2IntFunction$$Type): $Object2IntFunction<(K)>
+ "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2IntFunction
  "removeInt"(arg0: any): integer
  "size"(): integer
  "clear"(): void
@@ -21002,8 +21001,8 @@ declare module "it.unimi.dsi.fastutil.doubles.DoubleComparator" {
 import {$ToIntFunction$$Type} from "java.util.function.ToIntFunction"
 import {$ToLongFunction$$Type} from "java.util.function.ToLongFunction"
 import {$ToDoubleFunction$$Type} from "java.util.function.ToDoubleFunction"
-import {$Comparable} from "java.lang.Comparable"
 import {$Comparator, $Comparator$$Type, $Comparator$$Interface} from "java.util.Comparator"
+import {$Comparable} from "java.lang.Comparable"
 import {$Function$$Type} from "java.util.function.Function"
 
 export interface $DoubleComparator$$Interface extends $Comparator$$Interface<(double)> {
@@ -21059,8 +21058,8 @@ import {$Spliterator} from "java.util.Spliterator"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$Set} from "java.util.Set"
 import {$Stream} from "java.util.stream.Stream"
-import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$IntFunction$$Type} from "java.util.function.IntFunction"
+import {$Consumer$$Type} from "java.util.function.Consumer"
 
 export interface $Object2FloatMap$FastEntrySet$$Interface<K> extends $ObjectSet$$Interface<($Object2FloatMap$Entry<(K)>)> {
 get "empty"(): boolean
@@ -21122,14 +21121,14 @@ import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Long2DoubleFunction, $Long2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2DoubleFunction"
 import {$Double2CharFunction, $Double2CharFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2CharFunction"
 import {$Double2FloatFunction, $Double2FloatFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
-import {$Double2LongFunction, $Double2LongFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
 import {$Double2ReferenceFunction, $Double2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
+import {$Double2LongFunction, $Double2LongFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
 import {$Double2ByteFunction, $Double2ByteFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ByteFunction"
 import {$Object2DoubleFunction, $Object2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2DoubleFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
 import {$Double2IntFunction, $Double2IntFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2IntFunction"
-import {$Double2ObjectFunction, $Double2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ObjectFunction"
 import {$Reference2DoubleFunction, $Reference2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2DoubleFunction"
+import {$Double2ObjectFunction, $Double2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ObjectFunction"
 import {$Int2DoubleFunction, $Int2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
 import {$Float2DoubleFunction, $Float2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2DoubleFunction"
 import {$Double2ShortFunction, $Double2ShortFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ShortFunction"
@@ -21140,47 +21139,47 @@ export interface $Double2DoubleFunction$$Interface extends $Function$$Interface<
 }
 
 export class $Double2DoubleFunction implements $Double2DoubleFunction$$Interface {
-/**
- * 
- * @deprecated
- */
- "remove"(arg0: any): any
  "remove"(arg0: double): double
 /**
  * 
  * @deprecated
  */
- "get"(arg0: any): double
- "get"(arg0: double): double
+ "remove"(arg0: any): double
 /**
  * 
  * @deprecated
  */
- "put"(arg0: double, arg1: double): double
+ "get"(arg0: any): any
+ "get"(arg0: double): double
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
  "put"(arg0: double, arg1: double): double
+/**
+ * 
+ * @deprecated
+ */
+ "put"(arg0: double, arg1: double): double
 static "identity"(): $Double2DoubleFunction
- "containsKey"(arg0: double): boolean
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
- "getOrDefault"(arg0: double, arg1: double): double
-/**
- * 
- * @deprecated
- */
- "getOrDefault"(arg0: any, arg1: double): double
+ "containsKey"(arg0: double): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
+/**
+ * 
+ * @deprecated
+ */
+ "getOrDefault"(arg0: any, arg1: double): double
+ "getOrDefault"(arg0: double, arg1: double): double
  "applyAsDouble"(arg0: double): double
 /**
  * 
@@ -21192,26 +21191,26 @@ static "identity"(): $Double2DoubleFunction
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(double), (T)>): $Function$0<(double), (T)>
- "andThenInt"(arg0: $Double2IntFunction$$Type): $Double2IntFunction
- "composeInt"(arg0: $Int2DoubleFunction$$Type): $Int2DoubleFunction
- "andThenReference"<T>(arg0: $Double2ReferenceFunction$$Type<(T)>): $Double2ReferenceFunction<(T)>
- "composeObject"<T>(arg0: $Object2DoubleFunction$$Type<(T)>): $Object2DoubleFunction<(T)>
- "andThenLong"(arg0: $Double2LongFunction$$Type): $Double2LongFunction
- "andThenFloat"(arg0: $Double2FloatFunction$$Type): $Double2FloatFunction
- "composeShort"(arg0: $Short2DoubleFunction$$Type): $Short2DoubleFunction
  "andThenObject"<T>(arg0: $Double2ObjectFunction$$Type<(T)>): $Double2ObjectFunction<(T)>
- "andThenByte"(arg0: $Double2ByteFunction$$Type): $Double2ByteFunction
- "andThenChar"(arg0: $Double2CharFunction$$Type): $Double2CharFunction
+ "composeShort"(arg0: $Short2DoubleFunction$$Type): $Short2DoubleFunction
+ "andThenDouble"(arg0: $Double2DoubleFunction$$Type): $Double2DoubleFunction
  "composeReference"<T>(arg0: $Reference2DoubleFunction$$Type<(T)>): $Reference2DoubleFunction<(T)>
+ "composeDouble"(arg0: $Double2DoubleFunction$$Type): $Double2DoubleFunction
+ "andThenChar"(arg0: $Double2CharFunction$$Type): $Double2CharFunction
  "defaultReturnValue"(): double
  "defaultReturnValue"(arg0: double): void
+ "composeObject"<T>(arg0: $Object2DoubleFunction$$Type<(T)>): $Object2DoubleFunction<(T)>
+ "andThenByte"(arg0: $Double2ByteFunction$$Type): $Double2ByteFunction
  "composeByte"(arg0: $Byte2DoubleFunction$$Type): $Byte2DoubleFunction
- "andThenShort"(arg0: $Double2ShortFunction$$Type): $Double2ShortFunction
+ "andThenReference"<T>(arg0: $Double2ReferenceFunction$$Type<(T)>): $Double2ReferenceFunction<(T)>
  "composeLong"(arg0: $Long2DoubleFunction$$Type): $Long2DoubleFunction
- "composeChar"(arg0: $Char2DoubleFunction$$Type): $Char2DoubleFunction
  "composeFloat"(arg0: $Float2DoubleFunction$$Type): $Float2DoubleFunction
- "andThenDouble"(arg0: $Double2DoubleFunction$$Type): $Double2DoubleFunction
- "composeDouble"(arg0: $Double2DoubleFunction$$Type): $Double2DoubleFunction
+ "andThenShort"(arg0: $Double2ShortFunction$$Type): $Double2ShortFunction
+ "composeChar"(arg0: $Char2DoubleFunction$$Type): $Char2DoubleFunction
+ "andThenLong"(arg0: $Double2LongFunction$$Type): $Double2LongFunction
+ "andThenFloat"(arg0: $Double2FloatFunction$$Type): $Double2FloatFunction
+ "andThenInt"(arg0: $Double2IntFunction$$Type): $Double2IntFunction
+ "composeInt"(arg0: $Int2DoubleFunction$$Type): $Int2DoubleFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: double): double
@@ -21229,8 +21228,8 @@ export type $Double2DoubleFunction$$Type = ((arg0: double) => double);
 export type $Double2DoubleFunction$$Original = $Double2DoubleFunction;}
 declare module "it.unimi.dsi.fastutil.objects.Object2ByteFunction" {
 import {$Byte2ByteFunction, $Byte2ByteFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ByteFunction"
-import {$Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Float2ByteFunction} from "it.unimi.dsi.fastutil.floats.Float2ByteFunction"
+import {$Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Object2IntFunction} from "it.unimi.dsi.fastutil.objects.Object2IntFunction"
 import {$Long2ByteFunction} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
 import {$Object2ObjectFunction, $Object2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ObjectFunction"
@@ -21249,12 +21248,12 @@ import {$Reference2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Ref
 import {$Object2CharFunction} from "it.unimi.dsi.fastutil.objects.Object2CharFunction"
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Byte2LongFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2LongFunction"
-import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$ToIntFunction$$Interface} from "java.util.function.ToIntFunction"
+import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Char2ByteFunction} from "it.unimi.dsi.fastutil.chars.Char2ByteFunction"
 import {$Double2ByteFunction} from "it.unimi.dsi.fastutil.doubles.Double2ByteFunction"
-import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2ReferenceFunction} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
+import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Object2LongFunction} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
 import {$Double2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ObjectFunction"
@@ -21273,17 +21272,17 @@ export class $Object2ByteFunction<K> implements $Object2ByteFunction$$Interface 
  * 
  * @deprecated
  */
- "remove"(arg0: any): byte
+ "remove"(arg0: any): any
 /**
  * 
  * @deprecated
  */
- "get"(arg0: any): byte
+ "get"(arg0: any): any
+/**
+ * 
+ * @deprecated
+ */
  "put"(arg0: K, arg1: byte): byte
-/**
- * 
- * @deprecated
- */
  "put"(arg0: K, arg1: byte): byte
 /**
  * 
@@ -21291,7 +21290,6 @@ export class $Object2ByteFunction<K> implements $Object2ByteFunction$$Interface 
  */
  "put"(arg0: any, arg1: any): any
  "getByte"(arg0: any): byte
- "getOrDefault"(arg0: any, arg1: byte): byte
 /**
  * 
  * @deprecated
@@ -21302,33 +21300,34 @@ export class $Object2ByteFunction<K> implements $Object2ByteFunction$$Interface 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: byte): byte
+ "getOrDefault"(arg0: any, arg1: byte): byte
  "applyAsInt"(arg0: K): integer
 /**
  * 
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(byte), (T)>): $Function$0<(K), (T)>
- "removeByte"(arg0: any): byte
- "andThenInt"(arg0: $Byte2IntFunction$$Type): $Object2IntFunction<(K)>
- "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2ByteFunction
- "andThenReference"<T>(arg0: $Byte2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
+ "andThenObject"<T>(arg0: $Byte2ObjectFunction$$Type<(T)>): $Object2ObjectFunction<(K), (T)>
+ "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2ByteFunction
+ "andThenDouble"(arg0: $Byte2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
+ "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2ByteFunction<(T)>
+ "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2ByteFunction
+ "andThenChar"(arg0: $Byte2CharFunction$$Type): $Object2CharFunction<(K)>
+ "defaultReturnValue"(): byte
+ "defaultReturnValue"(arg0: byte): void
  "composeObject"<T>(arg0: $Object2ObjectFunction$$Type<(T), (K)>): $Object2ByteFunction<(T)>
+ "andThenByte"(arg0: $Byte2ByteFunction$$Type): $Object2ByteFunction<(K)>
+ "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2ByteFunction
+ "andThenReference"<T>(arg0: $Byte2ReferenceFunction$$Type<(T)>): $Object2ReferenceFunction<(K), (T)>
+ "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2ByteFunction
+ "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2ByteFunction
+ "andThenShort"(arg0: $Byte2ShortFunction$$Type): $Object2ShortFunction<(K)>
+ "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2ByteFunction
  "andThenLong"(arg0: $Byte2LongFunction$$Type): $Object2LongFunction<(K)>
  "andThenFloat"(arg0: $Byte2FloatFunction$$Type): $Object2FloatFunction<(K)>
- "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2ByteFunction
- "andThenObject"<T>(arg0: $Byte2ObjectFunction$$Type<(T)>): $Object2ObjectFunction<(K), (T)>
- "andThenByte"(arg0: $Byte2ByteFunction$$Type): $Object2ByteFunction<(K)>
- "andThenChar"(arg0: $Byte2CharFunction$$Type): $Object2CharFunction<(K)>
- "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2ByteFunction<(T)>
- "defaultReturnValue"(arg0: byte): void
- "defaultReturnValue"(): byte
- "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2ByteFunction
- "andThenShort"(arg0: $Byte2ShortFunction$$Type): $Object2ShortFunction<(K)>
- "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2ByteFunction
- "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2ByteFunction
- "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2ByteFunction
- "andThenDouble"(arg0: $Byte2DoubleFunction$$Type): $Object2DoubleFunction<(K)>
- "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2ByteFunction
+ "andThenInt"(arg0: $Byte2IntFunction$$Type): $Object2IntFunction<(K)>
+ "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2ByteFunction
+ "removeByte"(arg0: any): byte
  "size"(): integer
  "clear"(): void
  "apply"(arg0: K): byte
@@ -21350,11 +21349,11 @@ import {$Float2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float
 import {$Reference2IntFunction} from "it.unimi.dsi.fastutil.objects.Reference2IntFunction"
 import {$Short2IntFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction"
 import {$Reference2LongFunction} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
-import {$Double2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
 import {$Long2ShortFunction} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
+import {$Double2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
+import {$Int2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
 import {$Reference2ByteFunction} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Short2CharFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
-import {$Int2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
 import {$Byte2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
 import {$Char2ShortFunction} from "it.unimi.dsi.fastutil.chars.Char2ShortFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
@@ -21365,16 +21364,16 @@ import {$Reference2ReferenceFunction, $Reference2ReferenceFunction$$Type} from "
 import {$Reference2ObjectFunction} from "it.unimi.dsi.fastutil.objects.Reference2ObjectFunction"
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Int2ShortFunction} from "it.unimi.dsi.fastutil.ints.Int2ShortFunction"
-import {$Short2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Float2ShortFunction} from "it.unimi.dsi.fastutil.floats.Float2ShortFunction"
+import {$Short2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Long2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
 import {$Reference2FloatFunction} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
 import {$ToIntFunction$$Interface} from "java.util.function.ToIntFunction"
 import {$Short2LongFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$Reference2CharFunction} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
-import {$Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
 import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
+import {$Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
 import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Short2FloatFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2FloatFunction"
 import {$Reference2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Reference2DoubleFunction"
@@ -21391,61 +21390,61 @@ export class $Reference2ShortFunction<K> implements $Reference2ShortFunction$$In
  * 
  * @deprecated
  */
- "remove"(arg0: any): short
+ "remove"(arg0: any): any
 /**
  * 
  * @deprecated
  */
- "get"(arg0: any): short
+ "get"(arg0: any): any
 /**
  * 
  * @deprecated
  */
+ "put"(arg0: K, arg1: short): short
  "put"(arg0: K, arg1: short): short
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: K, arg1: short): short
  "getShort"(arg0: any): short
 /**
  * 
  * @deprecated
  */
- "getOrDefault"(arg0: any, arg1: short): short
- "getOrDefault"(arg0: any, arg1: short): short
+ "getOrDefault"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
  */
- "getOrDefault"(arg0: any, arg1: any): any
+ "getOrDefault"(arg0: any, arg1: short): short
+ "getOrDefault"(arg0: any, arg1: short): short
  "applyAsInt"(arg0: K): integer
 /**
  * 
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(short), (T)>): $Function$0<(K), (T)>
- "andThenInt"(arg0: $Short2IntFunction$$Type): $Reference2IntFunction<(K)>
- "composeInt"(arg0: $Int2ReferenceFunction$$Type<(K)>): $Int2ShortFunction
- "andThenReference"<T>(arg0: $Short2ReferenceFunction$$Type<(T)>): $Reference2ReferenceFunction<(K), (T)>
- "composeObject"<T>(arg0: $Object2ReferenceFunction$$Type<(T), (K)>): $Object2ShortFunction<(T)>
- "andThenLong"(arg0: $Short2LongFunction$$Type): $Reference2LongFunction<(K)>
- "andThenFloat"(arg0: $Short2FloatFunction$$Type): $Reference2FloatFunction<(K)>
- "composeShort"(arg0: $Short2ReferenceFunction$$Type<(K)>): $Short2ShortFunction
  "andThenObject"<T>(arg0: $Short2ObjectFunction$$Type<(T)>): $Reference2ObjectFunction<(K), (T)>
- "andThenByte"(arg0: $Short2ByteFunction$$Type): $Reference2ByteFunction<(K)>
- "andThenChar"(arg0: $Short2CharFunction$$Type): $Reference2CharFunction<(K)>
+ "composeShort"(arg0: $Short2ReferenceFunction$$Type<(K)>): $Short2ShortFunction
+ "andThenDouble"(arg0: $Short2DoubleFunction$$Type): $Reference2DoubleFunction<(K)>
  "composeReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(T), (K)>): $Reference2ShortFunction<(T)>
+ "composeDouble"(arg0: $Double2ReferenceFunction$$Type<(K)>): $Double2ShortFunction
+ "andThenChar"(arg0: $Short2CharFunction$$Type): $Reference2CharFunction<(K)>
  "defaultReturnValue"(): short
  "defaultReturnValue"(arg0: short): void
+ "composeObject"<T>(arg0: $Object2ReferenceFunction$$Type<(T), (K)>): $Object2ShortFunction<(T)>
+ "andThenByte"(arg0: $Short2ByteFunction$$Type): $Reference2ByteFunction<(K)>
  "composeByte"(arg0: $Byte2ReferenceFunction$$Type<(K)>): $Byte2ShortFunction
- "andThenShort"(arg0: $Short2ShortFunction$$Type): $Reference2ShortFunction<(K)>
+ "andThenReference"<T>(arg0: $Short2ReferenceFunction$$Type<(T)>): $Reference2ReferenceFunction<(K), (T)>
  "composeLong"(arg0: $Long2ReferenceFunction$$Type<(K)>): $Long2ShortFunction
- "composeChar"(arg0: $Char2ReferenceFunction$$Type<(K)>): $Char2ShortFunction
  "composeFloat"(arg0: $Float2ReferenceFunction$$Type<(K)>): $Float2ShortFunction
- "andThenDouble"(arg0: $Short2DoubleFunction$$Type): $Reference2DoubleFunction<(K)>
- "composeDouble"(arg0: $Double2ReferenceFunction$$Type<(K)>): $Double2ShortFunction
+ "andThenShort"(arg0: $Short2ShortFunction$$Type): $Reference2ShortFunction<(K)>
+ "composeChar"(arg0: $Char2ReferenceFunction$$Type<(K)>): $Char2ShortFunction
+ "andThenLong"(arg0: $Short2LongFunction$$Type): $Reference2LongFunction<(K)>
+ "andThenFloat"(arg0: $Short2FloatFunction$$Type): $Reference2FloatFunction<(K)>
+ "andThenInt"(arg0: $Short2IntFunction$$Type): $Reference2IntFunction<(K)>
+ "composeInt"(arg0: $Int2ReferenceFunction$$Type<(K)>): $Int2ShortFunction
  "removeShort"(arg0: any): short
  "size"(): integer
  "clear"(): void
@@ -21467,11 +21466,11 @@ declare module "it.unimi.dsi.fastutil.longs.LongOpenHashSet" {
 import {$Iterator$$Type} from "java.util.Iterator"
 import {$AbstractLongSet} from "it.unimi.dsi.fastutil.longs.AbstractLongSet"
 import {$Collection$$Type} from "java.util.Collection"
-import {$Hash$$Interface} from "it.unimi.dsi.fastutil.Hash"
 import {$Spliterator} from "java.util.Spliterator"
+import {$Hash$$Interface} from "it.unimi.dsi.fastutil.Hash"
 import {$LongStream$$Type} from "java.util.stream.LongStream"
-import {$LongConsumer$$Type} from "java.util.function.LongConsumer"
 import {$Serializable$$Interface} from "java.io.Serializable"
+import {$LongConsumer$$Type} from "java.util.function.LongConsumer"
 import {$Cloneable$$Interface} from "java.lang.Cloneable"
 import {$Set} from "java.util.Set"
 import {$LongIterator, $LongIterator$$Type} from "it.unimi.dsi.fastutil.longs.LongIterator"
@@ -21511,8 +21510,8 @@ public static "of"(arg0: long): $LongOpenHashSet
 public static "of"(arg0: long, arg1: long, arg2: long): $LongOpenHashSet
 public "contains"(arg0: long): boolean
 public "spliterator"(): $Spliterator
-public "addAll"(arg0: $LongCollection$$Type): boolean
 public "addAll"(arg0: $Collection$$Type<(long)>): boolean
+public "addAll"(arg0: $LongCollection$$Type): boolean
 public "forEach"(arg0: $LongConsumer$$Type): void
 public static "toSet"(arg0: $LongStream$$Type): $LongOpenHashSet
 public "ensureCapacity"(arg0: integer): void
@@ -21609,8 +21608,8 @@ export type $ShortBidirectionalIterator$$Type = ($ShortBidirectionalIterator);
  */
 export type $ShortBidirectionalIterator$$Original = $ShortBidirectionalIterator;}
 declare module "it.unimi.dsi.fastutil.objects.Object2ByteMap$Entry" {
-import {$Comparable} from "java.lang.Comparable"
 import {$Comparator, $Comparator$$Type} from "java.util.Comparator"
+import {$Comparable} from "java.lang.Comparable"
 import {$Map$Entry, $Map$Entry$$Type, $Map$Entry$$Interface} from "java.util.Map$Entry"
 
 export interface $Object2ByteMap$Entry$$Interface<K> extends $Map$Entry$$Interface<(K), (byte)> {
@@ -21659,8 +21658,8 @@ export type $Object2ByteMap$Entry$$Type<K> = ($Object2ByteMap$Entry<(K)>);
  */
 export type $Object2ByteMap$Entry$$Original<K> = $Object2ByteMap$Entry<(K)>;}
 declare module "it.unimi.dsi.fastutil.ints.Int2IntMap$Entry" {
-import {$Comparable} from "java.lang.Comparable"
 import {$Comparator, $Comparator$$Type} from "java.util.Comparator"
+import {$Comparable} from "java.lang.Comparable"
 import {$Map$Entry, $Map$Entry$$Type, $Map$Entry$$Interface} from "java.util.Map$Entry"
 
 export interface $Int2IntMap$Entry$$Interface extends $Map$Entry$$Interface<(integer), (integer)> {
@@ -21715,9 +21714,10 @@ export type $Int2IntMap$Entry$$Type = ($Int2IntMap$Entry);
  */
 export type $Int2IntMap$Entry$$Original = $Int2IntMap$Entry;}
 declare module "it.unimi.dsi.fastutil.objects.Object2IntLinkedOpenHashMap" {
+import {$Object2IntSortedMap} from "it.unimi.dsi.fastutil.objects.Object2IntSortedMap"
 import {$Map, $Map$$Type} from "java.util.Map"
-import {$Hash$$Interface} from "it.unimi.dsi.fastutil.Hash"
 import {$Comparator} from "java.util.Comparator"
+import {$Hash$$Interface} from "it.unimi.dsi.fastutil.Hash"
 import {$Object2IntFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2IntFunction"
 import {$IntCollection} from "it.unimi.dsi.fastutil.ints.IntCollection"
 import {$Object2IntSortedMap$FastSortedEntrySet} from "it.unimi.dsi.fastutil.objects.Object2IntSortedMap$FastSortedEntrySet"
@@ -21730,6 +21730,7 @@ import {$ObjectSet} from "it.unimi.dsi.fastutil.objects.ObjectSet"
 import {$Serializable$$Interface} from "java.io.Serializable"
 import {$Function} from "java.util.function.Function"
 import {$Cloneable$$Interface} from "java.lang.Cloneable"
+import {$Set} from "java.util.Set"
 import {$SortedMap} from "java.util.SortedMap"
 
 export class $Object2IntLinkedOpenHashMap<K> extends $AbstractObject2IntSortedMap<(K)> implements $Serializable$$Interface, $Cloneable$$Interface, $Hash$$Interface {
@@ -21762,27 +21763,27 @@ public "putIfAbsent"(arg0: K, arg1: integer): integer
 public "containsKey"(arg0: any): boolean
 public "computeIfAbsent"(arg0: K, arg1: $ToIntFunction$$Type<(K)>): integer
 public "computeIfAbsent"(arg0: K, arg1: $Object2IntFunction$$Type<(K)>): integer
-public "keySet"(): $ObjectSet
+public "keySet"(): $Set
 public "containsValue"(arg0: integer): boolean
 public "getOrDefault"(arg0: any, arg1: integer): integer
 public "ensureCapacity"(arg0: integer): void
 public "comparator"(): $Comparator<(K)>
 public "firstKey"(): K
 public "addTo"(arg0: K, arg1: integer): integer
-public "subMap"(arg0: any, arg1: any): $SortedMap
+public "subMap"(arg0: K, arg1: K): $Object2IntSortedMap<(K)>
 public "headMap"(arg0: any): $SortedMap
-public "tailMap"(arg0: any): $SortedMap
+public "tailMap"(arg0: K): $Object2IntSortedMap<(K)>
 public "lastKey"(): K
 public "computeIntIfPresent"(arg0: K, arg1: $BiFunction$$Type<(K), (integer), (integer)>): integer
-public "putAndMoveToLast"(arg0: K, arg1: integer): integer
+public "removeInt"(arg0: any): integer
+public "computeInt"(arg0: K, arg1: $BiFunction$$Type<(K), (integer), (integer)>): integer
+public "object2IntEntrySet"(): $Object2IntSortedMap$FastSortedEntrySet<(K)>
 public "getAndMoveToFirst"(arg0: K): integer
 public "putAndMoveToFirst"(arg0: K, arg1: integer): integer
 public "getAndMoveToLast"(arg0: K): integer
-public "object2IntEntrySet"(): $Object2IntSortedMap$FastSortedEntrySet<(K)>
-public "removeInt"(arg0: any): integer
-public "computeInt"(arg0: K, arg1: $BiFunction$$Type<(K), (integer), (integer)>): integer
-public "removeFirstInt"(): integer
+public "putAndMoveToLast"(arg0: K, arg1: integer): integer
 public "removeLastInt"(): integer
+public "removeFirstInt"(): integer
 /**
  * 
  * @deprecated
@@ -21839,23 +21840,23 @@ import {$Long2LongFunction, $Long2LongFunction$$Type} from "it.unimi.dsi.fastuti
 import {$Long2DoubleFunction} from "it.unimi.dsi.fastutil.longs.Long2DoubleFunction"
 import {$Int2ShortFunction} from "it.unimi.dsi.fastutil.ints.Int2ShortFunction"
 import {$Float2LongFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2LongFunction"
-import {$Short2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Float2ShortFunction} from "it.unimi.dsi.fastutil.floats.Float2ShortFunction"
 import {$LongToIntFunction$$Interface} from "java.util.function.LongToIntFunction"
+import {$Short2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Long2ReferenceFunction} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
 import {$Byte2LongFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2LongFunction"
-import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Double2LongFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
+import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Short2LongFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$Int2LongFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
 import {$Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2ShortFunction} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Long2FloatFunction} from "it.unimi.dsi.fastutil.longs.Long2FloatFunction"
-import {$Object2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
 import {$Short2FloatFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2FloatFunction"
+import {$Object2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
 import {$Short2ByteFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ByteFunction"
-import {$Long2ObjectFunction} from "it.unimi.dsi.fastutil.longs.Long2ObjectFunction"
 import {$Double2ShortFunction} from "it.unimi.dsi.fastutil.doubles.Double2ShortFunction"
+import {$Long2ObjectFunction} from "it.unimi.dsi.fastutil.longs.Long2ObjectFunction"
 
 export interface $Long2ShortFunction$$Interface extends $Function$$Interface<(long), (short)>, $LongToIntFunction$$Interface {
 
@@ -21873,36 +21874,36 @@ export class $Long2ShortFunction implements $Long2ShortFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): short
+ "get"(arg0: any): any
  "get"(arg0: long): short
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: long, arg1: short): short
 /**
  * 
  * @deprecated
  */
  "put"(arg0: long, arg1: short): short
- "containsKey"(arg0: long): boolean
+ "put"(arg0: long, arg1: short): short
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: long): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: long, arg1: short): short
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: short): short
+ "getOrDefault"(arg0: long, arg1: short): short
  "applyAsInt"(arg0: long): integer
 /**
  * 
@@ -21914,26 +21915,26 @@ export class $Long2ShortFunction implements $Long2ShortFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(short), (T)>): $Function$0<(long), (T)>
- "andThenInt"(arg0: $Short2IntFunction$$Type): $Long2IntFunction
- "composeInt"(arg0: $Int2LongFunction$$Type): $Int2ShortFunction
- "andThenReference"<T>(arg0: $Short2ReferenceFunction$$Type<(T)>): $Long2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Short2ObjectFunction$$Type<(T)>): $Long2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2LongFunction$$Type): $Short2ShortFunction
+ "andThenDouble"(arg0: $Short2DoubleFunction$$Type): $Long2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2LongFunction$$Type<(T)>): $Reference2ShortFunction<(T)>
+ "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2ShortFunction
+ "andThenChar"(arg0: $Short2CharFunction$$Type): $Long2CharFunction
+ "defaultReturnValue"(): short
+ "defaultReturnValue"(arg0: short): void
  "composeObject"<T>(arg0: $Object2LongFunction$$Type<(T)>): $Object2ShortFunction<(T)>
+ "andThenByte"(arg0: $Short2ByteFunction$$Type): $Long2ByteFunction
+ "composeByte"(arg0: $Byte2LongFunction$$Type): $Byte2ShortFunction
+ "andThenReference"<T>(arg0: $Short2ReferenceFunction$$Type<(T)>): $Long2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2LongFunction$$Type): $Long2ShortFunction
+ "composeFloat"(arg0: $Float2LongFunction$$Type): $Float2ShortFunction
+ "andThenShort"(arg0: $Short2ShortFunction$$Type): $Long2ShortFunction
+ "composeChar"(arg0: $Char2LongFunction$$Type): $Char2ShortFunction
  "andThenLong"(arg0: $Short2LongFunction$$Type): $Long2LongFunction
  "andThenFloat"(arg0: $Short2FloatFunction$$Type): $Long2FloatFunction
- "composeShort"(arg0: $Short2LongFunction$$Type): $Short2ShortFunction
- "andThenObject"<T>(arg0: $Short2ObjectFunction$$Type<(T)>): $Long2ObjectFunction<(T)>
- "andThenByte"(arg0: $Short2ByteFunction$$Type): $Long2ByteFunction
- "andThenChar"(arg0: $Short2CharFunction$$Type): $Long2CharFunction
- "composeReference"<T>(arg0: $Reference2LongFunction$$Type<(T)>): $Reference2ShortFunction<(T)>
- "defaultReturnValue"(arg0: short): void
- "defaultReturnValue"(): short
- "composeByte"(arg0: $Byte2LongFunction$$Type): $Byte2ShortFunction
- "andThenShort"(arg0: $Short2ShortFunction$$Type): $Long2ShortFunction
- "composeLong"(arg0: $Long2LongFunction$$Type): $Long2ShortFunction
- "composeChar"(arg0: $Char2LongFunction$$Type): $Char2ShortFunction
- "composeFloat"(arg0: $Float2LongFunction$$Type): $Float2ShortFunction
- "andThenDouble"(arg0: $Short2DoubleFunction$$Type): $Long2DoubleFunction
- "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2ShortFunction
+ "andThenInt"(arg0: $Short2IntFunction$$Type): $Long2IntFunction
+ "composeInt"(arg0: $Int2LongFunction$$Type): $Int2ShortFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: long): short
@@ -21952,12 +21953,12 @@ declare module "it.unimi.dsi.fastutil.doubles.Double2LongFunction" {
 import {$Char2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2DoubleFunction"
 import {$Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Long2CharFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2CharFunction"
-import {$Long2IntFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
 import {$Long2ByteFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
+import {$Long2IntFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
 import {$Reference2LongFunction} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
 import {$Double2FloatFunction} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
-import {$Long2ShortFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
 import {$Double2ReferenceFunction} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
+import {$Long2ShortFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
 import {$Object2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2DoubleFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
 import {$Int2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
@@ -22000,36 +22001,36 @@ export class $Double2LongFunction implements $Double2LongFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): long
+ "get"(arg0: any): any
  "get"(arg0: double): long
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: double, arg1: long): long
 /**
  * 
  * @deprecated
  */
  "put"(arg0: double, arg1: long): long
- "containsKey"(arg0: double): boolean
+ "put"(arg0: double, arg1: long): long
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: double): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: double, arg1: long): long
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: long): long
+ "getOrDefault"(arg0: double, arg1: long): long
  "applyAsLong"(arg0: double): long
 /**
  * 
@@ -22041,26 +22042,26 @@ export class $Double2LongFunction implements $Double2LongFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(long), (T)>): $Function$0<(double), (T)>
- "andThenInt"(arg0: $Long2IntFunction$$Type): $Double2IntFunction
- "composeInt"(arg0: $Int2DoubleFunction$$Type): $Int2LongFunction
- "andThenReference"<T>(arg0: $Long2ReferenceFunction$$Type<(T)>): $Double2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Long2ObjectFunction$$Type<(T)>): $Double2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2DoubleFunction$$Type): $Short2LongFunction
+ "andThenDouble"(arg0: $Long2DoubleFunction$$Type): $Double2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2DoubleFunction$$Type<(T)>): $Reference2LongFunction<(T)>
+ "composeDouble"(arg0: $Double2DoubleFunction$$Type): $Double2LongFunction
+ "andThenChar"(arg0: $Long2CharFunction$$Type): $Double2CharFunction
+ "defaultReturnValue"(): long
+ "defaultReturnValue"(arg0: long): void
  "composeObject"<T>(arg0: $Object2DoubleFunction$$Type<(T)>): $Object2LongFunction<(T)>
+ "andThenByte"(arg0: $Long2ByteFunction$$Type): $Double2ByteFunction
+ "composeByte"(arg0: $Byte2DoubleFunction$$Type): $Byte2LongFunction
+ "andThenReference"<T>(arg0: $Long2ReferenceFunction$$Type<(T)>): $Double2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2DoubleFunction$$Type): $Long2LongFunction
+ "composeFloat"(arg0: $Float2DoubleFunction$$Type): $Float2LongFunction
+ "andThenShort"(arg0: $Long2ShortFunction$$Type): $Double2ShortFunction
+ "composeChar"(arg0: $Char2DoubleFunction$$Type): $Char2LongFunction
  "andThenLong"(arg0: $Long2LongFunction$$Type): $Double2LongFunction
  "andThenFloat"(arg0: $Long2FloatFunction$$Type): $Double2FloatFunction
- "composeShort"(arg0: $Short2DoubleFunction$$Type): $Short2LongFunction
- "andThenObject"<T>(arg0: $Long2ObjectFunction$$Type<(T)>): $Double2ObjectFunction<(T)>
- "andThenByte"(arg0: $Long2ByteFunction$$Type): $Double2ByteFunction
- "andThenChar"(arg0: $Long2CharFunction$$Type): $Double2CharFunction
- "composeReference"<T>(arg0: $Reference2DoubleFunction$$Type<(T)>): $Reference2LongFunction<(T)>
- "defaultReturnValue"(arg0: long): void
- "defaultReturnValue"(): long
- "composeByte"(arg0: $Byte2DoubleFunction$$Type): $Byte2LongFunction
- "andThenShort"(arg0: $Long2ShortFunction$$Type): $Double2ShortFunction
- "composeLong"(arg0: $Long2DoubleFunction$$Type): $Long2LongFunction
- "composeChar"(arg0: $Char2DoubleFunction$$Type): $Char2LongFunction
- "composeFloat"(arg0: $Float2DoubleFunction$$Type): $Float2LongFunction
- "andThenDouble"(arg0: $Long2DoubleFunction$$Type): $Double2DoubleFunction
- "composeDouble"(arg0: $Double2DoubleFunction$$Type): $Double2LongFunction
+ "andThenInt"(arg0: $Long2IntFunction$$Type): $Double2IntFunction
+ "composeInt"(arg0: $Int2DoubleFunction$$Type): $Int2LongFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: double): long
@@ -22084,15 +22085,15 @@ import {$Long2IntFunction} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
 import {$Short2IntFunction} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction"
 import {$Int2FloatFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
 import {$Byte2IntFunction} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
+import {$Float2IntFunction} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
 import {$Double2FloatFunction} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Int2CharFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
-import {$Float2IntFunction} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
 import {$Double2ReferenceFunction} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
 import {$Int2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
 import {$Int2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
 import {$Object2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2DoubleFunction"
-import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
+import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Int2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
 import {$Short2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2DoubleFunction"
 import {$Double2DoubleFunction, $Double2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2DoubleFunction"
@@ -22127,36 +22128,36 @@ export class $Double2IntFunction implements $Double2IntFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): integer
+ "get"(arg0: any): any
  "get"(arg0: double): integer
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: double, arg1: integer): integer
 /**
  * 
  * @deprecated
  */
  "put"(arg0: double, arg1: integer): integer
- "containsKey"(arg0: double): boolean
+ "put"(arg0: double, arg1: integer): integer
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: double): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: double, arg1: integer): integer
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: integer): integer
+ "getOrDefault"(arg0: double, arg1: integer): integer
  "applyAsInt"(arg0: double): integer
 /**
  * 
@@ -22168,26 +22169,26 @@ export class $Double2IntFunction implements $Double2IntFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(integer), (T)>): $Function$0<(double), (T)>
- "andThenInt"(arg0: $Int2IntFunction$$Type): $Double2IntFunction
- "composeInt"(arg0: $Int2DoubleFunction$$Type): $Int2IntFunction
- "andThenReference"<T>(arg0: $Int2ReferenceFunction$$Type<(T)>): $Double2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Int2ObjectFunction$$Type<(T)>): $Double2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2DoubleFunction$$Type): $Short2IntFunction
+ "andThenDouble"(arg0: $Int2DoubleFunction$$Type): $Double2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2DoubleFunction$$Type<(T)>): $Reference2IntFunction<(T)>
+ "composeDouble"(arg0: $Double2DoubleFunction$$Type): $Double2IntFunction
+ "andThenChar"(arg0: $Int2CharFunction$$Type): $Double2CharFunction
+ "defaultReturnValue"(): integer
+ "defaultReturnValue"(arg0: integer): void
  "composeObject"<T>(arg0: $Object2DoubleFunction$$Type<(T)>): $Object2IntFunction<(T)>
+ "andThenByte"(arg0: $Int2ByteFunction$$Type): $Double2ByteFunction
+ "composeByte"(arg0: $Byte2DoubleFunction$$Type): $Byte2IntFunction
+ "andThenReference"<T>(arg0: $Int2ReferenceFunction$$Type<(T)>): $Double2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2DoubleFunction$$Type): $Long2IntFunction
+ "composeFloat"(arg0: $Float2DoubleFunction$$Type): $Float2IntFunction
+ "andThenShort"(arg0: $Int2ShortFunction$$Type): $Double2ShortFunction
+ "composeChar"(arg0: $Char2DoubleFunction$$Type): $Char2IntFunction
  "andThenLong"(arg0: $Int2LongFunction$$Type): $Double2LongFunction
  "andThenFloat"(arg0: $Int2FloatFunction$$Type): $Double2FloatFunction
- "composeShort"(arg0: $Short2DoubleFunction$$Type): $Short2IntFunction
- "andThenObject"<T>(arg0: $Int2ObjectFunction$$Type<(T)>): $Double2ObjectFunction<(T)>
- "andThenByte"(arg0: $Int2ByteFunction$$Type): $Double2ByteFunction
- "andThenChar"(arg0: $Int2CharFunction$$Type): $Double2CharFunction
- "composeReference"<T>(arg0: $Reference2DoubleFunction$$Type<(T)>): $Reference2IntFunction<(T)>
- "defaultReturnValue"(arg0: integer): void
- "defaultReturnValue"(): integer
- "composeByte"(arg0: $Byte2DoubleFunction$$Type): $Byte2IntFunction
- "andThenShort"(arg0: $Int2ShortFunction$$Type): $Double2ShortFunction
- "composeLong"(arg0: $Long2DoubleFunction$$Type): $Long2IntFunction
- "composeChar"(arg0: $Char2DoubleFunction$$Type): $Char2IntFunction
- "composeFloat"(arg0: $Float2DoubleFunction$$Type): $Float2IntFunction
- "andThenDouble"(arg0: $Int2DoubleFunction$$Type): $Double2DoubleFunction
- "composeDouble"(arg0: $Double2DoubleFunction$$Type): $Double2IntFunction
+ "andThenInt"(arg0: $Int2IntFunction$$Type): $Double2IntFunction
+ "composeInt"(arg0: $Int2DoubleFunction$$Type): $Int2IntFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: double): integer
@@ -22209,29 +22210,29 @@ import {$Long2IntFunction} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
 import {$Int2FloatFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
 import {$Byte2IntFunction} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
 import {$Reference2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
-import {$Int2CharFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Float2IntFunction} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
+import {$Int2CharFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
 import {$Long2ShortFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
-import {$Short2CharFunction} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
 import {$Int2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
+import {$Short2CharFunction} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
 import {$Int2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
 import {$Char2ShortFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ShortFunction"
-import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
+import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Short2ShortFunction, $Short2ShortFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ShortFunction"
 import {$Byte2ShortFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ShortFunction"
 import {$Int2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
 import {$Short2DoubleFunction} from "it.unimi.dsi.fastutil.shorts.Short2DoubleFunction"
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Int2ShortFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ShortFunction"
-import {$Short2ReferenceFunction} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Float2ShortFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ShortFunction"
+import {$Short2ReferenceFunction} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$IntUnaryOperator, $IntUnaryOperator$$Type, $IntUnaryOperator$$Interface} from "java.util.function.IntUnaryOperator"
 import {$Short2LongFunction} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$Int2LongFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
-import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
-import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Char2IntFunction} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
+import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
+import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Double2IntFunction} from "it.unimi.dsi.fastutil.doubles.Double2IntFunction"
 import {$Short2FloatFunction} from "it.unimi.dsi.fastutil.shorts.Short2FloatFunction"
 import {$Short2ByteFunction} from "it.unimi.dsi.fastutil.shorts.Short2ByteFunction"
@@ -22254,36 +22255,36 @@ export class $Short2IntFunction implements $Short2IntFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): integer
+ "get"(arg0: any): any
  "get"(arg0: short): integer
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: short, arg1: integer): integer
 /**
  * 
  * @deprecated
  */
  "put"(arg0: short, arg1: integer): integer
- "containsKey"(arg0: short): boolean
+ "put"(arg0: short, arg1: integer): integer
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: short): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: short, arg1: integer): integer
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: integer): integer
+ "getOrDefault"(arg0: short, arg1: integer): integer
 /**
  * 
  * @deprecated
@@ -22299,26 +22300,26 @@ export class $Short2IntFunction implements $Short2IntFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(integer), (T)>): $Function$0<(short), (T)>
- "andThenInt"(arg0: $Int2IntFunction$$Type): $Short2IntFunction
- "composeInt"(arg0: $Int2ShortFunction$$Type): $Int2IntFunction
- "andThenReference"<T>(arg0: $Int2ReferenceFunction$$Type<(T)>): $Short2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Int2ObjectFunction$$Type<(T)>): $Short2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2ShortFunction$$Type): $Short2IntFunction
+ "andThenDouble"(arg0: $Int2DoubleFunction$$Type): $Short2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2ShortFunction$$Type<(T)>): $Reference2IntFunction<(T)>
+ "composeDouble"(arg0: $Double2ShortFunction$$Type): $Double2IntFunction
+ "andThenChar"(arg0: $Int2CharFunction$$Type): $Short2CharFunction
+ "defaultReturnValue"(): integer
+ "defaultReturnValue"(arg0: integer): void
  "composeObject"<T>(arg0: $Object2ShortFunction$$Type<(T)>): $Object2IntFunction<(T)>
+ "andThenByte"(arg0: $Int2ByteFunction$$Type): $Short2ByteFunction
+ "composeByte"(arg0: $Byte2ShortFunction$$Type): $Byte2IntFunction
+ "andThenReference"<T>(arg0: $Int2ReferenceFunction$$Type<(T)>): $Short2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2ShortFunction$$Type): $Long2IntFunction
+ "composeFloat"(arg0: $Float2ShortFunction$$Type): $Float2IntFunction
+ "andThenShort"(arg0: $Int2ShortFunction$$Type): $Short2ShortFunction
+ "composeChar"(arg0: $Char2ShortFunction$$Type): $Char2IntFunction
  "andThenLong"(arg0: $Int2LongFunction$$Type): $Short2LongFunction
  "andThenFloat"(arg0: $Int2FloatFunction$$Type): $Short2FloatFunction
- "composeShort"(arg0: $Short2ShortFunction$$Type): $Short2IntFunction
- "andThenObject"<T>(arg0: $Int2ObjectFunction$$Type<(T)>): $Short2ObjectFunction<(T)>
- "andThenByte"(arg0: $Int2ByteFunction$$Type): $Short2ByteFunction
- "andThenChar"(arg0: $Int2CharFunction$$Type): $Short2CharFunction
- "composeReference"<T>(arg0: $Reference2ShortFunction$$Type<(T)>): $Reference2IntFunction<(T)>
- "defaultReturnValue"(arg0: integer): void
- "defaultReturnValue"(): integer
- "composeByte"(arg0: $Byte2ShortFunction$$Type): $Byte2IntFunction
- "andThenShort"(arg0: $Int2ShortFunction$$Type): $Short2ShortFunction
- "composeLong"(arg0: $Long2ShortFunction$$Type): $Long2IntFunction
- "composeChar"(arg0: $Char2ShortFunction$$Type): $Char2IntFunction
- "composeFloat"(arg0: $Float2ShortFunction$$Type): $Float2IntFunction
- "andThenDouble"(arg0: $Int2DoubleFunction$$Type): $Short2DoubleFunction
- "composeDouble"(arg0: $Double2ShortFunction$$Type): $Double2IntFunction
+ "andThenInt"(arg0: $Int2IntFunction$$Type): $Short2IntFunction
+ "composeInt"(arg0: $Int2ShortFunction$$Type): $Int2IntFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: short): integer
@@ -22340,16 +22341,16 @@ import {$Collection$$Type, $Collection$$Interface} from "java.util.Collection"
 import {$IntStream} from "java.util.stream.IntStream"
 import {$Spliterator} from "java.util.Spliterator"
 import {$Predicate$$Type} from "java.util.function.Predicate"
-import {$IntPredicate$$Type as $IntPredicate$0$$Type} from "java.util.function.IntPredicate"
 import {$IntSpliterator} from "it.unimi.dsi.fastutil.ints.IntSpliterator"
+import {$IntPredicate$$Type} from "java.util.function.IntPredicate"
 import {$IntIterable$$Interface} from "it.unimi.dsi.fastutil.ints.IntIterable"
-import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$IntFunction$$Type} from "java.util.function.IntFunction"
+import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$IntIterator} from "it.unimi.dsi.fastutil.ints.IntIterator"
-import {$IntPredicate$$Type} from "it.unimi.dsi.fastutil.ints.IntPredicate"
-import {$IntConsumer$$Type} from "java.util.function.IntConsumer"
+import {$IntPredicate$$Type as $IntPredicate$0$$Type} from "it.unimi.dsi.fastutil.ints.IntPredicate"
+import {$IntConsumer$$Type as $IntConsumer$0$$Type} from "java.util.function.IntConsumer"
 import {$Stream} from "java.util.stream.Stream"
-import {$IntConsumer$$Type as $IntConsumer$0$$Type} from "it.unimi.dsi.fastutil.ints.IntConsumer"
+import {$IntConsumer$$Type} from "it.unimi.dsi.fastutil.ints.IntConsumer"
 
 export interface $IntCollection$$Interface extends $Collection$$Interface<(integer)>, $IntIterable$$Interface {
 get "empty"(): boolean
@@ -22393,8 +22394,8 @@ export class $IntCollection implements $IntCollection$$Interface {
  * @deprecated
  */
  "removeIf"(arg0: $Predicate$$Type<(integer)>): boolean
- "removeIf"(arg0: $IntPredicate$0$$Type): boolean
  "removeIf"(arg0: $IntPredicate$$Type): boolean
+ "removeIf"(arg0: $IntPredicate$0$$Type): boolean
  "removeAll"(arg0: $IntCollection$$Type): boolean
  "retainAll"(arg0: $IntCollection$$Type): boolean
  "containsAll"(arg0: $IntCollection$$Type): boolean
@@ -22410,9 +22411,9 @@ export class $IntCollection implements $IntCollection$$Interface {
  */
  "toIntArray"(arg0: (integer)[]): (integer)[]
  "toIntArray"(): (integer)[]
+ "intParallelStream"(): $IntStream
  "intSpliterator"(): $IntSpliterator
  "intIterator"(): $IntIterator
- "intParallelStream"(): $IntStream
  "size"(): integer
  "equals"(arg0: any): boolean
  "hashCode"(): integer
@@ -22425,13 +22426,13 @@ export class $IntCollection implements $IntCollection$$Interface {
  "removeAll"(arg0: $Collection$$Type<(never)>): boolean
  "retainAll"(arg0: $Collection$$Type<(never)>): boolean
  "containsAll"(arg0: $Collection$$Type<(never)>): boolean
- "forEach"(arg0: $IntConsumer$$Type): void
+ "forEach"(arg0: $IntConsumer$0$$Type): void
 /**
  * 
  * @deprecated
  */
  "forEach"(arg0: $Consumer$$Type<(integer)>): void
- "forEach"(arg0: $IntConsumer$0$$Type): void
+ "forEach"(arg0: $IntConsumer$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -22446,9 +22447,9 @@ declare module "it.unimi.dsi.fastutil.bytes.Byte2BooleanFunction" {
 import {$Reference2BooleanFunction} from "it.unimi.dsi.fastutil.objects.Reference2BooleanFunction"
 import {$Byte2ByteFunction, $Byte2ByteFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ByteFunction"
 import {$Float2BooleanFunction} from "it.unimi.dsi.fastutil.floats.Float2BooleanFunction"
+import {$Long2BooleanFunction} from "it.unimi.dsi.fastutil.longs.Long2BooleanFunction"
 import {$Byte2DoubleFunction} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Float2ByteFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ByteFunction"
-import {$Long2BooleanFunction} from "it.unimi.dsi.fastutil.longs.Long2BooleanFunction"
 import {$Long2ByteFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
 import {$Byte2IntFunction} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
 import {$IntPredicate, $IntPredicate$$Type, $IntPredicate$$Interface} from "java.util.function.IntPredicate"
@@ -22473,10 +22474,10 @@ import {$Char2ByteFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ByteFun
 import {$Boolean2ByteFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ByteFunction"
 import {$Boolean2IntFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2IntFunction"
 import {$Int2BooleanFunction} from "it.unimi.dsi.fastutil.ints.Int2BooleanFunction"
-import {$Byte2FloatFunction} from "it.unimi.dsi.fastutil.bytes.Byte2FloatFunction"
-import {$Boolean2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ObjectFunction"
-import {$Object2BooleanFunction} from "it.unimi.dsi.fastutil.objects.Object2BooleanFunction"
 import {$Boolean2ShortFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ShortFunction"
+import {$Byte2FloatFunction} from "it.unimi.dsi.fastutil.bytes.Byte2FloatFunction"
+import {$Object2BooleanFunction} from "it.unimi.dsi.fastutil.objects.Object2BooleanFunction"
+import {$Boolean2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ObjectFunction"
 import {$Short2ByteFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ByteFunction"
 import {$Boolean2LongFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2LongFunction"
 import {$Int2ByteFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ByteFunction"
@@ -22504,29 +22505,29 @@ export class $Byte2BooleanFunction implements $Byte2BooleanFunction$$Interface {
  * @deprecated
  */
  "put"(arg0: byte, arg1: boolean): boolean
- "put"(arg0: byte, arg1: boolean): boolean
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
+ "put"(arg0: byte, arg1: boolean): boolean
 /**
  * 
  * @deprecated
  */
  "test"(arg0: integer): boolean
- "containsKey"(arg0: byte): boolean
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: byte): boolean
+ "getOrDefault"(arg0: byte, arg1: boolean): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: byte, arg1: boolean): boolean
 /**
  * 
  * @deprecated
@@ -22542,26 +22543,26 @@ export class $Byte2BooleanFunction implements $Byte2BooleanFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(boolean), (T)>): $Function$0<(byte), (T)>
- "andThenInt"(arg0: $Boolean2IntFunction$$Type): $Byte2IntFunction
- "composeInt"(arg0: $Int2ByteFunction$$Type): $Int2BooleanFunction
- "andThenReference"<T>(arg0: $Boolean2ReferenceFunction$$Type<(T)>): $Byte2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Boolean2ObjectFunction$$Type<(T)>): $Byte2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2ByteFunction$$Type): $Short2BooleanFunction
+ "andThenDouble"(arg0: $Boolean2DoubleFunction$$Type): $Byte2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2ByteFunction$$Type<(T)>): $Reference2BooleanFunction<(T)>
+ "composeDouble"(arg0: $Double2ByteFunction$$Type): $Double2BooleanFunction
+ "andThenChar"(arg0: $Boolean2CharFunction$$Type): $Byte2CharFunction
+ "defaultReturnValue"(): boolean
+ "defaultReturnValue"(arg0: boolean): void
  "composeObject"<T>(arg0: $Object2ByteFunction$$Type<(T)>): $Object2BooleanFunction<(T)>
+ "andThenByte"(arg0: $Boolean2ByteFunction$$Type): $Byte2ByteFunction
+ "composeByte"(arg0: $Byte2ByteFunction$$Type): $Byte2BooleanFunction
+ "andThenReference"<T>(arg0: $Boolean2ReferenceFunction$$Type<(T)>): $Byte2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2ByteFunction$$Type): $Long2BooleanFunction
+ "composeFloat"(arg0: $Float2ByteFunction$$Type): $Float2BooleanFunction
+ "andThenShort"(arg0: $Boolean2ShortFunction$$Type): $Byte2ShortFunction
+ "composeChar"(arg0: $Char2ByteFunction$$Type): $Char2BooleanFunction
  "andThenLong"(arg0: $Boolean2LongFunction$$Type): $Byte2LongFunction
  "andThenFloat"(arg0: $Boolean2FloatFunction$$Type): $Byte2FloatFunction
- "composeShort"(arg0: $Short2ByteFunction$$Type): $Short2BooleanFunction
- "andThenObject"<T>(arg0: $Boolean2ObjectFunction$$Type<(T)>): $Byte2ObjectFunction<(T)>
- "andThenByte"(arg0: $Boolean2ByteFunction$$Type): $Byte2ByteFunction
- "andThenChar"(arg0: $Boolean2CharFunction$$Type): $Byte2CharFunction
- "composeReference"<T>(arg0: $Reference2ByteFunction$$Type<(T)>): $Reference2BooleanFunction<(T)>
- "defaultReturnValue"(arg0: boolean): void
- "defaultReturnValue"(): boolean
- "composeByte"(arg0: $Byte2ByteFunction$$Type): $Byte2BooleanFunction
- "andThenShort"(arg0: $Boolean2ShortFunction$$Type): $Byte2ShortFunction
- "composeLong"(arg0: $Long2ByteFunction$$Type): $Long2BooleanFunction
- "composeChar"(arg0: $Char2ByteFunction$$Type): $Char2BooleanFunction
- "composeFloat"(arg0: $Float2ByteFunction$$Type): $Float2BooleanFunction
- "andThenDouble"(arg0: $Boolean2DoubleFunction$$Type): $Byte2DoubleFunction
- "composeDouble"(arg0: $Double2ByteFunction$$Type): $Double2BooleanFunction
+ "andThenInt"(arg0: $Boolean2IntFunction$$Type): $Byte2IntFunction
+ "composeInt"(arg0: $Int2ByteFunction$$Type): $Int2BooleanFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: byte): boolean
@@ -22651,8 +22652,8 @@ export type $FloatUnaryOperator$$Type = ((arg0: float) => float);
 export type $FloatUnaryOperator$$Original = $FloatUnaryOperator;}
 declare module "it.unimi.dsi.fastutil.longs.LongSpliterator" {
 import {$Spliterator$OfLong$$Interface} from "java.util.Spliterator$OfLong"
-import {$Comparator} from "java.util.Comparator"
 import {$LongConsumer$$Type as $LongConsumer$0$$Type} from "java.util.function.LongConsumer"
+import {$Comparator} from "java.util.Comparator"
 import {$Spliterator} from "java.util.Spliterator"
 import {$LongConsumer$$Type} from "it.unimi.dsi.fastutil.longs.LongConsumer"
 import {$Consumer$$Type} from "java.util.function.Consumer"
@@ -22706,8 +22707,8 @@ import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$Long2ObjectMap$Entry, $Long2ObjectMap$Entry$$Type} from "it.unimi.dsi.fastutil.longs.Long2ObjectMap$Entry"
 import {$Set} from "java.util.Set"
 import {$Stream} from "java.util.stream.Stream"
-import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$IntFunction$$Type} from "java.util.function.IntFunction"
+import {$Consumer$$Type} from "java.util.function.Consumer"
 
 export interface $Long2ObjectMap$FastEntrySet$$Interface<V> extends $ObjectSet$$Interface<($Long2ObjectMap$Entry<(V)>)> {
 get "empty"(): boolean
@@ -22762,13 +22763,13 @@ export type $Long2ObjectMap$FastEntrySet$$Type<V> = ($Long2ObjectMap$FastEntrySe
 export type $Long2ObjectMap$FastEntrySet$$Original<V> = $Long2ObjectMap$FastEntrySet<(V)>;}
 declare module "it.unimi.dsi.fastutil.booleans.Boolean2FloatFunction" {
 import {$Reference2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2BooleanFunction"
-import {$Float2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ReferenceFunction"
 import {$Float2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2BooleanFunction"
+import {$Float2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ReferenceFunction"
 import {$Long2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2BooleanFunction"
 import {$Float2ByteFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ByteFunction"
 import {$Int2FloatFunction} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
-import {$Double2FloatFunction} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Float2IntFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
+import {$Double2FloatFunction} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
 import {$Object2FloatFunction} from "it.unimi.dsi.fastutil.objects.Object2FloatFunction"
 import {$Float2CharFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2CharFunction"
@@ -22782,8 +22783,8 @@ import {$Boolean2ReferenceFunction} from "it.unimi.dsi.fastutil.booleans.Boolean
 import {$Double2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2BooleanFunction"
 import {$Reference2FloatFunction} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
 import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
-import {$Float2FloatFunction, $Float2FloatFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2FloatFunction"
 import {$Short2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2BooleanFunction"
+import {$Float2FloatFunction, $Float2FloatFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2FloatFunction"
 import {$Boolean2ByteFunction} from "it.unimi.dsi.fastutil.booleans.Boolean2ByteFunction"
 import {$Char2FloatFunction} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
 import {$Long2FloatFunction} from "it.unimi.dsi.fastutil.longs.Long2FloatFunction"
@@ -22791,12 +22792,12 @@ import {$Boolean2IntFunction} from "it.unimi.dsi.fastutil.booleans.Boolean2IntFu
 import {$Byte2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2BooleanFunction"
 import {$Int2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2BooleanFunction"
 import {$Short2FloatFunction} from "it.unimi.dsi.fastutil.shorts.Short2FloatFunction"
-import {$Byte2FloatFunction} from "it.unimi.dsi.fastutil.bytes.Byte2FloatFunction"
 import {$Boolean2ObjectFunction} from "it.unimi.dsi.fastutil.booleans.Boolean2ObjectFunction"
+import {$Byte2FloatFunction} from "it.unimi.dsi.fastutil.bytes.Byte2FloatFunction"
 import {$Object2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2BooleanFunction"
 import {$Boolean2ShortFunction} from "it.unimi.dsi.fastutil.booleans.Boolean2ShortFunction"
-import {$Float2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2DoubleFunction"
 import {$Boolean2LongFunction} from "it.unimi.dsi.fastutil.booleans.Boolean2LongFunction"
+import {$Float2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2DoubleFunction"
 
 export interface $Boolean2FloatFunction$$Interface extends $Function$$Interface<(boolean), (float)> {
 
@@ -22804,35 +22805,40 @@ export interface $Boolean2FloatFunction$$Interface extends $Function$$Interface<
 }
 
 export class $Boolean2FloatFunction implements $Boolean2FloatFunction$$Interface {
- "remove"(arg0: boolean): float
 /**
  * 
  * @deprecated
  */
- "remove"(arg0: any): any
+ "remove"(arg0: any): float
+ "remove"(arg0: boolean): float
 /**
  * 
  * @deprecated
  */
  "get"(arg0: any): float
  "get"(arg0: boolean): float
- "put"(arg0: boolean, arg1: float): float
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
+ "put"(arg0: boolean, arg1: float): float
 /**
  * 
  * @deprecated
  */
  "put"(arg0: boolean, arg1: float): float
- "containsKey"(arg0: boolean): boolean
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: boolean): boolean
+/**
+ * 
+ * @deprecated
+ */
+ "getOrDefault"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
@@ -22843,37 +22849,32 @@ export class $Boolean2FloatFunction implements $Boolean2FloatFunction$$Interface
  * 
  * @deprecated
  */
- "getOrDefault"(arg0: any, arg1: any): any
-/**
- * 
- * @deprecated
- */
  "compose"<T>(arg0: $Function$0$$Type<(T), (boolean)>): $Function$0<(T), (float)>
 /**
  * 
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(float), (T)>): $Function$0<(boolean), (T)>
- "andThenInt"(arg0: $Float2IntFunction$$Type): $Boolean2IntFunction
- "composeInt"(arg0: $Int2BooleanFunction$$Type): $Int2FloatFunction
- "andThenReference"<T>(arg0: $Float2ReferenceFunction$$Type<(T)>): $Boolean2ReferenceFunction<(T)>
- "composeObject"<T>(arg0: $Object2BooleanFunction$$Type<(T)>): $Object2FloatFunction<(T)>
- "andThenLong"(arg0: $Float2LongFunction$$Type): $Boolean2LongFunction
- "andThenFloat"(arg0: $Float2FloatFunction$$Type): $Boolean2FloatFunction
- "composeShort"(arg0: $Short2BooleanFunction$$Type): $Short2FloatFunction
  "andThenObject"<T>(arg0: $Float2ObjectFunction$$Type<(T)>): $Boolean2ObjectFunction<(T)>
- "andThenByte"(arg0: $Float2ByteFunction$$Type): $Boolean2ByteFunction
- "andThenChar"(arg0: $Float2CharFunction$$Type): $Boolean2CharFunction
+ "composeShort"(arg0: $Short2BooleanFunction$$Type): $Short2FloatFunction
+ "andThenDouble"(arg0: $Float2DoubleFunction$$Type): $Boolean2DoubleFunction
  "composeReference"<T>(arg0: $Reference2BooleanFunction$$Type<(T)>): $Reference2FloatFunction<(T)>
+ "composeDouble"(arg0: $Double2BooleanFunction$$Type): $Double2FloatFunction
+ "andThenChar"(arg0: $Float2CharFunction$$Type): $Boolean2CharFunction
  "defaultReturnValue"(arg0: float): void
  "defaultReturnValue"(): float
+ "composeObject"<T>(arg0: $Object2BooleanFunction$$Type<(T)>): $Object2FloatFunction<(T)>
+ "andThenByte"(arg0: $Float2ByteFunction$$Type): $Boolean2ByteFunction
  "composeByte"(arg0: $Byte2BooleanFunction$$Type): $Byte2FloatFunction
- "andThenShort"(arg0: $Float2ShortFunction$$Type): $Boolean2ShortFunction
+ "andThenReference"<T>(arg0: $Float2ReferenceFunction$$Type<(T)>): $Boolean2ReferenceFunction<(T)>
  "composeLong"(arg0: $Long2BooleanFunction$$Type): $Long2FloatFunction
- "composeChar"(arg0: $Char2BooleanFunction$$Type): $Char2FloatFunction
  "composeFloat"(arg0: $Float2BooleanFunction$$Type): $Float2FloatFunction
- "andThenDouble"(arg0: $Float2DoubleFunction$$Type): $Boolean2DoubleFunction
- "composeDouble"(arg0: $Double2BooleanFunction$$Type): $Double2FloatFunction
+ "andThenShort"(arg0: $Float2ShortFunction$$Type): $Boolean2ShortFunction
+ "composeChar"(arg0: $Char2BooleanFunction$$Type): $Char2FloatFunction
+ "andThenLong"(arg0: $Float2LongFunction$$Type): $Boolean2LongFunction
+ "andThenFloat"(arg0: $Float2FloatFunction$$Type): $Boolean2FloatFunction
+ "andThenInt"(arg0: $Float2IntFunction$$Type): $Boolean2IntFunction
+ "composeInt"(arg0: $Int2BooleanFunction$$Type): $Int2FloatFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: boolean): float
@@ -22892,21 +22893,21 @@ declare module "it.unimi.dsi.fastutil.ints.Int2ObjectMap" {
 import {$Object2IntFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2IntFunction"
 import {$Reference2IntFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2IntFunction"
 import {$Long2IntFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
-import {$Short2IntFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction"
 import {$Object2ObjectFunction, $Object2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ObjectFunction"
+import {$Short2IntFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction"
 import {$Int2FloatFunction} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
 import {$Byte2IntFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
 import {$Int2ObjectMap$Entry} from "it.unimi.dsi.fastutil.ints.Int2ObjectMap$Entry"
 import {$Map$Entry, $Map$Entry$$Type} from "java.util.Map$Entry"
 import {$IntFunction$$Type} from "java.util.function.IntFunction"
-import {$Float2IntFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
 import {$Int2CharFunction} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
+import {$Float2IntFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
 import {$Int2ReferenceFunction} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
 import {$Int2ObjectFunction, $Int2ObjectFunction$$Type, $Int2ObjectFunction$$Interface} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
 import {$Char2ObjectFunction} from "it.unimi.dsi.fastutil.chars.Char2ObjectFunction"
 import {$Object2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2DoubleFunction"
-import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Function, $Function$$Type} from "java.util.function.Function"
+import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Object2FloatFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2FloatFunction"
 import {$Byte2ObjectFunction} from "it.unimi.dsi.fastutil.bytes.Byte2ObjectFunction"
 import {$Set} from "java.util.Set"
@@ -22919,12 +22920,12 @@ import {$Object2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2B
 import {$BiFunction$$Type} from "java.util.function.BiFunction"
 import {$Float2ObjectFunction} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$ObjectCollection} from "it.unimi.dsi.fastutil.objects.ObjectCollection"
-import {$Int2LongFunction} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
 import {$ObjectSet} from "it.unimi.dsi.fastutil.objects.ObjectSet"
-import {$Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
-import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
+import {$Int2LongFunction} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
 import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
+import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Char2IntFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
+import {$Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
 import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$Double2IntFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2IntFunction"
 import {$Object2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
@@ -22989,9 +22990,9 @@ export class $Int2ObjectMap<V> implements $Int2ObjectMap$$Interface {
  */
  "getOrDefault"(arg0: any, arg1: V): V
  "computeIfPresent"(arg0: integer, arg1: $BiFunction$$Type<(integer), (V), (V)>): V
- "int2ObjectEntrySet"(): $ObjectSet<($Int2ObjectMap$Entry<(V)>)>
  "defaultReturnValue"(arg0: V): void
  "defaultReturnValue"(): V
+ "int2ObjectEntrySet"(): $ObjectSet<($Int2ObjectMap$Entry<(V)>)>
 /**
  * 
  * @deprecated
@@ -23006,24 +23007,24 @@ export class $Int2ObjectMap<V> implements $Int2ObjectMap$$Interface {
  * @deprecated
  */
  "compose"<T>(arg0: $Function$$Type<(T), (integer)>): $Function<(T), (V)>
- "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Int2IntFunction
- "composeInt"(arg0: $Int2IntFunction$$Type): $Int2ObjectFunction<(V)>
- "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Int2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Object2ObjectFunction$$Type<(V), (T)>): $Int2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2IntFunction$$Type): $Short2ObjectFunction<(V)>
+ "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Int2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2IntFunction$$Type<(T)>): $Reference2ObjectFunction<(T), (V)>
+ "composeDouble"(arg0: $Double2IntFunction$$Type): $Double2ObjectFunction<(V)>
+ "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Int2CharFunction
  "composeObject"<T>(arg0: $Object2IntFunction$$Type<(T)>): $Object2ObjectFunction<(T), (V)>
+ "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Int2ByteFunction
+ "composeByte"(arg0: $Byte2IntFunction$$Type): $Byte2ObjectFunction<(V)>
+ "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Int2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2IntFunction$$Type): $Long2ObjectFunction<(V)>
+ "composeFloat"(arg0: $Float2IntFunction$$Type): $Float2ObjectFunction<(V)>
+ "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Int2ShortFunction
+ "composeChar"(arg0: $Char2IntFunction$$Type): $Char2ObjectFunction<(V)>
  "andThenLong"(arg0: $Object2LongFunction$$Type<(V)>): $Int2LongFunction
  "andThenFloat"(arg0: $Object2FloatFunction$$Type<(V)>): $Int2FloatFunction
- "composeShort"(arg0: $Short2IntFunction$$Type): $Short2ObjectFunction<(V)>
- "andThenObject"<T>(arg0: $Object2ObjectFunction$$Type<(V), (T)>): $Int2ObjectFunction<(T)>
- "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Int2ByteFunction
- "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Int2CharFunction
- "composeReference"<T>(arg0: $Reference2IntFunction$$Type<(T)>): $Reference2ObjectFunction<(T), (V)>
- "composeByte"(arg0: $Byte2IntFunction$$Type): $Byte2ObjectFunction<(V)>
- "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Int2ShortFunction
- "composeLong"(arg0: $Long2IntFunction$$Type): $Long2ObjectFunction<(V)>
- "composeChar"(arg0: $Char2IntFunction$$Type): $Char2ObjectFunction<(V)>
- "composeFloat"(arg0: $Float2IntFunction$$Type): $Float2ObjectFunction<(V)>
- "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Int2DoubleFunction
- "composeDouble"(arg0: $Double2IntFunction$$Type): $Double2ObjectFunction<(V)>
+ "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Int2IntFunction
+ "composeInt"(arg0: $Int2IntFunction$$Type): $Int2ObjectFunction<(V)>
  "remove"(arg0: any, arg1: any): boolean
  "equals"(arg0: any): boolean
  "hashCode"(): integer
@@ -23068,8 +23069,8 @@ export type $Int2ObjectMap$$Original<V> = $Int2ObjectMap<(V)>;}
 declare module "it.unimi.dsi.fastutil.objects.AbstractReferenceSet" {
 import {$AbstractReferenceCollection} from "it.unimi.dsi.fastutil.objects.AbstractReferenceCollection"
 import {$Collection$$Type} from "java.util.Collection"
-import {$ObjectIterator} from "it.unimi.dsi.fastutil.objects.ObjectIterator"
 import {$Spliterator} from "java.util.Spliterator"
+import {$ObjectIterator} from "it.unimi.dsi.fastutil.objects.ObjectIterator"
 import {$ReferenceSet, $ReferenceSet$$Interface} from "it.unimi.dsi.fastutil.objects.ReferenceSet"
 import {$Cloneable$$Interface} from "java.lang.Cloneable"
 import {$Set} from "java.util.Set"
@@ -23168,9 +23169,9 @@ import {$Long2CharFunction} from "it.unimi.dsi.fastutil.longs.Long2CharFunction"
 import {$Long2IntFunction} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
 import {$Long2ByteFunction} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
 import {$Int2FloatFunction} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
-import {$Double2FloatFunction} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
-import {$Reference2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
 import {$Float2IntFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
+import {$Reference2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
+import {$Double2FloatFunction} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Long2ShortFunction} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
 import {$LongToDoubleFunction$$Interface} from "java.util.function.LongToDoubleFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
@@ -23184,9 +23185,9 @@ import {$Float2ShortFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2Sho
 import {$Long2ReferenceFunction} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
 import {$Byte2LongFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2LongFunction"
 import {$Reference2FloatFunction} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
-import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
-import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Double2LongFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
+import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
+import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Short2LongFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$Float2FloatFunction, $Float2FloatFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2FloatFunction"
 import {$Int2LongFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
@@ -23213,36 +23214,36 @@ export class $Long2FloatFunction implements $Long2FloatFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): float
+ "get"(arg0: any): any
  "get"(arg0: long): float
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: long, arg1: float): float
 /**
  * 
  * @deprecated
  */
  "put"(arg0: long, arg1: float): float
- "containsKey"(arg0: long): boolean
+ "put"(arg0: long, arg1: float): float
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: long): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: long, arg1: float): float
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: float): float
+ "getOrDefault"(arg0: long, arg1: float): float
  "applyAsDouble"(arg0: long): double
 /**
  * 
@@ -23254,26 +23255,26 @@ export class $Long2FloatFunction implements $Long2FloatFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(float), (T)>): $Function$0<(long), (T)>
- "andThenInt"(arg0: $Float2IntFunction$$Type): $Long2IntFunction
- "composeInt"(arg0: $Int2LongFunction$$Type): $Int2FloatFunction
- "andThenReference"<T>(arg0: $Float2ReferenceFunction$$Type<(T)>): $Long2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Float2ObjectFunction$$Type<(T)>): $Long2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2LongFunction$$Type): $Short2FloatFunction
+ "andThenDouble"(arg0: $Float2DoubleFunction$$Type): $Long2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2LongFunction$$Type<(T)>): $Reference2FloatFunction<(T)>
+ "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2FloatFunction
+ "andThenChar"(arg0: $Float2CharFunction$$Type): $Long2CharFunction
+ "defaultReturnValue"(): float
+ "defaultReturnValue"(arg0: float): void
  "composeObject"<T>(arg0: $Object2LongFunction$$Type<(T)>): $Object2FloatFunction<(T)>
+ "andThenByte"(arg0: $Float2ByteFunction$$Type): $Long2ByteFunction
+ "composeByte"(arg0: $Byte2LongFunction$$Type): $Byte2FloatFunction
+ "andThenReference"<T>(arg0: $Float2ReferenceFunction$$Type<(T)>): $Long2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2LongFunction$$Type): $Long2FloatFunction
+ "composeFloat"(arg0: $Float2LongFunction$$Type): $Float2FloatFunction
+ "andThenShort"(arg0: $Float2ShortFunction$$Type): $Long2ShortFunction
+ "composeChar"(arg0: $Char2LongFunction$$Type): $Char2FloatFunction
  "andThenLong"(arg0: $Float2LongFunction$$Type): $Long2LongFunction
  "andThenFloat"(arg0: $Float2FloatFunction$$Type): $Long2FloatFunction
- "composeShort"(arg0: $Short2LongFunction$$Type): $Short2FloatFunction
- "andThenObject"<T>(arg0: $Float2ObjectFunction$$Type<(T)>): $Long2ObjectFunction<(T)>
- "andThenByte"(arg0: $Float2ByteFunction$$Type): $Long2ByteFunction
- "andThenChar"(arg0: $Float2CharFunction$$Type): $Long2CharFunction
- "composeReference"<T>(arg0: $Reference2LongFunction$$Type<(T)>): $Reference2FloatFunction<(T)>
- "defaultReturnValue"(arg0: float): void
- "defaultReturnValue"(): float
- "composeByte"(arg0: $Byte2LongFunction$$Type): $Byte2FloatFunction
- "andThenShort"(arg0: $Float2ShortFunction$$Type): $Long2ShortFunction
- "composeLong"(arg0: $Long2LongFunction$$Type): $Long2FloatFunction
- "composeChar"(arg0: $Char2LongFunction$$Type): $Char2FloatFunction
- "composeFloat"(arg0: $Float2LongFunction$$Type): $Float2FloatFunction
- "andThenDouble"(arg0: $Float2DoubleFunction$$Type): $Long2DoubleFunction
- "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2FloatFunction
+ "andThenInt"(arg0: $Float2IntFunction$$Type): $Long2IntFunction
+ "composeInt"(arg0: $Int2LongFunction$$Type): $Int2FloatFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: long): float
@@ -23322,8 +23323,8 @@ import {$Reference2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Reference
 import {$Boolean2ObjectFunction} from "it.unimi.dsi.fastutil.booleans.Boolean2ObjectFunction"
 import {$Object2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2BooleanFunction"
 import {$Boolean2ShortFunction} from "it.unimi.dsi.fastutil.booleans.Boolean2ShortFunction"
-import {$Boolean2LongFunction} from "it.unimi.dsi.fastutil.booleans.Boolean2LongFunction"
 import {$Float2DoubleFunction} from "it.unimi.dsi.fastutil.floats.Float2DoubleFunction"
+import {$Boolean2LongFunction} from "it.unimi.dsi.fastutil.booleans.Boolean2LongFunction"
 import {$Double2ShortFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ShortFunction"
 
 export interface $Boolean2DoubleFunction$$Interface extends $Function$$Interface<(boolean), (double)> {
@@ -23332,35 +23333,40 @@ export interface $Boolean2DoubleFunction$$Interface extends $Function$$Interface
 }
 
 export class $Boolean2DoubleFunction implements $Boolean2DoubleFunction$$Interface {
- "remove"(arg0: boolean): double
 /**
  * 
  * @deprecated
  */
- "remove"(arg0: any): any
+ "remove"(arg0: any): double
+ "remove"(arg0: boolean): double
 /**
  * 
  * @deprecated
  */
  "get"(arg0: any): double
  "get"(arg0: boolean): double
- "put"(arg0: boolean, arg1: double): double
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
+ "put"(arg0: boolean, arg1: double): double
 /**
  * 
  * @deprecated
  */
  "put"(arg0: boolean, arg1: double): double
- "containsKey"(arg0: boolean): boolean
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: boolean): boolean
+/**
+ * 
+ * @deprecated
+ */
+ "getOrDefault"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
@@ -23371,37 +23377,32 @@ export class $Boolean2DoubleFunction implements $Boolean2DoubleFunction$$Interfa
  * 
  * @deprecated
  */
- "getOrDefault"(arg0: any, arg1: any): any
-/**
- * 
- * @deprecated
- */
  "compose"<T>(arg0: $Function$0$$Type<(T), (boolean)>): $Function$0<(T), (double)>
 /**
  * 
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(double), (T)>): $Function$0<(boolean), (T)>
- "andThenInt"(arg0: $Double2IntFunction$$Type): $Boolean2IntFunction
- "composeInt"(arg0: $Int2BooleanFunction$$Type): $Int2DoubleFunction
- "andThenReference"<T>(arg0: $Double2ReferenceFunction$$Type<(T)>): $Boolean2ReferenceFunction<(T)>
- "composeObject"<T>(arg0: $Object2BooleanFunction$$Type<(T)>): $Object2DoubleFunction<(T)>
- "andThenLong"(arg0: $Double2LongFunction$$Type): $Boolean2LongFunction
- "andThenFloat"(arg0: $Double2FloatFunction$$Type): $Boolean2FloatFunction
- "composeShort"(arg0: $Short2BooleanFunction$$Type): $Short2DoubleFunction
  "andThenObject"<T>(arg0: $Double2ObjectFunction$$Type<(T)>): $Boolean2ObjectFunction<(T)>
- "andThenByte"(arg0: $Double2ByteFunction$$Type): $Boolean2ByteFunction
- "andThenChar"(arg0: $Double2CharFunction$$Type): $Boolean2CharFunction
+ "composeShort"(arg0: $Short2BooleanFunction$$Type): $Short2DoubleFunction
+ "andThenDouble"(arg0: $Double2DoubleFunction$$Type): $Boolean2DoubleFunction
  "composeReference"<T>(arg0: $Reference2BooleanFunction$$Type<(T)>): $Reference2DoubleFunction<(T)>
+ "composeDouble"(arg0: $Double2BooleanFunction$$Type): $Double2DoubleFunction
+ "andThenChar"(arg0: $Double2CharFunction$$Type): $Boolean2CharFunction
  "defaultReturnValue"(arg0: double): void
  "defaultReturnValue"(): double
+ "composeObject"<T>(arg0: $Object2BooleanFunction$$Type<(T)>): $Object2DoubleFunction<(T)>
+ "andThenByte"(arg0: $Double2ByteFunction$$Type): $Boolean2ByteFunction
  "composeByte"(arg0: $Byte2BooleanFunction$$Type): $Byte2DoubleFunction
- "andThenShort"(arg0: $Double2ShortFunction$$Type): $Boolean2ShortFunction
+ "andThenReference"<T>(arg0: $Double2ReferenceFunction$$Type<(T)>): $Boolean2ReferenceFunction<(T)>
  "composeLong"(arg0: $Long2BooleanFunction$$Type): $Long2DoubleFunction
- "composeChar"(arg0: $Char2BooleanFunction$$Type): $Char2DoubleFunction
  "composeFloat"(arg0: $Float2BooleanFunction$$Type): $Float2DoubleFunction
- "andThenDouble"(arg0: $Double2DoubleFunction$$Type): $Boolean2DoubleFunction
- "composeDouble"(arg0: $Double2BooleanFunction$$Type): $Double2DoubleFunction
+ "andThenShort"(arg0: $Double2ShortFunction$$Type): $Boolean2ShortFunction
+ "composeChar"(arg0: $Char2BooleanFunction$$Type): $Char2DoubleFunction
+ "andThenLong"(arg0: $Double2LongFunction$$Type): $Boolean2LongFunction
+ "andThenFloat"(arg0: $Double2FloatFunction$$Type): $Boolean2FloatFunction
+ "andThenInt"(arg0: $Double2IntFunction$$Type): $Boolean2IntFunction
+ "composeInt"(arg0: $Int2BooleanFunction$$Type): $Int2DoubleFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: boolean): double
@@ -23419,8 +23420,8 @@ export type $Boolean2DoubleFunction$$Original = $Boolean2DoubleFunction;}
 declare module "it.unimi.dsi.fastutil.objects.Object2ByteLinkedOpenHashMap" {
 import {$AbstractObject2ByteSortedMap} from "it.unimi.dsi.fastutil.objects.AbstractObject2ByteSortedMap"
 import {$Map, $Map$$Type} from "java.util.Map"
-import {$Hash$$Interface} from "it.unimi.dsi.fastutil.Hash"
 import {$Comparator} from "java.util.Comparator"
+import {$Hash$$Interface} from "it.unimi.dsi.fastutil.Hash"
 import {$ByteCollection} from "it.unimi.dsi.fastutil.bytes.ByteCollection"
 import {$Object2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ByteFunction"
 import {$Map$Entry, $Map$Entry$$Type} from "java.util.Map$Entry"
@@ -23431,7 +23432,6 @@ import {$ObjectSet} from "it.unimi.dsi.fastutil.objects.ObjectSet"
 import {$Object2ByteMap$$Type} from "it.unimi.dsi.fastutil.objects.Object2ByteMap"
 import {$Serializable$$Interface} from "java.io.Serializable"
 import {$Function} from "java.util.function.Function"
-import {$ObjectSortedSet} from "it.unimi.dsi.fastutil.objects.ObjectSortedSet"
 import {$Cloneable$$Interface} from "java.lang.Cloneable"
 import {$SortedMap} from "java.util.SortedMap"
 
@@ -23465,27 +23465,27 @@ public "putIfAbsent"(arg0: K, arg1: byte): byte
 public "containsKey"(arg0: any): boolean
 public "computeIfAbsent"(arg0: K, arg1: $ToIntFunction$$Type<(K)>): byte
 public "computeIfAbsent"(arg0: K, arg1: $Object2ByteFunction$$Type<(K)>): byte
-public "keySet"(): $ObjectSortedSet<(K)>
+public "keySet"(): $ObjectSet
 public "containsValue"(arg0: byte): boolean
 public "getOrDefault"(arg0: any, arg1: byte): byte
 public "ensureCapacity"(arg0: integer): void
 public "comparator"(): $Comparator<(K)>
 public "firstKey"(): K
 public "addTo"(arg0: K, arg1: byte): byte
-public "subMap"(arg0: any, arg1: any): $SortedMap
+public "subMap"(arg0: K, arg1: K): $Object2ByteSortedMap<(K)>
 public "headMap"(arg0: any): $SortedMap
-public "tailMap"(arg0: K): $Object2ByteSortedMap<(K)>
+public "tailMap"(arg0: any): $SortedMap
 public "lastKey"(): K
-public "removeByte"(arg0: any): byte
-public "object2ByteEntrySet"(): $ObjectSortedSet
-public "computeByteIfPresent"(arg0: K, arg1: $BiFunction$$Type<(K), (byte), (byte)>): byte
-public "computeByte"(arg0: K, arg1: $BiFunction$$Type<(K), (byte), (byte)>): byte
 public "removeFirstByte"(): byte
+public "computeByte"(arg0: K, arg1: $BiFunction$$Type<(K), (byte), (byte)>): byte
 public "removeLastByte"(): byte
-public "putAndMoveToLast"(arg0: K, arg1: byte): byte
 public "getAndMoveToFirst"(arg0: K): byte
 public "putAndMoveToFirst"(arg0: K, arg1: byte): byte
 public "getAndMoveToLast"(arg0: K): byte
+public "putAndMoveToLast"(arg0: K, arg1: byte): byte
+public "removeByte"(arg0: any): byte
+public "object2ByteEntrySet"(): $ObjectSet
+public "computeByteIfPresent"(arg0: K, arg1: $BiFunction$$Type<(K), (byte), (byte)>): byte
 /**
  * 
  * @deprecated
@@ -23596,9 +23596,9 @@ import {$Boolean2ReferenceFunction} from "it.unimi.dsi.fastutil.booleans.Boolean
 import {$Double2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2BooleanFunction"
 import {$Float2ObjectFunction} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Short2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2BooleanFunction"
-import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
-import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
+import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
+import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Boolean2ByteFunction} from "it.unimi.dsi.fastutil.booleans.Boolean2ByteFunction"
 import {$Boolean2IntFunction} from "it.unimi.dsi.fastutil.booleans.Boolean2IntFunction"
 import {$Byte2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2BooleanFunction"
@@ -23656,26 +23656,26 @@ export class $Boolean2ObjectFunction<V> implements $Boolean2ObjectFunction$$Inte
  * @deprecated
  */
  "compose"<T>(arg0: $Function$0$$Type<(T), (boolean)>): $Function$0<(T), (V)>
- "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Boolean2IntFunction
- "composeInt"(arg0: $Int2BooleanFunction$$Type): $Int2ObjectFunction<(V)>
- "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Boolean2ReferenceFunction<(T)>
- "composeObject"<T>(arg0: $Object2BooleanFunction$$Type<(T)>): $Object2ObjectFunction<(T), (V)>
- "andThenLong"(arg0: $Object2LongFunction$$Type<(V)>): $Boolean2LongFunction
- "andThenFloat"(arg0: $Object2FloatFunction$$Type<(V)>): $Boolean2FloatFunction
- "composeShort"(arg0: $Short2BooleanFunction$$Type): $Short2ObjectFunction<(V)>
  "andThenObject"<T>(arg0: $Object2ObjectFunction$$Type<(V), (T)>): $Boolean2ObjectFunction<(T)>
- "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Boolean2ByteFunction
- "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Boolean2CharFunction
+ "composeShort"(arg0: $Short2BooleanFunction$$Type): $Short2ObjectFunction<(V)>
+ "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Boolean2DoubleFunction
  "composeReference"<T>(arg0: $Reference2BooleanFunction$$Type<(T)>): $Reference2ObjectFunction<(T), (V)>
+ "composeDouble"(arg0: $Double2BooleanFunction$$Type): $Double2ObjectFunction<(V)>
+ "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Boolean2CharFunction
  "defaultReturnValue"(arg0: V): void
  "defaultReturnValue"(): V
+ "composeObject"<T>(arg0: $Object2BooleanFunction$$Type<(T)>): $Object2ObjectFunction<(T), (V)>
+ "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Boolean2ByteFunction
  "composeByte"(arg0: $Byte2BooleanFunction$$Type): $Byte2ObjectFunction<(V)>
- "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Boolean2ShortFunction
+ "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Boolean2ReferenceFunction<(T)>
  "composeLong"(arg0: $Long2BooleanFunction$$Type): $Long2ObjectFunction<(V)>
- "composeChar"(arg0: $Char2BooleanFunction$$Type): $Char2ObjectFunction<(V)>
  "composeFloat"(arg0: $Float2BooleanFunction$$Type): $Float2ObjectFunction<(V)>
- "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Boolean2DoubleFunction
- "composeDouble"(arg0: $Double2BooleanFunction$$Type): $Double2ObjectFunction<(V)>
+ "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Boolean2ShortFunction
+ "composeChar"(arg0: $Char2BooleanFunction$$Type): $Char2ObjectFunction<(V)>
+ "andThenLong"(arg0: $Object2LongFunction$$Type<(V)>): $Boolean2LongFunction
+ "andThenFloat"(arg0: $Object2FloatFunction$$Type<(V)>): $Boolean2FloatFunction
+ "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Boolean2IntFunction
+ "composeInt"(arg0: $Int2BooleanFunction$$Type): $Int2ObjectFunction<(V)>
  "size"(): integer
  "clear"(): void
  "apply"(arg0: boolean): V
@@ -23735,9 +23735,9 @@ public "push"(arg0: K): void
 public "pop"(): K
 public "getElements"(arg0: integer, arg1: (any)[], arg2: integer, arg3: integer): void
 public "setElements"(arg0: integer, arg1: (K)[], arg2: integer, arg3: integer): void
-public "removeElements"(arg0: integer, arg1: integer): void
 public "addElements"(arg0: integer, arg1: (K)[], arg2: integer, arg3: integer): void
 public "addElements"(arg0: integer, arg1: (K)[]): void
+public "removeElements"(arg0: integer, arg1: integer): void
 public static "of"<K>(...arg0: (K)[]): $ObjectList<(K)>
 public static "of"<K>(arg0: K, arg1: K, arg2: K): $ObjectList<(K)>
 public static "of"<K>(arg0: K, arg1: K): $ObjectList<(K)>
@@ -23860,13 +23860,13 @@ export type $ShortListIterator$$Original = $ShortListIterator;}
 declare module "it.unimi.dsi.fastutil.objects.ReferenceOpenHashSet" {
 import {$Iterator, $Iterator$$Type} from "java.util.Iterator"
 import {$Collection$$Type} from "java.util.Collection"
-import {$Hash$$Interface} from "it.unimi.dsi.fastutil.Hash"
-import {$Spliterator} from "java.util.Spliterator"
 import {$Serializable$$Interface} from "java.io.Serializable"
+import {$Spliterator} from "java.util.Spliterator"
+import {$Hash$$Interface} from "it.unimi.dsi.fastutil.Hash"
 import {$AbstractReferenceSet} from "it.unimi.dsi.fastutil.objects.AbstractReferenceSet"
+import {$Cloneable$$Interface} from "java.lang.Cloneable"
 import {$Collector} from "java.util.stream.Collector"
 import {$ReferenceCollection$$Type} from "it.unimi.dsi.fastutil.objects.ReferenceCollection"
-import {$Cloneable$$Interface} from "java.lang.Cloneable"
 import {$Set} from "java.util.Set"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 
@@ -23937,12 +23937,12 @@ import {$Float2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float
 import {$Long2CharFunction} from "it.unimi.dsi.fastutil.longs.Long2CharFunction"
 import {$Reference2IntFunction} from "it.unimi.dsi.fastutil.objects.Reference2IntFunction"
 import {$Reference2ShortFunction} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
-import {$Reference2LongFunction} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
 import {$Int2CharFunction} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
+import {$Reference2LongFunction} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
 import {$Double2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
-import {$Short2CharFunction} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
-import {$Reference2ByteFunction} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Int2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
+import {$Reference2ByteFunction} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
+import {$Short2CharFunction} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
 import {$Byte2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
 import {$Char2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ObjectFunction"
 import {$Char2ShortFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ShortFunction"
@@ -23961,9 +23961,9 @@ import {$Reference2FloatFunction} from "it.unimi.dsi.fastutil.objects.Reference2
 import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$ToIntFunction$$Interface} from "java.util.function.ToIntFunction"
 import {$Char2ByteFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ByteFunction"
+import {$Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
 import {$Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
 import {$Char2IntFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
-import {$Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
 import {$Char2FloatFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
 import {$Reference2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Reference2DoubleFunction"
 
@@ -23977,61 +23977,61 @@ export class $Reference2CharFunction<K> implements $Reference2CharFunction$$Inte
  * 
  * @deprecated
  */
- "remove"(arg0: any): character
+ "remove"(arg0: any): any
 /**
  * 
  * @deprecated
  */
- "get"(arg0: any): character
+ "get"(arg0: any): any
 /**
  * 
  * @deprecated
  */
+ "put"(arg0: K, arg1: character): character
  "put"(arg0: K, arg1: character): character
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: K, arg1: character): character
  "getChar"(arg0: any): character
 /**
  * 
  * @deprecated
  */
- "getOrDefault"(arg0: any, arg1: character): character
- "getOrDefault"(arg0: any, arg1: character): character
+ "getOrDefault"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
  */
- "getOrDefault"(arg0: any, arg1: any): any
+ "getOrDefault"(arg0: any, arg1: character): character
+ "getOrDefault"(arg0: any, arg1: character): character
  "applyAsInt"(arg0: K): integer
 /**
  * 
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(character), (T)>): $Function$0<(K), (T)>
- "andThenInt"(arg0: $Char2IntFunction$$Type): $Reference2IntFunction<(K)>
- "composeInt"(arg0: $Int2ReferenceFunction$$Type<(K)>): $Int2CharFunction
- "andThenReference"<T>(arg0: $Char2ReferenceFunction$$Type<(T)>): $Reference2ReferenceFunction<(K), (T)>
- "composeObject"<T>(arg0: $Object2ReferenceFunction$$Type<(T), (K)>): $Object2CharFunction<(T)>
- "andThenLong"(arg0: $Char2LongFunction$$Type): $Reference2LongFunction<(K)>
- "andThenFloat"(arg0: $Char2FloatFunction$$Type): $Reference2FloatFunction<(K)>
- "composeShort"(arg0: $Short2ReferenceFunction$$Type<(K)>): $Short2CharFunction
  "andThenObject"<T>(arg0: $Char2ObjectFunction$$Type<(T)>): $Reference2ObjectFunction<(K), (T)>
- "andThenByte"(arg0: $Char2ByteFunction$$Type): $Reference2ByteFunction<(K)>
- "andThenChar"(arg0: $Char2CharFunction$$Type): $Reference2CharFunction<(K)>
+ "composeShort"(arg0: $Short2ReferenceFunction$$Type<(K)>): $Short2CharFunction
+ "andThenDouble"(arg0: $Char2DoubleFunction$$Type): $Reference2DoubleFunction<(K)>
  "composeReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(T), (K)>): $Reference2CharFunction<(T)>
+ "composeDouble"(arg0: $Double2ReferenceFunction$$Type<(K)>): $Double2CharFunction
+ "andThenChar"(arg0: $Char2CharFunction$$Type): $Reference2CharFunction<(K)>
  "defaultReturnValue"(): character
  "defaultReturnValue"(arg0: character): void
+ "composeObject"<T>(arg0: $Object2ReferenceFunction$$Type<(T), (K)>): $Object2CharFunction<(T)>
+ "andThenByte"(arg0: $Char2ByteFunction$$Type): $Reference2ByteFunction<(K)>
  "composeByte"(arg0: $Byte2ReferenceFunction$$Type<(K)>): $Byte2CharFunction
- "andThenShort"(arg0: $Char2ShortFunction$$Type): $Reference2ShortFunction<(K)>
+ "andThenReference"<T>(arg0: $Char2ReferenceFunction$$Type<(T)>): $Reference2ReferenceFunction<(K), (T)>
  "composeLong"(arg0: $Long2ReferenceFunction$$Type<(K)>): $Long2CharFunction
- "composeChar"(arg0: $Char2ReferenceFunction$$Type<(K)>): $Char2CharFunction
  "composeFloat"(arg0: $Float2ReferenceFunction$$Type<(K)>): $Float2CharFunction
- "andThenDouble"(arg0: $Char2DoubleFunction$$Type): $Reference2DoubleFunction<(K)>
- "composeDouble"(arg0: $Double2ReferenceFunction$$Type<(K)>): $Double2CharFunction
+ "andThenShort"(arg0: $Char2ShortFunction$$Type): $Reference2ShortFunction<(K)>
+ "composeChar"(arg0: $Char2ReferenceFunction$$Type<(K)>): $Char2CharFunction
+ "andThenLong"(arg0: $Char2LongFunction$$Type): $Reference2LongFunction<(K)>
+ "andThenFloat"(arg0: $Char2FloatFunction$$Type): $Reference2FloatFunction<(K)>
+ "andThenInt"(arg0: $Char2IntFunction$$Type): $Reference2IntFunction<(K)>
+ "composeInt"(arg0: $Int2ReferenceFunction$$Type<(K)>): $Int2CharFunction
  "removeChar"(arg0: any): character
  "size"(): integer
  "clear"(): void
@@ -24072,8 +24072,8 @@ export class $LongIterable implements $LongIterable$$Interface {
  */
  "forEach"(arg0: $Consumer$$Type<(long)>): void
  "forEach"(arg0: $LongConsumer$$Type): void
- "longIterator"(): $LongIterator
  "longSpliterator"(): $LongSpliterator
+ "longIterator"(): $LongIterator
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -24111,18 +24111,18 @@ import {$Iterator$$Type} from "java.util.Iterator"
 import {$RandomAccess$$Interface} from "java.util.RandomAccess"
 import {$Collection$$Type} from "java.util.Collection"
 import {$SequencedCollection} from "java.util.SequencedCollection"
-import {$Comparator$$Type} from "java.util.Comparator"
 import {$ObjectIterator, $ObjectIterator$$Type} from "it.unimi.dsi.fastutil.objects.ObjectIterator"
+import {$Comparator$$Type} from "java.util.Comparator"
 import {$List, $List$$Type} from "java.util.List"
 import {$AbstractObjectList} from "it.unimi.dsi.fastutil.objects.AbstractObjectList"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$ObjectSpliterator} from "it.unimi.dsi.fastutil.objects.ObjectSpliterator"
 import {$ObjectCollection$$Type} from "it.unimi.dsi.fastutil.objects.ObjectCollection"
 import {$ObjectList, $ObjectList$$Type} from "it.unimi.dsi.fastutil.objects.ObjectList"
+import {$ListIterator} from "java.util.ListIterator"
 import {$Serializable$$Interface} from "java.io.Serializable"
-import {$Collector} from "java.util.stream.Collector"
 import {$Cloneable$$Interface} from "java.lang.Cloneable"
-import {$ObjectListIterator} from "it.unimi.dsi.fastutil.objects.ObjectListIterator"
+import {$Collector} from "java.util.stream.Collector"
 
 export class $ObjectArrayList<K> extends $AbstractObjectList<(K)> implements $RandomAccess$$Interface, $Cloneable$$Interface, $Serializable$$Interface {
 static readonly "DEFAULT_INITIAL_CAPACITY": integer
@@ -24154,16 +24154,16 @@ public static "wrap"<K>(arg0: (K)[], arg1: integer): $ObjectArrayList<(K)>
 public static "wrap"<K>(arg0: (K)[]): $ObjectArrayList<(K)>
 public "lastIndexOf"(arg0: any): integer
 public "isEmpty"(): boolean
-public "add"(arg0: integer, arg1: K): void
 public "add"(arg0: K): boolean
-public "subList"(arg0: integer, arg1: integer): $ObjectList<(K)>
-public "toArray"<T>(arg0: (T)[]): (T)[]
+public "add"(arg0: integer, arg1: K): void
+public "subList"(arg0: integer, arg1: integer): $List
 public "toArray"(): (any)[]
+public "toArray"<T>(arg0: (T)[]): (T)[]
 public "trim"(arg0: integer): void
 public "trim"(): void
 public static "toList"<K>(): $Collector<(K), (never), ($ObjectArrayList<(K)>)>
-public static "of"<K>(...arg0: (K)[]): $ObjectArrayList<(K)>
 public static "of"<K>(): $ObjectArrayList<(K)>
+public static "of"<K>(...arg0: (K)[]): $ObjectArrayList<(K)>
 public "elements"(): (K)[]
 public "spliterator"(): $ObjectSpliterator<(K)>
 public "addAll"(arg0: integer, arg1: $ObjectList$$Type<(K)>): boolean
@@ -24173,13 +24173,13 @@ public "forEach"(arg0: $Consumer$$Type<(K)>): void
 public "sort"(arg0: $Comparator$$Type<(K)>): void
 public "ensureCapacity"(arg0: integer): void
 public "removeAll"(arg0: $Collection$$Type<(never)>): boolean
-public "listIterator"(arg0: integer): $ObjectListIterator<(K)>
+public "listIterator"(arg0: integer): $ListIterator
 public "getElements"(arg0: integer, arg1: (any)[], arg2: integer, arg3: integer): void
 public "unstableSort"(arg0: $Comparator$$Type<(K)>): void
 public "setElements"(arg0: integer, arg1: (K)[], arg2: integer, arg3: integer): void
-public static "toListWithExpectedSize"<K>(arg0: integer): $Collector<(K), (never), ($ObjectArrayList<(K)>)>
-public "removeElements"(arg0: integer, arg1: integer): void
 public "addElements"(arg0: integer, arg1: (K)[], arg2: integer, arg3: integer): void
+public "removeElements"(arg0: integer, arg1: integer): void
+public static "toListWithExpectedSize"<K>(arg0: integer): $Collector<(K), (never), ($ObjectArrayList<(K)>)>
 public "iterator"(): $ObjectIterator
 public static "of"<K>(arg0: K, arg1: K, arg2: K): $ObjectList<(K)>
 public static "of"<K>(arg0: K, arg1: K): $ObjectList<(K)>
@@ -24214,16 +24214,16 @@ import {$Short2IntFunction} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction
 import {$Int2FloatFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
 import {$Byte2IntFunction} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
 import {$Reference2ShortFunction} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
+import {$Float2IntFunction} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
 import {$Reference2LongFunction} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
 import {$Int2CharFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
-import {$Float2IntFunction} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
 import {$Double2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
-import {$Reference2ByteFunction} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Int2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
+import {$Reference2ByteFunction} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Int2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ObjectFunction"
 import {$Byte2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
-import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
+import {$Int2IntFunction, $Int2IntFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2IntFunction"
 import {$Int2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2DoubleFunction"
 import {$Reference2ReferenceFunction, $Reference2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ReferenceFunction"
 import {$Reference2ObjectFunction} from "it.unimi.dsi.fastutil.objects.Reference2ObjectFunction"
@@ -24233,11 +24233,11 @@ import {$Short2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short
 import {$Long2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
 import {$Reference2FloatFunction} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
 import {$ToIntFunction$$Interface} from "java.util.function.ToIntFunction"
-import {$Reference2CharFunction} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
 import {$Int2LongFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
-import {$Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
-import {$Char2IntFunction} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
+import {$Reference2CharFunction} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
 import {$Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
+import {$Char2IntFunction} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
+import {$Char2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
 import {$Double2IntFunction} from "it.unimi.dsi.fastutil.doubles.Double2IntFunction"
 import {$Reference2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Reference2DoubleFunction"
 import {$Int2ByteFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ByteFunction"
@@ -24252,61 +24252,61 @@ export class $Reference2IntFunction<K> implements $Reference2IntFunction$$Interf
  * 
  * @deprecated
  */
- "remove"(arg0: any): integer
+ "remove"(arg0: any): any
 /**
  * 
  * @deprecated
  */
- "get"(arg0: any): integer
+ "get"(arg0: any): any
 /**
  * 
  * @deprecated
  */
+ "put"(arg0: K, arg1: integer): integer
  "put"(arg0: K, arg1: integer): integer
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: K, arg1: integer): integer
  "getInt"(arg0: any): integer
 /**
  * 
  * @deprecated
  */
- "getOrDefault"(arg0: any, arg1: integer): integer
- "getOrDefault"(arg0: any, arg1: integer): integer
+ "getOrDefault"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
  */
- "getOrDefault"(arg0: any, arg1: any): any
+ "getOrDefault"(arg0: any, arg1: integer): integer
+ "getOrDefault"(arg0: any, arg1: integer): integer
  "applyAsInt"(arg0: K): integer
 /**
  * 
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(integer), (T)>): $Function$0<(K), (T)>
- "andThenInt"(arg0: $Int2IntFunction$$Type): $Reference2IntFunction<(K)>
- "composeInt"(arg0: $Int2ReferenceFunction$$Type<(K)>): $Int2IntFunction
- "andThenReference"<T>(arg0: $Int2ReferenceFunction$$Type<(T)>): $Reference2ReferenceFunction<(K), (T)>
- "composeObject"<T>(arg0: $Object2ReferenceFunction$$Type<(T), (K)>): $Object2IntFunction<(T)>
- "andThenLong"(arg0: $Int2LongFunction$$Type): $Reference2LongFunction<(K)>
- "andThenFloat"(arg0: $Int2FloatFunction$$Type): $Reference2FloatFunction<(K)>
- "composeShort"(arg0: $Short2ReferenceFunction$$Type<(K)>): $Short2IntFunction
  "andThenObject"<T>(arg0: $Int2ObjectFunction$$Type<(T)>): $Reference2ObjectFunction<(K), (T)>
- "andThenByte"(arg0: $Int2ByteFunction$$Type): $Reference2ByteFunction<(K)>
- "andThenChar"(arg0: $Int2CharFunction$$Type): $Reference2CharFunction<(K)>
+ "composeShort"(arg0: $Short2ReferenceFunction$$Type<(K)>): $Short2IntFunction
+ "andThenDouble"(arg0: $Int2DoubleFunction$$Type): $Reference2DoubleFunction<(K)>
  "composeReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(T), (K)>): $Reference2IntFunction<(T)>
+ "composeDouble"(arg0: $Double2ReferenceFunction$$Type<(K)>): $Double2IntFunction
+ "andThenChar"(arg0: $Int2CharFunction$$Type): $Reference2CharFunction<(K)>
  "defaultReturnValue"(): integer
  "defaultReturnValue"(arg0: integer): void
+ "composeObject"<T>(arg0: $Object2ReferenceFunction$$Type<(T), (K)>): $Object2IntFunction<(T)>
+ "andThenByte"(arg0: $Int2ByteFunction$$Type): $Reference2ByteFunction<(K)>
  "composeByte"(arg0: $Byte2ReferenceFunction$$Type<(K)>): $Byte2IntFunction
- "andThenShort"(arg0: $Int2ShortFunction$$Type): $Reference2ShortFunction<(K)>
+ "andThenReference"<T>(arg0: $Int2ReferenceFunction$$Type<(T)>): $Reference2ReferenceFunction<(K), (T)>
  "composeLong"(arg0: $Long2ReferenceFunction$$Type<(K)>): $Long2IntFunction
- "composeChar"(arg0: $Char2ReferenceFunction$$Type<(K)>): $Char2IntFunction
  "composeFloat"(arg0: $Float2ReferenceFunction$$Type<(K)>): $Float2IntFunction
- "andThenDouble"(arg0: $Int2DoubleFunction$$Type): $Reference2DoubleFunction<(K)>
- "composeDouble"(arg0: $Double2ReferenceFunction$$Type<(K)>): $Double2IntFunction
+ "andThenShort"(arg0: $Int2ShortFunction$$Type): $Reference2ShortFunction<(K)>
+ "composeChar"(arg0: $Char2ReferenceFunction$$Type<(K)>): $Char2IntFunction
+ "andThenLong"(arg0: $Int2LongFunction$$Type): $Reference2LongFunction<(K)>
+ "andThenFloat"(arg0: $Int2FloatFunction$$Type): $Reference2FloatFunction<(K)>
+ "andThenInt"(arg0: $Int2IntFunction$$Type): $Reference2IntFunction<(K)>
+ "composeInt"(arg0: $Int2ReferenceFunction$$Type<(K)>): $Int2IntFunction
  "removeInt"(arg0: any): integer
  "size"(): integer
  "clear"(): void
@@ -24326,15 +24326,15 @@ export type $Reference2IntFunction$$Type<K> = ((arg0: any) => integer);
 export type $Reference2IntFunction$$Original<K> = $Reference2IntFunction<(K)>;}
 declare module "it.unimi.dsi.fastutil.shorts.Short2ByteFunction" {
 import {$Byte2ByteFunction, $Byte2ByteFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ByteFunction"
-import {$Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Float2ByteFunction} from "it.unimi.dsi.fastutil.floats.Float2ByteFunction"
+import {$Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Long2ByteFunction} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
 import {$Short2IntFunction} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction"
 import {$Byte2IntFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2IntFunction"
 import {$Reference2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
 import {$Long2ShortFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
-import {$Short2CharFunction} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
 import {$Reference2ByteFunction} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
+import {$Short2CharFunction} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
 import {$Byte2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
 import {$Char2ShortFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ShortFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
@@ -24346,15 +24346,15 @@ import {$Short2DoubleFunction} from "it.unimi.dsi.fastutil.shorts.Short2DoubleFu
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Int2ShortFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ShortFunction"
 import {$Object2ByteFunction} from "it.unimi.dsi.fastutil.objects.Object2ByteFunction"
-import {$Short2ReferenceFunction} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Float2ShortFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ShortFunction"
+import {$Short2ReferenceFunction} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Byte2LongFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2LongFunction"
 import {$IntUnaryOperator, $IntUnaryOperator$$Type, $IntUnaryOperator$$Interface} from "java.util.function.IntUnaryOperator"
 import {$Short2LongFunction} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$Char2ByteFunction} from "it.unimi.dsi.fastutil.chars.Char2ByteFunction"
 import {$Double2ByteFunction} from "it.unimi.dsi.fastutil.doubles.Double2ByteFunction"
-import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
+import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Short2FloatFunction} from "it.unimi.dsi.fastutil.shorts.Short2FloatFunction"
 import {$Byte2FloatFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2FloatFunction"
 import {$Int2ByteFunction} from "it.unimi.dsi.fastutil.ints.Int2ByteFunction"
@@ -24376,36 +24376,36 @@ export class $Short2ByteFunction implements $Short2ByteFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): byte
+ "get"(arg0: any): any
  "get"(arg0: short): byte
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: short, arg1: byte): byte
 /**
  * 
  * @deprecated
  */
  "put"(arg0: short, arg1: byte): byte
- "containsKey"(arg0: short): boolean
+ "put"(arg0: short, arg1: byte): byte
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: short): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: short, arg1: byte): byte
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: byte): byte
+ "getOrDefault"(arg0: short, arg1: byte): byte
 /**
  * 
  * @deprecated
@@ -24421,26 +24421,26 @@ export class $Short2ByteFunction implements $Short2ByteFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(byte), (T)>): $Function$0<(short), (T)>
- "andThenInt"(arg0: $Byte2IntFunction$$Type): $Short2IntFunction
- "composeInt"(arg0: $Int2ShortFunction$$Type): $Int2ByteFunction
- "andThenReference"<T>(arg0: $Byte2ReferenceFunction$$Type<(T)>): $Short2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Byte2ObjectFunction$$Type<(T)>): $Short2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2ShortFunction$$Type): $Short2ByteFunction
+ "andThenDouble"(arg0: $Byte2DoubleFunction$$Type): $Short2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2ShortFunction$$Type<(T)>): $Reference2ByteFunction<(T)>
+ "composeDouble"(arg0: $Double2ShortFunction$$Type): $Double2ByteFunction
+ "andThenChar"(arg0: $Byte2CharFunction$$Type): $Short2CharFunction
+ "defaultReturnValue"(): byte
+ "defaultReturnValue"(arg0: byte): void
  "composeObject"<T>(arg0: $Object2ShortFunction$$Type<(T)>): $Object2ByteFunction<(T)>
+ "andThenByte"(arg0: $Byte2ByteFunction$$Type): $Short2ByteFunction
+ "composeByte"(arg0: $Byte2ShortFunction$$Type): $Byte2ByteFunction
+ "andThenReference"<T>(arg0: $Byte2ReferenceFunction$$Type<(T)>): $Short2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2ShortFunction$$Type): $Long2ByteFunction
+ "composeFloat"(arg0: $Float2ShortFunction$$Type): $Float2ByteFunction
+ "andThenShort"(arg0: $Byte2ShortFunction$$Type): $Short2ShortFunction
+ "composeChar"(arg0: $Char2ShortFunction$$Type): $Char2ByteFunction
  "andThenLong"(arg0: $Byte2LongFunction$$Type): $Short2LongFunction
  "andThenFloat"(arg0: $Byte2FloatFunction$$Type): $Short2FloatFunction
- "composeShort"(arg0: $Short2ShortFunction$$Type): $Short2ByteFunction
- "andThenObject"<T>(arg0: $Byte2ObjectFunction$$Type<(T)>): $Short2ObjectFunction<(T)>
- "andThenByte"(arg0: $Byte2ByteFunction$$Type): $Short2ByteFunction
- "andThenChar"(arg0: $Byte2CharFunction$$Type): $Short2CharFunction
- "composeReference"<T>(arg0: $Reference2ShortFunction$$Type<(T)>): $Reference2ByteFunction<(T)>
- "defaultReturnValue"(arg0: byte): void
- "defaultReturnValue"(): byte
- "composeByte"(arg0: $Byte2ShortFunction$$Type): $Byte2ByteFunction
- "andThenShort"(arg0: $Byte2ShortFunction$$Type): $Short2ShortFunction
- "composeLong"(arg0: $Long2ShortFunction$$Type): $Long2ByteFunction
- "composeChar"(arg0: $Char2ShortFunction$$Type): $Char2ByteFunction
- "composeFloat"(arg0: $Float2ShortFunction$$Type): $Float2ByteFunction
- "andThenDouble"(arg0: $Byte2DoubleFunction$$Type): $Short2DoubleFunction
- "composeDouble"(arg0: $Double2ShortFunction$$Type): $Double2ByteFunction
+ "andThenInt"(arg0: $Byte2IntFunction$$Type): $Short2IntFunction
+ "composeInt"(arg0: $Int2ShortFunction$$Type): $Int2ByteFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: short): byte
@@ -24479,14 +24479,14 @@ import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Object2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ByteFunction"
 import {$Double2CharFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2CharFunction"
 import {$Char2CharFunction, $Char2CharFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2CharFunction"
-import {$Char2LongFunction} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Float2ObjectFunction} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
+import {$Char2LongFunction} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Char2ByteFunction} from "it.unimi.dsi.fastutil.chars.Char2ByteFunction"
 import {$Reference2CharFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
-import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
-import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
-import {$Char2IntFunction} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
 import {$Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
+import {$Char2IntFunction} from "it.unimi.dsi.fastutil.chars.Char2IntFunction"
+import {$Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
+import {$Short2ObjectFunction} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Char2ReferenceFunction} from "it.unimi.dsi.fastutil.chars.Char2ReferenceFunction"
 import {$Char2FloatFunction} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
 import {$Object2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
@@ -24499,12 +24499,12 @@ export interface $Char2ObjectFunction$$Interface<V> extends $Function$$Interface
 }
 
 export class $Char2ObjectFunction<V> implements $Char2ObjectFunction$$Interface {
- "remove"(arg0: character): V
 /**
  * 
  * @deprecated
  */
  "remove"(arg0: any): V
+ "remove"(arg0: character): V
 /**
  * 
  * @deprecated
@@ -24515,13 +24515,13 @@ export class $Char2ObjectFunction<V> implements $Char2ObjectFunction$$Interface 
  * 
  * @deprecated
  */
- "put"(arg0: character, arg1: V): V
- "put"(arg0: character, arg1: V): V
+ "put"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
  */
- "put"(arg0: any, arg1: any): any
+ "put"(arg0: character, arg1: V): V
+ "put"(arg0: character, arg1: V): V
 /**
  * 
  * @deprecated
@@ -24544,26 +24544,26 @@ export class $Char2ObjectFunction<V> implements $Char2ObjectFunction$$Interface 
  * @deprecated
  */
  "compose"<T>(arg0: $Function$0$$Type<(T), (character)>): $Function$0<(T), (V)>
- "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Char2IntFunction
- "composeInt"(arg0: $Int2CharFunction$$Type): $Int2ObjectFunction<(V)>
- "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Char2ReferenceFunction<(T)>
- "composeObject"<T>(arg0: $Object2CharFunction$$Type<(T)>): $Object2ObjectFunction<(T), (V)>
- "andThenLong"(arg0: $Object2LongFunction$$Type<(V)>): $Char2LongFunction
- "andThenFloat"(arg0: $Object2FloatFunction$$Type<(V)>): $Char2FloatFunction
- "composeShort"(arg0: $Short2CharFunction$$Type): $Short2ObjectFunction<(V)>
  "andThenObject"<T>(arg0: $Object2ObjectFunction$$Type<(V), (T)>): $Char2ObjectFunction<(T)>
- "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Char2ByteFunction
- "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Char2CharFunction
+ "composeShort"(arg0: $Short2CharFunction$$Type): $Short2ObjectFunction<(V)>
+ "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Char2DoubleFunction
  "composeReference"<T>(arg0: $Reference2CharFunction$$Type<(T)>): $Reference2ObjectFunction<(T), (V)>
+ "composeDouble"(arg0: $Double2CharFunction$$Type): $Double2ObjectFunction<(V)>
+ "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Char2CharFunction
  "defaultReturnValue"(): V
  "defaultReturnValue"(arg0: V): void
+ "composeObject"<T>(arg0: $Object2CharFunction$$Type<(T)>): $Object2ObjectFunction<(T), (V)>
+ "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Char2ByteFunction
  "composeByte"(arg0: $Byte2CharFunction$$Type): $Byte2ObjectFunction<(V)>
- "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Char2ShortFunction
+ "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Char2ReferenceFunction<(T)>
  "composeLong"(arg0: $Long2CharFunction$$Type): $Long2ObjectFunction<(V)>
- "composeChar"(arg0: $Char2CharFunction$$Type): $Char2ObjectFunction<(V)>
  "composeFloat"(arg0: $Float2CharFunction$$Type): $Float2ObjectFunction<(V)>
- "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Char2DoubleFunction
- "composeDouble"(arg0: $Double2CharFunction$$Type): $Double2ObjectFunction<(V)>
+ "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Char2ShortFunction
+ "composeChar"(arg0: $Char2CharFunction$$Type): $Char2ObjectFunction<(V)>
+ "andThenLong"(arg0: $Object2LongFunction$$Type<(V)>): $Char2LongFunction
+ "andThenFloat"(arg0: $Object2FloatFunction$$Type<(V)>): $Char2FloatFunction
+ "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Char2IntFunction
+ "composeInt"(arg0: $Int2CharFunction$$Type): $Int2ObjectFunction<(V)>
  "size"(): integer
  "clear"(): void
  "apply"(arg0: character): V
@@ -24585,8 +24585,8 @@ import {$Spliterator} from "java.util.Spliterator"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$DoubleIterator} from "it.unimi.dsi.fastutil.doubles.DoubleIterator"
 import {$FloatConsumer$$Type} from "it.unimi.dsi.fastutil.floats.FloatConsumer"
-import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$IntFunction$$Type} from "java.util.function.IntFunction"
+import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$DoubleConsumer$$Type} from "java.util.function.DoubleConsumer"
 import {$FloatPredicate$$Type} from "it.unimi.dsi.fastutil.floats.FloatPredicate"
 import {$DoubleSpliterator} from "it.unimi.dsi.fastutil.doubles.DoubleSpliterator"
@@ -24650,14 +24650,14 @@ export class $FloatCollection implements $FloatCollection$$Interface {
  "rem"(arg0: float): boolean
  "doubleStream"(): $DoubleStream
  "doubleParallelStream"(): $DoubleStream
- "doubleSpliterator"(): $DoubleSpliterator
- "doubleIterator"(): $DoubleIterator
+ "toFloatArray"(): (float)[]
 /**
  * 
  * @deprecated
  */
  "toFloatArray"(arg0: (float)[]): (float)[]
- "toFloatArray"(): (float)[]
+ "doubleIterator"(): $DoubleIterator
+ "doubleSpliterator"(): $DoubleSpliterator
  "size"(): integer
  "equals"(arg0: any): boolean
  "hashCode"(): integer
@@ -24730,8 +24730,8 @@ import {$Object2ByteFunction, $Object2ByteFunction$$Type} from "it.unimi.dsi.fas
 import {$BiFunction$$Type} from "java.util.function.BiFunction"
 import {$Float2ObjectFunction, $Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$ObjectSet} from "it.unimi.dsi.fastutil.objects.ObjectSet"
-import {$Short2ObjectFunction, $Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2ReferenceFunction, $Object2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ReferenceFunction"
+import {$Short2ObjectFunction, $Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2ShortFunction, $Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$Object2LongFunction, $Object2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2LongFunction"
@@ -24764,31 +24764,31 @@ export class $Object2ObjectMap<K, V> implements $Object2ObjectMap$$Interface {
  "computeIfPresent"(arg0: K, arg1: $BiFunction$$Type<(K), (V), (V)>): V
  "defaultReturnValue"(arg0: V): void
  "defaultReturnValue"(): V
- "object2ObjectEntrySet"(): $ObjectSet<($Object2ObjectMap$Entry<(K), (V)>)>
 /**
  * 
  * @deprecated
  */
  "computeObjectIfAbsentPartial"(arg0: K, arg1: $Object2ObjectFunction$$Type<(K), (V)>): V
+ "object2ObjectEntrySet"(): $ObjectSet<($Object2ObjectMap$Entry<(K), (V)>)>
  "get"(arg0: any): V
- "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Object2IntFunction<(K)>
- "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2ObjectFunction<(V)>
- "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Object2ReferenceFunction<(K), (T)>
+ "andThenObject"<T>(arg0: $Object2ObjectFunction$$Type<(V), (T)>): $Object2ObjectFunction<(K), (T)>
+ "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2ObjectFunction<(V)>
+ "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Object2DoubleFunction<(K)>
+ "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2ObjectFunction<(T), (V)>
+ "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2ObjectFunction<(V)>
+ "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Object2CharFunction<(K)>
  "composeObject"<T>(arg0: $Object2ObjectFunction$$Type<(T), (K)>): $Object2ObjectFunction<(T), (V)>
+ "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Object2ByteFunction<(K)>
+ "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2ObjectFunction<(V)>
+ "andThenReference"<T>(arg0: $Object2ReferenceFunction$$Type<(V), (T)>): $Object2ReferenceFunction<(K), (T)>
+ "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2ObjectFunction<(V)>
+ "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2ObjectFunction<(V)>
+ "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Object2ShortFunction<(K)>
+ "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2ObjectFunction<(V)>
  "andThenLong"(arg0: $Object2LongFunction$$Type<(V)>): $Object2LongFunction<(K)>
  "andThenFloat"(arg0: $Object2FloatFunction$$Type<(V)>): $Object2FloatFunction<(K)>
- "composeShort"(arg0: $Short2ObjectFunction$$Type<(K)>): $Short2ObjectFunction<(V)>
- "andThenObject"<T>(arg0: $Object2ObjectFunction$$Type<(V), (T)>): $Object2ObjectFunction<(K), (T)>
- "andThenByte"(arg0: $Object2ByteFunction$$Type<(V)>): $Object2ByteFunction<(K)>
- "andThenChar"(arg0: $Object2CharFunction$$Type<(V)>): $Object2CharFunction<(K)>
- "composeReference"<T>(arg0: $Reference2ObjectFunction$$Type<(T), (K)>): $Reference2ObjectFunction<(T), (V)>
- "composeByte"(arg0: $Byte2ObjectFunction$$Type<(K)>): $Byte2ObjectFunction<(V)>
- "andThenShort"(arg0: $Object2ShortFunction$$Type<(V)>): $Object2ShortFunction<(K)>
- "composeLong"(arg0: $Long2ObjectFunction$$Type<(K)>): $Long2ObjectFunction<(V)>
- "composeChar"(arg0: $Char2ObjectFunction$$Type<(K)>): $Char2ObjectFunction<(V)>
- "composeFloat"(arg0: $Float2ObjectFunction$$Type<(K)>): $Float2ObjectFunction<(V)>
- "andThenDouble"(arg0: $Object2DoubleFunction$$Type<(V)>): $Object2DoubleFunction<(K)>
- "composeDouble"(arg0: $Double2ObjectFunction$$Type<(K)>): $Double2ObjectFunction<(V)>
+ "andThenInt"(arg0: $Object2IntFunction$$Type<(V)>): $Object2IntFunction<(K)>
+ "composeInt"(arg0: $Int2ObjectFunction$$Type<(K)>): $Int2ObjectFunction<(V)>
  "equals"(arg0: any): boolean
  "hashCode"(): integer
 static "copyOf"<K, V>(arg0: $Map$$Type<(K), (V)>): $Map<(K), (V)>
@@ -24826,15 +24826,15 @@ export type $Object2ObjectMap$$Type<K, V> = ($Object2ObjectMap<(K), (V)>);
 export type $Object2ObjectMap$$Original<K, V> = $Object2ObjectMap<(K), (V)>;}
 declare module "it.unimi.dsi.fastutil.booleans.Boolean2ReferenceFunction" {
 import {$Reference2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2BooleanFunction"
-import {$Float2ReferenceFunction} from "it.unimi.dsi.fastutil.floats.Float2ReferenceFunction"
 import {$Float2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2BooleanFunction"
+import {$Float2ReferenceFunction} from "it.unimi.dsi.fastutil.floats.Float2ReferenceFunction"
 import {$Long2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2BooleanFunction"
 import {$Reference2IntFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2IntFunction"
 import {$Reference2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
 import {$Reference2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
 import {$Double2ReferenceFunction} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
-import {$Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Int2ReferenceFunction} from "it.unimi.dsi.fastutil.ints.Int2ReferenceFunction"
+import {$Reference2ByteFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ByteFunction"
 import {$Byte2ReferenceFunction} from "it.unimi.dsi.fastutil.bytes.Byte2ReferenceFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
 import {$Boolean2FloatFunction} from "it.unimi.dsi.fastutil.booleans.Boolean2FloatFunction"
@@ -24845,8 +24845,8 @@ import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Boolean2CharFunction} from "it.unimi.dsi.fastutil.booleans.Boolean2CharFunction"
 import {$Char2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2BooleanFunction"
 import {$Short2ReferenceFunction} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
-import {$Long2ReferenceFunction} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
 import {$Double2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2BooleanFunction"
+import {$Long2ReferenceFunction} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
 import {$Reference2FloatFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
 import {$Short2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2BooleanFunction"
 import {$Reference2CharFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
@@ -24908,26 +24908,26 @@ export class $Boolean2ReferenceFunction<V> implements $Boolean2ReferenceFunction
  * @deprecated
  */
  "compose"<T>(arg0: $Function$0$$Type<(T), (boolean)>): $Function$0<(T), (V)>
- "andThenInt"(arg0: $Reference2IntFunction$$Type<(V)>): $Boolean2IntFunction
- "composeInt"(arg0: $Int2BooleanFunction$$Type): $Int2ReferenceFunction<(V)>
- "andThenReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(V), (T)>): $Boolean2ReferenceFunction<(T)>
- "composeObject"<T>(arg0: $Object2BooleanFunction$$Type<(T)>): $Object2ReferenceFunction<(T), (V)>
- "andThenLong"(arg0: $Reference2LongFunction$$Type<(V)>): $Boolean2LongFunction
- "andThenFloat"(arg0: $Reference2FloatFunction$$Type<(V)>): $Boolean2FloatFunction
- "composeShort"(arg0: $Short2BooleanFunction$$Type): $Short2ReferenceFunction<(V)>
  "andThenObject"<T>(arg0: $Reference2ObjectFunction$$Type<(V), (T)>): $Boolean2ObjectFunction<(T)>
- "andThenByte"(arg0: $Reference2ByteFunction$$Type<(V)>): $Boolean2ByteFunction
- "andThenChar"(arg0: $Reference2CharFunction$$Type<(V)>): $Boolean2CharFunction
+ "composeShort"(arg0: $Short2BooleanFunction$$Type): $Short2ReferenceFunction<(V)>
+ "andThenDouble"(arg0: $Reference2DoubleFunction$$Type<(V)>): $Boolean2DoubleFunction
  "composeReference"<T>(arg0: $Reference2BooleanFunction$$Type<(T)>): $Reference2ReferenceFunction<(T), (V)>
+ "composeDouble"(arg0: $Double2BooleanFunction$$Type): $Double2ReferenceFunction<(V)>
+ "andThenChar"(arg0: $Reference2CharFunction$$Type<(V)>): $Boolean2CharFunction
  "defaultReturnValue"(arg0: V): void
  "defaultReturnValue"(): V
+ "composeObject"<T>(arg0: $Object2BooleanFunction$$Type<(T)>): $Object2ReferenceFunction<(T), (V)>
+ "andThenByte"(arg0: $Reference2ByteFunction$$Type<(V)>): $Boolean2ByteFunction
  "composeByte"(arg0: $Byte2BooleanFunction$$Type): $Byte2ReferenceFunction<(V)>
- "andThenShort"(arg0: $Reference2ShortFunction$$Type<(V)>): $Boolean2ShortFunction
+ "andThenReference"<T>(arg0: $Reference2ReferenceFunction$$Type<(V), (T)>): $Boolean2ReferenceFunction<(T)>
  "composeLong"(arg0: $Long2BooleanFunction$$Type): $Long2ReferenceFunction<(V)>
- "composeChar"(arg0: $Char2BooleanFunction$$Type): $Char2ReferenceFunction<(V)>
  "composeFloat"(arg0: $Float2BooleanFunction$$Type): $Float2ReferenceFunction<(V)>
- "andThenDouble"(arg0: $Reference2DoubleFunction$$Type<(V)>): $Boolean2DoubleFunction
- "composeDouble"(arg0: $Double2BooleanFunction$$Type): $Double2ReferenceFunction<(V)>
+ "andThenShort"(arg0: $Reference2ShortFunction$$Type<(V)>): $Boolean2ShortFunction
+ "composeChar"(arg0: $Char2BooleanFunction$$Type): $Char2ReferenceFunction<(V)>
+ "andThenLong"(arg0: $Reference2LongFunction$$Type<(V)>): $Boolean2LongFunction
+ "andThenFloat"(arg0: $Reference2FloatFunction$$Type<(V)>): $Boolean2FloatFunction
+ "andThenInt"(arg0: $Reference2IntFunction$$Type<(V)>): $Boolean2IntFunction
+ "composeInt"(arg0: $Int2BooleanFunction$$Type): $Int2ReferenceFunction<(V)>
  "size"(): integer
  "clear"(): void
  "apply"(arg0: boolean): V
@@ -24947,8 +24947,8 @@ declare module "it.unimi.dsi.fastutil.doubles.Double2BooleanFunction" {
 import {$Reference2BooleanFunction} from "it.unimi.dsi.fastutil.objects.Reference2BooleanFunction"
 import {$Char2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2DoubleFunction"
 import {$Float2BooleanFunction} from "it.unimi.dsi.fastutil.floats.Float2BooleanFunction"
-import {$Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Long2BooleanFunction} from "it.unimi.dsi.fastutil.longs.Long2BooleanFunction"
+import {$Byte2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunction"
 import {$Double2FloatFunction} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Double2ReferenceFunction} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
 import {$Object2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2DoubleFunction"
@@ -24975,11 +24975,11 @@ import {$Double2IntFunction} from "it.unimi.dsi.fastutil.doubles.Double2IntFunct
 import {$Int2BooleanFunction} from "it.unimi.dsi.fastutil.ints.Int2BooleanFunction"
 import {$Reference2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2DoubleFunction"
 import {$Double2ObjectFunction} from "it.unimi.dsi.fastutil.doubles.Double2ObjectFunction"
-import {$Boolean2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ObjectFunction"
-import {$Object2BooleanFunction} from "it.unimi.dsi.fastutil.objects.Object2BooleanFunction"
 import {$Boolean2ShortFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ShortFunction"
-import {$Boolean2LongFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2LongFunction"
+import {$Object2BooleanFunction} from "it.unimi.dsi.fastutil.objects.Object2BooleanFunction"
+import {$Boolean2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2ObjectFunction"
 import {$Float2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2DoubleFunction"
+import {$Boolean2LongFunction$$Type} from "it.unimi.dsi.fastutil.booleans.Boolean2LongFunction"
 import {$Double2ShortFunction} from "it.unimi.dsi.fastutil.doubles.Double2ShortFunction"
 
 export interface $Double2BooleanFunction$$Interface extends $Function$$Interface<(double), (boolean)>, $DoublePredicate$$Interface {
@@ -25005,25 +25005,25 @@ export class $Double2BooleanFunction implements $Double2BooleanFunction$$Interfa
  * @deprecated
  */
  "put"(arg0: double, arg1: boolean): boolean
- "put"(arg0: double, arg1: boolean): boolean
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
+ "put"(arg0: double, arg1: boolean): boolean
  "test"(arg0: double): boolean
- "containsKey"(arg0: double): boolean
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: double): boolean
+ "getOrDefault"(arg0: double, arg1: boolean): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: double, arg1: boolean): boolean
 /**
  * 
  * @deprecated
@@ -25039,26 +25039,26 @@ export class $Double2BooleanFunction implements $Double2BooleanFunction$$Interfa
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(boolean), (T)>): $Function$0<(double), (T)>
- "andThenInt"(arg0: $Boolean2IntFunction$$Type): $Double2IntFunction
- "composeInt"(arg0: $Int2DoubleFunction$$Type): $Int2BooleanFunction
- "andThenReference"<T>(arg0: $Boolean2ReferenceFunction$$Type<(T)>): $Double2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Boolean2ObjectFunction$$Type<(T)>): $Double2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2DoubleFunction$$Type): $Short2BooleanFunction
+ "andThenDouble"(arg0: $Boolean2DoubleFunction$$Type): $Double2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2DoubleFunction$$Type<(T)>): $Reference2BooleanFunction<(T)>
+ "composeDouble"(arg0: $Double2DoubleFunction$$Type): $Double2BooleanFunction
+ "andThenChar"(arg0: $Boolean2CharFunction$$Type): $Double2CharFunction
+ "defaultReturnValue"(): boolean
+ "defaultReturnValue"(arg0: boolean): void
  "composeObject"<T>(arg0: $Object2DoubleFunction$$Type<(T)>): $Object2BooleanFunction<(T)>
+ "andThenByte"(arg0: $Boolean2ByteFunction$$Type): $Double2ByteFunction
+ "composeByte"(arg0: $Byte2DoubleFunction$$Type): $Byte2BooleanFunction
+ "andThenReference"<T>(arg0: $Boolean2ReferenceFunction$$Type<(T)>): $Double2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2DoubleFunction$$Type): $Long2BooleanFunction
+ "composeFloat"(arg0: $Float2DoubleFunction$$Type): $Float2BooleanFunction
+ "andThenShort"(arg0: $Boolean2ShortFunction$$Type): $Double2ShortFunction
+ "composeChar"(arg0: $Char2DoubleFunction$$Type): $Char2BooleanFunction
  "andThenLong"(arg0: $Boolean2LongFunction$$Type): $Double2LongFunction
  "andThenFloat"(arg0: $Boolean2FloatFunction$$Type): $Double2FloatFunction
- "composeShort"(arg0: $Short2DoubleFunction$$Type): $Short2BooleanFunction
- "andThenObject"<T>(arg0: $Boolean2ObjectFunction$$Type<(T)>): $Double2ObjectFunction<(T)>
- "andThenByte"(arg0: $Boolean2ByteFunction$$Type): $Double2ByteFunction
- "andThenChar"(arg0: $Boolean2CharFunction$$Type): $Double2CharFunction
- "composeReference"<T>(arg0: $Reference2DoubleFunction$$Type<(T)>): $Reference2BooleanFunction<(T)>
- "defaultReturnValue"(arg0: boolean): void
- "defaultReturnValue"(): boolean
- "composeByte"(arg0: $Byte2DoubleFunction$$Type): $Byte2BooleanFunction
- "andThenShort"(arg0: $Boolean2ShortFunction$$Type): $Double2ShortFunction
- "composeLong"(arg0: $Long2DoubleFunction$$Type): $Long2BooleanFunction
- "composeChar"(arg0: $Char2DoubleFunction$$Type): $Char2BooleanFunction
- "composeFloat"(arg0: $Float2DoubleFunction$$Type): $Float2BooleanFunction
- "andThenDouble"(arg0: $Boolean2DoubleFunction$$Type): $Double2DoubleFunction
- "composeDouble"(arg0: $Double2DoubleFunction$$Type): $Double2BooleanFunction
+ "andThenInt"(arg0: $Boolean2IntFunction$$Type): $Double2IntFunction
+ "composeInt"(arg0: $Int2DoubleFunction$$Type): $Int2BooleanFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: double): boolean
@@ -25082,16 +25082,16 @@ import {$Float2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float
 import {$Float2ByteFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ByteFunction"
 import {$Long2CharFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2CharFunction"
 import {$Int2FloatFunction} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
+import {$Float2IntFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
 import {$Double2FloatFunction} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Int2CharFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2CharFunction"
-import {$Float2IntFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
 import {$Short2CharFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
 import {$Char2ObjectFunction} from "it.unimi.dsi.fastutil.chars.Char2ObjectFunction"
 import {$Char2ShortFunction} from "it.unimi.dsi.fastutil.chars.Char2ShortFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
 import {$Object2FloatFunction} from "it.unimi.dsi.fastutil.objects.Object2FloatFunction"
-import {$Float2CharFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2CharFunction"
 import {$IntToDoubleFunction$$Interface} from "java.util.function.IntToDoubleFunction"
+import {$Float2CharFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2CharFunction"
 import {$Byte2CharFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2CharFunction"
 import {$Object2CharFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2CharFunction"
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
@@ -25100,8 +25100,8 @@ import {$Float2ShortFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2Sho
 import {$Double2CharFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2CharFunction"
 import {$Char2CharFunction, $Char2CharFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2CharFunction"
 import {$Reference2FloatFunction} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
-import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Char2LongFunction} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
+import {$Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Float2FloatFunction, $Float2FloatFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2FloatFunction"
 import {$Char2ByteFunction} from "it.unimi.dsi.fastutil.chars.Char2ByteFunction"
 import {$Reference2CharFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2CharFunction"
@@ -25128,36 +25128,36 @@ export class $Char2FloatFunction implements $Char2FloatFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): float
+ "get"(arg0: any): any
  "get"(arg0: character): float
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: character, arg1: float): float
 /**
  * 
  * @deprecated
  */
  "put"(arg0: character, arg1: float): float
- "containsKey"(arg0: character): boolean
+ "put"(arg0: character, arg1: float): float
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: character): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: character, arg1: float): float
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: float): float
+ "getOrDefault"(arg0: character, arg1: float): float
 /**
  * 
  * @deprecated
@@ -25173,26 +25173,26 @@ export class $Char2FloatFunction implements $Char2FloatFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(float), (T)>): $Function$0<(character), (T)>
- "andThenInt"(arg0: $Float2IntFunction$$Type): $Char2IntFunction
- "composeInt"(arg0: $Int2CharFunction$$Type): $Int2FloatFunction
- "andThenReference"<T>(arg0: $Float2ReferenceFunction$$Type<(T)>): $Char2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Float2ObjectFunction$$Type<(T)>): $Char2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2CharFunction$$Type): $Short2FloatFunction
+ "andThenDouble"(arg0: $Float2DoubleFunction$$Type): $Char2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2CharFunction$$Type<(T)>): $Reference2FloatFunction<(T)>
+ "composeDouble"(arg0: $Double2CharFunction$$Type): $Double2FloatFunction
+ "andThenChar"(arg0: $Float2CharFunction$$Type): $Char2CharFunction
+ "defaultReturnValue"(): float
+ "defaultReturnValue"(arg0: float): void
  "composeObject"<T>(arg0: $Object2CharFunction$$Type<(T)>): $Object2FloatFunction<(T)>
+ "andThenByte"(arg0: $Float2ByteFunction$$Type): $Char2ByteFunction
+ "composeByte"(arg0: $Byte2CharFunction$$Type): $Byte2FloatFunction
+ "andThenReference"<T>(arg0: $Float2ReferenceFunction$$Type<(T)>): $Char2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2CharFunction$$Type): $Long2FloatFunction
+ "composeFloat"(arg0: $Float2CharFunction$$Type): $Float2FloatFunction
+ "andThenShort"(arg0: $Float2ShortFunction$$Type): $Char2ShortFunction
+ "composeChar"(arg0: $Char2CharFunction$$Type): $Char2FloatFunction
  "andThenLong"(arg0: $Float2LongFunction$$Type): $Char2LongFunction
  "andThenFloat"(arg0: $Float2FloatFunction$$Type): $Char2FloatFunction
- "composeShort"(arg0: $Short2CharFunction$$Type): $Short2FloatFunction
- "andThenObject"<T>(arg0: $Float2ObjectFunction$$Type<(T)>): $Char2ObjectFunction<(T)>
- "andThenByte"(arg0: $Float2ByteFunction$$Type): $Char2ByteFunction
- "andThenChar"(arg0: $Float2CharFunction$$Type): $Char2CharFunction
- "composeReference"<T>(arg0: $Reference2CharFunction$$Type<(T)>): $Reference2FloatFunction<(T)>
- "defaultReturnValue"(arg0: float): void
- "defaultReturnValue"(): float
- "composeByte"(arg0: $Byte2CharFunction$$Type): $Byte2FloatFunction
- "andThenShort"(arg0: $Float2ShortFunction$$Type): $Char2ShortFunction
- "composeLong"(arg0: $Long2CharFunction$$Type): $Long2FloatFunction
- "composeChar"(arg0: $Char2CharFunction$$Type): $Char2FloatFunction
- "composeFloat"(arg0: $Float2CharFunction$$Type): $Float2FloatFunction
- "andThenDouble"(arg0: $Float2DoubleFunction$$Type): $Char2DoubleFunction
- "composeDouble"(arg0: $Double2CharFunction$$Type): $Double2FloatFunction
+ "andThenInt"(arg0: $Float2IntFunction$$Type): $Char2IntFunction
+ "composeInt"(arg0: $Int2CharFunction$$Type): $Int2FloatFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: character): float
@@ -25236,14 +25236,14 @@ import {$IntStream} from "java.util.stream.IntStream"
 import {$Spliterator} from "java.util.Spliterator"
 import {$IntCollection$$Type, $IntCollection$$Interface} from "it.unimi.dsi.fastutil.ints.IntCollection"
 import {$Predicate$$Type} from "java.util.function.Predicate"
-import {$IntPredicate$$Type as $IntPredicate$0$$Type} from "java.util.function.IntPredicate"
 import {$IntSpliterator} from "it.unimi.dsi.fastutil.ints.IntSpliterator"
+import {$IntPredicate$$Type} from "java.util.function.IntPredicate"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$IntIterator} from "it.unimi.dsi.fastutil.ints.IntIterator"
-import {$IntPredicate$$Type} from "it.unimi.dsi.fastutil.ints.IntPredicate"
-import {$IntConsumer$$Type} from "java.util.function.IntConsumer"
+import {$IntPredicate$$Type as $IntPredicate$0$$Type} from "it.unimi.dsi.fastutil.ints.IntPredicate"
+import {$IntConsumer$$Type as $IntConsumer$0$$Type} from "java.util.function.IntConsumer"
 import {$Stream} from "java.util.stream.Stream"
-import {$IntConsumer$$Type as $IntConsumer$0$$Type} from "it.unimi.dsi.fastutil.ints.IntConsumer"
+import {$IntConsumer$$Type} from "it.unimi.dsi.fastutil.ints.IntConsumer"
 import {$AbstractCollection} from "java.util.AbstractCollection"
 
 export class $AbstractIntCollection extends $AbstractCollection<(integer)> implements $IntCollection$$Interface {
@@ -25274,8 +25274,8 @@ public "contains"(arg0: integer): boolean
 public "contains"(arg0: any): boolean
 public "addAll"(arg0: $IntCollection$$Type): boolean
 public "addAll"(arg0: $Collection$$Type<(integer)>): boolean
-public "forEach"(arg0: $IntConsumer$0$$Type): void
-public "removeIf"(arg0: $IntPredicate$$Type): boolean
+public "forEach"(arg0: $IntConsumer$$Type): void
+public "removeIf"(arg0: $IntPredicate$0$$Type): boolean
 public "removeAll"(arg0: $IntCollection$$Type): boolean
 public "removeAll"(arg0: $Collection$$Type<(never)>): boolean
 public "retainAll"(arg0: $Collection$$Type<(never)>): boolean
@@ -25301,18 +25301,18 @@ public "spliterator"(): $Spliterator
  * @deprecated
  */
 public "removeIf"(arg0: $Predicate$$Type<(integer)>): boolean
-public "removeIf"(arg0: $IntPredicate$0$$Type): boolean
+public "removeIf"(arg0: $IntPredicate$$Type): boolean
 /**
  * 
  * @deprecated
  */
 public "parallelStream"(): $Stream<(integer)>
+public "intParallelStream"(): $IntStream
 public "intSpliterator"(): $IntSpliterator
 public "intIterator"(): $IntIterator
-public "intParallelStream"(): $IntStream
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
-public "forEach"(arg0: $IntConsumer$$Type): void
+public "forEach"(arg0: $IntConsumer$0$$Type): void
 /**
  * 
  * @deprecated
@@ -25360,8 +25360,8 @@ export type $ObjectListIterator$$Type<K> = ($ObjectListIterator<(K)>);
  */
 export type $ObjectListIterator$$Original<K> = $ObjectListIterator<(K)>;}
 declare module "it.unimi.dsi.fastutil.longs.Long2ObjectMap$Entry" {
-import {$Comparable} from "java.lang.Comparable"
 import {$Comparator, $Comparator$$Type} from "java.util.Comparator"
+import {$Comparable} from "java.lang.Comparable"
 import {$Map$Entry, $Map$Entry$$Type, $Map$Entry$$Interface} from "java.util.Map$Entry"
 
 export interface $Long2ObjectMap$Entry$$Interface<V> extends $Map$Entry$$Interface<(long), (V)> {
@@ -25436,8 +25436,8 @@ export type $IntConsumer$$Type = ((arg0: integer) => void);
  */
 export type $IntConsumer$$Original = $IntConsumer;}
 declare module "it.unimi.dsi.fastutil.longs.Long2IntMap$Entry" {
-import {$Comparable} from "java.lang.Comparable"
 import {$Comparator, $Comparator$$Type} from "java.util.Comparator"
+import {$Comparable} from "java.lang.Comparable"
 import {$Map$Entry, $Map$Entry$$Type, $Map$Entry$$Interface} from "java.util.Map$Entry"
 
 export interface $Long2IntMap$Entry$$Interface extends $Map$Entry$$Interface<(long), (integer)> {
@@ -25446,8 +25446,8 @@ get "key"(): any
 set "value"(value: any)
 set "value"(value: integer)
 set "value"(value: integer)
-get "intValue"(): integer
 get "longKey"(): long
+get "intValue"(): integer
 }
 
 export class $Long2IntMap$Entry implements $Long2IntMap$Entry$$Interface {
@@ -25472,8 +25472,8 @@ export class $Long2IntMap$Entry implements $Long2IntMap$Entry$$Interface {
  */
  "setValue"(arg0: integer): integer
  "setValue"(arg0: integer): integer
- "getIntValue"(): integer
  "getLongKey"(): long
+ "getIntValue"(): integer
  "equals"(arg0: any): boolean
  "hashCode"(): integer
 static "copyOf"<K, V>(arg0: $Map$Entry$$Type<(long), (integer)>): $Map$Entry<(long), (integer)>
@@ -25529,15 +25529,15 @@ export type $LongIterator$$Type = ($LongIterator);
  */
 export type $LongIterator$$Original = $LongIterator;}
 declare module "it.unimi.dsi.fastutil.longs.Long2ObjectSortedMap$FastSortedEntrySet" {
-import {$ObjectBidirectionalIterator} from "it.unimi.dsi.fastutil.objects.ObjectBidirectionalIterator"
 import {$Iterator} from "java.util.Iterator"
+import {$ObjectBidirectionalIterator} from "it.unimi.dsi.fastutil.objects.ObjectBidirectionalIterator"
 import {$Collection$$Type} from "java.util.Collection"
 import {$SortedSet} from "java.util.SortedSet"
 import {$Comparator} from "java.util.Comparator"
 import {$Spliterator} from "java.util.Spliterator"
 import {$Predicate$$Type} from "java.util.function.Predicate"
-import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$IntFunction$$Type} from "java.util.function.IntFunction"
+import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$SequencedSet} from "java.util.SequencedSet"
 import {$ObjectSet} from "it.unimi.dsi.fastutil.objects.ObjectSet"
 import {$ObjectSortedSet$$Interface} from "it.unimi.dsi.fastutil.objects.ObjectSortedSet"
@@ -25618,17 +25618,17 @@ import {$Float2ReferenceFunction, $Float2ReferenceFunction$$Type} from "it.unimi
 import {$DoubleUnaryOperator, $DoubleUnaryOperator$$Type, $DoubleUnaryOperator$$Interface} from "java.util.function.DoubleUnaryOperator"
 import {$Float2ByteFunction, $Float2ByteFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ByteFunction"
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
-import {$Float2LongFunction, $Float2LongFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2LongFunction"
 import {$Int2FloatFunction, $Int2FloatFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2FloatFunction"
+import {$Float2LongFunction, $Float2LongFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2LongFunction"
 import {$Float2ShortFunction, $Float2ShortFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ShortFunction"
-import {$Double2FloatFunction, $Double2FloatFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
-import {$Reference2FloatFunction, $Reference2FloatFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
 import {$Float2IntFunction, $Float2IntFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2IntFunction"
+import {$Reference2FloatFunction, $Reference2FloatFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2FloatFunction"
+import {$Double2FloatFunction, $Double2FloatFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Float2ObjectFunction, $Float2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ObjectFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
+import {$Object2FloatFunction, $Object2FloatFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2FloatFunction"
 import {$Char2FloatFunction, $Char2FloatFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2FloatFunction"
 import {$Long2FloatFunction, $Long2FloatFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2FloatFunction"
-import {$Object2FloatFunction, $Object2FloatFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2FloatFunction"
 import {$Short2FloatFunction, $Short2FloatFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2FloatFunction"
 import {$Float2CharFunction, $Float2CharFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2CharFunction"
 import {$Byte2FloatFunction, $Byte2FloatFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2FloatFunction"
@@ -25640,47 +25640,47 @@ export interface $Float2FloatFunction$$Interface extends $Function$$Interface<(f
 }
 
 export class $Float2FloatFunction implements $Float2FloatFunction$$Interface {
-/**
- * 
- * @deprecated
- */
- "remove"(arg0: any): any
  "remove"(arg0: float): float
 /**
  * 
  * @deprecated
  */
- "get"(arg0: any): float
- "get"(arg0: float): float
+ "remove"(arg0: any): float
 /**
  * 
  * @deprecated
  */
- "put"(arg0: float, arg1: float): float
+ "get"(arg0: any): any
+ "get"(arg0: float): float
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
  "put"(arg0: float, arg1: float): float
+/**
+ * 
+ * @deprecated
+ */
+ "put"(arg0: float, arg1: float): float
 static "identity"(): $Float2FloatFunction
- "containsKey"(arg0: float): boolean
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
- "getOrDefault"(arg0: float, arg1: float): float
-/**
- * 
- * @deprecated
- */
- "getOrDefault"(arg0: any, arg1: float): float
+ "containsKey"(arg0: float): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
+/**
+ * 
+ * @deprecated
+ */
+ "getOrDefault"(arg0: any, arg1: float): float
+ "getOrDefault"(arg0: float, arg1: float): float
 /**
  * 
  * @deprecated
@@ -25696,26 +25696,26 @@ static "identity"(): $Float2FloatFunction
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(float), (T)>): $Function$0<(float), (T)>
- "andThenInt"(arg0: $Float2IntFunction$$Type): $Float2IntFunction
- "composeInt"(arg0: $Int2FloatFunction$$Type): $Int2FloatFunction
- "andThenReference"<T>(arg0: $Float2ReferenceFunction$$Type<(T)>): $Float2ReferenceFunction<(T)>
- "composeObject"<T>(arg0: $Object2FloatFunction$$Type<(T)>): $Object2FloatFunction<(T)>
- "andThenLong"(arg0: $Float2LongFunction$$Type): $Float2LongFunction
- "andThenFloat"(arg0: $Float2FloatFunction$$Type): $Float2FloatFunction
- "composeShort"(arg0: $Short2FloatFunction$$Type): $Short2FloatFunction
  "andThenObject"<T>(arg0: $Float2ObjectFunction$$Type<(T)>): $Float2ObjectFunction<(T)>
- "andThenByte"(arg0: $Float2ByteFunction$$Type): $Float2ByteFunction
- "andThenChar"(arg0: $Float2CharFunction$$Type): $Float2CharFunction
+ "composeShort"(arg0: $Short2FloatFunction$$Type): $Short2FloatFunction
+ "andThenDouble"(arg0: $Float2DoubleFunction$$Type): $Float2DoubleFunction
  "composeReference"<T>(arg0: $Reference2FloatFunction$$Type<(T)>): $Reference2FloatFunction<(T)>
+ "composeDouble"(arg0: $Double2FloatFunction$$Type): $Double2FloatFunction
+ "andThenChar"(arg0: $Float2CharFunction$$Type): $Float2CharFunction
  "defaultReturnValue"(): float
  "defaultReturnValue"(arg0: float): void
+ "composeObject"<T>(arg0: $Object2FloatFunction$$Type<(T)>): $Object2FloatFunction<(T)>
+ "andThenByte"(arg0: $Float2ByteFunction$$Type): $Float2ByteFunction
  "composeByte"(arg0: $Byte2FloatFunction$$Type): $Byte2FloatFunction
- "andThenShort"(arg0: $Float2ShortFunction$$Type): $Float2ShortFunction
+ "andThenReference"<T>(arg0: $Float2ReferenceFunction$$Type<(T)>): $Float2ReferenceFunction<(T)>
  "composeLong"(arg0: $Long2FloatFunction$$Type): $Long2FloatFunction
- "composeChar"(arg0: $Char2FloatFunction$$Type): $Char2FloatFunction
  "composeFloat"(arg0: $Float2FloatFunction$$Type): $Float2FloatFunction
- "andThenDouble"(arg0: $Float2DoubleFunction$$Type): $Float2DoubleFunction
- "composeDouble"(arg0: $Double2FloatFunction$$Type): $Double2FloatFunction
+ "andThenShort"(arg0: $Float2ShortFunction$$Type): $Float2ShortFunction
+ "composeChar"(arg0: $Char2FloatFunction$$Type): $Char2FloatFunction
+ "andThenLong"(arg0: $Float2LongFunction$$Type): $Float2LongFunction
+ "andThenFloat"(arg0: $Float2FloatFunction$$Type): $Float2FloatFunction
+ "andThenInt"(arg0: $Float2IntFunction$$Type): $Float2IntFunction
+ "composeInt"(arg0: $Int2FloatFunction$$Type): $Int2FloatFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: float): float
@@ -25736,8 +25736,8 @@ import {$Reference2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.objects.Re
 import {$Float2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2BooleanFunction"
 import {$Long2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2BooleanFunction"
 import {$Long2CharFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2CharFunction"
-import {$Long2IntFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
 import {$Long2ByteFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
+import {$Long2IntFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
 import {$Reference2LongFunction} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
 import {$Long2ShortFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
@@ -25753,8 +25753,8 @@ import {$Boolean2ReferenceFunction} from "it.unimi.dsi.fastutil.booleans.Boolean
 import {$Long2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
 import {$Double2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2BooleanFunction"
 import {$Byte2LongFunction} from "it.unimi.dsi.fastutil.bytes.Byte2LongFunction"
-import {$Double2LongFunction} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
 import {$Char2LongFunction} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
+import {$Double2LongFunction} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
 import {$Short2LongFunction} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$Short2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2BooleanFunction"
 import {$Int2LongFunction} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
@@ -25775,35 +25775,40 @@ export interface $Boolean2LongFunction$$Interface extends $Function$$Interface<(
 }
 
 export class $Boolean2LongFunction implements $Boolean2LongFunction$$Interface {
- "remove"(arg0: boolean): long
 /**
  * 
  * @deprecated
  */
- "remove"(arg0: any): any
+ "remove"(arg0: any): long
+ "remove"(arg0: boolean): long
 /**
  * 
  * @deprecated
  */
  "get"(arg0: any): long
  "get"(arg0: boolean): long
- "put"(arg0: boolean, arg1: long): long
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
+ "put"(arg0: boolean, arg1: long): long
 /**
  * 
  * @deprecated
  */
  "put"(arg0: boolean, arg1: long): long
- "containsKey"(arg0: boolean): boolean
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: boolean): boolean
+/**
+ * 
+ * @deprecated
+ */
+ "getOrDefault"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
@@ -25814,37 +25819,32 @@ export class $Boolean2LongFunction implements $Boolean2LongFunction$$Interface {
  * 
  * @deprecated
  */
- "getOrDefault"(arg0: any, arg1: any): any
-/**
- * 
- * @deprecated
- */
  "compose"<T>(arg0: $Function$0$$Type<(T), (boolean)>): $Function$0<(T), (long)>
 /**
  * 
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(long), (T)>): $Function$0<(boolean), (T)>
- "andThenInt"(arg0: $Long2IntFunction$$Type): $Boolean2IntFunction
- "composeInt"(arg0: $Int2BooleanFunction$$Type): $Int2LongFunction
- "andThenReference"<T>(arg0: $Long2ReferenceFunction$$Type<(T)>): $Boolean2ReferenceFunction<(T)>
- "composeObject"<T>(arg0: $Object2BooleanFunction$$Type<(T)>): $Object2LongFunction<(T)>
- "andThenLong"(arg0: $Long2LongFunction$$Type): $Boolean2LongFunction
- "andThenFloat"(arg0: $Long2FloatFunction$$Type): $Boolean2FloatFunction
- "composeShort"(arg0: $Short2BooleanFunction$$Type): $Short2LongFunction
  "andThenObject"<T>(arg0: $Long2ObjectFunction$$Type<(T)>): $Boolean2ObjectFunction<(T)>
- "andThenByte"(arg0: $Long2ByteFunction$$Type): $Boolean2ByteFunction
- "andThenChar"(arg0: $Long2CharFunction$$Type): $Boolean2CharFunction
+ "composeShort"(arg0: $Short2BooleanFunction$$Type): $Short2LongFunction
+ "andThenDouble"(arg0: $Long2DoubleFunction$$Type): $Boolean2DoubleFunction
  "composeReference"<T>(arg0: $Reference2BooleanFunction$$Type<(T)>): $Reference2LongFunction<(T)>
+ "composeDouble"(arg0: $Double2BooleanFunction$$Type): $Double2LongFunction
+ "andThenChar"(arg0: $Long2CharFunction$$Type): $Boolean2CharFunction
  "defaultReturnValue"(arg0: long): void
  "defaultReturnValue"(): long
+ "composeObject"<T>(arg0: $Object2BooleanFunction$$Type<(T)>): $Object2LongFunction<(T)>
+ "andThenByte"(arg0: $Long2ByteFunction$$Type): $Boolean2ByteFunction
  "composeByte"(arg0: $Byte2BooleanFunction$$Type): $Byte2LongFunction
- "andThenShort"(arg0: $Long2ShortFunction$$Type): $Boolean2ShortFunction
+ "andThenReference"<T>(arg0: $Long2ReferenceFunction$$Type<(T)>): $Boolean2ReferenceFunction<(T)>
  "composeLong"(arg0: $Long2BooleanFunction$$Type): $Long2LongFunction
- "composeChar"(arg0: $Char2BooleanFunction$$Type): $Char2LongFunction
  "composeFloat"(arg0: $Float2BooleanFunction$$Type): $Float2LongFunction
- "andThenDouble"(arg0: $Long2DoubleFunction$$Type): $Boolean2DoubleFunction
- "composeDouble"(arg0: $Double2BooleanFunction$$Type): $Double2LongFunction
+ "andThenShort"(arg0: $Long2ShortFunction$$Type): $Boolean2ShortFunction
+ "composeChar"(arg0: $Char2BooleanFunction$$Type): $Char2LongFunction
+ "andThenLong"(arg0: $Long2LongFunction$$Type): $Boolean2LongFunction
+ "andThenFloat"(arg0: $Long2FloatFunction$$Type): $Boolean2FloatFunction
+ "andThenInt"(arg0: $Long2IntFunction$$Type): $Boolean2IntFunction
+ "composeInt"(arg0: $Int2BooleanFunction$$Type): $Int2LongFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: boolean): long
@@ -25864,13 +25864,13 @@ import {$Short2DoubleFunction, $Short2DoubleFunction$$Type} from "it.unimi.dsi.f
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Short2IntFunction, $Short2IntFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2IntFunction"
 import {$Int2ShortFunction, $Int2ShortFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2ShortFunction"
-import {$Short2ReferenceFunction, $Short2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Float2ShortFunction, $Float2ShortFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2ShortFunction"
+import {$Short2ReferenceFunction, $Short2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Reference2ShortFunction, $Reference2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ShortFunction"
-import {$Long2ShortFunction, $Long2ShortFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
 import {$IntUnaryOperator, $IntUnaryOperator$$Type, $IntUnaryOperator$$Interface} from "java.util.function.IntUnaryOperator"
-import {$Short2CharFunction, $Short2CharFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
+import {$Long2ShortFunction, $Long2ShortFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
 import {$Short2LongFunction, $Short2LongFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
+import {$Short2CharFunction, $Short2CharFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
 import {$Short2ObjectFunction, $Short2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ObjectFunction"
 import {$Object2ShortFunction, $Object2ShortFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2ShortFunction"
 import {$Char2ShortFunction, $Char2ShortFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2ShortFunction"
@@ -25886,47 +25886,47 @@ export interface $Short2ShortFunction$$Interface extends $Function$$Interface<(s
 }
 
 export class $Short2ShortFunction implements $Short2ShortFunction$$Interface {
-/**
- * 
- * @deprecated
- */
- "remove"(arg0: any): any
  "remove"(arg0: short): short
 /**
  * 
  * @deprecated
  */
- "get"(arg0: any): short
- "get"(arg0: short): short
+ "remove"(arg0: any): short
 /**
  * 
  * @deprecated
  */
- "put"(arg0: short, arg1: short): short
+ "get"(arg0: any): any
+ "get"(arg0: short): short
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
  "put"(arg0: short, arg1: short): short
+/**
+ * 
+ * @deprecated
+ */
+ "put"(arg0: short, arg1: short): short
 static "identity"(): $Short2ShortFunction
- "containsKey"(arg0: short): boolean
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
- "getOrDefault"(arg0: short, arg1: short): short
-/**
- * 
- * @deprecated
- */
- "getOrDefault"(arg0: any, arg1: short): short
+ "containsKey"(arg0: short): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
+/**
+ * 
+ * @deprecated
+ */
+ "getOrDefault"(arg0: any, arg1: short): short
+ "getOrDefault"(arg0: short, arg1: short): short
 /**
  * 
  * @deprecated
@@ -25942,26 +25942,26 @@ static "identity"(): $Short2ShortFunction
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(short), (T)>): $Function$0<(short), (T)>
- "andThenInt"(arg0: $Short2IntFunction$$Type): $Short2IntFunction
- "composeInt"(arg0: $Int2ShortFunction$$Type): $Int2ShortFunction
- "andThenReference"<T>(arg0: $Short2ReferenceFunction$$Type<(T)>): $Short2ReferenceFunction<(T)>
- "composeObject"<T>(arg0: $Object2ShortFunction$$Type<(T)>): $Object2ShortFunction<(T)>
- "andThenLong"(arg0: $Short2LongFunction$$Type): $Short2LongFunction
- "andThenFloat"(arg0: $Short2FloatFunction$$Type): $Short2FloatFunction
- "composeShort"(arg0: $Short2ShortFunction$$Type): $Short2ShortFunction
  "andThenObject"<T>(arg0: $Short2ObjectFunction$$Type<(T)>): $Short2ObjectFunction<(T)>
- "andThenByte"(arg0: $Short2ByteFunction$$Type): $Short2ByteFunction
- "andThenChar"(arg0: $Short2CharFunction$$Type): $Short2CharFunction
+ "composeShort"(arg0: $Short2ShortFunction$$Type): $Short2ShortFunction
+ "andThenDouble"(arg0: $Short2DoubleFunction$$Type): $Short2DoubleFunction
  "composeReference"<T>(arg0: $Reference2ShortFunction$$Type<(T)>): $Reference2ShortFunction<(T)>
+ "composeDouble"(arg0: $Double2ShortFunction$$Type): $Double2ShortFunction
+ "andThenChar"(arg0: $Short2CharFunction$$Type): $Short2CharFunction
  "defaultReturnValue"(): short
  "defaultReturnValue"(arg0: short): void
+ "composeObject"<T>(arg0: $Object2ShortFunction$$Type<(T)>): $Object2ShortFunction<(T)>
+ "andThenByte"(arg0: $Short2ByteFunction$$Type): $Short2ByteFunction
  "composeByte"(arg0: $Byte2ShortFunction$$Type): $Byte2ShortFunction
- "andThenShort"(arg0: $Short2ShortFunction$$Type): $Short2ShortFunction
+ "andThenReference"<T>(arg0: $Short2ReferenceFunction$$Type<(T)>): $Short2ReferenceFunction<(T)>
  "composeLong"(arg0: $Long2ShortFunction$$Type): $Long2ShortFunction
- "composeChar"(arg0: $Char2ShortFunction$$Type): $Char2ShortFunction
  "composeFloat"(arg0: $Float2ShortFunction$$Type): $Float2ShortFunction
- "andThenDouble"(arg0: $Short2DoubleFunction$$Type): $Short2DoubleFunction
- "composeDouble"(arg0: $Double2ShortFunction$$Type): $Double2ShortFunction
+ "andThenShort"(arg0: $Short2ShortFunction$$Type): $Short2ShortFunction
+ "composeChar"(arg0: $Char2ShortFunction$$Type): $Char2ShortFunction
+ "andThenLong"(arg0: $Short2LongFunction$$Type): $Short2LongFunction
+ "andThenFloat"(arg0: $Short2FloatFunction$$Type): $Short2FloatFunction
+ "andThenInt"(arg0: $Short2IntFunction$$Type): $Short2IntFunction
+ "composeInt"(arg0: $Int2ShortFunction$$Type): $Int2ShortFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: short): short
@@ -25987,8 +25987,8 @@ import {$Long2ShortFunction} from "it.unimi.dsi.fastutil.longs.Long2ShortFunctio
 import {$Short2CharFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2CharFunction"
 import {$Char2ShortFunction} from "it.unimi.dsi.fastutil.chars.Char2ShortFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
-import {$Short2ShortFunction, $Short2ShortFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ShortFunction"
 import {$Boolean2FloatFunction} from "it.unimi.dsi.fastutil.booleans.Boolean2FloatFunction"
+import {$Short2ShortFunction, $Short2ShortFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ShortFunction"
 import {$Byte2ShortFunction} from "it.unimi.dsi.fastutil.bytes.Byte2ShortFunction"
 import {$Short2DoubleFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2DoubleFunction"
 import {$Boolean2DoubleFunction} from "it.unimi.dsi.fastutil.booleans.Boolean2DoubleFunction"
@@ -25996,8 +25996,8 @@ import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Boolean2CharFunction} from "it.unimi.dsi.fastutil.booleans.Boolean2CharFunction"
 import {$Char2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2BooleanFunction"
 import {$Int2ShortFunction} from "it.unimi.dsi.fastutil.ints.Int2ShortFunction"
-import {$Short2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Float2ShortFunction} from "it.unimi.dsi.fastutil.floats.Float2ShortFunction"
+import {$Short2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2ReferenceFunction"
 import {$Boolean2ReferenceFunction} from "it.unimi.dsi.fastutil.booleans.Boolean2ReferenceFunction"
 import {$Double2BooleanFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2BooleanFunction"
 import {$Short2LongFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
@@ -26021,35 +26021,40 @@ export interface $Boolean2ShortFunction$$Interface extends $Function$$Interface<
 }
 
 export class $Boolean2ShortFunction implements $Boolean2ShortFunction$$Interface {
- "remove"(arg0: boolean): short
 /**
  * 
  * @deprecated
  */
- "remove"(arg0: any): any
+ "remove"(arg0: any): short
+ "remove"(arg0: boolean): short
 /**
  * 
  * @deprecated
  */
  "get"(arg0: any): short
  "get"(arg0: boolean): short
- "put"(arg0: boolean, arg1: short): short
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
+ "put"(arg0: boolean, arg1: short): short
 /**
  * 
  * @deprecated
  */
  "put"(arg0: boolean, arg1: short): short
- "containsKey"(arg0: boolean): boolean
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: boolean): boolean
+/**
+ * 
+ * @deprecated
+ */
+ "getOrDefault"(arg0: any, arg1: any): any
 /**
  * 
  * @deprecated
@@ -26060,37 +26065,32 @@ export class $Boolean2ShortFunction implements $Boolean2ShortFunction$$Interface
  * 
  * @deprecated
  */
- "getOrDefault"(arg0: any, arg1: any): any
-/**
- * 
- * @deprecated
- */
  "compose"<T>(arg0: $Function$0$$Type<(T), (boolean)>): $Function$0<(T), (short)>
 /**
  * 
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(short), (T)>): $Function$0<(boolean), (T)>
- "andThenInt"(arg0: $Short2IntFunction$$Type): $Boolean2IntFunction
- "composeInt"(arg0: $Int2BooleanFunction$$Type): $Int2ShortFunction
- "andThenReference"<T>(arg0: $Short2ReferenceFunction$$Type<(T)>): $Boolean2ReferenceFunction<(T)>
- "composeObject"<T>(arg0: $Object2BooleanFunction$$Type<(T)>): $Object2ShortFunction<(T)>
- "andThenLong"(arg0: $Short2LongFunction$$Type): $Boolean2LongFunction
- "andThenFloat"(arg0: $Short2FloatFunction$$Type): $Boolean2FloatFunction
- "composeShort"(arg0: $Short2BooleanFunction$$Type): $Short2ShortFunction
  "andThenObject"<T>(arg0: $Short2ObjectFunction$$Type<(T)>): $Boolean2ObjectFunction<(T)>
- "andThenByte"(arg0: $Short2ByteFunction$$Type): $Boolean2ByteFunction
- "andThenChar"(arg0: $Short2CharFunction$$Type): $Boolean2CharFunction
+ "composeShort"(arg0: $Short2BooleanFunction$$Type): $Short2ShortFunction
+ "andThenDouble"(arg0: $Short2DoubleFunction$$Type): $Boolean2DoubleFunction
  "composeReference"<T>(arg0: $Reference2BooleanFunction$$Type<(T)>): $Reference2ShortFunction<(T)>
+ "composeDouble"(arg0: $Double2BooleanFunction$$Type): $Double2ShortFunction
+ "andThenChar"(arg0: $Short2CharFunction$$Type): $Boolean2CharFunction
  "defaultReturnValue"(arg0: short): void
  "defaultReturnValue"(): short
+ "composeObject"<T>(arg0: $Object2BooleanFunction$$Type<(T)>): $Object2ShortFunction<(T)>
+ "andThenByte"(arg0: $Short2ByteFunction$$Type): $Boolean2ByteFunction
  "composeByte"(arg0: $Byte2BooleanFunction$$Type): $Byte2ShortFunction
- "andThenShort"(arg0: $Short2ShortFunction$$Type): $Boolean2ShortFunction
+ "andThenReference"<T>(arg0: $Short2ReferenceFunction$$Type<(T)>): $Boolean2ReferenceFunction<(T)>
  "composeLong"(arg0: $Long2BooleanFunction$$Type): $Long2ShortFunction
- "composeChar"(arg0: $Char2BooleanFunction$$Type): $Char2ShortFunction
  "composeFloat"(arg0: $Float2BooleanFunction$$Type): $Float2ShortFunction
- "andThenDouble"(arg0: $Short2DoubleFunction$$Type): $Boolean2DoubleFunction
- "composeDouble"(arg0: $Double2BooleanFunction$$Type): $Double2ShortFunction
+ "andThenShort"(arg0: $Short2ShortFunction$$Type): $Boolean2ShortFunction
+ "composeChar"(arg0: $Char2BooleanFunction$$Type): $Char2ShortFunction
+ "andThenLong"(arg0: $Short2LongFunction$$Type): $Boolean2LongFunction
+ "andThenFloat"(arg0: $Short2FloatFunction$$Type): $Boolean2FloatFunction
+ "andThenInt"(arg0: $Short2IntFunction$$Type): $Boolean2IntFunction
+ "composeInt"(arg0: $Int2BooleanFunction$$Type): $Int2ShortFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: boolean): short
@@ -26168,8 +26168,8 @@ import {$ObjectSet} from "it.unimi.dsi.fastutil.objects.ObjectSet"
 import {$Comparator} from "java.util.Comparator"
 import {$Spliterator} from "java.util.Spliterator"
 import {$ObjectSortedSet$$Interface} from "it.unimi.dsi.fastutil.objects.ObjectSortedSet"
-import {$Set} from "java.util.Set"
 import {$AbstractObjectSet} from "it.unimi.dsi.fastutil.objects.AbstractObjectSet"
+import {$Set} from "java.util.Set"
 
 export class $AbstractObjectSortedSet<K> extends $AbstractObjectSet<(K)> implements $ObjectSortedSet$$Interface<(K)> {
 public "iterator"(): $Iterator
@@ -26230,10 +26230,10 @@ import {$Byte2DoubleFunction} from "it.unimi.dsi.fastutil.bytes.Byte2DoubleFunct
 import {$Long2CharFunction} from "it.unimi.dsi.fastutil.longs.Long2CharFunction"
 import {$Long2IntFunction} from "it.unimi.dsi.fastutil.longs.Long2IntFunction"
 import {$Long2ByteFunction} from "it.unimi.dsi.fastutil.longs.Long2ByteFunction"
-import {$Double2FloatFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Reference2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Reference2LongFunction"
-import {$Double2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
+import {$Double2FloatFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2FloatFunction"
 import {$Long2ShortFunction} from "it.unimi.dsi.fastutil.longs.Long2ShortFunction"
+import {$Double2ReferenceFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ReferenceFunction"
 import {$LongToDoubleFunction$$Interface} from "java.util.function.LongToDoubleFunction"
 import {$Object2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Object2DoubleFunction"
 import {$Function as $Function$0, $Function$$Type as $Function$0$$Type} from "java.util.function.Function"
@@ -26243,11 +26243,11 @@ import {$Double2DoubleFunction, $Double2DoubleFunction$$Type} from "it.unimi.dsi
 import {$Function$$Interface} from "it.unimi.dsi.fastutil.Function"
 import {$Long2LongFunction, $Long2LongFunction$$Type} from "it.unimi.dsi.fastutil.longs.Long2LongFunction"
 import {$Float2LongFunction$$Type} from "it.unimi.dsi.fastutil.floats.Float2LongFunction"
-import {$Long2ReferenceFunction} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
 import {$Double2CharFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2CharFunction"
+import {$Long2ReferenceFunction} from "it.unimi.dsi.fastutil.longs.Long2ReferenceFunction"
 import {$Byte2LongFunction$$Type} from "it.unimi.dsi.fastutil.bytes.Byte2LongFunction"
-import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Double2LongFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2LongFunction"
+import {$Char2LongFunction$$Type} from "it.unimi.dsi.fastutil.chars.Char2LongFunction"
 import {$Short2LongFunction$$Type} from "it.unimi.dsi.fastutil.shorts.Short2LongFunction"
 import {$Double2ByteFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ByteFunction"
 import {$Int2LongFunction$$Type} from "it.unimi.dsi.fastutil.ints.Int2LongFunction"
@@ -26257,8 +26257,8 @@ import {$Object2LongFunction$$Type} from "it.unimi.dsi.fastutil.objects.Object2L
 import {$Double2ObjectFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ObjectFunction"
 import {$Reference2DoubleFunction} from "it.unimi.dsi.fastutil.objects.Reference2DoubleFunction"
 import {$Float2DoubleFunction} from "it.unimi.dsi.fastutil.floats.Float2DoubleFunction"
-import {$Long2ObjectFunction} from "it.unimi.dsi.fastutil.longs.Long2ObjectFunction"
 import {$Double2ShortFunction$$Type} from "it.unimi.dsi.fastutil.doubles.Double2ShortFunction"
+import {$Long2ObjectFunction} from "it.unimi.dsi.fastutil.longs.Long2ObjectFunction"
 
 export interface $Long2DoubleFunction$$Interface extends $Function$$Interface<(long), (double)>, $LongToDoubleFunction$$Interface {
 
@@ -26276,36 +26276,36 @@ export class $Long2DoubleFunction implements $Long2DoubleFunction$$Interface {
  * 
  * @deprecated
  */
- "get"(arg0: any): double
+ "get"(arg0: any): any
  "get"(arg0: long): double
 /**
  * 
  * @deprecated
  */
  "put"(arg0: any, arg1: any): any
- "put"(arg0: long, arg1: double): double
 /**
  * 
  * @deprecated
  */
  "put"(arg0: long, arg1: double): double
- "containsKey"(arg0: long): boolean
+ "put"(arg0: long, arg1: double): double
 /**
  * 
  * @deprecated
  */
  "containsKey"(arg0: any): boolean
+ "containsKey"(arg0: long): boolean
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: any): any
- "getOrDefault"(arg0: long, arg1: double): double
 /**
  * 
  * @deprecated
  */
  "getOrDefault"(arg0: any, arg1: double): double
+ "getOrDefault"(arg0: long, arg1: double): double
  "applyAsDouble"(arg0: long): double
 /**
  * 
@@ -26317,26 +26317,26 @@ export class $Long2DoubleFunction implements $Long2DoubleFunction$$Interface {
  * @deprecated
  */
  "andThen"<T>(arg0: $Function$0$$Type<(double), (T)>): $Function$0<(long), (T)>
- "andThenInt"(arg0: $Double2IntFunction$$Type): $Long2IntFunction
- "composeInt"(arg0: $Int2LongFunction$$Type): $Int2DoubleFunction
- "andThenReference"<T>(arg0: $Double2ReferenceFunction$$Type<(T)>): $Long2ReferenceFunction<(T)>
+ "andThenObject"<T>(arg0: $Double2ObjectFunction$$Type<(T)>): $Long2ObjectFunction<(T)>
+ "composeShort"(arg0: $Short2LongFunction$$Type): $Short2DoubleFunction
+ "andThenDouble"(arg0: $Double2DoubleFunction$$Type): $Long2DoubleFunction
+ "composeReference"<T>(arg0: $Reference2LongFunction$$Type<(T)>): $Reference2DoubleFunction<(T)>
+ "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2DoubleFunction
+ "andThenChar"(arg0: $Double2CharFunction$$Type): $Long2CharFunction
+ "defaultReturnValue"(): double
+ "defaultReturnValue"(arg0: double): void
  "composeObject"<T>(arg0: $Object2LongFunction$$Type<(T)>): $Object2DoubleFunction<(T)>
+ "andThenByte"(arg0: $Double2ByteFunction$$Type): $Long2ByteFunction
+ "composeByte"(arg0: $Byte2LongFunction$$Type): $Byte2DoubleFunction
+ "andThenReference"<T>(arg0: $Double2ReferenceFunction$$Type<(T)>): $Long2ReferenceFunction<(T)>
+ "composeLong"(arg0: $Long2LongFunction$$Type): $Long2DoubleFunction
+ "composeFloat"(arg0: $Float2LongFunction$$Type): $Float2DoubleFunction
+ "andThenShort"(arg0: $Double2ShortFunction$$Type): $Long2ShortFunction
+ "composeChar"(arg0: $Char2LongFunction$$Type): $Char2DoubleFunction
  "andThenLong"(arg0: $Double2LongFunction$$Type): $Long2LongFunction
  "andThenFloat"(arg0: $Double2FloatFunction$$Type): $Long2FloatFunction
- "composeShort"(arg0: $Short2LongFunction$$Type): $Short2DoubleFunction
- "andThenObject"<T>(arg0: $Double2ObjectFunction$$Type<(T)>): $Long2ObjectFunction<(T)>
- "andThenByte"(arg0: $Double2ByteFunction$$Type): $Long2ByteFunction
- "andThenChar"(arg0: $Double2CharFunction$$Type): $Long2CharFunction
- "composeReference"<T>(arg0: $Reference2LongFunction$$Type<(T)>): $Reference2DoubleFunction<(T)>
- "defaultReturnValue"(arg0: double): void
- "defaultReturnValue"(): double
- "composeByte"(arg0: $Byte2LongFunction$$Type): $Byte2DoubleFunction
- "andThenShort"(arg0: $Double2ShortFunction$$Type): $Long2ShortFunction
- "composeLong"(arg0: $Long2LongFunction$$Type): $Long2DoubleFunction
- "composeChar"(arg0: $Char2LongFunction$$Type): $Char2DoubleFunction
- "composeFloat"(arg0: $Float2LongFunction$$Type): $Float2DoubleFunction
- "andThenDouble"(arg0: $Double2DoubleFunction$$Type): $Long2DoubleFunction
- "composeDouble"(arg0: $Double2LongFunction$$Type): $Double2DoubleFunction
+ "andThenInt"(arg0: $Double2IntFunction$$Type): $Long2IntFunction
+ "composeInt"(arg0: $Int2LongFunction$$Type): $Int2DoubleFunction
  "size"(): integer
  "clear"(): void
  "apply"(arg0: long): double
@@ -26425,9 +26425,9 @@ public "getOrDefault"(arg0: integer, arg1: V): V
  */
 public "getOrDefault"(arg0: any, arg1: V): V
 public "computeIfPresent"(arg0: integer, arg1: $BiFunction$$Type<(integer), (V), (V)>): V
-public "int2ObjectEntrySet"(): $ObjectSet<($Int2ObjectMap$Entry<(V)>)>
 public "defaultReturnValue"(arg0: V): void
 public "defaultReturnValue"(): V
+public "int2ObjectEntrySet"(): $ObjectSet<($Int2ObjectMap$Entry<(V)>)>
 /**
  * 
  * @deprecated
@@ -26501,8 +26501,8 @@ import {$Spliterator} from "java.util.Spliterator"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$Set} from "java.util.Set"
 import {$Stream} from "java.util.stream.Stream"
-import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$IntFunction$$Type} from "java.util.function.IntFunction"
+import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$Reference2ObjectMap$Entry, $Reference2ObjectMap$Entry$$Type} from "it.unimi.dsi.fastutil.objects.Reference2ObjectMap$Entry"
 
 export interface $Reference2ObjectMap$FastEntrySet$$Interface<K, V> extends $ObjectSet$$Interface<($Reference2ObjectMap$Entry<(K), (V)>)> {

@@ -1,10 +1,10 @@
 declare module "com.tterrag.registrate.util.CreativeModeTabModifier" {
 import {$FeatureFlagSet, $FeatureFlagSet$$Type} from "net.minecraft.world.flag.FeatureFlagSet"
-import {$ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$Collection$$Type} from "java.util.Collection"
+import {$ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$CreativeModeTab$Output$$Interface} from "net.minecraft.world.item.CreativeModeTab$Output"
-import {$ItemLike$$Type} from "net.minecraft.world.level.ItemLike"
 import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$ItemLike$$Type} from "net.minecraft.world.level.ItemLike"
 import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$CreativeModeTab$TabVisibility$$Type} from "net.minecraft.world.item.CreativeModeTab$TabVisibility"
 import {$BooleanSupplier$$Type} from "java.util.function.BooleanSupplier"
@@ -40,8 +40,8 @@ declare module "com.tterrag.registrate.util.entry.FluidEntry" {
 import {$RegistryEntry} from "com.tterrag.registrate.util.entry.RegistryEntry"
 import {$Optional} from "java.util.Optional"
 import {$Block} from "net.minecraft.world.level.block.Block"
-import {$DeferredHolder$$Type} from "net.neoforged.neoforge.registries.DeferredHolder"
 import {$Holder} from "net.minecraft.core.Holder"
+import {$DeferredHolder$$Type} from "net.neoforged.neoforge.registries.DeferredHolder"
 import {$NonNullSupplier, $NonNullSupplier$$Type} from "com.tterrag.registrate.util.nullness.NonNullSupplier"
 import {$Fluid, $Fluid$$Type} from "net.minecraft.world.level.material.Fluid"
 import {$Supplier$$Type} from "java.util.function.Supplier"
@@ -80,10 +80,10 @@ export type $FluidEntry$$Original<T> = $FluidEntry<(T)>;}
 declare module "com.tterrag.registrate.util.entry.BlockEntityEntry" {
 import {$RegistryEntry, $RegistryEntry$$Type} from "com.tterrag.registrate.util.entry.RegistryEntry"
 import {$Optional} from "java.util.Optional"
-import {$DeferredHolder$$Type} from "net.neoforged.neoforge.registries.DeferredHolder"
 import {$Holder} from "net.minecraft.core.Holder"
-import {$NonNullSupplier, $NonNullSupplier$$Type} from "com.tterrag.registrate.util.nullness.NonNullSupplier"
+import {$DeferredHolder$$Type} from "net.neoforged.neoforge.registries.DeferredHolder"
 import {$BlockGetter$$Type} from "net.minecraft.world.level.BlockGetter"
+import {$NonNullSupplier, $NonNullSupplier$$Type} from "com.tterrag.registrate.util.nullness.NonNullSupplier"
 import {$BlockEntityType, $BlockEntityType$$Type} from "net.minecraft.world.level.block.entity.BlockEntityType"
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$AbstractRegistrate$$Type} from "com.tterrag.registrate.AbstractRegistrate"
@@ -140,14 +140,14 @@ export type $NonNullFunction$$Type<T, R> = ((arg0: T) => R);
 export type $NonNullFunction$$Original<T, R> = $NonNullFunction<(T), (R)>;}
 declare module "com.tterrag.registrate.util.entry.RegistryEntry" {
 import {$NonNullSupplier, $NonNullSupplier$$Type, $NonNullSupplier$$Interface} from "com.tterrag.registrate.util.nullness.NonNullSupplier"
-import {$Optional} from "java.util.Optional"
 import {$Registry$$Type} from "net.minecraft.core.Registry"
+import {$Optional} from "java.util.Optional"
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$AbstractRegistrate$$Type} from "com.tterrag.registrate.AbstractRegistrate"
 import {$ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
-import {$DeferredHolder, $DeferredHolder$$Type} from "net.neoforged.neoforge.registries.DeferredHolder"
 import {$Holder} from "net.minecraft.core.Holder"
+import {$DeferredHolder, $DeferredHolder$$Type} from "net.neoforged.neoforge.registries.DeferredHolder"
 
 export class $RegistryEntry<R, S> extends $DeferredHolder<(R), (S)> implements $NonNullSupplier$$Interface<(S)> {
 constructor(arg0: $AbstractRegistrate$$Type<(never)>, arg1: $DeferredHolder$$Type<(R), (S)>)
@@ -251,8 +251,8 @@ import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Level$$Type} from "net.minecraft.world.level.Level"
 import {$AbstractRegistrate$$Type} from "com.tterrag.registrate.AbstractRegistrate"
 import {$Entity, $Entity$$Type} from "net.minecraft.world.entity.Entity"
-import {$DeferredHolder$$Type} from "net.neoforged.neoforge.registries.DeferredHolder"
 import {$Holder} from "net.minecraft.core.Holder"
+import {$DeferredHolder$$Type} from "net.neoforged.neoforge.registries.DeferredHolder"
 import {$EntityType, $EntityType$$Type} from "net.minecraft.world.entity.EntityType"
 
 export class $EntityEntry<T extends $Entity> extends $RegistryEntry<($EntityType<(never)>), ($EntityType<(T)>)> {
@@ -305,8 +305,8 @@ import {$ItemProviderEntry} from "com.tterrag.registrate.util.entry.ItemProvider
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Item, $Item$$Type} from "net.minecraft.world.item.Item"
 import {$AbstractRegistrate$$Type} from "com.tterrag.registrate.AbstractRegistrate"
-import {$DeferredHolder$$Type} from "net.neoforged.neoforge.registries.DeferredHolder"
 import {$Holder} from "net.minecraft.core.Holder"
+import {$DeferredHolder$$Type} from "net.neoforged.neoforge.registries.DeferredHolder"
 
 export class $ItemEntry<T extends $Item> extends $ItemProviderEntry<($Item), (T)> {
 constructor(arg0: $AbstractRegistrate$$Type<(never)>, arg1: $DeferredHolder$$Type<($Item$$Type), (T)>)

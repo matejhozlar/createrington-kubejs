@@ -1,7 +1,7 @@
 declare module "com.tterrag.registrate.providers.RegistrateLookupFillerProvider" {
 import {$RegistrateProvider$$Interface} from "com.tterrag.registrate.providers.RegistrateProvider"
-import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
 import {$Codec$$Type} from "com.mojang.serialization.Codec"
+import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
 import {$JsonElement$$Type} from "com.google.gson.JsonElement"
 import {$CachedOutput$$Type} from "net.minecraft.data.CachedOutput"
 import {$Path$$Type} from "java.nio.file.Path"
@@ -19,8 +19,8 @@ export class $RegistrateLookupFillerProvider implements $RegistrateLookupFillerP
  "getSide"(): $LogicalSide
  "getName"(): StringJS
  "run"(arg0: $CachedOutput$$Type): $CompletableFuture<(never)>
-static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 static "saveStable"(arg0: $CachedOutput$$Type, arg1: $JsonElement$$Type, arg2: $Path$$Type): $CompletableFuture<(never)>
+static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -32,8 +32,8 @@ export type $RegistrateLookupFillerProvider$$Type = ($RegistrateLookupFillerProv
  */
 export type $RegistrateLookupFillerProvider$$Original = $RegistrateLookupFillerProvider;}
 declare module "com.tterrag.registrate.providers.RegistrateProvider" {
-import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
 import {$Codec$$Type} from "com.mojang.serialization.Codec"
+import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
 import {$DataProvider$$Interface} from "net.minecraft.data.DataProvider"
 import {$JsonElement$$Type} from "com.google.gson.JsonElement"
 import {$CachedOutput$$Type} from "net.minecraft.data.CachedOutput"
@@ -50,8 +50,8 @@ export class $RegistrateProvider implements $RegistrateProvider$$Interface {
  "getSide"(): $LogicalSide
  "getName"(): StringJS
  "run"(arg0: $CachedOutput$$Type): $CompletableFuture<(never)>
-static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 static "saveStable"(arg0: $CachedOutput$$Type, arg1: $JsonElement$$Type, arg2: $Path$$Type): $CompletableFuture<(never)>
+static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -63,8 +63,8 @@ export type $RegistrateProvider$$Type = ($RegistrateProvider);
  */
 export type $RegistrateProvider$$Original = $RegistrateProvider;}
 declare module "com.tterrag.registrate.providers.ProviderType$DependencyAwareProviderType" {
-import {$ProviderType$SimpleServerDataFactory$$Type} from "com.tterrag.registrate.providers.ProviderType$SimpleServerDataFactory"
 import {$RegistrateProvider, $RegistrateProvider$$Type} from "com.tterrag.registrate.providers.RegistrateProvider"
+import {$ProviderType$SimpleServerDataFactory$$Type} from "com.tterrag.registrate.providers.ProviderType$SimpleServerDataFactory"
 import {$Map$$Type} from "java.util.Map"
 import {$ProviderType$Context, $ProviderType$Context$$Type} from "com.tterrag.registrate.providers.ProviderType$Context"
 import {$NonNullUnaryOperator$$Type} from "com.tterrag.registrate.util.nullness.NonNullUnaryOperator"
@@ -74,9 +74,9 @@ import {$CompletableFuture$$Type} from "java.util.concurrent.CompletableFuture"
 import {$Registry$$Type} from "net.minecraft.core.Registry"
 import {$Function$$Type} from "java.util.function.Function"
 import {$GatherDataEvent$$Type} from "net.neoforged.neoforge.data.event.GatherDataEvent"
-import {$AbstractRegistrate$$Type} from "com.tterrag.registrate.AbstractRegistrate"
 import {$NonNullFunction$$Type} from "com.tterrag.registrate.util.nullness.NonNullFunction"
 import {$RegistrateTagsProvider$Impl} from "com.tterrag.registrate.providers.RegistrateTagsProvider$Impl"
+import {$AbstractRegistrate$$Type} from "com.tterrag.registrate.AbstractRegistrate"
 import {$NonNullBiFunction$$Type} from "com.tterrag.registrate.util.nullness.NonNullBiFunction"
 import {$ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
 import {$RegistrateTagsProvider$IntrinsicImpl} from "com.tterrag.registrate.providers.RegistrateTagsProvider$IntrinsicImpl"
@@ -107,15 +107,15 @@ static "register"<T extends $RegistrateProvider>(arg0: StringJS, arg1: $NonNullF
  */
 static "register"<T extends $RegistrateProvider>(arg0: StringJS, arg1: $NonNullBiFunction$$Type<($AbstractRegistrate<(never)>), ($GatherDataEvent), (T)>): $ProviderType<(T)>
 static "create"<T extends $RegistrateProvider>(arg0: $ProviderType$$Type<(T)>, arg1: $AbstractRegistrate$$Type<(never)>, arg2: $GatherDataEvent$$Type, arg3: $Map$$Type<($ProviderType$$Type<(never)>), ($RegistrateProvider$$Type)>, arg4: $CompletableFuture$$Type<($HolderLookup$Provider$$Type)>): T
-static "registerTag"<T, R extends $RegistrateTagsProvider<(object)>>(arg0: StringJS, arg1: $ResourceKey$$Type<($Registry<(T)>)>, arg2: $ProviderType$DependencyAwareProviderType$$Type<(R)>): $ProviderType<(R)>
+static "registerIntrinsicTag"<T>(arg0: StringJS, arg1: StringJS, arg2: $ResourceKey$$Type<($Registry<(T)>)>, arg3: $Function$$Type<(T), ($ResourceKey$$Type<(T)>)>): $ProviderType<($RegistrateTagsProvider$IntrinsicImpl<(T)>)>
 static "registerServerData"<T extends $RegistrateProvider>(arg0: StringJS, arg1: $ProviderType$SimpleServerDataFactory$$Type<(T)>): $ProviderType<(T)>
 static "registerDynamicTag"<T>(arg0: StringJS, arg1: StringJS, arg2: $ResourceKey$$Type<($Registry<(T)>)>): $ProviderType<($RegistrateTagsProvider$Impl<(T)>)>
+static "registerTag"<T, R extends $RegistrateTagsProvider<(object)>>(arg0: StringJS, arg1: $ResourceKey$$Type<($Registry<(T)>)>, arg2: $ProviderType$DependencyAwareProviderType$$Type<(R)>): $ProviderType<(R)>
 /**
  * 
  * @deprecated
  */
 static "registerDelegate"<T extends $RegistrateProvider>(arg0: StringJS, arg1: $NonNullUnaryOperator$$Type<($ProviderType<(T)>)>): $ProviderType<(T)>
-static "registerIntrinsicTag"<T>(arg0: StringJS, arg1: StringJS, arg2: $ResourceKey$$Type<($Registry<(T)>)>, arg3: $Function$$Type<(T), ($ResourceKey$$Type<(T)>)>): $ProviderType<($RegistrateTagsProvider$IntrinsicImpl<(T)>)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -134,16 +134,16 @@ import {$Block$$Type} from "net.minecraft.world.level.block.Block"
 import {$CachedOutput$$Type} from "net.minecraft.data.CachedOutput"
 import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$PackOutput$$Type} from "net.minecraft.data.PackOutput"
-import {$TagBuilder} from "net.minecraft.tags.TagBuilder"
 import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
+import {$TagBuilder} from "net.minecraft.tags.TagBuilder"
+import {$Registry} from "net.minecraft.core.Registry"
 import {$Codec$$Type} from "com.mojang.serialization.Codec"
 import {$CompletableFuture, $CompletableFuture$$Type} from "java.util.concurrent.CompletableFuture"
-import {$Registry} from "net.minecraft.core.Registry"
 import {$TagsProvider$TagAppender} from "net.minecraft.data.tags.TagsProvider$TagAppender"
 import {$TagKey$$Type} from "net.minecraft.tags.TagKey"
 import {$ExistingFileHelper, $ExistingFileHelper$$Type} from "net.neoforged.neoforge.common.data.ExistingFileHelper"
-import {$PackOutput$PathProvider} from "net.minecraft.data.PackOutput$PathProvider"
 import {$Item, $Item$$Type} from "net.minecraft.world.item.Item"
+import {$PackOutput$PathProvider} from "net.minecraft.data.PackOutput$PathProvider"
 import {$AbstractRegistrate$$Type} from "com.tterrag.registrate.AbstractRegistrate"
 import {$ResourceKey} from "net.minecraft.resources.ResourceKey"
 import {$Path$$Type} from "java.nio.file.Path"
@@ -160,10 +160,11 @@ readonly "modId": StringJS
 constructor(arg0: $AbstractRegistrate$$Type<(never)>, arg1: $ProviderType$$Type<($RegistrateItemTagsProvider$$Type)>, arg2: StringJS, arg3: $PackOutput$$Type, arg4: $CompletableFuture$$Type<($HolderLookup$Provider$$Type)>, arg5: $CompletableFuture$$Type<($TagsProvider$TagLookup$$Type<($Block$$Type)>)>, arg6: $ExistingFileHelper$$Type)
 
 public "copy"(arg0: $TagKey$$Type<($Block)>, arg1: $TagKey$$Type<($Item)>): void
+public "addTag"(arg0: $TagKey$$Type): $TagsProvider$TagAppender
 public "contentsGetter"(): $CompletableFuture<($TagsProvider$TagLookup<(T)>)>
 public "tag"(arg0: $TagKey$$Type): $TagsProvider$TagAppender
-public static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 public static "saveStable"(arg0: $CachedOutput$$Type, arg1: $JsonElement$$Type, arg2: $Path$$Type): $CompletableFuture<(never)>
+public static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -176,8 +177,8 @@ export type $RegistrateItemTagsProvider$$Type = ($RegistrateItemTagsProvider);
 export type $RegistrateItemTagsProvider$$Original = $RegistrateItemTagsProvider;}
 declare module "com.tterrag.registrate.providers.RegistrateGenericProvider" {
 import {$RegistrateProvider$$Interface} from "com.tterrag.registrate.providers.RegistrateProvider"
-import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
 import {$Codec$$Type} from "com.mojang.serialization.Codec"
+import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
 import {$JsonElement$$Type} from "com.google.gson.JsonElement"
 import {$CachedOutput$$Type} from "net.minecraft.data.CachedOutput"
 import {$Path$$Type} from "java.nio.file.Path"
@@ -190,8 +191,8 @@ public "getName"(): StringJS
 public "run"(arg0: $CachedOutput$$Type): $CompletableFuture<(never)>
 public "add"(arg0: $RegistrateGenericProvider$Generator$$Type): $RegistrateGenericProvider
 public "getSide"(): $LogicalSide
-public static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 public static "saveStable"(arg0: $CachedOutput$$Type, arg1: $JsonElement$$Type, arg2: $Path$$Type): $CompletableFuture<(never)>
+public static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 get "name"(): StringJS
 get "side"(): $LogicalSide
 }
@@ -207,21 +208,21 @@ export type $RegistrateGenericProvider$$Original = $RegistrateGenericProvider;}
 declare module "com.tterrag.registrate.providers.ProviderType$SimpleServerDataFactory" {
 import {$RegistrateProvider, $RegistrateProvider$$Type} from "com.tterrag.registrate.providers.RegistrateProvider"
 import {$Map$$Type} from "java.util.Map"
-import {$NonNullUnaryOperator$$Type} from "com.tterrag.registrate.util.nullness.NonNullUnaryOperator"
 import {$RegistrateTagsProvider} from "com.tterrag.registrate.providers.RegistrateTagsProvider"
 import {$ProviderType$Context$$Type} from "com.tterrag.registrate.providers.ProviderType$Context"
+import {$NonNullUnaryOperator$$Type} from "com.tterrag.registrate.util.nullness.NonNullUnaryOperator"
 import {$HolderLookup$Provider, $HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$PackOutput, $PackOutput$$Type} from "net.minecraft.data.PackOutput"
-import {$Registry$$Type} from "net.minecraft.core.Registry"
 import {$CompletableFuture, $CompletableFuture$$Type} from "java.util.concurrent.CompletableFuture"
+import {$Registry$$Type} from "net.minecraft.core.Registry"
 import {$ProviderType$DependencyAwareProviderType$$Type, $ProviderType$DependencyAwareProviderType$$Interface} from "com.tterrag.registrate.providers.ProviderType$DependencyAwareProviderType"
 import {$Function$$Type} from "java.util.function.Function"
 import {$GatherDataEvent$$Type} from "net.neoforged.neoforge.data.event.GatherDataEvent"
-import {$AbstractRegistrate, $AbstractRegistrate$$Type} from "com.tterrag.registrate.AbstractRegistrate"
 import {$NonNullFunction$$Type} from "com.tterrag.registrate.util.nullness.NonNullFunction"
 import {$RegistrateTagsProvider$Impl} from "com.tterrag.registrate.providers.RegistrateTagsProvider$Impl"
-import {$ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
+import {$AbstractRegistrate, $AbstractRegistrate$$Type} from "com.tterrag.registrate.AbstractRegistrate"
 import {$NonNullBiFunction$$Type} from "com.tterrag.registrate.util.nullness.NonNullBiFunction"
+import {$ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
 import {$RegistrateTagsProvider$IntrinsicImpl} from "com.tterrag.registrate.providers.RegistrateTagsProvider$IntrinsicImpl"
 import {$ProviderType, $ProviderType$$Type} from "com.tterrag.registrate.providers.ProviderType"
 
@@ -252,15 +253,15 @@ static "register"<T extends $RegistrateProvider>(arg0: StringJS, arg1: $NonNullF
  */
 static "register"<T extends $RegistrateProvider>(arg0: StringJS, arg1: $NonNullBiFunction$$Type<($AbstractRegistrate<(never)>), ($GatherDataEvent), (T)>): $ProviderType<(T)>
 static "create"<T extends $RegistrateProvider>(arg0: $ProviderType$$Type<(T)>, arg1: $AbstractRegistrate$$Type<(never)>, arg2: $GatherDataEvent$$Type, arg3: $Map$$Type<($ProviderType$$Type<(never)>), ($RegistrateProvider$$Type)>, arg4: $CompletableFuture$$Type<($HolderLookup$Provider$$Type)>): T
-static "registerTag"<T, R extends $RegistrateTagsProvider<(object)>>(arg0: StringJS, arg1: $ResourceKey$$Type<($Registry<(T)>)>, arg2: $ProviderType$DependencyAwareProviderType$$Type<(R)>): $ProviderType<(R)>
+static "registerIntrinsicTag"<T>(arg0: StringJS, arg1: StringJS, arg2: $ResourceKey$$Type<($Registry<(T)>)>, arg3: $Function$$Type<(T), ($ResourceKey$$Type<(T)>)>): $ProviderType<($RegistrateTagsProvider$IntrinsicImpl<(T)>)>
 static "registerServerData"<T extends $RegistrateProvider>(arg0: StringJS, arg1: $ProviderType$SimpleServerDataFactory$$Type<(T)>): $ProviderType<(T)>
 static "registerDynamicTag"<T>(arg0: StringJS, arg1: StringJS, arg2: $ResourceKey$$Type<($Registry<(T)>)>): $ProviderType<($RegistrateTagsProvider$Impl<(T)>)>
+static "registerTag"<T, R extends $RegistrateTagsProvider<(object)>>(arg0: StringJS, arg1: $ResourceKey$$Type<($Registry<(T)>)>, arg2: $ProviderType$DependencyAwareProviderType$$Type<(R)>): $ProviderType<(R)>
 /**
  * 
  * @deprecated
  */
 static "registerDelegate"<T extends $RegistrateProvider>(arg0: StringJS, arg1: $NonNullUnaryOperator$$Type<($ProviderType<(T)>)>): $ProviderType<(T)>
-static "registerIntrinsicTag"<T>(arg0: StringJS, arg1: StringJS, arg2: $ResourceKey$$Type<($Registry<(T)>)>, arg3: $Function$$Type<(T), ($ResourceKey$$Type<(T)>)>): $ProviderType<($RegistrateTagsProvider$IntrinsicImpl<(T)>)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -279,8 +280,8 @@ import {$CompletableFuture, $CompletableFuture$$Type} from "java.util.concurrent
 import {$JsonElement$$Type} from "com.google.gson.JsonElement"
 import {$CachedOutput$$Type} from "net.minecraft.data.CachedOutput"
 import {$AbstractRegistrate$$Type} from "com.tterrag.registrate.AbstractRegistrate"
-import {$Path$$Type} from "java.nio.file.Path"
 import {$RegistrateLookupFillerProvider$$Interface} from "com.tterrag.registrate.providers.RegistrateLookupFillerProvider"
+import {$Path$$Type} from "java.nio.file.Path"
 import {$LogicalSide} from "net.neoforged.fml.LogicalSide"
 import {$HolderLookup$Provider, $HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 
@@ -291,8 +292,8 @@ constructor(arg0: $AbstractRegistrate$$Type<(never)>, arg1: $PackOutput$$Type, a
 
 public "getSide"(): $LogicalSide
 public "getFilledProvider"(): $CompletableFuture<($HolderLookup$Provider)>
-public static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 public static "saveStable"(arg0: $CachedOutput$$Type, arg1: $JsonElement$$Type, arg2: $Path$$Type): $CompletableFuture<(never)>
+public static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 get "side"(): $LogicalSide
 get "filledProvider"(): $CompletableFuture<($HolderLookup$Provider)>
 }
@@ -340,7 +341,7 @@ public "fileHelper"(): $ExistingFileHelper
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $ProviderType$Context$$Type<T> = ({"output"?: $PackOutput$$Type, "provider"?: $CompletableFuture$$Type<($HolderLookup$Provider$$Type)>, "existing"?: $Map$$Type<($ProviderType$$Type<(never)>), ($RegistrateProvider$$Type)>, "event"?: $GatherDataEvent$$Type, "type"?: $ProviderType$$Type<(T)>, "fileHelper"?: $ExistingFileHelper$$Type, "parent"?: $AbstractRegistrate$$Type<(never)>}) | ([output?: $PackOutput$$Type, provider?: $CompletableFuture$$Type<($HolderLookup$Provider$$Type)>, existing?: $Map$$Type<($ProviderType$$Type<(never)>), ($RegistrateProvider$$Type)>, event?: $GatherDataEvent$$Type, type?: $ProviderType$$Type<(T)>, fileHelper?: $ExistingFileHelper$$Type, parent?: $AbstractRegistrate$$Type<(never)>]);
+export type $ProviderType$Context$$Type<T> = ({"parent"?: $AbstractRegistrate$$Type<(never)>, "fileHelper"?: $ExistingFileHelper$$Type, "type"?: $ProviderType$$Type<(T)>, "event"?: $GatherDataEvent$$Type, "existing"?: $Map$$Type<($ProviderType$$Type<(never)>), ($RegistrateProvider$$Type)>, "provider"?: $CompletableFuture$$Type<($HolderLookup$Provider$$Type)>, "output"?: $PackOutput$$Type}) | ([parent?: $AbstractRegistrate$$Type<(never)>, fileHelper?: $ExistingFileHelper$$Type, type?: $ProviderType$$Type<(T)>, event?: $GatherDataEvent$$Type, existing?: $Map$$Type<($ProviderType$$Type<(never)>), ($RegistrateProvider$$Type)>, provider?: $CompletableFuture$$Type<($HolderLookup$Provider$$Type)>, output?: $PackOutput$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -351,9 +352,9 @@ import {$Map} from "java.util.Map"
 import {$Block$$Type} from "net.minecraft.world.level.block.Block"
 import {$ValidationContext$$Type} from "net.minecraft.world.level.storage.loot.ValidationContext"
 import {$LootTable, $LootTable$$Type} from "net.minecraft.world.level.storage.loot.LootTable"
-import {$HolderLookup$Provider, $HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$NumberProvider$$Type} from "net.minecraft.world.level.storage.loot.providers.number.NumberProvider"
 import {$FunctionUserBuilder, $FunctionUserBuilder$$Type} from "net.minecraft.world.level.storage.loot.functions.FunctionUserBuilder"
+import {$HolderLookup$Provider, $HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$VanillaBlockLoot} from "net.minecraft.data.loot.packs.VanillaBlockLoot"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$LootItemCondition$Builder, $LootItemCondition$Builder$$Type} from "net.minecraft.world.level.storage.loot.predicates.LootItemCondition$Builder"
@@ -361,8 +362,8 @@ import {$LootTable$Builder, $LootTable$Builder$$Type} from "net.minecraft.world.
 import {$ItemLike$$Type} from "net.minecraft.world.level.ItemLike"
 import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$Item, $Item$$Type} from "net.minecraft.world.item.Item"
-import {$AbstractRegistrate$$Type} from "com.tterrag.registrate.AbstractRegistrate"
 import {$Set} from "java.util.Set"
+import {$AbstractRegistrate$$Type} from "com.tterrag.registrate.AbstractRegistrate"
 import {$ResourceKey, $ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
 import {$LootPoolEntryContainer$Builder$$Type} from "net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer$Builder"
 import {$RegistrateLootTables$$Interface} from "com.tterrag.registrate.providers.loot.RegistrateLootTables"
@@ -381,48 +382,48 @@ static readonly "NORMAL_LEAVES_SAPLING_CHANCES": (float)[]
 constructor(arg0: $HolderLookup$Provider$$Type, arg1: $AbstractRegistrate$$Type<(never)>, arg2: $Consumer$$Type<($RegistrateBlockLootTables)>)
 
 public "add"(arg0: $Block$$Type, arg1: $LootTable$Builder$$Type): void
-public "createSilkTouchOrShearsDispatchTable"(arg0: $Block$$Type, arg1: $LootPoolEntryContainer$Builder$$Type<(never)>): $LootTable$Builder
-public "createBannerDrop"(arg0: $Block$$Type): $LootTable$Builder
-public "createCropDrops"(arg0: $Block$$Type, arg1: $Item$$Type, arg2: $Item$$Type, arg3: $LootItemCondition$Builder$$Type): $LootTable$Builder
-public "createDoorTable"(arg0: $Block$$Type): $LootTable$Builder
-public "dropWhenSilkTouch"(arg0: $Block$$Type): void
-public "otherWhenSilkTouch"(arg0: $Block$$Type, arg1: $Block$$Type): void
-public "createOreDrop"(arg0: $Block$$Type, arg1: $Item$$Type): $LootTable$Builder
-public "createBeeNestDrop"(arg0: $Block$$Type): $LootTable$Builder
-public "createLeavesDrops"(arg0: $Block$$Type, arg1: $Block$$Type, ...arg2: (float)[]): $LootTable$Builder
+public "createNameableBlockEntityTable"(arg0: $Block$$Type): $LootTable$Builder
 public "createCandleDrops"(arg0: $Block$$Type): $LootTable$Builder
-public "createGrassDrops"(arg0: $Block$$Type): $LootTable$Builder
-public "createPetalsDrops"(arg0: $Block$$Type): $LootTable$Builder
 public "createBeeHiveDrop"(arg0: $Block$$Type): $LootTable$Builder
+public "createDoorTable"(arg0: $Block$$Type): $LootTable$Builder
 public "dropPottedContents"(arg0: $Block$$Type): void
-public "getRegistries"(): $HolderLookup$Provider
-public "dropOther"(arg0: $Block$$Type, arg1: $ItemLike$$Type): void
-public "createSilkTouchDispatchTable"(arg0: $Block$$Type, arg1: $LootPoolEntryContainer$Builder$$Type<(never)>): $LootTable$Builder
-public "applyExplosionDecay"<T extends $FunctionUserBuilder<(object)>>(arg0: $ItemLike$$Type, arg1: $FunctionUserBuilder$$Type<(T)>): T
+public "createBannerDrop"(arg0: $Block$$Type): $LootTable$Builder
+public "createBeeNestDrop"(arg0: $Block$$Type): $LootTable$Builder
+public "createPetalsDrops"(arg0: $Block$$Type): $LootTable$Builder
+public "createLeavesDrops"(arg0: $Block$$Type, arg1: $Block$$Type, ...arg2: (float)[]): $LootTable$Builder
+public "createOreDrop"(arg0: $Block$$Type, arg1: $Item$$Type): $LootTable$Builder
+public "otherWhenSilkTouch"(arg0: $Block$$Type, arg1: $Block$$Type): void
+public "createGrassDrops"(arg0: $Block$$Type): $LootTable$Builder
+public "dropWhenSilkTouch"(arg0: $Block$$Type): void
+public "createCropDrops"(arg0: $Block$$Type, arg1: $Item$$Type, arg2: $Item$$Type, arg3: $LootItemCondition$Builder$$Type): $LootTable$Builder
 public "applyExplosionCondition"<T extends $ConditionUserBuilder<(object)>>(arg0: $ItemLike$$Type, arg1: $ConditionUserBuilder$$Type<(T)>): T
 public "createShearsDispatchTable"(arg0: $Block$$Type, arg1: $LootPoolEntryContainer$Builder$$Type<(never)>): $LootTable$Builder
 public "createSingleItemTable"(arg0: $ItemLike$$Type, arg1: $NumberProvider$$Type): $LootTable$Builder
 public "createSilkTouchOnlyTable"(arg0: $ItemLike$$Type): $LootTable$Builder
-public "createOakLeavesDrops"(arg0: $Block$$Type, arg1: $Block$$Type, ...arg2: (float)[]): $LootTable$Builder
-public static "createCandleCakeDrops"(arg0: $Block$$Type): $LootTable$Builder
-public "createMultifaceBlockDrops"(arg0: $Block$$Type, arg1: $LootItemCondition$Builder$$Type): $LootTable$Builder
+public "applyExplosionDecay"<T extends $FunctionUserBuilder<(object)>>(arg0: $ItemLike$$Type, arg1: $FunctionUserBuilder$$Type<(T)>): T
+public "createPotFlowerItemTable"(arg0: $ItemLike$$Type): $LootTable$Builder
+public "createSlabItemTable"(arg0: $Block$$Type): $LootTable$Builder
 public "createShulkerBoxDrop"(arg0: $Block$$Type): $LootTable$Builder
+public "createCopperOreDrops"(arg0: $Block$$Type): $LootTable$Builder
+public "createLapisOreDrops"(arg0: $Block$$Type): $LootTable$Builder
+public "addNetherVinesDropTable"(arg0: $Block$$Type, arg1: $Block$$Type): void
 public "createMangroveLeavesDrops"(arg0: $Block$$Type): $LootTable$Builder
 public "createMushroomBlockDrop"(arg0: $Block$$Type, arg1: $ItemLike$$Type): $LootTable$Builder
-public "createLapisOreDrops"(arg0: $Block$$Type): $LootTable$Builder
-public "createSlabItemTable"(arg0: $Block$$Type): $LootTable$Builder
-public "createPotFlowerItemTable"(arg0: $ItemLike$$Type): $LootTable$Builder
-public static "createShearsOnlyDrop"(arg0: $ItemLike$$Type): $LootTable$Builder
-public "createCaveVinesDrop"(arg0: $Block$$Type): $LootTable$Builder
+public "createMultifaceBlockDrops"(arg0: $Block$$Type, arg1: $LootItemCondition$Builder$$Type): $LootTable$Builder
+public static "createCandleCakeDrops"(arg0: $Block$$Type): $LootTable$Builder
 public "createRedstoneOreDrops"(arg0: $Block$$Type): $LootTable$Builder
-public "createCopperOreDrops"(arg0: $Block$$Type): $LootTable$Builder
-public "addNetherVinesDropTable"(arg0: $Block$$Type, arg1: $Block$$Type): void
-public "dropSelf"(arg0: $Block$$Type): void
+public "createCaveVinesDrop"(arg0: $Block$$Type): $LootTable$Builder
+public "createOakLeavesDrops"(arg0: $Block$$Type, arg1: $Block$$Type, ...arg2: (float)[]): $LootTable$Builder
+public static "createShearsOnlyDrop"(arg0: $ItemLike$$Type): $LootTable$Builder
 public "createDoublePlantWithSeedDrops"(arg0: $Block$$Type, arg1: $Block$$Type): $LootTable$Builder
 public "createDoublePlantShearsDrop"(arg0: $Block$$Type): $LootTable$Builder
+public "createSilkTouchOrShearsDispatchTable"(arg0: $Block$$Type, arg1: $LootPoolEntryContainer$Builder$$Type<(never)>): $LootTable$Builder
+public "getRegistries"(): $HolderLookup$Provider
+public "createSilkTouchDispatchTable"(arg0: $Block$$Type, arg1: $LootPoolEntryContainer$Builder$$Type<(never)>): $LootTable$Builder
 public "createSingleItemTableWithSilkTouch"(arg0: $Block$$Type, arg1: $ItemLike$$Type, arg2: $NumberProvider$$Type): $LootTable$Builder
 public "createSingleItemTableWithSilkTouch"(arg0: $Block$$Type, arg1: $ItemLike$$Type): $LootTable$Builder
-public "createNameableBlockEntityTable"(arg0: $Block$$Type): $LootTable$Builder
+public "dropSelf"(arg0: $Block$$Type): void
+public "dropOther"(arg0: $Block$$Type, arg1: $ItemLike$$Type): void
 public "validate"(arg0: $WritableRegistry$$Type<($LootTable$$Type)>, arg1: $ValidationContext$$Type): void
 public "generate"(arg0: $BiConsumer$$Type<($ResourceKey<($LootTable)>), ($LootTable$Builder)>): void
 }
@@ -437,16 +438,16 @@ export type $RegistrateBlockLootTables$$Type = ($RegistrateBlockLootTables);
 export type $RegistrateBlockLootTables$$Original = $RegistrateBlockLootTables;}
 declare module "com.tterrag.registrate.providers.RegistrateTagsProvider$Impl" {
 import {$Map} from "java.util.Map"
-import {$RegistrateTagsProvider$$Interface} from "com.tterrag.registrate.providers.RegistrateTagsProvider"
 import {$TagsProvider$TagLookup} from "net.minecraft.data.tags.TagsProvider$TagLookup"
+import {$RegistrateTagsProvider$$Interface} from "com.tterrag.registrate.providers.RegistrateTagsProvider"
 import {$JsonElement$$Type} from "com.google.gson.JsonElement"
 import {$TagsProvider} from "net.minecraft.data.tags.TagsProvider"
 import {$CachedOutput$$Type} from "net.minecraft.data.CachedOutput"
-import {$HolderLookup$Provider, $HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$LogicalSide} from "net.neoforged.fml.LogicalSide"
+import {$HolderLookup$Provider, $HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$PackOutput$$Type} from "net.minecraft.data.PackOutput"
-import {$TagBuilder} from "net.minecraft.tags.TagBuilder"
 import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
+import {$TagBuilder} from "net.minecraft.tags.TagBuilder"
 import {$Codec$$Type} from "com.mojang.serialization.Codec"
 import {$CompletableFuture, $CompletableFuture$$Type} from "java.util.concurrent.CompletableFuture"
 import {$Registry, $Registry$$Type} from "net.minecraft.core.Registry"
@@ -470,12 +471,12 @@ constructor(arg0: $AbstractRegistrate$$Type<(never)>, arg1: $ProviderType$$Type<
 
 public "getName"(): StringJS
 public "registry"(): $ResourceKey<($Registry<(T)>)>
-public "addTag"(arg0: $TagKey$$Type<(T)>): $TagsProvider$TagAppender<(T)>
 public "getSide"(): $LogicalSide
 public "getFilledProvider"(): $CompletableFuture<($HolderLookup$Provider)>
+public "addTag"(arg0: $TagKey$$Type<(T)>): $TagsProvider$TagAppender<(T)>
 public "contentsGetter"(): $CompletableFuture<($TagsProvider$TagLookup<(T)>)>
-public static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 public static "saveStable"(arg0: $CachedOutput$$Type, arg1: $JsonElement$$Type, arg2: $Path$$Type): $CompletableFuture<(never)>
+public static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 get "name"(): StringJS
 get "side"(): $LogicalSide
 get "filledProvider"(): $CompletableFuture<($HolderLookup$Provider)>
@@ -492,8 +493,8 @@ export type $RegistrateTagsProvider$Impl$$Original<T> = $RegistrateTagsProvider$
 declare module "com.tterrag.registrate.providers.RegistrateDataMapProvider" {
 import {$RegistrateProvider$$Interface} from "com.tterrag.registrate.providers.RegistrateProvider"
 import {$DataMapProvider} from "net.neoforged.neoforge.common.data.DataMapProvider"
-import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
 import {$Codec$$Type} from "com.mojang.serialization.Codec"
+import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
 import {$JsonElement$$Type} from "com.google.gson.JsonElement"
 import {$CachedOutput$$Type} from "net.minecraft.data.CachedOutput"
 import {$Path$$Type} from "java.nio.file.Path"
@@ -502,8 +503,8 @@ import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Prov
 
 export class $RegistrateDataMapProvider extends $DataMapProvider implements $RegistrateProvider$$Interface {
 public "getSide"(): $LogicalSide
-public static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 public static "saveStable"(arg0: $CachedOutput$$Type, arg1: $JsonElement$$Type, arg2: $Path$$Type): $CompletableFuture<(never)>
+public static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 get "side"(): $LogicalSide
 }
 /**
@@ -521,12 +522,12 @@ import {$RegistrateProvider$$Interface} from "com.tterrag.registrate.providers.R
 import {$VariantBlockStateBuilder} from "net.neoforged.neoforge.client.model.generators.VariantBlockStateBuilder"
 import {$Optional} from "java.util.Optional"
 import {$JsonElement$$Type} from "com.google.gson.JsonElement"
-import {$Direction} from "net.minecraft.core.Direction"
 import {$Block$$Type} from "net.minecraft.world.level.block.Block"
+import {$Direction} from "net.minecraft.core.Direction"
 import {$CachedOutput$$Type} from "net.minecraft.data.CachedOutput"
 import {$ImmutableMap} from "com.google.common.collect.ImmutableMap"
-import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$LogicalSide} from "net.neoforged.fml.LogicalSide"
+import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$PackOutput$$Type} from "net.minecraft.data.PackOutput"
 import {$MultiPartBlockStateBuilder} from "net.neoforged.neoforge.client.model.generators.MultiPartBlockStateBuilder"
 import {$BlockStateProvider} from "net.neoforged.neoforge.client.model.generators.BlockStateProvider"
@@ -543,11 +544,11 @@ static readonly "WALL_PROPS": $ImmutableMap<($Direction), ($Property<($WallSide)
 constructor(arg0: $AbstractRegistrate$$Type<(never)>, arg1: $PackOutput$$Type, arg2: $ExistingFileHelper$$Type)
 
 public "getName"(): StringJS
+public "getExistingVariantBuilder"(arg0: $Block$$Type): $Optional<($VariantBlockStateBuilder)>
 public "getSide"(): $LogicalSide
 public "getExistingMultipartBuilder"(arg0: $Block$$Type): $Optional<($MultiPartBlockStateBuilder)>
-public "getExistingVariantBuilder"(arg0: $Block$$Type): $Optional<($VariantBlockStateBuilder)>
-public static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 public static "saveStable"(arg0: $CachedOutput$$Type, arg1: $JsonElement$$Type, arg2: $Path$$Type): $CompletableFuture<(never)>
+public static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 get "name"(): StringJS
 get "side"(): $LogicalSide
 }
@@ -561,28 +562,27 @@ export type $RegistrateBlockstateProvider$$Type = ($RegistrateBlockstateProvider
  */
 export type $RegistrateBlockstateProvider$$Original = $RegistrateBlockstateProvider;}
 declare module "com.tterrag.registrate.providers.RegistrateTagsProvider$IntrinsicImpl" {
+import {$Map} from "java.util.Map"
+import {$TagsProvider$TagLookup} from "net.minecraft.data.tags.TagsProvider$TagLookup"
+import {$RegistrateTagsProvider$$Interface} from "com.tterrag.registrate.providers.RegistrateTagsProvider"
 import {$JsonElement$$Type} from "com.google.gson.JsonElement"
 import {$CachedOutput$$Type} from "net.minecraft.data.CachedOutput"
+import {$IntrinsicHolderTagsProvider} from "net.minecraft.data.tags.IntrinsicHolderTagsProvider"
+import {$LogicalSide} from "net.neoforged.fml.LogicalSide"
+import {$HolderLookup$Provider, $HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$PackOutput$$Type} from "net.minecraft.data.PackOutput"
 import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
+import {$TagBuilder} from "net.minecraft.tags.TagBuilder"
 import {$Codec$$Type} from "com.mojang.serialization.Codec"
-import {$Function$$Type} from "java.util.function.Function"
+import {$CompletableFuture, $CompletableFuture$$Type} from "java.util.concurrent.CompletableFuture"
+import {$Registry, $Registry$$Type} from "net.minecraft.core.Registry"
 import {$TagsProvider$TagAppender} from "net.minecraft.data.tags.TagsProvider$TagAppender"
+import {$TagKey$$Type} from "net.minecraft.tags.TagKey"
+import {$Function$$Type} from "java.util.function.Function"
+import {$ExistingFileHelper, $ExistingFileHelper$$Type} from "net.neoforged.neoforge.common.data.ExistingFileHelper"
 import {$PackOutput$PathProvider} from "net.minecraft.data.PackOutput$PathProvider"
 import {$AbstractRegistrate$$Type} from "com.tterrag.registrate.AbstractRegistrate"
 import {$ResourceKey, $ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
-import {$IntrinsicHolderTagsProvider$IntrinsicTagAppender} from "net.minecraft.data.tags.IntrinsicHolderTagsProvider$IntrinsicTagAppender"
-import {$Map} from "java.util.Map"
-import {$RegistrateTagsProvider$$Interface} from "com.tterrag.registrate.providers.RegistrateTagsProvider"
-import {$TagsProvider$TagLookup} from "net.minecraft.data.tags.TagsProvider$TagLookup"
-import {$IntrinsicHolderTagsProvider} from "net.minecraft.data.tags.IntrinsicHolderTagsProvider"
-import {$HolderLookup$Provider, $HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
-import {$LogicalSide} from "net.neoforged.fml.LogicalSide"
-import {$TagBuilder} from "net.minecraft.tags.TagBuilder"
-import {$CompletableFuture, $CompletableFuture$$Type} from "java.util.concurrent.CompletableFuture"
-import {$Registry, $Registry$$Type} from "net.minecraft.core.Registry"
-import {$TagKey$$Type} from "net.minecraft.tags.TagKey"
-import {$ExistingFileHelper, $ExistingFileHelper$$Type} from "net.neoforged.neoforge.common.data.ExistingFileHelper"
 import {$Path$$Type} from "java.nio.file.Path"
 import {$ProviderType$$Type} from "com.tterrag.registrate.providers.ProviderType"
 
@@ -597,13 +597,13 @@ constructor(arg0: $AbstractRegistrate$$Type<(never)>, arg1: $ProviderType$$Type<
 
 public "getName"(): StringJS
 public "registry"(): $ResourceKey<($Registry<(T)>)>
-public "addTag"(arg0: $TagKey$$Type<(T)>): $IntrinsicHolderTagsProvider$IntrinsicTagAppender<(T)>
 public "getSide"(): $LogicalSide
 public "getFilledProvider"(): $CompletableFuture<($HolderLookup$Provider)>
+public "addTag"(arg0: $TagKey$$Type): $TagsProvider$TagAppender
 public "contentsGetter"(): $CompletableFuture<($TagsProvider$TagLookup<(T)>)>
 public "tag"(arg0: $TagKey$$Type): $TagsProvider$TagAppender
-public static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 public static "saveStable"(arg0: $CachedOutput$$Type, arg1: $JsonElement$$Type, arg2: $Path$$Type): $CompletableFuture<(never)>
+public static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 get "name"(): StringJS
 get "side"(): $LogicalSide
 get "filledProvider"(): $CompletableFuture<($HolderLookup$Provider)>
@@ -622,8 +622,8 @@ import {$RegistrateProvider$$Interface} from "com.tterrag.registrate.providers.R
 import {$Map} from "java.util.Map"
 import {$JsonElement$$Type} from "com.google.gson.JsonElement"
 import {$CachedOutput$$Type} from "net.minecraft.data.CachedOutput"
-import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$LogicalSide} from "net.neoforged.fml.LogicalSide"
+import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$ExistingFileHelper$ResourceType} from "net.neoforged.neoforge.common.data.ExistingFileHelper$ResourceType"
 import {$ItemModelBuilder} from "net.neoforged.neoforge.client.model.generators.ItemModelBuilder"
 import {$NonNullSupplier$$Type} from "com.tterrag.registrate.util.nullness.NonNullSupplier"
@@ -650,19 +650,19 @@ public "getName"(): StringJS
 public "name"(arg0: $NonNullSupplier$$Type<($ItemLike$$Type)>): StringJS
 public "generated"(arg0: $NonNullSupplier$$Type<($ItemLike$$Type)>): $ItemModelBuilder
 public "generated"(arg0: $NonNullSupplier$$Type<($ItemLike$$Type)>, ...arg1: ($ResourceLocation$$Type)[]): $ItemModelBuilder
-public "handheld"(arg0: $NonNullSupplier$$Type<($ItemLike$$Type)>): $ItemModelBuilder
-public "handheld"(arg0: $NonNullSupplier$$Type<($ItemLike$$Type)>, arg1: $ResourceLocation$$Type): $ItemModelBuilder
-public "blockItem"(arg0: $NonNullSupplier$$Type<($ItemLike$$Type)>, arg1: StringJS): $ItemModelBuilder
-public "blockItem"(arg0: $NonNullSupplier$$Type<($ItemLike$$Type)>): $ItemModelBuilder
+public "blockWithInventoryModel"(arg0: $NonNullSupplier$$Type<($ItemLike$$Type)>): $ItemModelBuilder
 public "getSide"(): $LogicalSide
 public "modid"(arg0: $NonNullSupplier$$Type<($ItemLike$$Type)>): StringJS
+public "itemTexture"(arg0: $NonNullSupplier$$Type<($ItemLike$$Type)>): $ResourceLocation
 public "blockSprite"(arg0: $NonNullSupplier$$Type<($ItemLike$$Type)>, arg1: $ResourceLocation$$Type): $ItemModelBuilder
 public "blockSprite"(arg0: $NonNullSupplier$$Type<($ItemLike$$Type)>): $ItemModelBuilder
-public "itemTexture"(arg0: $NonNullSupplier$$Type<($ItemLike$$Type)>): $ResourceLocation
-public "blockWithInventoryModel"(arg0: $NonNullSupplier$$Type<($ItemLike$$Type)>): $ItemModelBuilder
+public "blockItem"(arg0: $NonNullSupplier$$Type<($ItemLike$$Type)>, arg1: StringJS): $ItemModelBuilder
+public "blockItem"(arg0: $NonNullSupplier$$Type<($ItemLike$$Type)>): $ItemModelBuilder
+public "handheld"(arg0: $NonNullSupplier$$Type<($ItemLike$$Type)>, arg1: $ResourceLocation$$Type): $ItemModelBuilder
+public "handheld"(arg0: $NonNullSupplier$$Type<($ItemLike$$Type)>): $ItemModelBuilder
 public "run"(arg0: $CachedOutput$$Type): $CompletableFuture<(never)>
-public static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 public static "saveStable"(arg0: $CachedOutput$$Type, arg1: $JsonElement$$Type, arg2: $Path$$Type): $CompletableFuture<(never)>
+public static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 get "side"(): $LogicalSide
 }
 /**
@@ -676,8 +676,8 @@ export type $RegistrateItemModelProvider$$Type = ($RegistrateItemModelProvider);
 export type $RegistrateItemModelProvider$$Original = $RegistrateItemModelProvider;}
 declare module "com.tterrag.registrate.providers.RegistrateAdvancementProvider" {
 import {$RegistrateProvider$$Interface} from "com.tterrag.registrate.providers.RegistrateProvider"
-import {$List$$Type} from "java.util.List"
 import {$JsonElement$$Type} from "com.google.gson.JsonElement"
+import {$List$$Type} from "java.util.List"
 import {$CachedOutput$$Type} from "net.minecraft.data.CachedOutput"
 import {$AdvancementHolder, $AdvancementHolder$$Type} from "net.minecraft.advancements.AdvancementHolder"
 import {$Holder} from "net.minecraft.core.Holder"
@@ -699,16 +699,16 @@ constructor(arg0: $AbstractRegistrate$$Type<(never)>, arg1: $PackOutput$$Type, a
 public "getName"(): StringJS
 public "run"(arg0: $CachedOutput$$Type): $CompletableFuture<(never)>
 public "resolve"<T>(arg0: $ResourceKey$$Type<(T)>): $Holder<(T)>
-public "accept"(arg0: $AdvancementHolder$$Type): void
 public "accept"(arg0: any): void
+public "accept"(arg0: $AdvancementHolder$$Type): void
 public "desc"(arg0: StringJS, arg1: StringJS, arg2: StringJS): $MutableComponent
 public "getProvider"(): $HolderLookup$Provider
 public "getSide"(): $LogicalSide
-public "title"(arg0: StringJS, arg1: StringJS, arg2: StringJS): $MutableComponent
 public "withConditions"(arg0: $AdvancementHolder$$Type, arg1: $List$$Type<($ICondition$$Type)>): void
+public "title"(arg0: StringJS, arg1: StringJS, arg2: StringJS): $MutableComponent
 public "andThen"(arg0: $Consumer$$Type<($AdvancementHolder)>): $Consumer<($AdvancementHolder)>
-public static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 public static "saveStable"(arg0: $CachedOutput$$Type, arg1: $JsonElement$$Type, arg2: $Path$$Type): $CompletableFuture<(never)>
+public static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 get "name"(): StringJS
 get "provider"(): $HolderLookup$Provider
 get "side"(): $LogicalSide
@@ -754,8 +754,8 @@ import {$LootItemCondition$Builder} from "net.minecraft.world.level.storage.loot
 import {$LootTable$Builder, $LootTable$Builder$$Type} from "net.minecraft.world.level.storage.loot.LootTable$Builder"
 import {$ItemLike$$Type} from "net.minecraft.world.level.ItemLike"
 import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
-import {$AbstractRegistrate$$Type} from "com.tterrag.registrate.AbstractRegistrate"
 import {$FrogVariant$$Type} from "net.minecraft.world.entity.animal.FrogVariant"
+import {$AbstractRegistrate$$Type} from "com.tterrag.registrate.AbstractRegistrate"
 import {$ResourceKey, $ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
 import {$VanillaEntityLoot} from "net.minecraft.data.loot.packs.VanillaEntityLoot"
 import {$RegistrateLootTables$$Interface} from "com.tterrag.registrate.providers.loot.RegistrateLootTables"
@@ -773,8 +773,8 @@ public "add"(arg0: $EntityType$$Type<(never)>, arg1: $ResourceKey$$Type<($LootTa
 public "generate"(): void
 public "getRegistries"(): $HolderLookup$Provider
 public "killedByFrogVariant"(arg0: $ResourceKey$$Type<($FrogVariant)>): $LootItemCondition$Builder
-public static "createSheepTable"(arg0: $ItemLike$$Type): $LootTable$Builder
 public "canHaveLootTable"(arg0: $EntityType$$Type<(never)>): boolean
+public static "createSheepTable"(arg0: $ItemLike$$Type): $LootTable$Builder
 public "validate"(arg0: $WritableRegistry$$Type<($LootTable$$Type)>, arg1: $ValidationContext$$Type): void
 public "generate"(arg0: $BiConsumer$$Type<($ResourceKey<($LootTable)>), ($LootTable$Builder)>): void
 }
@@ -835,8 +835,8 @@ import {$CachedOutput$$Type} from "net.minecraft.data.CachedOutput"
 import {$RegistrateLookupFillerProvider$$Interface} from "com.tterrag.registrate.providers.RegistrateLookupFillerProvider"
 import {$LogicalSide} from "net.neoforged.fml.LogicalSide"
 import {$HolderLookup$Provider, $HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
-import {$Codec$$Type} from "com.mojang.serialization.Codec"
 import {$Registry} from "net.minecraft.core.Registry"
+import {$Codec$$Type} from "com.mojang.serialization.Codec"
 import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
 import {$TagsProvider$TagAppender} from "net.minecraft.data.tags.TagsProvider$TagAppender"
 import {$TagKey$$Type} from "net.minecraft.tags.TagKey"
@@ -851,14 +851,14 @@ get "name"(): StringJS
 
 export class $RegistrateTagsProvider<T> implements $RegistrateTagsProvider$$Interface {
  "registry"(): $ResourceKey<($Registry<(T)>)>
- "addTag"(arg0: $TagKey$$Type<(T)>): $TagsProvider$TagAppender<(T)>
  "contentsGetter"(): $CompletableFuture<($TagsProvider$TagLookup<(T)>)>
+ "addTag"(arg0: $TagKey$$Type<(T)>): $TagsProvider$TagAppender<(T)>
  "getFilledProvider"(): $CompletableFuture<($HolderLookup$Provider)>
  "getSide"(): $LogicalSide
  "getName"(): StringJS
  "run"(arg0: $CachedOutput$$Type): $CompletableFuture<(never)>
-static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 static "saveStable"(arg0: $CachedOutput$$Type, arg1: $JsonElement$$Type, arg2: $Path$$Type): $CompletableFuture<(never)>
+static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -872,33 +872,33 @@ export type $RegistrateTagsProvider$$Original<T> = $RegistrateTagsProvider<(T)>;
 declare module "com.tterrag.registrate.providers.ProviderType" {
 import {$ProviderType$SimpleServerDataFactory$$Type} from "com.tterrag.registrate.providers.ProviderType$SimpleServerDataFactory"
 import {$RegistrateLootTableProvider} from "com.tterrag.registrate.providers.loot.RegistrateLootTableProvider"
-import {$RegistrateBlockstateProvider} from "com.tterrag.registrate.providers.RegistrateBlockstateProvider"
 import {$RegistrateDatapackProvider} from "com.tterrag.registrate.providers.RegistrateDatapackProvider"
+import {$RegistrateBlockstateProvider} from "com.tterrag.registrate.providers.RegistrateBlockstateProvider"
 import {$Function$$Type} from "java.util.function.Function"
-import {$AbstractRegistrate, $AbstractRegistrate$$Type} from "com.tterrag.registrate.AbstractRegistrate"
 import {$NonNullFunction$$Type} from "com.tterrag.registrate.util.nullness.NonNullFunction"
-import {$ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
+import {$AbstractRegistrate, $AbstractRegistrate$$Type} from "com.tterrag.registrate.AbstractRegistrate"
 import {$NonNullBiFunction$$Type} from "com.tterrag.registrate.util.nullness.NonNullBiFunction"
+import {$ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
 import {$RegistrateGenericProvider} from "com.tterrag.registrate.providers.RegistrateGenericProvider"
 import {$RegistrateTagsProvider$IntrinsicImpl} from "com.tterrag.registrate.providers.RegistrateTagsProvider$IntrinsicImpl"
 import {$EntityType} from "net.minecraft.world.entity.EntityType"
 import {$RegistrateProvider, $RegistrateProvider$$Type} from "com.tterrag.registrate.providers.RegistrateProvider"
 import {$RegistrateItemModelProvider} from "com.tterrag.registrate.providers.RegistrateItemModelProvider"
 import {$Map, $Map$$Type} from "java.util.Map"
-import {$NonNullUnaryOperator$$Type} from "com.tterrag.registrate.util.nullness.NonNullUnaryOperator"
 import {$RegistrateTagsProvider} from "com.tterrag.registrate.providers.RegistrateTagsProvider"
 import {$ProviderType$Context$$Type} from "com.tterrag.registrate.providers.ProviderType$Context"
+import {$NonNullUnaryOperator$$Type} from "com.tterrag.registrate.util.nullness.NonNullUnaryOperator"
 import {$Block} from "net.minecraft.world.level.block.Block"
 import {$RegistrateRecipeProvider} from "com.tterrag.registrate.providers.RegistrateRecipeProvider"
 import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$Enchantment} from "net.minecraft.world.item.enchantment.Enchantment"
 import {$Fluid} from "net.minecraft.world.level.material.Fluid"
 import {$RegistrateLangProvider} from "com.tterrag.registrate.providers.RegistrateLangProvider"
-import {$Registry$$Type} from "net.minecraft.core.Registry"
 import {$CompletableFuture$$Type} from "java.util.concurrent.CompletableFuture"
+import {$Registry$$Type} from "net.minecraft.core.Registry"
 import {$RegistrateDataMapProvider} from "com.tterrag.registrate.providers.RegistrateDataMapProvider"
-import {$RegistrateItemTagsProvider} from "com.tterrag.registrate.providers.RegistrateItemTagsProvider"
 import {$ProviderType$DependencyAwareProviderType$$Type} from "com.tterrag.registrate.providers.ProviderType$DependencyAwareProviderType"
+import {$RegistrateItemTagsProvider} from "com.tterrag.registrate.providers.RegistrateItemTagsProvider"
 import {$GatherDataEvent, $GatherDataEvent$$Type} from "net.neoforged.neoforge.data.event.GatherDataEvent"
 import {$RegistrateTagsProvider$Impl} from "com.tterrag.registrate.providers.RegistrateTagsProvider$Impl"
 import {$RegistrateAdvancementProvider} from "com.tterrag.registrate.providers.RegistrateAdvancementProvider"
@@ -948,15 +948,15 @@ static "create"<T extends $RegistrateProvider>(arg0: $ProviderType$$Type<(T)>, a
  * @deprecated
  */
  "create"(arg0: $AbstractRegistrate$$Type<(never)>, arg1: $GatherDataEvent$$Type, arg2: $Map$$Type<($ProviderType$$Type<(never)>), ($RegistrateProvider$$Type)>): T
-static "registerTag"<T, R extends $RegistrateTagsProvider<(object)>>(arg0: StringJS, arg1: $ResourceKey$$Type<($Registry<(T)>)>, arg2: $ProviderType$DependencyAwareProviderType$$Type<(R)>): $ProviderType<(R)>
+static "registerIntrinsicTag"<T>(arg0: StringJS, arg1: StringJS, arg2: $ResourceKey$$Type<($Registry<(T)>)>, arg3: $Function$$Type<(T), ($ResourceKey$$Type<(T)>)>): $ProviderType<($RegistrateTagsProvider$IntrinsicImpl<(T)>)>
 static "registerServerData"<T extends $RegistrateProvider>(arg0: StringJS, arg1: $ProviderType$SimpleServerDataFactory$$Type<(T)>): $ProviderType<(T)>
 static "registerDynamicTag"<T>(arg0: StringJS, arg1: StringJS, arg2: $ResourceKey$$Type<($Registry<(T)>)>): $ProviderType<($RegistrateTagsProvider$Impl<(T)>)>
+static "registerTag"<T, R extends $RegistrateTagsProvider<(object)>>(arg0: StringJS, arg1: $ResourceKey$$Type<($Registry<(T)>)>, arg2: $ProviderType$DependencyAwareProviderType$$Type<(R)>): $ProviderType<(R)>
 /**
  * 
  * @deprecated
  */
 static "registerDelegate"<T extends $RegistrateProvider>(arg0: StringJS, arg1: $NonNullUnaryOperator$$Type<($ProviderType<(T)>)>): $ProviderType<(T)>
-static "registerIntrinsicTag"<T>(arg0: StringJS, arg1: StringJS, arg2: $ResourceKey$$Type<($Registry<(T)>)>, arg3: $Function$$Type<(T), ($ResourceKey$$Type<(T)>)>): $ProviderType<($RegistrateTagsProvider$IntrinsicImpl<(T)>)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -974,14 +974,14 @@ import {$DataIngredient$$Type} from "com.tterrag.registrate.util.DataIngredient"
 import {$List$$Type} from "java.util.List"
 import {$JsonElement$$Type} from "com.google.gson.JsonElement"
 import {$CachedOutput$$Type} from "net.minecraft.data.CachedOutput"
-import {$AdvancementHolder$$Type} from "net.minecraft.advancements.AdvancementHolder"
 import {$EnterBlockTrigger$TriggerInstance} from "net.minecraft.advancements.critereon.EnterBlockTrigger$TriggerInstance"
 import {$Advancement$Builder} from "net.minecraft.advancements.Advancement$Builder"
+import {$AdvancementHolder$$Type} from "net.minecraft.advancements.AdvancementHolder"
 import {$RecipeBuilder} from "net.minecraft.data.recipes.RecipeBuilder"
-import {$BlockFamily$$Type} from "net.minecraft.data.BlockFamily"
 import {$Holder} from "net.minecraft.core.Holder"
-import {$NonNullSupplier$$Type} from "com.tterrag.registrate.util.nullness.NonNullSupplier"
+import {$BlockFamily$$Type} from "net.minecraft.data.BlockFamily"
 import {$InventoryChangeTrigger$TriggerInstance} from "net.minecraft.advancements.critereon.InventoryChangeTrigger$TriggerInstance"
+import {$NonNullSupplier$$Type} from "com.tterrag.registrate.util.nullness.NonNullSupplier"
 import {$RecipeOutput, $RecipeOutput$$Type, $RecipeOutput$$Interface} from "net.minecraft.data.recipes.RecipeOutput"
 import {$PackOutput$$Type} from "net.minecraft.data.PackOutput"
 import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
@@ -1001,14 +1001,14 @@ import {$AbstractCookingRecipe} from "net.minecraft.world.item.crafting.Abstract
 import {$LogicalSide} from "net.neoforged.fml.LogicalSide"
 import {$HolderLookup$Provider, $HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$ItemPredicate$$Type} from "net.minecraft.advancements.critereon.ItemPredicate"
-import {$AbstractCookingRecipe$Factory$$Type} from "net.minecraft.world.item.crafting.AbstractCookingRecipe$Factory"
 import {$Criterion} from "net.minecraft.advancements.Criterion"
 import {$ShapedRecipeBuilder} from "net.minecraft.data.recipes.ShapedRecipeBuilder"
+import {$AbstractCookingRecipe$Factory$$Type} from "net.minecraft.world.item.crafting.AbstractCookingRecipe$Factory"
 import {$CompletableFuture, $CompletableFuture$$Type} from "java.util.concurrent.CompletableFuture"
 import {$Recipe$$Type} from "net.minecraft.world.item.crafting.Recipe"
-import {$TagKey$$Type} from "net.minecraft.tags.TagKey"
 import {$ItemLike, $ItemLike$$Type} from "net.minecraft.world.level.ItemLike"
 import {$RecipeProvider} from "net.minecraft.data.recipes.RecipeProvider"
+import {$TagKey$$Type} from "net.minecraft.tags.TagKey"
 import {$ShapelessRecipeBuilder} from "net.minecraft.data.recipes.ShapelessRecipeBuilder"
 import {$Path$$Type} from "java.nio.file.Path"
 import {$RecipeSerializer$$Type} from "net.minecraft.world.item.crafting.RecipeSerializer"
@@ -1029,114 +1029,114 @@ public "accept"(arg0: $ResourceLocation$$Type, arg1: $Recipe$$Type<(never)>, arg
 public "fence"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: StringJS): void
 public "square"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: boolean): void
 public "getProvider"(): $HolderLookup$Provider
-public static "has"(arg0: $ItemLike$$Type): $Criterion<($InventoryChangeTrigger$TriggerInstance)>
 public static "has"(arg0: $TagKey$$Type<($Item)>): $Criterion<($InventoryChangeTrigger$TriggerInstance)>
 public static "has"(arg0: $MinMaxBounds$Ints$$Type, arg1: $ItemLike$$Type): $Criterion<($InventoryChangeTrigger$TriggerInstance)>
+public static "has"(arg0: $ItemLike$$Type): $Criterion<($InventoryChangeTrigger$TriggerInstance)>
 public static "wall"(arg0: $RecipeOutput$$Type, arg1: $RecipeCategory$$Type, arg2: $ItemLike$$Type, arg3: $ItemLike$$Type): void
 public "wall"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>): void
-public "storage"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $NonNullSupplier$$Type<(T)>, arg3: $DataIngredient$$Type, arg4: $NonNullSupplier$$Type<(T)>): void
+public static "getSimpleRecipeName"(arg0: $ItemLike$$Type): StringJS
+public static "getBlastingRecipeName"(arg0: $ItemLike$$Type): StringJS
+public static "stonecutterResultFromBase"(arg0: $RecipeOutput$$Type, arg1: $RecipeCategory$$Type, arg2: $ItemLike$$Type, arg3: $ItemLike$$Type, arg4: integer): void
+public static "stonecutterResultFromBase"(arg0: $RecipeOutput$$Type, arg1: $RecipeCategory$$Type, arg2: $ItemLike$$Type, arg3: $ItemLike$$Type): void
+public static "pressurePlateBuilder"(arg0: $RecipeCategory$$Type, arg1: $ItemLike$$Type, arg2: $Ingredient$$Type): $RecipeBuilder
+public static "smeltingResultFromBase"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $ItemLike$$Type): void
+public static "copySmithingTemplate"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $ItemLike$$Type): void
+public static "copySmithingTemplate"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $TagKey$$Type<($Item)>): void
+public static "copySmithingTemplate"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $Ingredient$$Type): void
+public static "bedFromPlanksAndWool"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $ItemLike$$Type): void
+public static "getConversionRecipeName"(arg0: $ItemLike$$Type, arg1: $ItemLike$$Type): StringJS
+public "smeltingAndBlasting"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: float): void
+public static "getSmeltingRecipeName"(arg0: $ItemLike$$Type): StringJS
+public "singleItemUnfinished"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: integer, arg4: integer): $ShapelessRecipeBuilder
+public static "grate"(arg0: $RecipeOutput$$Type, arg1: $Block$$Type, arg2: $Block$$Type): void
+public "advancement"(): $Advancement$Builder
+public "getSide"(): $LogicalSide
+public static "trapdoorBuilder"(arg0: $ItemLike$$Type, arg1: $Ingredient$$Type): $RecipeBuilder
+public static "signBuilder"(arg0: $ItemLike$$Type, arg1: $Ingredient$$Type): $RecipeBuilder
+public static "concretePowder"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $ItemLike$$Type): void
+public static "stairBuilder"(arg0: $ItemLike$$Type, arg1: $Ingredient$$Type): $RecipeBuilder
+public static "getBaseBlock"(arg0: $BlockFamily$$Type, arg1: $BlockFamily$Variant$$Type): $Block
+public static "inventoryTrigger"(...arg0: ($ItemPredicate$$Type)[]): $Criterion<($InventoryChangeTrigger$TriggerInstance)>
+public static "inventoryTrigger"(...arg0: ($ItemPredicate$Builder$$Type)[]): $Criterion<($InventoryChangeTrigger$TriggerInstance)>
+public static "planksFromLog"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $TagKey$$Type<($Item)>, arg3: integer): void
+public static "threeByThreePacker"(arg0: $RecipeOutput$$Type, arg1: $RecipeCategory$$Type, arg2: $ItemLike$$Type, arg3: $ItemLike$$Type): void
+public static "threeByThreePacker"(arg0: $RecipeOutput$$Type, arg1: $RecipeCategory$$Type, arg2: $ItemLike$$Type, arg3: $ItemLike$$Type, arg4: StringJS): void
+public static "polishedBuilder"(arg0: $RecipeCategory$$Type, arg1: $ItemLike$$Type, arg2: $Ingredient$$Type): $RecipeBuilder
+public static "planksFromLogs"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $TagKey$$Type<($Item)>, arg3: integer): void
+public static "generateRecipes"(arg0: $RecipeOutput$$Type, arg1: $BlockFamily$$Type, arg2: $FeatureFlagSet$$Type): void
+public static "slabBuilder"(arg0: $RecipeCategory$$Type, arg1: $ItemLike$$Type, arg2: $Ingredient$$Type): $RecipeBuilder
+public static "netheriteSmithing"(arg0: $RecipeOutput$$Type, arg1: $Item$$Type, arg2: $RecipeCategory$$Type, arg3: $Item$$Type): void
+public static "buttonBuilder"(arg0: $ItemLike$$Type, arg1: $Ingredient$$Type): $RecipeBuilder
+public static "doorBuilder"(arg0: $ItemLike$$Type, arg1: $Ingredient$$Type): $RecipeBuilder
+public static "hangingSign"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $ItemLike$$Type): void
+public static "mosaicBuilder"(arg0: $RecipeOutput$$Type, arg1: $RecipeCategory$$Type, arg2: $ItemLike$$Type, arg3: $ItemLike$$Type): void
+public static "chiseledBuilder"(arg0: $RecipeCategory$$Type, arg1: $ItemLike$$Type, arg2: $Ingredient$$Type): $ShapedRecipeBuilder
+public static "pressurePlate"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $ItemLike$$Type): void
+public static "fenceBuilder"(arg0: $ItemLike$$Type, arg1: $Ingredient$$Type): $RecipeBuilder
+public static "twoByTwoPacker"(arg0: $RecipeOutput$$Type, arg1: $RecipeCategory$$Type, arg2: $ItemLike$$Type, arg3: $ItemLike$$Type): void
+public static "fenceGateBuilder"(arg0: $ItemLike$$Type, arg1: $Ingredient$$Type): $RecipeBuilder
+public static "colorBlockWithDye"(arg0: $RecipeOutput$$Type, arg1: $List$$Type<($Item$$Type)>, arg2: $List$$Type<($Item$$Type)>, arg3: StringJS): void
+public static "getItemName"(arg0: $ItemLike$$Type): StringJS
+public "stonecutting"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: integer): void
+public "stonecutting"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>): void
+public static "wallBuilder"(arg0: $RecipeCategory$$Type, arg1: $ItemLike$$Type, arg2: $Ingredient$$Type): $RecipeBuilder
+public "buildAdvancement"(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $AdvancementHolder$$Type, ...arg3: ($ICondition$$Type)[]): $CompletableFuture<(never)>
+public "buildAdvancement"(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $AdvancementHolder$$Type): $CompletableFuture<(never)>
+public static "trimSmithing"(arg0: $RecipeOutput$$Type, arg1: $Item$$Type, arg2: $ResourceLocation$$Type): void
+public static "woodFromLogs"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $ItemLike$$Type): void
 /**
  * 
  * @deprecated
  */
 public "storage"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $NonNullSupplier$$Type<(T)>): void
+public "storage"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $NonNullSupplier$$Type<(T)>, arg3: $DataIngredient$$Type, arg4: $NonNullSupplier$$Type<(T)>): void
 public "storage"<T extends $ItemLike>(arg0: $NonNullSupplier$$Type<(T)>, arg1: $RecipeCategory$$Type, arg2: $NonNullSupplier$$Type<(T)>): void
 public static "coloredTerracottaFromTerracottaAndDye"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $ItemLike$$Type): void
 public static "stainedGlassPaneFromGlassPaneAndDye"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $ItemLike$$Type): void
+public static "carpet"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $ItemLike$$Type): void
+public static "banner"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $ItemLike$$Type): void
+public "campfire"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: float): void
+public "campfire"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: float, arg4: integer): void
+public static "candle"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $ItemLike$$Type): void
+public static "slab"(arg0: $RecipeOutput$$Type, arg1: $RecipeCategory$$Type, arg2: $ItemLike$$Type, arg3: $ItemLike$$Type): void
+public "slab"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: StringJS, arg4: boolean): void
+public "door"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: StringJS): void
+public "food"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: float): void
 public static "stainedGlassPaneFromStainedGlass"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $ItemLike$$Type): void
 public "generateForEnabledBlockFamilies"(arg0: $RecipeOutput$$Type, arg1: $FeatureFlagSet$$Type): void
 public static "stainedGlassFromGlassAndDye"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $ItemLike$$Type): void
-public "getSide"(): $LogicalSide
-public static "grate"(arg0: $RecipeOutput$$Type, arg1: $Block$$Type, arg2: $Block$$Type): void
-public "food"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: float): void
-public static "planksFromLogs"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $TagKey$$Type<($Item)>, arg3: integer): void
-public static "woodFromLogs"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $ItemLike$$Type): void
-public static "buttonBuilder"(arg0: $ItemLike$$Type, arg1: $Ingredient$$Type): $RecipeBuilder
-public static "doorBuilder"(arg0: $ItemLike$$Type, arg1: $Ingredient$$Type): $RecipeBuilder
-public static "fenceBuilder"(arg0: $ItemLike$$Type, arg1: $Ingredient$$Type): $RecipeBuilder
-public static "fenceGateBuilder"(arg0: $ItemLike$$Type, arg1: $Ingredient$$Type): $RecipeBuilder
-public static "pressurePlate"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $ItemLike$$Type): void
-public static "netheriteSmithing"(arg0: $RecipeOutput$$Type, arg1: $Item$$Type, arg2: $RecipeCategory$$Type, arg3: $Item$$Type): void
-public "stonecutting"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>): void
-public "stonecutting"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: integer): void
-public "buildAdvancement"(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $AdvancementHolder$$Type, ...arg3: ($ICondition$$Type)[]): $CompletableFuture<(never)>
-public "buildAdvancement"(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $AdvancementHolder$$Type): $CompletableFuture<(never)>
-public static "trimSmithing"(arg0: $RecipeOutput$$Type, arg1: $Item$$Type, arg2: $ResourceLocation$$Type): void
-public static "threeByThreePacker"(arg0: $RecipeOutput$$Type, arg1: $RecipeCategory$$Type, arg2: $ItemLike$$Type, arg3: $ItemLike$$Type, arg4: StringJS): void
-public static "threeByThreePacker"(arg0: $RecipeOutput$$Type, arg1: $RecipeCategory$$Type, arg2: $ItemLike$$Type, arg3: $ItemLike$$Type): void
-public static "twoByTwoPacker"(arg0: $RecipeOutput$$Type, arg1: $RecipeCategory$$Type, arg2: $ItemLike$$Type, arg3: $ItemLike$$Type): void
-public static "planksFromLog"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $TagKey$$Type<($Item)>, arg3: integer): void
-public static "slabBuilder"(arg0: $RecipeCategory$$Type, arg1: $ItemLike$$Type, arg2: $Ingredient$$Type): $RecipeBuilder
-public static "polishedBuilder"(arg0: $RecipeCategory$$Type, arg1: $ItemLike$$Type, arg2: $Ingredient$$Type): $RecipeBuilder
-public static "wallBuilder"(arg0: $RecipeCategory$$Type, arg1: $ItemLike$$Type, arg2: $Ingredient$$Type): $RecipeBuilder
-public static "signBuilder"(arg0: $ItemLike$$Type, arg1: $Ingredient$$Type): $RecipeBuilder
-public static "stairBuilder"(arg0: $ItemLike$$Type, arg1: $Ingredient$$Type): $RecipeBuilder
-public static "getBaseBlock"(arg0: $BlockFamily$$Type, arg1: $BlockFamily$Variant$$Type): $Block
-public static "getItemName"(arg0: $ItemLike$$Type): StringJS
-public static "generateRecipes"(arg0: $RecipeOutput$$Type, arg1: $BlockFamily$$Type, arg2: $FeatureFlagSet$$Type): void
-public static "trapdoorBuilder"(arg0: $ItemLike$$Type, arg1: $Ingredient$$Type): $RecipeBuilder
-public static "colorBlockWithDye"(arg0: $RecipeOutput$$Type, arg1: $List$$Type<($Item$$Type)>, arg2: $List$$Type<($Item$$Type)>, arg3: StringJS): void
-public static "hangingSign"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $ItemLike$$Type): void
-public static "inventoryTrigger"(...arg0: ($ItemPredicate$$Type)[]): $Criterion<($InventoryChangeTrigger$TriggerInstance)>
-public static "inventoryTrigger"(...arg0: ($ItemPredicate$Builder$$Type)[]): $Criterion<($InventoryChangeTrigger$TriggerInstance)>
-public static "concretePowder"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $ItemLike$$Type): void
-public static "chiseledBuilder"(arg0: $RecipeCategory$$Type, arg1: $ItemLike$$Type, arg2: $Ingredient$$Type): $ShapedRecipeBuilder
-public static "mosaicBuilder"(arg0: $RecipeOutput$$Type, arg1: $RecipeCategory$$Type, arg2: $ItemLike$$Type, arg3: $ItemLike$$Type): void
-public "advancement"(): $Advancement$Builder
-public static "pressurePlateBuilder"(arg0: $RecipeCategory$$Type, arg1: $ItemLike$$Type, arg2: $Ingredient$$Type): $RecipeBuilder
-public static "bedFromPlanksAndWool"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $ItemLike$$Type): void
-public "singleItemUnfinished"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: integer, arg4: integer): $ShapelessRecipeBuilder
-public static "getBlastingRecipeName"(arg0: $ItemLike$$Type): StringJS
-public static "stonecutterResultFromBase"(arg0: $RecipeOutput$$Type, arg1: $RecipeCategory$$Type, arg2: $ItemLike$$Type, arg3: $ItemLike$$Type, arg4: integer): void
-public static "stonecutterResultFromBase"(arg0: $RecipeOutput$$Type, arg1: $RecipeCategory$$Type, arg2: $ItemLike$$Type, arg3: $ItemLike$$Type): void
-public static "getConversionRecipeName"(arg0: $ItemLike$$Type, arg1: $ItemLike$$Type): StringJS
-public "smeltingAndBlasting"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: float): void
-public static "smeltingResultFromBase"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $ItemLike$$Type): void
-public static "getSimpleRecipeName"(arg0: $ItemLike$$Type): StringJS
-public static "copySmithingTemplate"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $Ingredient$$Type): void
-public static "copySmithingTemplate"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $ItemLike$$Type): void
-public static "copySmithingTemplate"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $TagKey$$Type<($Item)>): void
-public static "getSmeltingRecipeName"(arg0: $ItemLike$$Type): StringJS
-public static "polished"(arg0: $RecipeOutput$$Type, arg1: $RecipeCategory$$Type, arg2: $ItemLike$$Type, arg3: $ItemLike$$Type): void
-public static "woodenBoat"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $ItemLike$$Type): void
-public static "insideOf"(arg0: $Block$$Type): $Criterion<($EnterBlockTrigger$TriggerInstance)>
 public static "waxRecipes"(arg0: $RecipeOutput$$Type, arg1: $FeatureFlagSet$$Type): void
-public static "getHasName"(arg0: $ItemLike$$Type): StringJS
-public "stairs"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: StringJS, arg4: boolean): void
-public static "cut"(arg0: $RecipeOutput$$Type, arg1: $RecipeCategory$$Type, arg2: $ItemLike$$Type, arg3: $ItemLike$$Type): void
-public "planks"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>): void
+public static "insideOf"(arg0: $Block$$Type): $Criterion<($EnterBlockTrigger$TriggerInstance)>
 public static "chiseled"(arg0: $RecipeOutput$$Type, arg1: $RecipeCategory$$Type, arg2: $ItemLike$$Type, arg3: $ItemLike$$Type): void
-public static "cutBuilder"(arg0: $RecipeCategory$$Type, arg1: $ItemLike$$Type, arg2: $Ingredient$$Type): $ShapedRecipeBuilder
-public "fenceGate"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: StringJS): void
-public "smelting"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: float): void
-public "smelting"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: float, arg4: integer): void
-public "smoking"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: float, arg4: integer): void
-public "smoking"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: float): void
-public "cooking"<T extends $ItemLike, S extends $AbstractCookingRecipe>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: float, arg4: integer, arg5: StringJS, arg6: $RecipeSerializer$$Type<(S)>, arg7: $AbstractCookingRecipe$Factory$$Type<(S)>): void
-public "cooking"<T extends $ItemLike, S extends $AbstractCookingRecipe>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: float, arg4: integer, arg5: $RecipeSerializer$$Type<(S)>, arg6: $AbstractCookingRecipe$Factory$$Type<(S)>): void
-public static "chestBoat"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $ItemLike$$Type): void
-public "safeName"(arg0: $DataIngredient$$Type): StringJS
-public "safeName"(arg0: $ItemLike$$Type): StringJS
-public "safeName"(arg0: $ResourceLocation$$Type): StringJS
-public "singleItem"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: integer, arg4: integer): void
-public "trapDoor"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: StringJS): void
-public static "copperBulb"(arg0: $RecipeOutput$$Type, arg1: $Block$$Type, arg2: $Block$$Type): void
 public "blasting"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: float, arg4: integer): void
 public "blasting"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: float): void
+public "singleItem"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: integer, arg4: integer): void
+public "smoking"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: float, arg4: integer): void
+public "smoking"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: float): void
+public static "woodenBoat"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $ItemLike$$Type): void
+public static "copperBulb"(arg0: $RecipeOutput$$Type, arg1: $Block$$Type, arg2: $Block$$Type): void
+public static "cutBuilder"(arg0: $RecipeCategory$$Type, arg1: $ItemLike$$Type, arg2: $Ingredient$$Type): $ShapedRecipeBuilder
+public static "getHasName"(arg0: $ItemLike$$Type): StringJS
+public "safeName"(arg0: $DataIngredient$$Type): StringJS
+public "safeName"(arg0: $ResourceLocation$$Type): StringJS
+public "safeName"(arg0: $ItemLike$$Type): StringJS
+public "stairs"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: StringJS, arg4: boolean): void
+public "trapDoor"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: StringJS): void
+public "smelting"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: float): void
+public "smelting"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: float, arg4: integer): void
+public static "cut"(arg0: $RecipeOutput$$Type, arg1: $RecipeCategory$$Type, arg2: $ItemLike$$Type, arg3: $ItemLike$$Type): void
 public "safeId"(arg0: $ResourceLocation$$Type): $ResourceLocation
 public "safeId"(arg0: $ItemLike$$Type): $ResourceLocation
 public "safeId"(arg0: $DataIngredient$$Type): $ResourceLocation
-public static "banner"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $ItemLike$$Type): void
-public static "carpet"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $ItemLike$$Type): void
-public static "candle"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $ItemLike$$Type): void
-public "campfire"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: float, arg4: integer): void
-public "campfire"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: float): void
-public "door"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: StringJS): void
-public static "slab"(arg0: $RecipeOutput$$Type, arg1: $RecipeCategory$$Type, arg2: $ItemLike$$Type, arg3: $ItemLike$$Type): void
-public "slab"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: StringJS, arg4: boolean): void
+public "cooking"<T extends $ItemLike, S extends $AbstractCookingRecipe>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: float, arg4: integer, arg5: $RecipeSerializer$$Type<(S)>, arg6: $AbstractCookingRecipe$Factory$$Type<(S)>): void
+public "cooking"<T extends $ItemLike, S extends $AbstractCookingRecipe>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: float, arg4: integer, arg5: StringJS, arg6: $RecipeSerializer$$Type<(S)>, arg7: $AbstractCookingRecipe$Factory$$Type<(S)>): void
+public "planks"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>): void
+public static "polished"(arg0: $RecipeOutput$$Type, arg1: $RecipeCategory$$Type, arg2: $ItemLike$$Type, arg3: $ItemLike$$Type): void
+public static "chestBoat"(arg0: $RecipeOutput$$Type, arg1: $ItemLike$$Type, arg2: $ItemLike$$Type): void
+public "fenceGate"<T extends $ItemLike>(arg0: $DataIngredient$$Type, arg1: $RecipeCategory$$Type, arg2: $Supplier$$Type<(T)>, arg3: StringJS): void
 public "accept"(arg0: $ResourceLocation$$Type, arg1: $Recipe$$Type<(never)>, arg2: $AdvancementHolder$$Type): void
-public static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 public static "saveStable"(arg0: $CachedOutput$$Type, arg1: $JsonElement$$Type, arg2: $Path$$Type): $CompletableFuture<(never)>
+public static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 public "withConditions"(...arg0: ($ICondition$$Type)[]): $RecipeOutput
 get "provider"(): $HolderLookup$Provider
 get "side"(): $LogicalSide
@@ -1152,18 +1152,18 @@ export type $RegistrateRecipeProvider$$Type = ($RegistrateRecipeProvider);
 export type $RegistrateRecipeProvider$$Original = $RegistrateRecipeProvider;}
 declare module "com.tterrag.registrate.providers.RegistrateLangProvider" {
 import {$RegistrateProvider$$Interface} from "com.tterrag.registrate.providers.RegistrateProvider"
-import {$List$$Type} from "java.util.List"
 import {$JsonElement$$Type} from "com.google.gson.JsonElement"
+import {$List$$Type} from "java.util.List"
 import {$Block$$Type} from "net.minecraft.world.level.block.Block"
 import {$CachedOutput$$Type} from "net.minecraft.data.CachedOutput"
-import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$LogicalSide} from "net.neoforged.fml.LogicalSide"
+import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$NonNullSupplier$$Type} from "com.tterrag.registrate.util.nullness.NonNullSupplier"
 import {$PackOutput$$Type} from "net.minecraft.data.PackOutput"
-import {$CreativeModeTab$$Type} from "net.minecraft.world.item.CreativeModeTab"
-import {$Codec$$Type} from "com.mojang.serialization.Codec"
 import {$Registry$$Type} from "net.minecraft.core.Registry"
+import {$Codec$$Type} from "com.mojang.serialization.Codec"
 import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
+import {$CreativeModeTab$$Type} from "net.minecraft.world.item.CreativeModeTab"
 import {$ItemLike$$Type} from "net.minecraft.world.level.ItemLike"
 import {$Item$$Type} from "net.minecraft.world.item.Item"
 import {$AbstractRegistrate$$Type} from "com.tterrag.registrate.AbstractRegistrate"
@@ -1177,21 +1177,21 @@ constructor(arg0: $AbstractRegistrate$$Type<(never)>, arg1: $PackOutput$$Type)
 
 public "getName"(): StringJS
 public "run"(arg0: $CachedOutput$$Type): $CompletableFuture<(never)>
-public "add"(arg0: StringJS, arg1: StringJS): void
 public "add"(arg0: $CreativeModeTab$$Type, arg1: StringJS): void
+public "add"(arg0: StringJS, arg1: StringJS): void
 public "addItem"(arg0: $NonNullSupplier$$Type<($Item$$Type)>): void
 public "addBlockWithTooltip"(arg0: $NonNullSupplier$$Type<($Block$$Type)>, arg1: StringJS, arg2: StringJS): void
 public "addBlockWithTooltip"(arg0: $NonNullSupplier$$Type<($Block$$Type)>, arg1: StringJS): void
+public "getSide"(): $LogicalSide
+public static "toEnglishName"(arg0: StringJS): StringJS
+public "getAutomaticName"<T>(arg0: $NonNullSupplier$$Type<(T)>, arg1: $ResourceKey$$Type<($Registry<(T)>)>): StringJS
+public "addEntityType"(arg0: $NonNullSupplier$$Type<($EntityType$$Type<(never)>)>): void
+public "addItemWithTooltip"(arg0: $NonNullSupplier$$Type<($Item$$Type)>, arg1: StringJS, arg2: $List$$Type<(StringJS)>): void
 public "addBlock"(arg0: $NonNullSupplier$$Type<($Block$$Type)>): void
 public "addTooltip"(arg0: $NonNullSupplier$$Type<($ItemLike$$Type)>, arg1: StringJS): void
 public "addTooltip"(arg0: $NonNullSupplier$$Type<($ItemLike$$Type)>, arg1: $List$$Type<(StringJS)>): void
-public "getSide"(): $LogicalSide
-public "getAutomaticName"<T>(arg0: $NonNullSupplier$$Type<(T)>, arg1: $ResourceKey$$Type<($Registry<(T)>)>): StringJS
-public "addItemWithTooltip"(arg0: $NonNullSupplier$$Type<($Item$$Type)>, arg1: StringJS, arg2: $List$$Type<(StringJS)>): void
-public "addEntityType"(arg0: $NonNullSupplier$$Type<($EntityType$$Type<(never)>)>): void
-public static "toEnglishName"(arg0: StringJS): StringJS
-public static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 public static "saveStable"(arg0: $CachedOutput$$Type, arg1: $JsonElement$$Type, arg2: $Path$$Type): $CompletableFuture<(never)>
+public static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 get "name"(): StringJS
 get "side"(): $LogicalSide
 }
@@ -1213,13 +1213,13 @@ import {$CachedOutput$$Type} from "net.minecraft.data.CachedOutput"
 import {$RegistrateLootTableProvider$LootType$$Type} from "com.tterrag.registrate.providers.loot.RegistrateLootTableProvider$LootType"
 import {$LootTable$$Type} from "net.minecraft.world.level.storage.loot.LootTable"
 import {$LootContextParamSet$$Type} from "net.minecraft.world.level.storage.loot.parameters.LootContextParamSet"
-import {$Holder} from "net.minecraft.core.Holder"
-import {$HolderLookup$Provider, $HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$LootTableProvider$SubProviderEntry} from "net.minecraft.data.loot.LootTableProvider$SubProviderEntry"
+import {$Holder} from "net.minecraft.core.Holder"
 import {$LogicalSide} from "net.neoforged.fml.LogicalSide"
+import {$HolderLookup$Provider, $HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$Consumer$$Type} from "java.util.function.Consumer"
-import {$PackOutput$$Type} from "net.minecraft.data.PackOutput"
 import {$LootTable$Builder$$Type} from "net.minecraft.world.level.storage.loot.LootTable$Builder"
+import {$PackOutput$$Type} from "net.minecraft.data.PackOutput"
 import {$Codec$$Type} from "com.mojang.serialization.Codec"
 import {$CompletableFuture, $CompletableFuture$$Type} from "java.util.concurrent.CompletableFuture"
 import {$NonNullConsumer$$Type} from "com.tterrag.registrate.util.nullness.NonNullConsumer"
@@ -1240,8 +1240,8 @@ public "getSide"(): $LogicalSide
 public "addLootAction"<T extends $RegistrateLootTables>(arg0: $RegistrateLootTableProvider$LootType$$Type<(T)>, arg1: $NonNullConsumer$$Type<(T)>): void
 public "addLootAction"(arg0: $LootContextParamSet$$Type, arg1: $Consumer$$Type<($BiConsumer<($ResourceKey<($LootTable)>), ($LootTable$Builder)>)>): void
 public "getTables"(): $List<($LootTableProvider$SubProviderEntry)>
-public static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 public static "saveStable"(arg0: $CachedOutput$$Type, arg1: $JsonElement$$Type, arg2: $Path$$Type): $CompletableFuture<(never)>
+public static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 get "provider"(): $HolderLookup$Provider
 get "side"(): $LogicalSide
 get "tables"(): $List<($LootTableProvider$SubProviderEntry)>

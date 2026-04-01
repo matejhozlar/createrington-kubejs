@@ -79,16 +79,16 @@ public "toString"(): StringJS
 public "hashCode"(): integer
 public "isEnabled"(): boolean
 public "path"(): StringJS
-public "realms"(): StringJS
-public "multiplayer"(): StringJS
 public "singleplayer"(): StringJS
+public "multiplayer"(): StringJS
+public "realms"(): StringJS
 get "enabled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $GameConfig$QuickPlayData$$Type = ({"multiplayer"?: StringJS, "singleplayer"?: StringJS, "path"?: StringJS, "realms"?: StringJS}) | ([multiplayer?: StringJS, singleplayer?: StringJS, path?: StringJS, realms?: StringJS]);
+export type $GameConfig$QuickPlayData$$Type = ({"path"?: StringJS, "singleplayer"?: StringJS, "multiplayer"?: StringJS, "realms"?: StringJS}) | ([path?: StringJS, singleplayer?: StringJS, multiplayer?: StringJS, realms?: StringJS]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */

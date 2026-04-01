@@ -17,22 +17,22 @@ export interface $LevelRendererAccessor$$Interface {
 get "level"(): $ClientLevel
 get "destructionProgress"(): $Long2ObjectMap<($SortedSet<($BlockDestructionProgress)>)>
 get "entityRenderDispatcher"(): $EntityRenderDispatcher
-get "renderBuffers"(): $RenderBuffers
 set "renderBuffers"(value: $RenderBuffers$$Type)
+get "renderBuffers"(): $RenderBuffers
 }
 
 export class $LevelRendererAccessor implements $LevelRendererAccessor$$Interface {
  "getLevel"(): $ClientLevel
  "invokeRenderSectionLayer"(arg0: $RenderType$$Type, arg1: double, arg2: double, arg3: double, arg4: $Matrix4f$$Type, arg5: $Matrix4f$$Type): void
  "shouldRegenerateClouds"(): boolean
- "setShouldRegenerateClouds"(arg0: boolean): void
  "getDestructionProgress"(): $Long2ObjectMap<($SortedSet<($BlockDestructionProgress)>)>
- "getEntityRenderDispatcher"(): $EntityRenderDispatcher
- "getRenderBuffers"(): $RenderBuffers
- "invokeSetupRender"(arg0: $Camera$$Type, arg1: $Frustum$$Type, arg2: boolean, arg3: boolean): void
- "invokeRenderEntity"(arg0: $Entity$$Type, arg1: double, arg2: double, arg3: double, arg4: float, arg5: $PoseStack$$Type, arg6: $MultiBufferSource$$Type): void
- "setRenderBuffers"(arg0: $RenderBuffers$$Type): void
+ "setShouldRegenerateClouds"(arg0: boolean): void
  "invokeDoesMobEffectBlockSky"(arg0: $Camera$$Type): boolean
+ "getEntityRenderDispatcher"(): $EntityRenderDispatcher
+ "setRenderBuffers"(arg0: $RenderBuffers$$Type): void
+ "invokeRenderEntity"(arg0: $Entity$$Type, arg1: double, arg2: double, arg3: double, arg4: float, arg5: $PoseStack$$Type, arg6: $MultiBufferSource$$Type): void
+ "invokeSetupRender"(arg0: $Camera$$Type, arg1: $Frustum$$Type, arg2: boolean, arg3: boolean): void
+ "getRenderBuffers"(): $RenderBuffers
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -174,18 +174,18 @@ import {$SpriteContents$AnimatedTexture} from "net.minecraft.client.renderer.tex
 
 export interface $SpriteContentsTickerAccessor$$Interface {
 get "frame"(): integer
-set "frame"(value: integer)
-get "subFrame"(): integer
 set "subFrame"(value: integer)
 get "animationInfo"(): $SpriteContents$AnimatedTexture
+get "subFrame"(): integer
+set "frame"(value: integer)
 }
 
 export class $SpriteContentsTickerAccessor implements $SpriteContentsTickerAccessor$$Interface {
  "getFrame"(): integer
- "setFrame"(arg0: integer): void
- "getSubFrame"(): integer
  "setSubFrame"(arg0: integer): void
  "getAnimationInfo"(): $SpriteContents$AnimatedTexture
+ "getSubFrame"(): integer
+ "setFrame"(arg0: integer): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -202,19 +202,19 @@ import {$PostChain} from "net.minecraft.client.renderer.PostChain"
 import {$Camera$$Type} from "net.minecraft.client.Camera"
 
 export interface $GameRendererAccessor$$Interface {
+get "blurEffect"(): $PostChain
 get "renderHand"(): boolean
 get "panoramicMode"(): boolean
-get "blurEffect"(): $PostChain
 }
 
 export class $GameRendererAccessor implements $GameRendererAccessor$$Interface {
  "shouldRenderBlockOutlineA"(): boolean
- "invokeGetFov"(arg0: $Camera$$Type, arg1: float, arg2: boolean): double
- "invokeBobHurt"(arg0: $PoseStack$$Type, arg1: float): void
- "getRenderHand"(): boolean
- "getPanoramicMode"(): boolean
- "invokeBobView"(arg0: $PoseStack$$Type, arg1: float): void
  "getBlurEffect"(): $PostChain
+ "getRenderHand"(): boolean
+ "invokeBobView"(arg0: $PoseStack$$Type, arg1: float): void
+ "invokeBobHurt"(arg0: $PoseStack$$Type, arg1: float): void
+ "invokeGetFov"(arg0: $Camera$$Type, arg1: float, arg2: boolean): double
+ "getPanoramicMode"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -231,13 +231,13 @@ import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
 import {$Map} from "java.util.Map"
 
 export interface $TextureAtlasAccessor$$Interface {
-get "mipLevel"(): integer
 get "texturesByName"(): $Map<($ResourceLocation), ($TextureAtlasSprite)>
+get "mipLevel"(): integer
 }
 
 export class $TextureAtlasAccessor implements $TextureAtlasAccessor$$Interface {
- "getMipLevel"(): integer
  "getTexturesByName"(): $Map<($ResourceLocation), ($TextureAtlasSprite)>
+ "getMipLevel"(): integer
  "callGetWidth"(): integer
  "callGetHeight"(): integer
 }
@@ -253,17 +253,17 @@ export type $TextureAtlasAccessor$$Original = $TextureAtlasAccessor;}
 declare module "net.irisshaders.iris.mixin.texture.AnimationMetadataSectionAccessor" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $AnimationMetadataSectionAccessor$$Interface {
-set "frameHeight"(value: integer)
-set "frameWidth"(value: integer)
 get "frameWidth"(): integer
 get "frameHeight"(): integer
+set "frameHeight"(value: integer)
+set "frameWidth"(value: integer)
 }
 
 export class $AnimationMetadataSectionAccessor implements $AnimationMetadataSectionAccessor$$Interface {
- "setFrameHeight"(arg0: integer): void
- "setFrameWidth"(arg0: integer): void
  "getFrameWidth"(): integer
  "getFrameHeight"(): integer
+ "setFrameHeight"(arg0: integer): void
+ "setFrameWidth"(arg0: integer): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

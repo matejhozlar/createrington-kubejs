@@ -11,19 +11,19 @@ export class $CurioDropsEvent extends $LivingEvent implements $ICancellableEvent
 constructor(arg0: $LivingEntity$$Type, arg1: $ICuriosItemHandler$$Type, arg2: $DamageSource$$Type, arg3: $Collection$$Type<($ItemEntity$$Type)>, arg4: integer, arg5: boolean)
 
 public "getSource"(): $DamageSource
+public "isRecentlyHit"(): boolean
 public "getLootingLevel"(): integer
 public "getCurioHandler"(): $ICuriosItemHandler
-public "isRecentlyHit"(): boolean
 public "getDrops"(): $Collection<($ItemEntity)>
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
+public "isCanceled"(): boolean
 get "source"(): $DamageSource
+get "recentlyHit"(): boolean
 get "lootingLevel"(): integer
 get "curioHandler"(): $ICuriosItemHandler
-get "recentlyHit"(): boolean
 get "drops"(): $Collection<($ItemEntity)>
-get "canceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -50,15 +50,15 @@ constructor(arg0: $LivingEntity$$Type, arg1: $ICuriosItemHandler$$Type, arg2: $D
 
 public "getSource"(): $DamageSource
 public "getOverrides"(): $ImmutableList<($Tuple<($Predicate<($ItemStack)>), ($ICurio$DropRule)>)>
+public "isRecentlyHit"(): boolean
+public "addOverride"(arg0: $Predicate$$Type<($ItemStack)>, arg1: $ICurio$DropRule$$Type): void
 public "getLootingLevel"(): integer
 public "getCurioHandler"(): $ICuriosItemHandler
-public "addOverride"(arg0: $Predicate$$Type<($ItemStack)>, arg1: $ICurio$DropRule$$Type): void
-public "isRecentlyHit"(): boolean
 get "source"(): $DamageSource
 get "overrides"(): $ImmutableList<($Tuple<($Predicate<($ItemStack)>), ($ICurio$DropRule)>)>
+get "recentlyHit"(): boolean
 get "lootingLevel"(): integer
 get "curioHandler"(): $ICuriosItemHandler
-get "recentlyHit"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -106,13 +106,13 @@ export class $CurioCanUnequipEvent extends $LivingEvent {
 constructor(arg0: $ItemStack$$Type, arg1: $SlotContext$$Type)
 
 public "getStack"(): $ItemStack
-public "getSlotContext"(): $SlotContext
 public "setUnequipResult"(arg0: $TriState$$Type): void
 public "getUnequipResult"(): $TriState
+public "getSlotContext"(): $SlotContext
 get "stack"(): $ItemStack
-get "slotContext"(): $SlotContext
 set "unequipResult"(value: $TriState$$Type)
 get "unequipResult"(): $TriState
+get "slotContext"(): $SlotContext
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -138,13 +138,13 @@ constructor(arg0: $ItemStack$$Type, arg1: $SlotContext$$Type, arg2: $TriState$$T
 constructor(arg0: $ItemStack$$Type, arg1: $SlotContext$$Type)
 
 public "getStack"(): $ItemStack
-public "getSlotContext"(): $SlotContext
-public "setEquipResult"(arg0: $TriState$$Type): void
 public "getEquipResult"(): $TriState
+public "setEquipResult"(arg0: $TriState$$Type): void
+public "getSlotContext"(): $SlotContext
 get "stack"(): $ItemStack
-get "slotContext"(): $SlotContext
-set "equipResult"(value: $TriState$$Type)
 get "equipResult"(): $TriState
+set "equipResult"(value: $TriState$$Type)
+get "slotContext"(): $SlotContext
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -158,8 +158,8 @@ export type $CurioCanEquipEvent$$Original = $CurioCanEquipEvent;}
 declare module "top.theillusivec4.curios.api.event.CurioAttributeModifierEvent" {
 import {$SlotContext, $SlotContext$$Type} from "top.theillusivec4.curios.api.SlotContext"
 import {$AttributeModifier, $AttributeModifier$$Type} from "net.minecraft.world.entity.ai.attributes.AttributeModifier"
-import {$Collection} from "java.util.Collection"
 import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
+import {$Collection} from "java.util.Collection"
 import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$Multimap, $Multimap$$Type} from "com.google.common.collect.Multimap"
 import {$Attribute, $Attribute$$Type} from "net.minecraft.world.entity.ai.attributes.Attribute"
@@ -172,17 +172,17 @@ constructor(arg0: $ItemStack$$Type, arg1: $SlotContext$$Type, arg2: $ResourceLoc
 public "getModifiers"(): $Multimap<($Holder<($Attribute)>), ($AttributeModifier)>
 public "getId"(): $ResourceLocation
 public "removeAttribute"(arg0: $Holder$$Type<($Attribute)>): $Collection<($AttributeModifier)>
-public "getOriginalModifiers"(): $Multimap<($Holder<($Attribute)>), ($AttributeModifier)>
-public "removeModifier"(arg0: $Holder$$Type<($Attribute)>, arg1: $AttributeModifier$$Type): boolean
-public "getItemStack"(): $ItemStack
 public "clearModifiers"(): void
 public "addModifier"(arg0: $Holder$$Type<($Attribute)>, arg1: $AttributeModifier$$Type): boolean
+public "removeModifier"(arg0: $Holder$$Type<($Attribute)>, arg1: $AttributeModifier$$Type): boolean
+public "getItemStack"(): $ItemStack
 public "getSlotContext"(): $SlotContext
+public "getOriginalModifiers"(): $Multimap<($Holder<($Attribute)>), ($AttributeModifier)>
 get "modifiers"(): $Multimap<($Holder<($Attribute)>), ($AttributeModifier)>
 get "id"(): $ResourceLocation
-get "originalModifiers"(): $Multimap<($Holder<($Attribute)>), ($AttributeModifier)>
 get "itemStack"(): $ItemStack
 get "slotContext"(): $SlotContext
+get "originalModifiers"(): $Multimap<($Holder<($Attribute)>), ($AttributeModifier)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -221,14 +221,14 @@ import {$LivingEntity$$Type} from "net.minecraft.world.entity.LivingEntity"
 export class $CurioChangeEvent extends $LivingEvent {
 constructor(arg0: $LivingEntity$$Type, arg1: StringJS, arg2: integer, arg3: $ItemStack$$Type, arg4: $ItemStack$$Type)
 
-public "getIdentifier"(): StringJS
 public "getFrom"(): $ItemStack
-public "getTo"(): $ItemStack
+public "getIdentifier"(): StringJS
 public "getSlotIndex"(): integer
-get "identifier"(): StringJS
+public "getTo"(): $ItemStack
 get "from"(): $ItemStack
-get "to"(): $ItemStack
+get "identifier"(): StringJS
 get "slotIndex"(): integer
+get "to"(): $ItemStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -242,9 +242,9 @@ export type $CurioChangeEvent$$Original = $CurioChangeEvent;}
 declare module "top.theillusivec4.curios.api.type.inventory.ICurioStacksHandler" {
 import {$AttributeModifier, $AttributeModifier$$Type} from "net.minecraft.world.entity.ai.attributes.AttributeModifier"
 import {$CompoundTag, $CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
+import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
 import {$Collection} from "java.util.Collection"
 import {$IDynamicStackHandler} from "top.theillusivec4.curios.api.type.inventory.IDynamicStackHandler"
-import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
 import {$Map} from "java.util.Map"
 import {$AttributeModifier$Operation$$Type} from "net.minecraft.world.entity.ai.attributes.AttributeModifier$Operation"
 import {$ICurio$DropRule} from "top.theillusivec4.curios.api.type.capability.ICurio$DropRule"
@@ -252,23 +252,22 @@ import {$Set} from "java.util.Set"
 import {$NonNullList} from "net.minecraft.core.NonNullList"
 
 export interface $ICurioStacksHandler$$Interface {
-get "identifier"(): StringJS
 get "stacks"(): $IDynamicStackHandler
 get "modifiers"(): $Map<($ResourceLocation), ($AttributeModifier)>
-get "slots"(): integer
+get "identifier"(): StringJS
 get "cosmeticStacks"(): $IDynamicStackHandler
+get "slots"(): integer
+get "renders"(): $NonNullList<(boolean)>
 get "dropRule"(): $ICurio$DropRule
 get "activeStates"(): $NonNullList<(boolean)>
-get "renders"(): $NonNullList<(boolean)>
-get "visible"(): boolean
 get "sizeShift"(): integer
 get "cachedModifiers"(): $Set<($AttributeModifier)>
+get "visible"(): boolean
 get "permanentModifiers"(): $Set<($AttributeModifier)>
 get "syncTag"(): $CompoundTag
 }
 
 export class $ICurioStacksHandler implements $ICurioStacksHandler$$Interface {
- "getIdentifier"(): StringJS
  "getStacks"(): $IDynamicStackHandler
  "getModifiers"(): $Map<($ResourceLocation), ($AttributeModifier)>
  "update"(): void
@@ -278,36 +277,37 @@ export class $ICurioStacksHandler implements $ICurioStacksHandler$$Interface {
  */
  "grow"(arg0: integer): void
  "addPermanentModifier"(arg0: $AttributeModifier$$Type): void
- "getSlots"(): integer
- "getCosmeticStacks"(): $IDynamicStackHandler
- "getDropRule"(): $ICurio$DropRule
- "getActiveStates"(): $NonNullList<(boolean)>
- "addTransientModifier"(arg0: $AttributeModifier$$Type): void
- "removeModifier"(arg0: $ResourceLocation$$Type): void
+ "getIdentifier"(): StringJS
+ "clearModifiers"(): void
 /**
  * 
  * @deprecated
  */
  "shrink"(arg0: integer): void
+ "getCosmeticStacks"(): $IDynamicStackHandler
+ "getSlots"(): integer
+ "removeModifier"(arg0: $ResourceLocation$$Type): void
+ "addTransientModifier"(arg0: $AttributeModifier$$Type): void
  "getRenders"(): $NonNullList<(boolean)>
- "clearModifiers"(): void
- "isVisible"(): boolean
+ "getDropRule"(): $ICurio$DropRule
+ "getActiveStates"(): $NonNullList<(boolean)>
  "deserializeNBT"(arg0: $CompoundTag$$Type): void
  "serializeNBT"(): $CompoundTag
- "applySyncTag"(arg0: $CompoundTag$$Type): void
+ "copyModifiers"(arg0: $ICurioStacksHandler$$Type): void
  "updateActiveState"(arg0: integer): void
 /**
  * 
  * @deprecated
  */
  "getSizeShift"(): integer
- "copyModifiers"(arg0: $ICurioStacksHandler$$Type): void
+ "applySyncTag"(arg0: $CompoundTag$$Type): void
  "getCachedModifiers"(): $Set<($AttributeModifier)>
+ "isVisible"(): boolean
+ "clearCachedModifiers"(): void
  "getPermanentModifiers"(): $Set<($AttributeModifier)>
  "getModifiersByOperation"(arg0: $AttributeModifier$Operation$$Type): $Collection<($AttributeModifier)>
- "clearCachedModifiers"(): void
- "hasCosmetic"(): boolean
  "canToggleRendering"(): boolean
+ "hasCosmetic"(): boolean
  "getSyncTag"(): $CompoundTag
 }
 /**
@@ -337,7 +337,7 @@ public "slotContext"(): $SlotContext
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $SlotResult$$Type = ({"slotContext"?: $SlotContext$$Type, "stack"?: $ItemStack$$Type}) | ([slotContext?: $SlotContext$$Type, stack?: $ItemStack$$Type]);
+export type $SlotResult$$Type = ({"stack"?: $ItemStack$$Type, "slotContext"?: $SlotContext$$Type}) | ([stack?: $ItemStack$$Type, slotContext?: $SlotContext$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -356,54 +356,54 @@ import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Prov
 
 export interface $IDynamicStackHandler$$Interface extends $IItemHandlerModifiable$$Interface {
 get "slots"(): integer
-get "mutable"(): boolean
 get "slots"(): integer
+get "mutable"(): boolean
 get "empty"(): boolean
-get "width"(): integer
 get "height"(): integer
 get "changed"(): void
+get "width"(): integer
 get "allItems"(): $List<($ItemStack)>
 }
 
 export class $IDynamicStackHandler implements $IDynamicStackHandler$$Interface {
  "grow"(arg0: integer): void
- "getSlots"(): integer
- "getStackInSlot"(arg0: integer): $ItemStack
  "shrink"(arg0: integer): void
+ "getStackInSlot"(arg0: integer): $ItemStack
  "setStackInSlot"(arg0: integer, arg1: $ItemStack$$Type): void
+ "getSlots"(): integer
  "deserializeNBT"(arg0: $HolderLookup$Provider$$Type, arg1: $CompoundTag$$Type): void
  "serializeNBT"(arg0: $HolderLookup$Provider$$Type): $CompoundTag
- "setPreviousStackInSlot"(arg0: integer, arg1: $ItemStack$$Type): void
  "getPreviousStackInSlot"(arg0: integer): $ItemStack
+ "setPreviousStackInSlot"(arg0: integer, arg1: $ItemStack$$Type): void
+ "kjs$self"(): $IItemHandler
  "insertItem"(arg0: integer, arg1: $ItemStack$$Type, arg2: boolean): $ItemStack
  "isItemValid"(arg0: integer, arg1: $ItemStack$$Type): boolean
- "getSlotLimit"(arg0: integer): integer
+ "insertItem"(arg0: integer, arg1: $ItemStack$$Type, arg2: boolean): $ItemStack
  "extractItem"(arg0: integer, arg1: integer, arg2: boolean): $ItemStack
- "extractItem"(arg0: integer, arg1: integer, arg2: boolean): $ItemStack
- "isMutable"(): boolean
- "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
+ "isItemValid"(arg0: integer, arg1: $ItemStack$$Type): boolean
  "getSlots"(): integer
  "getSlotLimit"(arg0: integer): integer
- "isItemValid"(arg0: integer, arg1: $ItemStack$$Type): boolean
  "getStackInSlot"(arg0: integer): $ItemStack
- "insertItem"(arg0: integer, arg1: $ItemStack$$Type, arg2: boolean): $ItemStack
- "kjs$self"(): $IItemHandler
+ "isMutable"(): boolean
+ "getSlotLimit"(arg0: integer): integer
+ "extractItem"(arg0: integer, arg1: integer, arg2: boolean): $ItemStack
+ "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
  "getBlock"(level: $Level$$Type): $LevelBlock
  "isEmpty"(): boolean
- "insertItem"(stack: $ItemStack$$Type, simulate: boolean): $ItemStack
- "getWidth"(): integer
- "getHeight"(): integer
- "countNonEmpty"(): integer
- "countNonEmpty"(match: $ItemPredicate$$Type): integer
- "setChanged"(): void
- "getAllItems"(): $List<($ItemStack)>
- "asContainer"(): $Container
+ "find"(match: $ItemPredicate$$Type): integer
+ "find"(): integer
  "clear"(): void
  "clear"(match: $ItemPredicate$$Type): void
- "find"(): integer
- "find"(match: $ItemPredicate$$Type): integer
- "count"(): integer
  "count"(match: $ItemPredicate$$Type): integer
+ "count"(): integer
+ "getHeight"(): integer
+ "setChanged"(): void
+ "insertItem"(stack: $ItemStack$$Type, simulate: boolean): $ItemStack
+ "countNonEmpty"(): integer
+ "countNonEmpty"(match: $ItemPredicate$$Type): integer
+ "getWidth"(): integer
+ "asContainer"(): $Container
+ "getAllItems"(): $List<($ItemStack)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -436,9 +436,9 @@ export type $RegisterCuriosExtensionsEvent$$Type = ($RegisterCuriosExtensionsEve
 export type $RegisterCuriosExtensionsEvent$$Original = $RegisterCuriosExtensionsEvent;}
 declare module "top.theillusivec4.curios.api.type.capability.ICuriosItemHandler" {
 import {$AttributeModifier, $AttributeModifier$$Type} from "net.minecraft.world.entity.ai.attributes.AttributeModifier"
-import {$ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$LootContext$$Type} from "net.minecraft.world.level.storage.loot.LootContext"
 import {$Map, $Map$$Type} from "java.util.Map"
+import {$ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 import {$Optional} from "java.util.Optional"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$Multimap, $Multimap$$Type} from "com.google.common.collect.Multimap"
@@ -450,22 +450,22 @@ import {$ICurioStacksHandler, $ICurioStacksHandler$$Type} from "top.theillusivec
 import {$AttributeModifier$Operation$$Type} from "net.minecraft.world.entity.ai.attributes.AttributeModifier$Operation"
 import {$IItemHandlerModifiable} from "net.neoforged.neoforge.items.IItemHandlerModifiable"
 import {$Item$$Type} from "net.minecraft.world.item.Item"
-import {$Set} from "java.util.Set"
-import {$LivingEntity} from "net.minecraft.world.entity.LivingEntity"
 import {$Tag, $Tag$$Type} from "net.minecraft.nbt.Tag"
+import {$LivingEntity} from "net.minecraft.world.entity.LivingEntity"
+import {$Set} from "java.util.Set"
 import {$Logger} from "org.slf4j.Logger"
 
 export interface $ICuriosItemHandler$$Interface {
 get "modifiers"(): $Multimap<(StringJS), ($AttributeModifier)>
 get "updatingInventories"(): $Set<($ICurioStacksHandler)>
+get "equippedCurios"(): $IItemHandlerModifiable
 get "slots"(): integer
 set "curios"(value: $Map$$Type<(StringJS), ($ICurioStacksHandler$$Type)>)
 get "wearer"(): $LivingEntity
-get "visibleSlots"(): integer
-get "lockedSlots"(): $Set<(StringJS)>
-get "fortuneBonus"(): integer
-get "equippedCurios"(): $IItemHandlerModifiable
 get "curios"(): $Map<(StringJS), ($ICurioStacksHandler)>
+get "lockedSlots"(): $Set<(StringJS)>
+get "visibleSlots"(): integer
+get "fortuneBonus"(): integer
 }
 
 export class $ICuriosItemHandler implements $ICuriosItemHandler$$Interface {
@@ -473,59 +473,36 @@ static readonly "LOGGER": $Logger
 
  "reset"(): void
  "getModifiers"(): $Multimap<(StringJS), ($AttributeModifier)>
- "addTransientSlotModifiers"(arg0: $Multimap$$Type<(StringJS), ($AttributeModifier$$Type)>): void
- "addPermanentSlotModifier"(arg0: StringJS, arg1: $ResourceLocation$$Type, arg2: double, arg3: $AttributeModifier$Operation$$Type): void
- "removeSlotModifiers"(arg0: $Multimap$$Type<(StringJS), ($AttributeModifier$$Type)>): void
- "clearCachedSlotModifiers"(): void
  "handleInvalidStacks"(): void
- "getUpdatingInventories"(): $Set<($ICurioStacksHandler)>
  "addTransientSlotModifier"(arg0: StringJS, arg1: $ResourceLocation$$Type, arg2: double, arg3: $AttributeModifier$Operation$$Type): void
  "addPermanentSlotModifiers"(arg0: $Multimap$$Type<(StringJS), ($AttributeModifier$$Type)>): void
- "getSlots"(): integer
- "findCurios"(arg0: $Predicate$$Type<($ItemStack)>): $List<($SlotResult)>
- "findCurios"(arg0: $Predicate$$Type<($ItemStack)>, arg1: boolean, arg2: StringJS): $List<($SlotResult)>
- "findCurios"(...arg0: (StringJS)[]): $List<($SlotResult)>
- "findCurios"(arg0: $Item$$Type): $List<($SlotResult)>
- "findCurios"(arg0: boolean, ...arg1: (StringJS)[]): $List<($SlotResult)>
+ "getUpdatingInventories"(): $Set<($ICurioStacksHandler)>
+ "addPermanentSlotModifier"(arg0: StringJS, arg1: $ResourceLocation$$Type, arg2: double, arg3: $AttributeModifier$Operation$$Type): void
+ "findFirstCurio"(arg0: $Predicate$$Type<($ItemStack)>): $Optional<($SlotResult)>
+ "findFirstCurio"(arg0: $Predicate$$Type<($ItemStack)>, arg1: StringJS): $Optional<($SlotResult)>
+ "findFirstCurio"(arg0: $Predicate$$Type<($ItemStack)>, arg1: boolean, arg2: StringJS): $Optional<($SlotResult)>
+ "findFirstCurio"(arg0: $Item$$Type): $Optional<($SlotResult)>
 /**
  * 
  * @deprecated
  */
  "processSlots"(): void
- "findFirstCurio"(arg0: $Predicate$$Type<($ItemStack)>, arg1: StringJS): $Optional<($SlotResult)>
- "findFirstCurio"(arg0: $Item$$Type): $Optional<($SlotResult)>
- "findFirstCurio"(arg0: $Predicate$$Type<($ItemStack)>): $Optional<($SlotResult)>
- "findFirstCurio"(arg0: $Predicate$$Type<($ItemStack)>, arg1: boolean, arg2: StringJS): $Optional<($SlotResult)>
+ "getEquippedCurios"(): $IItemHandlerModifiable
+ "getFortuneLevel"(arg0: $LootContext$$Type): integer
+ "getLootingLevel"(arg0: $LootContext$$Type): integer
+ "getSlots"(): integer
  "writeTag"(): $Tag
- "setCurios"(arg0: $Map$$Type<(StringJS), ($ICurioStacksHandler$$Type)>): void
- "readTag"(arg0: $Tag$$Type): void
- "getWearer"(): $LivingEntity
- "findCurio"(arg0: StringJS, arg1: integer, arg2: boolean): $Optional<($SlotResult)>
  "findCurio"(arg0: StringJS, arg1: integer): $Optional<($SlotResult)>
- "getVisibleSlots"(): integer
- "isSlotActive"(arg0: StringJS, arg1: integer): boolean
-/**
- * 
- * @deprecated
- */
- "unlockSlotType"(arg0: StringJS, arg1: integer, arg2: boolean, arg3: boolean): void
- "setSlotsActive"(arg0: StringJS, arg1: boolean): void
-/**
- * 
- * @deprecated
- */
- "growSlotType"(arg0: StringJS, arg1: integer): void
+ "findCurio"(arg0: StringJS, arg1: integer, arg2: boolean): $Optional<($SlotResult)>
+ "readTag"(arg0: $Tag$$Type): void
+ "setCurios"(arg0: $Map$$Type<(StringJS), ($ICurioStacksHandler$$Type)>): void
+ "getWearer"(): $LivingEntity
+ "isEquipped"(arg0: $Predicate$$Type<($ItemStack)>): boolean
+ "isEquipped"(arg0: $Item$$Type): boolean
+ "getCurios"(): $Map<(StringJS), ($ICurioStacksHandler)>
  "getStacksHandler"(arg0: StringJS): $Optional<($ICurioStacksHandler)>
- "setEquippedCurio"(arg0: StringJS, arg1: integer, arg2: $ItemStack$$Type): void
  "saveInventory"(arg0: boolean): $ListTag
  "setSlotActive"(arg0: StringJS, arg1: integer, arg2: boolean): void
- "loadInventory"(arg0: $ListTag$$Type): void
- "clearSlotModifiers"(): void
-/**
- * 
- * @deprecated
- */
- "lockSlotType"(arg0: StringJS): void
 /**
  * 
  * @deprecated
@@ -535,20 +512,43 @@ static readonly "LOGGER": $Logger
  * 
  * @deprecated
  */
- "getLockedSlots"(): $Set<(StringJS)>
- "removeSlotModifier"(arg0: StringJS, arg1: $ResourceLocation$$Type): void
+ "unlockSlotType"(arg0: StringJS, arg1: integer, arg2: boolean, arg3: boolean): void
  "loseInvalidStack"(arg0: $ItemStack$$Type): void
+ "loadInventory"(arg0: $ListTag$$Type): void
+/**
+ * 
+ * @deprecated
+ */
+ "lockSlotType"(arg0: StringJS): void
+ "setSlotsActive"(arg0: StringJS, arg1: boolean): void
+/**
+ * 
+ * @deprecated
+ */
+ "getLockedSlots"(): $Set<(StringJS)>
+ "setEquippedCurio"(arg0: StringJS, arg1: integer, arg2: $ItemStack$$Type): void
+ "removeSlotModifier"(arg0: StringJS, arg1: $ResourceLocation$$Type): void
+ "getVisibleSlots"(): integer
+/**
+ * 
+ * @deprecated
+ */
+ "growSlotType"(arg0: StringJS, arg1: integer): void
+ "isSlotActive"(arg0: StringJS, arg1: integer): boolean
 /**
  * 
  * @deprecated
  */
  "getFortuneBonus"(): integer
- "getLootingLevel"(arg0: $LootContext$$Type): integer
- "getEquippedCurios"(): $IItemHandlerModifiable
- "getFortuneLevel"(arg0: $LootContext$$Type): integer
- "getCurios"(): $Map<(StringJS), ($ICurioStacksHandler)>
- "isEquipped"(arg0: $Predicate$$Type<($ItemStack)>): boolean
- "isEquipped"(arg0: $Item$$Type): boolean
+ "clearSlotModifiers"(): void
+ "findCurios"(arg0: boolean, ...arg1: (StringJS)[]): $List<($SlotResult)>
+ "findCurios"(...arg0: (StringJS)[]): $List<($SlotResult)>
+ "findCurios"(arg0: $Item$$Type): $List<($SlotResult)>
+ "findCurios"(arg0: $Predicate$$Type<($ItemStack)>, arg1: boolean, arg2: StringJS): $List<($SlotResult)>
+ "findCurios"(arg0: $Predicate$$Type<($ItemStack)>): $List<($SlotResult)>
+ "addTransientSlotModifiers"(arg0: $Multimap$$Type<(StringJS), ($AttributeModifier$$Type)>): void
+ "removeSlotModifiers"(arg0: $Multimap$$Type<(StringJS), ($AttributeModifier$$Type)>): void
+ "clearCachedSlotModifiers"(): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -579,7 +579,7 @@ public "cosmetic"(): boolean
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $SlotContext$$Type = ({"entity"?: $LivingEntity$$Type, "visible"?: boolean, "cosmetic"?: boolean, "index"?: integer, "identifier"?: StringJS}) | ([entity?: $LivingEntity$$Type, visible?: boolean, cosmetic?: boolean, index?: integer, identifier?: StringJS]);
+export type $SlotContext$$Type = ({"index"?: integer, "cosmetic"?: boolean, "visible"?: boolean, "entity"?: $LivingEntity$$Type, "identifier"?: StringJS}) | ([index?: integer, cosmetic?: boolean, visible?: boolean, entity?: $LivingEntity$$Type, identifier?: StringJS]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */

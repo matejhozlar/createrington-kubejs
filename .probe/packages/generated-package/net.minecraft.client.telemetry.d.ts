@@ -31,9 +31,9 @@ public "id"(): StringJS
 public "properties"(): $List<($TelemetryProperty<(never)>)>
 public "export"(arg0: $TelemetrySession$$Type, arg1: $TelemetryPropertyMap$$Type): $TelemetryEvent
 public "description"(): $MutableComponent
-public "isOptIn"(): boolean
-public "title"(): $MutableComponent
 public "codec"(): $MapCodec<($TelemetryEventInstance)>
+public "title"(): $MutableComponent
+public "isOptIn"(): boolean
 get "optIn"(): boolean
 }
 /**
@@ -52,8 +52,8 @@ import {$UserApiService$$Type} from "com.mojang.authlib.minecraft.UserApiService
 import {$AutoCloseable$$Interface} from "java.lang.AutoCloseable"
 import {$Duration$$Type} from "java.time.Duration"
 import {$Minecraft$$Type} from "net.minecraft.client.Minecraft"
-import {$Path} from "java.nio.file.Path"
 import {$TelemetryEventSender} from "net.minecraft.client.telemetry.TelemetryEventSender"
+import {$Path} from "java.nio.file.Path"
 
 export class $ClientTelemetryManager implements $AutoCloseable$$Interface {
 constructor(arg0: $Minecraft$$Type, arg1: $UserApiService$$Type, arg2: $User$$Type)
@@ -103,9 +103,9 @@ export class $TelemetryEventType$Builder {
 constructor(arg0: StringJS, arg1: StringJS)
 
 public "register"(): $TelemetryEventType
-public "defineAll"(arg0: $List$$Type<($TelemetryProperty$$Type<(never)>)>): $TelemetryEventType$Builder
 public "define"<T>(arg0: $TelemetryProperty$$Type<(T)>): $TelemetryEventType$Builder
 public "optIn"(): $TelemetryEventType$Builder
+public "defineAll"(arg0: $List$$Type<($TelemetryProperty$$Type<(never)>)>): $TelemetryEventType$Builder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -146,8 +146,8 @@ export type $TelemetryPropertyMap$$Type = ($TelemetryPropertyMap);
 export type $TelemetryPropertyMap$$Original = $TelemetryPropertyMap;}
 declare module "net.minecraft.client.telemetry.TelemetryEventSender" {
 import {$TelemetryPropertyMap$Builder, $TelemetryPropertyMap$Builder$$Type} from "net.minecraft.client.telemetry.TelemetryPropertyMap$Builder"
-import {$Consumer, $Consumer$$Type} from "java.util.function.Consumer"
 import {$TelemetryEventType, $TelemetryEventType$$Type} from "net.minecraft.client.telemetry.TelemetryEventType"
+import {$Consumer, $Consumer$$Type} from "java.util.function.Consumer"
 
 export interface $TelemetryEventSender$$Interface {
 
@@ -173,19 +173,19 @@ declare module "net.minecraft.client.telemetry.WorldSessionTelemetryManager" {
 import {$Level$$Type} from "net.minecraft.world.level.Level"
 import {$Duration$$Type} from "java.time.Duration"
 import {$AdvancementHolder$$Type} from "net.minecraft.advancements.AdvancementHolder"
-import {$TelemetryEventSender$$Type} from "net.minecraft.client.telemetry.TelemetryEventSender"
 import {$GameType$$Type} from "net.minecraft.world.level.GameType"
+import {$TelemetryEventSender$$Type} from "net.minecraft.client.telemetry.TelemetryEventSender"
 
 export class $WorldSessionTelemetryManager {
 constructor(arg0: $TelemetryEventSender$$Type, arg1: boolean, arg2: $Duration$$Type, arg3: StringJS)
 
 public "setTime"(arg0: long): void
 public "tick"(): void
-public "onDisconnect"(): void
-public "onServerBrandReceived"(arg0: StringJS): void
 public "onPlayerInfoReceived"(arg0: $GameType$$Type, arg1: boolean): void
-public "onAdvancementDone"(arg0: $Level$$Type, arg1: $AdvancementHolder$$Type): void
+public "onServerBrandReceived"(arg0: StringJS): void
+public "onDisconnect"(): void
 public "worldSessionStart"(): void
+public "onAdvancementDone"(arg0: $Level$$Type, arg1: $AdvancementHolder$$Type): void
 set "time"(value: long)
 }
 /**
@@ -252,8 +252,8 @@ export type $GameLoadTimesEvent$Measurement$$Original = $GameLoadTimesEvent$Meas
 declare module "net.minecraft.client.telemetry.TelemetryProperty$GameMode" {
 import {$Keyable} from "com.mojang.serialization.Keyable"
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Enum, $Enum$$Type} from "java.lang.Enum"
+import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Function, $Function$$Type} from "java.util.function.Function"
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$StringRepresentable, $StringRepresentable$$Type, $StringRepresentable$$Interface} from "net.minecraft.util.StringRepresentable"
@@ -270,12 +270,12 @@ public static "values"(): ($TelemetryProperty$GameMode)[]
 public static "valueOf"(arg0: StringJS): $TelemetryProperty$GameMode
 public "id"(): integer
 public "getSerializedName"(): StringJS
-public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
 public static "keys"(arg0: ($StringRepresentable$$Type)[]): $Keyable
+public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
+public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 public "getRemappedEnumConstantName"(): StringJS
 public static "fromEnum"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromValues"<T extends $StringRepresentable>(arg0: $Supplier$$Type<((T)[])>): $Codec<(T)>
-public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 get "serializedName"(): StringJS
 get "remappedEnumConstantName"(): StringJS
 }
@@ -291,8 +291,8 @@ export type $TelemetryProperty$GameMode$$Original = $TelemetryProperty$GameMode;
 declare module "net.minecraft.client.telemetry.TelemetryProperty$ServerType" {
 import {$Keyable} from "com.mojang.serialization.Keyable"
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Enum, $Enum$$Type} from "java.lang.Enum"
+import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Function, $Function$$Type} from "java.util.function.Function"
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$StringRepresentable, $StringRepresentable$$Type, $StringRepresentable$$Interface} from "net.minecraft.util.StringRepresentable"
@@ -306,12 +306,12 @@ static readonly "REALM": $TelemetryProperty$ServerType
 public static "values"(): ($TelemetryProperty$ServerType)[]
 public static "valueOf"(arg0: StringJS): $TelemetryProperty$ServerType
 public "getSerializedName"(): StringJS
-public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
 public static "keys"(arg0: ($StringRepresentable$$Type)[]): $Keyable
+public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
+public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 public "getRemappedEnumConstantName"(): StringJS
 public static "fromEnum"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromValues"<T extends $StringRepresentable>(arg0: $Supplier$$Type<((T)[])>): $Codec<(T)>
-public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 get "serializedName"(): StringJS
 get "remappedEnumConstantName"(): StringJS
 }
@@ -328,8 +328,8 @@ declare module "net.minecraft.client.telemetry.TelemetryProperty" {
 import {$TelemetryProperty$ServerType} from "net.minecraft.client.telemetry.TelemetryProperty$ServerType"
 import {$TelemetryPropertyContainer$$Type} from "com.mojang.authlib.minecraft.TelemetryPropertyContainer"
 import {$GameLoadTimesEvent$Measurement} from "net.minecraft.client.telemetry.events.GameLoadTimesEvent$Measurement"
-import {$TelemetryPropertyMap$$Type} from "net.minecraft.client.telemetry.TelemetryPropertyMap"
 import {$UUID} from "java.util.UUID"
+import {$TelemetryPropertyMap$$Type} from "net.minecraft.client.telemetry.TelemetryPropertyMap"
 import {$LongList} from "it.unimi.dsi.fastutil.longs.LongList"
 import {$TelemetryProperty$GameMode} from "net.minecraft.client.telemetry.TelemetryProperty$GameMode"
 import {$Codec, $Codec$$Type} from "com.mojang.serialization.Codec"
@@ -383,19 +383,19 @@ public static "string"(arg0: StringJS, arg1: StringJS): $TelemetryProperty<(Stri
 public "export"(arg0: $TelemetryPropertyMap$$Type, arg1: $TelemetryPropertyContainer$$Type): void
 public static "integer"(arg0: StringJS, arg1: StringJS): $TelemetryProperty<(integer)>
 public "exporter"(): $TelemetryProperty$Exporter<(T)>
-public static "longSamples"(arg0: StringJS, arg1: StringJS): $TelemetryProperty<($LongList)>
 public static "bool"(arg0: StringJS, arg1: StringJS): $TelemetryProperty<(boolean)>
-public "title"(): $MutableComponent
-public static "uuid"(arg0: StringJS, arg1: StringJS): $TelemetryProperty<($UUID)>
 public "codec"(): $Codec<(T)>
-public "exportKey"(): StringJS
+public static "uuid"(arg0: StringJS, arg1: StringJS): $TelemetryProperty<($UUID)>
+public "title"(): $MutableComponent
 public static "gameLoadMeasurement"(arg0: StringJS, arg1: StringJS): $TelemetryProperty<($GameLoadTimesEvent$Measurement)>
+public static "longSamples"(arg0: StringJS, arg1: StringJS): $TelemetryProperty<($LongList)>
+public "exportKey"(): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $TelemetryProperty$$Type<T> = ({"exportKey"?: StringJS, "exporter"?: $TelemetryProperty$Exporter$$Type<(T)>, "codec"?: $Codec$$Type<(T)>, "id"?: StringJS}) | ([exportKey?: StringJS, exporter?: $TelemetryProperty$Exporter$$Type<(T)>, codec?: $Codec$$Type<(T)>, id?: StringJS]);
+export type $TelemetryProperty$$Type<T> = ({"codec"?: $Codec$$Type<(T)>, "exporter"?: $TelemetryProperty$Exporter$$Type<(T)>, "exportKey"?: StringJS, "id"?: StringJS}) | ([codec?: $Codec$$Type<(T)>, exporter?: $TelemetryProperty$Exporter$$Type<(T)>, exportKey?: StringJS, id?: StringJS]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */

@@ -14,13 +14,13 @@ static readonly "DEFAULT": $Excluder
 constructor()
 
 public "create"<T>(arg0: $Gson$$Type, arg1: $TypeToken$$Type<(T)>): $TypeAdapter<(T)>
-public "disableInnerClassSerialization"(): $Excluder
 public "withExclusionStrategy"(arg0: $ExclusionStrategy$$Type, arg1: boolean, arg2: boolean): $Excluder
-public "excludeFieldsWithoutExposeAnnotation"(): $Excluder
-public "excludeField"(arg0: $Field$$Type, arg1: boolean): boolean
-public "withModifiers"(...arg0: (integer)[]): $Excluder
-public "withVersion"(arg0: double): $Excluder
 public "excludeClass"(arg0: $Class$$Type<(never)>, arg1: boolean): boolean
+public "withModifiers"(...arg0: (integer)[]): $Excluder
+public "excludeField"(arg0: $Field$$Type, arg1: boolean): boolean
+public "withVersion"(arg0: double): $Excluder
+public "excludeFieldsWithoutExposeAnnotation"(): $Excluder
+public "disableInnerClassSerialization"(): $Excluder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

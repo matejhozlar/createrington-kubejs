@@ -3,8 +3,8 @@ import {$SingleConfigManagerIO} from "xaero.lib.common.config.single.io.SingleCo
 import {$ConfigOptionManager} from "xaero.lib.common.config.option.ConfigOptionManager"
 import {$BuiltInConfigChannelPermissions, $BuiltInConfigChannelPermissions$$Type} from "xaero.lib.common.permission.config.channel.BuiltInConfigChannelPermissions"
 import {$ServerConfigManager} from "xaero.lib.common.config.server.ServerConfigManager"
-import {$ServerConfigChannelSynchronizer} from "xaero.lib.common.config.server.sync.ServerConfigChannelSynchronizer"
 import {$ClientConfigManager} from "xaero.lib.client.config.ClientConfigManager"
+import {$ServerConfigChannelSynchronizer} from "xaero.lib.common.config.server.sync.ServerConfigChannelSynchronizer"
 import {$ConfigOptionUITypeManager} from "xaero.lib.client.config.option.ui.ConfigOptionUITypeManager"
 import {$ConfigProfileManagerIO} from "xaero.lib.common.config.profile.io.ConfigProfileManagerIO"
 import {$IConfigChannelClientRegistryHandler} from "xaero.lib.client.config.channel.register.handler.IConfigChannelClientRegistryHandler"
@@ -20,45 +20,45 @@ export class $ConfigChannel {
 readonly "logger": $Logger
 
 public "getId"(): $ResourceLocation
+public "postLoad"(): void
+public "getClientConfigManager"(): $ClientConfigManager
+public "getClientConfigProfileIO"(): $ConfigProfileManagerIO
+public "getPrimaryCommonConfigManager"(): $SingleConfigManager<($Config)>
 public "getPrimaryClientConfigManagerIO"(): $SingleConfigManagerIO<($Config)>
 public "getPrimaryClientConfigManager"(): $SingleConfigManager<($Config)>
-public "getPrimaryCommonConfigManager"(): $SingleConfigManager<($Config)>
-public "postLoad"(): void
-public "setBuiltInPermissions"(arg0: $BuiltInConfigChannelPermissions$$Type): void
-public "getPrimaryCommonConfigManagerIO"(): $SingleConfigManagerIO<($Config)>
-public "getClientConfigSynchronizer"(): $ClientConfigChannelSynchronizer
-public "getConfigOptionUITypeManager"(): $ConfigOptionUITypeManager
-public "getServerConfigSynchronizer"(): $ServerConfigChannelSynchronizer
-public "getClientConfigProfileIO"(): $ConfigProfileManagerIO
-public "getClientConfigManager"(): $ClientConfigManager
-public "getBuiltInPermissions"(): $BuiltInConfigChannelPermissions
-public "getConfigOptionManager"(): $ConfigOptionManager
-public "getServerConfigProfileIO"(): $ConfigProfileManagerIO
-public "getClientRegistryHandler"(): $IConfigChannelClientRegistryHandler
 public "freezeOptionManagers"(): void
+public "getClientRegistryHandler"(): $IConfigChannelClientRegistryHandler
+public "getConfigOptionManager"(): $ConfigOptionManager
 public "getCommonRegistryHandler"(): $IConfigChannelCommonRegistryHandler
-public "getServerConfigManager"(): $ServerConfigManager
-public "getPrimaryCommonConfigOptionManager"(): $ConfigOptionManager
+public "getBuiltInPermissions"(): $BuiltInConfigChannelPermissions
 public "getPrimaryClientConfigOptionManager"(): $ClientConfigOptionManager
+public "getPrimaryCommonConfigOptionManager"(): $ConfigOptionManager
+public "getClientConfigSynchronizer"(): $ClientConfigChannelSynchronizer
+public "getPrimaryCommonConfigManagerIO"(): $SingleConfigManagerIO<($Config)>
+public "getServerConfigSynchronizer"(): $ServerConfigChannelSynchronizer
+public "getConfigOptionUITypeManager"(): $ConfigOptionUITypeManager
+public "setBuiltInPermissions"(arg0: $BuiltInConfigChannelPermissions$$Type): void
+public "getServerConfigProfileIO"(): $ConfigProfileManagerIO
+public "getServerConfigManager"(): $ServerConfigManager
 get "id"(): $ResourceLocation
+get "clientConfigManager"(): $ClientConfigManager
+get "clientConfigProfileIO"(): $ConfigProfileManagerIO
+get "primaryCommonConfigManager"(): $SingleConfigManager<($Config)>
 get "primaryClientConfigManagerIO"(): $SingleConfigManagerIO<($Config)>
 get "primaryClientConfigManager"(): $SingleConfigManager<($Config)>
-get "primaryCommonConfigManager"(): $SingleConfigManager<($Config)>
-set "builtInPermissions"(value: $BuiltInConfigChannelPermissions$$Type)
-get "primaryCommonConfigManagerIO"(): $SingleConfigManagerIO<($Config)>
-get "clientConfigSynchronizer"(): $ClientConfigChannelSynchronizer
-get "configOptionUITypeManager"(): $ConfigOptionUITypeManager
-get "serverConfigSynchronizer"(): $ServerConfigChannelSynchronizer
-get "clientConfigProfileIO"(): $ConfigProfileManagerIO
-get "clientConfigManager"(): $ClientConfigManager
-get "builtInPermissions"(): $BuiltInConfigChannelPermissions
-get "configOptionManager"(): $ConfigOptionManager
-get "serverConfigProfileIO"(): $ConfigProfileManagerIO
 get "clientRegistryHandler"(): $IConfigChannelClientRegistryHandler
+get "configOptionManager"(): $ConfigOptionManager
 get "commonRegistryHandler"(): $IConfigChannelCommonRegistryHandler
-get "serverConfigManager"(): $ServerConfigManager
-get "primaryCommonConfigOptionManager"(): $ConfigOptionManager
+get "builtInPermissions"(): $BuiltInConfigChannelPermissions
 get "primaryClientConfigOptionManager"(): $ClientConfigOptionManager
+get "primaryCommonConfigOptionManager"(): $ConfigOptionManager
+get "clientConfigSynchronizer"(): $ClientConfigChannelSynchronizer
+get "primaryCommonConfigManagerIO"(): $SingleConfigManagerIO<($Config)>
+get "serverConfigSynchronizer"(): $ServerConfigChannelSynchronizer
+get "configOptionUITypeManager"(): $ConfigOptionUITypeManager
+set "builtInPermissions"(value: $BuiltInConfigChannelPermissions$$Type)
+get "serverConfigProfileIO"(): $ConfigProfileManagerIO
+get "serverConfigManager"(): $ServerConfigManager
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -79,9 +79,9 @@ export interface $IConfigChannelCommonRegistryHandler$$Interface {
 
 export class $IConfigChannelCommonRegistryHandler implements $IConfigChannelCommonRegistryHandler$$Interface {
  "registerProfiledOptions"(arg0: $ConfigOptionManager$$Type): void
- "registerServerOptionChangeHandlers"(arg0: $ServerConfigChangeListener$$Type): void
  "registerOptionServerRedirectors"(arg0: $OptionValueRedirectorManager$$Type): void
  "registerPrimaryCommonOptions"(arg0: $ConfigOptionManager$$Type): void
+ "registerServerOptionChangeHandlers"(arg0: $ServerConfigChangeListener$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -106,22 +106,22 @@ readonly "logger": $Logger
 constructor(arg0: $Logger$$Type, arg1: StringJS)
 
 public "getChannel"(): $ConfigChannel
+public "getEffective"<T>(arg0: $ConfigOption$$Type<(T)>): T
+public "getConfig"(): C
+public "setConfig"(arg0: C): void
+public "setChangeListener"(arg0: $IConfigChangeListener$$Type): void
+public "setChannel"(arg0: $ConfigChannel$$Type): void
 public "getRedirectorManager"(): $OptionValueRedirectorManager
 public "setRedirectorManager"(arg0: $OptionValueRedirectorManager$$Type): void
-public "getConfig"(): C
-public "setChannel"(arg0: $ConfigChannel$$Type): void
-public "setChangeListener"(arg0: $IConfigChangeListener$$Type): void
 public "getConfigId"(): StringJS
-public "setConfig"(arg0: C): void
-public "getEffective"<T>(arg0: $ConfigOption$$Type<(T)>): T
 get "channel"(): $ConfigChannel
+get "config"(): C
+set "config"(value: C)
+set "changeListener"(value: $IConfigChangeListener$$Type)
+set "channel"(value: $ConfigChannel$$Type)
 get "redirectorManager"(): $OptionValueRedirectorManager
 set "redirectorManager"(value: $OptionValueRedirectorManager$$Type)
-get "config"(): C
-set "channel"(value: $ConfigChannel$$Type)
-set "changeListener"(value: $IConfigChangeListener$$Type)
 get "configId"(): StringJS
-set "config"(value: C)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -165,8 +165,8 @@ import {$Iterable$$Type} from "java.lang.Iterable"
 import {$ConfigProfile$$Type} from "xaero.lib.common.config.profile.ConfigProfile"
 import {$CommonConfigChannelSynchronizer} from "xaero.lib.common.config.sync.CommonConfigChannelSynchronizer"
 import {$ConfigProfileInfoPacket$Entry$$Type} from "xaero.lib.common.packet.config.profile.ConfigProfileInfoPacket$Entry"
-import {$ConfigOption$$Type} from "xaero.lib.common.config.option.ConfigOption"
 import {$ServerPlayerData$$Type} from "xaero.lib.common.player.ServerPlayerData"
+import {$ConfigOption$$Type} from "xaero.lib.common.config.option.ConfigOption"
 import {$List$$Type} from "java.util.List"
 import {$ServerPlayerConfigSynchronizer$$Type} from "xaero.lib.common.config.server.sync.ServerPlayerConfigSynchronizer"
 import {$Logger} from "org.apache.logging.log4j.Logger"
@@ -176,18 +176,18 @@ export class $ServerConfigChannelSynchronizer extends $CommonConfigChannelSynchr
 readonly "logger": $Logger
 
 public "postLoad"(): void
-public "syncOptionValueChange"(arg0: $ConfigProfile$$Type, arg1: $ConfigOption$$Type<(never)>): void
-public "syncProfileDeletion"(arg0: $ConfigProfile$$Type): void
+public "onProfileRequestPacket"(arg0: $ServerPlayerConfigSynchronizer$$Type, arg1: StringJS): void
+public "syncProfileInfoChange"(arg0: $ConfigProfile$$Type): void
 public "handleLogin"(arg0: $ServerPlayerConfigSynchronizer$$Type): void
+public "syncDefaultEnforcedConfigProfileSwitch"(arg0: $ConfigProfile$$Type): void
 public "onDeleteConfigProfilePacket"(arg0: StringJS, arg1: $ServerPlayerData$$Type): void
 public "onCreateConfigProfilePacket"(arg0: StringJS, arg1: StringJS, arg2: StringJS): void
+public "onEditProfilePacket"(arg0: StringJS, arg1: $Iterable$$Type<($AbstractConfigPacket$OptionEntry$$Type)>, arg2: $ServerPlayerData$$Type): void
+public "onConfigProfileInfoPacket"(arg0: $List$$Type<($ConfigProfileInfoPacket$Entry$$Type)>, arg1: StringJS, arg2: $ServerPlayerData$$Type): void
+public "syncOptionValueChange"(arg0: $ConfigProfile$$Type, arg1: $ConfigOption$$Type<(never)>): void
+public "syncProfileDeletion"(arg0: $ConfigProfile$$Type): void
 public "syncServerProfileEditingInfo"(arg0: $ServerPlayerConfigSynchronizer$$Type): void
 public "syncEnforcedConfigProfileDeletion"(arg0: $ConfigProfile$$Type): void
-public "onConfigProfileInfoPacket"(arg0: $List$$Type<($ConfigProfileInfoPacket$Entry$$Type)>, arg1: StringJS, arg2: $ServerPlayerData$$Type): void
-public "onProfileRequestPacket"(arg0: $ServerPlayerConfigSynchronizer$$Type, arg1: StringJS): void
-public "onEditProfilePacket"(arg0: StringJS, arg1: $Iterable$$Type<($AbstractConfigPacket$OptionEntry$$Type)>, arg2: $ServerPlayerData$$Type): void
-public "syncProfileInfoChange"(arg0: $ConfigProfile$$Type): void
-public "syncDefaultEnforcedConfigProfileSwitch"(arg0: $ConfigProfile$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -207,8 +207,8 @@ export interface $IConfigChangeListener$$Interface {
 
 export class $IConfigChangeListener implements $IConfigChangeListener$$Interface {
  "onChange"(arg0: $Config$$Type, arg1: $ConfigOption$$Type<(never)>): void
- "onRemoved"(arg0: $Config$$Type): void
  "onFullChange"(arg0: $Config$$Type): void
+ "onRemoved"(arg0: $Config$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -250,12 +250,12 @@ export class $OptionValueRedirectorManager {
 public "getValue"<T>(arg0: $ConfigOption$$Type<(T)>): T
 public "register"<T>(arg0: $ConfigOption$$Type<(T)>, arg1: $Supplier$$Type<(T)>, arg2: $Predicate$$Type<($ConfigChannel)>): void
 public "freeze"(): void
-public "setChannel"(arg0: $ConfigChannel$$Type): void
 public "setChangeListener"(arg0: $IConfigChangeListener$$Type): void
-public "shouldRedirect"(arg0: $ConfigOption$$Type<(never)>): boolean
+public "setChannel"(arg0: $ConfigChannel$$Type): void
 public "getCacheConfig"(): $Config
-set "channel"(value: $ConfigChannel$$Type)
+public "shouldRedirect"(arg0: $ConfigOption$$Type<(never)>): boolean
 set "changeListener"(value: $IConfigChangeListener$$Type)
+set "channel"(value: $ConfigChannel$$Type)
 get "cacheConfig"(): $Config
 }
 /**
@@ -304,8 +304,8 @@ export type $CommonConfigChannelSynchronizer$$Type = ($CommonConfigChannelSynchr
  */
 export type $CommonConfigChannelSynchronizer$$Original = $CommonConfigChannelSynchronizer;}
 declare module "xaero.lib.common.config.server.ServerConfigManager" {
-import {$ConfigProfileManager} from "xaero.lib.common.config.profile.ConfigProfileManager"
 import {$ConfigChannel, $ConfigChannel$$Type} from "xaero.lib.common.config.channel.ConfigChannel"
+import {$ConfigProfileManager} from "xaero.lib.common.config.profile.ConfigProfileManager"
 import {$ConfigProfile, $ConfigProfile$$Type} from "xaero.lib.common.config.profile.ConfigProfile"
 import {$ConfigOption$$Type} from "xaero.lib.common.config.option.ConfigOption"
 import {$ServerPlayerData$$Type} from "xaero.lib.common.player.ServerPlayerData"
@@ -317,35 +317,35 @@ import {$MinecraftServer, $MinecraftServer$$Type} from "net.minecraft.server.Min
 export class $ServerConfigManager {
 public "getChannel"(): $ConfigChannel
 public "postLoad"(): void
-public "getChangeListener"(): $ServerConfigChangeListener
+public "getRaw"<T>(arg0: $ConfigProfile$$Type, arg1: $ConfigOption$$Type<(T)>): T
 public "getRaw"<T>(arg0: $ServerPlayerData$$Type, arg1: $ConfigOption$$Type<(T)>): T
 public "getRaw"<T>(arg0: $ServerPlayer$$Type, arg1: $ConfigOption$$Type<(T)>): T
-public "getRaw"<T>(arg0: $ConfigProfile$$Type, arg1: $ConfigOption$$Type<(T)>): T
-public "getRedirectorManager"(): $OptionValueRedirectorManager
-public "setChannel"(arg0: $ConfigChannel$$Type): void
-public "setServer"(arg0: $MinecraftServer$$Type): void
+public "getEffective"<T>(arg0: $ServerPlayerData$$Type, arg1: $ConfigOption$$Type<(T)>): T
+public "getEffective"<T>(arg0: $ServerPlayer$$Type, arg1: $ConfigOption$$Type<(T)>): T
 public "setChangeListener"(arg0: $ServerConfigChangeListener$$Type): void
-public "getProfileManager"(): $ConfigProfileManager
-public "setDefaultEnforcedProfileId"(arg0: StringJS): void
-public "getPermissionBasedProfileId"(arg0: $ServerPlayerData$$Type): StringJS
-public "getEnforcedProfileForPlayer"(arg0: $ServerPlayerData$$Type): $ConfigProfile
-public "hasServerProfileEditPermission"(arg0: $ServerPlayerData$$Type): boolean
-public "getServer"(): $MinecraftServer
+public "getChangeListener"(): $ServerConfigChangeListener
 public "getPermissionBasedProfile"(arg0: $ServerPlayerData$$Type): $ConfigProfile
 public "usesDefaultEnforcedProfile"(arg0: $ServerPlayer$$Type): boolean
 public "usesDefaultEnforcedProfile"(arg0: $ServerPlayerData$$Type): boolean
-public "getEffective"<T>(arg0: $ServerPlayerData$$Type, arg1: $ConfigOption$$Type<(T)>): T
-public "getEffective"<T>(arg0: $ServerPlayer$$Type, arg1: $ConfigOption$$Type<(T)>): T
+public "setChannel"(arg0: $ConfigChannel$$Type): void
+public "setServer"(arg0: $MinecraftServer$$Type): void
+public "getServer"(): $MinecraftServer
+public "setDefaultEnforcedProfileId"(arg0: StringJS): void
+public "getPermissionBasedProfileId"(arg0: $ServerPlayerData$$Type): StringJS
+public "hasServerProfileEditPermission"(arg0: $ServerPlayerData$$Type): boolean
+public "getEnforcedProfileForPlayer"(arg0: $ServerPlayerData$$Type): $ConfigProfile
+public "getRedirectorManager"(): $OptionValueRedirectorManager
+public "getProfileManager"(): $ConfigProfileManager
 public "getDefaultEnforcedProfile"(): $ConfigProfile
 get "channel"(): $ConfigChannel
+set "changeListener"(value: $ServerConfigChangeListener$$Type)
 get "changeListener"(): $ServerConfigChangeListener
-get "redirectorManager"(): $OptionValueRedirectorManager
 set "channel"(value: $ConfigChannel$$Type)
 set "server"(value: $MinecraftServer$$Type)
-set "changeListener"(value: $ServerConfigChangeListener$$Type)
-get "profileManager"(): $ConfigProfileManager
-set "defaultEnforcedProfileId"(value: StringJS)
 get "server"(): $MinecraftServer
+set "defaultEnforcedProfileId"(value: StringJS)
+get "redirectorManager"(): $OptionValueRedirectorManager
+get "profileManager"(): $ConfigProfileManager
 get "defaultEnforcedProfile"(): $ConfigProfile
 }
 /**
@@ -415,23 +415,23 @@ import {$ConfigValueType} from "xaero.lib.common.config.option.value.type.Config
 import {$Component} from "net.minecraft.network.chat.Component"
 
 export class $ConfigOption<T> {
-public "isOverridable"(): boolean
 public "getId"(): StringJS
 public "getDefaultValue"(): T
 public "getDisplayName"(): $Component
 public "isValidValue"(arg0: T): boolean
-public "getValueType"(): $ConfigValueType<(T)>
-public "shouldSaveDefaultValue"(): boolean
-public "skipConfigReset"(): boolean
-public "getDisplayGetter"(): $BiFunction<($ConfigOption<(T)>), (T), ($Component)>
+public "isOverridable"(): boolean
 public "getTooltip"(): $Component
-get "overridable"(): boolean
+public "shouldSaveDefaultValue"(): boolean
+public "getValueType"(): $ConfigValueType<(T)>
+public "getDisplayGetter"(): $BiFunction<($ConfigOption<(T)>), (T), ($Component)>
+public "skipConfigReset"(): boolean
 get "id"(): StringJS
 get "defaultValue"(): T
 get "displayName"(): $Component
+get "overridable"(): boolean
+get "tooltip"(): $Component
 get "valueType"(): $ConfigValueType<(T)>
 get "displayGetter"(): $BiFunction<($ConfigOption<(T)>), (T), ($Component)>
-get "tooltip"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -443,8 +443,8 @@ export type $ConfigOption$$Type<T> = ($ConfigOption<(T)>);
  */
 export type $ConfigOption$$Original<T> = $ConfigOption<(T)>;}
 declare module "xaero.lib.common.config.server.sync.ServerPlayerConfigSynchronizer" {
-import {$Iterable$$Type} from "java.lang.Iterable"
 import {$ConfigChannel, $ConfigChannel$$Type} from "xaero.lib.common.config.channel.ConfigChannel"
+import {$Iterable$$Type} from "java.lang.Iterable"
 import {$ConfigProfileInfoPacket$Entry$$Type} from "xaero.lib.common.packet.config.profile.ConfigProfileInfoPacket$Entry"
 import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
 import {$ServerPlayerData, $ServerPlayerData$$Type} from "xaero.lib.common.player.ServerPlayerData"
@@ -455,17 +455,17 @@ export class $ServerPlayerConfigSynchronizer {
 constructor(arg0: $ServerPlayerData$$Type)
 
 public "send"(arg0: $ConfigChannel$$Type, arg1: any): void
+public "onProfileRequestPacket"(arg0: StringJS): void
+public "getCurrentInputChannel"(): $ConfigChannel
 public "handleLogin"(): void
-public "getPlayerData"(): $ServerPlayerData
 public "onDeleteConfigProfilePacket"(arg0: StringJS): void
 public "onCreateConfigProfilePacket"(arg0: StringJS, arg1: StringJS, arg2: StringJS): void
-public "onConfigProfileInfoPacket"(arg0: $List$$Type<($ConfigProfileInfoPacket$Entry$$Type)>, arg1: StringJS): void
-public "onProfileRequestPacket"(arg0: StringJS): void
 public "onEditProfilePacket"(arg0: StringJS, arg1: $Iterable$$Type<($AbstractConfigPacket$OptionEntry$$Type)>): void
+public "onConfigProfileInfoPacket"(arg0: $List$$Type<($ConfigProfileInfoPacket$Entry$$Type)>, arg1: StringJS): void
+public "getPlayerData"(): $ServerPlayerData
 public "receiveChannelId"(arg0: $ResourceLocation$$Type): void
-public "getCurrentInputChannel"(): $ConfigChannel
-get "playerData"(): $ServerPlayerData
 get "currentInputChannel"(): $ConfigChannel
+get "playerData"(): $ServerPlayerData
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -478,8 +478,8 @@ export type $ServerPlayerConfigSynchronizer$$Type = ($ServerPlayerConfigSynchron
 export type $ServerPlayerConfigSynchronizer$$Original = $ServerPlayerConfigSynchronizer;}
 declare module "xaero.lib.common.config.server.listener.ServerConfigChangeListener" {
 import {$ConfigOption$$Type} from "xaero.lib.common.config.option.ConfigOption"
-import {$Config$$Type} from "xaero.lib.common.config.Config"
 import {$HandlerBasedConfigChangeListener} from "xaero.lib.common.config.listener.handler.HandlerBasedConfigChangeListener"
+import {$Config$$Type} from "xaero.lib.common.config.Config"
 import {$ServerConfigChannelSynchronizer$$Type} from "xaero.lib.common.config.server.sync.ServerConfigChannelSynchronizer"
 
 export class $ServerConfigChangeListener extends $HandlerBasedConfigChangeListener {
@@ -506,29 +506,29 @@ export class $Config {
 public "reset"(): void
 public "get"<T>(arg0: $ConfigOption$$Type<(T)>): T
 public "set"<T>(arg0: $ConfigOption$$Type<(T)>, arg1: T): T
+public "getChangeCount"(): integer
+public "postSave"(): void
+public "isAllowNullValues"(): boolean
+public "clearDirtyOptions"(): void
+public "copyOptionFrom"<T>(arg0: $ConfigOption$$Type<(T)>, arg1: $Config$$Type): void
+public "usedOptions"(): $Iterable<($ConfigOption<(never)>)>
+public "getDirtyOptions"(): $Iterable<($ConfigOption<(never)>)>
+public "setChangeListener"(arg0: $IConfigChangeListener$$Type): void
+public "setDefaults"(arg0: boolean): void
+public "copyOptionsFrom"(arg0: $Config$$Type): void
+public "setOptionDefault"<T>(arg0: $ConfigOption$$Type<(T)>): void
 public "getChangeListener"(): $IConfigChangeListener
-public "getFailedSerializedValue"(arg0: $ConfigOption$$Type<(never)>): StringJS
 public "addFailedSerializedValue"<T>(arg0: $ConfigOption$$Type<(T)>, arg1: StringJS): void
 public "getRemovedLargeOptions"(): $Iterable<($ConfigOption<(never)>)>
-public "postSave"(): void
-public "copyOptionsFrom"(arg0: $Config$$Type): void
-public "setChangeListener"(arg0: $IConfigChangeListener$$Type): void
-public "getDirtyOptions"(): $Iterable<($ConfigOption<(never)>)>
-public "isAllowNullValues"(): boolean
-public "copyOptionFrom"<T>(arg0: $ConfigOption$$Type<(T)>, arg1: $Config$$Type): void
-public "setOptionDefault"<T>(arg0: $ConfigOption$$Type<(T)>): void
-public "clearDirtyOptions"(): void
-public "usedOptions"(): $Iterable<($ConfigOption<(never)>)>
-public "setDefaults"(arg0: boolean): void
-public "getChangeCount"(): integer
+public "getFailedSerializedValue"(arg0: $ConfigOption$$Type<(never)>): StringJS
+get "changeCount"(): integer
+get "allowNullValues"(): boolean
+get "dirtyOptions"(): $Iterable<($ConfigOption<(never)>)>
+set "changeListener"(value: $IConfigChangeListener$$Type)
+set "defaults"(value: boolean)
+set "optionDefault"(value: $ConfigOption$$Type<(T)>)
 get "changeListener"(): $IConfigChangeListener
 get "removedLargeOptions"(): $Iterable<($ConfigOption<(never)>)>
-set "changeListener"(value: $IConfigChangeListener$$Type)
-get "dirtyOptions"(): $Iterable<($ConfigOption<(never)>)>
-get "allowNullValues"(): boolean
-set "optionDefault"(value: $ConfigOption$$Type<(T)>)
-set "defaults"(value: boolean)
-get "changeCount"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

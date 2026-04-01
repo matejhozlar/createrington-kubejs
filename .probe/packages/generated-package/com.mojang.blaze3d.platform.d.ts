@@ -28,20 +28,20 @@ export class $Monitor {
 constructor(arg0: long)
 
 public "toString"(): StringJS
-public "getX"(): integer
-public "getMode"(arg0: integer): $VideoMode
+public "getY"(): integer
 public "getPreferredVidMode"(arg0: ($VideoMode$$Type)?): $VideoMode
 public "getMonitor"(): long
-public "getY"(): integer
-public "refreshVideoModes"(): void
-public "getCurrentMode"(): $VideoMode
-public "getModeCount"(): integer
+public "getMode"(arg0: integer): $VideoMode
 public "getVideoModeIndex"(arg0: $VideoMode$$Type): integer
-get "x"(): integer
-get "monitor"(): long
+public "refreshVideoModes"(): void
+public "getModeCount"(): integer
+public "getCurrentMode"(): $VideoMode
+public "getX"(): integer
 get "y"(): integer
-get "currentMode"(): $VideoMode
+get "monitor"(): long
 get "modeCount"(): integer
+get "currentMode"(): $VideoMode
+get "x"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -70,13 +70,13 @@ public "hashCode"(): integer
 public "getValue"(): integer
 public "getType"(): $InputConstants$Type
 public "getDisplayName"(): $Component
-public static "getNAME_MAP$controlling_$md$6d3b50$0"(): $Map
+public static "getNAME_MAP$controlling_$md$1ae6d3$0"(): $Map
 public "getNumericKeyValue"(): $OptionalInt
 public static "controlling$getNAME_MAP"(): $Map<(StringJS), ($InputConstants$Key)>
 get "name"(): StringJS
 get "value"(): integer
 get "type"(): $InputConstants$Type
-get "NAME_MAP$controlling_$md$6d3b50$0"(): $Map
+get "NAME_MAP$controlling_$md$1ae6d3$0"(): $Map
 get "numericKeyValue"(): $OptionalInt
 }
 /**
@@ -100,28 +100,28 @@ static readonly "RGB": $NativeImage$Format
 public static "values"(): ($NativeImage$Format)[]
 public static "valueOf"(arg0: StringJS): $NativeImage$Format
 public "setUnpackPixelStoreState"(): void
+public "hasAlpha"(): boolean
+public "blueOffset"(): integer
+public "hasRed"(): boolean
+public "hasGreen"(): boolean
+public "hasBlue"(): boolean
+public "redOffset"(): integer
+public "setPackPixelStoreState"(): void
+public "luminanceOrAlphaOffset"(): integer
 public "luminanceOrRedOffset"(): integer
 public "luminanceOrGreenOffset"(): integer
-public "luminanceOrAlphaOffset"(): integer
-public "setPackPixelStoreState"(): void
-public "hasLuminanceOrGreen"(): boolean
 public "luminanceOrBlueOffset"(): integer
+public "hasLuminanceOrGreen"(): boolean
 public "hasLuminanceOrAlpha"(): boolean
-public "glFormat"(): integer
 public "components"(): integer
-public "hasAlpha"(): boolean
-public "hasRed"(): boolean
-public "hasBlue"(): boolean
-public "hasGreen"(): boolean
-public "redOffset"(): integer
-public "blueOffset"(): integer
+public "glFormat"(): integer
+public "hasLuminanceOrRed"(): boolean
+public "hasLuminance"(): boolean
+public "greenOffset"(): integer
+public "supportedByStb"(): boolean
+public "hasLuminanceOrBlue"(): boolean
 public "alphaOffset"(): integer
 public "luminanceOffset"(): integer
-public "hasLuminanceOrBlue"(): boolean
-public "hasLuminanceOrRed"(): boolean
-public "supportedByStb"(): boolean
-public "greenOffset"(): integer
-public "hasLuminance"(): boolean
 get "unpackPixelStoreState"(): void
 get "packPixelStoreState"(): void
 }
@@ -181,64 +181,62 @@ import {$NativeImageAccessor$$Interface} from "net.caffeinemc.mods.sodium.mixin.
 import {$IntUnaryOperator$$Type} from "java.util.function.IntUnaryOperator"
 import {$File$$Type} from "java.io.File"
 import {$AutoCloseable$$Interface} from "java.lang.AutoCloseable"
-import {$NativeImageAccessor$$Interface as $NativeImageAccessor$1$$Interface} from "dev.tr7zw.skinlayers.accessor.NativeImageAccessor"
 import {$NativeImageAccessor$$Interface as $NativeImageAccessor$0$$Interface} from "com.corosus.watut.mixin.client.NativeImageAccessor"
 import {$NativeImage$Format, $NativeImage$Format$$Type} from "com.mojang.blaze3d.platform.NativeImage$Format"
-import {$Path$$Type} from "java.nio.file.Path"
 import {$InputStream$$Type} from "java.io.InputStream"
+import {$Path$$Type} from "java.nio.file.Path"
 import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
 import {$FT_Face$$Type} from "org.lwjgl.util.freetype.FT_Face"
 
-export class $NativeImage implements $AutoCloseable$$Interface, $NativeImageAccessor$$Interface, $NativeImageAccessor$1$$Interface, $NativeImageAccessor$0$$Interface {
+export class $NativeImage implements $AutoCloseable$$Interface, $NativeImageAccessor$$Interface, $NativeImageAccessor$0$$Interface {
 constructor(arg0: $NativeImage$Format$$Type, arg1: integer, arg2: integer, arg3: boolean)
 constructor(arg0: integer, arg1: integer, arg2: boolean)
 
 public "toString"(): StringJS
 public "format"(): $NativeImage$Format
-public static "read"(arg0: $NativeImage$Format$$Type, arg1: $ByteBuffer$$Type): $NativeImage
 public static "read"(arg0: (byte)[]): $NativeImage
+public static "read"(arg0: $NativeImage$Format$$Type, arg1: $ByteBuffer$$Type): $NativeImage
 public static "read"(arg0: $InputStream$$Type): $NativeImage
 public static "read"(arg0: $NativeImage$Format$$Type, arg1: $InputStream$$Type): $NativeImage
 public static "read"(arg0: $ByteBuffer$$Type): $NativeImage
 public "close"(): void
 public "copyFrom"(arg0: $NativeImage$$Type): void
-public "writeToFile"(arg0: $Path$$Type): void
 public "writeToFile"(arg0: $File$$Type): void
-public "getGreenOrLuminance"(arg0: integer, arg1: integer): byte
-public "downloadDepthBuffer"(arg0: float): void
-public "getLuminanceOrAlpha"(arg0: integer, arg1: integer): byte
-public "skinlayers$isAllocated"(): boolean
-public "getWidth"(): integer
-public "getPixels"(): long
-public "setPixelRGBA"(arg0: integer, arg1: integer, arg2: integer): void
-public "upload"(arg0: integer, arg1: integer, arg2: integer, arg3: boolean): void
-public "upload"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: boolean, arg8: boolean): void
-public "upload"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: boolean, arg8: boolean, arg9: boolean, arg10: boolean): void
-public "pixels"(): long
+public "writeToFile"(arg0: $Path$$Type): void
 public "untrack"(): void
-public "resizeSubRectTo"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: $NativeImage$$Type): void
-public "getHeight"(): integer
-public "blendPixel"(arg0: integer, arg1: integer, arg2: integer): void
 public "mappedCopy"(arg0: $IntUnaryOperator$$Type): $NativeImage
+public "drawPixels"(): void
+public "fillRect"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer): void
+public "blendPixel"(arg0: integer, arg1: integer, arg2: integer): void
 public "copyRect"(arg0: $NativeImage$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: boolean, arg8: boolean): void
 public "copyRect"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: boolean, arg7: boolean): void
-public "fillRect"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer): void
-public "drawPixels"(): void
-public "flipY"(): void
-public "getBlueOrLuminance"(arg0: integer, arg1: integer): byte
-public "getPixelRGBA"(arg0: integer, arg1: integer): integer
-public "getRedOrLuminance"(arg0: integer, arg1: integer): byte
+public "downloadDepthBuffer"(arg0: float): void
+public "getGreenOrLuminance"(arg0: integer, arg1: integer): byte
+public "getLuminanceOrAlpha"(arg0: integer, arg1: integer): byte
+public "getWidth"(): integer
+public "getPixels"(): long
+public "pixels"(): long
+public "asByteArray"(): (byte)[]
+public "resizeSubRectTo"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: $NativeImage$$Type): void
+public "getHeight"(): integer
+public "getPixelsRGBA"(): (integer)[]
+public "setPixelRGBA"(arg0: integer, arg1: integer, arg2: integer): void
+public "upload"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: boolean, arg8: boolean, arg9: boolean, arg10: boolean): void
+public "upload"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: boolean, arg8: boolean): void
+public "upload"(arg0: integer, arg1: integer, arg2: integer, arg3: boolean): void
 public "setPixelLuminance"(arg0: integer, arg1: integer, arg2: byte): void
 public "downloadTexture"(arg0: integer, arg1: boolean): void
 public "applyToAllPixels"(arg0: $IntUnaryOperator$$Type): void
+public "getRedOrLuminance"(arg0: integer, arg1: integer): byte
+public "getPixelRGBA"(arg0: integer, arg1: integer): integer
 /**
  * 
  * @deprecated
  */
 public "makePixelArray"(): (integer)[]
 public "copyFromFont"(arg0: $FT_Face$$Type, arg1: integer): boolean
-public "asByteArray"(): (byte)[]
-public "getPixelsRGBA"(): (integer)[]
+public "getBlueOrLuminance"(arg0: integer, arg1: integer): byte
+public "flipY"(): void
 get "width"(): integer
 get "height"(): integer
 get "pixelsRGBA"(): (integer)[]
@@ -267,18 +265,18 @@ public "toString"(): StringJS
 public "hashCode"(): integer
 public "write"(): StringJS
 public static "read"(arg0: StringJS): $Optional<($VideoMode)>
-public "getWidth"(): integer
 public "getRedBits"(): integer
+public "getWidth"(): integer
+public "getGreenBits"(): integer
+public "getBlueBits"(): integer
 public "getHeight"(): integer
 public "getRefreshRate"(): integer
-public "getBlueBits"(): integer
-public "getGreenBits"(): integer
-get "width"(): integer
 get "redBits"(): integer
+get "width"(): integer
+get "greenBits"(): integer
+get "blueBits"(): integer
 get "height"(): integer
 get "refreshRate"(): integer
-get "blueBits"(): integer
-get "greenBits"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -296,9 +294,9 @@ set "windowActive"(value: boolean)
 }
 
 export class $WindowEventHandler implements $WindowEventHandler$$Interface {
+ "setWindowActive"(arg0: boolean): void
  "resizeDisplay"(): void
  "cursorEntered"(): void
- "setWindowActive"(arg0: boolean): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -334,67 +332,67 @@ static readonly "BASE_WIDTH": integer
 constructor(arg0: $WindowEventHandler$$Type, arg1: $ScreenManager$$Type, arg2: $DisplayData$$Type, arg3: StringJS, arg4: StringJS)
 
 public "close"(): void
-public "getWidth"(): integer
+public "getY"(): integer
+public "getGuiScale"(): double
+public "changeFullscreenVideoMode"(): void
+public "defaultErrorCallback"(arg0: integer, arg1: long): void
 public "setWidth"(arg0: integer): void
 public "setHeight"(arg0: integer): void
+public static "getPlatform"(): StringJS
+public "getWidth"(): integer
+public "setDefaultErrorCallback"(): void
+public "updateRawMouseInput"(arg0: boolean): void
 public "setIcon"(arg0: $PackResources$$Type, arg1: $IconSet$$Type): void
 public "setTitle"(arg0: StringJS): void
-public "getX"(): integer
-public "defaultErrorCallback"(arg0: integer, arg1: long): void
-public "changeFullscreenVideoMode"(): void
-public "wrapOperation$ced000$sodium$setAdditionalWindowHints"(arg0: integer, arg1: integer, arg2: charseq, arg3: long, arg4: long, arg5: $Operation$$Type): long
-public "getGuiScale"(): double
-public "getY"(): integer
-public "getScreenHeight"(): integer
-public "getScreenWidth"(): integer
-public static "getPlatform"(): StringJS
-public "calculateScale"(arg0: integer, arg1: boolean): integer
-public "getFramerateLimit"(): integer
-public "setGuiScale"(arg0: double): void
-public "updateDisplay"(): void
-public "shouldClose"(): boolean
-public "toggleFullScreen"(): void
-public "updateVsync"(arg0: boolean): void
+public "wrapOperation$cih000$sodium$setAdditionalWindowHints"(arg0: integer, arg1: integer, arg2: charseq, arg3: long, arg4: long, arg5: $Operation$$Type): long
+public "findBestMonitor"(): $Monitor
+public "getWin32Handle"(): long
 public "setWindowed"(arg0: integer, arg1: integer): void
+public "updateVsync"(arg0: boolean): void
 public "setFramerateLimit"(arg0: integer): void
 public "isFullscreen"(): boolean
 public "setErrorSection"(arg0: StringJS): void
-public "getWindow"(): long
-public "setDefaultErrorCallback"(): void
-public "updateRawMouseInput"(arg0: boolean): void
-public "getHeight"(): integer
+public "toggleFullScreen"(): void
+public "getScreenHeight"(): integer
+public "getScreenWidth"(): integer
 public "getPreferredFullscreenVideoMode"(): $Optional<($VideoMode)>
-public static "checkGlfwError"(arg0: $BiConsumer$$Type<(integer), (StringJS)>): void
-public "getGuiScaledHeight"(): integer
-public "getGuiScaledWidth"(): integer
-public "getRefreshRate"(): integer
-public "findBestMonitor"(): $Monitor
-public "getWin32Handle"(): long
 public "setPreferredFullscreenVideoMode"(arg0: ($VideoMode$$Type)?): void
+public "getGuiScaledWidth"(): integer
+public "getGuiScaledHeight"(): integer
+public "getHeight"(): integer
+public "getRefreshRate"(): integer
+public static "checkGlfwError"(arg0: $BiConsumer$$Type<(integer), (StringJS)>): void
+public "shouldClose"(): boolean
+public "getX"(): integer
+public "getWindow"(): long
+public "getFramerateLimit"(): integer
+public "setGuiScale"(arg0: double): void
+public "updateDisplay"(): void
+public "calculateScale"(arg0: integer, arg1: boolean): integer
 public "kjs$loadIcons"(original: $List$$Type<($IoSupplier$$Type<($InputStream$$Type)>)>): $List<($IoSupplier<($InputStream)>)>
-get "width"(): integer
+get "y"(): integer
+get "guiScale"(): double
 set "width"(value: integer)
 set "height"(value: integer)
-set "title"(value: StringJS)
-get "x"(): integer
-get "guiScale"(): double
-get "y"(): integer
-get "screenHeight"(): integer
-get "screenWidth"(): integer
 get "platform"(): StringJS
-get "framerateLimit"(): integer
-set "guiScale"(value: double)
+get "width"(): integer
+set "title"(value: StringJS)
+get "win32Handle"(): long
 set "framerateLimit"(value: integer)
 get "fullscreen"(): boolean
 set "errorSection"(value: StringJS)
-get "window"(): long
-get "height"(): integer
+get "screenHeight"(): integer
+get "screenWidth"(): integer
 get "preferredFullscreenVideoMode"(): $Optional<($VideoMode)>
-get "guiScaledHeight"(): integer
-get "guiScaledWidth"(): integer
-get "refreshRate"(): integer
-get "win32Handle"(): long
 set "preferredFullscreenVideoMode"(value: ($VideoMode$$Type)?)
+get "guiScaledWidth"(): integer
+get "guiScaledHeight"(): integer
+get "height"(): integer
+get "refreshRate"(): integer
+get "x"(): integer
+get "window"(): long
+get "framerateLimit"(): integer
+set "guiScale"(value: double)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -440,8 +438,8 @@ static readonly "RELEASE": $IconSet
 
 public static "values"(): ($IconSet)[]
 public static "valueOf"(arg0: StringJS): $IconSet
-public "getStandardIcons"(arg0: $PackResources$$Type): $List<($IoSupplier<($InputStream)>)>
 public "getMacIcon"(arg0: $PackResources$$Type): $IoSupplier<($InputStream)>
+public "getStandardIcons"(arg0: $PackResources$$Type): $List<($IoSupplier<($InputStream)>)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

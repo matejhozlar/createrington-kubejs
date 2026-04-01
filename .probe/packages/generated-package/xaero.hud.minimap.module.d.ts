@@ -18,35 +18,35 @@ export class $MinimapSession extends $ModuleSession<($MinimapSession)> {
 constructor(arg0: $HudMod$$Type, arg1: $HudModule$$Type<($MinimapSession$$Type)>, arg2: $ClientPacketListener$$Type)
 
 public "close"(): void
+public "getWaypointSession"(): $WaypointSession
 public "getWidth"(arg0: double): integer
 public "getProcessor"(): $MinimapProcessor
-public "getHeight"(arg0: double): integer
-public "getRadarSession"(): $RadarSession
-public "getWaypointSession"(): $WaypointSession
-public "getWorldStateUpdater"(): $MinimapWorldStateUpdater
-public "getWorldManager"(): $MinimapWorldManager
-public "getMultiTextureRenderTypeRenderers"(): $MultiTextureRenderTypeRendererProvider
-public "getWorldManagerIO"(): $MinimapWorldManagerIO
-public "getWorldState"(): $MinimapWorldState
-public "getDimensionHelper"(): $MinimapDimensionHelper
-public "getHideMinimapUnderF3"(): boolean
-public "getHideMinimapUnderScreen"(): boolean
-public "prePotentialRender"(): void
 public "getConfiguredWidth"(): integer
+public "getHeight"(arg0: double): integer
+public "prePotentialRender"(): void
+public "getMultiTextureRenderTypeRenderers"(): $MultiTextureRenderTypeRendererProvider
+public "getWorldState"(): $MinimapWorldState
+public "getWorldManagerIO"(): $MinimapWorldManagerIO
 public "getMc"(): $Minecraft
-get "processor"(): $MinimapProcessor
-get "radarSession"(): $RadarSession
+public "getDimensionHelper"(): $MinimapDimensionHelper
+public "getHideMinimapUnderScreen"(): boolean
+public "getHideMinimapUnderF3"(): boolean
+public "getRadarSession"(): $RadarSession
+public "getWorldManager"(): $MinimapWorldManager
+public "getWorldStateUpdater"(): $MinimapWorldStateUpdater
 get "waypointSession"(): $WaypointSession
-get "worldStateUpdater"(): $MinimapWorldStateUpdater
-get "worldManager"(): $MinimapWorldManager
-get "multiTextureRenderTypeRenderers"(): $MultiTextureRenderTypeRendererProvider
-get "worldManagerIO"(): $MinimapWorldManagerIO
-get "worldState"(): $MinimapWorldState
-get "dimensionHelper"(): $MinimapDimensionHelper
-get "hideMinimapUnderF3"(): boolean
-get "hideMinimapUnderScreen"(): boolean
+get "processor"(): $MinimapProcessor
 get "configuredWidth"(): integer
+get "multiTextureRenderTypeRenderers"(): $MultiTextureRenderTypeRendererProvider
+get "worldState"(): $MinimapWorldState
+get "worldManagerIO"(): $MinimapWorldManagerIO
 get "mc"(): $Minecraft
+get "dimensionHelper"(): $MinimapDimensionHelper
+get "hideMinimapUnderScreen"(): boolean
+get "hideMinimapUnderF3"(): boolean
+get "radarSession"(): $RadarSession
+get "worldManager"(): $MinimapWorldManager
+get "worldStateUpdater"(): $MinimapWorldStateUpdater
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

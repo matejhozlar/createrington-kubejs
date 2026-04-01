@@ -28,8 +28,8 @@ declare module "java.util.OptionalDouble" {
 import {$DoubleConsumer$$Type} from "java.util.function.DoubleConsumer"
 import {$DoubleSupplier$$Type} from "java.util.function.DoubleSupplier"
 import {$Supplier$$Type} from "java.util.function.Supplier"
-import {$Throwable} from "java.lang.Throwable"
 import {$Runnable$$Type} from "java.lang.Runnable"
+import {$Throwable} from "java.lang.Throwable"
 import {$DoubleStream} from "java.util.stream.DoubleStream"
 
 export class $OptionalDouble {
@@ -254,10 +254,10 @@ export type $Spliterator$$Type<T> = ($Spliterator<(T)>);
 export type $Spliterator$$Original<T> = $Spliterator<(T)>;}
 declare module "java.util.Deque" {
 import {$Iterator} from "java.util.Iterator"
-import {$Queue$$Interface} from "java.util.Queue"
 import {$Collection$$Type} from "java.util.Collection"
-import {$SequencedCollection$$Interface} from "java.util.SequencedCollection"
+import {$Queue$$Interface} from "java.util.Queue"
 import {$Spliterator} from "java.util.Spliterator"
+import {$SequencedCollection$$Interface} from "java.util.SequencedCollection"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$Stream} from "java.util.stream.Stream"
 import {$Consumer$$Type} from "java.util.function.Consumer"
@@ -372,8 +372,8 @@ import {$Collection$$Type} from "java.util.Collection"
 import {$Enum, $Enum$$Type} from "java.lang.Enum"
 import {$Serializable$$Interface} from "java.io.Serializable"
 import {$Cloneable$$Interface} from "java.lang.Cloneable"
-import {$Set} from "java.util.Set"
 import {$Class$$Type} from "java.lang.Class"
+import {$Set} from "java.util.Set"
 import {$AbstractSet} from "java.util.AbstractSet"
 
 export class $EnumSet<E extends $Enum<(object)>> extends $AbstractSet<(E)> implements $Cloneable$$Interface, $Serializable$$Interface {
@@ -431,8 +431,8 @@ import {$Collection} from "java.util.Collection"
 import {$Map, $Map$$Type, $Map$$Interface} from "java.util.Map"
 import {$Serializable$$Interface} from "java.io.Serializable"
 import {$Function$$Type} from "java.util.function.Function"
-import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$Cloneable$$Interface} from "java.lang.Cloneable"
+import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$Set} from "java.util.Set"
 import {$Dictionary} from "java.util.Dictionary"
 import {$Enumeration} from "java.util.Enumeration"
@@ -527,8 +527,8 @@ export type $PrimitiveIterator$OfInt$$Type = ($PrimitiveIterator$OfInt);
  */
 export type $PrimitiveIterator$OfInt$$Original = $PrimitiveIterator$OfInt;}
 declare module "java.util.Map$Entry" {
-import {$Comparable} from "java.lang.Comparable"
 import {$Comparator, $Comparator$$Type} from "java.util.Comparator"
+import {$Comparable} from "java.lang.Comparable"
 
 export interface $Map$Entry$$Interface<K, V> {
 get "value"(): V
@@ -581,8 +581,8 @@ export type $Iterator$$Original<E> = $Iterator<(E)>;}
 declare module "java.util.SequencedSet" {
 import {$Iterator} from "java.util.Iterator"
 import {$Collection$$Type} from "java.util.Collection"
-import {$SequencedCollection$$Interface} from "java.util.SequencedCollection"
 import {$Spliterator} from "java.util.Spliterator"
+import {$SequencedCollection$$Interface} from "java.util.SequencedCollection"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$Set, $Set$$Interface} from "java.util.Set"
 import {$Stream} from "java.util.stream.Stream"
@@ -657,8 +657,8 @@ import {$Spliterator} from "java.util.Spliterator"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$Set, $Set$$Interface} from "java.util.Set"
 import {$Stream} from "java.util.stream.Stream"
-import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$IntFunction$$Type} from "java.util.function.IntFunction"
+import {$Consumer$$Type} from "java.util.function.Consumer"
 
 export interface $SortedSet$$Interface<E> extends $Set$$Interface<(E)>, $SequencedSet$$Interface<(E)> {
 [Symbol.iterator](): IterableIterator<E>;
@@ -972,17 +972,17 @@ export type $Date$$Type = ($Date);
  */
 export type $Date$$Original = $Date;}
 declare module "java.util.List" {
-import {$Iterator} from "java.util.Iterator"
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
+import {$Iterator} from "java.util.Iterator"
 import {$ListIterator} from "java.util.ListIterator"
 import {$Collection$$Type} from "java.util.Collection"
-import {$Comparator$$Type} from "java.util.Comparator"
 import {$SequencedCollection, $SequencedCollection$$Interface} from "java.util.SequencedCollection"
+import {$Comparator$$Type} from "java.util.Comparator"
 import {$Spliterator} from "java.util.Spliterator"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$Stream} from "java.util.stream.Stream"
-import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$IntFunction$$Type} from "java.util.function.IntFunction"
+import {$Consumer$$Type} from "java.util.function.Consumer"
 
 export interface $List$$Interface<E> extends $SequencedCollection$$Interface<(E)> {
 [Symbol.iterator](): IterableIterator<E>;
@@ -1187,10 +1187,6 @@ import {$Serializable$$Interface} from "java.io.Serializable"
 export class $UUID implements $Serializable$$Interface, $Comparable$$Interface<($UUID)> {
 constructor(arg0: long, arg1: long)
 
-public static "nameUUIDFromBytes"(arg0: (byte)[]): $UUID
-public "getLeastSignificantBits"(): long
-public "getMostSignificantBits"(): long
-public "clockSequence"(): integer
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "version"(): integer
@@ -1201,6 +1197,10 @@ public "timestamp"(): long
 public "node"(): long
 public "variant"(): integer
 public static "fromString"(arg0: StringJS): $UUID
+public static "nameUUIDFromBytes"(arg0: (byte)[]): $UUID
+public "getLeastSignificantBits"(): long
+public "getMostSignificantBits"(): long
+public "clockSequence"(): integer
 public static "randomUUID"(): $UUID
 get "leastSignificantBits"(): long
 get "mostSignificantBits"(): long
@@ -1355,11 +1355,11 @@ export type $ImmutableCollections$AbstractImmutableMap$$Type<K, V> = ($Immutable
  */
 export type $ImmutableCollections$AbstractImmutableMap$$Original<K, V> = $ImmutableCollections$AbstractImmutableMap<(K), (V)>;}
 declare module "java.util.Optional" {
-import {$Function$$Type} from "java.util.function.Function"
-import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$Supplier$$Type} from "java.util.function.Supplier"
-import {$Throwable} from "java.lang.Throwable"
+import {$Predicate$$Type} from "java.util.function.Predicate"
+import {$Function$$Type} from "java.util.function.Function"
 import {$Runnable$$Type} from "java.lang.Runnable"
+import {$Throwable} from "java.lang.Throwable"
 import {$Stream} from "java.util.stream.Stream"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 
@@ -1486,13 +1486,13 @@ constructor(arg0: StringJS, arg1: double)
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public static "parse"(arg0: StringJS): $List<($Locale$LanguageRange)>
 public static "parse"(arg0: StringJS, arg1: $Map$$Type<(StringJS), ($List$$Type<(StringJS)>)>): $List<($Locale$LanguageRange)>
-public "getRange"(): StringJS
+public static "parse"(arg0: StringJS): $List<($Locale$LanguageRange)>
 public "getWeight"(): double
+public "getRange"(): StringJS
 public static "mapEquivalents"(arg0: $List$$Type<($Locale$LanguageRange$$Type)>, arg1: $Map$$Type<(StringJS), ($List$$Type<(StringJS)>)>): $List<($Locale$LanguageRange)>
-get "range"(): StringJS
 get "weight"(): double
+get "range"(): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1651,10 +1651,10 @@ export type $Locale$$Type = ($Locale);
 export type $Locale$$Original = $Locale;}
 declare module "java.util.OptionalInt" {
 import {$IntStream} from "java.util.stream.IntStream"
-import {$IntConsumer$$Type} from "java.util.function.IntConsumer"
 import {$Supplier$$Type} from "java.util.function.Supplier"
-import {$Throwable} from "java.lang.Throwable"
+import {$IntConsumer$$Type} from "java.util.function.IntConsumer"
 import {$Runnable$$Type} from "java.lang.Runnable"
+import {$Throwable} from "java.lang.Throwable"
 import {$IntSupplier$$Type} from "java.util.function.IntSupplier"
 
 export class $OptionalInt {
@@ -1686,9 +1686,9 @@ export type $OptionalInt$$Type = ($OptionalInt);
  */
 export type $OptionalInt$$Original = $OptionalInt;}
 declare module "java.util.Vector" {
-import {$RandomAccess$$Interface} from "java.util.RandomAccess"
-import {$Iterator} from "java.util.Iterator"
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
+import {$Iterator} from "java.util.Iterator"
+import {$RandomAccess$$Interface} from "java.util.RandomAccess"
 import {$Collection$$Type} from "java.util.Collection"
 import {$SequencedCollection} from "java.util.SequencedCollection"
 import {$Comparator$$Type} from "java.util.Comparator"
@@ -1749,13 +1749,13 @@ public "listIterator"(arg0: integer): $ListIterator<(E)>
 public "containsAll"(arg0: $Collection$$Type<(never)>): boolean
 public "setSize"(arg0: integer): void
 public "copyInto"(arg0: (any)[]): void
-public "removeAllElements"(): void
 public "addElement"(arg0: E): void
 public "removeElement"(arg0: any): boolean
 public "insertElementAt"(arg0: E, arg1: integer): void
 public "firstElement"(): E
 public "lastElement"(): E
 public "setElementAt"(arg0: E, arg1: integer): void
+public "removeAllElements"(): void
 public "removeElementAt"(arg0: integer): void
 public static "copyOf"<E>(arg0: $Collection$$Type<(E)>): $List<(E)>
 public static "of"<E>(arg0: E, arg1: E, arg2: E): $List<(E)>
@@ -1788,8 +1788,8 @@ import {$Collection} from "java.util.Collection"
 import {$Map, $Map$$Type, $Map$$Interface} from "java.util.Map"
 import {$Serializable$$Interface} from "java.io.Serializable"
 import {$Function$$Type} from "java.util.function.Function"
-import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$Cloneable$$Interface} from "java.lang.Cloneable"
+import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$AbstractMap} from "java.util.AbstractMap"
 import {$Set} from "java.util.Set"
 import {$Map$Entry, $Map$Entry$$Type} from "java.util.Map$Entry"
@@ -1996,8 +1996,8 @@ declare module "java.util.LinkedList" {
 import {$Iterator} from "java.util.Iterator"
 import {$ListIterator} from "java.util.ListIterator"
 import {$Collection$$Type} from "java.util.Collection"
-import {$SequencedCollection} from "java.util.SequencedCollection"
 import {$Spliterator} from "java.util.Spliterator"
+import {$SequencedCollection} from "java.util.SequencedCollection"
 import {$Serializable$$Interface} from "java.io.Serializable"
 import {$List, $List$$Interface} from "java.util.List"
 import {$Cloneable$$Interface} from "java.lang.Cloneable"
@@ -2092,8 +2092,8 @@ import {$Serializable$$Interface} from "java.io.Serializable"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$Cloneable$$Interface} from "java.lang.Cloneable"
 import {$Deque, $Deque$$Interface} from "java.util.Deque"
-import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$AbstractCollection} from "java.util.AbstractCollection"
+import {$Consumer$$Type} from "java.util.function.Consumer"
 
 export class $ArrayDeque<E> extends $AbstractCollection<(E)> implements $Deque$$Interface<(E)>, $Cloneable$$Interface, $Serializable$$Interface {
 constructor(arg0: integer)
@@ -2494,13 +2494,13 @@ export type $SortedMap$$Type<K, V> = ($SortedMap<(K), (V)>);
  */
 export type $SortedMap$$Original<K, V> = $SortedMap<(K), (V)>;}
 declare module "java.util.AbstractList" {
-import {$Iterator} from "java.util.Iterator"
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
+import {$Iterator} from "java.util.Iterator"
 import {$ListIterator} from "java.util.ListIterator"
 import {$Collection$$Type} from "java.util.Collection"
-import {$SequencedCollection} from "java.util.SequencedCollection"
-import {$Spliterator} from "java.util.Spliterator"
 import {$Comparator$$Type} from "java.util.Comparator"
+import {$Spliterator} from "java.util.Spliterator"
+import {$SequencedCollection} from "java.util.SequencedCollection"
 import {$List, $List$$Interface} from "java.util.List"
 import {$AbstractCollection} from "java.util.AbstractCollection"
 
@@ -2630,8 +2630,8 @@ import {$LongSupplier$$Type} from "java.util.function.LongSupplier"
 import {$LongConsumer$$Type} from "java.util.function.LongConsumer"
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$LongStream} from "java.util.stream.LongStream"
-import {$Throwable} from "java.lang.Throwable"
 import {$Runnable$$Type} from "java.lang.Runnable"
+import {$Throwable} from "java.lang.Throwable"
 
 export class $OptionalLong {
 public "equals"(arg0: any): boolean
@@ -2876,9 +2876,9 @@ export type $AbstractSequentialList$$Type<E> = ($AbstractSequentialList<(E)>);
  */
 export type $AbstractSequentialList$$Original<E> = $AbstractSequentialList<(E)>;}
 declare module "java.util.ArrayList" {
-import {$RandomAccess$$Interface} from "java.util.RandomAccess"
-import {$Iterator} from "java.util.Iterator"
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
+import {$Iterator} from "java.util.Iterator"
+import {$RandomAccess$$Interface} from "java.util.RandomAccess"
 import {$Collection$$Type} from "java.util.Collection"
 import {$SequencedCollection} from "java.util.SequencedCollection"
 import {$Comparator$$Type} from "java.util.Comparator"

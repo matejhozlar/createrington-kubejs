@@ -3,17 +3,17 @@ export {} // Mark the file as a module, do not remove unless there are other imp
 export class $ServerPlayerConfigChannelData {
 constructor()
 
+public "setCachedHasServerProfileEditPermission"(arg0: boolean): void
+public "setCachedUsingConfigProfilePermission"(arg0: boolean): void
+public "setCachedEnforcedConfigProfilePermission"(arg0: StringJS): void
 public "isUsingConfigProfilePermission"(): boolean
 public "getEnforcedConfigProfilePermission"(): StringJS
 public "hasServerProfileEditPermission"(): boolean
-public "setCachedEnforcedConfigProfilePermission"(arg0: StringJS): void
-public "setCachedUsingConfigProfilePermission"(arg0: boolean): void
-public "setCachedHasServerProfileEditPermission"(arg0: boolean): void
+set "cachedHasServerProfileEditPermission"(value: boolean)
+set "cachedUsingConfigProfilePermission"(value: boolean)
+set "cachedEnforcedConfigProfilePermission"(value: StringJS)
 get "usingConfigProfilePermission"(): boolean
 get "enforcedConfigProfilePermission"(): StringJS
-set "cachedEnforcedConfigProfilePermission"(value: StringJS)
-set "cachedUsingConfigProfilePermission"(value: boolean)
-set "cachedHasServerProfileEditPermission"(value: boolean)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -31,8 +31,8 @@ export interface $IServerPlayer$$Interface {
 }
 
 export class $IServerPlayer implements $IServerPlayer$$Interface {
- "xaerolib_setData"(arg0: $ServerPlayerData$$Type): void
  "xaerolib_getData"(): $ServerPlayerData
+ "xaerolib_setData"(arg0: $ServerPlayerData$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -51,14 +51,14 @@ import {$ServerPlayer, $ServerPlayer$$Type} from "net.minecraft.server.level.Ser
 
 export class $ServerPlayerData {
 public static "get"(arg0: $ServerPlayer$$Type): $ServerPlayerData
-public "getPlayer"(): $ServerPlayer
 public "getConfigSynchronizer"(): $ServerPlayerConfigSynchronizer
+public "getPlayer"(): $ServerPlayer
 public "getConfigChannelData"(arg0: $ConfigChannel$$Type): $ServerPlayerConfigChannelData
-public "setPlayer"(arg0: $ServerPlayer$$Type): void
 public "shouldUpdateConfigPermissions"(): boolean
 public "setShouldUpdateConfigPermissions"(arg0: boolean): void
-get "player"(): $ServerPlayer
+public "setPlayer"(arg0: $ServerPlayer$$Type): void
 get "configSynchronizer"(): $ServerPlayerConfigSynchronizer
+get "player"(): $ServerPlayer
 set "player"(value: $ServerPlayer$$Type)
 }
 /**

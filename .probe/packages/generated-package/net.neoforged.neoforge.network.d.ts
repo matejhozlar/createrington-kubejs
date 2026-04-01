@@ -73,18 +73,18 @@ import {$IPayloadHandler$$Type} from "net.neoforged.neoforge.network.handling.IP
 export class $PayloadRegistrar {
 constructor(arg0: StringJS)
 
-public "optional"(): $PayloadRegistrar
 public "commonBidirectional"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($FriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
+public "optional"(): $PayloadRegistrar
 public "executesOn"(arg0: $HandlerThread$$Type): $PayloadRegistrar
-public "versioned"(arg0: StringJS): $PayloadRegistrar
-public "playToClient"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($RegistryFriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
-public "playToServer"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($RegistryFriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
 public "playBidirectional"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($RegistryFriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
-public "configurationToClient"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($FriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
-public "configurationBidirectional"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($FriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
+public "playToServer"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($RegistryFriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
+public "playToClient"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($RegistryFriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
 public "configurationToServer"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($FriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
-public "commonToServer"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($FriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
+public "configurationBidirectional"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($FriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
+public "configurationToClient"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($FriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
+public "versioned"(arg0: StringJS): $PayloadRegistrar
 public "commonToClient"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($FriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
+public "commonToServer"<T extends $CustomPacketPayload>(arg0: $CustomPacketPayload$Type$$Type<(T)>, arg1: $StreamCodec$$Type<($FriendlyByteBuf$$Type), (T)>, arg2: $IPayloadHandler$$Type<(T)>): $PayloadRegistrar
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -203,19 +203,19 @@ export interface $IPayloadContext$$Interface {
 }
 
 export class $IPayloadContext implements $IPayloadContext$$Interface {
- "handle"(arg0: $Packet$$Type<(never)>): void
  "handle"(arg0: $CustomPacketPayload$$Type): void
+ "handle"(arg0: $Packet$$Type<(never)>): void
  "protocol"(): $ConnectionProtocol
  "connection"(): $Connection
  "listener"(): $ICommonPacketListener
- "reply"(arg0: $CustomPacketPayload$$Type): void
  "channelHandlerContext"(): $ChannelHandlerContext
- "disconnect"(arg0: $Component$$Type): void
  "player"(): $Player
+ "reply"(arg0: $CustomPacketPayload$$Type): void
+ "disconnect"(arg0: $Component$$Type): void
+ "flow"(): $PacketFlow
  "enqueueWork"<T>(arg0: $Supplier$$Type<(T)>): $CompletableFuture<(T)>
  "enqueueWork"(arg0: $Runnable$$Type): $CompletableFuture<(void)>
  "finishCurrentTask"(arg0: $ConfigurationTask$Type$$Type): void
- "flow"(): $PacketFlow
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

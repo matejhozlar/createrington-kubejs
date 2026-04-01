@@ -6,20 +6,20 @@ import {$DataVersion} from "net.minecraft.world.level.storage.DataVersion"
 export interface $WorldVersion$$Interface {
 get "name"(): StringJS
 get "id"(): StringJS
-get "protocolVersion"(): integer
 get "stable"(): boolean
 get "buildTime"(): $Date
 get "dataVersion"(): $DataVersion
+get "protocolVersion"(): integer
 }
 
 export class $WorldVersion implements $WorldVersion$$Interface {
  "getName"(): StringJS
  "getId"(): StringJS
- "getProtocolVersion"(): integer
  "isStable"(): boolean
  "getBuildTime"(): $Date
- "getPackVersion"(arg0: $PackType$$Type): integer
  "getDataVersion"(): $DataVersion
+ "getPackVersion"(arg0: $PackType$$Type): integer
+ "getProtocolVersion"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -48,9 +48,9 @@ public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "header"(): StringJS
+public "appendHeader"(arg0: $StringBuilder$$Type, arg1: $List$$Type<(StringJS)>): void
 public "nuggets"(): $List<(StringJS)>
 public "getErrorComment"(): StringJS
-public "appendHeader"(arg0: $StringBuilder$$Type, arg1: $List$$Type<(StringJS)>): void
 get "errorComment"(): StringJS
 }
 /**
@@ -96,22 +96,22 @@ constructor(arg0: StringJS)
 
 public "fillInStackTrace"(arg0: integer): integer
 public "setStackTrace"(arg0: ($StackTraceElement$$Type)[]): void
+public "validateStackTrace"(arg0: $StackTraceElement$$Type, arg1: $StackTraceElement$$Type): boolean
+public "getStacktrace"(): ($StackTraceElement)[]
 public "getDetails"(arg0: $StringBuilder$$Type): void
-public "setDetail"(arg0: StringJS, arg1: any): $CrashReportCategory
-public "setDetail"(arg0: StringJS, arg1: $CrashReportDetail$$Type<(StringJS)>): $CrashReportCategory
 public static "populateBlockDetails"(arg0: $CrashReportCategory$$Type, arg1: $LevelHeightAccessor$$Type, arg2: $BlockPos$$Type, arg3: $BlockState$$Type): void
-public static "formatLocation"(arg0: $LevelHeightAccessor$$Type, arg1: integer, arg2: integer, arg3: integer): StringJS
 public static "formatLocation"(arg0: $LevelHeightAccessor$$Type, arg1: double, arg2: double, arg3: double): StringJS
+public static "formatLocation"(arg0: $LevelHeightAccessor$$Type, arg1: integer, arg2: integer, arg3: integer): StringJS
 public static "formatLocation"(arg0: $LevelHeightAccessor$$Type, arg1: $BlockPos$$Type): StringJS
 public "setDetailError"(arg0: StringJS, arg1: $Throwable$$Type): void
-public "getStacktrace"(): ($StackTraceElement)[]
-public "validateStackTrace"(arg0: $StackTraceElement$$Type, arg1: $StackTraceElement$$Type): boolean
-public "trimStacktrace"(arg0: integer): void
+public "setDetail"(arg0: StringJS, arg1: any): $CrashReportCategory
+public "setDetail"(arg0: StringJS, arg1: $CrashReportDetail$$Type<(StringJS)>): $CrashReportCategory
 /**
  * 
  * @deprecated
  */
 public "applyStackTrace"(arg0: $Throwable$$Type): void
+public "trimStacktrace"(arg0: integer): void
 set "stackTrace"(value: ($StackTraceElement$$Type)[])
 get "stacktrace"(): ($StackTraceElement)[]
 }
@@ -161,17 +161,17 @@ constructor()
 
 public "getEntries"(): $Map
 public static "sizeInMiB"(arg0: long): float
+public static "getOPERATING_SYSTEM$create_$md$1ae6d3$2"(): StringJS
+public static "getJAVA_VERSION$create_$md$1ae6d3$3"(): StringJS
+public "toLineSeparatedString"(): StringJS
+public "appendToCrashReportString"(arg0: $StringBuilder$$Type): void
 public "setDetail"(arg0: StringJS, arg1: $Supplier$$Type<(StringJS)>): void
 public "setDetail"(arg0: StringJS, arg1: StringJS): void
-public "appendToCrashReportString"(arg0: $StringBuilder$$Type): void
-public static "getOPERATING_SYSTEM$create_$md$6d3b50$2"(): StringJS
-public static "getJAVA_VERSION$create_$md$6d3b50$3"(): StringJS
-public "toLineSeparatedString"(): StringJS
 public static "getOPERATING_SYSTEM"(): StringJS
 public static "getJAVA_VERSION"(): StringJS
 get "entries"(): $Map
-get "OPERATING_SYSTEM$create_$md$6d3b50$2"(): StringJS
-get "JAVA_VERSION$create_$md$6d3b50$3"(): StringJS
+get "OPERATING_SYSTEM$create_$md$1ae6d3$2"(): StringJS
+get "JAVA_VERSION$create_$md$1ae6d3$3"(): StringJS
 get "OPERATING_SYSTEM"(): StringJS
 get "JAVA_VERSION"(): StringJS
 }
@@ -197,26 +197,26 @@ export class $CrashReport {
 constructor(arg0: StringJS, arg1: $Throwable$$Type)
 
 public "getException"(): $Throwable
-public "getDetails"(arg0: $StringBuilder$$Type): void
-public "getDetails"(): StringJS
-public "getSystemReport"(): $SystemReport
+public "addCategory"(arg0: StringJS): $CrashReportCategory
+public "addCategory"(arg0: StringJS, arg1: integer): $CrashReportCategory
+public static "forThrowable"(arg0: $Throwable$$Type, arg1: StringJS): $CrashReport
 public "saveToFile"(arg0: $Path$$Type, arg1: $ReportType$$Type): boolean
 public "saveToFile"(arg0: $Path$$Type, arg1: $ReportType$$Type, arg2: $List$$Type<(StringJS)>): boolean
-public static "forThrowable"(arg0: $Throwable$$Type, arg1: StringJS): $CrashReport
-public "addCategory"(arg0: StringJS, arg1: integer): $CrashReportCategory
-public "addCategory"(arg0: StringJS): $CrashReportCategory
+public "getDetails"(arg0: $StringBuilder$$Type): void
+public "getDetails"(): StringJS
 public "getTitle"(): StringJS
+public "getExceptionMessage"(): StringJS
+public static "preload"(): void
+public "getSystemReport"(): $SystemReport
 public "getFriendlyReport"(arg0: $ReportType$$Type): StringJS
 public "getFriendlyReport"(arg0: $ReportType$$Type, arg1: $List$$Type<(StringJS)>): StringJS
 public "getSaveFile"(): $Path
-public "getExceptionMessage"(): StringJS
-public static "preload"(): void
 get "exception"(): $Throwable
 get "details"(): StringJS
-get "systemReport"(): $SystemReport
 get "title"(): StringJS
-get "saveFile"(): $Path
 get "exceptionMessage"(): StringJS
+get "systemReport"(): $SystemReport
+get "saveFile"(): $Path
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -251,10 +251,10 @@ declare module "net.minecraft.ChatFormatting" {
 import {$Keyable} from "com.mojang.serialization.Keyable"
 import {$Collection} from "java.util.Collection"
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Enum, $Enum$$Type} from "java.lang.Enum"
-import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Function, $Function$$Type} from "java.util.function.Function"
+import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$KubeColor$$Interface} from "dev.latvian.mods.kubejs.color.KubeColor"
 import {$StringRepresentable, $StringRepresentable$$Type, $StringRepresentable$$Interface} from "net.minecraft.util.StringRepresentable"
 import {$TextColor} from "net.minecraft.network.chat.TextColor"
@@ -293,36 +293,36 @@ public static "valueOf"(arg0: StringJS): $ChatFormatting
 public "getId"(): integer
 public static "getByName"(arg0: StringJS): $ChatFormatting
 public static "getNames"(arg0: boolean, arg1: boolean): $Collection<(StringJS)>
+public "isFormat"(): boolean
+public "isColor"(): boolean
 public static "getById"(arg0: integer): $ChatFormatting
 public static "getByCode"(arg0: character): $ChatFormatting
-public "isColor"(): boolean
-public "isFormat"(): boolean
-public "getSerializedName"(): StringJS
 public "getColor"(): integer
-public "getRgb"(): integer
 public "getArgb"(): integer
 public static "stripFormatting"(arg0: StringJS): StringJS
-public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
+public "getSerializedName"(): StringJS
+public "getRgb"(): integer
 public static "keys"(arg0: ($StringRepresentable$$Type)[]): $Keyable
+public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
+public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 public "getRemappedEnumConstantName"(): StringJS
 public static "fromEnum"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromValues"<T extends $StringRepresentable>(arg0: $Supplier$$Type<((T)[])>): $Codec<(T)>
-public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 public "specialEquals"(o: any, shallow: boolean): boolean
 public "createTextColor"(): $TextColor
-public "serialize"(): StringJS
 public "toHexString"(): StringJS
 public "getFireworkRGB"(): integer
+public "serialize"(): StringJS
 public static "checkSpecialEquality"(arg1: any, arg2: any, arg3: boolean): boolean
 get "name"(): StringJS
 get "char"(): character
 get "id"(): integer
-get "color"(): boolean
 get "format"(): boolean
-get "serializedName"(): StringJS
+get "color"(): boolean
 get "color"(): integer
-get "rgb"(): integer
 get "argb"(): integer
+get "serializedName"(): StringJS
+get "rgb"(): integer
 get "remappedEnumConstantName"(): StringJS
 get "fireworkRGB"(): integer
 }

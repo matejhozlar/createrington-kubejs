@@ -22,8 +22,8 @@ export type $IModInfo$DependencyType$$Original = $IModInfo$DependencyType;}
 declare module "net.neoforged.neoforgespi.language.IModLanguageLoader" {
 import {$IIssueReporting$$Type} from "net.neoforged.neoforgespi.IIssueReporting"
 import {$Collection$$Type} from "java.util.Collection"
-import {$IModFile$$Type} from "net.neoforged.neoforgespi.locating.IModFile"
 import {$ModuleLayer$$Type} from "java.lang.ModuleLayer"
+import {$IModFile$$Type} from "net.neoforged.neoforgespi.locating.IModFile"
 import {$ModFileScanData$$Type} from "net.neoforged.neoforgespi.language.ModFileScanData"
 import {$IModInfo$$Type} from "net.neoforged.neoforgespi.language.IModInfo"
 import {$ModContainer, $ModContainer$$Type} from "net.neoforged.fml.ModContainer"
@@ -32,10 +32,10 @@ export interface $IModLanguageLoader$$Interface {
 }
 
 export class $IModLanguageLoader implements $IModLanguageLoader$$Interface {
+ "loadMod"(arg0: $IModInfo$$Type, arg1: $ModFileScanData$$Type, arg2: $ModuleLayer$$Type): $ModContainer
  "name"(): StringJS
  "version"(): StringJS
  "validate"(arg0: $IModFile$$Type, arg1: $Collection$$Type<($ModContainer$$Type)>, arg2: $IIssueReporting$$Type): void
- "loadMod"(arg0: $IModInfo$$Type, arg1: $ModFileScanData$$Type, arg2: $ModuleLayer$$Type): $ModContainer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -85,7 +85,7 @@ public "interfaces"(): $Set<($Type)>
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $ModFileScanData$ClassData$$Type = ({"interfaces"?: $Set$$Type<($Type$$Type)>, "parent"?: $Type$$Type, "clazz"?: $Type$$Type}) | ([interfaces?: $Set$$Type<($Type$$Type)>, parent?: $Type$$Type, clazz?: $Type$$Type]);
+export type $ModFileScanData$ClassData$$Type = ({"parent"?: $Type$$Type, "interfaces"?: $Set$$Type<($Type$$Type)>, "clazz"?: $Type$$Type}) | ([parent?: $Type$$Type, interfaces?: $Set$$Type<($Type$$Type)>, clazz?: $Type$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -104,11 +104,11 @@ get "reason"(): $Optional<(StringJS)>
 get "type"(): $IModInfo$DependencyType
 get "owner"(): $IModInfo
 set "owner"(value: $IModInfo$$Type)
-get "referralURL"(): $Optional<($URL)>
 get "ordering"(): $IModInfo$Ordering
 get "versionRange"(): $VersionRange
-get "side"(): $IModInfo$DependencySide
+get "referralURL"(): $Optional<($URL)>
 get "modId"(): StringJS
+get "side"(): $IModInfo$DependencySide
 }
 
 export class $IModInfo$ModVersion implements $IModInfo$ModVersion$$Interface {
@@ -116,11 +116,11 @@ export class $IModInfo$ModVersion implements $IModInfo$ModVersion$$Interface {
  "getType"(): $IModInfo$DependencyType
  "getOwner"(): $IModInfo
  "setOwner"(arg0: $IModInfo$$Type): void
- "getReferralURL"(): $Optional<($URL)>
  "getOrdering"(): $IModInfo$Ordering
  "getVersionRange"(): $VersionRange
- "getSide"(): $IModInfo$DependencySide
+ "getReferralURL"(): $Optional<($URL)>
  "getModId"(): StringJS
+ "getSide"(): $IModInfo$DependencySide
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -153,7 +153,7 @@ public "memberName"(): StringJS
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $ModFileScanData$AnnotationData$$Type = ({"annotationType"?: $Type$$Type, "annotationData"?: $Map$$Type<(StringJS), (any)>, "clazz"?: $Type$$Type, "memberName"?: StringJS, "targetType"?: $ElementType$$Type}) | ([annotationType?: $Type$$Type, annotationData?: $Map$$Type<(StringJS), (any)>, clazz?: $Type$$Type, memberName?: StringJS, targetType?: $ElementType$$Type]);
+export type $ModFileScanData$AnnotationData$$Type = ({"memberName"?: StringJS, "clazz"?: $Type$$Type, "annotationData"?: $Map$$Type<(StringJS), (any)>, "annotationType"?: $Type$$Type, "targetType"?: $ElementType$$Type}) | ([memberName?: StringJS, clazz?: $Type$$Type, annotationData?: $Map$$Type<(StringJS), (any)>, annotationType?: $Type$$Type, targetType?: $ElementType$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -180,8 +180,8 @@ export type $IModInfo$Ordering$$Type = (("before") | ("after") | ("none"));
 export type $IModInfo$Ordering$$Original = $IModInfo$Ordering;}
 declare module "net.neoforged.neoforgespi.language.IModInfo" {
 import {$ArtifactVersion} from "org.apache.maven.artifact.versioning.ArtifactVersion"
-import {$Map} from "java.util.Map"
 import {$IModFileInfo} from "net.neoforged.neoforgespi.language.IModFileInfo"
+import {$Map} from "java.util.Map"
 import {$Optional} from "java.util.Optional"
 import {$IModInfo$ModVersion} from "net.neoforged.neoforgespi.language.IModInfo$ModVersion"
 import {$IConfigurable} from "net.neoforged.neoforgespi.language.IConfigurable"
@@ -196,17 +196,17 @@ get "description"(): StringJS
 get "loader"(): $IModLanguageLoader
 get "displayName"(): StringJS
 get "version"(): $ArtifactVersion
+get "forgeFeatures"(): $List<($ForgeFeature$Bound)>
+get "logoFile"(): $Optional<(StringJS)>
+get "logoBlur"(): boolean
+get "dependencies"(): $List<($IModInfo$ModVersion)>
+get "owningFile"(): $IModFileInfo
+get "modProperties"(): $Map<(StringJS), (any)>
+get "updateURL"(): $Optional<($URL)>
 get "namespace"(): StringJS
 get "modURL"(): $Optional<($URL)>
 get "modId"(): StringJS
 get "config"(): $IConfigurable
-get "owningFile"(): $IModFileInfo
-get "logoBlur"(): boolean
-get "updateURL"(): $Optional<($URL)>
-get "forgeFeatures"(): $List<($ForgeFeature$Bound)>
-get "modProperties"(): $Map<(StringJS), (any)>
-get "dependencies"(): $List<($IModInfo$ModVersion)>
-get "logoFile"(): $Optional<(StringJS)>
 }
 
 export class $IModInfo implements $IModInfo$$Interface {
@@ -216,17 +216,17 @@ static readonly "UNBOUNDED": $VersionRange
  "getLoader"(): $IModLanguageLoader
  "getDisplayName"(): StringJS
  "getVersion"(): $ArtifactVersion
+ "getForgeFeatures"(): $List<($ForgeFeature$Bound)>
+ "getLogoFile"(): $Optional<(StringJS)>
+ "getLogoBlur"(): boolean
+ "getDependencies"(): $List<($IModInfo$ModVersion)>
+ "getOwningFile"(): $IModFileInfo
+ "getModProperties"(): $Map<(StringJS), (any)>
+ "getUpdateURL"(): $Optional<($URL)>
  "getNamespace"(): StringJS
  "getModURL"(): $Optional<($URL)>
  "getModId"(): StringJS
  "getConfig"(): $IConfigurable
- "getOwningFile"(): $IModFileInfo
- "getLogoBlur"(): boolean
- "getUpdateURL"(): $Optional<($URL)>
- "getForgeFeatures"(): $List<($ForgeFeature$Bound)>
- "getModProperties"(): $Map<(StringJS), (any)>
- "getDependencies"(): $List<($IModInfo$ModVersion)>
- "getLogoFile"(): $Optional<(StringJS)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -241,10 +241,10 @@ declare module "net.neoforged.neoforgespi.language.ModFileScanData" {
 import {$IModFileInfo, $IModFileInfo$$Type} from "net.neoforged.neoforgespi.language.IModFileInfo"
 import {$Annotation$$Type} from "java.lang.annotation.Annotation"
 import {$List} from "java.util.List"
-import {$Set} from "java.util.Set"
 import {$Class$$Type} from "java.lang.Class"
-import {$Stream} from "java.util.stream.Stream"
+import {$Set} from "java.util.Set"
 import {$ModFileScanData$ClassData} from "net.neoforged.neoforgespi.language.ModFileScanData$ClassData"
+import {$Stream} from "java.util.stream.Stream"
 import {$ElementType$$Type} from "java.lang.annotation.ElementType"
 import {$ModFileScanData$AnnotationData} from "net.neoforged.neoforgespi.language.ModFileScanData$AnnotationData"
 
@@ -253,9 +253,9 @@ constructor()
 
 public "getClasses"(): $Set<($ModFileScanData$ClassData)>
 public "getAnnotations"(): $Set<($ModFileScanData$AnnotationData)>
-public "addModFileInfo"(arg0: $IModFileInfo$$Type): void
-public "getIModInfoData"(): $List<($IModFileInfo)>
 public "getAnnotatedBy"(arg0: $Class$$Type<($Annotation$$Type)>, arg1: $ElementType$$Type): $Stream<($ModFileScanData$AnnotationData)>
+public "getIModInfoData"(): $List<($IModFileInfo)>
+public "addModFileInfo"(arg0: $IModFileInfo$$Type): void
 get "classes"(): $Set<($ModFileScanData$ClassData)>
 get "annotations"(): $Set<($ModFileScanData$AnnotationData)>
 get "IModInfoData"(): $List<($IModFileInfo)>
@@ -279,24 +279,24 @@ import {$IModInfo} from "net.neoforged.neoforgespi.language.IModInfo"
 
 export interface $IModFileInfo$$Interface {
 get "file"(): $IModFile
-get "mods"(): $List<($IModInfo)>
-get "license"(): StringJS
-get "config"(): $IConfigurable
 get "fileProperties"(): $Map<(StringJS), (any)>
+get "license"(): StringJS
+get "mods"(): $List<($IModInfo)>
+get "config"(): $IConfigurable
 }
 
 export class $IModFileInfo implements $IModFileInfo$$Interface {
  "moduleName"(): StringJS
  "getFile"(): $IModFile
- "requiredLanguageLoaders"(): $List<($IModFileInfo$LanguageSpec)>
- "getMods"(): $List<($IModInfo)>
- "getLicense"(): StringJS
- "getConfig"(): $IConfigurable
- "versionString"(): StringJS
- "getFileProperties"(): $Map<(StringJS), (any)>
- "usesServices"(): $List<(StringJS)>
- "showAsResourcePack"(): boolean
  "showAsDataPack"(): boolean
+ "showAsResourcePack"(): boolean
+ "usesServices"(): $List<(StringJS)>
+ "getFileProperties"(): $Map<(StringJS), (any)>
+ "getLicense"(): StringJS
+ "getMods"(): $List<($IModInfo)>
+ "versionString"(): StringJS
+ "requiredLanguageLoaders"(): $List<($IModFileInfo$LanguageSpec)>
+ "getConfig"(): $IConfigurable
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -318,8 +318,8 @@ static readonly "BOTH": $IModInfo$DependencySide
 
 public static "values"(): ($IModInfo$DependencySide)[]
 public static "valueOf"(arg0: StringJS): $IModInfo$DependencySide
-public "isContained"(arg0: $Dist$$Type): boolean
 public "isCorrectSide"(): boolean
+public "isContained"(arg0: $Dist$$Type): boolean
 get "correctSide"(): boolean
 }
 /**

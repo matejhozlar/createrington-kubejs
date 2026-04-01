@@ -51,8 +51,8 @@ export interface $NewRegistryEventNeoForgeAccessor$$Interface {
 }
 
 export class $NewRegistryEventNeoForgeAccessor implements $NewRegistryEventNeoForgeAccessor$$Interface {
-static "puzzleslib$callInit"(): $NewRegistryEvent
  "puzzleslib$callFill"(): void
+static "puzzleslib$callInit"(): $NewRegistryEvent
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

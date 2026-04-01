@@ -53,8 +53,8 @@ get "registeredNodes"(): $Set<($PermissionNode<(never)>)>
 }
 
 export class $IPermissionHandler implements $IPermissionHandler$$Interface {
- "getIdentifier"(): $ResourceLocation
  "getPermission"<T>(arg0: $ServerPlayer$$Type, arg1: $PermissionNode$$Type<(T)>, ...arg2: ($PermissionDynamicContext$$Type<(never)>)[]): T
+ "getIdentifier"(): $ResourceLocation
  "getOfflinePermission"<T>(arg0: $UUID$$Type, arg1: $PermissionNode$$Type<(T)>, ...arg2: ($PermissionDynamicContext$$Type<(never)>)[]): T
  "getRegisteredNodes"(): $Set<($PermissionNode<(never)>)>
 }
@@ -96,15 +96,15 @@ public "name"(): StringJS
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public "serializer"(): $Function<(T), (StringJS)>
 public "typeToken"(): $Class<(T)>
 public "createContext"(arg0: T): $PermissionDynamicContext<(T)>
+public "serializer"(): $Function<(T), (StringJS)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $PermissionDynamicContextKey$$Type<T> = ({"typeToken"?: $Class$$Type<(T)>, "serializer"?: $Function$$Type<(T), (StringJS)>, "name"?: StringJS}) | ([typeToken?: $Class$$Type<(T)>, serializer?: $Function$$Type<(T), (StringJS)>, name?: StringJS]);
+export type $PermissionDynamicContextKey$$Type<T> = ({"serializer"?: $Function$$Type<(T), (StringJS)>, "typeToken"?: $Class$$Type<(T)>, "name"?: StringJS}) | ([serializer?: $Function$$Type<(T), (StringJS)>, typeToken?: $Class$$Type<(T)>, name?: StringJS]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -170,15 +170,15 @@ public "hashCode"(): integer
 public "getType"(): $PermissionType<(T)>
 public "getNodeName"(): StringJS
 public "setInformation"(arg0: $Component$$Type, arg1: $Component$$Type): $PermissionNode
+public "getReadableName"(): $Component
 public "getDynamics"(): ($PermissionDynamicContextKey<(never)>)[]
 public "getDefaultResolver"(): $PermissionNode$PermissionResolver<(T)>
-public "getReadableName"(): $Component
 get "description"(): $Component
 get "type"(): $PermissionType<(T)>
 get "nodeName"(): StringJS
+get "readableName"(): $Component
 get "dynamics"(): ($PermissionDynamicContextKey<(never)>)[]
 get "defaultResolver"(): $PermissionNode$PermissionResolver<(T)>
-get "readableName"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -220,9 +220,9 @@ import {$PermissionGatherEvent} from "net.neoforged.neoforge.server.permission.e
 export class $PermissionGatherEvent$Nodes extends $PermissionGatherEvent {
 constructor()
 
+public "getNodes"(): $Collection<($PermissionNode<(never)>)>
 public "addNodes"(arg0: $Iterable$$Type<($PermissionNode$$Type<(never)>)>): void
 public "addNodes"(...arg0: ($PermissionNode$$Type<(never)>)[]): void
-public "getNodes"(): $Collection<($PermissionNode<(never)>)>
 get "nodes"(): $Collection<($PermissionNode<(never)>)>
 }
 /**

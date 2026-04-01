@@ -6,8 +6,8 @@ get "partySystem"(): boolean
 }
 
 export class $ISyncedPlayerTrackerSystem implements $ISyncedPlayerTrackerSystem$$Interface {
- "isPartySystem"(): boolean
  "getTrackingLevel"(arg0: $Player$$Type, arg1: $Player$$Type): integer
+ "isPartySystem"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -71,18 +71,18 @@ constructor(arg0: $UUID$$Type, arg1: double, arg2: double, arg3: double, arg4: $
 public "update"(arg0: $Player$$Type): void
 public "getId"(): $UUID
 public "copyFrom"(arg0: $SyncedTrackedPlayer$$Type): void
+public "getY"(): double
+public "matchesEnough"(arg0: $Player$$Type, arg1: double): boolean
+public "setPos"(arg0: double, arg1: double, arg2: double): $SyncedTrackedPlayer
+public "getDimensionKey"(): $ResourceKey<($Level)>
 public "getX"(): double
 public "getZ"(): double
-public "getDimensionKey"(): $ResourceKey<($Level)>
-public "matchesEnough"(arg0: $Player$$Type, arg1: double): boolean
-public "getY"(): double
-public "setPos"(arg0: double, arg1: double, arg2: double): $SyncedTrackedPlayer
 public "setDimension"(arg0: $ResourceKey$$Type<($Level)>): $SyncedTrackedPlayer
 get "id"(): $UUID
+get "y"(): double
+get "dimensionKey"(): $ResourceKey<($Level)>
 get "x"(): double
 get "z"(): double
-get "dimensionKey"(): $ResourceKey<($Level)>
-get "y"(): double
 set "dimension"(value: $ResourceKey$$Type<($Level)>)
 }
 /**

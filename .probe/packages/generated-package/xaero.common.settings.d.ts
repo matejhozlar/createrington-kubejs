@@ -134,41 +134,20 @@ static "keyToggleRadar": $KeyMapping
 constructor(arg0: $IXaeroMinimap$$Type)
 
 public "loadSettings"(arg0: boolean): void
-public "writeSettings"(arg0: $PrintWriter$$Type): void
 /**
  * 
  * @deprecated
  */
 public "getMinimap"(): boolean
-public static "getTranslation"(arg0: boolean): StringJS
-public "caveMapsDisabled"(): boolean
-public "minimapDisabled"(): boolean
-public "resetServerSettings"(): void
-public "isIgnoreHeightmaps"(): boolean
-public "deathpointsDisabled"(): boolean
-public "showWaypointsDisabled"(): boolean
-public "resetEntityRadarBackwardsCompatibilityConfig"(): void
-public "getUIScale"(arg0: integer, arg1: integer, arg2: integer): float
-public static "canEditIngameSettings"(): boolean
-public "waypointsGUI"(arg0: $MinimapSession$$Type): boolean
-/**
- * 
- * @deprecated
- */
-public "waypointsGUI"(arg0: $WaypointsManager$$Type): boolean
 public "saveSettings"(): void
-public "foundOldRadarSettings"(): boolean
+public static "getTranslation"(arg0: boolean): StringJS
+public "getMinimapScale"(): float
+public "getAutoUIScale"(): integer
 /**
  * 
  * @deprecated
  */
-public "getLegacySlimeChunksSeed"(arg0: $XaeroPath$$Type): long
-public "getLoadedWaypointLines"(): StringJS
-public "removeLoadedWaypointLines"(): void
-public "loadDefaultSettings"(arg0: boolean): void
-public "getEntityRadarBackwardsCompatibilityConfig"(): $EntityRadarBackwardsCompatibilityConfig
-public "removeLegacySlimeChunksSeed"(arg0: $XaeroPath$$Type): long
-public "getAutoUIScale"(): integer
+public "saveWaypoints"(arg0: $WaypointWorld$$Type, arg1: boolean): void
 /**
  * 
  * @deprecated
@@ -178,8 +157,7 @@ public "saveWaypoints"(arg0: $WaypointWorld$$Type): void
  * 
  * @deprecated
  */
-public "saveWaypoints"(arg0: $WaypointWorld$$Type, arg1: boolean): void
-public "getMinimapScale"(): float
+public "getSlimeChunks"(arg0: $MinimapSession$$Type): boolean
 /**
  * 
  * @deprecated
@@ -189,12 +167,13 @@ public "getSlimeChunks"(arg0: $WaypointsManager$$Type): boolean
  * 
  * @deprecated
  */
-public "getSlimeChunks"(arg0: $MinimapSession$$Type): boolean
+public "setSlimeChunksSeed"(arg0: long, arg1: $XaeroPath$$Type): void
+public "readSetting"(arg0: (StringJS)[]): void
 /**
  * 
  * @deprecated
  */
-public "setSlimeChunksSeed"(arg0: long, arg1: $XaeroPath$$Type): void
+public "isKeyRepeat"(arg0: $KeyMapping$$Type): boolean
 /**
  * 
  * @deprecated
@@ -205,19 +184,40 @@ public "getSlimeChunksSeed"(arg0: $XaeroPath$$Type): long
  * @deprecated
  */
 public "saveAllWaypoints"(arg0: $WaypointsManager$$Type): void
+public static "setServerSettings"(): void
+public "resetEntityRadarBackwardsCompatibilityConfig"(): void
+public "getEntityRadarBackwardsCompatibilityConfig"(): $EntityRadarBackwardsCompatibilityConfig
+public "caveMapsDisabled"(): boolean
+public "minimapDisabled"(): boolean
+public "getUIScale"(arg0: integer, arg1: integer, arg2: integer): float
 /**
  * 
  * @deprecated
  */
-public "isKeyRepeat"(arg0: $KeyMapping$$Type): boolean
-public static "setServerSettings"(): void
-public "readSetting"(arg0: (StringJS)[]): void
+public "waypointsGUI"(arg0: $WaypointsManager$$Type): boolean
+public "waypointsGUI"(arg0: $MinimapSession$$Type): boolean
+public "deathpointsDisabled"(): boolean
+public "showWaypointsDisabled"(): boolean
+public "writeSettings"(arg0: $PrintWriter$$Type): void
+/**
+ * 
+ * @deprecated
+ */
+public "getLegacySlimeChunksSeed"(arg0: $XaeroPath$$Type): long
+public "foundOldRadarSettings"(): boolean
+public "loadDefaultSettings"(arg0: boolean): void
+public "getLoadedWaypointLines"(): StringJS
+public "removeLoadedWaypointLines"(): void
+public "removeLegacySlimeChunksSeed"(arg0: $XaeroPath$$Type): long
+public "isIgnoreHeightmaps"(): boolean
+public "resetServerSettings"(): void
+public static "canEditIngameSettings"(): boolean
 get "minimap"(): boolean
-get "ignoreHeightmaps"(): boolean
-get "loadedWaypointLines"(): StringJS
-get "entityRadarBackwardsCompatibilityConfig"(): $EntityRadarBackwardsCompatibilityConfig
-get "autoUIScale"(): integer
 get "minimapScale"(): float
+get "autoUIScale"(): integer
+get "entityRadarBackwardsCompatibilityConfig"(): $EntityRadarBackwardsCompatibilityConfig
+get "loadedWaypointLines"(): StringJS
+get "ignoreHeightmaps"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

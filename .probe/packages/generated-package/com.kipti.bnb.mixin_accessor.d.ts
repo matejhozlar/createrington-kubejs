@@ -46,9 +46,9 @@ export interface $FlywheelAccessibleKineticNetwork$$Interface {
 }
 
 export class $FlywheelAccessibleKineticNetwork implements $FlywheelAccessibleKineticNetwork$$Interface {
- "bits_n_bobs$updateFlywheelStresses"(): void
  "bits_n_bobs$getFlywheelStressReleaseCapacity"(): float
  "bits_n_bobs$getFlywheelStressAbsoptionCapacity"(): float
+ "bits_n_bobs$updateFlywheelStresses"(): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

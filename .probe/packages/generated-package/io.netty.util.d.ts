@@ -125,9 +125,9 @@ export class $ReferenceCounted implements $ReferenceCounted$$Interface {
  "release"(): boolean
  "touch"(): $ReferenceCounted
  "touch"(arg0: any): $ReferenceCounted
- "refCnt"(): integer
- "retain"(): $ReferenceCounted
  "retain"(arg0: integer): $ReferenceCounted
+ "retain"(): $ReferenceCounted
+ "refCnt"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

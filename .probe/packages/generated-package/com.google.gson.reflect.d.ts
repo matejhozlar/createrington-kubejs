@@ -3,8 +3,8 @@ import {$Type, $Type$$Type} from "java.lang.reflect.Type"
 import {$Class, $Class$$Type} from "java.lang.Class"
 
 export class $TypeToken<T> {
-public static "get"(arg0: $Type$$Type): $TypeToken<(never)>
 public static "get"<T>(arg0: $Class$$Type<(T)>): $TypeToken<(T)>
+public static "get"(arg0: $Type$$Type): $TypeToken<(never)>
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
@@ -12,7 +12,7 @@ public "hashCode"(): integer
  * 
  * @deprecated
  */
-public "isAssignableFrom"(arg0: $TypeToken$$Type<(never)>): boolean
+public "isAssignableFrom"(arg0: $Class$$Type<(never)>): boolean
 /**
  * 
  * @deprecated
@@ -22,7 +22,7 @@ public "isAssignableFrom"(arg0: $Type$$Type): boolean
  * 
  * @deprecated
  */
-public "isAssignableFrom"(arg0: $Class$$Type<(never)>): boolean
+public "isAssignableFrom"(arg0: $TypeToken$$Type<(never)>): boolean
 public "getType"(): $Type
 public "getRawType"(): $Class<(T)>
 public static "getArray"(arg0: $Type$$Type): $TypeToken<(never)>

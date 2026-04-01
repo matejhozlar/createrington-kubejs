@@ -11,12 +11,12 @@ constructor(arg0: $SyncedPlayerTrackerSystemManager$$Type, arg1: $SyncedPlayerTr
 
 public static "get"(arg0: $MinecraftServer$$Type): $MinecraftServerData
 public "getLevelProperties"(arg0: $Path$$Type): $LevelMapProperties
+public "getSyncedPlayerTrackerSystemManager"(): $SyncedPlayerTrackerSystemManager
 public "getModMain"(): $IXaeroMinimap
 public "getSyncedPlayerTracker"(): $SyncedPlayerTracker
-public "getSyncedPlayerTrackerSystemManager"(): $SyncedPlayerTrackerSystemManager
+get "syncedPlayerTrackerSystemManager"(): $SyncedPlayerTrackerSystemManager
 get "modMain"(): $IXaeroMinimap
 get "syncedPlayerTracker"(): $SyncedPlayerTracker
-get "syncedPlayerTrackerSystemManager"(): $SyncedPlayerTrackerSystemManager
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -31,13 +31,13 @@ declare module "xaero.common.server.IMinecraftServer" {
 import {$MinecraftServerData, $MinecraftServerData$$Type} from "xaero.common.server.MinecraftServerData"
 
 export interface $IMinecraftServer$$Interface {
-get "xaeroMinimapServerData"(): $MinecraftServerData
 set "xaeroMinimapServerData"(value: $MinecraftServerData$$Type)
+get "xaeroMinimapServerData"(): $MinecraftServerData
 }
 
 export class $IMinecraftServer implements $IMinecraftServer$$Interface {
- "getXaeroMinimapServerData"(): $MinecraftServerData
  "setXaeroMinimapServerData"(arg0: $MinecraftServerData$$Type): void
+ "getXaeroMinimapServerData"(): $MinecraftServerData
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

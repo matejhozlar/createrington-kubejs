@@ -34,8 +34,8 @@ import {$RandomSource$$Type} from "net.minecraft.util.RandomSource"
 import {$Codec} from "com.mojang.serialization.Codec"
 import {$IntProvider, $IntProvider$$Type} from "net.minecraft.util.valueproviders.IntProvider"
 import {$IntProviderType} from "net.minecraft.util.valueproviders.IntProviderType"
-import {$MapCodec} from "com.mojang.serialization.MapCodec"
 import {$SimpleWeightedRandomList$$Type} from "net.minecraft.util.random.SimpleWeightedRandomList"
+import {$MapCodec} from "com.mojang.serialization.MapCodec"
 
 export class $WeightedListInt extends $IntProvider {
 static readonly "CODEC": $MapCodec<($WeightedListInt)>
@@ -212,8 +212,8 @@ public static "of"(arg0: float, arg1: float, arg2: integer, arg3: integer): $Cla
 public "getType"(): $IntProviderType<(never)>
 public "getMinValue"(): integer
 public "getMaxValue"(): integer
-public "sample"(arg0: $RandomSource$$Type): integer
 public static "sample"(arg0: $RandomSource$$Type, arg1: float, arg2: float, arg3: float, arg4: float): integer
+public "sample"(arg0: $RandomSource$$Type): integer
 get "type"(): $IntProviderType<(never)>
 get "minValue"(): integer
 get "maxValue"(): integer
@@ -232,9 +232,9 @@ import {$UniformInt} from "net.minecraft.util.valueproviders.UniformInt"
 import {$ClampedInt} from "net.minecraft.util.valueproviders.ClampedInt"
 import {$WeightedListInt} from "net.minecraft.util.valueproviders.WeightedListInt"
 import {$ConstantInt} from "net.minecraft.util.valueproviders.ConstantInt"
-import {$ClampedNormalInt} from "net.minecraft.util.valueproviders.ClampedNormalInt"
-import {$BiasedToBottomInt} from "net.minecraft.util.valueproviders.BiasedToBottomInt"
 import {$IntProvider} from "net.minecraft.util.valueproviders.IntProvider"
+import {$BiasedToBottomInt} from "net.minecraft.util.valueproviders.BiasedToBottomInt"
+import {$ClampedNormalInt} from "net.minecraft.util.valueproviders.ClampedNormalInt"
 import {$MapCodec, $MapCodec$$Type} from "com.mojang.serialization.MapCodec"
 
 export interface $IntProviderType$$Interface<P extends $IntProvider> {

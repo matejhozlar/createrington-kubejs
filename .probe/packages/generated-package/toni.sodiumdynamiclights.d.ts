@@ -6,18 +6,18 @@ export interface $DynamicLightSource$$Interface {
 }
 
 export class $DynamicLightSource implements $DynamicLightSource$$Interface {
- "sdl$dynamicLightTick"(): void
- "sdl$isDynamicLightEnabled"(): boolean
- "sdl$getDynamicLightY"(): double
- "sdl$setDynamicLightEnabled"(enabled: boolean): void
- "sdl$getDynamicLightLevel"(): $Level
- "sdl$resetDynamicLight"(): void
- "sdl$getDynamicLightX"(): double
- "sdl$getDynamicLightZ"(): double
- "sdl$shouldUpdateDynamicLight"(): boolean
- "sdl$getLuminance"(): integer
- "sodiumdynamiclights$updateDynamicLight"(arg0: $LevelRenderer$$Type): boolean
  "sodiumdynamiclights$scheduleTrackedChunksRebuild"(arg0: $LevelRenderer$$Type): void
+ "sdl$shouldUpdateDynamicLight"(): boolean
+ "sodiumdynamiclights$updateDynamicLight"(arg0: $LevelRenderer$$Type): boolean
+ "sdl$getDynamicLightX"(): double
+ "sdl$getDynamicLightY"(): double
+ "sdl$getDynamicLightZ"(): double
+ "sdl$getDynamicLightLevel"(): $Level
+ "sdl$isDynamicLightEnabled"(): boolean
+ "sdl$setDynamicLightEnabled"(enabled: boolean): void
+ "sdl$dynamicLightTick"(): void
+ "sdl$resetDynamicLight"(): void
+ "sdl$getLuminance"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

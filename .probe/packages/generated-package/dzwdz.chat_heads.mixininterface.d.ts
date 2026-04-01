@@ -24,8 +24,8 @@ export interface $Ownable$$Interface {
 }
 
 export class $Ownable implements $Ownable$$Interface {
- "chatheads$setOwner"(arg0: $PlayerInfo$$Type): void
  "chatheads$getOwner"(): $PlayerInfo
+ "chatheads$setOwner"(arg0: $PlayerInfo$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

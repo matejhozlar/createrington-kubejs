@@ -5,8 +5,8 @@ import {$MapCodec, $MapCodec$$Type} from "com.mojang.serialization.MapCodec"
 export class $Serializer<B, V> {
 constructor(arg0: $MapCodec$$Type<(V)>, arg1: $StreamCodec$$Type<(B), (V)>)
 
-public "codec"(): $MapCodec<(V)>
 public "streamCodec"(): $StreamCodec<(B), (V)>
+public "codec"(): $MapCodec<(V)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

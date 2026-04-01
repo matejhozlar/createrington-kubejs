@@ -5,9 +5,9 @@ import {$ObjectCategoryDataSerializer} from "xaero.hud.category.serialization.da
 import {$ObjectCategoryData, $ObjectCategoryData$$Type} from "xaero.hud.category.serialization.data.ObjectCategoryData"
 
 export class $ObjectCategoryDataNbtSerializer<D extends $ObjectCategoryData<(object)>, DB extends $ObjectCategoryData$Builder<(object), (object)>> extends $ObjectCategoryDataSerializer<(D), ($CompoundTag)> {
-public "serialize"(arg0: $ObjectCategoryData$$Type): any
 public "deserialize"(arg0: any): $ObjectCategoryData
 public "deserialize"(arg0: $CompoundTag$$Type): D
+public "serialize"(arg0: $ObjectCategoryData$$Type): any
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -23,9 +23,9 @@ import {$ObjectCategoryDataSerializer} from "xaero.hud.category.serialization.da
 import {$ObjectCategoryData, $ObjectCategoryData$$Type} from "xaero.hud.category.serialization.data.ObjectCategoryData"
 
 export class $ObjectCategoryDataGsonSerializer<D extends $ObjectCategoryData<(object)>> extends $ObjectCategoryDataSerializer<(D), (StringJS)> {
-public "serialize"(arg0: $ObjectCategoryData$$Type): any
 public "deserialize"(arg0: any): $ObjectCategoryData
 public "deserialize"(arg0: StringJS): D
+public "serialize"(arg0: D): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

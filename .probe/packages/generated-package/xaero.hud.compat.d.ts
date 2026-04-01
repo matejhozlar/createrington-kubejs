@@ -6,8 +6,8 @@ import {$ModuleRenderContext$$Type} from "xaero.hud.render.module.ModuleRenderCo
 export class $OldSystemCompatibility {
 constructor()
 
-public "convertTransform"(arg0: $ModuleTransform$$Type, arg1: $ModuleSession$$Type<(never)>, arg2: $ModuleRenderContext$$Type): void
 public "loadOldTransform"(arg0: (StringJS)[]): $ModuleTransform
+public "convertTransform"(arg0: $ModuleTransform$$Type, arg1: $ModuleSession$$Type<(never)>, arg2: $ModuleRenderContext$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

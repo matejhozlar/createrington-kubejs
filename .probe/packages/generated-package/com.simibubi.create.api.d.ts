@@ -58,8 +58,8 @@ export interface $IHaveGoggleInformation$$Interface extends $IHaveCustomOverlayI
 }
 
 export class $IHaveGoggleInformation implements $IHaveGoggleInformation$$Interface {
- "addToGoggleTooltip"(arg0: $List$$Type<($Component$$Type)>, arg1: boolean): boolean
  "containedFluidTooltip"(arg0: $List$$Type<($Component$$Type)>, arg1: boolean, arg2: $IFluidHandler$$Type): boolean
+ "addToGoggleTooltip"(arg0: $List$$Type<($Component$$Type)>, arg1: boolean): boolean
  "getIcon"(arg0: boolean): $ItemStack
 }
 /**
@@ -121,10 +121,10 @@ import {$Event} from "net.neoforged.bus.api.Event"
 export class $TrackGraphMergeEvent extends $Event {
 constructor(arg0: $TrackGraph$$Type, arg1: $TrackGraph$$Type)
 
-public "getGraphMergedInto"(): $TrackGraph
 public "getGraphMergedFrom"(): $TrackGraph
-get "graphMergedInto"(): $TrackGraph
+public "getGraphMergedInto"(): $TrackGraph
 get "graphMergedFrom"(): $TrackGraph
+get "graphMergedInto"(): $TrackGraph
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -184,10 +184,10 @@ import {$BlockState$$Type} from "net.minecraft.world.level.block.state.BlockStat
 export class $PipeCollisionEvent$Flow extends $PipeCollisionEvent {
 constructor(arg0: $Level$$Type, arg1: $BlockPos$$Type, arg2: $Fluid$$Type, arg3: $Fluid$$Type, arg4: $BlockState$$Type)
 
-public "getFirstFluid"(): $Fluid
 public "getSecondFluid"(): $Fluid
-get "firstFluid"(): $Fluid
+public "getFirstFluid"(): $Fluid
 get "secondFluid"(): $Fluid
+get "firstFluid"(): $Fluid
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

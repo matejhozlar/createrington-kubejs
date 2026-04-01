@@ -29,18 +29,18 @@ public "value"(): StringJS
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
+public "hasSignature"(): boolean
 /**
  * 
  * @deprecated
  */
 public "isSignatureValid"(arg0: $PublicKey$$Type): boolean
-public "hasSignature"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $Property$$Type = ({"value"?: StringJS, "signature"?: StringJS, "name"?: StringJS}) | ([value?: StringJS, signature?: StringJS, name?: StringJS]);
+export type $Property$$Type = ({"signature"?: StringJS, "value"?: StringJS, "name"?: StringJS}) | ([signature?: StringJS, value?: StringJS, name?: StringJS]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */

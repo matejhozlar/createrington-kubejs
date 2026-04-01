@@ -8,11 +8,11 @@ constructor(arg0: long, arg1: integer)
 constructor(arg0: $ByteBuffer$$Type)
 
 public "width"(): integer
-public "greenBits"(): integer
-public "redBits"(): integer
-public "blueBits"(): integer
 public "height"(): integer
 public "refreshRate"(): integer
+public "redBits"(): integer
+public "greenBits"(): integer
+public "blueBits"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -43,20 +43,20 @@ constructor(arg0: $ByteBuffer$$Type)
 public static "create"(arg0: long): $GLFWVidMode
 public static "create"(arg0: long, arg1: integer): $GLFWVidMode$Buffer
 public "width"(): integer
-public static "nwidth"(arg0: long): integer
+public "height"(): integer
+public static "nrefreshRate"(arg0: long): integer
+public "refreshRate"(): integer
+public "sizeof"(): integer
 public static "nheight"(arg0: long): integer
-public static "createSafe"(arg0: long, arg1: integer): $GLFWVidMode$Buffer
+public static "nwidth"(arg0: long): integer
 public static "createSafe"(arg0: long): $GLFWVidMode
-public static "nredBits"(arg0: long): integer
-public "greenBits"(): integer
+public static "createSafe"(arg0: long, arg1: integer): $GLFWVidMode$Buffer
 public "redBits"(): integer
+public "greenBits"(): integer
+public "blueBits"(): integer
 public static "ngreenBits"(arg0: long): integer
 public static "nblueBits"(arg0: long): integer
-public "blueBits"(): integer
-public static "nrefreshRate"(arg0: long): integer
-public "height"(): integer
-public "sizeof"(): integer
-public "refreshRate"(): integer
+public static "nredBits"(arg0: long): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

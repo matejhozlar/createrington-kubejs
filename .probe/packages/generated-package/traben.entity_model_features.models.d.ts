@@ -32,29 +32,29 @@ public "toString"(): StringJS
 public "hashCode"(): integer
 public "compareTo"(o: $EMFModel_ID$$Type): integer
 public "compareTo"(arg0: any): integer
-public "setFileName"(fileName: StringJS): $EMFModel_ID
-public "getNextFallbackModel"(): $EMFModel_ID
 public "getNamespace"(): StringJS
-public "setMapIdAndAddFallbackModel"(both: StringJS): $EMFModel_ID
-public "setMapIdAndAddFallbackModel"(mapId: StringJS, fileName: StringJS): $EMFModel_ID
-public "finishAndPrepAutomatedFallbacks"(): void
-public "setBoth"(both: StringJS): $EMFModel_ID
-public "setBoth"(fileName: StringJS, mapId: StringJS): $EMFModel_ID
+public "setFileName"(fileName: StringJS): $EMFModel_ID
 public "getMapId"(): StringJS
+public "setBoth"(fileName: StringJS, mapId: StringJS): $EMFModel_ID
+public "setBoth"(both: StringJS): $EMFModel_ID
 public "getDisplayFileName"(): StringJS
-public "addFallbackModel"(fileName: StringJS): $EMFModel_ID
-public "addFallbackModel"(namespace: StringJS, fileName: StringJS): $EMFModel_ID
-public "getfileName"(): StringJS
 public "areBothSame"(): boolean
-public "forEachFallback"(action: $Consumer$$Type<($EMFModel_ID)>): void
+public "getfileName"(): StringJS
 public "hasFallbackModels"(): boolean
+public "forEachFallback"(action: $Consumer$$Type<($EMFModel_ID)>): void
+public "addFallbackModel"(namespace: StringJS, fileName: StringJS): $EMFModel_ID
+public "addFallbackModel"(fileName: StringJS): $EMFModel_ID
+public "getNextFallbackModel"(): $EMFModel_ID
+public "finishAndPrepAutomatedFallbacks"(): void
+public "setMapIdAndAddFallbackModel"(mapId: StringJS, fileName: StringJS): $EMFModel_ID
+public "setMapIdAndAddFallbackModel"(both: StringJS): $EMFModel_ID
 set "fileName"(value: StringJS)
-get "nextFallbackModel"(): $EMFModel_ID
-set "mapIdAndAddFallbackModel"(value: StringJS)
-set "both"(value: StringJS)
 get "mapId"(): StringJS
+set "both"(value: StringJS)
 get "displayFileName"(): StringJS
 get "fileName"(): StringJS
+get "nextFallbackModel"(): $EMFModel_ID
+set "mapIdAndAddFallbackModel"(value: StringJS)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

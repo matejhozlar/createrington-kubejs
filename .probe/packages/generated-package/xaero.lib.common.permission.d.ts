@@ -23,15 +23,15 @@ export class $PermissionNode<T> {
 public "getType"(): $Class<(T)>
 public "getDisplayName"(): $Component
 public "getComment"(): $Component
+public "getModId"(): StringJS
 public "getDefaultPath"(): StringJS
 public "getActualPath"(): StringJS
-public "getModId"(): StringJS
 get "type"(): $Class<(T)>
 get "displayName"(): $Component
 get "comment"(): $Component
+get "modId"(): StringJS
 get "defaultPath"(): StringJS
 get "actualPath"(): StringJS
-get "modId"(): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

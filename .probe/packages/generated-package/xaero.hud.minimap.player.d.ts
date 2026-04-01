@@ -21,8 +21,8 @@ export type $IRenderedPlayerTracker$$Type<P> = ($IRenderedPlayerTracker<(P)>);
  */
 export type $IRenderedPlayerTracker$$Original<P> = $IRenderedPlayerTracker<(P)>;}
 declare module "xaero.hud.minimap.player.tracker.PlayerTrackerMinimapElementCollector" {
-import {$Iterable} from "java.lang.Iterable"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
+import {$Iterable} from "java.lang.Iterable"
 import {$RenderedPlayerTrackerManager$$Type} from "xaero.hud.minimap.player.tracker.system.RenderedPlayerTrackerManager"
 import {$UUID$$Type} from "java.util.UUID"
 import {$PlayerTrackerMinimapElement} from "xaero.hud.minimap.player.tracker.PlayerTrackerMinimapElement"
@@ -33,9 +33,9 @@ constructor(arg0: $RenderedPlayerTrackerManager$$Type)
 
 public "update"(arg0: $Minecraft$$Type): void
 public "getElements"(): $Iterable<($PlayerTrackerMinimapElement<(never)>)>
-public "resetRenderedOnRadarFlags"(): void
 public "playerExists"(arg0: $UUID$$Type): boolean
 public "confirmPlayerRadarRender"(arg0: $Player$$Type): void
+public "resetRenderedOnRadarFlags"(): void
 get "elements"(): $Iterable<($PlayerTrackerMinimapElement<(never)>)>
 }
 /**
@@ -55,20 +55,20 @@ import {$MinimapElementRenderInfo$$Type} from "xaero.hud.minimap.element.render.
 import {$PlayerTrackerMinimapElement, $PlayerTrackerMinimapElement$$Type} from "xaero.hud.minimap.player.tracker.PlayerTrackerMinimapElement"
 import {$PlayerInfo$$Type} from "net.minecraft.client.multiplayer.PlayerInfo"
 import {$PlayerTrackerMinimapElementRenderContext} from "xaero.hud.minimap.player.tracker.PlayerTrackerMinimapElementRenderContext"
-import {$PlayerTrackerMinimapElementCollector} from "xaero.hud.minimap.player.tracker.PlayerTrackerMinimapElementCollector"
 import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
+import {$PlayerTrackerMinimapElementCollector} from "xaero.hud.minimap.player.tracker.PlayerTrackerMinimapElementCollector"
 import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
 import {$GuiGraphics$$Type} from "net.minecraft.client.gui.GuiGraphics"
 import {$MinimapElementRenderLocation$$Type} from "xaero.hud.minimap.element.render.MinimapElementRenderLocation"
 
 export class $PlayerTrackerMinimapElementRenderer extends $MinimapElementRenderer<($PlayerTrackerMinimapElement<(never)>), ($PlayerTrackerMinimapElementRenderContext)> {
 public "getOrder"(): integer
+public "renderElement"(arg0: $PlayerTrackerMinimapElement$$Type<(never)>, arg1: boolean, arg2: boolean, arg3: double, arg4: float, arg5: double, arg6: double, arg7: $MinimapElementRenderInfo$$Type, arg8: $GuiGraphics$$Type, arg9: $MultiBufferSource$BufferSource$$Type): boolean
+public "renderElement"(arg0: any, arg1: boolean, arg2: boolean, arg3: double, arg4: float, arg5: double, arg6: double, arg7: $MinimapElementRenderInfo$$Type, arg8: $GuiGraphics$$Type, arg9: $MultiBufferSource$BufferSource$$Type): boolean
+public "getPlayerSkin"(arg0: $Player$$Type, arg1: $PlayerInfo$$Type): $ResourceLocation
+public "getCollector"(): $PlayerTrackerMinimapElementCollector
 public "postRender"(arg0: $MinimapElementRenderInfo$$Type, arg1: $MultiBufferSource$BufferSource$$Type, arg2: $MultiTextureRenderTypeRendererProvider$$Type): void
 public "shouldRender"(arg0: $MinimapElementRenderLocation$$Type): boolean
-public "getCollector"(): $PlayerTrackerMinimapElementCollector
-public "getPlayerSkin"(arg0: $Player$$Type, arg1: $PlayerInfo$$Type): $ResourceLocation
-public "renderElement"(arg0: any, arg1: boolean, arg2: boolean, arg3: double, arg4: float, arg5: double, arg6: double, arg7: $MinimapElementRenderInfo$$Type, arg8: $GuiGraphics$$Type, arg9: $MultiBufferSource$BufferSource$$Type): boolean
-public "renderElement"(arg0: $PlayerTrackerMinimapElement$$Type<(never)>, arg1: boolean, arg2: boolean, arg3: double, arg4: float, arg5: double, arg6: double, arg7: $MinimapElementRenderInfo$$Type, arg8: $GuiGraphics$$Type, arg9: $MultiBufferSource$BufferSource$$Type): boolean
 public "preRender"(arg0: $MinimapElementRenderInfo$$Type, arg1: $MultiBufferSource$BufferSource$$Type, arg2: $MultiTextureRenderTypeRendererProvider$$Type): void
 get "order"(): integer
 get "collector"(): $PlayerTrackerMinimapElementCollector
@@ -149,31 +149,31 @@ export type $PlayerTrackerMinimapElementRenderContext$$Type = ($PlayerTrackerMin
  */
 export type $PlayerTrackerMinimapElementRenderContext$$Original = $PlayerTrackerMinimapElementRenderContext;}
 declare module "xaero.hud.minimap.player.tracker.PlayerTrackerMinimapElement" {
-import {$UUID} from "java.util.UUID"
 import {$IRenderedPlayerTracker, $IRenderedPlayerTracker$$Type} from "xaero.hud.minimap.player.tracker.system.IRenderedPlayerTracker"
+import {$UUID} from "java.util.UUID"
 import {$Level} from "net.minecraft.world.level.Level"
 import {$ResourceKey} from "net.minecraft.resources.ResourceKey"
 
 export class $PlayerTrackerMinimapElement<P> {
 constructor(arg0: P, arg1: $IRenderedPlayerTracker$$Type<(P)>)
 
-public "getDimension"(): $ResourceKey<($Level)>
-public "getX"(): double
-public "getZ"(): double
 public "getY"(): double
+public "getDimension"(): $ResourceKey<($Level)>
 public "getPlayer"(): P
 public "wasRenderedOnRadar"(): boolean
-public "getPlayerId"(): $UUID
-public "setRenderedOnRadar"(arg0: boolean): void
 public "getSystem"(): $IRenderedPlayerTracker<(P)>
+public "getPlayerId"(): $UUID
+public "getX"(): double
+public "getZ"(): double
+public "setRenderedOnRadar"(arg0: boolean): void
+get "y"(): double
 get "dimension"(): $ResourceKey<($Level)>
+get "player"(): P
+get "system"(): $IRenderedPlayerTracker<(P)>
+get "playerId"(): $UUID
 get "x"(): double
 get "z"(): double
-get "y"(): double
-get "player"(): P
-get "playerId"(): $UUID
 set "renderedOnRadar"(value: boolean)
-get "system"(): $IRenderedPlayerTracker<(P)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

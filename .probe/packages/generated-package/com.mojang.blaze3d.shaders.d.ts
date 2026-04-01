@@ -14,7 +14,7 @@ public static "valueOf"(arg0: StringJS): $Program$Type
 public "getExtension"(): StringJS
 public "getGlType"(): integer
 public "getPrograms"(): $Map<(StringJS), ($Program)>
-public static "createProgramType$iris_$md$6d3b50$0"(arg0: StringJS, arg1: integer, arg2: StringJS, arg3: StringJS, arg4: integer): $Program$Type
+public static "createProgramType$iris_$md$1ae6d3$0"(arg0: StringJS, arg1: integer, arg2: StringJS, arg3: StringJS, arg4: integer): $Program$Type
 public static "createProgramType"(arg0: StringJS, arg1: integer, arg2: StringJS, arg3: StringJS, arg4: integer): $Program$Type
 get "name"(): StringJS
 get "extension"(): StringJS
@@ -42,8 +42,8 @@ constructor(arg0: $Program$Type$$Type, arg1: integer, arg2: StringJS)
 public "getName"(): StringJS
 public "getId"(): integer
 public "close"(): void
-public "attachToShader"(arg0: $Shader$$Type): void
 public static "compileShader"(arg0: $Program$Type$$Type, arg1: StringJS, arg2: $InputStream$$Type, arg3: StringJS, arg4: $GlslPreprocessor$$Type): $Program
+public "attachToShader"(arg0: $Shader$$Type): void
 get "name"(): StringJS
 get "id"(): integer
 }
@@ -65,30 +65,30 @@ import {$Matrix3f$$Type} from "org.joml.Matrix3f"
 export class $AbstractUniform {
 constructor()
 
-public "setSafe"(arg0: float, arg1: float, arg2: float, arg3: float): void
-public "setSafe"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
-public "set"(arg0: $Matrix3f$$Type): void
 public "set"(arg0: (float)[]): void
 public "set"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
 public "set"(arg0: integer, arg1: integer, arg2: integer): void
-public "set"(arg0: $Matrix4f$$Type): void
-public "set"(arg0: $Vector3f$$Type): void
-public "set"(arg0: $Vector4f$$Type): void
-public "set"(arg0: float, arg1: float): void
-public "set"(arg0: float): void
-public "set"(arg0: float, arg1: float, arg2: float): void
-public "set"(arg0: integer): void
 public "set"(arg0: integer, arg1: integer): void
+public "set"(arg0: $Matrix3f$$Type): void
+public "set"(arg0: $Matrix4f$$Type): void
+public "set"(arg0: $Vector4f$$Type): void
+public "set"(arg0: $Vector3f$$Type): void
 public "set"(arg0: float, arg1: float, arg2: float, arg3: float): void
-public "setMat2x2"(arg0: float, arg1: float, arg2: float, arg3: float): void
+public "set"(arg0: float, arg1: float, arg2: float): void
+public "set"(arg0: float): void
+public "set"(arg0: float, arg1: float): void
+public "set"(arg0: integer): void
+public "setSafe"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
+public "setSafe"(arg0: float, arg1: float, arg2: float, arg3: float): void
 public "setMat2x4"(arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float, arg6: float, arg7: float): void
-public "setMat3x4"(arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float, arg6: float, arg7: float, arg8: float, arg9: float, arg10: float, arg11: float): void
+public "setMat2x2"(arg0: float, arg1: float, arg2: float, arg3: float): void
 public "setMat2x3"(arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float): void
-public "setMat3x2"(arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float): void
-public "setMat3x3"(arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float, arg6: float, arg7: float, arg8: float): void
-public "setMat4x3"(arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float, arg6: float, arg7: float, arg8: float, arg9: float, arg10: float, arg11: float): void
 public "setMat4x2"(arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float, arg6: float, arg7: float): void
+public "setMat3x2"(arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float): void
+public "setMat4x3"(arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float, arg6: float, arg7: float, arg8: float, arg9: float, arg10: float, arg11: float): void
 public "setMat4x4"(arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float, arg6: float, arg7: float, arg8: float, arg9: float, arg10: float, arg11: float, arg12: float, arg13: float, arg14: float, arg15: float): void
+public "setMat3x3"(arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float, arg6: float, arg7: float, arg8: float): void
+public "setMat3x4"(arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float, arg6: float, arg7: float, arg8: float, arg9: float, arg10: float, arg11: float): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -131,8 +131,8 @@ public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public "apply"(): void
 public "isOpaque"(): boolean
-public static "stringToBlendFunc"(arg0: StringJS): integer
 public static "stringToBlendFactor"(arg0: StringJS): integer
+public static "stringToBlendFunc"(arg0: StringJS): integer
 get "opaque"(): boolean
 }
 /**
@@ -170,52 +170,52 @@ static readonly "UT_FLOAT4": integer
 
 constructor(arg0: StringJS, arg1: integer, arg2: integer, arg3: $Shader$$Type)
 
-public "setSafe"(arg0: float, arg1: float, arg2: float, arg3: float): void
-public "setSafe"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
 public "getName"(): StringJS
 public "getLocation"(): integer
 public "set"(arg0: integer): void
+public "set"(arg0: integer, arg1: integer): void
 public "set"(arg0: $Vector4f$$Type): void
 public "set"(arg0: float, arg1: float, arg2: float, arg3: float): void
+public "set"(arg0: $Vector3f$$Type): void
 public "set"(arg0: $Matrix3f$$Type): void
 public "set"(arg0: $Matrix4f$$Type): void
 public "set"(arg0: (float)[]): void
 public "set"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
 public "set"(arg0: integer, arg1: integer, arg2: integer): void
-public "set"(arg0: integer, arg1: integer): void
 public "set"(arg0: float): void
 public "set"(arg0: float, arg1: float): void
 public "set"(arg0: integer, arg1: float): void
 public "set"(arg0: float, arg1: float, arg2: float): void
-public "set"(arg0: $Vector3f$$Type): void
 public "getCount"(): integer
 public "close"(): void
 public "getType"(): integer
-public "setLocation"(arg0: integer): void
-public "upload"(): void
-public static "uploadInteger"(arg0: integer, arg1: integer): void
-public static "getTypeFromString"(arg0: StringJS): integer
-public "getIntBuffer"(): $IntBuffer
-public "getFloatBuffer"(): $FloatBuffer
-public static "glBindAttribLocation"(arg0: integer, arg1: integer, arg2: charseq): void
 public static "glGetUniformLocation"(arg0: integer, arg1: charseq): integer
 public static "glGetAttribLocation"(arg0: integer, arg1: charseq): integer
-public "setMat2x2"(arg0: float, arg1: float, arg2: float, arg3: float): void
+public static "glBindAttribLocation"(arg0: integer, arg1: integer, arg2: charseq): void
+public "setLocation"(arg0: integer): void
+public "getFloatBuffer"(): $FloatBuffer
+public "getIntBuffer"(): $IntBuffer
+public static "uploadInteger"(arg0: integer, arg1: integer): void
+public static "getTypeFromString"(arg0: StringJS): integer
+public "setSafe"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
+public "setSafe"(arg0: float, arg1: float, arg2: float, arg3: float): void
 public "setMat2x4"(arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float, arg6: float, arg7: float): void
-public "setMat3x4"(arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float, arg6: float, arg7: float, arg8: float, arg9: float, arg10: float, arg11: float): void
+public "setMat2x2"(arg0: float, arg1: float, arg2: float, arg3: float): void
 public "setMat2x3"(arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float): void
-public "setMat3x2"(arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float): void
-public "setMat3x3"(arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float, arg6: float, arg7: float, arg8: float): void
-public "setMat4x3"(arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float, arg6: float, arg7: float, arg8: float, arg9: float, arg10: float, arg11: float): void
 public "setMat4x2"(arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float, arg6: float, arg7: float): void
+public "setMat3x2"(arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float): void
+public "setMat4x3"(arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float, arg6: float, arg7: float, arg8: float, arg9: float, arg10: float, arg11: float): void
 public "setMat4x4"(arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float, arg6: float, arg7: float, arg8: float, arg9: float, arg10: float, arg11: float, arg12: float, arg13: float, arg14: float, arg15: float): void
+public "setMat3x3"(arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float, arg6: float, arg7: float, arg8: float): void
+public "setMat3x4"(arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float, arg6: float, arg7: float, arg8: float, arg9: float, arg10: float, arg11: float): void
+public "upload"(): void
 get "name"(): StringJS
 get "location"(): integer
 get "count"(): integer
 get "type"(): integer
 set "location"(value: integer)
-get "intBuffer"(): $IntBuffer
 get "floatBuffer"(): $FloatBuffer
+get "intBuffer"(): $IntBuffer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -257,8 +257,8 @@ get "fragmentProgram"(): $Program
 
 export class $Shader implements $Shader$$Interface {
  "getId"(): integer
- "attachToProgram"(): void
  "getVertexProgram"(): $Program
+ "attachToProgram"(): void
  "getFragmentProgram"(): $Program
  "markDirty"(): void
 }
@@ -283,8 +283,8 @@ get "fragmentProgram"(): $Program
 
 export class $Effect implements $Effect$$Interface {
  "getId"(): integer
- "attachToProgram"(): void
  "getVertexProgram"(): $Program
+ "attachToProgram"(): void
  "getFragmentProgram"(): $Program
  "markDirty"(): void
 }

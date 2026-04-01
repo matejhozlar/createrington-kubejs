@@ -7,9 +7,9 @@ import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$ProfilerMeasured$$Interface} from "net.minecraft.util.profiling.metrics.ProfilerMeasured"
 import {$Exception$$Type} from "java.lang.Exception"
 import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
-import {$Executor$$Type} from "java.util.concurrent.Executor"
 import {$Function$$Type} from "java.util.function.Function"
 import {$Either$$Type} from "com.mojang.datafixers.util.Either"
+import {$Executor$$Type} from "java.util.concurrent.Executor"
 import {$StrictQueue$$Type} from "net.minecraft.util.thread.StrictQueue"
 import {$MetricSampler} from "net.minecraft.util.profiling.metrics.MetricSampler"
 
@@ -22,13 +22,13 @@ public "size"(): integer
 public "toString"(): StringJS
 public "close"(): void
 public static "create"(arg0: $Executor$$Type, arg1: StringJS): $ProcessorMailbox<($Runnable)>
-public "profiledMetrics"(): $List<($MetricSampler)>
 public "tell"(arg0: T): void
+public "profiledMetrics"(): $List<($MetricSampler)>
 public "runAll"(): void
 public "hasWork"(): boolean
 public static "of"<Msg>(arg0: StringJS, arg1: $Consumer$$Type<(T)>): $ProcessorHandle<(T)>
-public "askEither"<Source>(arg0: $Function$$Type<($ProcessorHandle<($Either<(Source), ($Exception)>)>), (T)>): $CompletableFuture<(Source)>
 public "ask"<Source>(arg0: $Function$$Type<($ProcessorHandle<(Source)>), (T)>): $CompletableFuture<(Source)>
+public "askEither"<Source>(arg0: $Function$$Type<($ProcessorHandle<($Either<(Source), ($Exception)>)>), (T)>): $CompletableFuture<(Source)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -69,9 +69,9 @@ import {$Consumer$$Type} from "java.util.function.Consumer"
 export class $ReentrantBlockableEventLoop<R extends $Runnable> extends $BlockableEventLoop<(R)> {
 constructor(arg0: StringJS)
 
+public "doRunTask"(arg0: R): void
 public "runningTask"(): boolean
 public "scheduleExecutables"(): boolean
-public "doRunTask"(arg0: R): void
 public static "of"<Msg>(arg0: StringJS, arg1: $Consumer$$Type<(Msg)>): $ProcessorHandle<(Msg)>
 }
 /**
@@ -99,8 +99,8 @@ export class $ProcessorHandle<Msg> implements $ProcessorHandle$$Interface {
 static "of"<Msg>(arg0: StringJS, arg1: $Consumer$$Type<(Msg)>): $ProcessorHandle<(Msg)>
  "close"(): void
  "tell"(arg0: Msg): void
- "askEither"<Source>(arg0: $Function$$Type<($ProcessorHandle<($Either<(Source), ($Exception)>)>), (Msg)>): $CompletableFuture<(Source)>
  "ask"<Source>(arg0: $Function$$Type<($ProcessorHandle<(Source)>), (Msg)>): $CompletableFuture<(Source)>
+ "askEither"<Source>(arg0: $Function$$Type<($ProcessorHandle<($Either<(Source), ($Exception)>)>), (Msg)>): $CompletableFuture<(Source)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -121,8 +121,8 @@ import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$ProfilerMeasured$$Interface} from "net.minecraft.util.profiling.metrics.ProfilerMeasured"
 import {$Exception$$Type} from "java.lang.Exception"
 import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
-import {$Executor$$Interface} from "java.util.concurrent.Executor"
 import {$Function$$Type} from "java.util.function.Function"
+import {$Executor$$Interface} from "java.util.concurrent.Executor"
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Either$$Type} from "com.mojang.datafixers.util.Either"
 import {$MetricSampler} from "net.minecraft.util.profiling.metrics.MetricSampler"
@@ -137,28 +137,28 @@ public "submit"(arg0: $Runnable$$Type): $CompletableFuture<(void)>
 public "submit"<V>(arg0: $Supplier$$Type<(V)>): $CompletableFuture<(V)>
 public "pollTask"(): boolean
 public "shouldRun"(arg0: R): boolean
-public "dropAllTasks"(): void
-public "isSameThread"(): boolean
-public "getRunningThread"(): $Thread
-public "wrapRunnable"(arg0: $Runnable$$Type): R
-public "profiledMetrics"(): $List<($MetricSampler)>
-public "executeBlocking"(arg0: $Runnable$$Type): void
-public "executeIfPossible"(arg0: $Runnable$$Type): void
-public "waitForTasks"(): void
-public "submitAsync"(arg0: $Runnable$$Type): $CompletableFuture<(void)>
-public "runAllTasks"(): void
-public "scheduleExecutables"(): boolean
-public "getPendingTasksCount"(): integer
 public "tell"(arg0: R): void
 public "tell"(arg0: any): void
 public "doRunTask"(arg0: R): void
+public "submitAsync"(arg0: $Runnable$$Type): $CompletableFuture<(void)>
+public "waitForTasks"(): void
+public "executeIfPossible"(arg0: $Runnable$$Type): void
+public "executeBlocking"(arg0: $Runnable$$Type): void
+public "profiledMetrics"(): $List<($MetricSampler)>
+public "scheduleExecutables"(): boolean
+public "getPendingTasksCount"(): integer
+public "getRunningThread"(): $Thread
+public "wrapRunnable"(arg0: $Runnable$$Type): R
+public "dropAllTasks"(): void
+public "isSameThread"(): boolean
+public "runAllTasks"(): void
 public static "of"<Msg>(arg0: StringJS, arg1: $Consumer$$Type<(R)>): $ProcessorHandle<(R)>
 public "close"(): void
-public "askEither"<Source>(arg0: $Function$$Type<($ProcessorHandle<($Either<(Source), ($Exception)>)>), (R)>): $CompletableFuture<(Source)>
 public "ask"<Source>(arg0: $Function$$Type<($ProcessorHandle<(Source)>), (R)>): $CompletableFuture<(Source)>
-get "sameThread"(): boolean
-get "runningThread"(): $Thread
+public "askEither"<Source>(arg0: $Function$$Type<($ProcessorHandle<($Either<(Source), ($Exception)>)>), (R)>): $CompletableFuture<(Source)>
 get "pendingTasksCount"(): integer
+get "runningThread"(): $Thread
+get "sameThread"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

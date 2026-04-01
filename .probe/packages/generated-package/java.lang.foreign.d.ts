@@ -1,12 +1,12 @@
 declare module "java.lang.foreign.StructLayout" {
-import {$MemoryLayout, $MemoryLayout$$Type} from "java.lang.foreign.MemoryLayout"
 import {$Optional} from "java.util.Optional"
+import {$MemoryLayout, $MemoryLayout$$Type} from "java.lang.foreign.MemoryLayout"
 import {$SequenceLayout} from "java.lang.foreign.SequenceLayout"
 import {$List} from "java.util.List"
 import {$MemoryLayout$PathElement$$Type} from "java.lang.foreign.MemoryLayout$PathElement"
-import {$MethodHandle} from "java.lang.invoke.MethodHandle"
 import {$VarHandle} from "java.lang.invoke.VarHandle"
-import {$GroupLayout$$Interface} from "java.lang.foreign.GroupLayout"
+import {$MethodHandle} from "java.lang.invoke.MethodHandle"
+import {$GroupLayout, $GroupLayout$$Interface} from "java.lang.foreign.GroupLayout"
 import {$PaddingLayout} from "java.lang.foreign.PaddingLayout"
 import {$UnionLayout} from "java.lang.foreign.UnionLayout"
 
@@ -19,9 +19,9 @@ export interface $StructLayout$$Interface extends $GroupLayout$$Interface {
 }
 
 export class $StructLayout implements $StructLayout$$Interface {
+ "withName"(arg0: StringJS): $GroupLayout
  "withByteAlignment"(arg0: long): $MemoryLayout
- "withoutName"(): $MemoryLayout
- "withName"(arg0: StringJS): $MemoryLayout
+ "withoutName"(): $GroupLayout
  "memberLayouts"(): $List<($MemoryLayout)>
  "byteSize"(): long
  "byteAlignment"(): long
@@ -30,6 +30,7 @@ export class $StructLayout implements $StructLayout$$Interface {
  "toString"(): StringJS
  "hashCode"(): integer
  "byteOffset"(...arg0: ($MemoryLayout$PathElement$$Type)[]): long
+ "select"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MemoryLayout
 static "sequenceLayout"(arg0: long, arg1: $MemoryLayout$$Type): $SequenceLayout
 static "sequenceLayout"(arg0: $MemoryLayout$$Type): $SequenceLayout
  "byteOffsetHandle"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MethodHandle
@@ -38,7 +39,6 @@ static "sequenceLayout"(arg0: $MemoryLayout$$Type): $SequenceLayout
 static "paddingLayout"(arg0: long): $PaddingLayout
 static "structLayout"(...arg0: ($MemoryLayout$$Type)[]): $StructLayout
 static "unionLayout"(...arg0: ($MemoryLayout$$Type)[]): $UnionLayout
- "select"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MemoryLayout
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -72,10 +72,10 @@ export interface $ValueLayout$OfFloat$$Interface extends $ValueLayout$$Interface
 }
 
 export class $ValueLayout$OfFloat implements $ValueLayout$OfFloat$$Interface {
+ "withName"(arg0: StringJS): $MemoryLayout
  "withByteAlignment"(arg0: long): $MemoryLayout
  "withoutName"(): $MemoryLayout
  "withOrder"(arg0: $ByteOrder$$Type): $ValueLayout
- "withName"(arg0: StringJS): $MemoryLayout
  "carrier"(): $Class<(never)>
  "order"(): $ByteOrder
  "arrayElementVarHandle"(...arg0: (integer)[]): $VarHandle
@@ -86,6 +86,7 @@ export class $ValueLayout$OfFloat implements $ValueLayout$OfFloat$$Interface {
  "toString"(): StringJS
  "hashCode"(): integer
  "byteOffset"(...arg0: ($MemoryLayout$PathElement$$Type)[]): long
+ "select"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MemoryLayout
 static "sequenceLayout"(arg0: long, arg1: $MemoryLayout$$Type): $SequenceLayout
 static "sequenceLayout"(arg0: $MemoryLayout$$Type): $SequenceLayout
  "byteOffsetHandle"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MethodHandle
@@ -94,7 +95,6 @@ static "sequenceLayout"(arg0: $MemoryLayout$$Type): $SequenceLayout
 static "paddingLayout"(arg0: long): $PaddingLayout
 static "structLayout"(...arg0: ($MemoryLayout$$Type)[]): $StructLayout
 static "unionLayout"(...arg0: ($MemoryLayout$$Type)[]): $UnionLayout
- "select"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MemoryLayout
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -153,10 +153,10 @@ export interface $ValueLayout$OfByte$$Interface extends $ValueLayout$$Interface 
 }
 
 export class $ValueLayout$OfByte implements $ValueLayout$OfByte$$Interface {
+ "withName"(arg0: StringJS): $MemoryLayout
  "withByteAlignment"(arg0: long): $MemoryLayout
  "withoutName"(): $MemoryLayout
  "withOrder"(arg0: $ByteOrder$$Type): $ValueLayout
- "withName"(arg0: StringJS): $MemoryLayout
  "carrier"(): $Class<(never)>
  "order"(): $ByteOrder
  "arrayElementVarHandle"(...arg0: (integer)[]): $VarHandle
@@ -167,6 +167,7 @@ export class $ValueLayout$OfByte implements $ValueLayout$OfByte$$Interface {
  "toString"(): StringJS
  "hashCode"(): integer
  "byteOffset"(...arg0: ($MemoryLayout$PathElement$$Type)[]): long
+ "select"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MemoryLayout
 static "sequenceLayout"(arg0: long, arg1: $MemoryLayout$$Type): $SequenceLayout
 static "sequenceLayout"(arg0: $MemoryLayout$$Type): $SequenceLayout
  "byteOffsetHandle"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MethodHandle
@@ -175,7 +176,6 @@ static "sequenceLayout"(arg0: $MemoryLayout$$Type): $SequenceLayout
 static "paddingLayout"(arg0: long): $PaddingLayout
 static "structLayout"(...arg0: ($MemoryLayout$$Type)[]): $StructLayout
 static "unionLayout"(...arg0: ($MemoryLayout$$Type)[]): $UnionLayout
- "select"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MemoryLayout
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -209,10 +209,10 @@ export interface $ValueLayout$OfInt$$Interface extends $ValueLayout$$Interface {
 }
 
 export class $ValueLayout$OfInt implements $ValueLayout$OfInt$$Interface {
+ "withName"(arg0: StringJS): $MemoryLayout
  "withByteAlignment"(arg0: long): $MemoryLayout
  "withoutName"(): $MemoryLayout
  "withOrder"(arg0: $ByteOrder$$Type): $ValueLayout
- "withName"(arg0: StringJS): $MemoryLayout
  "carrier"(): $Class<(never)>
  "order"(): $ByteOrder
  "arrayElementVarHandle"(...arg0: (integer)[]): $VarHandle
@@ -223,6 +223,7 @@ export class $ValueLayout$OfInt implements $ValueLayout$OfInt$$Interface {
  "toString"(): StringJS
  "hashCode"(): integer
  "byteOffset"(...arg0: ($MemoryLayout$PathElement$$Type)[]): long
+ "select"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MemoryLayout
 static "sequenceLayout"(arg0: long, arg1: $MemoryLayout$$Type): $SequenceLayout
 static "sequenceLayout"(arg0: $MemoryLayout$$Type): $SequenceLayout
  "byteOffsetHandle"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MethodHandle
@@ -231,7 +232,6 @@ static "sequenceLayout"(arg0: $MemoryLayout$$Type): $SequenceLayout
 static "paddingLayout"(arg0: long): $PaddingLayout
 static "structLayout"(...arg0: ($MemoryLayout$$Type)[]): $StructLayout
 static "unionLayout"(...arg0: ($MemoryLayout$$Type)[]): $UnionLayout
- "select"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MemoryLayout
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -265,12 +265,12 @@ export interface $AddressLayout$$Interface extends $ValueLayout$$Interface {
 }
 
 export class $AddressLayout implements $AddressLayout$$Interface {
- "withByteAlignment"(arg0: long): $AddressLayout
- "withoutName"(): $MemoryLayout
- "withOrder"(arg0: $ByteOrder$$Type): $ValueLayout
- "withName"(arg0: StringJS): $MemoryLayout
  "withTargetLayout"(arg0: $MemoryLayout$$Type): $AddressLayout
  "withoutTargetLayout"(): $AddressLayout
+ "withName"(arg0: StringJS): $MemoryLayout
+ "withByteAlignment"(arg0: long): $MemoryLayout
+ "withoutName"(): $ValueLayout
+ "withOrder"(arg0: $ByteOrder$$Type): $AddressLayout
  "targetLayout"(): $Optional<($MemoryLayout)>
  "carrier"(): $Class<(never)>
  "order"(): $ByteOrder
@@ -282,6 +282,7 @@ export class $AddressLayout implements $AddressLayout$$Interface {
  "toString"(): StringJS
  "hashCode"(): integer
  "byteOffset"(...arg0: ($MemoryLayout$PathElement$$Type)[]): long
+ "select"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MemoryLayout
 static "sequenceLayout"(arg0: long, arg1: $MemoryLayout$$Type): $SequenceLayout
 static "sequenceLayout"(arg0: $MemoryLayout$$Type): $SequenceLayout
  "byteOffsetHandle"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MethodHandle
@@ -290,7 +291,6 @@ static "sequenceLayout"(arg0: $MemoryLayout$$Type): $SequenceLayout
 static "paddingLayout"(arg0: long): $PaddingLayout
 static "structLayout"(...arg0: ($MemoryLayout$$Type)[]): $StructLayout
 static "unionLayout"(...arg0: ($MemoryLayout$$Type)[]): $UnionLayout
- "select"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MemoryLayout
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -324,10 +324,10 @@ export interface $ValueLayout$OfDouble$$Interface extends $ValueLayout$$Interfac
 }
 
 export class $ValueLayout$OfDouble implements $ValueLayout$OfDouble$$Interface {
+ "withName"(arg0: StringJS): $MemoryLayout
  "withByteAlignment"(arg0: long): $MemoryLayout
  "withoutName"(): $MemoryLayout
  "withOrder"(arg0: $ByteOrder$$Type): $ValueLayout
- "withName"(arg0: StringJS): $MemoryLayout
  "carrier"(): $Class<(never)>
  "order"(): $ByteOrder
  "arrayElementVarHandle"(...arg0: (integer)[]): $VarHandle
@@ -338,6 +338,7 @@ export class $ValueLayout$OfDouble implements $ValueLayout$OfDouble$$Interface {
  "toString"(): StringJS
  "hashCode"(): integer
  "byteOffset"(...arg0: ($MemoryLayout$PathElement$$Type)[]): long
+ "select"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MemoryLayout
 static "sequenceLayout"(arg0: long, arg1: $MemoryLayout$$Type): $SequenceLayout
 static "sequenceLayout"(arg0: $MemoryLayout$$Type): $SequenceLayout
  "byteOffsetHandle"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MethodHandle
@@ -346,7 +347,6 @@ static "sequenceLayout"(arg0: $MemoryLayout$$Type): $SequenceLayout
 static "paddingLayout"(arg0: long): $PaddingLayout
 static "structLayout"(...arg0: ($MemoryLayout$$Type)[]): $StructLayout
 static "unionLayout"(...arg0: ($MemoryLayout$$Type)[]): $UnionLayout
- "select"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MemoryLayout
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -358,9 +358,9 @@ export type $ValueLayout$OfDouble$$Type = ($ValueLayout$OfDouble);
  */
 export type $ValueLayout$OfDouble$$Original = $ValueLayout$OfDouble;}
 declare module "java.lang.foreign.SegmentAllocator" {
-import {$ValueLayout$OfLong$$Type} from "java.lang.foreign.ValueLayout$OfLong"
 import {$MemorySegment, $MemorySegment$$Type} from "java.lang.foreign.MemorySegment"
 import {$ValueLayout$OfByte$$Type} from "java.lang.foreign.ValueLayout$OfByte"
+import {$ValueLayout$OfLong$$Type} from "java.lang.foreign.ValueLayout$OfLong"
 import {$ValueLayout$OfDouble$$Type} from "java.lang.foreign.ValueLayout$OfDouble"
 import {$AddressLayout$$Type} from "java.lang.foreign.AddressLayout"
 import {$MemoryLayout$$Type} from "java.lang.foreign.MemoryLayout"
@@ -435,10 +435,10 @@ export interface $ValueLayout$OfBoolean$$Interface extends $ValueLayout$$Interfa
 }
 
 export class $ValueLayout$OfBoolean implements $ValueLayout$OfBoolean$$Interface {
+ "withName"(arg0: StringJS): $MemoryLayout
  "withByteAlignment"(arg0: long): $MemoryLayout
  "withoutName"(): $MemoryLayout
  "withOrder"(arg0: $ByteOrder$$Type): $ValueLayout
- "withName"(arg0: StringJS): $MemoryLayout
  "carrier"(): $Class<(never)>
  "order"(): $ByteOrder
  "arrayElementVarHandle"(...arg0: (integer)[]): $VarHandle
@@ -449,6 +449,7 @@ export class $ValueLayout$OfBoolean implements $ValueLayout$OfBoolean$$Interface
  "toString"(): StringJS
  "hashCode"(): integer
  "byteOffset"(...arg0: ($MemoryLayout$PathElement$$Type)[]): long
+ "select"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MemoryLayout
 static "sequenceLayout"(arg0: long, arg1: $MemoryLayout$$Type): $SequenceLayout
 static "sequenceLayout"(arg0: $MemoryLayout$$Type): $SequenceLayout
  "byteOffsetHandle"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MethodHandle
@@ -457,7 +458,6 @@ static "sequenceLayout"(arg0: $MemoryLayout$$Type): $SequenceLayout
 static "paddingLayout"(arg0: long): $PaddingLayout
 static "structLayout"(...arg0: ($MemoryLayout$$Type)[]): $StructLayout
 static "unionLayout"(...arg0: ($MemoryLayout$$Type)[]): $UnionLayout
- "select"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MemoryLayout
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -470,14 +470,14 @@ export type $ValueLayout$OfBoolean$$Type = ($ValueLayout$OfBoolean);
 export type $ValueLayout$OfBoolean$$Original = $ValueLayout$OfBoolean;}
 declare module "java.lang.foreign.UnionLayout" {
 import {$StructLayout} from "java.lang.foreign.StructLayout"
-import {$MemoryLayout, $MemoryLayout$$Type} from "java.lang.foreign.MemoryLayout"
 import {$Optional} from "java.util.Optional"
+import {$MemoryLayout, $MemoryLayout$$Type} from "java.lang.foreign.MemoryLayout"
 import {$SequenceLayout} from "java.lang.foreign.SequenceLayout"
 import {$List} from "java.util.List"
 import {$MemoryLayout$PathElement$$Type} from "java.lang.foreign.MemoryLayout$PathElement"
-import {$MethodHandle} from "java.lang.invoke.MethodHandle"
 import {$VarHandle} from "java.lang.invoke.VarHandle"
-import {$GroupLayout$$Interface} from "java.lang.foreign.GroupLayout"
+import {$MethodHandle} from "java.lang.invoke.MethodHandle"
+import {$GroupLayout, $GroupLayout$$Interface} from "java.lang.foreign.GroupLayout"
 import {$PaddingLayout} from "java.lang.foreign.PaddingLayout"
 
 /**
@@ -489,9 +489,9 @@ export interface $UnionLayout$$Interface extends $GroupLayout$$Interface {
 }
 
 export class $UnionLayout implements $UnionLayout$$Interface {
+ "withName"(arg0: StringJS): $GroupLayout
  "withByteAlignment"(arg0: long): $MemoryLayout
- "withoutName"(): $MemoryLayout
- "withName"(arg0: StringJS): $MemoryLayout
+ "withoutName"(): $GroupLayout
  "memberLayouts"(): $List<($MemoryLayout)>
  "byteSize"(): long
  "byteAlignment"(): long
@@ -500,6 +500,7 @@ export class $UnionLayout implements $UnionLayout$$Interface {
  "toString"(): StringJS
  "hashCode"(): integer
  "byteOffset"(...arg0: ($MemoryLayout$PathElement$$Type)[]): long
+ "select"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MemoryLayout
 static "sequenceLayout"(arg0: long, arg1: $MemoryLayout$$Type): $SequenceLayout
 static "sequenceLayout"(arg0: $MemoryLayout$$Type): $SequenceLayout
  "byteOffsetHandle"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MethodHandle
@@ -508,7 +509,6 @@ static "sequenceLayout"(arg0: $MemoryLayout$$Type): $SequenceLayout
 static "paddingLayout"(arg0: long): $PaddingLayout
 static "structLayout"(...arg0: ($MemoryLayout$$Type)[]): $StructLayout
 static "unionLayout"(...arg0: ($MemoryLayout$$Type)[]): $UnionLayout
- "select"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MemoryLayout
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -542,10 +542,10 @@ export interface $ValueLayout$OfShort$$Interface extends $ValueLayout$$Interface
 }
 
 export class $ValueLayout$OfShort implements $ValueLayout$OfShort$$Interface {
+ "withName"(arg0: StringJS): $MemoryLayout
  "withByteAlignment"(arg0: long): $MemoryLayout
  "withoutName"(): $MemoryLayout
  "withOrder"(arg0: $ByteOrder$$Type): $ValueLayout
- "withName"(arg0: StringJS): $MemoryLayout
  "carrier"(): $Class<(never)>
  "order"(): $ByteOrder
  "arrayElementVarHandle"(...arg0: (integer)[]): $VarHandle
@@ -556,6 +556,7 @@ export class $ValueLayout$OfShort implements $ValueLayout$OfShort$$Interface {
  "toString"(): StringJS
  "hashCode"(): integer
  "byteOffset"(...arg0: ($MemoryLayout$PathElement$$Type)[]): long
+ "select"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MemoryLayout
 static "sequenceLayout"(arg0: long, arg1: $MemoryLayout$$Type): $SequenceLayout
 static "sequenceLayout"(arg0: $MemoryLayout$$Type): $SequenceLayout
  "byteOffsetHandle"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MethodHandle
@@ -564,7 +565,6 @@ static "sequenceLayout"(arg0: $MemoryLayout$$Type): $SequenceLayout
 static "paddingLayout"(arg0: long): $PaddingLayout
 static "structLayout"(...arg0: ($MemoryLayout$$Type)[]): $StructLayout
 static "unionLayout"(...arg0: ($MemoryLayout$$Type)[]): $UnionLayout
- "select"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MemoryLayout
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -581,12 +581,12 @@ import {$ValueLayout$OfDouble$$Type} from "java.lang.foreign.ValueLayout$OfDoubl
 import {$AutoCloseable$$Interface} from "java.lang.AutoCloseable"
 import {$ValueLayout$OfInt$$Type} from "java.lang.foreign.ValueLayout$OfInt"
 import {$ValueLayout$OfShort$$Type} from "java.lang.foreign.ValueLayout$OfShort"
-import {$MemorySegment, $MemorySegment$$Type} from "java.lang.foreign.MemorySegment"
 import {$ValueLayout$OfByte$$Type} from "java.lang.foreign.ValueLayout$OfByte"
+import {$MemorySegment, $MemorySegment$$Type} from "java.lang.foreign.MemorySegment"
 import {$AddressLayout$$Type} from "java.lang.foreign.AddressLayout"
 import {$MemoryLayout$$Type} from "java.lang.foreign.MemoryLayout"
-import {$SegmentAllocator, $SegmentAllocator$$Interface} from "java.lang.foreign.SegmentAllocator"
 import {$ValueLayout$OfFloat$$Type} from "java.lang.foreign.ValueLayout$OfFloat"
+import {$SegmentAllocator, $SegmentAllocator$$Interface} from "java.lang.foreign.SegmentAllocator"
 import {$MemorySegment$Scope} from "java.lang.foreign.MemorySegment$Scope"
 import {$ValueLayout$OfChar$$Type} from "java.lang.foreign.ValueLayout$OfChar"
 
@@ -660,10 +660,10 @@ export interface $ValueLayout$OfChar$$Interface extends $ValueLayout$$Interface 
 }
 
 export class $ValueLayout$OfChar implements $ValueLayout$OfChar$$Interface {
+ "withName"(arg0: StringJS): $MemoryLayout
  "withByteAlignment"(arg0: long): $MemoryLayout
  "withoutName"(): $MemoryLayout
  "withOrder"(arg0: $ByteOrder$$Type): $ValueLayout
- "withName"(arg0: StringJS): $MemoryLayout
  "carrier"(): $Class<(never)>
  "order"(): $ByteOrder
  "arrayElementVarHandle"(...arg0: (integer)[]): $VarHandle
@@ -674,6 +674,7 @@ export class $ValueLayout$OfChar implements $ValueLayout$OfChar$$Interface {
  "toString"(): StringJS
  "hashCode"(): integer
  "byteOffset"(...arg0: ($MemoryLayout$PathElement$$Type)[]): long
+ "select"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MemoryLayout
 static "sequenceLayout"(arg0: long, arg1: $MemoryLayout$$Type): $SequenceLayout
 static "sequenceLayout"(arg0: $MemoryLayout$$Type): $SequenceLayout
  "byteOffsetHandle"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MethodHandle
@@ -682,7 +683,6 @@ static "sequenceLayout"(arg0: $MemoryLayout$$Type): $SequenceLayout
 static "paddingLayout"(arg0: long): $PaddingLayout
 static "structLayout"(...arg0: ($MemoryLayout$$Type)[]): $StructLayout
 static "unionLayout"(...arg0: ($MemoryLayout$$Type)[]): $UnionLayout
- "select"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MemoryLayout
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -698,8 +698,8 @@ import {$StructLayout} from "java.lang.foreign.StructLayout"
 import {$Optional} from "java.util.Optional"
 import {$SequenceLayout} from "java.lang.foreign.SequenceLayout"
 import {$MemoryLayout$PathElement$$Type} from "java.lang.foreign.MemoryLayout$PathElement"
-import {$MethodHandle} from "java.lang.invoke.MethodHandle"
 import {$VarHandle} from "java.lang.invoke.VarHandle"
+import {$MethodHandle} from "java.lang.invoke.MethodHandle"
 import {$PaddingLayout} from "java.lang.foreign.PaddingLayout"
 import {$UnionLayout} from "java.lang.foreign.UnionLayout"
 
@@ -719,6 +719,8 @@ export class $MemoryLayout implements $MemoryLayout$$Interface {
  "toString"(): StringJS
  "hashCode"(): integer
  "byteOffset"(...arg0: ($MemoryLayout$PathElement$$Type)[]): long
+ "select"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MemoryLayout
+ "withName"(arg0: StringJS): $MemoryLayout
  "withByteAlignment"(arg0: long): $MemoryLayout
  "withoutName"(): $MemoryLayout
 static "sequenceLayout"(arg0: long, arg1: $MemoryLayout$$Type): $SequenceLayout
@@ -729,8 +731,6 @@ static "sequenceLayout"(arg0: $MemoryLayout$$Type): $SequenceLayout
 static "paddingLayout"(arg0: long): $PaddingLayout
 static "structLayout"(...arg0: ($MemoryLayout$$Type)[]): $StructLayout
 static "unionLayout"(...arg0: ($MemoryLayout$$Type)[]): $UnionLayout
- "withName"(arg0: StringJS): $MemoryLayout
- "select"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MemoryLayout
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -747,8 +747,8 @@ import {$MemoryLayout, $MemoryLayout$$Type, $MemoryLayout$$Interface} from "java
 import {$Optional} from "java.util.Optional"
 import {$SequenceLayout} from "java.lang.foreign.SequenceLayout"
 import {$MemoryLayout$PathElement$$Type} from "java.lang.foreign.MemoryLayout$PathElement"
-import {$MethodHandle} from "java.lang.invoke.MethodHandle"
 import {$VarHandle} from "java.lang.invoke.VarHandle"
+import {$MethodHandle} from "java.lang.invoke.MethodHandle"
 import {$UnionLayout} from "java.lang.foreign.UnionLayout"
 
 /**
@@ -760,9 +760,9 @@ export interface $PaddingLayout$$Interface extends $MemoryLayout$$Interface {
 }
 
 export class $PaddingLayout implements $PaddingLayout$$Interface {
- "withByteAlignment"(arg0: long): $PaddingLayout
- "withoutName"(): $MemoryLayout
  "withName"(arg0: StringJS): $MemoryLayout
+ "withByteAlignment"(arg0: long): $MemoryLayout
+ "withoutName"(): $MemoryLayout
  "byteSize"(): long
  "byteAlignment"(): long
  "name"(): $Optional<(StringJS)>
@@ -770,6 +770,7 @@ export class $PaddingLayout implements $PaddingLayout$$Interface {
  "toString"(): StringJS
  "hashCode"(): integer
  "byteOffset"(...arg0: ($MemoryLayout$PathElement$$Type)[]): long
+ "select"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MemoryLayout
 static "sequenceLayout"(arg0: long, arg1: $MemoryLayout$$Type): $SequenceLayout
 static "sequenceLayout"(arg0: $MemoryLayout$$Type): $SequenceLayout
  "byteOffsetHandle"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MethodHandle
@@ -778,7 +779,6 @@ static "sequenceLayout"(arg0: $MemoryLayout$$Type): $SequenceLayout
 static "paddingLayout"(arg0: long): $PaddingLayout
 static "structLayout"(...arg0: ($MemoryLayout$$Type)[]): $StructLayout
 static "unionLayout"(...arg0: ($MemoryLayout$$Type)[]): $UnionLayout
- "select"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MemoryLayout
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -839,10 +839,10 @@ export interface $ValueLayout$OfLong$$Interface extends $ValueLayout$$Interface 
 }
 
 export class $ValueLayout$OfLong implements $ValueLayout$OfLong$$Interface {
+ "withName"(arg0: StringJS): $MemoryLayout
  "withByteAlignment"(arg0: long): $MemoryLayout
  "withoutName"(): $MemoryLayout
  "withOrder"(arg0: $ByteOrder$$Type): $ValueLayout
- "withName"(arg0: StringJS): $MemoryLayout
  "carrier"(): $Class<(never)>
  "order"(): $ByteOrder
  "arrayElementVarHandle"(...arg0: (integer)[]): $VarHandle
@@ -853,6 +853,7 @@ export class $ValueLayout$OfLong implements $ValueLayout$OfLong$$Interface {
  "toString"(): StringJS
  "hashCode"(): integer
  "byteOffset"(...arg0: ($MemoryLayout$PathElement$$Type)[]): long
+ "select"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MemoryLayout
 static "sequenceLayout"(arg0: long, arg1: $MemoryLayout$$Type): $SequenceLayout
 static "sequenceLayout"(arg0: $MemoryLayout$$Type): $SequenceLayout
  "byteOffsetHandle"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MethodHandle
@@ -861,7 +862,6 @@ static "sequenceLayout"(arg0: $MemoryLayout$$Type): $SequenceLayout
 static "paddingLayout"(arg0: long): $PaddingLayout
 static "structLayout"(...arg0: ($MemoryLayout$$Type)[]): $StructLayout
 static "unionLayout"(...arg0: ($MemoryLayout$$Type)[]): $UnionLayout
- "select"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MemoryLayout
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -879,8 +879,8 @@ import {$Optional} from "java.util.Optional"
 import {$Spliterator} from "java.util.Spliterator"
 import {$ValueLayout$OfInt$$Type} from "java.lang.foreign.ValueLayout$OfInt"
 import {$Arena$$Type} from "java.lang.foreign.Arena"
-import {$ValueLayout$OfBoolean$$Type} from "java.lang.foreign.ValueLayout$OfBoolean"
 import {$Thread$$Type} from "java.lang.Thread"
+import {$ValueLayout$OfBoolean$$Type} from "java.lang.foreign.ValueLayout$OfBoolean"
 import {$Buffer$$Type} from "java.nio.Buffer"
 import {$ValueLayout$OfShort$$Type} from "java.lang.foreign.ValueLayout$OfShort"
 import {$Consumer$$Type} from "java.util.function.Consumer"
@@ -888,9 +888,9 @@ import {$ValueLayout$OfByte$$Type} from "java.lang.foreign.ValueLayout$OfByte"
 import {$AddressLayout$$Type} from "java.lang.foreign.AddressLayout"
 import {$MemoryLayout$$Type} from "java.lang.foreign.MemoryLayout"
 import {$ValueLayout$$Type} from "java.lang.foreign.ValueLayout"
+import {$ValueLayout$OfFloat$$Type} from "java.lang.foreign.ValueLayout$OfFloat"
 import {$ByteBuffer} from "java.nio.ByteBuffer"
 import {$Stream} from "java.util.stream.Stream"
-import {$ValueLayout$OfFloat$$Type} from "java.lang.foreign.ValueLayout$OfFloat"
 import {$MemorySegment$Scope} from "java.lang.foreign.MemorySegment$Scope"
 import {$ValueLayout$OfChar$$Type} from "java.lang.foreign.ValueLayout$OfChar"
 
@@ -910,13 +910,13 @@ export class $MemorySegment implements $MemorySegment$$Interface {
 static readonly "NULL": $MemorySegment
 
  "byteSize"(): long
- "asSlice"(arg0: long, arg1: $MemoryLayout$$Type): $MemorySegment
- "asSlice"(arg0: long, arg1: long, arg2: long): $MemorySegment
- "asSlice"(arg0: long): $MemorySegment
+ "isAccessibleBy"(arg0: $Thread$$Type): boolean
  "asSlice"(arg0: long, arg1: long): $MemorySegment
+ "asSlice"(arg0: long): $MemorySegment
+ "asSlice"(arg0: long, arg1: long, arg2: long): $MemorySegment
+ "asSlice"(arg0: long, arg1: $MemoryLayout$$Type): $MemorySegment
 static "ofBuffer"(arg0: $Buffer$$Type): $MemorySegment
  "heapBase"(): $Optional<(never)>
- "isAccessibleBy"(arg0: $Thread$$Type): boolean
  "reinterpret"(arg0: long, arg1: $Arena$$Type, arg2: $Consumer$$Type<($MemorySegment)>): $MemorySegment
  "reinterpret"(arg0: long): $MemorySegment
  "reinterpret"(arg0: $Arena$$Type, arg1: $Consumer$$Type<($MemorySegment)>): $MemorySegment
@@ -1059,10 +1059,10 @@ static readonly "JAVA_INT": $ValueLayout$OfInt
  "carrier"(): $Class<(never)>
  "order"(): $ByteOrder
  "arrayElementVarHandle"(...arg0: (integer)[]): $VarHandle
+ "withName"(arg0: StringJS): $MemoryLayout
  "withByteAlignment"(arg0: long): $MemoryLayout
  "withoutName"(): $MemoryLayout
  "withOrder"(arg0: $ByteOrder$$Type): $ValueLayout
- "withName"(arg0: StringJS): $MemoryLayout
  "byteSize"(): long
  "byteAlignment"(): long
  "name"(): $Optional<(StringJS)>
@@ -1070,6 +1070,7 @@ static readonly "JAVA_INT": $ValueLayout$OfInt
  "toString"(): StringJS
  "hashCode"(): integer
  "byteOffset"(...arg0: ($MemoryLayout$PathElement$$Type)[]): long
+ "select"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MemoryLayout
 static "sequenceLayout"(arg0: long, arg1: $MemoryLayout$$Type): $SequenceLayout
 static "sequenceLayout"(arg0: $MemoryLayout$$Type): $SequenceLayout
  "byteOffsetHandle"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MethodHandle
@@ -1078,7 +1079,6 @@ static "sequenceLayout"(arg0: $MemoryLayout$$Type): $SequenceLayout
 static "paddingLayout"(arg0: long): $PaddingLayout
 static "structLayout"(...arg0: ($MemoryLayout$$Type)[]): $StructLayout
 static "unionLayout"(...arg0: ($MemoryLayout$$Type)[]): $UnionLayout
- "select"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MemoryLayout
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1094,8 +1094,8 @@ import {$StructLayout} from "java.lang.foreign.StructLayout"
 import {$MemoryLayout, $MemoryLayout$$Type, $MemoryLayout$$Interface} from "java.lang.foreign.MemoryLayout"
 import {$Optional} from "java.util.Optional"
 import {$MemoryLayout$PathElement$$Type} from "java.lang.foreign.MemoryLayout$PathElement"
-import {$MethodHandle} from "java.lang.invoke.MethodHandle"
 import {$VarHandle} from "java.lang.invoke.VarHandle"
+import {$MethodHandle} from "java.lang.invoke.MethodHandle"
 import {$PaddingLayout} from "java.lang.foreign.PaddingLayout"
 import {$UnionLayout} from "java.lang.foreign.UnionLayout"
 
@@ -1110,11 +1110,11 @@ export interface $SequenceLayout$$Interface extends $MemoryLayout$$Interface {
 export class $SequenceLayout implements $SequenceLayout$$Interface {
  "elementCount"(): long
  "flatten"(): $SequenceLayout
+ "withName"(arg0: StringJS): $MemoryLayout
  "withByteAlignment"(arg0: long): $SequenceLayout
  "withoutName"(): $MemoryLayout
  "elementLayout"(): $MemoryLayout
  "reshape"(...arg0: (long)[]): $SequenceLayout
- "withName"(arg0: StringJS): $MemoryLayout
  "withElementCount"(arg0: long): $SequenceLayout
  "byteSize"(): long
  "byteAlignment"(): long
@@ -1123,6 +1123,7 @@ export class $SequenceLayout implements $SequenceLayout$$Interface {
  "toString"(): StringJS
  "hashCode"(): integer
  "byteOffset"(...arg0: ($MemoryLayout$PathElement$$Type)[]): long
+ "select"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MemoryLayout
 static "sequenceLayout"(arg0: long, arg1: $MemoryLayout$$Type): $SequenceLayout
 static "sequenceLayout"(arg0: $MemoryLayout$$Type): $SequenceLayout
  "byteOffsetHandle"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MethodHandle
@@ -1131,7 +1132,6 @@ static "sequenceLayout"(arg0: $MemoryLayout$$Type): $SequenceLayout
 static "paddingLayout"(arg0: long): $PaddingLayout
 static "structLayout"(...arg0: ($MemoryLayout$$Type)[]): $StructLayout
 static "unionLayout"(...arg0: ($MemoryLayout$$Type)[]): $UnionLayout
- "select"(...arg0: ($MemoryLayout$PathElement$$Type)[]): $MemoryLayout
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

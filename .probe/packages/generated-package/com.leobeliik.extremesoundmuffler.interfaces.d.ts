@@ -10,6 +10,7 @@ export interface $ISoundLists$$Interface {
 
 export class $ISoundLists implements $ISoundLists$$Interface {
 static readonly "muffledSounds": $Map<($ResourceLocation), (double)>
+static readonly "forbiddenCache": $Map<($ResourceLocation), (boolean)>
 static readonly "modsMuffled": $Set<(StringJS)>
 static readonly "soundsList": $List<($ResourceLocation)>
 static readonly "forbiddenSounds": $Set<(StringJS)>

@@ -10,13 +10,13 @@ export class $MinimapClientWorldData {
 
 constructor(arg0: $ClientLevel$$Type)
 
+public "getSyncedRules"(): $ClientboundRulesPacket
 public "setSyncedRules"(arg0: $ClientboundRulesPacket$$Type): void
 public "setServerModNetworkVersion"(arg0: integer): void
-public "getSyncedRules"(): $ClientboundRulesPacket
 public "getServerModNetworkVersion"(): integer
+get "syncedRules"(): $ClientboundRulesPacket
 set "syncedRules"(value: $ClientboundRulesPacket$$Type)
 set "serverModNetworkVersion"(value: integer)
-get "syncedRules"(): $ClientboundRulesPacket
 get "serverModNetworkVersion"(): integer
 }
 /**
@@ -32,13 +32,13 @@ declare module "xaero.common.minimap.mcworld.IXaeroMinimapClientWorld" {
 import {$MinimapClientWorldData, $MinimapClientWorldData$$Type} from "xaero.common.minimap.mcworld.MinimapClientWorldData"
 
 export interface $IXaeroMinimapClientWorld$$Interface {
-set "xaero_minimapData"(value: $MinimapClientWorldData$$Type)
 get "xaero_minimapData"(): $MinimapClientWorldData
+set "xaero_minimapData"(value: $MinimapClientWorldData$$Type)
 }
 
 export class $IXaeroMinimapClientWorld implements $IXaeroMinimapClientWorld$$Interface {
- "setXaero_minimapData"(arg0: $MinimapClientWorldData$$Type): void
  "getXaero_minimapData"(): $MinimapClientWorldData
+ "setXaero_minimapData"(arg0: $MinimapClientWorldData$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

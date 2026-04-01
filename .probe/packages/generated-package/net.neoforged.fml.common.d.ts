@@ -15,17 +15,17 @@ constructor(extended: boolean, vanillaCount: integer, totalCount: integer, netCh
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public static "nonExtended"<T extends $Enum<(object)>>(arg0: $Class$$Type<(T)>): $ExtensionInfo
 public "vanillaCount"(): integer
-public "netCheck"(): $NetworkedEnum$NetworkCheck
+public static "nonExtended"<T extends $Enum<(object)>>(arg0: $Class$$Type<(T)>): $ExtensionInfo
 public "totalCount"(): integer
+public "netCheck"(): $NetworkedEnum$NetworkCheck
 public "extended"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $ExtensionInfo$$Type = ({"netCheck"?: $NetworkedEnum$NetworkCheck$$Type, "extended"?: boolean, "totalCount"?: integer, "vanillaCount"?: integer}) | ([netCheck?: $NetworkedEnum$NetworkCheck$$Type, extended?: boolean, totalCount?: integer, vanillaCount?: integer]);
+export type $ExtensionInfo$$Type = ({"totalCount"?: integer, "extended"?: boolean, "netCheck"?: $NetworkedEnum$NetworkCheck$$Type, "vanillaCount"?: integer}) | ([totalCount?: integer, extended?: boolean, netCheck?: $NetworkedEnum$NetworkCheck$$Type, vanillaCount?: integer]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */

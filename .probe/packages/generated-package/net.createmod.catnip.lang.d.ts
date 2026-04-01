@@ -19,19 +19,19 @@ public "newLine"(): $LangBuilder
 public "color"(arg0: integer): $LangBuilder
 public "color"(arg0: $Color$$Type): $LangBuilder
 public "string"(): StringJS
+public "text"(arg0: integer, arg1: StringJS): $LangBuilder
 public "text"(arg0: $ChatFormatting$$Type, arg1: StringJS): $LangBuilder
 public "text"(arg0: StringJS): $LangBuilder
-public "text"(arg0: integer, arg1: StringJS): $LangBuilder
 public "space"(): $LangBuilder
 public "style"(arg0: $ChatFormatting$$Type): $LangBuilder
 public "addTo"(arg0: $List$$Type<($MutableComponent$$Type)>): void
+public "json"(): StringJS
+public "translate"(arg0: StringJS, ...arg1: (any)[]): $LangBuilder
 public static "resolveBuilders"(arg0: (any)[]): (any)[]
+public "sendChat"(arg0: $Player$$Type): void
 public "forGoggles"(arg0: $List$$Type<($MutableComponent$$Type)>, arg1: integer): void
 public "forGoggles"(arg0: $List$$Type<($MutableComponent$$Type)>): void
 public "sendStatus"(arg0: $Player$$Type): void
-public "json"(): StringJS
-public "sendChat"(arg0: $Player$$Type): void
-public "translate"(arg0: StringJS, ...arg1: (any)[]): $LangBuilder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

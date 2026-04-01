@@ -7,14 +7,14 @@ import {$GuiSettings} from "xaero.lib.client.gui.GuiSettings"
 export class $GuiHelper {
 constructor(arg0: $IXaeroMinimap$$Type)
 
-public "getMainSettingsScreen"(arg0: $Screen$$Type): $GuiSettings
-public "openMainSettingsFromScreen"(arg0: $Screen$$Type): void
-public "getMinimapSettingsFromScreen"(arg0: $Screen$$Type): $ScreenBase
 /**
  * 
  * @deprecated
  */
 public "openMinimapSettingsFromScreen"(arg0: $Screen$$Type, arg1: $Screen$$Type): void
+public "getMinimapSettingsFromScreen"(arg0: $Screen$$Type): $ScreenBase
+public "getMainSettingsScreen"(arg0: $Screen$$Type): $GuiSettings
+public "openMainSettingsFromScreen"(arg0: $Screen$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

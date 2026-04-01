@@ -38,17 +38,17 @@ static readonly "SCALE_REPLICATE": integer
 public "getProperty"(arg0: StringJS, arg1: $ImageObserver$$Type): any
 public "flush"(): void
 public "getSource"(): $ImageProducer
-public "getWidth"(arg0: $ImageObserver$$Type): integer
 public "getCapabilities"(arg0: $GraphicsConfiguration$$Type): $ImageCapabilities
+public "getWidth"(arg0: $ImageObserver$$Type): integer
+public "getHeight"(arg0: $ImageObserver$$Type): integer
+public "getGraphics"(): $Graphics
 public "setAccelerationPriority"(arg0: float): void
 public "getScaledInstance"(arg0: integer, arg1: integer, arg2: integer): $Image
 public "getAccelerationPriority"(): float
-public "getHeight"(arg0: $ImageObserver$$Type): integer
-public "getGraphics"(): $Graphics
 get "source"(): $ImageProducer
+get "graphics"(): $Graphics
 set "accelerationPriority"(value: float)
 get "accelerationPriority"(): float
-get "graphics"(): $Graphics
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -82,9 +82,9 @@ export type $Composite$$Type = ((arg0: $ColorModel, arg1: $ColorModel, arg2: $Re
  */
 export type $Composite$$Original = $Composite;}
 declare module "java.awt.FontMetrics" {
-import {$Rectangle2D} from "java.awt.geom.Rectangle2D"
 import {$LineMetrics} from "java.awt.font.LineMetrics"
 import {$Serializable$$Interface} from "java.io.Serializable"
+import {$Rectangle2D} from "java.awt.geom.Rectangle2D"
 import {$Graphics$$Type} from "java.awt.Graphics"
 import {$CharacterIterator$$Type} from "java.text.CharacterIterator"
 import {$FontRenderContext} from "java.awt.font.FontRenderContext"
@@ -92,22 +92,18 @@ import {$Font} from "java.awt.Font"
 
 export class $FontMetrics implements $Serializable$$Interface {
 public "toString"(): StringJS
-public "getFont"(): $Font
 public "stringWidth"(arg0: StringJS): integer
-public "getHeight"(): integer
-public "charWidth"(arg0: character): integer
-public "charWidth"(arg0: integer): integer
-public "getDescent"(): integer
-public "getLeading"(): integer
-public "hasUniformLineMetrics"(): boolean
-public "getLineMetrics"(arg0: StringJS, arg1: integer, arg2: integer, arg3: $Graphics$$Type): $LineMetrics
 public "getLineMetrics"(arg0: $CharacterIterator$$Type, arg1: integer, arg2: integer, arg3: $Graphics$$Type): $LineMetrics
+public "getLineMetrics"(arg0: StringJS, arg1: integer, arg2: integer, arg3: $Graphics$$Type): $LineMetrics
 public "getLineMetrics"(arg0: (character)[], arg1: integer, arg2: integer, arg3: $Graphics$$Type): $LineMetrics
 public "getLineMetrics"(arg0: StringJS, arg1: $Graphics$$Type): $LineMetrics
 public "getMaxCharBounds"(arg0: $Graphics$$Type): $Rectangle2D
+public "charWidth"(arg0: integer): integer
+public "charWidth"(arg0: character): integer
 public "getMaxDescent"(): integer
 public "getWidths"(): (integer)[]
 public "charsWidth"(arg0: (character)[], arg1: integer, arg2: integer): integer
+public "getFontRenderContext"(): $FontRenderContext
 public "getMaxAscent"(): integer
 /**
  * 
@@ -117,22 +113,26 @@ public "getMaxDecent"(): integer
 public "getMaxAdvance"(): integer
 public "bytesWidth"(arg0: (byte)[], arg1: integer, arg2: integer): integer
 public "getAscent"(): integer
-public "getFontRenderContext"(): $FontRenderContext
+public "getHeight"(): integer
+public "getFont"(): $Font
+public "getDescent"(): integer
+public "getLeading"(): integer
+public "hasUniformLineMetrics"(): boolean
 public "getStringBounds"(arg0: (character)[], arg1: integer, arg2: integer, arg3: $Graphics$$Type): $Rectangle2D
 public "getStringBounds"(arg0: StringJS, arg1: $Graphics$$Type): $Rectangle2D
 public "getStringBounds"(arg0: StringJS, arg1: integer, arg2: integer, arg3: $Graphics$$Type): $Rectangle2D
 public "getStringBounds"(arg0: $CharacterIterator$$Type, arg1: integer, arg2: integer, arg3: $Graphics$$Type): $Rectangle2D
-get "font"(): $Font
-get "height"(): integer
-get "descent"(): integer
-get "leading"(): integer
 get "maxDescent"(): integer
 get "widths"(): (integer)[]
+get "fontRenderContext"(): $FontRenderContext
 get "maxAscent"(): integer
 get "maxDecent"(): integer
 get "maxAdvance"(): integer
 get "ascent"(): integer
-get "fontRenderContext"(): $FontRenderContext
+get "height"(): integer
+get "font"(): $Font
+get "descent"(): integer
+get "leading"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -148,14 +148,13 @@ import {$AttributedCharacterIterator$$Type} from "java.text.AttributedCharacterI
 import {$ImageObserver$$Type} from "java.awt.image.ImageObserver"
 import {$Shape, $Shape$$Type} from "java.awt.Shape"
 import {$Color, $Color$$Type} from "java.awt.Color"
-import {$Rectangle, $Rectangle$$Type} from "java.awt.Rectangle"
 import {$FontMetrics} from "java.awt.FontMetrics"
+import {$Rectangle, $Rectangle$$Type} from "java.awt.Rectangle"
 import {$Polygon$$Type} from "java.awt.Polygon"
 import {$Image$$Type} from "java.awt.Image"
 import {$Font, $Font$$Type} from "java.awt.Font"
 
 export class $Graphics {
-public "fillRoundRect"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): void
 /**
  * 
  * @deprecated
@@ -166,35 +165,15 @@ public "create"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): $Gr
 public "create"(): $Graphics
 public "setColor"(arg0: $Color$$Type): void
 public "dispose"(): void
-public "getFont"(): $Font
-public "drawString"(arg0: StringJS, arg1: integer, arg2: integer): void
-public "drawString"(arg0: $AttributedCharacterIterator$$Type, arg1: integer, arg2: integer): void
-public "drawRect"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
-public "getColor"(): $Color
 public "fillRect"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
 public "getClipBounds"(arg0: $Rectangle$$Type): $Rectangle
 public "getClipBounds"(): $Rectangle
-public "setClip"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
-public "setClip"(arg0: $Shape$$Type): void
+public "drawRect"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
+public "getColor"(): $Color
 public "hitClip"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): boolean
 public "clipRect"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
-public "getClip"(): $Shape
-public "drawLine"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
-public "setFont"(arg0: $Font$$Type): void
-public "getFontMetrics"(arg0: $Font$$Type): $FontMetrics
-public "getFontMetrics"(): $FontMetrics
-public "translate"(arg0: integer, arg1: integer): void
-public "drawImage"(arg0: $Image$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer, arg9: $Color$$Type, arg10: $ImageObserver$$Type): boolean
-public "drawImage"(arg0: $Image$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: $Color$$Type, arg6: $ImageObserver$$Type): boolean
-public "drawImage"(arg0: $Image$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: $ImageObserver$$Type): boolean
-public "drawImage"(arg0: $Image$$Type, arg1: integer, arg2: integer, arg3: $ImageObserver$$Type): boolean
-public "drawImage"(arg0: $Image$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer, arg9: $ImageObserver$$Type): boolean
-public "drawImage"(arg0: $Image$$Type, arg1: integer, arg2: integer, arg3: $Color$$Type, arg4: $ImageObserver$$Type): boolean
-public "drawArc"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): void
 public "clearRect"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
-public "copyArea"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): void
-public "drawPolygon"(arg0: $Polygon$$Type): void
-public "drawPolygon"(arg0: (integer)[], arg1: (integer)[], arg2: integer): void
+public "translate"(arg0: integer, arg1: integer): void
 public "fillPolygon"(arg0: (integer)[], arg1: (integer)[], arg2: integer): void
 public "fillPolygon"(arg0: $Polygon$$Type): void
 public "setPaintMode"(): void
@@ -213,16 +192,37 @@ public "drawBytes"(arg0: (byte)[], arg1: integer, arg2: integer, arg3: integer, 
  * @deprecated
  */
 public "getClipRect"(): $Rectangle
+public "getFontMetrics"(): $FontMetrics
+public "getFontMetrics"(arg0: $Font$$Type): $FontMetrics
+public "fillRoundRect"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): void
+public "drawImage"(arg0: $Image$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: $ImageObserver$$Type): boolean
+public "drawImage"(arg0: $Image$$Type, arg1: integer, arg2: integer, arg3: $Color$$Type, arg4: $ImageObserver$$Type): boolean
+public "drawImage"(arg0: $Image$$Type, arg1: integer, arg2: integer, arg3: $ImageObserver$$Type): boolean
+public "drawImage"(arg0: $Image$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer, arg9: $ImageObserver$$Type): boolean
+public "drawImage"(arg0: $Image$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer, arg9: $Color$$Type, arg10: $ImageObserver$$Type): boolean
+public "drawImage"(arg0: $Image$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: $Color$$Type, arg6: $ImageObserver$$Type): boolean
+public "drawLine"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
+public "setFont"(arg0: $Font$$Type): void
+public "drawString"(arg0: $AttributedCharacterIterator$$Type, arg1: integer, arg2: integer): void
+public "drawString"(arg0: StringJS, arg1: integer, arg2: integer): void
+public "getFont"(): $Font
+public "setClip"(arg0: $Shape$$Type): void
+public "setClip"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
+public "getClip"(): $Shape
+public "drawArc"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): void
+public "copyArea"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): void
+public "drawPolygon"(arg0: $Polygon$$Type): void
+public "drawPolygon"(arg0: (integer)[], arg1: (integer)[], arg2: integer): void
 set "color"(value: $Color$$Type)
-get "font"(): $Font
-get "color"(): $Color
 get "clipBounds"(): $Rectangle
-set "clip"(value: $Shape$$Type)
-get "clip"(): $Shape
-set "font"(value: $Font$$Type)
-get "fontMetrics"(): $FontMetrics
+get "color"(): $Color
 get "paintMode"(): void
 set "XORMode"(value: $Color$$Type)
+get "fontMetrics"(): $FontMetrics
+set "font"(value: $Font$$Type)
+get "font"(): $Font
+set "clip"(value: $Shape$$Type)
+get "clip"(): $Shape
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -249,12 +249,12 @@ public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "getLocation"(): $Point
 public "move"(arg0: integer, arg1: integer): void
+public "getY"(): double
 public "setLocation"(arg0: $Point$$Type): void
 public "setLocation"(arg0: double, arg1: double): void
 public "setLocation"(arg0: integer, arg1: integer): void
-public "getX"(): double
-public "getY"(): double
 public "translate"(arg0: integer, arg1: integer): void
+public "getX"(): double
 get "location"(): $Point
 set "location"(value: $Point$$Type)
 }
@@ -286,8 +286,8 @@ export type $RenderingHints$Key$$Original = $RenderingHints$Key;}
 declare module "java.awt.Shape" {
 import {$Rectangle2D, $Rectangle2D$$Type} from "java.awt.geom.Rectangle2D"
 import {$Point2D$$Type} from "java.awt.geom.Point2D"
-import {$Rectangle} from "java.awt.Rectangle"
 import {$PathIterator} from "java.awt.geom.PathIterator"
+import {$Rectangle} from "java.awt.Rectangle"
 import {$AffineTransform$$Type} from "java.awt.geom.AffineTransform"
 
 export interface $Shape$$Interface {
@@ -303,9 +303,9 @@ export class $Shape implements $Shape$$Interface {
  "getBounds"(): $Rectangle
  "intersects"(arg0: $Rectangle2D$$Type): boolean
  "intersects"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
+ "getBounds2D"(): $Rectangle2D
  "getPathIterator"(arg0: $AffineTransform$$Type, arg1: double): $PathIterator
  "getPathIterator"(arg0: $AffineTransform$$Type): $PathIterator
- "getBounds2D"(): $Rectangle2D
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -352,78 +352,78 @@ export type $Dimension$$Original = $Dimension;}
 declare module "java.awt.Graphics2D" {
 import {$AttributedCharacterIterator$$Type} from "java.text.AttributedCharacterIterator"
 import {$ImageObserver$$Type} from "java.awt.image.ImageObserver"
-import {$Stroke, $Stroke$$Type} from "java.awt.Stroke"
 import {$Map$$Type} from "java.util.Map"
+import {$Stroke, $Stroke$$Type} from "java.awt.Stroke"
 import {$Shape$$Type} from "java.awt.Shape"
 import {$Color, $Color$$Type} from "java.awt.Color"
 import {$BufferedImageOp$$Type} from "java.awt.image.BufferedImageOp"
-import {$Image$$Type} from "java.awt.Image"
 import {$Composite, $Composite$$Type} from "java.awt.Composite"
+import {$Image$$Type} from "java.awt.Image"
 import {$GraphicsConfiguration} from "java.awt.GraphicsConfiguration"
 import {$RenderingHints} from "java.awt.RenderingHints"
 import {$BufferedImage$$Type} from "java.awt.image.BufferedImage"
 import {$RenderableImage$$Type} from "java.awt.image.renderable.RenderableImage"
 import {$Paint, $Paint$$Type} from "java.awt.Paint"
-import {$Rectangle$$Type} from "java.awt.Rectangle"
 import {$Graphics} from "java.awt.Graphics"
+import {$Rectangle$$Type} from "java.awt.Rectangle"
 import {$RenderingHints$Key$$Type} from "java.awt.RenderingHints$Key"
 import {$AffineTransform, $AffineTransform$$Type} from "java.awt.geom.AffineTransform"
-import {$FontRenderContext} from "java.awt.font.FontRenderContext"
 import {$GlyphVector$$Type} from "java.awt.font.GlyphVector"
+import {$FontRenderContext} from "java.awt.font.FontRenderContext"
 import {$RenderedImage$$Type} from "java.awt.image.RenderedImage"
 
 export class $Graphics2D extends $Graphics {
 public "scale"(arg0: double, arg1: double): void
 public "fill"(arg0: $Shape$$Type): void
 public "transform"(arg0: $AffineTransform$$Type): void
-public "rotate"(arg0: double): void
 public "rotate"(arg0: double, arg1: double, arg2: double): void
+public "rotate"(arg0: double): void
 public "hit"(arg0: $Rectangle$$Type, arg1: $Shape$$Type, arg2: boolean): boolean
-public "getTransform"(): $AffineTransform
-public "drawString"(arg0: $AttributedCharacterIterator$$Type, arg1: float, arg2: float): void
-public "drawString"(arg0: $AttributedCharacterIterator$$Type, arg1: integer, arg2: integer): void
-public "drawString"(arg0: StringJS, arg1: float, arg2: float): void
-public "drawString"(arg0: StringJS, arg1: integer, arg2: integer): void
 public "getComposite"(): $Composite
-public "clip"(arg0: $Shape$$Type): void
-public "setBackground"(arg0: $Color$$Type): void
 public "draw"(arg0: $Shape$$Type): void
-public "getBackground"(): $Color
 public "shear"(arg0: double, arg1: double): void
-public "setRenderingHint"(arg0: $RenderingHints$Key$$Type, arg1: any): void
+public "clip"(arg0: $Shape$$Type): void
+public "getTransform"(): $AffineTransform
 public "translate"(arg0: integer, arg1: integer): void
 public "translate"(arg0: double, arg1: double): void
-public "setTransform"(arg0: $AffineTransform$$Type): void
-public "drawImage"(arg0: $BufferedImage$$Type, arg1: $BufferedImageOp$$Type, arg2: integer, arg3: integer): void
-public "drawImage"(arg0: $Image$$Type, arg1: $AffineTransform$$Type, arg2: $ImageObserver$$Type): boolean
-public "getRenderingHints"(): $RenderingHints
-public "setComposite"(arg0: $Composite$$Type): void
 public "draw3DRect"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: boolean): void
 public "fill3DRect"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: boolean): void
+public "setBackground"(arg0: $Color$$Type): void
+public "setRenderingHint"(arg0: $RenderingHints$Key$$Type, arg1: any): void
+public "drawImage"(arg0: $Image$$Type, arg1: $AffineTransform$$Type, arg2: $ImageObserver$$Type): boolean
+public "drawImage"(arg0: $BufferedImage$$Type, arg1: $BufferedImageOp$$Type, arg2: integer, arg3: integer): void
 public "getPaint"(): $Paint
-public "drawRenderedImage"(arg0: $RenderedImage$$Type, arg1: $AffineTransform$$Type): void
 public "drawRenderableImage"(arg0: $RenderableImage$$Type, arg1: $AffineTransform$$Type): void
-public "drawGlyphVector"(arg0: $GlyphVector$$Type, arg1: float, arg2: float): void
-public "getDeviceConfiguration"(): $GraphicsConfiguration
 public "setStroke"(arg0: $Stroke$$Type): void
 public "getRenderingHint"(arg0: $RenderingHints$Key$$Type): any
-public "setRenderingHints"(arg0: $Map$$Type<(never), (never)>): void
 public "addRenderingHints"(arg0: $Map$$Type<(never), (never)>): void
 public "getStroke"(): $Stroke
+public "getRenderingHints"(): $RenderingHints
 public "getFontRenderContext"(): $FontRenderContext
+public "drawString"(arg0: $AttributedCharacterIterator$$Type, arg1: float, arg2: float): void
+public "drawString"(arg0: $AttributedCharacterIterator$$Type, arg1: integer, arg2: integer): void
+public "drawString"(arg0: StringJS, arg1: integer, arg2: integer): void
+public "drawString"(arg0: StringJS, arg1: float, arg2: float): void
+public "getBackground"(): $Color
+public "setTransform"(arg0: $AffineTransform$$Type): void
 public "setPaint"(arg0: $Paint$$Type): void
+public "setComposite"(arg0: $Composite$$Type): void
+public "getDeviceConfiguration"(): $GraphicsConfiguration
+public "setRenderingHints"(arg0: $Map$$Type<(never), (never)>): void
+public "drawRenderedImage"(arg0: $RenderedImage$$Type, arg1: $AffineTransform$$Type): void
+public "drawGlyphVector"(arg0: $GlyphVector$$Type, arg1: float, arg2: float): void
 get "composite"(): $Composite
 set "background"(value: $Color$$Type)
-get "background"(): $Color
-get "renderingHints"(): $RenderingHints
-set "composite"(value: $Composite$$Type)
 get "paint"(): $Paint
-get "deviceConfiguration"(): $GraphicsConfiguration
 set "stroke"(value: $Stroke$$Type)
-set "renderingHints"(value: $Map$$Type<(never), (never)>)
 get "stroke"(): $Stroke
+get "renderingHints"(): $RenderingHints
 get "fontRenderContext"(): $FontRenderContext
+get "background"(): $Color
 set "paint"(value: $Paint$$Type)
+set "composite"(value: $Composite$$Type)
+get "deviceConfiguration"(): $GraphicsConfiguration
+set "renderingHints"(value: $Map$$Type<(never), (never)>)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -443,18 +443,18 @@ export class $BufferCapabilities implements $Cloneable$$Interface {
 constructor(arg0: $ImageCapabilities$$Type, arg1: $ImageCapabilities$$Type, arg2: $BufferCapabilities$FlipContents$$Type)
 
 public "clone"(): any
-public "isPageFlipping"(): boolean
 public "getFlipContents"(): $BufferCapabilities$FlipContents
 public "getFrontBufferCapabilities"(): $ImageCapabilities
 public "getBackBufferCapabilities"(): $ImageCapabilities
 public "isFullScreenRequired"(): boolean
 public "isMultiBufferAvailable"(): boolean
-get "pageFlipping"(): boolean
+public "isPageFlipping"(): boolean
 get "flipContents"(): $BufferCapabilities$FlipContents
 get "frontBufferCapabilities"(): $ImageCapabilities
 get "backBufferCapabilities"(): $ImageCapabilities
 get "fullScreenRequired"(): boolean
 get "multiBufferAvailable"(): boolean
+get "pageFlipping"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -489,8 +489,8 @@ export type $ImageCapabilities$$Original = $ImageCapabilities;}
 declare module "java.awt.Rectangle" {
 import {$Dimension, $Dimension$$Type} from "java.awt.Dimension"
 import {$Shape$$Interface} from "java.awt.Shape"
-import {$Rectangle2D, $Rectangle2D$$Type} from "java.awt.geom.Rectangle2D"
 import {$Serializable$$Interface} from "java.io.Serializable"
+import {$Rectangle2D, $Rectangle2D$$Type} from "java.awt.geom.Rectangle2D"
 import {$Point2D$$Type} from "java.awt.geom.Point2D"
 import {$PathIterator} from "java.awt.geom.PathIterator"
 import {$Point, $Point$$Type} from "java.awt.Point"
@@ -541,31 +541,31 @@ public "move"(arg0: integer, arg1: integer): void
 public "setSize"(arg0: integer, arg1: integer): void
 public "setSize"(arg0: $Dimension$$Type): void
 public "union"(arg0: $Rectangle$$Type): $Rectangle
+public "getY"(): double
+public "intersection"(arg0: $Rectangle$$Type): $Rectangle
 public "intersects"(arg0: $Rectangle$$Type): boolean
-public "getWidth"(): double
+public "setBounds"(arg0: $Rectangle$$Type): void
+public "setBounds"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
 public "setLocation"(arg0: integer, arg1: integer): void
 public "setLocation"(arg0: $Point$$Type): void
+public "getWidth"(): double
+public "translate"(arg0: integer, arg1: integer): void
+public "getBounds2D"(): $Rectangle2D
+public "getHeight"(): double
 public "getX"(): double
 /**
  * 
  * @deprecated
  */
-public "inside"(arg0: integer, arg1: integer): boolean
-public "getY"(): double
+public "reshape"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
 /**
  * 
  * @deprecated
  */
-public "reshape"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
+public "inside"(arg0: integer, arg1: integer): boolean
 public "outcode"(arg0: double, arg1: double): integer
 public "createIntersection"(arg0: $Rectangle2D$$Type): $Rectangle2D
 public "createUnion"(arg0: $Rectangle2D$$Type): $Rectangle2D
-public "intersection"(arg0: $Rectangle$$Type): $Rectangle
-public "setBounds"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
-public "setBounds"(arg0: $Rectangle$$Type): void
-public "getHeight"(): double
-public "translate"(arg0: integer, arg1: integer): void
-public "getBounds2D"(): $Rectangle2D
 public "setRect"(arg0: double, arg1: double, arg2: double, arg3: double): void
 public "contains"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
 public "contains"(arg0: double, arg1: double): boolean
@@ -580,8 +580,8 @@ get "bounds"(): $Rectangle
 get "location"(): $Point
 get "size"(): $Dimension
 set "size"(value: $Dimension$$Type)
-set "location"(value: $Point$$Type)
 set "bounds"(value: $Rectangle$$Type)
+set "location"(value: $Point$$Type)
 get "bounds2D"(): $Rectangle2D
 }
 /**
@@ -605,24 +605,24 @@ import {$ImageCapabilities, $ImageCapabilities$$Type} from "java.awt.ImageCapabi
 
 export class $GraphicsConfiguration {
 public "getBounds"(): $Rectangle
+public "getDevice"(): $GraphicsDevice
 public "getColorModel"(): $ColorModel
 public "getColorModel"(arg0: integer): $ColorModel
-public "isTranslucencyCapable"(): boolean
-public "getDevice"(): $GraphicsDevice
 public "createCompatibleImage"(arg0: integer, arg1: integer, arg2: integer): $BufferedImage
 public "createCompatibleImage"(arg0: integer, arg1: integer): $BufferedImage
-public "createCompatibleVolatileImage"(arg0: integer, arg1: integer): $VolatileImage
-public "createCompatibleVolatileImage"(arg0: integer, arg1: integer, arg2: $ImageCapabilities$$Type): $VolatileImage
+public "isTranslucencyCapable"(): boolean
 public "createCompatibleVolatileImage"(arg0: integer, arg1: integer, arg2: integer): $VolatileImage
 public "createCompatibleVolatileImage"(arg0: integer, arg1: integer, arg2: $ImageCapabilities$$Type, arg3: integer): $VolatileImage
+public "createCompatibleVolatileImage"(arg0: integer, arg1: integer): $VolatileImage
+public "createCompatibleVolatileImage"(arg0: integer, arg1: integer, arg2: $ImageCapabilities$$Type): $VolatileImage
 public "getImageCapabilities"(): $ImageCapabilities
 public "getDefaultTransform"(): $AffineTransform
 public "getNormalizingTransform"(): $AffineTransform
 public "getBufferCapabilities"(): $BufferCapabilities
 get "bounds"(): $Rectangle
+get "device"(): $GraphicsDevice
 get "colorModel"(): $ColorModel
 get "translucencyCapable"(): boolean
-get "device"(): $GraphicsDevice
 get "imageCapabilities"(): $ImageCapabilities
 get "defaultTransform"(): $AffineTransform
 get "normalizingTransform"(): $AffineTransform
@@ -639,11 +639,11 @@ export type $GraphicsConfiguration$$Type = ($GraphicsConfiguration);
 export type $GraphicsConfiguration$$Original = $GraphicsConfiguration;}
 declare module "java.awt.Polygon" {
 import {$Shape$$Interface} from "java.awt.Shape"
-import {$Rectangle2D, $Rectangle2D$$Type} from "java.awt.geom.Rectangle2D"
 import {$Serializable$$Interface} from "java.io.Serializable"
+import {$Rectangle2D, $Rectangle2D$$Type} from "java.awt.geom.Rectangle2D"
 import {$Point2D$$Type} from "java.awt.geom.Point2D"
-import {$Rectangle} from "java.awt.Rectangle"
 import {$PathIterator} from "java.awt.geom.PathIterator"
+import {$Rectangle} from "java.awt.Rectangle"
 import {$Point$$Type} from "java.awt.Point"
 import {$AffineTransform$$Type} from "java.awt.geom.AffineTransform"
 
@@ -664,8 +664,16 @@ public "contains"(arg0: $Point2D$$Type): boolean
 public "contains"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
 public "contains"(arg0: $Rectangle2D$$Type): boolean
 public "getBounds"(): $Rectangle
-public "intersects"(arg0: $Rectangle2D$$Type): boolean
 public "intersects"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
+public "intersects"(arg0: $Rectangle2D$$Type): boolean
+public "translate"(arg0: integer, arg1: integer): void
+public "getBounds2D"(): $Rectangle2D
+/**
+ * 
+ * @deprecated
+ */
+public "getBoundingBox"(): $Rectangle
+public "addPoint"(arg0: integer, arg1: integer): void
 /**
  * 
  * @deprecated
@@ -673,17 +681,9 @@ public "intersects"(arg0: double, arg1: double, arg2: double, arg3: double): boo
 public "inside"(arg0: integer, arg1: integer): boolean
 public "getPathIterator"(arg0: $AffineTransform$$Type): $PathIterator
 public "getPathIterator"(arg0: $AffineTransform$$Type, arg1: double): $PathIterator
-/**
- * 
- * @deprecated
- */
-public "getBoundingBox"(): $Rectangle
-public "translate"(arg0: integer, arg1: integer): void
-public "addPoint"(arg0: integer, arg1: integer): void
-public "getBounds2D"(): $Rectangle2D
 get "bounds"(): $Rectangle
-get "boundingBox"(): $Rectangle
 get "bounds2D"(): $Rectangle2D
+get "boundingBox"(): $Rectangle
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -743,8 +743,8 @@ import {$BiFunction$$Type} from "java.util.function.BiFunction"
 import {$Collection} from "java.util.Collection"
 import {$Map, $Map$$Type, $Map$$Interface} from "java.util.Map"
 import {$Function$$Type} from "java.util.function.Function"
-import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$Cloneable$$Interface} from "java.lang.Cloneable"
+import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$Set} from "java.util.Set"
 import {$RenderingHints$Key, $RenderingHints$Key$$Type} from "java.awt.RenderingHints$Key"
 import {$Map$Entry, $Map$Entry$$Type} from "java.util.Map$Entry"
@@ -857,8 +857,8 @@ export type $RenderingHints$$Type = ($RenderingHints);
 export type $RenderingHints$$Original = $RenderingHints;}
 declare module "java.awt.Paint" {
 import {$Transparency$$Interface} from "java.awt.Transparency"
-import {$Rectangle2D$$Type} from "java.awt.geom.Rectangle2D"
 import {$ColorModel$$Type} from "java.awt.image.ColorModel"
+import {$Rectangle2D$$Type} from "java.awt.geom.Rectangle2D"
 import {$Rectangle$$Type} from "java.awt.Rectangle"
 import {$PaintContext} from "java.awt.PaintContext"
 import {$AffineTransform$$Type} from "java.awt.geom.AffineTransform"
@@ -893,27 +893,27 @@ static readonly "TYPE_IMAGE_BUFFER": integer
 static readonly "TYPE_RASTER_SCREEN": integer
 static readonly "TYPE_PRINTER": integer
 
-public "getConfigurations"(): ($GraphicsConfiguration)[]
 public "getType"(): integer
-public "getDisplayMode"(): $DisplayMode
-public "getDefaultConfiguration"(): $GraphicsConfiguration
-public "isWindowTranslucencySupported"(arg0: $GraphicsDevice$WindowTranslucency$$Type): boolean
-public "setDisplayMode"(arg0: $DisplayMode$$Type): void
+public "getConfigurations"(): ($GraphicsConfiguration)[]
+public "getBestConfiguration"(arg0: $GraphicsConfigTemplate$$Type): $GraphicsConfiguration
 public "getFullScreenWindow"(): $Window
 public "getIDstring"(): StringJS
-public "getBestConfiguration"(arg0: $GraphicsConfigTemplate$$Type): $GraphicsConfiguration
+public "getDefaultConfiguration"(): $GraphicsConfiguration
+public "setDisplayMode"(arg0: $DisplayMode$$Type): void
+public "getDisplayMode"(): $DisplayMode
+public "isWindowTranslucencySupported"(arg0: $GraphicsDevice$WindowTranslucency$$Type): boolean
 public "setFullScreenWindow"(arg0: $Window$$Type): void
 public "isFullScreenSupported"(): boolean
 public "isDisplayChangeSupported"(): boolean
 public "getDisplayModes"(): ($DisplayMode)[]
 public "getAvailableAcceleratedMemory"(): integer
-get "configurations"(): ($GraphicsConfiguration)[]
 get "type"(): integer
-get "displayMode"(): $DisplayMode
-get "defaultConfiguration"(): $GraphicsConfiguration
-set "displayMode"(value: $DisplayMode$$Type)
+get "configurations"(): ($GraphicsConfiguration)[]
 get "fullScreenWindow"(): $Window
 get "IDstring"(): StringJS
+get "defaultConfiguration"(): $GraphicsConfiguration
+set "displayMode"(value: $DisplayMode$$Type)
+get "displayMode"(): $DisplayMode
 set "fullScreenWindow"(value: $Window$$Type)
 get "fullScreenSupported"(): boolean
 get "displayChangeSupported"(): boolean
@@ -937,8 +937,8 @@ import {$Rectangle2D} from "java.awt.geom.Rectangle2D"
 import {$CharacterIterator$$Type} from "java.text.CharacterIterator"
 import {$Locale$$Type} from "java.util.Locale"
 import {$AttributedCharacterIterator$Attribute, $AttributedCharacterIterator$Attribute$$Type} from "java.text.AttributedCharacterIterator$Attribute"
-import {$LineMetrics} from "java.awt.font.LineMetrics"
 import {$Serializable$$Interface} from "java.io.Serializable"
+import {$LineMetrics} from "java.awt.font.LineMetrics"
 import {$InputStream$$Type} from "java.io.InputStream"
 import {$AffineTransform, $AffineTransform$$Type} from "java.awt.geom.AffineTransform"
 import {$GlyphVector} from "java.awt.font.GlyphVector"
@@ -973,58 +973,58 @@ public "hashCode"(): integer
 public static "decode"(arg0: StringJS): $Font
 public "getSize"(): integer
 public "getAttributes"(): $Map<($TextAttribute), (never)>
-public "getFamily"(): StringJS
 public "getFamily"(arg0: $Locale$$Type): StringJS
+public "getFamily"(): StringJS
 public "isTransformed"(): boolean
-public static "getFont"(arg0: StringJS): $Font
-public static "getFont"(arg0: $Map$$Type<($AttributedCharacterIterator$Attribute$$Type), (never)>): $Font
-public static "getFont"(arg0: StringJS, arg1: $Font$$Type): $Font
 public static "createFont"(arg0: integer, arg1: $File$$Type): $Font
 public static "createFont"(arg0: integer, arg1: $InputStream$$Type): $Font
 public "getTransform"(): $AffineTransform
-public "isBold"(): boolean
-public "isItalic"(): boolean
-public "getStyle"(): integer
-public "isPlain"(): boolean
-public "getNumGlyphs"(): integer
-public "getFontName"(): StringJS
-public "getFontName"(arg0: $Locale$$Type): StringJS
-public "hasLayoutAttributes"(): boolean
-public "getMissingGlyphCode"(): integer
-public "getBaselineFor"(arg0: character): byte
-public "canDisplay"(arg0: integer): boolean
-public "canDisplay"(arg0: character): boolean
-public "getItalicAngle"(): float
-public static "textRequiresLayout"(arg0: (character)[], arg1: integer, arg2: integer): boolean
-public static "createFonts"(arg0: $InputStream$$Type): ($Font)[]
-public static "createFonts"(arg0: $File$$Type): ($Font)[]
-public "getPSName"(): StringJS
-public "getSize2D"(): float
-public "getAvailableAttributes"(): ($AttributedCharacterIterator$Attribute)[]
-public "deriveFont"(arg0: integer): $Font
-public "deriveFont"(arg0: float): $Font
-public "deriveFont"(arg0: $AffineTransform$$Type): $Font
-public "deriveFont"(arg0: $Map$$Type<($AttributedCharacterIterator$Attribute$$Type), (never)>): $Font
-public "deriveFont"(arg0: integer, arg1: $AffineTransform$$Type): $Font
-public "deriveFont"(arg0: integer, arg1: float): $Font
-public "canDisplayUpTo"(arg0: (character)[], arg1: integer, arg2: integer): integer
-public "canDisplayUpTo"(arg0: $CharacterIterator$$Type, arg1: integer, arg2: integer): integer
-public "canDisplayUpTo"(arg0: StringJS): integer
-public "hasUniformLineMetrics"(): boolean
+public "getLineMetrics"(arg0: StringJS, arg1: $FontRenderContext$$Type): $LineMetrics
 public "getLineMetrics"(arg0: $CharacterIterator$$Type, arg1: integer, arg2: integer, arg3: $FontRenderContext$$Type): $LineMetrics
 public "getLineMetrics"(arg0: StringJS, arg1: integer, arg2: integer, arg3: $FontRenderContext$$Type): $LineMetrics
-public "getLineMetrics"(arg0: StringJS, arg1: $FontRenderContext$$Type): $LineMetrics
 public "getLineMetrics"(arg0: (character)[], arg1: integer, arg2: integer, arg3: $FontRenderContext$$Type): $LineMetrics
 public "getMaxCharBounds"(arg0: $FontRenderContext$$Type): $Rectangle2D
+public "createGlyphVector"(arg0: $FontRenderContext$$Type, arg1: $CharacterIterator$$Type): $GlyphVector
 public "createGlyphVector"(arg0: $FontRenderContext$$Type, arg1: (integer)[]): $GlyphVector
 public "createGlyphVector"(arg0: $FontRenderContext$$Type, arg1: (character)[]): $GlyphVector
 public "createGlyphVector"(arg0: $FontRenderContext$$Type, arg1: StringJS): $GlyphVector
-public "createGlyphVector"(arg0: $FontRenderContext$$Type, arg1: $CharacterIterator$$Type): $GlyphVector
 public "layoutGlyphVector"(arg0: $FontRenderContext$$Type, arg1: (character)[], arg2: integer, arg3: integer, arg4: integer): $GlyphVector
+public "isBold"(): boolean
+public "isItalic"(): boolean
+public "isPlain"(): boolean
+public "getStyle"(): integer
+public static "getFont"(arg0: $Map$$Type<($AttributedCharacterIterator$Attribute$$Type), (never)>): $Font
+public static "getFont"(arg0: StringJS, arg1: $Font$$Type): $Font
+public static "getFont"(arg0: StringJS): $Font
+public "getFontName"(): StringJS
+public "getFontName"(arg0: $Locale$$Type): StringJS
+public "hasLayoutAttributes"(): boolean
+public "getNumGlyphs"(): integer
+public "getMissingGlyphCode"(): integer
+public "getBaselineFor"(arg0: character): byte
+public "canDisplay"(arg0: character): boolean
+public "canDisplay"(arg0: integer): boolean
+public "getItalicAngle"(): float
+public static "textRequiresLayout"(arg0: (character)[], arg1: integer, arg2: integer): boolean
+public static "createFonts"(arg0: $File$$Type): ($Font)[]
+public static "createFonts"(arg0: $InputStream$$Type): ($Font)[]
+public "getPSName"(): StringJS
+public "getSize2D"(): float
+public "getAvailableAttributes"(): ($AttributedCharacterIterator$Attribute)[]
+public "deriveFont"(arg0: integer, arg1: float): $Font
+public "deriveFont"(arg0: $Map$$Type<($AttributedCharacterIterator$Attribute$$Type), (never)>): $Font
+public "deriveFont"(arg0: float): $Font
+public "deriveFont"(arg0: integer, arg1: $AffineTransform$$Type): $Font
+public "deriveFont"(arg0: integer): $Font
+public "deriveFont"(arg0: $AffineTransform$$Type): $Font
+public "canDisplayUpTo"(arg0: $CharacterIterator$$Type, arg1: integer, arg2: integer): integer
+public "canDisplayUpTo"(arg0: StringJS): integer
+public "canDisplayUpTo"(arg0: (character)[], arg1: integer, arg2: integer): integer
+public "hasUniformLineMetrics"(): boolean
+public "getStringBounds"(arg0: $CharacterIterator$$Type, arg1: integer, arg2: integer, arg3: $FontRenderContext$$Type): $Rectangle2D
 public "getStringBounds"(arg0: StringJS, arg1: $FontRenderContext$$Type): $Rectangle2D
 public "getStringBounds"(arg0: StringJS, arg1: integer, arg2: integer, arg3: $FontRenderContext$$Type): $Rectangle2D
 public "getStringBounds"(arg0: (character)[], arg1: integer, arg2: integer, arg3: $FontRenderContext$$Type): $Rectangle2D
-public "getStringBounds"(arg0: $CharacterIterator$$Type, arg1: integer, arg2: integer, arg3: $FontRenderContext$$Type): $Rectangle2D
 get "name"(): StringJS
 get "size"(): integer
 get "attributes"(): $Map<($TextAttribute), (never)>
@@ -1033,10 +1033,10 @@ get "transformed"(): boolean
 get "transform"(): $AffineTransform
 get "bold"(): boolean
 get "italic"(): boolean
-get "style"(): integer
 get "plain"(): boolean
-get "numGlyphs"(): integer
+get "style"(): integer
 get "fontName"(): StringJS
+get "numGlyphs"(): integer
 get "missingGlyphCode"(): integer
 get "italicAngle"(): float
 get "PSName"(): StringJS
@@ -1074,9 +1074,9 @@ export type $CompositeContext$$Type = ($CompositeContext);
 export type $CompositeContext$$Original = $CompositeContext;}
 declare module "java.awt.Color" {
 import {$Paint$$Interface} from "java.awt.Paint"
+import {$ColorModel$$Type} from "java.awt.image.ColorModel"
 import {$Rectangle2D$$Type} from "java.awt.geom.Rectangle2D"
 import {$Serializable$$Interface} from "java.io.Serializable"
-import {$ColorModel$$Type} from "java.awt.image.ColorModel"
 import {$Rectangle$$Type} from "java.awt.Rectangle"
 import {$ColorSpace, $ColorSpace$$Type} from "java.awt.color.ColorSpace"
 import {$PaintContext} from "java.awt.PaintContext"
@@ -1123,32 +1123,32 @@ public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public static "decode"(arg0: StringJS): $Color
-public "getRed"(): integer
-public "getGreen"(): integer
-public "getBlue"(): integer
-public "getTransparency"(): integer
 public "createContext"(arg0: $ColorModel$$Type, arg1: $Rectangle$$Type, arg2: $Rectangle2D$$Type, arg3: $AffineTransform$$Type, arg4: $RenderingHints$$Type): $PaintContext
-public "getAlpha"(): integer
-public static "getColor"(arg0: StringJS): $Color
-public static "getColor"(arg0: StringJS, arg1: integer): $Color
-public static "getColor"(arg0: StringJS, arg1: $Color$$Type): $Color
-public "getColorSpace"(): $ColorSpace
 public "getComponents"(arg0: $ColorSpace$$Type, arg1: (float)[]): (float)[]
 public "getComponents"(arg0: (float)[]): (float)[]
+public static "getColor"(arg0: StringJS, arg1: $Color$$Type): $Color
+public static "getColor"(arg0: StringJS, arg1: integer): $Color
+public static "getColor"(arg0: StringJS): $Color
+public "getGreen"(): integer
+public "darker"(): $Color
+public "getRed"(): integer
+public "getBlue"(): integer
 public "getRGB"(): integer
-public "getRGBComponents"(arg0: (float)[]): (float)[]
+public "getAlpha"(): integer
 public static "HSBtoRGB"(arg0: float, arg1: float, arg2: float): integer
+public "getRGBComponents"(arg0: (float)[]): (float)[]
 public "getRGBColorComponents"(arg0: (float)[]): (float)[]
 public "brighter"(): $Color
-public "darker"(): $Color
 public static "RGBtoHSB"(arg0: integer, arg1: integer, arg2: integer, arg3: (float)[]): (float)[]
 public static "getHSBColor"(arg0: float, arg1: float, arg2: float): $Color
-public "getColorComponents"(arg0: $ColorSpace$$Type, arg1: (float)[]): (float)[]
 public "getColorComponents"(arg0: (float)[]): (float)[]
-get "transparency"(): integer
+public "getColorComponents"(arg0: $ColorSpace$$Type, arg1: (float)[]): (float)[]
+public "getColorSpace"(): $ColorSpace
+public "getTransparency"(): integer
+get "RGB"(): integer
 get "alpha"(): integer
 get "colorSpace"(): $ColorSpace
-get "RGB"(): integer
+get "transparency"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

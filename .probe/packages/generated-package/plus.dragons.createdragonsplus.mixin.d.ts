@@ -28,16 +28,16 @@ import {$RecipeType, $RecipeType$$Type} from "net.minecraft.world.item.crafting.
 
 export interface $RecipeManagerAccessor$$Interface {
 get "byName"(): $Map<($ResourceLocation), ($RecipeHolder<(never)>)>
+get "byType"(): $Multimap<($RecipeType<(never)>), ($RecipeHolder<(never)>)>
 set "byType"(value: $Multimap$$Type<($RecipeType$$Type<(never)>), ($RecipeHolder$$Type<(never)>)>)
 set "byName"(value: $Map$$Type<($ResourceLocation$$Type), ($RecipeHolder$$Type<(never)>)>)
-get "byType"(): $Multimap<($RecipeType<(never)>), ($RecipeHolder<(never)>)>
 }
 
 export class $RecipeManagerAccessor implements $RecipeManagerAccessor$$Interface {
  "getByName"(): $Map<($ResourceLocation), ($RecipeHolder<(never)>)>
+ "getByType"(): $Multimap<($RecipeType<(never)>), ($RecipeHolder<(never)>)>
  "setByType"(arg0: $Multimap$$Type<($RecipeType$$Type<(never)>), ($RecipeHolder$$Type<(never)>)>): void
  "setByName"(arg0: $Map$$Type<($ResourceLocation$$Type), ($RecipeHolder$$Type<(never)>)>): void
- "getByType"(): $Multimap<($RecipeType<(never)>), ($RecipeHolder<(never)>)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

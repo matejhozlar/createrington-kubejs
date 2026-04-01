@@ -2,13 +2,13 @@ declare module "xaero.pac.common.capability.ICapableObject" {
 import {$ICapabilityProvider, $ICapabilityProvider$$Type} from "xaero.pac.common.capability.ICapabilityProvider"
 
 export interface $ICapableObject$$Interface {
-get "xaero_OPAC_CapabilityProvider"(): $ICapabilityProvider
 set "xaero_OPAC_CapabilityProvider"(value: $ICapabilityProvider$$Type)
+get "xaero_OPAC_CapabilityProvider"(): $ICapabilityProvider
 }
 
 export class $ICapableObject implements $ICapableObject$$Interface {
- "getXaero_OPAC_CapabilityProvider"(): $ICapabilityProvider
  "setXaero_OPAC_CapabilityProvider"(arg0: $ICapabilityProvider$$Type): void
+ "getXaero_OPAC_CapabilityProvider"(): $ICapabilityProvider
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

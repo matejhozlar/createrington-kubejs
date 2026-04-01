@@ -22,13 +22,13 @@ declare module "xaero.map.core.IWorldMapClientPlayNetHandler" {
 import {$WorldMapSession, $WorldMapSession$$Type} from "xaero.map.WorldMapSession"
 
 export interface $IWorldMapClientPlayNetHandler$$Interface {
-get "xaero_worldmapSession"(): $WorldMapSession
 set "xaero_worldmapSession"(value: $WorldMapSession$$Type)
+get "xaero_worldmapSession"(): $WorldMapSession
 }
 
 export class $IWorldMapClientPlayNetHandler implements $IWorldMapClientPlayNetHandler$$Interface {
- "getXaero_worldmapSession"(): $WorldMapSession
  "setXaero_worldmapSession"(arg0: $WorldMapSession$$Type): void
+ "getXaero_worldmapSession"(): $WorldMapSession
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -63,13 +63,13 @@ declare module "xaero.map.core.IWorldMapServerLevel" {
 import {$ServerWorldCapabilities, $ServerWorldCapabilities$$Type} from "xaero.map.capabilities.ServerWorldCapabilities"
 
 export interface $IWorldMapServerLevel$$Interface {
-set "xaero_wm_capabilities"(value: $ServerWorldCapabilities$$Type)
 get "xaero_wm_capabilities"(): $ServerWorldCapabilities
+set "xaero_wm_capabilities"(value: $ServerWorldCapabilities$$Type)
 }
 
 export class $IWorldMapServerLevel implements $IWorldMapServerLevel$$Interface {
- "setXaero_wm_capabilities"(arg0: $ServerWorldCapabilities$$Type): void
  "getXaero_wm_capabilities"(): $ServerWorldCapabilities
+ "setXaero_wm_capabilities"(arg0: $ServerWorldCapabilities$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

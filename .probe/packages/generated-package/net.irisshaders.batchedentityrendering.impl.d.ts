@@ -1,14 +1,14 @@
 declare module "net.irisshaders.batchedentityrendering.impl.MemoryTrackingBuffer" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $MemoryTrackingBuffer$$Interface {
-get "usedSize"(): long
 get "allocatedSize"(): long
+get "usedSize"(): long
 }
 
 export class $MemoryTrackingBuffer implements $MemoryTrackingBuffer$$Interface {
  "freeAndDeleteBuffer"(): void
- "getUsedSize"(): long
  "getAllocatedSize"(): long
+ "getUsedSize"(): long
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -25,8 +25,8 @@ export interface $RenderBuffersExt$$Interface {
 }
 
 export class $RenderBuffersExt implements $RenderBuffersExt$$Interface {
- "beginLevelRendering"(): void
  "endLevelRendering"(): void
+ "beginLevelRendering"(): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -40,16 +40,16 @@ export type $RenderBuffersExt$$Original = $RenderBuffersExt;}
 declare module "net.irisshaders.batchedentityrendering.impl.MemoryTrackingRenderBuffers" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $MemoryTrackingRenderBuffers$$Interface {
-get "entityBufferAllocatedSize"(): long
 get "maxBegins"(): integer
+get "entityBufferAllocatedSize"(): long
 get "miscBufferAllocatedSize"(): long
 }
 
 export class $MemoryTrackingRenderBuffers implements $MemoryTrackingRenderBuffers$$Interface {
- "getEntityBufferAllocatedSize"(): long
  "getMaxBegins"(): integer
- "getMiscBufferAllocatedSize"(): long
+ "getEntityBufferAllocatedSize"(): long
  "freeAndDeleteBuffers"(): void
+ "getMiscBufferAllocatedSize"(): long
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -131,8 +131,8 @@ get "drawCalls"(): integer
 }
 
 export class $DrawCallTrackingRenderBuffers implements $DrawCallTrackingRenderBuffers$$Interface {
- "resetDrawCounts"(): void
  "getRenderTypes"(): integer
+ "resetDrawCounts"(): void
  "getDrawCalls"(): integer
 }
 /**

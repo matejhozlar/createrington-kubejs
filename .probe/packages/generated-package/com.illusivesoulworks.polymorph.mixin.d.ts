@@ -3,14 +3,14 @@ import {$Ingredient} from "net.minecraft.world.item.crafting.Ingredient"
 
 export interface $AccessorSmithingTrimRecipe$$Interface {
 get "base"(): $Ingredient
-get "addition"(): $Ingredient
 get "template"(): $Ingredient
+get "addition"(): $Ingredient
 }
 
 export class $AccessorSmithingTrimRecipe implements $AccessorSmithingTrimRecipe$$Interface {
  "getBase"(): $Ingredient
- "getAddition"(): $Ingredient
  "getTemplate"(): $Ingredient
+ "getAddition"(): $Ingredient
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -98,14 +98,14 @@ import {$Ingredient} from "net.minecraft.world.item.crafting.Ingredient"
 
 export interface $AccessorSmithingTransformRecipe$$Interface {
 get "base"(): $Ingredient
-get "addition"(): $Ingredient
 get "template"(): $Ingredient
+get "addition"(): $Ingredient
 }
 
 export class $AccessorSmithingTransformRecipe implements $AccessorSmithingTransformRecipe$$Interface {
  "getBase"(): $Ingredient
- "getAddition"(): $Ingredient
  "getTemplate"(): $Ingredient
+ "getAddition"(): $Ingredient
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

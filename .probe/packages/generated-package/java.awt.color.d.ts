@@ -36,14 +36,14 @@ static readonly "CS_CIEXYZ": integer
 public "getName"(arg0: integer): StringJS
 public static "getInstance"(arg0: integer): $ColorSpace
 public "getType"(): integer
+public "isCS_sRGB"(): boolean
+public "fromRGB"(arg0: (float)[]): (float)[]
 public "getMinValue"(arg0: integer): float
 public "getMaxValue"(arg0: integer): float
 public "getNumComponents"(): integer
 public "toRGB"(arg0: (float)[]): (float)[]
 public "toCIEXYZ"(arg0: (float)[]): (float)[]
 public "fromCIEXYZ"(arg0: (float)[]): (float)[]
-public "isCS_sRGB"(): boolean
-public "fromRGB"(arg0: (float)[]): (float)[]
 get "type"(): integer
 get "numComponents"(): integer
 }

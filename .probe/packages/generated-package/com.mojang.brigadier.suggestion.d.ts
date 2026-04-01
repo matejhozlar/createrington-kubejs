@@ -44,15 +44,15 @@ public "getInput"(): StringJS
 public "add"(arg0: $SuggestionsBuilder$$Type): $SuggestionsBuilder
 public "build"(): $Suggestions
 public "getRemaining"(): StringJS
-public "buildFuture"(): $CompletableFuture<($Suggestions)>
-public "createOffset"(arg0: integer): $SuggestionsBuilder
 public "getStart"(): integer
-public "restart"(): $SuggestionsBuilder
-public "suggest"(arg0: integer, arg1: $Message$$Type): $SuggestionsBuilder
-public "suggest"(arg0: StringJS): $SuggestionsBuilder
-public "suggest"(arg0: StringJS, arg1: $Message$$Type): $SuggestionsBuilder
 public "suggest"(arg0: integer): $SuggestionsBuilder
+public "suggest"(arg0: StringJS, arg1: $Message$$Type): $SuggestionsBuilder
+public "suggest"(arg0: StringJS): $SuggestionsBuilder
+public "suggest"(arg0: integer, arg1: $Message$$Type): $SuggestionsBuilder
+public "buildFuture"(): $CompletableFuture<($Suggestions)>
 public "getRemainingLowerCase"(): StringJS
+public "createOffset"(arg0: integer): $SuggestionsBuilder
+public "restart"(): $SuggestionsBuilder
 get "input"(): StringJS
 get "remaining"(): StringJS
 get "start"(): integer
@@ -84,10 +84,10 @@ public "isEmpty"(): boolean
 public static "merge"(arg0: StringJS, arg1: $Collection$$Type<($Suggestions$$Type)>): $Suggestions
 public static "empty"(): $CompletableFuture<($Suggestions)>
 public static "create"(arg0: StringJS, arg1: $Collection$$Type<($Suggestion$$Type)>): $Suggestions
-public "getRange"(): $StringRange
 public "getList"(): $List<($Suggestion)>
-get "range"(): $StringRange
+public "getRange"(): $StringRange
 get "list"(): $List<($Suggestion)>
+get "range"(): $StringRange
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

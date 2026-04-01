@@ -2,13 +2,13 @@ declare module "xaero.common.core.IBufferSource" {
 import {$RenderType, $RenderType$$Type} from "net.minecraft.client.renderer.RenderType"
 
 export interface $IBufferSource$$Interface {
-set "xaero_lastRenderType"(value: $RenderType$$Type)
 get "xaero_lastRenderType"(): $RenderType
+set "xaero_lastRenderType"(value: $RenderType$$Type)
 }
 
 export class $IBufferSource implements $IBufferSource$$Interface {
- "setXaero_lastRenderType"(arg0: $RenderType$$Type): void
  "getXaero_lastRenderType"(): $RenderType
+ "setXaero_lastRenderType"(arg0: $RenderType$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

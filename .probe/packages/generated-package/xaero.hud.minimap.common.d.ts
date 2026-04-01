@@ -10,8 +10,8 @@ static readonly "EMPTY": $InfoDisplayManagerConfigData
 constructor(arg0: $List$$Type<(StringJS)>, arg1: $Map$$Type<(StringJS), ($InfoDisplayConfigData$$Type)>)
 
 public "get"(arg0: StringJS): $InfoDisplayConfigData
-public "copyOrder"(): $List<(StringJS)>
 public "getOrderStream"(): $Stream<(StringJS)>
+public "copyOrder"(): $List<(StringJS)>
 public "getFromOrder"(arg0: integer): StringJS
 get "orderStream"(): $Stream<(StringJS)>
 }

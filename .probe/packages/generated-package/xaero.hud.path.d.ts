@@ -16,8 +16,8 @@ public "resolveSibling"(arg0: StringJS): $XaeroPath
 public "getSubPath"(arg0: integer): $XaeroPath
 public "getNodeCount"(): integer
 public "getLastNode"(): StringJS
-public "isSubOf"(arg0: $XaeroPath$$Type): boolean
 public "applyToFilePath"(arg0: $Path$$Type): $Path
+public "isSubOf"(arg0: $XaeroPath$$Type): boolean
 get "parent"(): $XaeroPath
 get "nodeCount"(): integer
 get "lastNode"(): StringJS

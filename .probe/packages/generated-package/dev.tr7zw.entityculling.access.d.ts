@@ -9,10 +9,10 @@ export interface $EntityRendererInter$$Interface<T extends $Entity> {
 }
 
 export class $EntityRendererInter<T extends $Entity> implements $EntityRendererInter$$Interface {
- "entityCullingIgnoresCulling"(arg0: T): boolean
  "shadowShouldShowName"(arg0: T): boolean
  "shadowRenderNameTag"(arg0: T, arg1: $Component$$Type, arg2: $PoseStack$$Type, arg3: $MultiBufferSource$$Type, arg4: integer, arg5: float): void
  "entityCullingGetCullingBox"(arg0: T): $AABB
+ "entityCullingIgnoresCulling"(arg0: T): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

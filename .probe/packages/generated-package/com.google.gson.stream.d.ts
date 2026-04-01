@@ -6,6 +6,8 @@ import {$Closeable$$Interface} from "java.io.Closeable"
 export class $JsonReader implements $Closeable$$Interface {
 constructor(arg0: $Reader$$Type)
 
+public "beginObject"(): void
+public "getPreviousPath"(): StringJS
 public "toString"(): StringJS
 public "hasNext"(): boolean
 public "close"(): void
@@ -18,18 +20,16 @@ public "isLenient"(): boolean
 public "nextLong"(): long
 public "nextBoolean"(): boolean
 public "skipValue"(): void
-public "beginObject"(): void
-public "getPreviousPath"(): StringJS
-public "nextName"(): StringJS
+public "endArray"(): void
 public "endObject"(): void
 public "beginArray"(): void
-public "nextString"(): StringJS
+public "nextName"(): StringJS
 public "nextNull"(): void
-public "endArray"(): void
+public "nextString"(): StringJS
+get "previousPath"(): StringJS
 get "path"(): StringJS
 set "lenient"(value: boolean)
 get "lenient"(): boolean
-get "previousPath"(): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -48,36 +48,36 @@ import {$Flushable$$Interface} from "java.io.Flushable"
 export class $JsonWriter implements $Closeable$$Interface, $Flushable$$Interface {
 constructor(arg0: $Writer$$Type)
 
+public "setSerializeNulls"(arg0: boolean): void
+public "beginObject"(): $JsonWriter
+public "jsonValue"(arg0: StringJS): $JsonWriter
 public "name"(arg0: StringJS): $JsonWriter
-public "value"(arg0: float): $JsonWriter
-public "value"(arg0: double): $JsonWriter
-public "value"(arg0: long): $JsonWriter
 public "value"(arg0: boolean): $JsonWriter
 public "value"(arg0: boolean): $JsonWriter
 public "value"(arg0: StringJS): $JsonWriter
+public "value"(arg0: float): $JsonWriter
 public "value"(arg0: number): $JsonWriter
+public "value"(arg0: double): $JsonWriter
+public "value"(arg0: long): $JsonWriter
 public "flush"(): void
 public "close"(): void
 public "setLenient"(arg0: boolean): void
 public "isLenient"(): boolean
 public "setIndent"(arg0: StringJS): void
-public "nullValue"(): $JsonWriter
-public "beginObject"(): $JsonWriter
-public "jsonValue"(arg0: StringJS): $JsonWriter
-public "setSerializeNulls"(arg0: boolean): void
-public "getSerializeNulls"(): boolean
+public "isHtmlSafe"(): boolean
 public "setHtmlSafe"(arg0: boolean): void
+public "getSerializeNulls"(): boolean
+public "endArray"(): $JsonWriter
 public "endObject"(): $JsonWriter
 public "beginArray"(): $JsonWriter
-public "isHtmlSafe"(): boolean
-public "endArray"(): $JsonWriter
+public "nullValue"(): $JsonWriter
+set "serializeNulls"(value: boolean)
 set "lenient"(value: boolean)
 get "lenient"(): boolean
 set "indent"(value: StringJS)
-set "serializeNulls"(value: boolean)
-get "serializeNulls"(): boolean
-set "htmlSafe"(value: boolean)
 get "htmlSafe"(): boolean
+set "htmlSafe"(value: boolean)
+get "serializeNulls"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

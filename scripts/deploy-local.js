@@ -2,6 +2,7 @@
 import dotenv from "dotenv";
 import path from "node:path";
 import fs from "node:fs";
+import { execSync } from "node:child_process";
 import chalk from "chalk";
 import ora from "ora";
 import { fileURLToPath } from "node:url";
@@ -45,6 +46,16 @@ function collectFiles(dir, base = dir) {
 
 async function deployLocal() {
   console.log(chalk.cyan.bold("\nCreaterington — Deploy Local\n"));
+
+  const buildSpinner = ora("Running npm run build...").start();
+  try {
+    execSync("npm run build", { stdio: "pipe", cwd: path.resolve(__dirname, "..") });
+    buildSpinner.succeed("Build succeeded");
+  } catch (err) {
+    buildSpinner.fail("Build failed");
+    console.error(chalk.red(`\n${err.stderr?.toString() ?? err.message}`));
+    process.exit(1);
+  }
 
   if (!LOCAL_MODPACK_PATH) {
     console.error(

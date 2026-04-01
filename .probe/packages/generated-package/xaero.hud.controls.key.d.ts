@@ -50,9 +50,9 @@ export type $KeyMappingTickHandler$$Original = $KeyMappingTickHandler;}
 declare module "xaero.hud.controls.key.function.KeyMappingFunction" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export class $KeyMappingFunction {
-public "onRelease"(): void
-public "isHeld"(): boolean
 public "onPress"(): void
+public "isHeld"(): boolean
+public "onRelease"(): void
 get "held"(): boolean
 }
 /**
@@ -77,19 +77,19 @@ constructor(arg0: $KeyMapping$$Type, arg1: boolean)
 
 public "add"(arg0: $KeyMappingFunction$$Type): void
 public "iterator"(): $Iterator<($KeyMappingFunction)>
+public "getFunctions"(): $Iterable<($KeyMappingFunction)>
+public "isXaeroKey"(): boolean
+public "setPressed"(arg0: boolean): void
 public "isPressed"(): boolean
 public "getKeyMapping"(): $KeyMapping
-public "isXaeroKey"(): boolean
-public "getFunctions"(): $Iterable<($KeyMappingFunction)>
-public "setPressed"(arg0: boolean): void
 public "spliterator"(): $Spliterator<($KeyMappingFunction)>
 public "forEach"(arg0: $Consumer$$Type<($KeyMappingFunction)>): void
 [Symbol.iterator](): IterableIterator<$KeyMappingFunction>;
+get "functions"(): $Iterable<($KeyMappingFunction)>
+get "xaeroKey"(): boolean
+set "pressed"(value: boolean)
 get "pressed"(): boolean
 get "keyMapping"(): $KeyMapping
-get "xaeroKey"(): boolean
-get "functions"(): $Iterable<($KeyMappingFunction)>
-set "pressed"(value: boolean)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

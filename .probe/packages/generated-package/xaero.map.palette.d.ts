@@ -12,8 +12,8 @@ public "count"(arg0: integer, arg1: boolean): integer
 public "getCount"(arg0: integer): integer
 public "getSize"(): integer
 public "getIndex"(arg0: T): integer
-public "getNonNullCount"(): integer
 public "addNull"(): void
+public "getNonNullCount"(): integer
 get "size"(): integer
 get "nonNullCount"(): integer
 }

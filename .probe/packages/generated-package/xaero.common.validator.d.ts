@@ -22,10 +22,10 @@ import {$NumericFieldValidator, $NumericFieldValidator$$Type} from "xaero.common
 export class $FieldValidatorHolder {
 constructor(arg0: $NumericFieldValidator$$Type, arg1: $WaypointCoordinateFieldValidator$$Type)
 
-public "getWpCoordFieldValidator"(): $WaypointCoordinateFieldValidator
 public "getNumericFieldValidator"(): $NumericFieldValidator
-get "wpCoordFieldValidator"(): $WaypointCoordinateFieldValidator
+public "getWpCoordFieldValidator"(): $WaypointCoordinateFieldValidator
 get "numericFieldValidator"(): $NumericFieldValidator
+get "wpCoordFieldValidator"(): $WaypointCoordinateFieldValidator
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

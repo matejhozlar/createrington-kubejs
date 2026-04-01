@@ -48,8 +48,8 @@ export class $PushboxHandler {
 constructor()
 
 public "updateAll"(arg0: $PushboxManager$$Type): void
-public "postUpdateAll"(arg0: $PushboxManager$$Type): void
 public "applyPushboxes"(arg0: $PushboxManager$$Type, arg1: $PushboxHandler$State$$Type, arg2: integer, arg3: integer, arg4: double): void
+public "postUpdateAll"(arg0: $PushboxManager$$Type): void
 public "applyScreenEdges"(arg0: $PushboxHandler$State$$Type, arg1: integer, arg2: integer, arg3: double): void
 }
 /**

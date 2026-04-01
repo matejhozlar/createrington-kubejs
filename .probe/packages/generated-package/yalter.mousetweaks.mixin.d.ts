@@ -6,11 +6,11 @@ export interface $AbstractContainerScreenAccessor$$Interface {
 }
 
 export class $AbstractContainerScreenAccessor implements $AbstractContainerScreenAccessor$$Interface {
- "mousetweaks$getIsQuickCrafting"(): boolean
- "mousetweaks$getQuickCraftingButton"(): integer
- "mousetweaks$setIsQuickCrafting"(arg0: boolean): void
- "mousetweaks$setSkipNextRelease"(arg0: boolean): void
  "mousetweaks$invokeSlotClicked"(arg0: $Slot$$Type, arg1: integer, arg2: integer, arg3: $ClickType$$Type): void
+ "mousetweaks$getIsQuickCrafting"(): boolean
+ "mousetweaks$setIsQuickCrafting"(arg0: boolean): void
+ "mousetweaks$getQuickCraftingButton"(): integer
+ "mousetweaks$setSkipNextRelease"(arg0: boolean): void
  "mousetweaks$invokeFindSlot"(arg0: double, arg1: double): $Slot
 }
 /**

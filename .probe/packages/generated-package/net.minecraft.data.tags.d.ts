@@ -2,8 +2,8 @@ declare module "net.minecraft.data.tags.TagsProvider" {
 import {$Map} from "java.util.Map"
 import {$TagsProvider$TagLookup, $TagsProvider$TagLookup$$Type} from "net.minecraft.data.tags.TagsProvider$TagLookup"
 import {$JsonElement$$Type} from "com.google.gson.JsonElement"
-import {$CachedOutput$$Type} from "net.minecraft.data.CachedOutput"
 import {$FileHelperDataProvider$$Interface} from "fuzs.puzzleslib.neoforge.impl.data.FileHelperDataProvider"
+import {$CachedOutput$$Type} from "net.minecraft.data.CachedOutput"
 import {$HolderLookup$Provider, $HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$PackOutput$$Type} from "net.minecraft.data.PackOutput"
 import {$TagBuilder} from "net.minecraft.tags.TagBuilder"
@@ -26,26 +26,26 @@ readonly "pathProvider": $PackOutput$PathProvider
  "existingFileHelper": $ExistingFileHelper
 readonly "modId": StringJS
 
-constructor(arg0: $PackOutput$$Type, arg1: $ResourceKey$$Type<($Registry<(T)>)>, arg2: $CompletableFuture$$Type<($HolderLookup$Provider$$Type)>, arg3: StringJS, arg4: $ExistingFileHelper$$Type)
+constructor(arg0: $PackOutput$$Type, arg1: $ResourceKey$$Type<($Registry<(T)>)>, arg2: $CompletableFuture$$Type<($HolderLookup$Provider$$Type)>)
+constructor(arg0: $PackOutput$$Type, arg1: $ResourceKey$$Type<($Registry<(T)>)>, arg2: $CompletableFuture$$Type<($HolderLookup$Provider$$Type)>, arg3: $CompletableFuture$$Type<($TagsProvider$TagLookup$$Type<(T)>)>, arg4: StringJS, arg5: $ExistingFileHelper$$Type)
 /**
  * 
  * @deprecated
  */
 constructor(arg0: $PackOutput$$Type, arg1: $ResourceKey$$Type<($Registry<(T)>)>, arg2: $CompletableFuture$$Type<($HolderLookup$Provider$$Type)>, arg3: $CompletableFuture$$Type<($TagsProvider$TagLookup$$Type<(T)>)>)
-constructor(arg0: $PackOutput$$Type, arg1: $ResourceKey$$Type<($Registry<(T)>)>, arg2: $CompletableFuture$$Type<($HolderLookup$Provider$$Type)>, arg3: $CompletableFuture$$Type<($TagsProvider$TagLookup$$Type<(T)>)>, arg4: StringJS, arg5: $ExistingFileHelper$$Type)
-constructor(arg0: $PackOutput$$Type, arg1: $ResourceKey$$Type<($Registry<(T)>)>, arg2: $CompletableFuture$$Type<($HolderLookup$Provider$$Type)>)
+constructor(arg0: $PackOutput$$Type, arg1: $ResourceKey$$Type<($Registry<(T)>)>, arg2: $CompletableFuture$$Type<($HolderLookup$Provider$$Type)>, arg3: StringJS, arg4: $ExistingFileHelper$$Type)
 
 public "getName"(): StringJS
 public "run"(arg0: $CachedOutput$$Type): $CompletableFuture<(never)>
 public "getPath"(arg0: $ResourceLocation$$Type): $Path
 public "tag"(arg0: $TagKey$$Type<(T)>): $TagsProvider$TagAppender<(T)>
-public "puzzleslib$setExistingFileHelper"(fileHelper: $ExistingFileHelper$$Type): void
-public "contentsGetter"(): $CompletableFuture<($TagsProvider$TagLookup<(T)>)>
-public "addTags"(arg0: $HolderLookup$Provider$$Type): void
-public "createContentsProvider"(): $CompletableFuture<($HolderLookup$Provider)>
 public "getOrCreateRawBuilder"(arg0: $TagKey$$Type<(T)>): $TagBuilder
-public static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
+public "createContentsProvider"(): $CompletableFuture<($HolderLookup$Provider)>
+public "contentsGetter"(): $CompletableFuture<($TagsProvider$TagLookup<(T)>)>
+public "puzzleslib$setExistingFileHelper"(fileHelper: $ExistingFileHelper$$Type): void
+public "addTags"(arg0: $HolderLookup$Provider$$Type): void
 public static "saveStable"(arg0: $CachedOutput$$Type, arg1: $JsonElement$$Type, arg2: $Path$$Type): $CompletableFuture<(never)>
+public static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 get "name"(): StringJS
 }
 /**
@@ -61,8 +61,8 @@ declare module "net.minecraft.data.tags.TagsProvider$TagAppender" {
 import {$TagEntry$$Type} from "net.minecraft.tags.TagEntry"
 import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
 import {$TagBuilder, $TagBuilder$$Type} from "net.minecraft.tags.TagBuilder"
-import {$List$$Type} from "java.util.List"
 import {$TagKey$$Type} from "net.minecraft.tags.TagKey"
+import {$List$$Type} from "java.util.List"
 import {$ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
 import {$ITagAppenderExtension$$Interface} from "net.neoforged.neoforge.common.extensions.ITagAppenderExtension"
 
@@ -115,8 +115,8 @@ export type $TagsProvider$TagAppender$$Original<T> = $TagsProvider$TagAppender<(
 declare module "net.minecraft.data.tags.TagsProvider$TagLookup" {
 import {$TagBuilder, $TagBuilder$$Type} from "net.minecraft.tags.TagBuilder"
 import {$Optional, $Optional$$Type} from "java.util.Optional"
-import {$TagKey, $TagKey$$Type} from "net.minecraft.tags.TagKey"
 import {$Function, $Function$$Type, $Function$$Interface} from "java.util.function.Function"
+import {$TagKey, $TagKey$$Type} from "net.minecraft.tags.TagKey"
 
 export interface $TagsProvider$TagLookup$$Interface<T> extends $Function$$Interface<($TagKey<(T)>), ($Optional<($TagBuilder)>)> {
 

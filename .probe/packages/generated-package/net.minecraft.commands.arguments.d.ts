@@ -1,6 +1,6 @@
 declare module "net.minecraft.commands.arguments.ArgumentSignatures$Entry" {
-import {$FriendlyByteBuf$$Type} from "net.minecraft.network.FriendlyByteBuf"
 import {$MessageSignature, $MessageSignature$$Type} from "net.minecraft.network.chat.MessageSignature"
+import {$FriendlyByteBuf$$Type} from "net.minecraft.network.FriendlyByteBuf"
 import {$Record} from "java.lang.Record"
 
 export class $ArgumentSignatures$Entry extends $Record {
@@ -18,7 +18,7 @@ public "write"(arg0: $FriendlyByteBuf$$Type): void
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $ArgumentSignatures$Entry$$Type = ({"signature"?: $MessageSignature$$Type, "name"?: StringJS}) | ([signature?: $MessageSignature$$Type, name?: StringJS]);
+export type $ArgumentSignatures$Entry$$Type = ({"name"?: StringJS, "signature"?: $MessageSignature$$Type}) | ([name?: StringJS, signature?: $MessageSignature$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -102,16 +102,16 @@ static readonly "INFINITE": integer
 
 constructor(arg0: integer, arg1: boolean, arg2: boolean, arg3: $List$$Type<($Predicate$$Type<($Entity$$Type)>)>, arg4: $MinMaxBounds$Doubles$$Type, arg5: $Function$$Type<($Vec3), ($Vec3$$Type)>, arg6: $AABB$$Type, arg7: $BiConsumer$$Type<($Vec3), ($List<($Entity)>)>, arg8: boolean, arg9: StringJS, arg10: $UUID$$Type, arg11: $EntityType$$Type<(never)>, arg12: boolean)
 
+public static "joinNames"(arg0: $List$$Type<($Entity$$Type)>): $Component
 public "getMaxResults"(): integer
+public "findEntities"(arg0: $CommandSourceStack$$Type): $List<($Entity)>
 public "findPlayers"(arg0: $CommandSourceStack$$Type): $List<($ServerPlayer)>
 public "isSelfSelector"(): boolean
 public "findSingleEntity"(arg0: $CommandSourceStack$$Type): $Entity
-public "findEntities"(arg0: $CommandSourceStack$$Type): $List<($Entity)>
 public "findSinglePlayer"(arg0: $CommandSourceStack$$Type): $ServerPlayer
 public "includesEntities"(): boolean
 public "usesSelector"(): boolean
 public "isWorldLimited"(): boolean
-public static "joinNames"(arg0: $List$$Type<($Entity$$Type)>): $Component
 get "maxResults"(): integer
 get "selfSelector"(): boolean
 get "worldLimited"(): boolean

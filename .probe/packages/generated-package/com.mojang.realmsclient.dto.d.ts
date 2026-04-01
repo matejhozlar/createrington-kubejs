@@ -56,9 +56,9 @@ static readonly "RELEASE_TYPE_INCOMPATIBLE": $RealmsServer$Compatibility
 
 public static "values"(): ($RealmsServer$Compatibility)[]
 public static "valueOf"(arg0: StringJS): $RealmsServer$Compatibility
-public "needsDowngrade"(): boolean
 public "needsUpgrade"(): boolean
 public "isCompatible"(): boolean
+public "needsDowngrade"(): boolean
 get "compatible"(): boolean
 }
 /**
@@ -101,8 +101,8 @@ export type $Backup$$Type = ($Backup);
  */
 export type $Backup$$Original = $Backup;}
 declare module "com.mojang.realmsclient.dto.Ops" {
-import {$Set} from "java.util.Set"
 import {$ValueObject} from "com.mojang.realmsclient.dto.ValueObject"
+import {$Set} from "java.util.Set"
 
 export class $Ops extends $ValueObject {
  "ops": $Set<(StringJS)>
@@ -127,8 +127,8 @@ import {$List} from "java.util.List"
 export class $RealmsNotification {
 public "seen"(): boolean
 public "uuid"(): $UUID
-public static "parseList"(arg0: StringJS): $List<($RealmsNotification)>
 public "dismissable"(): boolean
+public static "parseList"(arg0: StringJS): $List<($RealmsNotification)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -246,8 +246,8 @@ export type $RealmsServerAddress$$Type = ($RealmsServerAddress);
 export type $RealmsServerAddress$$Original = $RealmsServerAddress;}
 declare module "com.mojang.realmsclient.dto.RealmsServer" {
 import {$RealmsServer$State} from "com.mojang.realmsclient.dto.RealmsServer$State"
-import {$Map, $Map$$Type} from "java.util.Map"
 import {$RealmsWorldOptions, $RealmsWorldOptions$$Type} from "com.mojang.realmsclient.dto.RealmsWorldOptions"
+import {$Map, $Map$$Type} from "java.util.Map"
 import {$RealmsServer$Compatibility} from "com.mojang.realmsclient.dto.RealmsServer$Compatibility"
 import {$UUID} from "java.util.UUID"
 import {$List} from "java.util.List"
@@ -288,19 +288,19 @@ public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public "clone"(): any
 public "setName"(arg0: StringJS): void
-public static "parse"(arg0: $JsonObject$$Type): $RealmsServer
 public static "parse"(arg0: StringJS): $RealmsServer
-public static "getCompatibility"(arg0: StringJS): $RealmsServer$Compatibility
+public static "parse"(arg0: $JsonObject$$Type): $RealmsServer
 public "setDescription"(arg0: StringJS): void
-public "getWorldName"(arg0: integer): StringJS
-public "toServerData"(arg0: StringJS): $ServerData
-public "getMinigameName"(): StringJS
-public "needsDowngrade"(): boolean
-public "cloneSlots"(arg0: $Map$$Type<(integer), ($RealmsWorldOptions$$Type)>): $Map<(integer), ($RealmsWorldOptions)>
-public "isSnapshotRealm"(): boolean
 public "needsUpgrade"(): boolean
+public "isSnapshotRealm"(): boolean
 public "isMinigameActive"(): boolean
 public "isCompatible"(): boolean
+public static "getCompatibility"(arg0: StringJS): $RealmsServer$Compatibility
+public "cloneSlots"(arg0: $Map$$Type<(integer), ($RealmsWorldOptions$$Type)>): $Map<(integer), ($RealmsWorldOptions)>
+public "toServerData"(arg0: StringJS): $ServerData
+public "needsDowngrade"(): boolean
+public "getWorldName"(arg0: integer): StringJS
+public "getMinigameName"(): StringJS
 get "description"(): StringJS
 set "description"(value: StringJS)
 get "snapshotRealm"(): boolean
@@ -428,10 +428,10 @@ public "clone"(): any
 public static "parse"(arg0: $JsonObject$$Type): $RealmsWorldOptions
 public "toJson"(): StringJS
 public "setEmpty"(arg0: boolean): void
-public static "createDefaults"(): $RealmsWorldOptions
 public "getSlotName"(arg0: integer): StringJS
 public static "createEmptyDefaults"(): $RealmsWorldOptions
 public "getDefaultSlotName"(arg0: integer): StringJS
+public static "createDefaults"(): $RealmsWorldOptions
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -501,23 +501,23 @@ constructor()
 
 public "getName"(): StringJS
 public "setName"(arg0: StringJS): void
-public "getUuid"(): $UUID
 public "isOperator"(): boolean
-public "getAccepted"(): boolean
+public "getUuid"(): $UUID
+public "setOnline"(arg0: boolean): void
+public "setUuid"(arg0: $UUID$$Type): void
 public "setOperator"(arg0: boolean): void
 public "setAccepted"(arg0: boolean): void
-public "setUuid"(arg0: $UUID$$Type): void
-public "setOnline"(arg0: boolean): void
+public "getAccepted"(): boolean
 public "getOnline"(): boolean
 get "name"(): StringJS
 set "name"(value: StringJS)
-get "uuid"(): $UUID
 get "operator"(): boolean
-get "accepted"(): boolean
+get "uuid"(): $UUID
+set "online"(value: boolean)
+set "uuid"(value: $UUID$$Type)
 set "operator"(value: boolean)
 set "accepted"(value: boolean)
-set "uuid"(value: $UUID$$Type)
-set "online"(value: boolean)
+get "accepted"(): boolean
 get "online"(): boolean
 }
 /**

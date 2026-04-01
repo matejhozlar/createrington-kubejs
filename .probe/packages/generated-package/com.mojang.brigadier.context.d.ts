@@ -11,11 +11,11 @@ constructor(arg0: $List$$Type<($CommandContext$$Type<(S)>)>, arg1: $CommandConte
 
 public "nextStage"(): $ContextChain<(S)>
 public "getStage"(): $ContextChain$Stage
-public static "tryFlatten"<S>(arg0: $CommandContext$$Type<(S)>): $Optional<($ContextChain<(S)>)>
 public "executeAll"(arg0: S, arg1: $ResultConsumer$$Type<(S)>): integer
+public static "tryFlatten"<S>(arg0: $CommandContext$$Type<(S)>): $Optional<($ContextChain<(S)>)>
 public "getTopContext"(): $CommandContext<(S)>
-public static "runModifier"<S>(arg0: $CommandContext$$Type<(S)>, arg1: S, arg2: $ResultConsumer$$Type<(S)>, arg3: boolean): $Collection<(S)>
 public static "runExecutable"<S>(arg0: $CommandContext$$Type<(S)>, arg1: S, arg2: $ResultConsumer$$Type<(S)>, arg3: boolean): integer
+public static "runModifier"<S>(arg0: $CommandContext$$Type<(S)>, arg1: S, arg2: $ResultConsumer$$Type<(S)>, arg3: boolean): $Collection<(S)>
 get "stage"(): $ContextChain$Stage
 get "topContext"(): $CommandContext<(S)>
 }
@@ -34,9 +34,9 @@ import {$ParsedArgument, $ParsedArgument$$Type} from "com.mojang.brigadier.conte
 import {$Map} from "java.util.Map"
 import {$List} from "java.util.List"
 import {$SuggestionContext} from "com.mojang.brigadier.context.SuggestionContext"
-import {$CommandDispatcher, $CommandDispatcher$$Type} from "com.mojang.brigadier.CommandDispatcher"
 import {$StringRange, $StringRange$$Type} from "com.mojang.brigadier.context.StringRange"
 import {$CommandNode, $CommandNode$$Type} from "com.mojang.brigadier.tree.CommandNode"
+import {$CommandDispatcher, $CommandDispatcher$$Type} from "com.mojang.brigadier.CommandDispatcher"
 import {$ParsedCommandNode} from "com.mojang.brigadier.context.ParsedCommandNode"
 import {$Command, $Command$$Type} from "com.mojang.brigadier.Command"
 
@@ -47,26 +47,26 @@ public "copy"(): $CommandContextBuilder<(S)>
 public "build"(arg0: StringJS): $CommandContext<(S)>
 public "getChild"(): $CommandContextBuilder<(S)>
 public "getSource"(): S
-public "findSuggestionContext"(arg0: integer): $SuggestionContext<(S)>
-public "getDispatcher"(): $CommandDispatcher<(S)>
-public "getLastChild"(): $CommandContextBuilder<(S)>
 public "getArguments"(): $Map<(StringJS), ($ParsedArgument<(S), (never)>)>
-public "getRange"(): $StringRange
+public "getLastChild"(): $CommandContextBuilder<(S)>
 public "getRootNode"(): $CommandNode<(S)>
-public "withNode"(arg0: $CommandNode$$Type<(S)>, arg1: $StringRange$$Type): $CommandContextBuilder<(S)>
+public "getDispatcher"(): $CommandDispatcher<(S)>
+public "getRange"(): $StringRange
 public "withSource"(arg0: S): $CommandContextBuilder<(S)>
-public "getCommand"(): $Command<(S)>
-public "withChild"(arg0: $CommandContextBuilder$$Type<(S)>): $CommandContextBuilder<(S)>
-public "getNodes"(): $List<($ParsedCommandNode<(S)>)>
 public "withCommand"(arg0: $Command$$Type<(S)>): $CommandContextBuilder<(S)>
+public "getCommand"(): $Command<(S)>
+public "findSuggestionContext"(arg0: integer): $SuggestionContext<(S)>
+public "getNodes"(): $List<($ParsedCommandNode<(S)>)>
+public "withNode"(arg0: $CommandNode$$Type<(S)>, arg1: $StringRange$$Type): $CommandContextBuilder<(S)>
+public "withChild"(arg0: $CommandContextBuilder$$Type<(S)>): $CommandContextBuilder<(S)>
 public "withArgument"(arg0: StringJS, arg1: $ParsedArgument$$Type<(S), (never)>): $CommandContextBuilder<(S)>
 get "child"(): $CommandContextBuilder<(S)>
 get "source"(): S
-get "dispatcher"(): $CommandDispatcher<(S)>
-get "lastChild"(): $CommandContextBuilder<(S)>
 get "arguments"(): $Map<(StringJS), ($ParsedArgument<(S), (never)>)>
-get "range"(): $StringRange
+get "lastChild"(): $CommandContextBuilder<(S)>
 get "rootNode"(): $CommandNode<(S)>
+get "dispatcher"(): $CommandDispatcher<(S)>
+get "range"(): $StringRange
 get "command"(): $Command<(S)>
 get "nodes"(): $List<($ParsedCommandNode<(S)>)>
 }
@@ -135,13 +135,13 @@ public "getLength"(): integer
 public "isEmpty"(): boolean
 public static "at"(arg0: integer): $StringRange
 public static "between"(arg0: integer, arg1: integer): $StringRange
-public "getEnd"(): integer
 public "getStart"(): integer
+public "getEnd"(): integer
 public static "encompassing"(arg0: $StringRange$$Type, arg1: $StringRange$$Type): $StringRange
 get "length"(): integer
 get "empty"(): boolean
-get "end"(): integer
 get "start"(): integer
+get "end"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -201,8 +201,8 @@ import {$Map$$Type} from "java.util.Map"
 import {$List, $List$$Type} from "java.util.List"
 import {$Class$$Type} from "java.lang.Class"
 import {$StringRange, $StringRange$$Type} from "com.mojang.brigadier.context.StringRange"
-import {$RedirectModifier, $RedirectModifier$$Type} from "com.mojang.brigadier.RedirectModifier"
 import {$CommandNode, $CommandNode$$Type} from "com.mojang.brigadier.tree.CommandNode"
+import {$RedirectModifier, $RedirectModifier$$Type} from "com.mojang.brigadier.RedirectModifier"
 import {$ParsedCommandNode, $ParsedCommandNode$$Type} from "com.mojang.brigadier.context.ParsedCommandNode"
 import {$Command, $Command$$Type} from "com.mojang.brigadier.Command"
 
@@ -214,25 +214,25 @@ public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public "getChild"(): $CommandContext<(S)>
 public "getSource"(): S
-public "getLastChild"(): $CommandContext<(S)>
-public "getRange"(): $StringRange
-public "getRedirectModifier"(): $RedirectModifier<(S)>
-public "getRootNode"(): $CommandNode<(S)>
 public "getArgument"<V>(arg0: StringJS, arg1: $Class$$Type<(V)>): V
-public "getCommand"(): $Command<(S)>
-public "copyFor"(arg0: S): $CommandContext<(S)>
+public "getLastChild"(): $CommandContext<(S)>
 public "isForked"(): boolean
 public "hasNodes"(): boolean
+public "getRootNode"(): $CommandNode<(S)>
+public "copyFor"(arg0: S): $CommandContext<(S)>
+public "getRange"(): $StringRange
+public "getCommand"(): $Command<(S)>
+public "getRedirectModifier"(): $RedirectModifier<(S)>
 public "getNodes"(): $List<($ParsedCommandNode<(S)>)>
 get "input"(): StringJS
 get "child"(): $CommandContext<(S)>
 get "source"(): S
 get "lastChild"(): $CommandContext<(S)>
-get "range"(): $StringRange
-get "redirectModifier"(): $RedirectModifier<(S)>
-get "rootNode"(): $CommandNode<(S)>
-get "command"(): $Command<(S)>
 get "forked"(): boolean
+get "rootNode"(): $CommandNode<(S)>
+get "range"(): $StringRange
+get "command"(): $Command<(S)>
+get "redirectModifier"(): $RedirectModifier<(S)>
 get "nodes"(): $List<($ParsedCommandNode<(S)>)>
 }
 /**

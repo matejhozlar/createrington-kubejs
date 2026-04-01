@@ -7,11 +7,11 @@ import {$Entity} from "net.minecraft.world.entity.Entity"
 export class $RenderCapeEvent extends $PlayerEvent implements $ICancellableEvent$$Interface {
 constructor(arg0: $Player$$Type)
 
-public "isCanceled"(): boolean
 public "setCanceled"(arg0: boolean): void
+public "isCanceled"(): boolean
 public "getEntity"(): $Entity
-get "canceled"(): boolean
 set "canceled"(value: boolean)
+get "canceled"(): boolean
 get "entity"(): $Entity
 }
 /**

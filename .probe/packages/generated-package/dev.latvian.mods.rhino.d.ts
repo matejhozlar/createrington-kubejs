@@ -5,9 +5,9 @@ export interface $ConstProperties$$Interface {
 }
 
 export class $ConstProperties implements $ConstProperties$$Interface {
- "putConst"(arg1: StringJS, arg2: $Scriptable$$Type, arg3: any): void
- "defineConst"(arg1: StringJS, arg2: $Scriptable$$Type): void
  "isConst"(arg0: StringJS): boolean
+ "defineConst"(arg1: StringJS, arg2: $Scriptable$$Type): void
+ "putConst"(arg1: StringJS, arg2: $Scriptable$$Type, arg3: any): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -21,8 +21,8 @@ export type $ConstProperties$$Original = $ConstProperties;}
 declare module "dev.latvian.mods.rhino.CachedMethodInfo" {
 import {$TypeInfo} from "dev.latvian.mods.rhino.type.TypeInfo"
 import {$CachedClassInfo, $CachedClassInfo$$Type} from "dev.latvian.mods.rhino.CachedClassInfo"
-import {$CachedExecutableInfo} from "dev.latvian.mods.rhino.CachedExecutableInfo"
 import {$AccessibleObject} from "java.lang.reflect.AccessibleObject"
+import {$CachedExecutableInfo} from "dev.latvian.mods.rhino.CachedExecutableInfo"
 import {$Scriptable$$Type} from "dev.latvian.mods.rhino.Scriptable"
 import {$Method$$Type} from "java.lang.reflect.Method"
 
@@ -76,8 +76,8 @@ import {$Executable$$Type} from "java.lang.reflect.Executable"
 import {$TypeInfo} from "dev.latvian.mods.rhino.type.TypeInfo"
 import {$StringBuilder$$Type} from "java.lang.StringBuilder"
 import {$CachedClassInfo, $CachedClassInfo$$Type} from "dev.latvian.mods.rhino.CachedClassInfo"
-import {$CachedParameters, $CachedParameters$$Type} from "dev.latvian.mods.rhino.CachedParameters"
 import {$AccessibleObject} from "java.lang.reflect.AccessibleObject"
+import {$CachedParameters, $CachedParameters$$Type} from "dev.latvian.mods.rhino.CachedParameters"
 import {$CachedMemberInfo} from "dev.latvian.mods.rhino.CachedMemberInfo"
 import {$Scriptable$$Type} from "dev.latvian.mods.rhino.Scriptable"
 import {$MethodSignature} from "dev.latvian.mods.rhino.MethodSignature"
@@ -98,8 +98,8 @@ public "getReturnType"(): $TypeInfo
 public "getParameters"(): $CachedParameters
 public "getSignature"(): $MethodSignature
 public "getCached"(): $AccessibleObject
-public "appendDebugParams"(arg0: $StringBuilder$$Type): void
 public "transformArgs"(arg1: any, arg2: $CachedParameters$$Type, arg3: (any)[]): (any)[]
+public "appendDebugParams"(arg0: $StringBuilder$$Type): void
 get "returnType"(): $TypeInfo
 get "parameters"(): $CachedParameters
 get "signature"(): $MethodSignature
@@ -122,10 +122,10 @@ import {$List} from "java.util.List"
 import {$TypeStringContext$$Type} from "dev.latvian.mods.rhino.type.TypeStringContext"
 import {$TypeVariable$$Type} from "java.lang.reflect.TypeVariable"
 import {$VariableTypeInfo, $VariableTypeInfo$$Type} from "dev.latvian.mods.rhino.type.VariableTypeInfo"
-import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Type$$Type} from "java.lang.reflect.Type"
-import {$Set} from "java.util.Set"
+import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Class, $Class$$Type} from "java.lang.Class"
+import {$Set} from "java.util.Set"
 import {$RecordTypeInfo$Component} from "dev.latvian.mods.rhino.type.RecordTypeInfo$Component"
 
 export interface $TypeInfo$$Interface {
@@ -135,14 +135,14 @@ get "primitive"(): boolean
 get "void"(): boolean
 get "character"(): boolean
 get "float"(): boolean
-get "containedComponentClasses"(): $Set<($Class<(never)>)>
-get "long"(): boolean
 get "functionalInterface"(): boolean
-get "double"(): boolean
-get "byte"(): boolean
-get "int"(): boolean
 get "boolean"(): boolean
 get "short"(): boolean
+get "long"(): boolean
+get "int"(): boolean
+get "double"(): boolean
+get "byte"(): boolean
+get "containedComponentClasses"(): $Set<($Class<(never)>)>
 }
 
 export class $TypeInfo implements $TypeInfo$$Interface {
@@ -201,8 +201,8 @@ static "ofArray"(arg0: ($Type$$Type)[]): ($TypeInfo)[]
  "newArray"(arg0: integer): any
  "componentType"(): $TypeInfo
 static "of"(arg0: $Class$$Type<(never)>): $TypeInfo
-static "of"(arg0: $TypeVariable$$Type<(never)>): $VariableTypeInfo
 static "of"(arg0: $Type$$Type): $TypeInfo
+static "of"(arg0: $TypeVariable$$Type<(never)>): $VariableTypeInfo
  "enumConstants"(): $List<(any)>
  "param"(arg0: integer): $TypeInfo
  "isVoid"(): boolean
@@ -211,23 +211,23 @@ static "of"(arg0: $Type$$Type): $TypeInfo
  "isCharacter"(): boolean
  "isFloat"(): boolean
  "asArray"(): $TypeInfo
-static "safeOfArray"(arg0: $Supplier$$Type<(($Type$$Type)[])>): ($TypeInfo)[]
- "createDefaultValue"(): any
- "consolidate"(arg0: $Map$$Type<($VariableTypeInfo$$Type), ($TypeInfo$$Type)>): $TypeInfo
- "shouldConvert"(): boolean
- "getContainedComponentClasses"(): $Set<($Class<(never)>)>
- "collectContainedComponentClasses"(arg0: $Collection$$Type<($Class$$Type<(never)>)>): void
- "isLong"(): boolean
  "recordComponents"(): $Map<(StringJS), ($RecordTypeInfo$Component)>
  "isFunctionalInterface"(): boolean
- "isDouble"(): boolean
- "asClass"(): $Class<(never)>
-static "safeOf"(arg0: $Supplier$$Type<($Type$$Type)>): $TypeInfo
- "isByte"(): boolean
- "isInt"(): boolean
  "isBoolean"(): boolean
  "isShort"(): boolean
+ "consolidate"(arg0: $Map$$Type<($VariableTypeInfo$$Type), ($TypeInfo$$Type)>): $TypeInfo
+static "safeOfArray"(arg0: $Supplier$$Type<(($Type$$Type)[])>): ($TypeInfo)[]
+ "createDefaultValue"(): any
+ "shouldConvert"(): boolean
+ "isLong"(): boolean
  "withParams"(...arg0: ($TypeInfo$$Type)[]): $TypeInfo
+ "asClass"(): $Class<(never)>
+static "safeOf"(arg0: $Supplier$$Type<($Type$$Type)>): $TypeInfo
+ "isInt"(): boolean
+ "isDouble"(): boolean
+ "isByte"(): boolean
+ "collectContainedComponentClasses"(arg0: $Collection$$Type<($Class$$Type<(never)>)>): void
+ "getContainedComponentClasses"(): $Set<($Class<(never)>)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -301,14 +301,14 @@ export type $CustomJavaToJsWrapper$$Type = ((arg1: $Scriptable, arg2: $TypeInfo)
 export type $CustomJavaToJsWrapper$$Original = $CustomJavaToJsWrapper;}
 declare module "dev.latvian.mods.rhino.type.ClassTypeInfo" {
 import {$TypeInfo} from "dev.latvian.mods.rhino.type.TypeInfo"
-import {$TypeVariable$$Type} from "java.lang.reflect.TypeVariable"
 import {$VariableTypeInfo} from "dev.latvian.mods.rhino.type.VariableTypeInfo"
+import {$TypeVariable$$Type} from "java.lang.reflect.TypeVariable"
 import {$StringBuilder$$Type} from "java.lang.StringBuilder"
 import {$TypeInfoBase} from "dev.latvian.mods.rhino.type.TypeInfoBase"
-import {$Type$$Type} from "java.lang.reflect.Type"
 import {$Supplier$$Type} from "java.util.function.Supplier"
-import {$Set} from "java.util.Set"
+import {$Type$$Type} from "java.lang.reflect.Type"
 import {$Class, $Class$$Type} from "java.lang.Class"
+import {$Set} from "java.util.Set"
 import {$TypeStringContext$$Type} from "dev.latvian.mods.rhino.type.TypeStringContext"
 
 export class $ClassTypeInfo extends $TypeInfoBase {
@@ -319,31 +319,31 @@ public "hashCode"(): integer
 public "isVoid"(): boolean
 public "isCharacter"(): boolean
 public "isFloat"(): boolean
-public "shouldConvert"(): boolean
-public "getContainedComponentClasses"(): $Set<($Class<(never)>)>
-public "isLong"(): boolean
-public "isDouble"(): boolean
-public "asClass"(): $Class<(never)>
-public "isByte"(): boolean
-public "isInt"(): boolean
 public "isBoolean"(): boolean
 public "isShort"(): boolean
+public "shouldConvert"(): boolean
+public "isLong"(): boolean
+public "asClass"(): $Class<(never)>
+public "isInt"(): boolean
+public "isDouble"(): boolean
+public "isByte"(): boolean
+public "getContainedComponentClasses"(): $Set<($Class<(never)>)>
 public static "ofArray"(arg0: ($Type$$Type)[]): ($TypeInfo)[]
 public static "of"(arg0: $Class$$Type<(never)>): $TypeInfo
-public static "of"(arg0: $TypeVariable$$Type<(never)>): $VariableTypeInfo
 public static "of"(arg0: $Type$$Type): $TypeInfo
+public static "of"(arg0: $TypeVariable$$Type<(never)>): $VariableTypeInfo
 public static "safeOfArray"(arg0: $Supplier$$Type<(($Type$$Type)[])>): ($TypeInfo)[]
 public static "safeOf"(arg0: $Supplier$$Type<($Type$$Type)>): $TypeInfo
 get "void"(): boolean
 get "character"(): boolean
 get "float"(): boolean
-get "containedComponentClasses"(): $Set<($Class<(never)>)>
-get "long"(): boolean
-get "double"(): boolean
-get "byte"(): boolean
-get "int"(): boolean
 get "boolean"(): boolean
 get "short"(): boolean
+get "long"(): boolean
+get "int"(): boolean
+get "double"(): boolean
+get "byte"(): boolean
+get "containedComponentClasses"(): $Set<($Class<(never)>)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -450,36 +450,36 @@ public "getLength"(): integer
 public "call"(arg1: $Scriptable$$Type, arg2: $Scriptable$$Type, arg3: (any)[]): any
 public "getClassName"(): StringJS
 public "createObject"(arg1: $Scriptable$$Type): $Scriptable
-public "execIdCall"(arg0: $IdFunctionObject$$Type, arg1: $Context$$Type, arg2: $Scriptable$$Type, arg3: $Scriptable$$Type, arg4: (any)[]): any
-public "getArity"(): integer
 public "construct"(arg1: $Scriptable$$Type, arg2: (any)[]): $Scriptable
-public "getTypeOf"(): $MemberType
 public "hasInstance"(arg1: $Scriptable$$Type): boolean
+public "getArity"(): integer
 public "getFunctionName"(): StringJS
+public "getTypeOf"(): $MemberType
 public "setImmunePrototypeProperty"(arg0: any): void
+public "execIdCall"(arg0: $IdFunctionObject$$Type, arg1: $Context$$Type, arg2: $Scriptable$$Type, arg3: $Scriptable$$Type, arg4: (any)[]): any
 public "get"(arg1: integer, arg2: $Scriptable$$Type): any
 public "put"(arg1: integer, arg2: $Scriptable$$Type, arg3: any): void
 public "delete"(arg1: integer): void
 public "getDefaultValue"(arg1: $DefaultValueTypeHint$$Type): any
 public "has"(arg1: integer, arg2: $Scriptable$$Type): boolean
-public "setParentScope"(arg0: $Scriptable$$Type): void
-public "getParentScope"(): $Scriptable
-public "getAllIds"(): (any)[]
-public "getPrototype"(): $Scriptable
 public "setPrototype"(arg0: $Scriptable$$Type): void
+public "getParentScope"(): $Scriptable
+public "setParentScope"(arg0: $Scriptable$$Type): void
 public "getIds"(): (any)[]
+public "getPrototype"(): $Scriptable
+public "getAllIds"(): (any)[]
 get "length"(): integer
 get "className"(): StringJS
 get "arity"(): integer
-get "typeOf"(): $MemberType
 get "functionName"(): StringJS
+get "typeOf"(): $MemberType
 set "immunePrototypeProperty"(value: any)
-set "parentScope"(value: $Scriptable$$Type)
-get "parentScope"(): $Scriptable
-get "allIds"(): (any)[]
-get "prototype"(): $Scriptable
 set "prototype"(value: $Scriptable$$Type)
+get "parentScope"(): $Scriptable
+set "parentScope"(value: $Scriptable$$Type)
 get "ids"(): (any)[]
+get "prototype"(): $Scriptable
+get "allIds"(): (any)[]
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -491,20 +491,20 @@ export type $BaseFunction$$Type = ($BaseFunction);
  */
 export type $BaseFunction$$Original = $BaseFunction;}
 declare module "dev.latvian.mods.rhino.Scriptable" {
-import {$MemberType} from "dev.latvian.mods.rhino.MemberType"
 import {$IdEnumerationIterator$$Interface} from "dev.latvian.mods.rhino.IdEnumerationIterator"
+import {$MemberType} from "dev.latvian.mods.rhino.MemberType"
 import {$DefaultValueTypeHint$$Type} from "dev.latvian.mods.rhino.util.DefaultValueTypeHint"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 
 export interface $Scriptable$$Interface extends $IdEnumerationIterator$$Interface {
 get "className"(): StringJS
-set "parentScope"(value: $Scriptable$$Type)
-get "parentScope"(): $Scriptable
-get "typeOf"(): $MemberType
-get "allIds"(): (any)[]
-get "prototype"(): $Scriptable
 set "prototype"(value: $Scriptable$$Type)
+get "parentScope"(): $Scriptable
+set "parentScope"(value: $Scriptable$$Type)
 get "ids"(): (any)[]
+get "prototype"(): $Scriptable
+get "allIds"(): (any)[]
+get "typeOf"(): $MemberType
 }
 
 export class $Scriptable implements $Scriptable$$Interface {
@@ -520,16 +520,16 @@ static readonly "NOT_FOUND": any
  "getClassName"(): StringJS
  "has"(arg1: StringJS, arg2: $Scriptable$$Type): boolean
  "has"(arg1: integer, arg2: $Scriptable$$Type): boolean
- "setParentScope"(arg0: $Scriptable$$Type): void
- "getParentScope"(): $Scriptable
  "enumerationIteratorNext"(arg1: $Consumer$$Type<(any)>): boolean
  "enumerationIteratorHasNext"(arg1: $Consumer$$Type<(any)>): boolean
- "getTypeOf"(): $MemberType
- "getAllIds"(): (any)[]
  "hasInstance"(arg1: $Scriptable$$Type): boolean
- "getPrototype"(): $Scriptable
  "setPrototype"(arg0: $Scriptable$$Type): void
+ "getParentScope"(): $Scriptable
+ "setParentScope"(arg0: $Scriptable$$Type): void
  "getIds"(): (any)[]
+ "getPrototype"(): $Scriptable
+ "getAllIds"(): (any)[]
+ "getTypeOf"(): $MemberType
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -550,9 +550,9 @@ get "dataObjectList"(): boolean
 }
 
 export class $DataObject implements $DataObject$$Interface {
- "createDataObjectList"<T>(arg0: $Supplier$$Type<(T)>, arg1: $Context$$Type): $List<(T)>
- "createDataObject"<T>(arg0: $Supplier$$Type<(T)>, arg1: $Context$$Type): T
  "isDataObjectList"(): boolean
+ "createDataObject"<T>(arg0: $Supplier$$Type<(T)>, arg1: $Context$$Type): T
+ "createDataObjectList"<T>(arg0: $Supplier$$Type<(T)>, arg1: $Context$$Type): $List<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -577,18 +577,18 @@ constructor()
 
 public "enter"(): $Context
 public "registerDefaultRecordProperties"(arg0: $Record$$Type): void
-public "getTypeWrappers"(): $TypeWrappers
 public "getCachedClassStorage"(): $CachedClassStorage
-public "getMethodHandlesLookup"(): $MethodHandles$Lookup
-public "getDefaultRecordProperties"(arg0: $Class$$Type<(never)>): (any)[]
-public "getRecordConstructor"(arg0: $Class$$Type<(never)>): $MethodHandle
-public "getInstanceStaticFallback"(): boolean
+public "getTypeWrappers"(): $TypeWrappers
 public "setInstanceStaticFallback"(arg0: boolean): void
-get "typeWrappers"(): $TypeWrappers
+public "getInstanceStaticFallback"(): boolean
+public "getRecordConstructor"(arg0: $Class$$Type<(never)>): $MethodHandle
+public "getDefaultRecordProperties"(arg0: $Class$$Type<(never)>): (any)[]
+public "getMethodHandlesLookup"(): $MethodHandles$Lookup
 get "cachedClassStorage"(): $CachedClassStorage
-get "methodHandlesLookup"(): $MethodHandles$Lookup
-get "instanceStaticFallback"(): boolean
+get "typeWrappers"(): $TypeWrappers
 set "instanceStaticFallback"(value: boolean)
+get "instanceStaticFallback"(): boolean
+get "methodHandlesLookup"(): $MethodHandles$Lookup
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -628,11 +628,11 @@ import {$TypeStringContext$$Type} from "dev.latvian.mods.rhino.type.TypeStringCo
 import {$TypeInfo, $TypeInfo$$Type, $TypeInfo$$Interface} from "dev.latvian.mods.rhino.type.TypeInfo"
 import {$TypeVariable$$Type} from "java.lang.reflect.TypeVariable"
 import {$VariableTypeInfo, $VariableTypeInfo$$Type} from "dev.latvian.mods.rhino.type.VariableTypeInfo"
-import {$Supplier$$Type} from "java.util.function.Supplier"
-import {$JSOptionalParam, $JSOptionalParam$$Type} from "dev.latvian.mods.rhino.type.JSOptionalParam"
 import {$Type$$Type} from "java.lang.reflect.Type"
-import {$Set} from "java.util.Set"
+import {$JSOptionalParam, $JSOptionalParam$$Type} from "dev.latvian.mods.rhino.type.JSOptionalParam"
+import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Class, $Class$$Type} from "java.lang.Class"
+import {$Set} from "java.util.Set"
 import {$RecordTypeInfo$Component} from "dev.latvian.mods.rhino.type.RecordTypeInfo$Component"
 import {$Record} from "java.lang.Record"
 
@@ -647,16 +647,16 @@ public static "of"(...arg0: ($JSOptionalParam$$Type)[]): $JSObjectTypeInfo
 public static "of"(arg0: $JSOptionalParam$$Type, arg1: $JSOptionalParam$$Type): $JSObjectTypeInfo
 public static "of"(arg0: $JSOptionalParam$$Type): $JSObjectTypeInfo
 public "fields"(): $List<($JSOptionalParam)>
-public "collectContainedComponentClasses"(arg0: $Collection$$Type<($Class$$Type<(never)>)>): void
 public "asClass"(): $Class<(never)>
+public "collectContainedComponentClasses"(arg0: $Collection$$Type<($Class$$Type<(never)>)>): void
 public static "ofArray"(arg0: ($Type$$Type)[]): ($TypeInfo)[]
 public "signature"(): StringJS
 public "isPrimitive"(): boolean
 public "newArray"(arg0: integer): any
 public "componentType"(): $TypeInfo
 public static "of"(arg0: $Class$$Type<(never)>): $TypeInfo
-public static "of"(arg0: $TypeVariable$$Type<(never)>): $VariableTypeInfo
 public static "of"(arg0: $Type$$Type): $TypeInfo
+public static "of"(arg0: $TypeVariable$$Type<(never)>): $VariableTypeInfo
 public "enumConstants"(): $List<(any)>
 public "param"(arg0: integer): $TypeInfo
 public "isVoid"(): boolean
@@ -665,33 +665,33 @@ public "or"(arg0: $TypeInfo$$Type): $TypeInfo
 public "isCharacter"(): boolean
 public "isFloat"(): boolean
 public "asArray"(): $TypeInfo
-public static "safeOfArray"(arg0: $Supplier$$Type<(($Type$$Type)[])>): ($TypeInfo)[]
-public "createDefaultValue"(): any
-public "consolidate"(arg0: $Map$$Type<($VariableTypeInfo$$Type), ($TypeInfo$$Type)>): $TypeInfo
-public "shouldConvert"(): boolean
-public "getContainedComponentClasses"(): $Set<($Class<(never)>)>
-public "isLong"(): boolean
 public "recordComponents"(): $Map<(StringJS), ($RecordTypeInfo$Component)>
 public "isFunctionalInterface"(): boolean
-public "isDouble"(): boolean
-public static "safeOf"(arg0: $Supplier$$Type<($Type$$Type)>): $TypeInfo
-public "isByte"(): boolean
-public "isInt"(): boolean
 public "isBoolean"(): boolean
 public "isShort"(): boolean
+public "consolidate"(arg0: $Map$$Type<($VariableTypeInfo$$Type), ($TypeInfo$$Type)>): $TypeInfo
+public static "safeOfArray"(arg0: $Supplier$$Type<(($Type$$Type)[])>): ($TypeInfo)[]
+public "createDefaultValue"(): any
+public "shouldConvert"(): boolean
+public "isLong"(): boolean
 public "withParams"(...arg0: ($TypeInfo$$Type)[]): $TypeInfo
+public static "safeOf"(arg0: $Supplier$$Type<($Type$$Type)>): $TypeInfo
+public "isInt"(): boolean
+public "isDouble"(): boolean
+public "isByte"(): boolean
+public "getContainedComponentClasses"(): $Set<($Class<(never)>)>
 get "primitive"(): boolean
 get "void"(): boolean
 get "character"(): boolean
 get "float"(): boolean
-get "containedComponentClasses"(): $Set<($Class<(never)>)>
-get "long"(): boolean
 get "functionalInterface"(): boolean
-get "double"(): boolean
-get "byte"(): boolean
-get "int"(): boolean
 get "boolean"(): boolean
 get "short"(): boolean
+get "long"(): boolean
+get "int"(): boolean
+get "double"(): boolean
+get "byte"(): boolean
+get "containedComponentClasses"(): $Set<($Class<(never)>)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -720,14 +720,14 @@ public "hashCode"(): integer
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $RecordTypeInfo$Component$$Type = ({"index"?: integer, "type"?: $TypeInfo$$Type, "name"?: StringJS}) | ([index?: integer, type?: $TypeInfo$$Type, name?: StringJS]);
+export type $RecordTypeInfo$Component$$Type = ({"type"?: $TypeInfo$$Type, "index"?: integer, "name"?: StringJS}) | ([type?: $TypeInfo$$Type, index?: integer, name?: StringJS]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $RecordTypeInfo$Component$$Original = $RecordTypeInfo$Component;}
 declare module "dev.latvian.mods.rhino.NativeArray" {
-import {$Iterator} from "java.util.Iterator"
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
+import {$Iterator} from "java.util.Iterator"
 import {$Collection$$Type} from "java.util.Collection"
 import {$SequencedCollection} from "java.util.SequencedCollection"
 import {$Comparator$$Type} from "java.util.Comparator"
@@ -735,11 +735,11 @@ import {$Spliterator} from "java.util.Spliterator"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$List, $List$$Interface} from "java.util.List"
 import {$IdScriptableObject} from "dev.latvian.mods.rhino.IdScriptableObject"
-import {$IdFunctionObject$$Type} from "dev.latvian.mods.rhino.IdFunctionObject"
-import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$IntFunction$$Type} from "java.util.function.IntFunction"
-import {$ListIterator} from "java.util.ListIterator"
+import {$Consumer$$Type} from "java.util.function.Consumer"
+import {$IdFunctionObject$$Type} from "dev.latvian.mods.rhino.IdFunctionObject"
 import {$Context$$Type} from "dev.latvian.mods.rhino.Context"
+import {$ListIterator} from "java.util.ListIterator"
 import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$DataObject$$Interface} from "dev.latvian.mods.rhino.util.DataObject"
 import {$Scriptable$$Type} from "dev.latvian.mods.rhino.Scriptable"
@@ -789,12 +789,12 @@ public "listIterator"(): $ListIterator
 public "listIterator"(arg0: integer): $ListIterator
 public "containsAll"(arg0: $Collection$$Type): boolean
 public "has"(arg1: integer, arg2: $Scriptable$$Type): boolean
-public "execIdCall"(arg0: $IdFunctionObject$$Type, arg1: $Context$$Type, arg2: $Scriptable$$Type, arg3: $Scriptable$$Type, arg4: (any)[]): any
-public "createDataObjectList"<T>(arg0: $Supplier$$Type<(T)>, arg1: $Context$$Type): $List<(T)>
 public "getIds"(arg1: boolean, arg2: boolean): (any)[]
-public "getIndexIds"(): $List<(integer)>
-public "createDataObject"<T>(arg0: $Supplier$$Type<(T)>, arg1: $Context$$Type): T
+public "execIdCall"(arg0: $IdFunctionObject$$Type, arg1: $Context$$Type, arg2: $Scriptable$$Type, arg3: $Scriptable$$Type, arg4: (any)[]): any
 public "isDataObjectList"(): boolean
+public "createDataObject"<T>(arg0: $Supplier$$Type<(T)>, arg1: $Context$$Type): T
+public "getIndexIds"(): $List<(integer)>
+public "createDataObjectList"<T>(arg0: $Supplier$$Type<(T)>, arg1: $Context$$Type): $List<(T)>
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public static "copyOf"<E>(arg0: $Collection$$Type<(any)>): $List<(any)>
@@ -828,8 +828,8 @@ public "forEach"(arg0: $Consumer$$Type<(any)>): void
 get "length"(): long
 get "empty"(): boolean
 get "className"(): StringJS
-get "indexIds"(): $List<(integer)>
 get "dataObjectList"(): boolean
+get "indexIds"(): $List<(integer)>
 get "first"(): any
 get "last"(): any
 }
@@ -884,7 +884,7 @@ public "validator"(): $TypeWrapperValidator
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $TypeWrapper$$Type<T> = ({"target"?: $Class$$Type<(T)>, "factory"?: $TypeWrapperFactory$$Type<(T)>, "validator"?: $TypeWrapperValidator$$Type}) | ([target?: $Class$$Type<(T)>, factory?: $TypeWrapperFactory$$Type<(T)>, validator?: $TypeWrapperValidator$$Type]);
+export type $TypeWrapper$$Type<T> = ({"validator"?: $TypeWrapperValidator$$Type, "factory"?: $TypeWrapperFactory$$Type<(T)>, "target"?: $Class$$Type<(T)>}) | ([validator?: $TypeWrapperValidator$$Type, factory?: $TypeWrapperFactory$$Type<(T)>, target?: $Class$$Type<(T)>]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -908,7 +908,7 @@ public "args"(): ($Class<(never)>)[]
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $MethodSignature$$Type = ({"args"?: ($Class$$Type<(never)>)[], "name"?: StringJS}) | ([args?: ($Class$$Type<(never)>)[], name?: StringJS]);
+export type $MethodSignature$$Type = ({"name"?: StringJS, "args"?: ($Class$$Type<(never)>)[]}) | ([name?: StringJS, args?: ($Class$$Type<(never)>)[]]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -969,8 +969,8 @@ import {$CachedConstructorInfo} from "dev.latvian.mods.rhino.CachedConstructorIn
 import {$StringBuilder$$Type} from "java.lang.StringBuilder"
 import {$List} from "java.util.List"
 import {$CachedFieldInfo} from "dev.latvian.mods.rhino.CachedFieldInfo"
-import {$Set} from "java.util.Set"
 import {$Class, $Class$$Type} from "java.lang.Class"
+import {$Set} from "java.util.Set"
 import {$CachedMethodInfo$Accessible} from "dev.latvian.mods.rhino.CachedMethodInfo$Accessible"
 
 export class $CachedClassInfo {
@@ -990,10 +990,10 @@ public "getDeclaredFields"(): $List<($CachedFieldInfo)>
 public "getDeclaredMethods"(): $List<($CachedMethodInfo)>
 public "getTypeInfo"(): $TypeInfo
 public "getDebugInfo"(): $List<(StringJS)>
+public "appendDebugType"(arg0: $StringBuilder$$Type): void
+public "getRemapPrefixes"(): $Set<(StringJS)>
 public "getAccessibleMethods"(arg0: boolean): $List<($CachedMethodInfo$Accessible)>
 public "getAccessibleFields"(arg0: boolean): $List<($CachedFieldInfo$Accessible)>
-public "getRemapPrefixes"(): $Set<(StringJS)>
-public "appendDebugType"(arg0: $StringBuilder$$Type): void
 get "superclass"(): $CachedClassInfo
 get "interfaces"(): $List<($CachedClassInfo)>
 get "constructors"(): $List<($CachedConstructorInfo)>
@@ -1068,19 +1068,19 @@ public "lineNumber"(): integer
 public "getMessage"(): StringJS
 public "columnNumber"(): integer
 public "details"(): StringJS
-public "lineSource"(): StringJS
 public "sourceName"(): StringJS
-public "getScriptStackTrace"(arg0: integer, arg1: StringJS): StringJS
-public "getScriptStackTrace"(): StringJS
 public "getScriptStack"(arg0: integer, arg1: StringJS): ($ScriptStackElement)[]
 public "getScriptStack"(): ($ScriptStackElement)[]
-public "initSourceName"(arg0: StringJS): void
-public "initLineNumber"(arg0: integer): void
-public "initLineSource"(arg0: StringJS): void
+public "lineSource"(): StringJS
 public "initColumnNumber"(arg0: integer): void
+public "initLineSource"(arg0: StringJS): void
+public "initLineNumber"(arg0: integer): void
+public "initSourceName"(arg0: StringJS): void
+public "getScriptStackTrace"(): StringJS
+public "getScriptStackTrace"(arg0: integer, arg1: StringJS): StringJS
 get "message"(): StringJS
-get "scriptStackTrace"(): StringJS
 get "scriptStack"(): ($ScriptStackElement)[]
+get "scriptStackTrace"(): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1096,8 +1096,8 @@ import {$Context$$Type} from "dev.latvian.mods.rhino.Context"
 import {$ScriptableObject, $ScriptableObject$$Type} from "dev.latvian.mods.rhino.ScriptableObject"
 import {$Symbol$$Type} from "dev.latvian.mods.rhino.Symbol"
 import {$Scriptable$$Type} from "dev.latvian.mods.rhino.Scriptable"
-import {$IdFunctionCall$$Interface} from "dev.latvian.mods.rhino.IdFunctionCall"
 import {$IdFunctionObject, $IdFunctionObject$$Type} from "dev.latvian.mods.rhino.IdFunctionObject"
+import {$IdFunctionCall$$Interface} from "dev.latvian.mods.rhino.IdFunctionCall"
 
 export class $IdScriptableObject extends $ScriptableObject implements $IdFunctionCall$$Interface {
 static readonly "DONTENUM": integer
@@ -1117,21 +1117,21 @@ public "put"(arg1: $Symbol$$Type, arg2: $Scriptable$$Type, arg3: any): void
 public "put"(arg1: StringJS, arg2: $Scriptable$$Type, arg3: any): void
 public "delete"(arg1: $Symbol$$Type): void
 public "delete"(arg1: StringJS): void
-public "getAttributes"(arg1: $Symbol$$Type): integer
 public "getAttributes"(arg1: StringJS): integer
-public "has"(arg1: StringJS, arg2: $Scriptable$$Type): boolean
+public "getAttributes"(arg1: $Symbol$$Type): integer
 public "has"(arg1: $Symbol$$Type, arg2: $Scriptable$$Type): boolean
-public "execIdCall"(arg0: $IdFunctionObject$$Type, arg1: $Context$$Type, arg2: $Scriptable$$Type, arg3: $Scriptable$$Type, arg4: (any)[]): any
-public "exportAsJSClass"(arg0: integer, arg1: $Scriptable$$Type, arg2: boolean, arg3: $Context$$Type): $IdFunctionObject
-public "initPrototypeValue"(arg0: integer, arg1: StringJS, arg2: any, arg3: integer): void
-public "initPrototypeValue"(arg0: integer, arg1: $Symbol$$Type, arg2: any, arg3: integer): void
-public "hasPrototypeMap"(): boolean
+public "has"(arg1: StringJS, arg2: $Scriptable$$Type): boolean
 public "defineOwnProperty"(arg1: any, arg2: $ScriptableObject$$Type): void
-public "initPrototypeMethod"(arg0: any, arg1: integer, arg2: StringJS, arg3: StringJS, arg4: integer, arg5: $Context$$Type): $IdFunctionObject
+public "hasPrototypeMap"(): boolean
+public "initPrototypeValue"(arg0: integer, arg1: $Symbol$$Type, arg2: any, arg3: integer): void
+public "initPrototypeValue"(arg0: integer, arg1: StringJS, arg2: any, arg3: integer): void
+public "exportAsJSClass"(arg0: integer, arg1: $Scriptable$$Type, arg2: boolean, arg3: $Context$$Type): $IdFunctionObject
+public "initPrototypeConstructor"(arg0: $IdFunctionObject$$Type, arg1: $Context$$Type): void
 public "initPrototypeMethod"(arg0: any, arg1: integer, arg2: StringJS, arg3: integer, arg4: $Context$$Type): $IdFunctionObject
+public "initPrototypeMethod"(arg0: any, arg1: integer, arg2: StringJS, arg3: StringJS, arg4: integer, arg5: $Context$$Type): $IdFunctionObject
 public "initPrototypeMethod"(arg0: any, arg1: integer, arg2: $Symbol$$Type, arg3: StringJS, arg4: integer, arg5: $Context$$Type): $IdFunctionObject
 public "activatePrototypeMap"(arg0: integer): void
-public "initPrototypeConstructor"(arg0: $IdFunctionObject$$Type, arg1: $Context$$Type): void
+public "execIdCall"(arg0: $IdFunctionObject$$Type, arg1: $Context$$Type, arg2: $Scriptable$$Type, arg3: $Scriptable$$Type, arg4: (any)[]): any
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1153,15 +1153,15 @@ constructor(components: ($RecordTypeInfo$Component$$Type)[], componentMap: $Map$
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public "components"(): ($RecordTypeInfo$Component)[]
 public "componentMap"(): $Map<(StringJS), ($RecordTypeInfo$Component)>
+public "components"(): ($RecordTypeInfo$Component)[]
 public "defaultArguments"(): (any)[]
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $RecordTypeInfo$Data$$Type = ({"componentMap"?: $Map$$Type<(StringJS), ($RecordTypeInfo$Component$$Type)>, "components"?: ($RecordTypeInfo$Component$$Type)[], "defaultArguments"?: (any)[]}) | ([componentMap?: $Map$$Type<(StringJS), ($RecordTypeInfo$Component$$Type)>, components?: ($RecordTypeInfo$Component$$Type)[], defaultArguments?: (any)[]]);
+export type $RecordTypeInfo$Data$$Type = ({"components"?: ($RecordTypeInfo$Component$$Type)[], "componentMap"?: $Map$$Type<(StringJS), ($RecordTypeInfo$Component$$Type)>, "defaultArguments"?: (any)[]}) | ([components?: ($RecordTypeInfo$Component$$Type)[], componentMap?: $Map$$Type<(StringJS), ($RecordTypeInfo$Component$$Type)>, defaultArguments?: (any)[]]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -1322,8 +1322,8 @@ static readonly "DEFAULT": $TypeStringContext
 
  "toString"(arg0: $TypeInfo$$Type): StringJS
  "append"(arg0: $StringBuilder$$Type, arg1: $TypeInfo$$Type): void
- "appendClassName"(arg0: $StringBuilder$$Type, arg1: $ClassTypeInfo$$Type): void
  "appendSpace"(arg0: $StringBuilder$$Type): void
+ "appendClassName"(arg0: $StringBuilder$$Type, arg1: $ClassTypeInfo$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1335,9 +1335,9 @@ export type $TypeStringContext$$Type = ($TypeStringContext);
  */
 export type $TypeStringContext$$Original = $TypeStringContext;}
 declare module "dev.latvian.mods.rhino.util.ArrayValueProvider" {
+import {$TypeInfo$$Type} from "dev.latvian.mods.rhino.type.TypeInfo"
 import {$NativeArray$$Type} from "dev.latvian.mods.rhino.NativeArray"
 import {$Iterable$$Type} from "java.lang.Iterable"
-import {$TypeInfo$$Type} from "dev.latvian.mods.rhino.type.TypeInfo"
 import {$List$$Type} from "java.util.List"
 
 export interface $ArrayValueProvider$$Interface {
@@ -1350,13 +1350,13 @@ static readonly "EMPTY": $ArrayValueProvider
 
  "getLength"(): integer
  "createList"(arg1: $TypeInfo$$Type): any
- "createArray"(arg1: $TypeInfo$$Type): any
-static "fromJavaList"(arg0: $List$$Type<(never)>, arg1: any): $ArrayValueProvider
-static "fromNativeArray"(arg0: $NativeArray$$Type): $ArrayValueProvider
- "createSet"(arg1: $TypeInfo$$Type): any
 static "fromIterable"(arg0: $Iterable$$Type<(never)>): $ArrayValueProvider
- "getArrayValue"(arg1: integer): any
+static "fromNativeArray"(arg0: $NativeArray$$Type): $ArrayValueProvider
+static "fromJavaList"(arg0: $List$$Type<(never)>, arg1: any): $ArrayValueProvider
+ "createArray"(arg1: $TypeInfo$$Type): any
+ "createSet"(arg1: $TypeInfo$$Type): any
  "getErrorSource"(): any
+ "getArrayValue"(arg1: integer): any
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1376,11 +1376,11 @@ import {$TypeStringContext$$Type} from "dev.latvian.mods.rhino.type.TypeStringCo
 import {$TypeInfo, $TypeInfo$$Type, $TypeInfo$$Interface} from "dev.latvian.mods.rhino.type.TypeInfo"
 import {$TypeVariable$$Type} from "java.lang.reflect.TypeVariable"
 import {$VariableTypeInfo, $VariableTypeInfo$$Type} from "dev.latvian.mods.rhino.type.VariableTypeInfo"
-import {$Supplier$$Type} from "java.util.function.Supplier"
-import {$JSOptionalParam, $JSOptionalParam$$Type} from "dev.latvian.mods.rhino.type.JSOptionalParam"
 import {$Type$$Type} from "java.lang.reflect.Type"
-import {$Set} from "java.util.Set"
+import {$JSOptionalParam, $JSOptionalParam$$Type} from "dev.latvian.mods.rhino.type.JSOptionalParam"
+import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Class, $Class$$Type} from "java.lang.Class"
+import {$Set} from "java.util.Set"
 import {$RecordTypeInfo$Component} from "dev.latvian.mods.rhino.type.RecordTypeInfo$Component"
 import {$Record} from "java.lang.Record"
 
@@ -1392,16 +1392,16 @@ public "toString"(): StringJS
 public "append"(arg0: $TypeStringContext$$Type, arg1: $StringBuilder$$Type): void
 public "hashCode"(): integer
 public "types"(): $List<($JSOptionalParam)>
-public "collectContainedComponentClasses"(arg0: $Collection$$Type<($Class$$Type<(never)>)>): void
 public "asClass"(): $Class<(never)>
+public "collectContainedComponentClasses"(arg0: $Collection$$Type<($Class$$Type<(never)>)>): void
 public static "ofArray"(arg0: ($Type$$Type)[]): ($TypeInfo)[]
 public "signature"(): StringJS
 public "isPrimitive"(): boolean
 public "newArray"(arg0: integer): any
 public "componentType"(): $TypeInfo
 public static "of"(arg0: $Class$$Type<(never)>): $TypeInfo
-public static "of"(arg0: $TypeVariable$$Type<(never)>): $VariableTypeInfo
 public static "of"(arg0: $Type$$Type): $TypeInfo
+public static "of"(arg0: $TypeVariable$$Type<(never)>): $VariableTypeInfo
 public "enumConstants"(): $List<(any)>
 public "param"(arg0: integer): $TypeInfo
 public "isVoid"(): boolean
@@ -1410,33 +1410,33 @@ public "or"(arg0: $TypeInfo$$Type): $TypeInfo
 public "isCharacter"(): boolean
 public "isFloat"(): boolean
 public "asArray"(): $TypeInfo
-public static "safeOfArray"(arg0: $Supplier$$Type<(($Type$$Type)[])>): ($TypeInfo)[]
-public "createDefaultValue"(): any
-public "consolidate"(arg0: $Map$$Type<($VariableTypeInfo$$Type), ($TypeInfo$$Type)>): $TypeInfo
-public "shouldConvert"(): boolean
-public "getContainedComponentClasses"(): $Set<($Class<(never)>)>
-public "isLong"(): boolean
 public "recordComponents"(): $Map<(StringJS), ($RecordTypeInfo$Component)>
 public "isFunctionalInterface"(): boolean
-public "isDouble"(): boolean
-public static "safeOf"(arg0: $Supplier$$Type<($Type$$Type)>): $TypeInfo
-public "isByte"(): boolean
-public "isInt"(): boolean
 public "isBoolean"(): boolean
 public "isShort"(): boolean
+public "consolidate"(arg0: $Map$$Type<($VariableTypeInfo$$Type), ($TypeInfo$$Type)>): $TypeInfo
+public static "safeOfArray"(arg0: $Supplier$$Type<(($Type$$Type)[])>): ($TypeInfo)[]
+public "createDefaultValue"(): any
+public "shouldConvert"(): boolean
+public "isLong"(): boolean
 public "withParams"(...arg0: ($TypeInfo$$Type)[]): $TypeInfo
+public static "safeOf"(arg0: $Supplier$$Type<($Type$$Type)>): $TypeInfo
+public "isInt"(): boolean
+public "isDouble"(): boolean
+public "isByte"(): boolean
+public "getContainedComponentClasses"(): $Set<($Class<(never)>)>
 get "primitive"(): boolean
 get "void"(): boolean
 get "character"(): boolean
 get "float"(): boolean
-get "containedComponentClasses"(): $Set<($Class<(never)>)>
-get "long"(): boolean
 get "functionalInterface"(): boolean
-get "double"(): boolean
-get "byte"(): boolean
-get "int"(): boolean
 get "boolean"(): boolean
 get "short"(): boolean
+get "long"(): boolean
+get "int"(): boolean
+get "double"(): boolean
+get "byte"(): boolean
+get "containedComponentClasses"(): $Set<($Class<(never)>)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1456,13 +1456,13 @@ import {$Consumer$$Type} from "java.util.function.Consumer"
 
 export interface $Function$$Interface extends $Scriptable$$Interface, $Callable$$Interface {
 get "className"(): StringJS
-set "parentScope"(value: $Scriptable$$Type)
-get "parentScope"(): $Scriptable
-get "typeOf"(): $MemberType
-get "allIds"(): (any)[]
-get "prototype"(): $Scriptable
 set "prototype"(value: $Scriptable$$Type)
+get "parentScope"(): $Scriptable
+set "parentScope"(value: $Scriptable$$Type)
 get "ids"(): (any)[]
+get "prototype"(): $Scriptable
+get "allIds"(): (any)[]
+get "typeOf"(): $MemberType
 }
 
 export class $Function implements $Function$$Interface {
@@ -1478,16 +1478,16 @@ export class $Function implements $Function$$Interface {
  "getClassName"(): StringJS
  "has"(arg1: StringJS, arg2: $Scriptable$$Type): boolean
  "has"(arg1: integer, arg2: $Scriptable$$Type): boolean
- "setParentScope"(arg0: $Scriptable$$Type): void
- "getParentScope"(): $Scriptable
  "enumerationIteratorNext"(arg1: $Consumer$$Type<(any)>): boolean
  "enumerationIteratorHasNext"(arg1: $Consumer$$Type<(any)>): boolean
- "getTypeOf"(): $MemberType
- "getAllIds"(): (any)[]
  "hasInstance"(arg1: $Scriptable$$Type): boolean
- "getPrototype"(): $Scriptable
  "setPrototype"(arg0: $Scriptable$$Type): void
+ "getParentScope"(): $Scriptable
+ "setParentScope"(arg0: $Scriptable$$Type): void
  "getIds"(): (any)[]
+ "getPrototype"(): $Scriptable
+ "getAllIds"(): (any)[]
+ "getTypeOf"(): $MemberType
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1506,8 +1506,8 @@ import {$JSFixedArrayTypeInfo} from "dev.latvian.mods.rhino.type.JSFixedArrayTyp
 import {$TypeInfo, $TypeInfo$$Type} from "dev.latvian.mods.rhino.type.TypeInfo"
 import {$TypeVariable$$Type} from "java.lang.reflect.TypeVariable"
 import {$VariableTypeInfo} from "dev.latvian.mods.rhino.type.VariableTypeInfo"
-import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Type$$Type} from "java.lang.reflect.Type"
+import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$ClassTypeInfo} from "dev.latvian.mods.rhino.type.ClassTypeInfo"
 import {$Class$$Type} from "java.lang.Class"
 import {$RecordTypeInfo$Component} from "dev.latvian.mods.rhino.type.RecordTypeInfo$Component"
@@ -1519,14 +1519,14 @@ public "getData"(): $RecordTypeInfo$Data
 public "createInstance"(arg1: $Map$$Type<(never), (never)>): any
 public "createInstance"(...arg1: (any)[]): any
 public "recordComponents"(): $Map<(StringJS), ($RecordTypeInfo$Component)>
-public static "setGlobalDefaultValue"<T>(arg0: $Class$$Type<(T)>, arg1: T): void
 public "getObjectTypeInfo"(): $JSObjectTypeInfo
-public "getArrayTypeInfo"(): $JSFixedArrayTypeInfo
 public "createCombinedType"(...arg0: ($TypeInfo$$Type)[]): $TypeInfo
+public "getArrayTypeInfo"(): $JSFixedArrayTypeInfo
+public static "setGlobalDefaultValue"<T>(arg0: $Class$$Type<(T)>, arg1: T): void
 public static "ofArray"(arg0: ($Type$$Type)[]): ($TypeInfo)[]
 public static "of"(arg0: $Class$$Type<(never)>): $TypeInfo
-public static "of"(arg0: $TypeVariable$$Type<(never)>): $VariableTypeInfo
 public static "of"(arg0: $Type$$Type): $TypeInfo
+public static "of"(arg0: $TypeVariable$$Type<(never)>): $VariableTypeInfo
 public static "safeOfArray"(arg0: $Supplier$$Type<(($Type$$Type)[])>): ($TypeInfo)[]
 public static "safeOf"(arg0: $Supplier$$Type<($Type$$Type)>): $TypeInfo
 get "data"(): $RecordTypeInfo$Data
@@ -1567,8 +1567,8 @@ import {$EvaluatorException} from "dev.latvian.mods.rhino.EvaluatorException"
 import {$ErrorReporter} from "dev.latvian.mods.rhino.ErrorReporter"
 import {$Reader$$Type} from "java.io.Reader"
 import {$List} from "java.util.List"
-import {$Script} from "dev.latvian.mods.rhino.Script"
 import {$TypeInfo$$Type} from "dev.latvian.mods.rhino.type.TypeInfo"
+import {$Script} from "dev.latvian.mods.rhino.Script"
 import {$Callable$$Type} from "dev.latvian.mods.rhino.Callable"
 import {$CachedClassStorage} from "dev.latvian.mods.rhino.CachedClassStorage"
 import {$ScriptableObject, $ScriptableObject$$Type} from "dev.latvian.mods.rhino.ScriptableObject"
@@ -1604,105 +1604,105 @@ constructor(arg0: $ContextFactory$$Type)
 public "toString"(arg0: any): StringJS
 public "newArray"(arg0: $Scriptable$$Type, arg1: (any)[]): $Scriptable
 public "newArray"(arg0: $Scriptable$$Type, arg1: integer): $Scriptable
-public "wrap"(arg0: $Scriptable$$Type, arg1: any): any
 public "wrap"(arg0: $Scriptable$$Type, arg1: any, arg2: $TypeInfo$$Type): any
+public "wrap"(arg0: $Scriptable$$Type, arg1: any): any
 public "canConvert"(arg0: any, arg1: $TypeInfo$$Type): boolean
 public "getImplementationVersion"(): StringJS
 public static "reportError"(arg1: StringJS, arg2: integer, arg3: StringJS, arg4: integer, arg5: StringJS): void
 public static "reportError"(arg1: StringJS): void
 public "toBoolean"(arg0: any): boolean
-public "isStrictMode"(): boolean
-public "compileString"(arg0: StringJS, arg1: StringJS, arg2: integer, arg3: any): $Script
-public "getErrorReporter"(): $ErrorReporter
-public "optionalMapOf"<K, V>(arg0: any, arg1: $TypeInfo$$Type, arg2: $TypeInfo$$Type): $Map<(K), (V)>
-public "optionalMapOf"(arg0: any): $Map<(StringJS), (any)>
-public "visibleToScripts"(arg0: StringJS, arg1: $ClassVisibilityContext$$Type): boolean
-public "wrapAsJavaObject"(arg0: $Scriptable$$Type, arg1: any, arg2: $TypeInfo$$Type): $Scriptable
-public "optionalListOf"<K>(arg0: any, arg1: $TypeInfo$$Type): $List<(K)>
-public "optionalListOf"(arg0: any): $List<(any)>
-public static "getSizeRank"(arg0: $TypeInfo$$Type): integer
-public "hasTopCallScope"(): boolean
-public "compileReader"(arg0: $Reader$$Type, arg1: StringJS, arg2: integer, arg3: any): $Script
-public static "reportRuntimeError"(arg0: StringJS, arg1: $Context$$Type): $EvaluatorException
-public static "reportRuntimeError"(arg1: StringJS, arg2: StringJS, arg3: integer, arg4: StringJS, arg5: integer): $EvaluatorException
-public static "reportWarning"(arg0: StringJS, arg1: $Context$$Type): void
-public static "reportWarning"(arg1: StringJS, arg2: StringJS, arg3: integer, arg4: StringJS, arg5: integer): void
-public "setInstructionObserverThreshold"(arg0: integer): void
-public "getInstructionObserverThreshold"(): integer
-public "getMaximumInterpreterStackDepth"(): integer
-public "internalConversionWeightLast"(arg0: any, arg1: $TypeInfo$$Type): integer
-public "createClassLoader"(arg0: $ClassLoader$$Type): $GeneratedClassLoader
-public "getCachedClassStorage"(arg0: boolean): $CachedClassStorage
-public "initStandardObjects"(): $ScriptableObject
-public "initStandardObjects"(arg0: $ScriptableObject$$Type): $Scriptable
-public "initStandardObjects"(arg0: $ScriptableObject$$Type, arg1: boolean): $ScriptableObject
-public static "getSourcePositionFromStack"(arg1: (integer)[]): StringJS
-public "internalConversionWeight"(arg0: any, arg1: $TypeInfo$$Type): integer
-public static "reportRuntimeError2"(arg0: StringJS, arg1: any, arg2: any, arg3: $Context$$Type): $EvaluatorException
-public static "reportRuntimeError0"(arg0: StringJS, arg1: $Context$$Type): $EvaluatorException
-public "arrayValueProviderOf"(arg0: any): $ArrayValueProvider
-public static "throwAsScriptRuntimeEx"(arg0: $Throwable$$Type, arg1: $Context$$Type): $RuntimeException
-public "initSafeStandardObjects"(arg0: $ScriptableObject$$Type, arg1: boolean): $ScriptableObject
-public "initSafeStandardObjects"(arg0: $ScriptableObject$$Type): $Scriptable
-public "initSafeStandardObjects"(): $ScriptableObject
-public "reportConversionError"(arg0: any, arg1: $TypeInfo$$Type): any
-public static "reportRuntimeError3"(arg0: StringJS, arg1: any, arg2: any, arg3: any, arg4: $Context$$Type): $EvaluatorException
-public "getApplicationClassLoader"(): $ClassLoader
-public "setApplicationClassLoader"(arg0: $ClassLoader$$Type): void
-public "setGenerateObserverCount"(arg0: boolean): void
-public "createInterfaceAdapter"(arg0: $TypeInfo$$Type, arg1: $ScriptableObject$$Type): any
-public "getConversionWeight"(arg0: any, arg1: $TypeInfo$$Type): integer
-public static "reportRuntimeError1"(arg0: StringJS, arg1: any, arg2: $Context$$Type): $EvaluatorException
-public static "reportRuntimeError4"(arg0: StringJS, arg1: any, arg2: any, arg3: any, arg4: any, arg5: $Context$$Type): $EvaluatorException
-public "lastStoredScriptable"(): $Scriptable
-public "newClassSerialNumber"(): integer
-public "defaultObjectToSource"(arg0: $Scriptable$$Type, arg1: $Scriptable$$Type, arg2: (any)[]): StringJS
-public "putThreadLocal"(arg0: any, arg1: any): void
-public "removeThreadLocal"(arg0: any): void
-public "wrapNewObject"(arg0: $Scriptable$$Type, arg1: any, arg2: $TypeInfo$$Type): $Scriptable
-public "evaluateReader"(arg0: $Scriptable$$Type, arg1: $Reader$$Type, arg2: StringJS, arg3: integer, arg4: any): any
-public "wrapJavaClass"(arg0: $Scriptable$$Type, arg1: $Class$$Type<(never)>): $Scriptable
-public "getThreadLocal"(arg0: any): any
-public "getTopCallScope"(): $Scriptable
-public "getTopCallOrThrow"(): $Scriptable
-public "storeScriptable"(arg0: $Scriptable$$Type): void
-public "evaluateString"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: StringJS, arg3: integer, arg4: any): any
-public static "getUndefinedValue"(): any
-public "javaToJS"(arg0: any, arg1: $Scriptable$$Type): any
-public "javaToJS"(arg0: any, arg1: $Scriptable$$Type, arg2: $TypeInfo$$Type): any
-public "jsToJava"(arg0: any, arg1: $TypeInfo$$Type): any
-public "wrapAny"(arg0: $Scriptable$$Type, arg1: any): any
-public "setOf"(arg0: any, arg1: $TypeInfo$$Type): any
-public "isMapLike"(arg0: any): boolean
-public "setTopCall"(arg0: $Scriptable$$Type): void
-public "initJSON"(arg0: $ScriptableObject$$Type, arg1: boolean): void
-public "isListLike"(arg0: any): boolean
-public "mapOf"(arg0: any, arg1: $TypeInfo$$Type, arg2: $TypeInfo$$Type): any
-public "classOf"(arg0: any): any
-public "callSync"(arg0: $Callable$$Type, arg1: $Scriptable$$Type, arg2: $Scriptable$$Type, arg3: (any)[]): any
-public "doTopCall"(arg0: $Scriptable$$Type, arg1: $Callable$$Type, arg2: $Scriptable$$Type, arg3: (any)[], arg4: boolean): any
-public "addToScope"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: any): void
 public "toNumber"(arg0: any): double
 public "toObject"(arg0: any, arg1: $Scriptable$$Type): $Scriptable
 public "newObject"(arg0: $Scriptable$$Type, arg1: StringJS): $Scriptable
-public "newObject"(arg0: $Scriptable$$Type): $Scriptable
 public "newObject"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: (any)[]): $Scriptable
+public "newObject"(arg0: $Scriptable$$Type): $Scriptable
 public "getRegExp"(): $RegExp
+public static "reportRuntimeError2"(arg0: StringJS, arg1: any, arg2: any, arg3: $Context$$Type): $EvaluatorException
+public "getCachedClassStorage"(arg0: boolean): $CachedClassStorage
+public "initSafeStandardObjects"(arg0: $ScriptableObject$$Type): $Scriptable
+public "initSafeStandardObjects"(arg0: $ScriptableObject$$Type, arg1: boolean): $ScriptableObject
+public "initSafeStandardObjects"(): $ScriptableObject
+public "setGenerateObserverCount"(arg0: boolean): void
+public "arrayValueProviderOf"(arg0: any): $ArrayValueProvider
+public "createInterfaceAdapter"(arg0: $TypeInfo$$Type, arg1: $ScriptableObject$$Type): any
+public static "reportRuntimeError0"(arg0: StringJS, arg1: $Context$$Type): $EvaluatorException
+public static "getSourcePositionFromStack"(arg1: (integer)[]): StringJS
+public "initStandardObjects"(arg0: $ScriptableObject$$Type, arg1: boolean): $ScriptableObject
+public "initStandardObjects"(arg0: $ScriptableObject$$Type): $Scriptable
+public "initStandardObjects"(): $ScriptableObject
+public "reportConversionError"(arg0: any, arg1: $TypeInfo$$Type): any
+public "getConversionWeight"(arg0: any, arg1: $TypeInfo$$Type): integer
+public "internalConversionWeight"(arg0: any, arg1: $TypeInfo$$Type): integer
+public "newClassSerialNumber"(): integer
+public static "throwAsScriptRuntimeEx"(arg0: $Throwable$$Type, arg1: $Context$$Type): $RuntimeException
+public static "reportRuntimeError4"(arg0: StringJS, arg1: any, arg2: any, arg3: any, arg4: any, arg5: $Context$$Type): $EvaluatorException
+public static "reportRuntimeError1"(arg0: StringJS, arg1: any, arg2: $Context$$Type): $EvaluatorException
+public "getApplicationClassLoader"(): $ClassLoader
+public static "reportRuntimeError3"(arg0: StringJS, arg1: any, arg2: any, arg3: any, arg4: $Context$$Type): $EvaluatorException
+public "setApplicationClassLoader"(arg0: $ClassLoader$$Type): void
+public "defaultObjectToSource"(arg0: $Scriptable$$Type, arg1: $Scriptable$$Type, arg2: (any)[]): StringJS
 public "arrayOf"(arg0: any, arg1: $TypeInfo$$Type): any
 public "listOf"(arg0: any, arg1: $TypeInfo$$Type): any
+public "wrapAsJavaObject"(arg0: $Scriptable$$Type, arg1: any, arg2: $TypeInfo$$Type): $Scriptable
+public "hasTopCallScope"(): boolean
+public static "reportRuntimeError"(arg1: StringJS, arg2: StringJS, arg3: integer, arg4: StringJS, arg5: integer): $EvaluatorException
+public static "reportRuntimeError"(arg0: StringJS, arg1: $Context$$Type): $EvaluatorException
+public static "reportWarning"(arg0: StringJS, arg1: $Context$$Type): void
+public static "reportWarning"(arg1: StringJS, arg2: StringJS, arg3: integer, arg4: StringJS, arg5: integer): void
+public "getErrorReporter"(): $ErrorReporter
+public "compileString"(arg0: StringJS, arg1: StringJS, arg2: integer, arg3: any): $Script
+public "compileReader"(arg0: $Reader$$Type, arg1: StringJS, arg2: integer, arg3: any): $Script
+public static "getUndefinedValue"(): any
+public "wrapNewObject"(arg0: $Scriptable$$Type, arg1: any, arg2: $TypeInfo$$Type): $Scriptable
+public "optionalMapOf"<K, V>(arg0: any, arg1: $TypeInfo$$Type, arg2: $TypeInfo$$Type): $Map<(K), (V)>
+public "optionalMapOf"(arg0: any): $Map<(StringJS), (any)>
+public "evaluateReader"(arg0: $Scriptable$$Type, arg1: $Reader$$Type, arg2: StringJS, arg3: integer, arg4: any): any
+public "putThreadLocal"(arg0: any, arg1: any): void
+public "optionalListOf"<K>(arg0: any, arg1: $TypeInfo$$Type): $List<(K)>
+public "optionalListOf"(arg0: any): $List<(any)>
+public "getTopCallOrThrow"(): $Scriptable
+public "storeScriptable"(arg0: $Scriptable$$Type): void
+public "visibleToScripts"(arg0: StringJS, arg1: $ClassVisibilityContext$$Type): boolean
+public "getThreadLocal"(arg0: any): any
+public "evaluateString"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: StringJS, arg3: integer, arg4: any): any
+public static "getSizeRank"(arg0: $TypeInfo$$Type): integer
+public "removeThreadLocal"(arg0: any): void
+public "getTopCallScope"(): $Scriptable
+public "wrapJavaClass"(arg0: $Scriptable$$Type, arg1: $Class$$Type<(never)>): $Scriptable
+public "createClassLoader"(arg0: $ClassLoader$$Type): $GeneratedClassLoader
+public "lastStoredScriptable"(): $Scriptable
+public "isStrictMode"(): boolean
+public "jsToJava"(arg0: any, arg1: $TypeInfo$$Type): any
+public "setOf"(arg0: any, arg1: $TypeInfo$$Type): any
+public "mapOf"(arg0: any, arg1: $TypeInfo$$Type, arg2: $TypeInfo$$Type): any
+public "initJSON"(arg0: $ScriptableObject$$Type, arg1: boolean): void
+public "javaToJS"(arg0: any, arg1: $Scriptable$$Type, arg2: $TypeInfo$$Type): any
+public "javaToJS"(arg0: any, arg1: $Scriptable$$Type): any
+public "wrapAny"(arg0: $Scriptable$$Type, arg1: any): any
+public "doTopCall"(arg0: $Scriptable$$Type, arg1: $Callable$$Type, arg2: $Scriptable$$Type, arg3: (any)[], arg4: boolean): any
+public "classOf"(arg0: any): any
+public "setTopCall"(arg0: $Scriptable$$Type): void
+public "isMapLike"(arg0: any): boolean
+public "addToScope"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: any): void
+public "isListLike"(arg0: any): boolean
+public "callSync"(arg0: $Callable$$Type, arg1: $Scriptable$$Type, arg2: $Scriptable$$Type, arg3: (any)[]): any
+public "setInstructionObserverThreshold"(arg0: integer): void
+public "getInstructionObserverThreshold"(): integer
+public "internalConversionWeightLast"(arg0: any, arg1: $TypeInfo$$Type): integer
+public "getMaximumInterpreterStackDepth"(): integer
 get "implementationVersion"(): StringJS
-get "strictMode"(): boolean
+get "regExp"(): $RegExp
+get "applicationClassLoader"(): $ClassLoader
+set "applicationClassLoader"(value: $ClassLoader$$Type)
 get "errorReporter"(): $ErrorReporter
+get "undefinedValue"(): any
+get "topCallOrThrow"(): $Scriptable
+get "topCallScope"(): $Scriptable
+get "strictMode"(): boolean
+set "topCall"(value: $Scriptable$$Type)
 set "instructionObserverThreshold"(value: integer)
 get "instructionObserverThreshold"(): integer
 get "maximumInterpreterStackDepth"(): integer
-get "applicationClassLoader"(): $ClassLoader
-set "applicationClassLoader"(value: $ClassLoader$$Type)
-get "topCallScope"(): $Scriptable
-get "topCallOrThrow"(): $Scriptable
-get "undefinedValue"(): any
-set "topCall"(value: $Scriptable$$Type)
-get "regExp"(): $RegExp
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1794,12 +1794,12 @@ public "call"(arg1: $Scriptable$$Type, arg2: $Scriptable$$Type, arg3: (any)[]): 
 public "createObject"(arg1: $Scriptable$$Type): $Scriptable
 public "getTag"(): any
 public "unknown"(): $RuntimeException
-public "getArity"(): integer
-public "addAsProperty"(arg0: $Scriptable$$Type, arg1: $Context$$Type): void
-public "getPrototype"(): $Scriptable
-public "hasTag"(arg0: any): boolean
-public "getFunctionName"(): StringJS
 public "methodId"(): integer
+public "getPrototype"(): $Scriptable
+public "getArity"(): integer
+public "getFunctionName"(): StringJS
+public "hasTag"(arg0: any): boolean
+public "addAsProperty"(arg0: $Scriptable$$Type, arg1: $Context$$Type): void
 public "exportAsScopeProperty"(): void
 public "initFunction"(arg0: StringJS, arg1: $Scriptable$$Type): void
 public "markAsConstructor"(arg0: $Scriptable$$Type): void
@@ -1808,21 +1808,21 @@ public "put"(arg1: integer, arg2: $Scriptable$$Type, arg3: any): void
 public "delete"(arg1: integer): void
 public "getDefaultValue"(arg1: $DefaultValueTypeHint$$Type): any
 public "has"(arg1: integer, arg2: $Scriptable$$Type): boolean
-public "setParentScope"(arg0: $Scriptable$$Type): void
-public "getParentScope"(): $Scriptable
-public "getAllIds"(): (any)[]
 public "setPrototype"(arg0: $Scriptable$$Type): void
+public "getParentScope"(): $Scriptable
+public "setParentScope"(arg0: $Scriptable$$Type): void
 public "getIds"(): (any)[]
+public "getAllIds"(): (any)[]
 get "length"(): integer
 get "tag"(): any
-get "arity"(): integer
 get "prototype"(): $Scriptable
+get "arity"(): integer
 get "functionName"(): StringJS
-set "parentScope"(value: $Scriptable$$Type)
-get "parentScope"(): $Scriptable
-get "allIds"(): (any)[]
 set "prototype"(value: $Scriptable$$Type)
+get "parentScope"(): $Scriptable
+set "parentScope"(value: $Scriptable$$Type)
 get "ids"(): (any)[]
+get "allIds"(): (any)[]
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1844,11 +1844,11 @@ static readonly "RA_SEARCH": integer
 constructor()
 
 public "action"(arg1: $Scriptable$$Type, arg2: $Scriptable$$Type, arg3: (any)[], arg4: integer): any
-public "find_split"(arg1: $Scriptable$$Type, arg2: StringJS, arg3: StringJS, arg4: $Scriptable$$Type, arg5: (integer)[], arg6: (integer)[], arg7: (boolean)[], arg8: ((StringJS)[])[]): integer
-public "js_split"(arg1: $Scriptable$$Type, arg2: StringJS, arg3: (any)[]): any
 public "compileRegExp"(arg1: StringJS, arg2: StringJS): any
 public "wrapRegExp"(arg1: $Scriptable$$Type, arg2: any): $Scriptable
+public "js_split"(arg1: $Scriptable$$Type, arg2: StringJS, arg3: (any)[]): any
 public "isRegExp"(arg0: $Scriptable$$Type): boolean
+public "find_split"(arg1: $Scriptable$$Type, arg2: StringJS, arg3: StringJS, arg4: $Scriptable$$Type, arg5: (integer)[], arg6: (integer)[], arg7: (boolean)[], arg8: ((StringJS)[])[]): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1932,7 +1932,7 @@ public "optional"(): boolean
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $JSOptionalParam$$Type = ({"type"?: $TypeInfo$$Type, "optional"?: boolean, "name"?: StringJS}) | ([type?: $TypeInfo$$Type, optional?: boolean, name?: StringJS]);
+export type $JSOptionalParam$$Type = ({"optional"?: boolean, "type"?: $TypeInfo$$Type, "name"?: StringJS}) | ([optional?: boolean, type?: $TypeInfo$$Type, name?: StringJS]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -1942,8 +1942,8 @@ import {$TypeInfo, $TypeInfo$$Type} from "dev.latvian.mods.rhino.type.TypeInfo"
 import {$TypeVariable$$Type} from "java.lang.reflect.TypeVariable"
 import {$Map$$Type} from "java.util.Map"
 import {$TypeInfoBase} from "dev.latvian.mods.rhino.type.TypeInfoBase"
-import {$Type$$Type} from "java.lang.reflect.Type"
 import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$Type$$Type} from "java.lang.reflect.Type"
 import {$Class, $Class$$Type} from "java.lang.Class"
 
 export class $VariableTypeInfo extends $TypeInfoBase {
@@ -1956,8 +1956,8 @@ public "asClass"(): $Class<(never)>
 public "getMainBound"(): $TypeInfo
 public static "ofArray"(arg0: ($Type$$Type)[]): ($TypeInfo)[]
 public static "of"(arg0: $Class$$Type<(never)>): $TypeInfo
-public static "of"(arg0: $TypeVariable$$Type<(never)>): $VariableTypeInfo
 public static "of"(arg0: $Type$$Type): $TypeInfo
+public static "of"(arg0: $TypeVariable$$Type<(never)>): $VariableTypeInfo
 public static "safeOfArray"(arg0: $Supplier$$Type<(($Type$$Type)[])>): ($TypeInfo)[]
 public static "safeOf"(arg0: $Supplier$$Type<($Type$$Type)>): $TypeInfo
 get "name"(): StringJS
@@ -1982,10 +1982,10 @@ import {$TypeStringContext$$Type} from "dev.latvian.mods.rhino.type.TypeStringCo
 import {$TypeInfo, $TypeInfo$$Type, $TypeInfo$$Interface} from "dev.latvian.mods.rhino.type.TypeInfo"
 import {$TypeVariable$$Type} from "java.lang.reflect.TypeVariable"
 import {$VariableTypeInfo, $VariableTypeInfo$$Type} from "dev.latvian.mods.rhino.type.VariableTypeInfo"
-import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Type$$Type} from "java.lang.reflect.Type"
-import {$Set} from "java.util.Set"
+import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Class, $Class$$Type} from "java.lang.Class"
+import {$Set} from "java.util.Set"
 import {$RecordTypeInfo$Component} from "dev.latvian.mods.rhino.type.RecordTypeInfo$Component"
 
 export class $TypeInfoBase implements $TypeInfo$$Interface {
@@ -1999,8 +1999,8 @@ public "append"(arg0: $TypeStringContext$$Type, arg1: $StringBuilder$$Type): voi
 public "isPrimitive"(): boolean
 public "componentType"(): $TypeInfo
 public static "of"(arg0: $Class$$Type<(never)>): $TypeInfo
-public static "of"(arg0: $TypeVariable$$Type<(never)>): $VariableTypeInfo
 public static "of"(arg0: $Type$$Type): $TypeInfo
+public static "of"(arg0: $TypeVariable$$Type<(never)>): $VariableTypeInfo
 public "enumConstants"(): $List<(any)>
 public "param"(arg0: integer): $TypeInfo
 public "isVoid"(): boolean
@@ -2008,35 +2008,35 @@ public "is"(arg0: $TypeInfo$$Type): boolean
 public "or"(arg0: $TypeInfo$$Type): $TypeInfo
 public "isCharacter"(): boolean
 public "isFloat"(): boolean
-public static "safeOfArray"(arg0: $Supplier$$Type<(($Type$$Type)[])>): ($TypeInfo)[]
-public "createDefaultValue"(): any
-public "consolidate"(arg0: $Map$$Type<($VariableTypeInfo$$Type), ($TypeInfo$$Type)>): $TypeInfo
-public "shouldConvert"(): boolean
-public "getContainedComponentClasses"(): $Set<($Class<(never)>)>
-public "collectContainedComponentClasses"(arg0: $Collection$$Type<($Class$$Type<(never)>)>): void
-public "isLong"(): boolean
 public "recordComponents"(): $Map<(StringJS), ($RecordTypeInfo$Component)>
 public "isFunctionalInterface"(): boolean
-public "isDouble"(): boolean
-public "asClass"(): $Class<(never)>
-public static "safeOf"(arg0: $Supplier$$Type<($Type$$Type)>): $TypeInfo
-public "isByte"(): boolean
-public "isInt"(): boolean
 public "isBoolean"(): boolean
 public "isShort"(): boolean
+public "consolidate"(arg0: $Map$$Type<($VariableTypeInfo$$Type), ($TypeInfo$$Type)>): $TypeInfo
+public static "safeOfArray"(arg0: $Supplier$$Type<(($Type$$Type)[])>): ($TypeInfo)[]
+public "createDefaultValue"(): any
+public "shouldConvert"(): boolean
+public "isLong"(): boolean
 public "withParams"(...arg0: ($TypeInfo$$Type)[]): $TypeInfo
+public "asClass"(): $Class<(never)>
+public static "safeOf"(arg0: $Supplier$$Type<($Type$$Type)>): $TypeInfo
+public "isInt"(): boolean
+public "isDouble"(): boolean
+public "isByte"(): boolean
+public "collectContainedComponentClasses"(arg0: $Collection$$Type<($Class$$Type<(never)>)>): void
+public "getContainedComponentClasses"(): $Set<($Class<(never)>)>
 get "primitive"(): boolean
 get "void"(): boolean
 get "character"(): boolean
 get "float"(): boolean
-get "containedComponentClasses"(): $Set<($Class<(never)>)>
-get "long"(): boolean
 get "functionalInterface"(): boolean
-get "double"(): boolean
-get "byte"(): boolean
-get "int"(): boolean
 get "boolean"(): boolean
 get "short"(): boolean
+get "long"(): boolean
+get "int"(): boolean
+get "double"(): boolean
+get "byte"(): boolean
+get "containedComponentClasses"(): $Set<($Class<(never)>)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2112,8 +2112,8 @@ public "hashCode"(): integer
 public "count"(): integer
 public "types"(): $List<($Class<(never)>)>
 public "typesMatch"(arg0: ($Class$$Type<(never)>)[]): boolean
-public "isVarArg"(): boolean
 public "varArgType"(): $TypeInfo
+public "isVarArg"(): boolean
 public "typeInfos"(): $List<($TypeInfo)>
 public "firstArgContext"(): boolean
 get "varArg"(): boolean
@@ -2122,7 +2122,7 @@ get "varArg"(): boolean
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $CachedParameters$$Type = ({"count"?: integer, "firstArgContext"?: boolean, "typeInfos"?: $List$$Type<($TypeInfo$$Type)>, "varArgType"?: $TypeInfo$$Type, "types"?: $List$$Type<($Class$$Type<(never)>)>}) | ([count?: integer, firstArgContext?: boolean, typeInfos?: $List$$Type<($TypeInfo$$Type)>, varArgType?: $TypeInfo$$Type, types?: $List$$Type<($Class$$Type<(never)>)>]);
+export type $CachedParameters$$Type = ({"varArgType"?: $TypeInfo$$Type, "typeInfos"?: $List$$Type<($TypeInfo$$Type)>, "firstArgContext"?: boolean, "count"?: integer, "types"?: $List$$Type<($Class$$Type<(never)>)>}) | ([varArgType?: $TypeInfo$$Type, typeInfos?: $List$$Type<($TypeInfo$$Type)>, firstArgContext?: boolean, count?: integer, types?: $List$$Type<($Class$$Type<(never)>)>]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -2177,74 +2177,74 @@ public "getClassName"(): StringJS
 public "getAttributes"(arg1: $Symbol$$Type): integer
 public "getAttributes"(arg1: StringJS): integer
 public "getAttributes"(arg1: integer): integer
-public "has"(arg1: integer, arg2: $Scriptable$$Type): boolean
 public "has"(arg1: $Symbol$$Type, arg2: $Scriptable$$Type): boolean
+public "has"(arg1: integer, arg2: $Scriptable$$Type): boolean
 public "has"(arg1: StringJS, arg2: $Scriptable$$Type): boolean
-public static "getGeneratorFunctionPrototype"(arg0: $Scriptable$$Type, arg1: $Context$$Type): $Scriptable
-public "putConst"(arg1: StringJS, arg2: $Scriptable$$Type, arg3: any): void
-public "sealObject"(): void
-public "setParentScope"(arg0: $Scriptable$$Type): void
-public "getParentScope"(): $Scriptable
-public static "putProperty"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: any, arg3: $Context$$Type): void
-public static "putProperty"(arg0: $Scriptable$$Type, arg1: integer, arg2: any, arg3: $Context$$Type): void
-public static "putProperty"(arg0: $Scriptable$$Type, arg1: $Symbol$$Type, arg2: any, arg3: $Context$$Type): void
-public "associateValue"(arg0: any, arg1: any): any
-public static "getTopLevelScope"(arg0: $Scriptable$$Type): $Scriptable
-public "getAssociatedValue"(arg0: any): any
-public "defineProperty"(arg1: StringJS, arg2: any, arg3: $WrappedExecutable$$Type, arg4: $WrappedExecutable$$Type, arg5: integer): void
-public "defineProperty"(arg1: StringJS, arg2: any, arg3: integer): void
-public static "defineProperty"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: any, arg3: integer, arg4: $Context$$Type): void
-public "defineProperty"(arg1: StringJS, arg2: $Class$$Type<(never)>, arg3: integer): void
-public "defineProperty"(arg1: $Symbol$$Type, arg2: any, arg3: integer): void
-public "getTypeOf"(): $MemberType
-public "getAllIds"(): (any)[]
-public static "getTopScopeValue"(arg0: $Scriptable$$Type, arg1: any, arg2: $Context$$Type): any
-public "setGetterOrSetter"(arg1: StringJS, arg2: integer, arg3: $Callable$$Type, arg4: boolean): void
-public "getGetterOrSetter"(arg0: StringJS, arg1: integer, arg2: boolean): any
-public "defineConst"(arg1: StringJS, arg2: $Scriptable$$Type): void
-public static "redefineProperty"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: boolean, arg3: $Context$$Type): void
-public static "getPropertyIds"(arg1: $Scriptable$$Type): (any)[]
-public static "getClassPrototype"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: $Context$$Type): $Scriptable
-public static "putConstProperty"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: any, arg3: $Context$$Type): void
-public "isConst"(arg0: StringJS): boolean
+public "isExtensible"(): boolean
+public "preventExtensions"(): void
 public static "getFunctionPrototype"(arg0: $Scriptable$$Type, arg1: $Context$$Type): $Scriptable
+public "hasInstance"(arg1: $Scriptable$$Type): boolean
+public static "getObjectPrototype"(arg0: $Scriptable$$Type, arg1: $Context$$Type): $Scriptable
+public "setPrototype"(arg0: $Scriptable$$Type): void
 public static "hasProperty"(arg0: $Scriptable$$Type, arg1: $Symbol$$Type, arg2: $Context$$Type): boolean
 public static "hasProperty"(arg0: $Scriptable$$Type, arg1: integer, arg2: $Context$$Type): boolean
 public static "hasProperty"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: $Context$$Type): boolean
-public "defineOwnProperty"(arg1: any, arg2: $ScriptableObject$$Type): void
-public "preventExtensions"(): void
-public "isExtensible"(): boolean
+public "getParentScope"(): $Scriptable
+public "setParentScope"(arg0: $Scriptable$$Type): void
+public static "getTopLevelScope"(arg0: $Scriptable$$Type): $Scriptable
+public static "putProperty"(arg0: $Scriptable$$Type, arg1: integer, arg2: any, arg3: $Context$$Type): void
+public static "putProperty"(arg0: $Scriptable$$Type, arg1: $Symbol$$Type, arg2: any, arg3: $Context$$Type): void
+public static "putProperty"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: any, arg3: $Context$$Type): void
+public "getAssociatedValue"(arg0: any): any
+public "associateValue"(arg0: any, arg1: any): any
+public static "defineProperty"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: any, arg3: integer, arg4: $Context$$Type): void
+public "defineProperty"(arg1: StringJS, arg2: any, arg3: integer): void
+public "defineProperty"(arg1: $Symbol$$Type, arg2: any, arg3: integer): void
+public "defineProperty"(arg1: StringJS, arg2: $Class$$Type<(never)>, arg3: integer): void
+public "defineProperty"(arg1: StringJS, arg2: any, arg3: $WrappedExecutable$$Type, arg4: $WrappedExecutable$$Type, arg5: integer): void
 public static "deleteProperty"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: $Context$$Type): boolean
 public static "deleteProperty"(arg0: $Scriptable$$Type, arg1: integer, arg2: $Context$$Type): boolean
-public static "getObjectPrototype"(arg0: $Scriptable$$Type, arg1: $Context$$Type): $Scriptable
-public "hasInstance"(arg1: $Scriptable$$Type): boolean
+public "getIds"(): (any)[]
 public "getPrototype"(): $Scriptable
 public static "getArrayPrototype"(arg0: $Scriptable$$Type, arg1: $Context$$Type): $Scriptable
-public "setPrototype"(arg0: $Scriptable$$Type): void
-public "getIds"(): (any)[]
-public "setExternalArrayData"(arg1: $ExternalArrayData$$Type): void
+public "defineOwnProperty"(arg1: any, arg2: $ScriptableObject$$Type): void
+public "isConst"(arg0: StringJS): boolean
+public "getAllIds"(): (any)[]
+public "getTypeOf"(): $MemberType
+public static "getClassPrototype"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: $Context$$Type): $Scriptable
+public static "getTopScopeValue"(arg0: $Scriptable$$Type, arg1: any, arg2: $Context$$Type): any
+public static "redefineProperty"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: boolean, arg3: $Context$$Type): void
+public static "getPropertyIds"(arg1: $Scriptable$$Type): (any)[]
+public "defineConst"(arg1: StringJS, arg2: $Scriptable$$Type): void
+public "getGetterOrSetter"(arg0: StringJS, arg1: integer, arg2: boolean): any
+public "setGetterOrSetter"(arg1: StringJS, arg2: integer, arg3: $Callable$$Type, arg4: boolean): void
+public static "putConstProperty"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: any, arg3: $Context$$Type): void
 public "getExternalArrayLength"(): any
 public static "defineConstProperty"(arg0: $Scriptable$$Type, arg1: StringJS, arg2: $Context$$Type): void
-public "avoidObjectDetection"(): boolean
-public "getExternalArrayData"(): $ExternalArrayData
-public "defineOwnProperties"(arg1: $ScriptableObject$$Type): void
 public "defineFunctionProperties"(arg1: (StringJS)[], arg2: $Class$$Type<(never)>, arg3: integer): void
+public "getExternalArrayData"(): $ExternalArrayData
+public "setExternalArrayData"(arg1: $ExternalArrayData$$Type): void
+public "defineOwnProperties"(arg1: $ScriptableObject$$Type): void
+public "avoidObjectDetection"(): boolean
+public "putConst"(arg1: StringJS, arg2: $Scriptable$$Type, arg3: any): void
+public "sealObject"(): void
+public static "getGeneratorFunctionPrototype"(arg0: $Scriptable$$Type, arg1: $Context$$Type): $Scriptable
 public "enumerationIteratorNext"(arg1: $Consumer$$Type<(any)>): boolean
 public "enumerationIteratorHasNext"(arg1: $Consumer$$Type<(any)>): boolean
 get "empty"(): boolean
 get "sealed"(): boolean
 get "className"(): StringJS
-set "parentScope"(value: $Scriptable$$Type)
-get "parentScope"(): $Scriptable
-get "typeOf"(): $MemberType
-get "allIds"(): (any)[]
 get "extensible"(): boolean
-get "prototype"(): $Scriptable
 set "prototype"(value: $Scriptable$$Type)
+get "parentScope"(): $Scriptable
+set "parentScope"(value: $Scriptable$$Type)
 get "ids"(): (any)[]
-set "externalArrayData"(value: $ExternalArrayData$$Type)
+get "prototype"(): $Scriptable
+get "allIds"(): (any)[]
+get "typeOf"(): $MemberType
 get "externalArrayLength"(): any
 get "externalArrayData"(): $ExternalArrayData
+set "externalArrayData"(value: $ExternalArrayData$$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2295,9 +2295,9 @@ constructor()
 public "register"<T>(arg0: $Class$$Type<(T)>, arg1: $TypeWrapperFactory$$Type<(T)>): void
 public "register"<T>(arg0: $Class$$Type<(T)>, arg1: $TypeWrapperValidator$$Type, arg2: $TypeWrapperFactory$$Type<(T)>): void
 public "getWrapperFactory"(arg0: any, arg1: $TypeInfo$$Type): $TypeWrapperFactory<(never)>
-public "hasWrapper"(arg0: any, arg1: $TypeInfo$$Type): boolean
 public "registerDirect"<T>(arg0: $Class$$Type<(T)>, arg1: $DirectTypeWrapperFactory$$Type<(T)>): void
 public "registerDirect"<T>(arg0: $Class$$Type<(T)>, arg1: $TypeWrapperValidator$$Type, arg2: $DirectTypeWrapperFactory$$Type<(T)>): void
+public "hasWrapper"(arg0: any, arg1: $TypeInfo$$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

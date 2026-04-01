@@ -3,15 +3,15 @@ import {$Entity} from "net.minecraft.world.entity.Entity"
 
 export interface $LookAtEntityGoalAccessor$$Interface {
 get "target"(): $Entity
-get "lookForward"(): boolean
 get "lookTime"(): integer
+get "lookForward"(): boolean
 set "lookTime"(value: integer)
 }
 
 export class $LookAtEntityGoalAccessor implements $LookAtEntityGoalAccessor$$Interface {
  "getTarget"(): $Entity
- "getLookForward"(): boolean
  "getLookTime"(): integer
+ "getLookForward"(): boolean
  "setLookTime"(arg0: integer): void
 }
 /**
@@ -46,15 +46,15 @@ export type $SlotAccessor$$Original = $SlotAccessor;}
 declare module "net.dawson.adorablehamsterpets.mixin.client.accessor.HandledScreenAccessor" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $HandledScreenAccessor$$Interface {
-get "x"(): integer
 get "y"(): integer
 get "backgroundWidth"(): integer
+get "x"(): integer
 }
 
 export class $HandledScreenAccessor implements $HandledScreenAccessor$$Interface {
- "getX"(): integer
  "getY"(): integer
  "getBackgroundWidth"(): integer
+ "getX"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

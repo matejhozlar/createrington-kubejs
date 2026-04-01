@@ -1,12 +1,12 @@
 declare module "xaero.hud.controls.ControlsRegister" {
-import {$KeyMappingControllerManager} from "xaero.hud.controls.key.KeyMappingControllerManager"
 import {$KeyMapping$$Type} from "net.minecraft.client.KeyMapping"
+import {$KeyMappingControllerManager} from "xaero.hud.controls.key.KeyMappingControllerManager"
 import {$Consumer$$Type} from "java.util.function.Consumer"
 
 export class $ControlsRegister {
-public "registerKeybindings"(arg0: $Consumer$$Type<($KeyMapping)>): void
 public "onStage2"(): void
 public "getKeyMappingControllers"(): $KeyMappingControllerManager
+public "registerKeybindings"(arg0: $Consumer$$Type<($KeyMapping)>): void
 get "keyMappingControllers"(): $KeyMappingControllerManager
 }
 /**

@@ -1,16 +1,16 @@
 declare module "xaero.map.controls.ControlsHandler" {
 import {$MapProcessor$$Type} from "xaero.map.MapProcessor"
-import {$Minecraft$$Type} from "net.minecraft.client.Minecraft"
 import {$KeyMapping$$Type} from "net.minecraft.client.KeyMapping"
+import {$Minecraft$$Type} from "net.minecraft.client.Minecraft"
 
 export class $ControlsHandler {
 constructor(arg0: $MapProcessor$$Type)
 
+public "onKeyInput"(arg0: $Minecraft$$Type): void
+public static "isKeyRepeat"(arg0: $KeyMapping$$Type): boolean
 public "keyDown"(arg0: $KeyMapping$$Type, arg1: boolean, arg2: boolean): void
 public "keyUp"(arg0: $KeyMapping$$Type, arg1: boolean): void
-public "onKeyInput"(arg0: $Minecraft$$Type): void
 public "handleKeyEvents"(): void
-public static "isKeyRepeat"(arg0: $KeyMapping$$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

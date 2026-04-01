@@ -7,10 +7,10 @@ static readonly "CLIENT": $Dist
 
 public static "values"(): ($Dist)[]
 public static "valueOf"(arg0: StringJS): $Dist
-public "isDedicatedServer"(): boolean
 public "isClient"(): boolean
-get "dedicatedServer"(): boolean
+public "isDedicatedServer"(): boolean
 get "client"(): boolean
+get "dedicatedServer"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

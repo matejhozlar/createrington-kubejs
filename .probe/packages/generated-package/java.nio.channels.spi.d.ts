@@ -1,7 +1,7 @@
 declare module "java.nio.channels.spi.AbstractSelectableChannel" {
 import {$Selector$$Type} from "java.nio.channels.Selector"
-import {$SelectionKey} from "java.nio.channels.SelectionKey"
 import {$SelectorProvider} from "java.nio.channels.spi.SelectorProvider"
+import {$SelectionKey} from "java.nio.channels.SelectionKey"
 import {$SelectableChannel} from "java.nio.channels.SelectableChannel"
 
 /**

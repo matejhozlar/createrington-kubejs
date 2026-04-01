@@ -69,20 +69,20 @@ import {$ByteBuf} from "io.netty.buffer.ByteBuf"
 export class $RawAnimation {
 static readonly "STREAM_CODEC": $StreamCodec<($ByteBuf), ($RawAnimation)>
 
+public "then"(arg0: StringJS, arg1: $Animation$LoopType$$Type): $RawAnimation
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public static "copyOf"(arg0: $RawAnimation$$Type): $RawAnimation
 public static "begin"(): $RawAnimation
-public "then"(arg0: StringJS, arg1: $Animation$LoopType$$Type): $RawAnimation
-public "thenLoop"(arg0: StringJS): $RawAnimation
-public "thenWait"(arg0: integer): $RawAnimation
 public "thenPlay"(arg0: StringJS): $RawAnimation
-public "getStageCount"(): integer
-public "getAnimationStages"(): $List<($RawAnimation$Stage)>
+public "thenLoop"(arg0: StringJS): $RawAnimation
 public "thenPlayAndHold"(arg0: StringJS): $RawAnimation
 public "thenPlayXTimes"(arg0: StringJS, arg1: integer): $RawAnimation
-get "stageCount"(): integer
+public "getAnimationStages"(): $List<($RawAnimation$Stage)>
+public "getStageCount"(): integer
+public "thenWait"(arg0: integer): $RawAnimation
 get "animationStages"(): $List<($RawAnimation$Stage)>
+get "stageCount"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -116,7 +116,7 @@ public "additionalTicks"(): integer
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $RawAnimation$Stage$$Type = ({"additionalTicks"?: integer, "loopType"?: $Animation$LoopType$$Type, "animationName"?: StringJS}) | ([additionalTicks?: integer, loopType?: $Animation$LoopType$$Type, animationName?: StringJS]);
+export type $RawAnimation$Stage$$Type = ({"animationName"?: StringJS, "loopType"?: $Animation$LoopType$$Type, "additionalTicks"?: integer}) | ([animationName?: StringJS, loopType?: $Animation$LoopType$$Type, additionalTicks?: integer]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -124,11 +124,11 @@ export type $RawAnimation$Stage$$Original = $RawAnimation$Stage;}
 declare module "software.bernie.geckolib.animation.AnimationProcessor" {
 import {$Queue} from "java.util.Queue"
 import {$Collection} from "java.util.Collection"
-import {$RawAnimation$$Type} from "software.bernie.geckolib.animation.RawAnimation"
-import {$GeoAnimatable, $GeoAnimatable$$Type} from "software.bernie.geckolib.animatable.GeoAnimatable"
 import {$GeoModel$$Type} from "software.bernie.geckolib.model.GeoModel"
-import {$AnimationState$$Type} from "software.bernie.geckolib.animation.AnimationState"
+import {$GeoAnimatable, $GeoAnimatable$$Type} from "software.bernie.geckolib.animatable.GeoAnimatable"
+import {$RawAnimation$$Type} from "software.bernie.geckolib.animation.RawAnimation"
 import {$GeoBone, $GeoBone$$Type} from "software.bernie.geckolib.cache.object.GeoBone"
+import {$AnimationState$$Type} from "software.bernie.geckolib.animation.AnimationState"
 import {$AnimatableManager$$Type} from "software.bernie.geckolib.animation.AnimatableManager"
 import {$AnimationProcessor$QueuedAnimation} from "software.bernie.geckolib.animation.AnimationProcessor$QueuedAnimation"
 import {$BakedGeoModel$$Type} from "software.bernie.geckolib.cache.object.BakedGeoModel"
@@ -138,15 +138,15 @@ export class $AnimationProcessor<T extends $GeoAnimatable> {
 
 constructor(arg0: $GeoModel$$Type<(T)>)
 
-public "getBone"(arg0: StringJS): $GeoBone
 public "tickAnimation"(arg0: T, arg1: $GeoModel$$Type<(T)>, arg2: $AnimatableManager$$Type<(T)>, arg3: double, arg4: $AnimationState$$Type<(T)>, arg5: boolean): void
 public "registerGeoBone"(arg0: $GeoBone$$Type): void
 public "buildAnimationQueue"(arg0: T, arg1: $RawAnimation$$Type): $Queue<($AnimationProcessor$QueuedAnimation)>
-public "setActiveModel"(arg0: $BakedGeoModel$$Type): void
 public "preAnimationSetup"(arg0: $AnimationState$$Type<(T)>, arg1: double): void
 public "getRegisteredBones"(): $Collection<($GeoBone)>
-set "activeModel"(value: $BakedGeoModel$$Type)
+public "setActiveModel"(arg0: $BakedGeoModel$$Type): void
+public "getBone"(arg0: StringJS): $GeoBone
 get "registeredBones"(): $Collection<($GeoBone)>
+set "activeModel"(value: $BakedGeoModel$$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -170,17 +170,17 @@ public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public static "from"<F extends $Keyframe<(object)>>(arg0: $KeyframeStack$$Type<(F)>): $KeyframeStack<(F)>
+public "getLastKeyframeTime"(): double
 public "xKeyframes"(): $List<(T)>
 public "yKeyframes"(): $List<(T)>
 public "zKeyframes"(): $List<(T)>
-public "getLastKeyframeTime"(): double
 get "lastKeyframeTime"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $KeyframeStack$$Type<T> = ({"zKeyframes"?: $List$$Type<(T)>, "yKeyframes"?: $List$$Type<(T)>, "xKeyframes"?: $List$$Type<(T)>}) | ([zKeyframes?: $List$$Type<(T)>, yKeyframes?: $List$$Type<(T)>, xKeyframes?: $List$$Type<(T)>]);
+export type $KeyframeStack$$Type<T> = ({"xKeyframes"?: $List$$Type<(T)>, "yKeyframes"?: $List$$Type<(T)>, "zKeyframes"?: $List$$Type<(T)>}) | ([xKeyframes?: $List$$Type<(T)>, yKeyframes?: $List$$Type<(T)>, zKeyframes?: $List$$Type<(T)>]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -199,58 +199,58 @@ import {$GeoAnimatable, $GeoAnimatable$$Type} from "software.bernie.geckolib.ani
 import {$GeoModel$$Type} from "software.bernie.geckolib.model.GeoModel"
 import {$Function$$Type} from "java.util.function.Function"
 import {$AnimationController$ParticleKeyframeHandler$$Type} from "software.bernie.geckolib.animation.AnimationController$ParticleKeyframeHandler"
-import {$AnimationState$$Type} from "software.bernie.geckolib.animation.AnimationState"
 import {$AnimationController$CustomKeyframeHandler$$Type} from "software.bernie.geckolib.animation.AnimationController$CustomKeyframeHandler"
+import {$AnimationState$$Type} from "software.bernie.geckolib.animation.AnimationState"
 import {$BoneAnimationQueue} from "software.bernie.geckolib.animation.keyframe.BoneAnimationQueue"
 
 export class $AnimationController<T extends $GeoAnimatable> {
 constructor(arg0: T, arg1: $AnimationController$AnimationStateHandler$$Type<(T)>)
-constructor(arg0: T, arg1: StringJS, arg2: $AnimationController$AnimationStateHandler$$Type<(T)>)
 constructor(arg0: T, arg1: StringJS, arg2: integer, arg3: $AnimationController$AnimationStateHandler$$Type<(T)>)
+constructor(arg0: T, arg1: StringJS, arg2: $AnimationController$AnimationStateHandler$$Type<(T)>)
 constructor(arg0: T, arg1: integer, arg2: $AnimationController$AnimationStateHandler$$Type<(T)>)
 
 public "getName"(): StringJS
 public "stop"(): void
 public "process"(arg0: $GeoModel$$Type<(T)>, arg1: $AnimationState$$Type<(T)>, arg2: $Map$$Type<(StringJS), ($GeoBone$$Type)>, arg3: $Map$$Type<(StringJS), ($BoneSnapshot$$Type)>, arg4: double, arg5: boolean): void
-public "getCurrentRawAnimation"(): $RawAnimation
+public "setAnimation"(arg0: $RawAnimation$$Type): void
+public "setAnimationSpeed"(arg0: double): $AnimationController<(T)>
+public "setCustomInstructionKeyframeHandler"(arg0: $AnimationController$CustomKeyframeHandler$$Type<(T)>): $AnimationController<(T)>
+public "tryTriggerAnimation"(arg0: StringJS): boolean
+public "getStateHandler"(): $AnimationController$AnimationStateHandler<(T)>
+public "transitionLength"(arg0: integer): $AnimationController<(T)>
+public "getAnimationState"(): $AnimationController$State
+public "getAnimationSpeed"(): double
+public "forceAnimationReset"(): void
+public "isPlayingTriggeredAnimation"(): boolean
+public "setOverrideEasingTypeFunction"(arg0: $Function$$Type<(T), ($EasingType$$Type)>): $AnimationController<(T)>
 public "setSoundKeyframeHandler"(arg0: $AnimationController$SoundKeyframeHandler$$Type<(T)>): $AnimationController<(T)>
 public "setParticleKeyframeHandler"(arg0: $AnimationController$ParticleKeyframeHandler$$Type<(T)>): $AnimationController<(T)>
+public "getCurrentRawAnimation"(): $RawAnimation
 public "triggerableAnim"(arg0: StringJS, arg1: $RawAnimation$$Type): $AnimationController<(T)>
-public "setAnimationSpeed"(arg0: double): $AnimationController<(T)>
-public "getAnimationSpeed"(): double
-public "tryTriggerAnimation"(arg0: StringJS): boolean
-public "setAnimation"(arg0: $RawAnimation$$Type): void
-public "setOverrideEasingType"(arg0: $EasingType$$Type): $AnimationController<(T)>
-public "receiveTriggeredAnimations"(): $AnimationController<(T)>
-public "getCurrentAnimation"(): $AnimationProcessor$QueuedAnimation
-public "getTriggeredAnimation"(): $RawAnimation
 public "hasAnimationFinished"(): boolean
-public "getBoneAnimationQueues"(): $Map<(StringJS), ($BoneAnimationQueue)>
-public "forceAnimationReset"(): void
 public "setAnimationSpeedHandler"(arg0: $Function$$Type<(T), (double)>): $AnimationController<(T)>
-public "setCustomInstructionKeyframeHandler"(arg0: $AnimationController$CustomKeyframeHandler$$Type<(T)>): $AnimationController<(T)>
-public "transitionLength"(arg0: integer): $AnimationController<(T)>
-public "getStateHandler"(): $AnimationController$AnimationStateHandler<(T)>
-public "getAnimationState"(): $AnimationController$State
-public "setOverrideEasingTypeFunction"(arg0: $Function$$Type<(T), ($EasingType$$Type)>): $AnimationController<(T)>
-public "isPlayingTriggeredAnimation"(): boolean
+public "getBoneAnimationQueues"(): $Map<(StringJS), ($BoneAnimationQueue)>
+public "getCurrentAnimation"(): $AnimationProcessor$QueuedAnimation
+public "setOverrideEasingType"(arg0: $EasingType$$Type): $AnimationController<(T)>
+public "getTriggeredAnimation"(): $RawAnimation
+public "receiveTriggeredAnimations"(): $AnimationController<(T)>
 get "name"(): StringJS
-get "currentRawAnimation"(): $RawAnimation
-set "soundKeyframeHandler"(value: $AnimationController$SoundKeyframeHandler$$Type<(T)>)
-set "particleKeyframeHandler"(value: $AnimationController$ParticleKeyframeHandler$$Type<(T)>)
-set "animationSpeed"(value: double)
-get "animationSpeed"(): double
 set "animation"(value: $RawAnimation$$Type)
-set "overrideEasingType"(value: $EasingType$$Type)
-get "currentAnimation"(): $AnimationProcessor$QueuedAnimation
-get "triggeredAnimation"(): $RawAnimation
-get "boneAnimationQueues"(): $Map<(StringJS), ($BoneAnimationQueue)>
-set "animationSpeedHandler"(value: $Function$$Type<(T), (double)>)
+set "animationSpeed"(value: double)
 set "customInstructionKeyframeHandler"(value: $AnimationController$CustomKeyframeHandler$$Type<(T)>)
 get "stateHandler"(): $AnimationController$AnimationStateHandler<(T)>
 get "animationState"(): $AnimationController$State
-set "overrideEasingTypeFunction"(value: $Function$$Type<(T), ($EasingType$$Type)>)
+get "animationSpeed"(): double
 get "playingTriggeredAnimation"(): boolean
+set "overrideEasingTypeFunction"(value: $Function$$Type<(T), ($EasingType$$Type)>)
+set "soundKeyframeHandler"(value: $AnimationController$SoundKeyframeHandler$$Type<(T)>)
+set "particleKeyframeHandler"(value: $AnimationController$ParticleKeyframeHandler$$Type<(T)>)
+get "currentRawAnimation"(): $RawAnimation
+set "animationSpeedHandler"(value: $Function$$Type<(T), (double)>)
+get "boneAnimationQueues"(): $Map<(StringJS), ($BoneAnimationQueue)>
+get "currentAnimation"(): $AnimationProcessor$QueuedAnimation
+set "overrideEasingType"(value: $EasingType$$Type)
+get "triggeredAnimation"(): $RawAnimation
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -264,9 +264,9 @@ export type $AnimationController$$Original<T> = $AnimationController<(T)>;}
 declare module "software.bernie.geckolib.animation.keyframe.BoneAnimationQueue" {
 import {$AnimationPoint$$Type} from "software.bernie.geckolib.animation.keyframe.AnimationPoint"
 import {$AnimationPointQueue, $AnimationPointQueue$$Type} from "software.bernie.geckolib.animation.keyframe.AnimationPointQueue"
-import {$GeoBone, $GeoBone$$Type} from "software.bernie.geckolib.cache.object.GeoBone"
-import {$Keyframe$$Type} from "software.bernie.geckolib.animation.keyframe.Keyframe"
 import {$BoneSnapshot$$Type} from "software.bernie.geckolib.animation.state.BoneSnapshot"
+import {$Keyframe$$Type} from "software.bernie.geckolib.animation.keyframe.Keyframe"
+import {$GeoBone, $GeoBone$$Type} from "software.bernie.geckolib.cache.object.GeoBone"
 import {$Record} from "java.lang.Record"
 
 export class $BoneAnimationQueue extends $Record {
@@ -276,37 +276,37 @@ constructor(bone: $GeoBone$$Type, rotationXQueue: $AnimationPointQueue$$Type, ro
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
+public "addScaleZPoint"(arg0: $Keyframe$$Type<(never)>, arg1: double, arg2: double, arg3: double, arg4: double): void
+public "addScaleYPoint"(arg0: $Keyframe$$Type<(never)>, arg1: double, arg2: double, arg3: double, arg4: double): void
+public "addRotationXPoint"(arg0: $Keyframe$$Type<(never)>, arg1: double, arg2: double, arg3: double, arg4: double): void
+public "addPosZPoint"(arg0: $Keyframe$$Type<(never)>, arg1: double, arg2: double, arg3: double, arg4: double): void
+public "addScaleXPoint"(arg0: $Keyframe$$Type<(never)>, arg1: double, arg2: double, arg3: double, arg4: double): void
+public "addRotationZPoint"(arg0: $Keyframe$$Type<(never)>, arg1: double, arg2: double, arg3: double, arg4: double): void
+public "addPosXPoint"(arg0: $Keyframe$$Type<(never)>, arg1: double, arg2: double, arg3: double, arg4: double): void
+public "addPosYPoint"(arg0: $Keyframe$$Type<(never)>, arg1: double, arg2: double, arg3: double, arg4: double): void
+public "addRotationYPoint"(arg0: $Keyframe$$Type<(never)>, arg1: double, arg2: double, arg3: double, arg4: double): void
 public "bone"(): $GeoBone
-public "addScales"(arg0: $AnimationPoint$$Type, arg1: $AnimationPoint$$Type, arg2: $AnimationPoint$$Type): void
-public "rotationXQueue"(): $AnimationPointQueue
-public "rotationZQueue"(): $AnimationPointQueue
-public "rotationYQueue"(): $AnimationPointQueue
-public "positionXQueue"(): $AnimationPointQueue
-public "positionYQueue"(): $AnimationPointQueue
-public "positionZQueue"(): $AnimationPointQueue
-public "scaleXQueue"(): $AnimationPointQueue
-public "scaleYQueue"(): $AnimationPointQueue
-public "scaleZQueue"(): $AnimationPointQueue
 public "addNextRotation"(arg0: $Keyframe$$Type<(never)>, arg1: double, arg2: double, arg3: $BoneSnapshot$$Type, arg4: $BoneSnapshot$$Type, arg5: $AnimationPoint$$Type, arg6: $AnimationPoint$$Type, arg7: $AnimationPoint$$Type): void
+public "addRotations"(arg0: $AnimationPoint$$Type, arg1: $AnimationPoint$$Type, arg2: $AnimationPoint$$Type): void
 public "addNextPosition"(arg0: $Keyframe$$Type<(never)>, arg1: double, arg2: double, arg3: $BoneSnapshot$$Type, arg4: $AnimationPoint$$Type, arg5: $AnimationPoint$$Type, arg6: $AnimationPoint$$Type): void
 public "addNextScale"(arg0: $Keyframe$$Type<(never)>, arg1: double, arg2: double, arg3: $BoneSnapshot$$Type, arg4: $AnimationPoint$$Type, arg5: $AnimationPoint$$Type, arg6: $AnimationPoint$$Type): void
-public "addRotations"(arg0: $AnimationPoint$$Type, arg1: $AnimationPoint$$Type, arg2: $AnimationPoint$$Type): void
 public "addPositions"(arg0: $AnimationPoint$$Type, arg1: $AnimationPoint$$Type, arg2: $AnimationPoint$$Type): void
-public "addScaleZPoint"(arg0: $Keyframe$$Type<(never)>, arg1: double, arg2: double, arg3: double, arg4: double): void
-public "addRotationZPoint"(arg0: $Keyframe$$Type<(never)>, arg1: double, arg2: double, arg3: double, arg4: double): void
-public "addPosYPoint"(arg0: $Keyframe$$Type<(never)>, arg1: double, arg2: double, arg3: double, arg4: double): void
-public "addPosXPoint"(arg0: $Keyframe$$Type<(never)>, arg1: double, arg2: double, arg3: double, arg4: double): void
-public "addScaleXPoint"(arg0: $Keyframe$$Type<(never)>, arg1: double, arg2: double, arg3: double, arg4: double): void
-public "addRotationYPoint"(arg0: $Keyframe$$Type<(never)>, arg1: double, arg2: double, arg3: double, arg4: double): void
-public "addRotationXPoint"(arg0: $Keyframe$$Type<(never)>, arg1: double, arg2: double, arg3: double, arg4: double): void
-public "addScaleYPoint"(arg0: $Keyframe$$Type<(never)>, arg1: double, arg2: double, arg3: double, arg4: double): void
-public "addPosZPoint"(arg0: $Keyframe$$Type<(never)>, arg1: double, arg2: double, arg3: double, arg4: double): void
+public "rotationXQueue"(): $AnimationPointQueue
+public "positionYQueue"(): $AnimationPointQueue
+public "scaleYQueue"(): $AnimationPointQueue
+public "positionXQueue"(): $AnimationPointQueue
+public "rotationYQueue"(): $AnimationPointQueue
+public "positionZQueue"(): $AnimationPointQueue
+public "scaleXQueue"(): $AnimationPointQueue
+public "scaleZQueue"(): $AnimationPointQueue
+public "rotationZQueue"(): $AnimationPointQueue
+public "addScales"(arg0: $AnimationPoint$$Type, arg1: $AnimationPoint$$Type, arg2: $AnimationPoint$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $BoneAnimationQueue$$Type = ({"positionXQueue"?: $AnimationPointQueue$$Type, "rotationZQueue"?: $AnimationPointQueue$$Type, "scaleZQueue"?: $AnimationPointQueue$$Type, "scaleXQueue"?: $AnimationPointQueue$$Type, "rotationXQueue"?: $AnimationPointQueue$$Type, "positionYQueue"?: $AnimationPointQueue$$Type, "bone"?: $GeoBone$$Type, "rotationYQueue"?: $AnimationPointQueue$$Type, "scaleYQueue"?: $AnimationPointQueue$$Type, "positionZQueue"?: $AnimationPointQueue$$Type}) | ([positionXQueue?: $AnimationPointQueue$$Type, rotationZQueue?: $AnimationPointQueue$$Type, scaleZQueue?: $AnimationPointQueue$$Type, scaleXQueue?: $AnimationPointQueue$$Type, rotationXQueue?: $AnimationPointQueue$$Type, positionYQueue?: $AnimationPointQueue$$Type, bone?: $GeoBone$$Type, rotationYQueue?: $AnimationPointQueue$$Type, scaleYQueue?: $AnimationPointQueue$$Type, positionZQueue?: $AnimationPointQueue$$Type]);
+export type $BoneAnimationQueue$$Type = ({"positionZQueue"?: $AnimationPointQueue$$Type, "scaleYQueue"?: $AnimationPointQueue$$Type, "rotationYQueue"?: $AnimationPointQueue$$Type, "bone"?: $GeoBone$$Type, "positionYQueue"?: $AnimationPointQueue$$Type, "rotationXQueue"?: $AnimationPointQueue$$Type, "scaleXQueue"?: $AnimationPointQueue$$Type, "scaleZQueue"?: $AnimationPointQueue$$Type, "rotationZQueue"?: $AnimationPointQueue$$Type, "positionXQueue"?: $AnimationPointQueue$$Type}) | ([positionZQueue?: $AnimationPointQueue$$Type, scaleYQueue?: $AnimationPointQueue$$Type, rotationYQueue?: $AnimationPointQueue$$Type, bone?: $GeoBone$$Type, positionYQueue?: $AnimationPointQueue$$Type, rotationXQueue?: $AnimationPointQueue$$Type, scaleXQueue?: $AnimationPointQueue$$Type, scaleZQueue?: $AnimationPointQueue$$Type, rotationZQueue?: $AnimationPointQueue$$Type, positionXQueue?: $AnimationPointQueue$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -326,14 +326,14 @@ public "length"(): double
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "loopType"(): $Animation$LoopType
-public "keyFrames"(): $Animation$Keyframes
 public "boneAnimations"(): ($BoneAnimation)[]
+public "keyFrames"(): $Animation$Keyframes
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $Animation$$Type = ({"loopType"?: $Animation$LoopType$$Type, "boneAnimations"?: ($BoneAnimation$$Type)[], "name"?: StringJS, "length"?: double, "keyFrames"?: $Animation$Keyframes$$Type}) | ([loopType?: $Animation$LoopType$$Type, boneAnimations?: ($BoneAnimation$$Type)[], name?: StringJS, length?: double, keyFrames?: $Animation$Keyframes$$Type]);
+export type $Animation$$Type = ({"length"?: double, "name"?: StringJS, "boneAnimations"?: ($BoneAnimation$$Type)[], "loopType"?: $Animation$LoopType$$Type, "keyFrames"?: $Animation$Keyframes$$Type}) | ([length?: double, name?: StringJS, boneAnimations?: ($BoneAnimation$$Type)[], loopType?: $Animation$LoopType$$Type, keyFrames?: $Animation$Keyframes$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -362,7 +362,7 @@ public "easingArgs"(): $List<(T)>
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $Keyframe$$Type<T> = ({"startValue"?: T, "easingArgs"?: $List$$Type<(T)>, "easingType"?: $EasingType$$Type, "endValue"?: T, "length"?: double}) | ([startValue?: T, easingArgs?: $List$$Type<(T)>, easingType?: $EasingType$$Type, endValue?: T, length?: double]);
+export type $Keyframe$$Type<T> = ({"length"?: double, "endValue"?: T, "easingType"?: $EasingType$$Type, "easingArgs"?: $List$$Type<(T)>, "startValue"?: T}) | ([length?: double, endValue?: T, easingType?: $EasingType$$Type, easingArgs?: $List$$Type<(T)>, startValue?: T]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -422,23 +422,23 @@ static "register"(arg0: StringJS, arg1: $EasingType$$Type): $EasingType
 static "step"(arg0: double): $Double2DoubleFunction
 static "back"(arg0: double): $Double2DoubleFunction
 static "fromString"(arg0: StringJS): $EasingType
-static "circle"(arg0: double): double
 static "fromJson"(arg0: $JsonElement$$Type): $EasingType
 static "bounce"(arg0: double): $Double2DoubleFunction
+static "circle"(arg0: double): double
 static "linear"(arg0: $Double2DoubleFunction$$Type): $Double2DoubleFunction
 static "linear"(arg0: double): double
+static "cubic"(arg0: double): double
+static "easeOut"(arg0: $Double2DoubleFunction$$Type): $Double2DoubleFunction
+static "catmullRom"(arg0: double): double
+static "easeIn"(arg0: $Double2DoubleFunction$$Type): $Double2DoubleFunction
+static "easeInOut"(arg0: $Double2DoubleFunction$$Type): $Double2DoubleFunction
+static "quadratic"(arg0: double): double
+static "sine"(arg0: double): double
+static "elastic"(arg0: double): $Double2DoubleFunction
  "buildTransformer"(arg0: double): $Double2DoubleFunction
 static "lerpWithOverride"(arg0: $AnimationPoint$$Type, arg1: $EasingType$$Type): double
-static "stepNonNegative"(arg0: $Double2DoubleFunction$$Type): $Double2DoubleFunction
 static "stepPositive"(arg0: $Double2DoubleFunction$$Type): $Double2DoubleFunction
-static "cubic"(arg0: double): double
-static "elastic"(arg0: double): $Double2DoubleFunction
-static "quadratic"(arg0: double): double
-static "easeOut"(arg0: $Double2DoubleFunction$$Type): $Double2DoubleFunction
-static "easeInOut"(arg0: $Double2DoubleFunction$$Type): $Double2DoubleFunction
-static "catmullRom"(arg0: double): double
-static "sine"(arg0: double): double
-static "easeIn"(arg0: $Double2DoubleFunction$$Type): $Double2DoubleFunction
+static "stepNonNegative"(arg0: $Double2DoubleFunction$$Type): $Double2DoubleFunction
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -477,50 +477,50 @@ import {$GeoBone, $GeoBone$$Type} from "software.bernie.geckolib.cache.object.Ge
 export class $BoneSnapshot {
 constructor(arg0: $GeoBone$$Type)
 
-public "updateScale"(arg0: float, arg1: float, arg2: float): void
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public static "copy"(arg0: $BoneSnapshot$$Type): $BoneSnapshot
-public "getRotY"(): float
-public "getRotX"(): float
-public "getOffsetZ"(): float
-public "getScaleX"(): float
-public "getRotZ"(): float
-public "getScaleY"(): float
-public "getScaleZ"(): float
-public "updateRotation"(arg0: float, arg1: float, arg2: float): void
 public "getOffsetX"(): float
 public "getOffsetY"(): float
-public "getBone"(): $GeoBone
+public "updateRotation"(arg0: float, arg1: float, arg2: float): void
+public "getScaleY"(): float
+public "getRotZ"(): float
+public "getScaleZ"(): float
+public "getScaleX"(): float
+public "getRotX"(): float
+public "getRotY"(): float
+public "updateScale"(arg0: float, arg1: float, arg2: float): void
+public "getOffsetZ"(): float
+public "updateOffset"(arg0: float, arg1: float, arg2: float): void
+public "startScaleAnim"(): void
 public "startRotAnim"(): void
+public "stopRotAnim"(arg0: double): void
 public "stopPosAnim"(arg0: double): void
 public "stopScaleAnim"(arg0: double): void
 public "startPosAnim"(): void
-public "startScaleAnim"(): void
-public "stopRotAnim"(arg0: double): void
-public "updateOffset"(arg0: float, arg1: float, arg2: float): void
-public "getLastResetScaleTick"(): double
-public "isScaleAnimInProgress"(): boolean
-public "getLastResetPositionTick"(): double
+public "isRotAnimInProgress"(): boolean
 public "isPosAnimInProgress"(): boolean
 public "getLastResetRotationTick"(): double
-public "isRotAnimInProgress"(): boolean
-get "rotY"(): float
-get "rotX"(): float
-get "offsetZ"(): float
-get "scaleX"(): float
-get "rotZ"(): float
-get "scaleY"(): float
-get "scaleZ"(): float
+public "getLastResetPositionTick"(): double
+public "isScaleAnimInProgress"(): boolean
+public "getLastResetScaleTick"(): double
+public "getBone"(): $GeoBone
 get "offsetX"(): float
 get "offsetY"(): float
-get "bone"(): $GeoBone
-get "lastResetScaleTick"(): double
-get "scaleAnimInProgress"(): boolean
-get "lastResetPositionTick"(): double
+get "scaleY"(): float
+get "rotZ"(): float
+get "scaleZ"(): float
+get "scaleX"(): float
+get "rotX"(): float
+get "rotY"(): float
+get "offsetZ"(): float
+get "rotAnimInProgress"(): boolean
 get "posAnimInProgress"(): boolean
 get "lastResetRotationTick"(): double
-get "rotAnimInProgress"(): boolean
+get "lastResetPositionTick"(): double
+get "scaleAnimInProgress"(): boolean
+get "lastResetScaleTick"(): double
+get "bone"(): $GeoBone
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -574,8 +574,8 @@ export type $CustomInstructionKeyframeData$$Original = $CustomInstructionKeyfram
 declare module "software.bernie.geckolib.animation.AnimationState" {
 import {$AnimationController, $AnimationController$$Type} from "software.bernie.geckolib.animation.AnimationController"
 import {$Map} from "java.util.Map"
-import {$RawAnimation$$Type} from "software.bernie.geckolib.animation.RawAnimation"
 import {$GeoAnimatable, $GeoAnimatable$$Type} from "software.bernie.geckolib.animatable.GeoAnimatable"
+import {$RawAnimation$$Type} from "software.bernie.geckolib.animation.RawAnimation"
 import {$DataTicket, $DataTicket$$Type} from "software.bernie.geckolib.constant.dataticket.DataTicket"
 import {$PlayState} from "software.bernie.geckolib.animation.PlayState"
 
@@ -585,32 +585,32 @@ export class $AnimationState<T extends $GeoAnimatable> {
 constructor(arg0: T, arg1: float, arg2: float, arg3: float, arg4: boolean)
 
 public "getData"<D>(arg0: $DataTicket$$Type<(D)>): D
-public "getController"(): $AnimationController<(T)>
-public "getLimbSwingAmount"(): float
-public "getPartialTick"(): float
+public "setAnimation"(arg0: $RawAnimation$$Type): void
 public "isMoving"(): boolean
 public "setData"<D>(arg0: $DataTicket$$Type<(D)>, arg1: D): void
-public "setAndContinue"(arg0: $RawAnimation$$Type): $PlayState
-public "setAnimation"(arg0: $RawAnimation$$Type): void
-public "getExtraData"(): $Map<($DataTicket<(never)>), (never)>
-public "getAnimatable"(): T
-public "withController"(arg0: $AnimationController$$Type<(T)>): $AnimationState<(T)>
+public "getAnimationTick"(): double
+public "getLimbSwing"(): float
+public "setControllerSpeed"(arg0: float): void
+public "isCurrentAnimation"(arg0: $RawAnimation$$Type): boolean
 public "isCurrentAnimationStage"(arg0: StringJS): boolean
 public "resetCurrentAnimation"(): void
-public "getAnimationTick"(): double
-public "setControllerSpeed"(arg0: float): void
-public "getLimbSwing"(): float
-public "isCurrentAnimation"(arg0: $RawAnimation$$Type): boolean
-get "controller"(): $AnimationController<(T)>
-get "limbSwingAmount"(): float
-get "partialTick"(): float
-get "moving"(): boolean
-set "andContinue"(value: $RawAnimation$$Type)
+public "getLimbSwingAmount"(): float
+public "getController"(): $AnimationController<(T)>
+public "getExtraData"(): $Map<($DataTicket<(never)>), (never)>
+public "getPartialTick"(): float
+public "setAndContinue"(arg0: $RawAnimation$$Type): $PlayState
+public "getAnimatable"(): T
+public "withController"(arg0: $AnimationController$$Type<(T)>): $AnimationState<(T)>
 set "animation"(value: $RawAnimation$$Type)
-get "extraData"(): $Map<($DataTicket<(never)>), (never)>
-get "animatable"(): T
-set "controllerSpeed"(value: float)
+get "moving"(): boolean
 get "limbSwing"(): float
+set "controllerSpeed"(value: float)
+get "limbSwingAmount"(): float
+get "controller"(): $AnimationController<(T)>
+get "extraData"(): $Map<($DataTicket<(never)>), (never)>
+get "partialTick"(): float
+set "andContinue"(value: $RawAnimation$$Type)
+get "animatable"(): T
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -633,16 +633,16 @@ constructor(boneName: StringJS, rotationKeyFrames: $KeyframeStack$$Type<($Keyfra
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public "boneName"(): StringJS
-public "rotationKeyFrames"(): $KeyframeStack<($Keyframe<($MathValue)>)>
-public "scaleKeyFrames"(): $KeyframeStack<($Keyframe<($MathValue)>)>
 public "positionKeyFrames"(): $KeyframeStack<($Keyframe<($MathValue)>)>
+public "scaleKeyFrames"(): $KeyframeStack<($Keyframe<($MathValue)>)>
+public "rotationKeyFrames"(): $KeyframeStack<($Keyframe<($MathValue)>)>
+public "boneName"(): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $BoneAnimation$$Type = ({"scaleKeyFrames"?: $KeyframeStack$$Type<($Keyframe$$Type<($MathValue$$Type)>)>, "boneName"?: StringJS, "rotationKeyFrames"?: $KeyframeStack$$Type<($Keyframe$$Type<($MathValue$$Type)>)>, "positionKeyFrames"?: $KeyframeStack$$Type<($Keyframe$$Type<($MathValue$$Type)>)>}) | ([scaleKeyFrames?: $KeyframeStack$$Type<($Keyframe$$Type<($MathValue$$Type)>)>, boneName?: StringJS, rotationKeyFrames?: $KeyframeStack$$Type<($Keyframe$$Type<($MathValue$$Type)>)>, positionKeyFrames?: $KeyframeStack$$Type<($Keyframe$$Type<($MathValue$$Type)>)>]);
+export type $BoneAnimation$$Type = ({"rotationKeyFrames"?: $KeyframeStack$$Type<($Keyframe$$Type<($MathValue$$Type)>)>, "boneName"?: StringJS, "scaleKeyFrames"?: $KeyframeStack$$Type<($Keyframe$$Type<($MathValue$$Type)>)>, "positionKeyFrames"?: $KeyframeStack$$Type<($Keyframe$$Type<($MathValue$$Type)>)>}) | ([rotationKeyFrames?: $KeyframeStack$$Type<($Keyframe$$Type<($MathValue$$Type)>)>, boneName?: StringJS, scaleKeyFrames?: $KeyframeStack$$Type<($Keyframe$$Type<($MathValue$$Type)>)>, positionKeyFrames?: $KeyframeStack$$Type<($Keyframe$$Type<($MathValue$$Type)>)>]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -686,7 +686,7 @@ public "customInstructions"(): ($CustomInstructionKeyframeData)[]
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $Animation$Keyframes$$Type = ({"particles"?: ($ParticleKeyframeData$$Type)[], "customInstructions"?: ($CustomInstructionKeyframeData$$Type)[], "sounds"?: ($SoundKeyframeData$$Type)[]}) | ([particles?: ($ParticleKeyframeData$$Type)[], customInstructions?: ($CustomInstructionKeyframeData$$Type)[], sounds?: ($SoundKeyframeData$$Type)[]]);
+export type $Animation$Keyframes$$Type = ({"sounds"?: ($SoundKeyframeData$$Type)[], "customInstructions"?: ($CustomInstructionKeyframeData$$Type)[], "particles"?: ($ParticleKeyframeData$$Type)[]}) | ([sounds?: ($SoundKeyframeData$$Type)[], customInstructions?: ($CustomInstructionKeyframeData$$Type)[], particles?: ($ParticleKeyframeData$$Type)[]]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -779,33 +779,33 @@ declare module "software.bernie.geckolib.animation.AnimatableManager" {
 import {$AnimationController, $AnimationController$$Type} from "software.bernie.geckolib.animation.AnimationController"
 import {$Map} from "java.util.Map"
 import {$GeoAnimatable, $GeoAnimatable$$Type} from "software.bernie.geckolib.animatable.GeoAnimatable"
-import {$DataTicket$$Type} from "software.bernie.geckolib.constant.dataticket.DataTicket"
 import {$BoneSnapshot} from "software.bernie.geckolib.animation.state.BoneSnapshot"
+import {$DataTicket$$Type} from "software.bernie.geckolib.constant.dataticket.DataTicket"
 
 export class $AnimatableManager<T extends $GeoAnimatable> {
 constructor(arg0: $GeoAnimatable$$Type)
 
 public "getData"<D>(arg0: $DataTicket$$Type<(D)>): D
 public "getLastUpdateTime"(): double
-public "removeController"(arg0: StringJS): void
 public "setData"<D>(arg0: $DataTicket$$Type<(D)>, arg1: D): void
-public "stopTriggeredAnimation"(arg0: StringJS, arg1: StringJS): void
-public "stopTriggeredAnimation"(arg0: StringJS): void
-public "tryTriggerAnimation"(arg0: StringJS): void
-public "tryTriggerAnimation"(arg0: StringJS, arg1: StringJS): void
-public "updatedAt"(arg0: double): void
-public "startedAt"(arg0: double): void
-public "getFirstTickTime"(): double
-public "isFirstTick"(): boolean
-public "getAnimationControllers"(): $Map<(StringJS), ($AnimationController<(T)>)>
-public "getBoneSnapshotCollection"(): $Map<(StringJS), ($BoneSnapshot)>
 public "addController"(arg0: $AnimationController$$Type): void
 public "clearSnapshotCache"(): void
+public "stopTriggeredAnimation"(arg0: StringJS, arg1: StringJS): void
+public "stopTriggeredAnimation"(arg0: StringJS): void
+public "tryTriggerAnimation"(arg0: StringJS, arg1: StringJS): void
+public "tryTriggerAnimation"(arg0: StringJS): void
+public "removeController"(arg0: StringJS): void
+public "updatedAt"(arg0: double): void
+public "getBoneSnapshotCollection"(): $Map<(StringJS), ($BoneSnapshot)>
+public "getAnimationControllers"(): $Map<(StringJS), ($AnimationController<(T)>)>
+public "getFirstTickTime"(): double
+public "isFirstTick"(): boolean
+public "startedAt"(arg0: double): void
 get "lastUpdateTime"(): double
+get "boneSnapshotCollection"(): $Map<(StringJS), ($BoneSnapshot)>
+get "animationControllers"(): $Map<(StringJS), ($AnimationController<(T)>)>
 get "firstTickTime"(): double
 get "firstTick"(): boolean
-get "animationControllers"(): $Map<(StringJS), ($AnimationController<(T)>)>
-get "boneSnapshotCollection"(): $Map<(StringJS), ($BoneSnapshot)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

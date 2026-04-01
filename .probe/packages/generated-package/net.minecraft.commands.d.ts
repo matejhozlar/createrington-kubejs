@@ -40,13 +40,13 @@ import {$Collection, $Collection$$Type} from "java.util.Collection"
 import {$CommandExceptionType$$Type} from "com.mojang.brigadier.exceptions.CommandExceptionType"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$SuggestionsBuilder$$Type} from "com.mojang.brigadier.suggestion.SuggestionsBuilder"
-import {$Registry$$Type} from "net.minecraft.core.Registry"
-import {$LazyComponentKJS$$Type} from "dev.latvian.mods.kubejs.core.LazyComponentKJS"
 import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
 import {$CommandSyntaxException$$Type} from "com.mojang.brigadier.exceptions.CommandSyntaxException"
+import {$LazyComponentKJS$$Type} from "dev.latvian.mods.kubejs.core.LazyComponentKJS"
+import {$Registry$$Type} from "net.minecraft.core.Registry"
 import {$ServerLevel, $ServerLevel$$Type} from "net.minecraft.server.level.ServerLevel"
-import {$Scoreboard} from "net.minecraft.world.scores.Scoreboard"
 import {$CommandDispatcher} from "com.mojang.brigadier.CommandDispatcher"
+import {$Scoreboard} from "net.minecraft.world.scores.Scoreboard"
 import {$EntityAnchorArgument$Anchor, $EntityAnchorArgument$Anchor$$Type} from "net.minecraft.commands.arguments.EntityAnchorArgument$Anchor"
 import {$MinecraftServer, $MinecraftServer$$Type} from "net.minecraft.server.MinecraftServer"
 import {$ChatType$Bound$$Type} from "net.minecraft.network.chat.ChatType$Bound"
@@ -65,105 +65,105 @@ public "getPosition"(): $Vec3
 public "getDisplayName"(): $Component
 public "levels"(): $Set<($ResourceKey<($Level)>)>
 public "getLevel"(): $ServerLevel
-public "withPermission"(arg0: integer): $CommandSourceStack
-public "customSuggestion"(arg0: $CommandContext$$Type<(never)>): $CompletableFuture<($Suggestions)>
-public "getSigningContext"(): $CommandSigningContext
-public "getAllTeams"(): $Collection<(StringJS)>
-public "suggestRegistryElements"(arg0: $ResourceKey$$Type<($Registry<(never)>)>, arg1: $SharedSuggestionProvider$ElementSuggestionType$$Type, arg2: $SuggestionsBuilder$$Type, arg3: $CommandContext$$Type<(never)>): $CompletableFuture<($Suggestions)>
-public "withPosition"(arg0: $Vec3$$Type): $CommandSourceStack
-public "withSuppressedOutput"(): $CommandSourceStack
-public "registryAccess"(): $RegistryAccess
-public "getAnchor"(): $EntityAnchorArgument$Anchor
 public "getEntity"(): $Entity
-public "withLevel"(arg0: $ServerLevel$$Type): $CommandSourceStack
-public "handleError"(arg0: $CommandExceptionType$$Type, arg1: $Message$$Type, arg2: boolean, arg3: $TraceCallbacks$$Type): void
-public "hasPermission"(arg0: integer): boolean
-public "getPlayer"(): $ServerPlayer
-public "enabledFeatures"(): $FeatureFlagSet
-public "withRotation"(arg0: $Vec2$$Type): $CommandSourceStack
-public "dispatcher"(): $CommandDispatcher<($CommandSourceStack)>
-public "sendChatMessage"(arg0: $OutgoingChatMessage$$Type, arg1: boolean, arg2: $ChatType$Bound$$Type): void
-public "withSigningContext"(arg0: $CommandSigningContext$$Type, arg1: $TaskChainer$$Type): $CommandSourceStack
+public "shouldFilterMessageTo"(arg0: $ServerPlayer$$Type): boolean
 public "withEntity"(arg0: $Entity$$Type): $CommandSourceStack
-public "withSource"(arg0: $CommandSource$$Type): $CommandSourceStack
-public "withAnchor"(arg0: $EntityAnchorArgument$Anchor$$Type): $CommandSourceStack
-public "facing"(arg0: $Entity$$Type, arg1: $EntityAnchorArgument$Anchor$$Type): $CommandSourceStack
-public "facing"(arg0: $Vec3$$Type): $CommandSourceStack
+public "getPlayer"(): $ServerPlayer
 public "isPlayer"(): boolean
+public "withPermission"(arg0: integer): $CommandSourceStack
+public "handleError"(arg0: $CommandExceptionType$$Type, arg1: $Message$$Type, arg2: boolean, arg3: $TraceCallbacks$$Type): void
+public "dispatcher"(): $CommandDispatcher<($CommandSourceStack)>
+public "withPosition"(arg0: $Vec3$$Type): $CommandSourceStack
+public "withLevel"(arg0: $ServerLevel$$Type): $CommandSourceStack
+public "getPlayerOrException"(): $ServerPlayer
+public "withAnchor"(arg0: $EntityAnchorArgument$Anchor$$Type): $CommandSourceStack
+public "withSource"(arg0: $CommandSource$$Type): $CommandSourceStack
+public "sendChatMessage"(arg0: $OutgoingChatMessage$$Type, arg1: boolean, arg2: $ChatType$Bound$$Type): void
+public "sendFailure"(arg0: $Component$$Type): void
+public "enabledFeatures"(): $FeatureFlagSet
+public "getEntityOrException"(): $Entity
 public "sendSuccessLazy"(component: $LazyComponentKJS$$Type, broadcastToAdmins: boolean): void
 public "withMaximumPermission"(arg0: integer): $CommandSourceStack
-public "getEntityOrException"(): $Entity
-public "withCallback"(arg0: $CommandResultCallback$$Type): $ExecutionCommandSource
-public "withCallback"(arg0: $CommandResultCallback$$Type, arg1: $BinaryOperator$$Type<($CommandResultCallback)>): $CommandSourceStack
-public "sendFailure"(arg0: $Component$$Type): void
-public "getRotation"(): $Vec2
-public "getAvailableSounds"(): $Stream<($ResourceLocation)>
-public "getRecipeNames"(): $Stream<($ResourceLocation)>
-public "arch$sendSuccess"(message: $Supplier$$Type, broadcastToAdmins: boolean): void
-public "arch$sendFailure"(message: $Component$$Type): void
-public "arch$getPlayer"(): $LocalPlayer
-public "getTextName"(): StringJS
-public "arch$getPosition"(): $Vec3
-public "arch$getRotation"(): $Vec2
-public "arch$getLevel"(): $ClientLevel
-public "sendSuccess"(component: $Component$$Type, broadcastToAdmins: boolean): void
-public "getPlayerOrException"(): $ServerPlayer
+public "getAllTeams"(): $Collection<(StringJS)>
+public "getAnchor"(): $EntityAnchorArgument$Anchor
 public "isSilent"(): boolean
+public "facing"(arg0: $Vec3$$Type): $CommandSourceStack
+public "facing"(arg0: $Entity$$Type, arg1: $EntityAnchorArgument$Anchor$$Type): $CommandSourceStack
+public "withCallback"(arg0: $CommandResultCallback$$Type): $CommandSourceStack
+public "withCallback"(arg0: $CommandResultCallback$$Type, arg1: $BinaryOperator$$Type<($CommandResultCallback)>): $CommandSourceStack
+public "getRotation"(): $Vec2
 public "getServer"(): $MinecraftServer
-public "sendSystemMessage"(arg0: $Component$$Type): void
-public "getOnlinePlayerNames"(): $Collection<(StringJS)>
+public "arch$getPosition"(): $Vec3
+public "getAvailableSounds"(): $Stream<($ResourceLocation)>
+public "arch$sendFailure"(message: $Component$$Type): void
+public "arch$getRotation"(): $Vec2
+public "withSigningContext"(arg0: $CommandSigningContext$$Type, arg1: $TaskChainer$$Type): $CommandSourceStack
+public "arch$getPlayer"(): $LocalPlayer
+public "sendSuccess"(component: $Component$$Type, broadcastToAdmins: boolean): void
+public "arch$getLevel"(): $ClientLevel
+public "getTextName"(): StringJS
+public "arch$sendSuccess"(message: $Supplier$$Type, broadcastToAdmins: boolean): void
+public "getRecipeNames"(): $Stream<($ResourceLocation)>
+public "getSigningContext"(): $CommandSigningContext
+public "customSuggestion"(arg0: $CommandContext$$Type<(never)>): $CompletableFuture<($Suggestions)>
+public "withSuppressedOutput"(): $CommandSourceStack
+public "registryAccess"(): $RegistryAccess
 public "getChatMessageChainer"(): $TaskChainer
-public "shouldFilterMessageTo"(arg0: $ServerPlayer$$Type): boolean
+public "suggestRegistryElements"(arg0: $ResourceKey$$Type<($Registry<(never)>)>, arg1: $SharedSuggestionProvider$ElementSuggestionType$$Type, arg2: $SuggestionsBuilder$$Type, arg3: $CommandContext$$Type<(never)>): $CompletableFuture<($Suggestions)>
+public "getOnlinePlayerNames"(): $Collection<(StringJS)>
+public "withRotation"(arg0: $Vec2$$Type): $CommandSourceStack
+public "sendSystemMessage"(arg0: $Component$$Type): void
+public "hasPermission"(arg0: integer): boolean
 public static "resultConsumer"<T extends $ExecutionCommandSource<(object)>>(): $ResultConsumer<($CommandSourceStack)>
 public "handleError"(arg0: $CommandSyntaxException$$Type, arg1: boolean, arg2: $TraceCallbacks$$Type): void
 public "clearCallbacks"(): $CommandSourceStack
-public static "suggestCoordinates"(arg0: StringJS, arg1: $Collection$$Type<($SharedSuggestionProvider$TextCoordinates$$Type)>, arg2: $SuggestionsBuilder$$Type, arg3: $Predicate$$Type<(StringJS)>): $CompletableFuture<($Suggestions)>
-public "suggestRegistryElements"(arg0: $Registry$$Type<(never)>, arg1: $SharedSuggestionProvider$ElementSuggestionType$$Type, arg2: $SuggestionsBuilder$$Type): void
-public static "filterResources"<T>(arg0: $Iterable$$Type<(T)>, arg1: StringJS, arg2: StringJS, arg3: $Function$$Type<(T), ($ResourceLocation$$Type)>, arg4: $Consumer$$Type<(T)>): void
-public static "filterResources"<T>(arg0: $Iterable$$Type<(T)>, arg1: StringJS, arg2: $Function$$Type<(T), ($ResourceLocation$$Type)>, arg3: $Consumer$$Type<(T)>): void
-public static "matchesSubStr"(arg0: StringJS, arg1: StringJS): boolean
-public static "suggestResource"<T>(arg0: $Iterable$$Type<(T)>, arg1: $SuggestionsBuilder$$Type, arg2: $Function$$Type<(T), ($ResourceLocation$$Type)>, arg3: $Function$$Type<(T), ($Message$$Type)>): $CompletableFuture<($Suggestions)>
-public static "suggestResource"(arg0: $Iterable$$Type<($ResourceLocation$$Type)>, arg1: $SuggestionsBuilder$$Type): $CompletableFuture<($Suggestions)>
-public static "suggestResource"(arg0: $Iterable$$Type<($ResourceLocation$$Type)>, arg1: $SuggestionsBuilder$$Type, arg2: StringJS): $CompletableFuture<($Suggestions)>
-public static "suggestResource"(arg0: $Stream$$Type<($ResourceLocation$$Type)>, arg1: $SuggestionsBuilder$$Type, arg2: StringJS): $CompletableFuture<($Suggestions)>
-public static "suggestResource"<T>(arg0: $Stream$$Type<(T)>, arg1: $SuggestionsBuilder$$Type, arg2: $Function$$Type<(T), ($ResourceLocation$$Type)>, arg3: $Function$$Type<(T), ($Message$$Type)>): $CompletableFuture<($Suggestions)>
-public static "suggestResource"(arg0: $Stream$$Type<($ResourceLocation$$Type)>, arg1: $SuggestionsBuilder$$Type): $CompletableFuture<($Suggestions)>
 public "getCustomTabSugggestions"(): $Collection<(StringJS)>
-public static "suggest"(arg0: (StringJS)[], arg1: $SuggestionsBuilder$$Type): $CompletableFuture<($Suggestions)>
-public static "suggest"<T>(arg0: $Iterable$$Type<(T)>, arg1: $SuggestionsBuilder$$Type, arg2: $Function$$Type<(T), (StringJS)>, arg3: $Function$$Type<(T), ($Message$$Type)>): $CompletableFuture<($Suggestions)>
 public static "suggest"(arg0: $Stream$$Type<(StringJS)>, arg1: $SuggestionsBuilder$$Type): $CompletableFuture<($Suggestions)>
 public static "suggest"(arg0: $Iterable$$Type<(StringJS)>, arg1: $SuggestionsBuilder$$Type): $CompletableFuture<($Suggestions)>
-public "getSelectedEntities"(): $Collection<(StringJS)>
+public static "suggest"(arg0: (StringJS)[], arg1: $SuggestionsBuilder$$Type): $CompletableFuture<($Suggestions)>
+public static "suggest"<T>(arg0: $Iterable$$Type<(T)>, arg1: $SuggestionsBuilder$$Type, arg2: $Function$$Type<(T), (StringJS)>, arg3: $Function$$Type<(T), ($Message$$Type)>): $CompletableFuture<($Suggestions)>
+public static "suggestResource"(arg0: $Iterable$$Type<($ResourceLocation$$Type)>, arg1: $SuggestionsBuilder$$Type): $CompletableFuture<($Suggestions)>
+public static "suggestResource"<T>(arg0: $Iterable$$Type<(T)>, arg1: $SuggestionsBuilder$$Type, arg2: $Function$$Type<(T), ($ResourceLocation$$Type)>, arg3: $Function$$Type<(T), ($Message$$Type)>): $CompletableFuture<($Suggestions)>
+public static "suggestResource"(arg0: $Stream$$Type<($ResourceLocation$$Type)>, arg1: $SuggestionsBuilder$$Type, arg2: StringJS): $CompletableFuture<($Suggestions)>
+public static "suggestResource"(arg0: $Stream$$Type<($ResourceLocation$$Type)>, arg1: $SuggestionsBuilder$$Type): $CompletableFuture<($Suggestions)>
+public static "suggestResource"<T>(arg0: $Stream$$Type<(T)>, arg1: $SuggestionsBuilder$$Type, arg2: $Function$$Type<(T), ($ResourceLocation$$Type)>, arg3: $Function$$Type<(T), ($Message$$Type)>): $CompletableFuture<($Suggestions)>
+public static "suggestResource"(arg0: $Iterable$$Type<($ResourceLocation$$Type)>, arg1: $SuggestionsBuilder$$Type, arg2: StringJS): $CompletableFuture<($Suggestions)>
+public static "filterResources"<T>(arg0: $Iterable$$Type<(T)>, arg1: StringJS, arg2: $Function$$Type<(T), ($ResourceLocation$$Type)>, arg3: $Consumer$$Type<(T)>): void
+public static "filterResources"<T>(arg0: $Iterable$$Type<(T)>, arg1: StringJS, arg2: StringJS, arg3: $Function$$Type<(T), ($ResourceLocation$$Type)>, arg4: $Consumer$$Type<(T)>): void
+public static "matchesSubStr"(arg0: StringJS, arg1: StringJS): boolean
+public static "suggestCoordinates"(arg0: StringJS, arg1: $Collection$$Type<($SharedSuggestionProvider$TextCoordinates$$Type)>, arg2: $SuggestionsBuilder$$Type, arg3: $Predicate$$Type<(StringJS)>): $CompletableFuture<($Suggestions)>
 public "getAbsoluteCoordinates"(): $Collection<($SharedSuggestionProvider$TextCoordinates)>
-public "getRelevantCoordinates"(): $Collection<($SharedSuggestionProvider$TextCoordinates)>
 public static "suggest2DCoordinates"(arg0: StringJS, arg1: $Collection$$Type<($SharedSuggestionProvider$TextCoordinates$$Type)>, arg2: $SuggestionsBuilder$$Type, arg3: $Predicate$$Type<(StringJS)>): $CompletableFuture<($Suggestions)>
-public "getUnsidedLevel"(): $Level
+public "suggestRegistryElements"(arg0: $Registry$$Type<(never)>, arg1: $SharedSuggestionProvider$ElementSuggestionType$$Type, arg2: $SuggestionsBuilder$$Type): void
+public "getRelevantCoordinates"(): $Collection<($SharedSuggestionProvider$TextCoordinates)>
+public "getSelectedEntities"(): $Collection<(StringJS)>
 public "getAdvancement"(arg0: $ResourceLocation$$Type): $AdvancementHolder
+public "getUnsidedLevel"(): $Level
 public "getRecipeManager"(): $RecipeManager
 public "getScoreboard"(): $Scoreboard
 get "position"(): $Vec3
 get "displayName"(): $Component
 get "level"(): $ServerLevel
-get "signingContext"(): $CommandSigningContext
-get "allTeams"(): $Collection<(StringJS)>
-get "anchor"(): $EntityAnchorArgument$Anchor
 get "entity"(): $Entity
 get "player"(): $ServerPlayer
 get "player"(): boolean
-get "entityOrException"(): $Entity
-get "rotation"(): $Vec2
-get "availableSounds"(): $Stream<($ResourceLocation)>
-get "recipeNames"(): $Stream<($ResourceLocation)>
-get "textName"(): StringJS
 get "playerOrException"(): $ServerPlayer
+get "entityOrException"(): $Entity
+get "allTeams"(): $Collection<(StringJS)>
+get "anchor"(): $EntityAnchorArgument$Anchor
 get "silent"(): boolean
+get "rotation"(): $Vec2
 get "server"(): $MinecraftServer
-get "onlinePlayerNames"(): $Collection<(StringJS)>
+get "availableSounds"(): $Stream<($ResourceLocation)>
+get "textName"(): StringJS
+get "recipeNames"(): $Stream<($ResourceLocation)>
+get "signingContext"(): $CommandSigningContext
 get "chatMessageChainer"(): $TaskChainer
+get "onlinePlayerNames"(): $Collection<(StringJS)>
 get "customTabSugggestions"(): $Collection<(StringJS)>
-get "selectedEntities"(): $Collection<(StringJS)>
 get "absoluteCoordinates"(): $Collection<($SharedSuggestionProvider$TextCoordinates)>
 get "relevantCoordinates"(): $Collection<($SharedSuggestionProvider$TextCoordinates)>
+get "selectedEntities"(): $Collection<(StringJS)>
 get "unsidedLevel"(): $Level
 get "recipeManager"(): $RecipeManager
 get "scoreboard"(): $Scoreboard
@@ -180,8 +180,8 @@ export type $CommandSourceStack$$Original = $CommandSourceStack;}
 declare module "net.minecraft.commands.CacheableFunction" {
 import {$CommandFunction} from "net.minecraft.commands.functions.CommandFunction"
 import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
-import {$Codec} from "com.mojang.serialization.Codec"
 import {$ServerFunctionManager$$Type} from "net.minecraft.server.ServerFunctionManager"
+import {$Codec} from "com.mojang.serialization.Codec"
 import {$Optional} from "java.util.Optional"
 import {$CommandSourceStack} from "net.minecraft.commands.CommandSourceStack"
 
@@ -256,10 +256,10 @@ export interface $CommandSource$$Interface {
 export class $CommandSource implements $CommandSource$$Interface {
 static readonly "NULL": $CommandSource
 
- "shouldInformAdmins"(): boolean
+ "alwaysAccepts"(): boolean
  "acceptsFailure"(): boolean
  "acceptsSuccess"(): boolean
- "alwaysAccepts"(): boolean
+ "shouldInformAdmins"(): boolean
  "sendSystemMessage"(arg0: $Component$$Type): void
 }
 /**
@@ -274,8 +274,8 @@ export type $CommandSource$$Original = $CommandSource;}
 declare module "net.minecraft.commands.SharedSuggestionProvider" {
 import {$Iterable$$Type} from "java.lang.Iterable"
 import {$FeatureFlagSet} from "net.minecraft.world.flag.FeatureFlagSet"
-import {$Collection, $Collection$$Type} from "java.util.Collection"
 import {$Suggestions} from "com.mojang.brigadier.suggestion.Suggestions"
+import {$Collection, $Collection$$Type} from "java.util.Collection"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$Level} from "net.minecraft.world.level.Level"
 import {$SuggestionsBuilder$$Type} from "com.mojang.brigadier.suggestion.SuggestionsBuilder"
@@ -284,8 +284,8 @@ import {$Consumer$$Type} from "java.util.function.Consumer"
 import {$Message$$Type} from "com.mojang.brigadier.Message"
 import {$CommandContext$$Type} from "com.mojang.brigadier.context.CommandContext"
 import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
-import {$Registry$$Type} from "net.minecraft.core.Registry"
 import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
+import {$Registry$$Type} from "net.minecraft.core.Registry"
 import {$Function$$Type} from "java.util.function.Function"
 import {$Set} from "java.util.Set"
 import {$ResourceKey, $ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
@@ -294,47 +294,47 @@ import {$SharedSuggestionProvider$TextCoordinates, $SharedSuggestionProvider$Tex
 import {$RegistryAccess} from "net.minecraft.core.RegistryAccess"
 
 export interface $SharedSuggestionProvider$$Interface {
-get "allTeams"(): $Collection<(StringJS)>
 get "customTabSugggestions"(): $Collection<(StringJS)>
+get "allTeams"(): $Collection<(StringJS)>
 get "availableSounds"(): $Stream<($ResourceLocation)>
 get "recipeNames"(): $Stream<($ResourceLocation)>
-get "onlinePlayerNames"(): $Collection<(StringJS)>
-get "selectedEntities"(): $Collection<(StringJS)>
 get "absoluteCoordinates"(): $Collection<($SharedSuggestionProvider$TextCoordinates)>
+get "onlinePlayerNames"(): $Collection<(StringJS)>
 get "relevantCoordinates"(): $Collection<($SharedSuggestionProvider$TextCoordinates)>
+get "selectedEntities"(): $Collection<(StringJS)>
 }
 
 export class $SharedSuggestionProvider implements $SharedSuggestionProvider$$Interface {
  "levels"(): $Set<($ResourceKey<($Level)>)>
-static "suggestCoordinates"(arg0: StringJS, arg1: $Collection$$Type<($SharedSuggestionProvider$TextCoordinates$$Type)>, arg2: $SuggestionsBuilder$$Type, arg3: $Predicate$$Type<(StringJS)>): $CompletableFuture<($Suggestions)>
- "customSuggestion"(arg0: $CommandContext$$Type<(never)>): $CompletableFuture<($Suggestions)>
- "getAllTeams"(): $Collection<(StringJS)>
- "suggestRegistryElements"(arg0: $Registry$$Type<(never)>, arg1: $SharedSuggestionProvider$ElementSuggestionType$$Type, arg2: $SuggestionsBuilder$$Type): void
- "suggestRegistryElements"(arg0: $ResourceKey$$Type<($Registry<(never)>)>, arg1: $SharedSuggestionProvider$ElementSuggestionType$$Type, arg2: $SuggestionsBuilder$$Type, arg3: $CommandContext$$Type<(never)>): $CompletableFuture<($Suggestions)>
-static "filterResources"<T>(arg0: $Iterable$$Type<(T)>, arg1: StringJS, arg2: StringJS, arg3: $Function$$Type<(T), ($ResourceLocation$$Type)>, arg4: $Consumer$$Type<(T)>): void
-static "filterResources"<T>(arg0: $Iterable$$Type<(T)>, arg1: StringJS, arg2: $Function$$Type<(T), ($ResourceLocation$$Type)>, arg3: $Consumer$$Type<(T)>): void
-static "matchesSubStr"(arg0: StringJS, arg1: StringJS): boolean
- "registryAccess"(): $RegistryAccess
-static "suggestResource"<T>(arg0: $Iterable$$Type<(T)>, arg1: $SuggestionsBuilder$$Type, arg2: $Function$$Type<(T), ($ResourceLocation$$Type)>, arg3: $Function$$Type<(T), ($Message$$Type)>): $CompletableFuture<($Suggestions)>
-static "suggestResource"(arg0: $Iterable$$Type<($ResourceLocation$$Type)>, arg1: $SuggestionsBuilder$$Type): $CompletableFuture<($Suggestions)>
-static "suggestResource"(arg0: $Iterable$$Type<($ResourceLocation$$Type)>, arg1: $SuggestionsBuilder$$Type, arg2: StringJS): $CompletableFuture<($Suggestions)>
-static "suggestResource"(arg0: $Stream$$Type<($ResourceLocation$$Type)>, arg1: $SuggestionsBuilder$$Type, arg2: StringJS): $CompletableFuture<($Suggestions)>
-static "suggestResource"<T>(arg0: $Stream$$Type<(T)>, arg1: $SuggestionsBuilder$$Type, arg2: $Function$$Type<(T), ($ResourceLocation$$Type)>, arg3: $Function$$Type<(T), ($Message$$Type)>): $CompletableFuture<($Suggestions)>
-static "suggestResource"(arg0: $Stream$$Type<($ResourceLocation$$Type)>, arg1: $SuggestionsBuilder$$Type): $CompletableFuture<($Suggestions)>
- "hasPermission"(arg0: integer): boolean
  "enabledFeatures"(): $FeatureFlagSet
  "getCustomTabSugggestions"(): $Collection<(StringJS)>
-static "suggest"(arg0: (StringJS)[], arg1: $SuggestionsBuilder$$Type): $CompletableFuture<($Suggestions)>
-static "suggest"<T>(arg0: $Iterable$$Type<(T)>, arg1: $SuggestionsBuilder$$Type, arg2: $Function$$Type<(T), (StringJS)>, arg3: $Function$$Type<(T), ($Message$$Type)>): $CompletableFuture<($Suggestions)>
+ "getAllTeams"(): $Collection<(StringJS)>
 static "suggest"(arg0: $Stream$$Type<(StringJS)>, arg1: $SuggestionsBuilder$$Type): $CompletableFuture<($Suggestions)>
 static "suggest"(arg0: $Iterable$$Type<(StringJS)>, arg1: $SuggestionsBuilder$$Type): $CompletableFuture<($Suggestions)>
+static "suggest"(arg0: (StringJS)[], arg1: $SuggestionsBuilder$$Type): $CompletableFuture<($Suggestions)>
+static "suggest"<T>(arg0: $Iterable$$Type<(T)>, arg1: $SuggestionsBuilder$$Type, arg2: $Function$$Type<(T), (StringJS)>, arg3: $Function$$Type<(T), ($Message$$Type)>): $CompletableFuture<($Suggestions)>
+static "suggestResource"(arg0: $Iterable$$Type<($ResourceLocation$$Type)>, arg1: $SuggestionsBuilder$$Type): $CompletableFuture<($Suggestions)>
+static "suggestResource"<T>(arg0: $Iterable$$Type<(T)>, arg1: $SuggestionsBuilder$$Type, arg2: $Function$$Type<(T), ($ResourceLocation$$Type)>, arg3: $Function$$Type<(T), ($Message$$Type)>): $CompletableFuture<($Suggestions)>
+static "suggestResource"(arg0: $Stream$$Type<($ResourceLocation$$Type)>, arg1: $SuggestionsBuilder$$Type, arg2: StringJS): $CompletableFuture<($Suggestions)>
+static "suggestResource"(arg0: $Stream$$Type<($ResourceLocation$$Type)>, arg1: $SuggestionsBuilder$$Type): $CompletableFuture<($Suggestions)>
+static "suggestResource"<T>(arg0: $Stream$$Type<(T)>, arg1: $SuggestionsBuilder$$Type, arg2: $Function$$Type<(T), ($ResourceLocation$$Type)>, arg3: $Function$$Type<(T), ($Message$$Type)>): $CompletableFuture<($Suggestions)>
+static "suggestResource"(arg0: $Iterable$$Type<($ResourceLocation$$Type)>, arg1: $SuggestionsBuilder$$Type, arg2: StringJS): $CompletableFuture<($Suggestions)>
  "getAvailableSounds"(): $Stream<($ResourceLocation)>
+static "filterResources"<T>(arg0: $Iterable$$Type<(T)>, arg1: StringJS, arg2: $Function$$Type<(T), ($ResourceLocation$$Type)>, arg3: $Consumer$$Type<(T)>): void
+static "filterResources"<T>(arg0: $Iterable$$Type<(T)>, arg1: StringJS, arg2: StringJS, arg3: $Function$$Type<(T), ($ResourceLocation$$Type)>, arg4: $Consumer$$Type<(T)>): void
+static "matchesSubStr"(arg0: StringJS, arg1: StringJS): boolean
  "getRecipeNames"(): $Stream<($ResourceLocation)>
- "getOnlinePlayerNames"(): $Collection<(StringJS)>
- "getSelectedEntities"(): $Collection<(StringJS)>
+static "suggestCoordinates"(arg0: StringJS, arg1: $Collection$$Type<($SharedSuggestionProvider$TextCoordinates$$Type)>, arg2: $SuggestionsBuilder$$Type, arg3: $Predicate$$Type<(StringJS)>): $CompletableFuture<($Suggestions)>
+ "customSuggestion"(arg0: $CommandContext$$Type<(never)>): $CompletableFuture<($Suggestions)>
+ "registryAccess"(): $RegistryAccess
  "getAbsoluteCoordinates"(): $Collection<($SharedSuggestionProvider$TextCoordinates)>
- "getRelevantCoordinates"(): $Collection<($SharedSuggestionProvider$TextCoordinates)>
 static "suggest2DCoordinates"(arg0: StringJS, arg1: $Collection$$Type<($SharedSuggestionProvider$TextCoordinates$$Type)>, arg2: $SuggestionsBuilder$$Type, arg3: $Predicate$$Type<(StringJS)>): $CompletableFuture<($Suggestions)>
+ "suggestRegistryElements"(arg0: $Registry$$Type<(never)>, arg1: $SharedSuggestionProvider$ElementSuggestionType$$Type, arg2: $SuggestionsBuilder$$Type): void
+ "suggestRegistryElements"(arg0: $ResourceKey$$Type<($Registry<(never)>)>, arg1: $SharedSuggestionProvider$ElementSuggestionType$$Type, arg2: $SuggestionsBuilder$$Type, arg3: $CommandContext$$Type<(never)>): $CompletableFuture<($Suggestions)>
+ "getOnlinePlayerNames"(): $Collection<(StringJS)>
+ "getRelevantCoordinates"(): $Collection<($SharedSuggestionProvider$TextCoordinates)>
+ "getSelectedEntities"(): $Collection<(StringJS)>
+ "hasPermission"(arg0: integer): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -355,10 +355,10 @@ export interface $CommandResultCallback$$Interface {
 export class $CommandResultCallback implements $CommandResultCallback$$Interface {
 static readonly "EMPTY": $CommandResultCallback
 
- "onFailure"(): void
- "onSuccess"(arg0: integer): void
 static "chain"(arg0: $CommandResultCallback$$Type, arg1: $CommandResultCallback$$Type): $CommandResultCallback
  "onResult"(arg0: boolean, arg1: integer): void
+ "onFailure"(): void
+ "onSuccess"(arg0: integer): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -379,8 +379,8 @@ static readonly "TAGS": $SharedSuggestionProvider$ElementSuggestionType
 
 public static "values"(): ($SharedSuggestionProvider$ElementSuggestionType)[]
 public static "valueOf"(arg0: StringJS): $SharedSuggestionProvider$ElementSuggestionType
-public "shouldSuggestTags"(): boolean
 public "shouldSuggestElements"(): boolean
+public "shouldSuggestTags"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -422,15 +422,15 @@ public static "validate"(): void
 public static "argument"<T>(arg0: StringJS, arg1: $ArgumentType$$Type<(T)>): $RequiredArgumentBuilder<($CommandSourceStack), (T)>
 public static "literal"(arg0: StringJS): $LiteralArgumentBuilder<($CommandSourceStack)>
 public "getDispatcher"(): $CommandDispatcher<($CommandSourceStack)>
-public static "createValidator"(arg0: $Commands$ParseFunction$$Type): $Predicate<(StringJS)>
-public "performPrefixedCommand"(arg0: $CommandSourceStack$$Type, arg1: StringJS): void
-public static "mapSource"<S>(arg0: $ParseResults$$Type<(S)>, arg1: $UnaryOperator$$Type<(S)>): $ParseResults<(S)>
 public "performCommand"(arg0: $ParseResults$$Type<($CommandSourceStack$$Type)>, arg1: StringJS): void
+public static "createValidator"(arg0: $Commands$ParseFunction$$Type): $Predicate<(StringJS)>
+public static "mapSource"<S>(arg0: $ParseResults$$Type<(S)>, arg1: $UnaryOperator$$Type<(S)>): $ParseResults<(S)>
+public "performPrefixedCommand"(arg0: $CommandSourceStack$$Type, arg1: StringJS): void
+public static "validateParseResults"<S>(arg0: $ParseResults$$Type<(S)>): void
+public static "executeCommandInContext"(arg0: $CommandSourceStack$$Type, arg1: $Consumer$$Type<($ExecutionContext<($CommandSourceStack)>)>): void
+public static "createValidationContext"(arg0: $HolderLookup$Provider$$Type): $CommandBuildContext
 public "sendCommands"(arg0: $ServerPlayer$$Type): void
 public static "getParseException"<S>(arg0: $ParseResults$$Type<(S)>): $CommandSyntaxException
-public static "executeCommandInContext"(arg0: $CommandSourceStack$$Type, arg1: $Consumer$$Type<($ExecutionContext<($CommandSourceStack)>)>): void
-public static "validateParseResults"<S>(arg0: $ParseResults$$Type<(S)>): void
-public static "createValidationContext"(arg0: $HolderLookup$Provider$$Type): $CommandBuildContext
 get "dispatcher"(): $CommandDispatcher<($CommandSourceStack)>
 }
 /**
@@ -466,12 +466,12 @@ export type $CommandSigningContext$$Type = ((arg0: StringJS) => $PlayerChatMessa
 export type $CommandSigningContext$$Original = $CommandSigningContext;}
 declare module "net.minecraft.commands.ExecutionCommandSource" {
 import {$TraceCallbacks$$Type} from "net.minecraft.commands.execution.TraceCallbacks"
-import {$CommandExceptionType$$Type} from "com.mojang.brigadier.exceptions.CommandExceptionType"
 import {$CommandSyntaxException$$Type} from "com.mojang.brigadier.exceptions.CommandSyntaxException"
+import {$CommandExceptionType$$Type} from "com.mojang.brigadier.exceptions.CommandExceptionType"
 import {$ResultConsumer} from "com.mojang.brigadier.ResultConsumer"
 import {$CommandDispatcher} from "com.mojang.brigadier.CommandDispatcher"
-import {$Message$$Type} from "com.mojang.brigadier.Message"
 import {$CommandResultCallback, $CommandResultCallback$$Type} from "net.minecraft.commands.CommandResultCallback"
+import {$Message$$Type} from "com.mojang.brigadier.Message"
 
 export interface $ExecutionCommandSource$$Interface<T extends $ExecutionCommandSource<(object)>> {
 get "silent"(): boolean
@@ -482,11 +482,11 @@ export class $ExecutionCommandSource<T extends $ExecutionCommandSource<(object)>
 static "resultConsumer"<T extends $ExecutionCommandSource<(object)>>(): $ResultConsumer<(T)>
  "handleError"(arg0: $CommandSyntaxException$$Type, arg1: boolean, arg2: $TraceCallbacks$$Type): void
  "handleError"(arg0: $CommandExceptionType$$Type, arg1: $Message$$Type, arg2: boolean, arg3: $TraceCallbacks$$Type): void
- "hasPermission"(arg0: integer): boolean
  "dispatcher"(): $CommandDispatcher<(T)>
+ "isSilent"(): boolean
  "withCallback"(arg0: $CommandResultCallback$$Type): T
  "clearCallbacks"(): T
- "isSilent"(): boolean
+ "hasPermission"(arg0: integer): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -538,10 +538,10 @@ export class $CommandBuildContext implements $CommandBuildContext$$Interface {
 static "simple"(arg0: $HolderLookup$Provider$$Type, arg1: $FeatureFlagSet$$Type): $CommandBuildContext
  "lookup"<T>(arg0: $ResourceKey$$Type<($Registry<(T)>)>): $Optional<($HolderLookup$RegistryLookup<(T)>)>
 static "create"(arg0: $Stream$$Type<($HolderLookup$RegistryLookup$$Type<(never)>)>): $HolderLookup$Provider
- "createSerializationContext"<V>(arg0: $DynamicOps$$Type<(V)>): $RegistryOps<(V)>
  "listRegistries"(): $Stream<($ResourceKey<($Registry<(never)>)>)>
- "asGetterLookup"(): $HolderGetter$Provider
  "lookupOrThrow"<T>(arg0: $ResourceKey$$Type<($Registry<(T)>)>): $HolderLookup$RegistryLookup<(T)>
+ "asGetterLookup"(): $HolderGetter$Provider
+ "createSerializationContext"<V>(arg0: $DynamicOps$$Type<(V)>): $RegistryOps<(V)>
  "holder"<T>(arg0: $ResourceKey$$Type<(T)>): $Optional<($Holder$Reference<(T)>)>
  "holderOrThrow"<T>(arg0: $ResourceKey$$Type<(T)>): $Holder<(T)>
 }

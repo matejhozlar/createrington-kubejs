@@ -33,25 +33,25 @@ constructor(ctrlDown: boolean, altDown: boolean, shiftDown: boolean, advanced: b
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public "isAdvanced"(): boolean
-public "isCreative"(): boolean
 public "advanced"(): boolean
+public "isCreative"(): boolean
+public "isAdvanced"(): boolean
+public "altDown"(): boolean
 public "shiftDown"(): boolean
 public "ctrlDown"(): boolean
-public "altDown"(): boolean
-public "showConstruction"(): boolean
-public static "withModifierKeys"(arg0: boolean, arg1: boolean, arg2: boolean): $GearTooltipFlag
 public "showProperties"(): boolean
-public "hasControlDown"(): boolean
-public "hasShiftDown"(): boolean
+public static "withModifierKeys"(arg0: boolean, arg1: boolean, arg2: boolean): $GearTooltipFlag
+public "showConstruction"(): boolean
 public "hasAltDown"(): boolean
+public "hasShiftDown"(): boolean
+public "hasControlDown"(): boolean
 get "creative"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $GearTooltipFlag$$Type = ({"advanced"?: boolean, "altDown"?: boolean, "showConstruction"?: boolean, "shiftDown"?: boolean, "showProperties"?: boolean, "ctrlDown"?: boolean}) | ([advanced?: boolean, altDown?: boolean, showConstruction?: boolean, shiftDown?: boolean, showProperties?: boolean, ctrlDown?: boolean]);
+export type $GearTooltipFlag$$Type = ({"ctrlDown"?: boolean, "showProperties"?: boolean, "shiftDown"?: boolean, "showConstruction"?: boolean, "altDown"?: boolean, "advanced"?: boolean}) | ([ctrlDown?: boolean, showProperties?: boolean, shiftDown?: boolean, showConstruction?: boolean, altDown?: boolean, advanced?: boolean]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */

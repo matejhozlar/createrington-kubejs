@@ -43,16 +43,16 @@ import {$IConfigSpec} from "net.neoforged.fml.config.IConfigSpec"
 export class $ModConfig {
 public "getType"(): $ModConfig$Type
 public "getFileName"(): StringJS
-public "getFullPath"(): $Path
 public "getModId"(): StringJS
-public "getSpec"(): $IConfigSpec
+public "getFullPath"(): $Path
 public "getLoadedConfig"(): $IConfigSpec$ILoadedConfig
+public "getSpec"(): $IConfigSpec
 get "type"(): $ModConfig$Type
 get "fileName"(): StringJS
-get "fullPath"(): $Path
 get "modId"(): StringJS
-get "spec"(): $IConfigSpec
+get "fullPath"(): $Path
 get "loadedConfig"(): $IConfigSpec$ILoadedConfig
+get "spec"(): $IConfigSpec
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

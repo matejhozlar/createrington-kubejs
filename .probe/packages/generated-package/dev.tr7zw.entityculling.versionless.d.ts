@@ -2,18 +2,18 @@ declare module "dev.tr7zw.entityculling.versionless.access.Cullable" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $Cullable$$Interface {
 get "timeout"(): void
-set "outOfCamera"(value: boolean)
-get "forcedVisible"(): boolean
 get "outOfCamera"(): boolean
+get "forcedVisible"(): boolean
+set "outOfCamera"(value: boolean)
 set "culled"(value: boolean)
 get "culled"(): boolean
 }
 
 export class $Cullable implements $Cullable$$Interface {
  "setTimeout"(): void
- "setOutOfCamera"(arg0: boolean): void
- "isForcedVisible"(): boolean
  "isOutOfCamera"(): boolean
+ "isForcedVisible"(): boolean
+ "setOutOfCamera"(arg0: boolean): void
  "setCulled"(arg0: boolean): void
  "isCulled"(): boolean
 }
