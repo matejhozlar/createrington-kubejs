@@ -18,4 +18,7 @@ ServerEvents.recipes((event)=>{
     event.remove({
         output: 'tfmg:pipe_bomb'
     });
+    event.remove({
+        output: 'tfmg:napalm_potato'
+    });
 });
