@@ -5,7 +5,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "kubejs build",
+    "build": "kubejs build && node scripts/copy-data.js",
     "watch": "kubejs build --watch",
     "pull": "node scripts/pull.js",
     "push": "node scripts/push.js",

@@ -74,11 +74,3 @@ ServerEvents.recipes((event)=>{
         ]
     });
 });
-
-NorthstarEvents.generateData(event => {
-    event.fuel()
-        .fluid("chemica:hydrogen_fuel")
-        .gjPerMb(0.75)
-        .combustionEngine(0.16, 64)
-        .build();
-});
