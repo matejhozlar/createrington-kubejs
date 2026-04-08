@@ -4,7 +4,7 @@ ServerEvents.recipes((event)=>{
         "allowedVatTypes": [
             "tfmg:firebrick_lined_vat"
         ],
-        "heatRequirement": "heated",
+        "heat_requirement": "heated",
         "ingredients": [
             {
             "amount": 1,
@@ -25,4 +25,8 @@ ServerEvents.recipes((event)=>{
             },
         ]
     });
+});
+
+ServerEvents.tags('fluid', (event)=>{
+    event.add('c:methane', 'chemica:methane');
 });

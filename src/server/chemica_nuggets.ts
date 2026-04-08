@@ -49,7 +49,7 @@ ServerEvents.recipes((event)=>{
             "tfmg:steel_vat",
             "tfmg:firebrick_lined_vat"
         ],
-        "heatRequirement": "heated",
+        "heat_requirement": "heated",
         "ingredients": [
             {
             "type": "neoforge:single",
@@ -76,7 +76,7 @@ ServerEvents.recipes((event)=>{
             "tfmg:steel_vat",
             "tfmg:firebrick_lined_vat"
         ],
-        "heatRequirement": "heated",
+        "heat_requirement": "heated",
         "ingredients": [
             {
             "amount": 5,
@@ -189,12 +189,12 @@ ServerEvents.recipes((event)=>{
             "tfmg:steel_vat",
             "tfmg:firebrick_lined_vat"
         ],
-        "heatRequirement": "superheated",
+        "heat_requirement": "superheated",
         "ingredients": [
             {
-            "type": "neoforge:single",
+            "type": "neoforge:tag",
             "amount": 100,
-            "fluid": "chemica:methane"
+            "tag": "c:methane"
             },
             {
             "type": "neoforge:single",
@@ -254,7 +254,7 @@ ServerEvents.recipes((event)=>{
         "allowedVatTypes": [
             "tfmg:firebrick_lined_vat"
         ],
-        "heatRequirement": "heated",
+        "heat_requirement": "heated",
         "ingredients": [
             {
             "amount": 3,

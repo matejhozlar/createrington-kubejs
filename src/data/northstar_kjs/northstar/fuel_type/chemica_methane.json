@@ -1,6 +1,0 @@
-{
-    "fluids": ["chemica:methane"],
-    "gj_per_mb": 2,
-    "combustion_engine_use": 0.16,
-    "combustion_engine_rpm": 64.0
-}

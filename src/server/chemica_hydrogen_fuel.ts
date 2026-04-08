@@ -5,11 +5,9 @@ ServerEvents.recipes((event)=>{
     event.custom({
         "type": "tfmg:vat_machine_recipe",
         "allowedVatTypes": [
-            "tfmg:cast_iron_vat",
             "tfmg:steel_vat",
-            "tfmg:firebrick_lined_vat"
         ],
-        "heatRequirement": "heated",
+        "heat_requirement": "superheated",
         "ingredients": [
             {
             "type": "neoforge:single",
@@ -35,7 +33,7 @@ ServerEvents.recipes((event)=>{
         ]
     });
 
-    // A vat machine recipe for producing hydrogen fuel from hydrogen and oxygen, with a heat requirement of "heated" and allowing specific vat types. 
+    // A vat machine recipe for producing hydrogen fuel from hydrogen and oxygen, with a heat requirement of "superheated" and allowing specific vat types. 
     // The recipe requires 1000 mB of hydrogen, 500 mB of oxygen, and coal dust as an additional ingredient. 
     // It can be processed in a mixing machine and produces 500 mB of hydrogen fuel after 200 ticks of processing time.
     event.custom({
@@ -73,4 +71,8 @@ ServerEvents.recipes((event)=>{
             }
         ]
     });
+});
+
+ServerEvents.tags('fluid', (event)=>{
+    event.add('c:liquid_hydrogen', 'tfmg:hydrogen');
 });
