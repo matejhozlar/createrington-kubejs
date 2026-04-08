@@ -1,3 +1,7 @@
+ServerEvents.tags('fluid', (event)=>{
+    event.add('c:napalm', 'tfmg:napalm');
+});
+
 ServerEvents.recipes((event)=>{
   // Chromatic Compound via Mixing
   event.custom({
@@ -99,54 +103,91 @@ ServerEvents.recipes((event)=>{
       }
     ]
   });
-  // Shadow Steel via Sequenced Assembly
+  // // Shadow Steel via Sequenced Assembly
+  // event.custom({
+  //   "type": "create:sequenced_assembly",
+  //   "ingredient": {
+  //       "item": "create:chromatic_compound"
+  //   },
+  //   loops: 5,
+  //   "results": [
+  //       {
+  //           "count": 1,
+  //           "id": "create:shadow_steel"
+  //       }
+  //   ],
+  //   "sequence": [
+  //       {
+  //       "type": "create:filling",
+  //       "ingredients": [
+  //         { "item": "create:chromatic_compound" },
+  //         { "type": "neoforge:single", "fluid": "tfmg:napalm", "amount": 100 }
+  //       ],
+  //       "results": [
+  //         { "id": "create:chromatic_compound" }
+  //       ]
+  //       },
+  //       {
+  //       "type": "create:filling",
+  //       "ingredients": [
+  //         { "item": "create:chromatic_compound" },
+  //         { "type": "neoforge:single", "fluid": "create_deep_dark:molten_echo", "amount": 1 }
+  //       ],
+  //       "results": [
+  //         { "id": "create:chromatic_compound" }
+  //       ]
+  //       },
+  //       {
+  //       "type": "northstar:engraving",
+  //       "ingredients": [
+  //         { "item": "create:chromatic_compound" }
+  //       ],
+  //       "processing_time": 40,
+  //       "results": [
+  //         { "id": "create:chromatic_compound" }
+  //       ]
+  //       }
+  //   ],
+  //   "transitional_item": {
+  //       "id": "create:chromatic_compound"
+  //   }
+  // });
   event.custom({
-    "type": "create:sequenced_assembly",
-    "ingredient": {
+    "type": "tfmg:vat_machine_recipe",
+    "allowedVatTypes": [
+        "tfmg:firebrick_lined_vat"
+    ],
+    "heat_requirement": "superheated",
+    "ingredients": [
+        {
         "item": "create:chromatic_compound"
-    },
-    loops: 5,
+        },
+        {
+          "item": "garnished:void_dust",
+        },
+        {
+          "item": "garnished:void_dust",
+        },
+        {
+          "item": "garnished:void_dust",
+        },
+        {
+          "type": "neoforge:tag",
+          "tag": "c:napalm",
+          "amount": 100
+        }
+    ],
+    "machines": [
+        "tfmg:mixing"
+    ],
+    "minSize": 1,
+    "processingTime": 300,
     "results": [
         {
-            "count": 1,
-            "id": "create:shadow_steel"
-        }
-    ],
-    "sequence": [
-        {
-        "type": "create:filling",
-        "ingredients": [
-          { "item": "create:chromatic_compound" },
-          { "type": "neoforge:single", "fluid": "tfmg:napalm", "amount": 100 }
-        ],
-        "results": [
-          { "id": "create:chromatic_compound" }
-        ]
+        "amount": 1,
+        "id": "create:shadow_steel"
         },
-        {
-        "type": "create:filling",
-        "ingredients": [
-          { "item": "create:chromatic_compound" },
-          { "type": "neoforge:single", "fluid": "create_deep_dark:molten_echo", "amount": 1 }
-        ],
-        "results": [
-          { "id": "create:chromatic_compound" }
-        ]
-        },
-        {
-        "type": "northstar:engraving",
-        "ingredients": [
-          { "item": "create:chromatic_compound" }
-        ],
-        "processing_time": 40,
-        "results": [
-          { "id": "create:chromatic_compound" }
-        ]
-        }
-    ],
-    "transitional_item": {
-        "id": "create:chromatic_compound"
-    }
+    ]
   });
   // Shadow Steel Casing via Item Application
   event.custom({
