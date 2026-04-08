@@ -103,55 +103,7 @@ ServerEvents.recipes((event)=>{
       }
     ]
   });
-  // // Shadow Steel via Sequenced Assembly
-  // event.custom({
-  //   "type": "create:sequenced_assembly",
-  //   "ingredient": {
-  //       "item": "create:chromatic_compound"
-  //   },
-  //   loops: 5,
-  //   "results": [
-  //       {
-  //           "count": 1,
-  //           "id": "create:shadow_steel"
-  //       }
-  //   ],
-  //   "sequence": [
-  //       {
-  //       "type": "create:filling",
-  //       "ingredients": [
-  //         { "item": "create:chromatic_compound" },
-  //         { "type": "neoforge:single", "fluid": "tfmg:napalm", "amount": 100 }
-  //       ],
-  //       "results": [
-  //         { "id": "create:chromatic_compound" }
-  //       ]
-  //       },
-  //       {
-  //       "type": "create:filling",
-  //       "ingredients": [
-  //         { "item": "create:chromatic_compound" },
-  //         { "type": "neoforge:single", "fluid": "create_deep_dark:molten_echo", "amount": 1 }
-  //       ],
-  //       "results": [
-  //         { "id": "create:chromatic_compound" }
-  //       ]
-  //       },
-  //       {
-  //       "type": "northstar:engraving",
-  //       "ingredients": [
-  //         { "item": "create:chromatic_compound" }
-  //       ],
-  //       "processing_time": 40,
-  //       "results": [
-  //         { "id": "create:chromatic_compound" }
-  //       ]
-  //       }
-  //   ],
-  //   "transitional_item": {
-  //       "id": "create:chromatic_compound"
-  //   }
-  // });
+    // Shadow Steel via Mixing
   event.custom({
     "type": "tfmg:vat_machine_recipe",
     "allowedVatTypes": [
