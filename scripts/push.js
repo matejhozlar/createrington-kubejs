@@ -67,25 +67,23 @@ async function push() {
     sftp = await connect();
     spinner.succeed("Connected to server");
 
-    // Back up existing scripts on Createrington
+    // Back up existing scripts on Createrington by renaming the remote kubejs
+    // folder. We use SFTP rename (not an SSH `cp -r`) because the host only
+    // exposes SFTP — shell exec hangs forever. Rename empties REMOTE_KUBEJS,
+    // so we also force a full re-upload below by ignoring the manifest.
     const backupPath = process.env.REMOTE_BACKUP_PATH;
+    let backedUp = false;
     if (backupPath) {
       spinner.start("Backing up remote scripts...");
       try {
-        await new Promise((resolve, reject) => {
-          sftp.client.exec(
-            `rm -rf "${backupPath}" && cp -r "${REMOTE_KUBEJS}" "${backupPath}"`,
-            (err, stream) => {
-              if (err) return reject(err);
-              stream.on("close", (code) => {
-                if (code === 0) resolve();
-                else reject(new Error(`Backup command exited with code ${code}`));
-              });
-              stream.on("data", () => {});
-              stream.stderr.on("data", () => {});
-            },
-          );
-        });
+        // Remove any previous backup so rename has a clear destination.
+        try {
+          await sftp.rmdir(backupPath, true);
+        } catch {
+          // No previous backup — fine.
+        }
+        await sftp.rename(REMOTE_KUBEJS, backupPath);
+        backedUp = true;
         spinner.succeed(
           `Backed up remote kubejs to ${chalk.gray(backupPath)}`,
         );
@@ -143,9 +141,10 @@ async function push() {
       spinner.succeed(`Removed ${chalk.red(deleted)} stale remote files`);
     }
 
-    // Hash local files and compare against last push manifest
+    // Hash local files and compare against last push manifest.
+    // After a rename-backup the remote is empty, so force a full re-upload.
     spinner.start("Hashing local files...");
-    const prevManifest = loadManifest();
+    const prevManifest = backedUp ? {} : loadManifest();
     const newManifest = {};
 
     for (const file of localFiles) {
