@@ -1,9 +1,8 @@
-
-ServerEvents.recipes((event)=>{
-    event.remove({
-        output: 'createaddition:alternator'
-    });
-    event.remove({
-        output: 'createaddition:electric_motor'
-    });
+ServerEvents.recipes((event) => {
+  event.remove({
+    output: "createaddition:alternator",
+  });
+  event.remove({
+    output: "createaddition:electric_motor",
+  });
 });

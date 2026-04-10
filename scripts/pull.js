@@ -51,7 +51,10 @@ async function pull() {
     if (fs.existsSync(LOCAL_SRC)) {
       for (const entry of fs.readdirSync(LOCAL_SRC)) {
         if (PRESERVE.has(entry)) continue;
-        fs.rmSync(path.join(LOCAL_SRC, entry), { recursive: true, force: true });
+        fs.rmSync(path.join(LOCAL_SRC, entry), {
+          recursive: true,
+          force: true,
+        });
       }
     } else {
       fs.mkdirSync(LOCAL_SRC, { recursive: true });
@@ -69,7 +72,9 @@ async function pull() {
 
       fs.mkdirSync(localDir, { recursive: true });
 
-      spinner.start(`Downloading ${chalk.gray(file.relative)} → ${chalk.gray(srcRelative)}`);
+      spinner.start(
+        `Downloading ${chalk.gray(file.relative)} → ${chalk.gray(srcRelative)}`,
+      );
       await sftp.fastGet(file.remote, localDest);
       downloaded++;
     }
@@ -80,7 +85,9 @@ async function pull() {
     spinner.fail("Pull failed");
     console.error(chalk.red(`\nError: ${err.message}`));
     if (err.message.includes("connect")) {
-      console.log(chalk.gray("Check the Createrington SFTP credentials in .env."));
+      console.log(
+        chalk.gray("Check the Createrington SFTP credentials in .env."),
+      );
     }
     process.exit(1);
   } finally {

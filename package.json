@@ -11,7 +11,10 @@
     "push": "node scripts/push.js",
     "status": "node scripts/status.js",
     "extract-tags": "node scripts/extract-tags.js",
-    "deploy-local": "node scripts/deploy-local.js"
+    "deploy-local": "node scripts/deploy-local.js",
+    "format": "prettier --write \"src/**/*.{ts,js,json}\" \"scripts/**/*.js\" \"lib/**/*.js\"",
+    "format:check": "prettier --check \"src/**/*.{ts,js,json}\" \"scripts/**/*.js\" \"lib/**/*.js\"",
+    "prepare": "husky"
   },
   "dependencies": {
     "@kubejs/plugin": "^1.2.11",
@@ -22,6 +25,12 @@
     "ssh2-sftp-client": "^11.0.0"
   },
   "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.8.2",
     "typescript": "^5.9.3"
+  },
+  "lint-staged": {
+    "**/*.{ts,js,json,md}": "prettier --write"
   }
 }
