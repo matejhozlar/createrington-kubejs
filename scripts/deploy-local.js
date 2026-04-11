@@ -49,7 +49,10 @@ async function deployLocal() {
 
   const buildSpinner = ora("Running npm run build...").start();
   try {
-    execSync("npm run build", { stdio: "pipe", cwd: path.resolve(__dirname, "..") });
+    execSync("npm run build", {
+      stdio: "pipe",
+      cwd: path.resolve(__dirname, ".."),
+    });
     buildSpinner.succeed("Build succeeded");
   } catch (err) {
     buildSpinner.fail("Build failed");
@@ -58,9 +61,7 @@ async function deployLocal() {
   }
 
   if (!LOCAL_MODPACK_PATH) {
-    console.error(
-      chalk.red("Error: LOCAL_MODPACK_PATH is not set in .env"),
-    );
+    console.error(chalk.red("Error: LOCAL_MODPACK_PATH is not set in .env"));
     console.log(
       chalk.gray(
         "Set LOCAL_MODPACK_PATH to the root folder of your local Minecraft instance.",

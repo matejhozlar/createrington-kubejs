@@ -65,13 +65,19 @@ async function status() {
 
     for (const [remoteRel, srcFile] of srcMappedToRemote) {
       if (!remoteMap.has(remoteRel)) {
-        srcOnlyFiles.push({ srcRelative: srcFile.relative, remoteRelative: remoteRel });
+        srcOnlyFiles.push({
+          srcRelative: srcFile.relative,
+          remoteRelative: remoteRel,
+        });
       }
     }
 
     for (const [remoteRel] of remoteMap) {
       if (!srcMappedToRemote.has(remoteRel)) {
-        remoteOnlyFiles.push({ remoteRelative: remoteRel, srcRelative: remoteToSrc(remoteRel) });
+        remoteOnlyFiles.push({
+          remoteRelative: remoteRel,
+          srcRelative: remoteToSrc(remoteRel),
+        });
       }
     }
 
@@ -98,16 +104,22 @@ async function status() {
     // --- Output ---
     if (srcOnlyFiles.length > 0) {
       console.log(
-        chalk.green(`\n  + In src/ but missing from remote (${srcOnlyFiles.length}):`),
+        chalk.green(
+          `\n  + In src/ but missing from remote (${srcOnlyFiles.length}):`,
+        ),
       );
       for (const f of srcOnlyFiles) {
-        console.log(chalk.green(`    + ${f.srcRelative}  → ${f.remoteRelative}`));
+        console.log(
+          chalk.green(`    + ${f.srcRelative}  → ${f.remoteRelative}`),
+        );
       }
     }
 
     if (remoteOnlyFiles.length > 0) {
       console.log(
-        chalk.red(`\n  - On remote but missing from src/ (${remoteOnlyFiles.length}):`),
+        chalk.red(
+          `\n  - On remote but missing from src/ (${remoteOnlyFiles.length}):`,
+        ),
       );
       for (const f of remoteOnlyFiles) {
         console.log(chalk.red(`    - ${f.remoteRelative}  → ${f.srcRelative}`));
@@ -116,7 +128,9 @@ async function status() {
 
     if (sizeDiffs.length > 0) {
       console.log(
-        chalk.yellow(`\n  ~ Size differs between kubejs/ and remote (${sizeDiffs.length}):`),
+        chalk.yellow(
+          `\n  ~ Size differs between kubejs/ and remote (${sizeDiffs.length}):`,
+        ),
       );
       for (const f of sizeDiffs) {
         console.log(

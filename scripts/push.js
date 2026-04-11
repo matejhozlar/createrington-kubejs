@@ -50,7 +50,9 @@ async function push() {
   // Confirm before pushing
   const rl = createInterface({ input: process.stdin, output: process.stdout });
   const answer = await rl.question(
-    chalk.yellow(`Push local scripts to Createrington (${REMOTE_KUBEJS})? (y/N) `),
+    chalk.yellow(
+      `Push local scripts to Createrington (${REMOTE_KUBEJS})? (y/N) `,
+    ),
   );
   rl.close();
 
@@ -84,18 +86,14 @@ async function push() {
         }
         await sftp.rename(REMOTE_KUBEJS, backupPath);
         backedUp = true;
-        spinner.succeed(
-          `Backed up remote kubejs to ${chalk.gray(backupPath)}`,
-        );
+        spinner.succeed(`Backed up remote kubejs to ${chalk.gray(backupPath)}`);
       } catch {
         // Remote folder might not exist yet (first push)
         spinner.warn("No existing remote folder to back up");
       }
     } else {
       console.log(
-        chalk.yellow(
-          "  ⚠  REMOTE_BACKUP_PATH not set — skipping backup",
-        ),
+        chalk.yellow("  ⚠  REMOTE_BACKUP_PATH not set — skipping backup"),
       );
     }
 
@@ -187,7 +185,9 @@ async function push() {
     spinner.fail("Push failed");
     console.error(chalk.red(`\nError: ${err.message}`));
     if (err.message.includes("connect")) {
-      console.log(chalk.gray("Check the Createrington SFTP credentials in .env."));
+      console.log(
+        chalk.gray("Check the Createrington SFTP credentials in .env."),
+      );
     }
     process.exit(1);
   } finally {
