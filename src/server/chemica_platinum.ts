@@ -35,16 +35,14 @@ ServerEvents.recipes((event) => {
   });
 
   // Add 2% platinum_dust to deepslate_nickel_ore crushing
-  // TODO: verify item ID is tfmg:deepslate_nickel_ore
-  event.remove({ type: "create:crushing", input: "tfmg:deepslate_nickel_ore" });
   event.custom({
     type: "create:crushing",
     ingredients: [{ item: "tfmg:deepslate_nickel_ore" }],
     processingTime: 250,
     results: [
       { count: 2, id: "create:crushed_raw_nickel" },
-      { chance: 0.11, id: "chemica:cobalt_dust" },
-      { chance: 0.02, id: "chemica:platinum_dust" },
+      { chance: 0.22, id: "chemica:cobalt_dust" },
+      { chance: 0.04, id: "chemica:platinum_dust" },
     ],
   });
 
@@ -107,6 +105,7 @@ ServerEvents.recipes((event) => {
     processingTime: 250,
     results: [
       { count: 1, id: "create:cinder_flour" },
+      {chance: 0.5, id: "create:cinder_flour"},
       { chance: 0.04, id: "chemica:nickel_dust" },
     ],
   });
@@ -121,8 +120,11 @@ ServerEvents.recipes((event) => {
     ingredients: [{ item: "minecraft:basalt" }],
     processingTime: 250,
     results: [
-      { count: 1, id: "PLACEHOLDER_northstar_salt_output" }, // TODO: replace with correct Northstar salt item ID
-      { count: 1, id: "PLACEHOLDER_garnished_brittle_output" }, // TODO: replace with correct Garnished brittle item ID
+      { count: 2, id: "northstar:salt" },
+      { chance: 0.75, id: "northstar:salt" },
+      { chance: 0.25, id: "northstar:salt" },
+      { chance: 0.85, id: "garnished:brittle_dust" },
+      { chance: 0.45, id: "garnished:brittle_dust" },
       { chance: 0.05, id: "chemica:nickel_dust" },
     ],
   });
