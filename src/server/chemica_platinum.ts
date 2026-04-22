@@ -34,9 +34,24 @@ ServerEvents.recipes((event) => {
     ],
   });
 
+  // Add 2% platinum_dust to deepslate_nickel_ore crushing
+  // TODO: verify item ID is tfmg:deepslate_nickel_ore
+  event.remove({ type: "create:crushing", input: "tfmg:deepslate_nickel_ore" });
+  event.custom({
+    type: "create:crushing",
+    ingredients: [{ item: "tfmg:deepslate_nickel_ore" }],
+    processingTime: 250,
+    results: [
+      { count: 2, id: "create:crushed_raw_nickel" },
+      { chance: 0.11, id: "chemica:cobalt_dust" },
+      { chance: 0.02, id: "chemica:platinum_dust" },
+    ],
+  });
+
   // --- Tier 2: Vat leaching ---
   // Nickel and cobalt dissolve readily in HCl (Ni/Co + 2HCl → metal chloride + H₂)
   // HCl chain: salt → brine → electrolysis → H₂ + Cl₂ → HCl (no platinum dependency)
+  // Note: item ingredients must be repeated, amount field is not supported in vat recipes
 
   // 4x nickel_dust + 500mb HCl → platinum_dust + waste_slurry
   event.custom({
@@ -44,7 +59,10 @@ ServerEvents.recipes((event) => {
     allowedVatTypes: ["tfmg:steel_vat", "tfmg:firebrick_lined_vat"],
     heat_requirement: "heated",
     ingredients: [
-      { amount: 4, item: "chemica:nickel_dust" },
+      { item: "chemica:nickel_dust" },
+      { item: "chemica:nickel_dust" },
+      { item: "chemica:nickel_dust" },
+      { item: "chemica:nickel_dust" },
       { type: "neoforge:single", amount: 500, fluid: "chemica:hydrochloric_acid" },
     ],
     machines: ["tfmg:mixing"],
@@ -62,7 +80,10 @@ ServerEvents.recipes((event) => {
     allowedVatTypes: ["tfmg:steel_vat", "tfmg:firebrick_lined_vat"],
     heat_requirement: "heated",
     ingredients: [
-      { amount: 4, item: "chemica:cobalt_dust" },
+      { item: "chemica:cobalt_dust" },
+      { item: "chemica:cobalt_dust" },
+      { item: "chemica:cobalt_dust" },
+      { item: "chemica:cobalt_dust" },
       { type: "neoforge:single", amount: 500, fluid: "chemica:hydrochloric_acid" },
     ],
     machines: ["tfmg:mixing"],
@@ -78,20 +99,32 @@ ServerEvents.recipes((event) => {
   // Nickel is abundant in magmatic/mantle rocks.
   // Full zero-mining chain: nether block → nickel_dust → vat leach → platinum_dust
 
-  // Netherrack: 4% nickel_dust
+  // Netherrack: combine existing Create recipe (cinder_flour) with nickel_dust byproduct
+  event.remove({ id: "create:crushing/netherrack" });
   event.custom({
     type: "create:crushing",
     ingredients: [{ item: "minecraft:netherrack" }],
     processingTime: 250,
-    results: [{ chance: 0.04, id: "chemica:nickel_dust" }],
+    results: [
+      { count: 1, id: "create:cinder_flour" },
+      { chance: 0.04, id: "chemica:nickel_dust" },
+    ],
   });
 
-  // Basalt: 5% nickel_dust (more directly magmatic)
+  // Basalt: combine existing Northstar (create:crushing/basalt) and Garnished
+  // (garnished:crushing/brittle_dust_from_basalt) recipes with nickel_dust byproduct
+  // TODO: verify placeholder outputs match actual mod outputs
+  event.remove({ id: "create:crushing/basalt" });
+  event.remove({ id: "garnished:crushing/brittle_dust_from_basalt" });
   event.custom({
     type: "create:crushing",
     ingredients: [{ item: "minecraft:basalt" }],
     processingTime: 250,
-    results: [{ chance: 0.05, id: "chemica:nickel_dust" }],
+    results: [
+      { count: 1, id: "PLACEHOLDER_northstar_salt_output" }, // TODO: replace with correct Northstar salt item ID
+      { count: 1, id: "PLACEHOLDER_garnished_brittle_output" }, // TODO: replace with correct Garnished brittle item ID
+      { chance: 0.05, id: "chemica:nickel_dust" },
+    ],
   });
 
   // Blackstone: gravel (guaranteed) + 7% crushed_raw_lead + 5% nickel_dust
