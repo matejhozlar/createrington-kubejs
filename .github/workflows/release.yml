@@ -27,6 +27,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Create mods directory for kubejs plugin
+        run: mkdir -p mods
+
       - name: Build KubeJS scripts
         run: npm run build
 
