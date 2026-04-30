@@ -46,4 +46,61 @@ ServerEvents.recipes((event) => {
       },
     ],
   });
+
+  // Creosote → Naphtha + BTX hydrocracking recipe.
+  // Creosote from TFMG coking is a coal tar fraction rich in polycyclic aromatic
+  // hydrocarbons (PAHs). Hydrocracking saturates the PAH rings with hydrogen,
+  // then cracks them into lighter molecules — naphtha and BTX aromatics
+  // (benzene, toluene, xylene).
+  // Higher hydrogen demand (350mb vs 200mb) reflects the hydrogen-deficient
+  // nature of aromatic compounds. Platinum catalyst handles deep aromatic
+  // hydrogenation better than nickel. Superheated conditions required for
+  // PAH ring saturation.
+  // See: https://gitea.matejhoz.com/Createrington/kubejs/issues/14
+  event.custom({
+    type: "tfmg:vat_machine_recipe",
+    allowedVatTypes: ["tfmg:steel_vat", "tfmg:firebrick_lined_vat"],
+    heat_requirement: "superheated",
+    ingredients: [
+      {
+        type: "neoforge:tag",
+        amount: 500,
+        tag: "c:creosote",
+      },
+      {
+        type: "neoforge:tag",
+        amount: 350,
+        tag: "c:hydrogen",
+      },
+      {
+        type: "neoforge:tag",
+        amount: 100,
+        tag: "c:oxygen",
+      },
+      {
+        item: "chemica:platinum_catalyst",
+      },
+    ],
+    machines: ["tfmg:mixing"],
+    minSize: 1,
+    processingTime: 400,
+    results: [
+      {
+        amount: 200,
+        id: "tfmg:naphtha",
+      },
+      {
+        amount: 100,
+        id: "chemica:benzene",
+      },
+      {
+        amount: 75,
+        id: "chemica:toluene",
+      },
+      {
+        amount: 50,
+        id: "chemica:xylene",
+      },
+    ],
+  });
 });
