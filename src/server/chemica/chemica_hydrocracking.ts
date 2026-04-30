@@ -24,9 +24,9 @@ ServerEvents.recipes((event) => {
         tag: "c:hydrogen",
       },
       {
-        type: "neoforge:single",
+        type: "neoforge:tag",
         amount: 100,
-        fluid: "chemica:oxygen",
+        tag: "c:oxygen",
       },
       {
         item: "chemica:nickel_catalyst",
@@ -103,4 +103,8 @@ ServerEvents.recipes((event) => {
       },
     ],
   });
+});
+
+ServerEvents.tags("fluid", (event) => {
+  event.add("c:oxygen", "chemica:oxygen");
 });
