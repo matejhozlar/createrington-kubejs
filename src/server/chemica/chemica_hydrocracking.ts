@@ -14,9 +14,9 @@ ServerEvents.recipes((event) => {
     heat_requirement: "heated",
     ingredients: [
       {
-        type: "neoforge:single",
+        type: "neoforge:tag",
         amount: 500,
-        fluid: "tfmg:diesel",
+        tag: "c:diesel",
       },
       {
         type: "neoforge:tag",
