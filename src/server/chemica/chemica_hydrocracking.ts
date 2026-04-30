@@ -73,9 +73,9 @@ ServerEvents.recipes((event) => {
         tag: "c:hydrogen",
       },
       {
-        type: "neoforge:single",
+        type: "neoforge:tag",
         amount: 100,
-        fluid: "chemica:oxygen",
+        tag: "c:oxygen",
       },
       {
         item: "chemica:platinum_catalyst",
