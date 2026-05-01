@@ -39,4 +39,9 @@ ServerEvents.tags("fluid", (event) => {
   for (const fluid of flammableFeedstocks) {
     event.add("tfmg:flammable", fluid);
   }
+
+  // common fluid tags
+  event.add("c:liquid_hydrogen", "chemica:liquid_hydrogen");
+  event.add("c:oxygen", "chemica:oxygen");
+  event.add("c:methane", "chemica:methane");
 });

@@ -65,6 +65,3 @@ ServerEvents.recipes((event) => {
   });
 });
 
-ServerEvents.tags("fluid", (event) => {
-  event.add("c:liquid_hydrogen", "tfmg:hydrogen");
-});

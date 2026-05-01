@@ -104,7 +104,3 @@ ServerEvents.recipes((event) => {
     ],
   });
 });
-
-ServerEvents.tags("fluid", (event) => {
-  event.add("c:oxygen", "chemica:oxygen");
-});
