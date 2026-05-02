@@ -44,6 +44,10 @@ ServerEvents.recipes((event) => {
         amount: 100,
         id: "tfmg:lpg",
       },
+      {
+        chance: 0.5,
+        id: "chemica:nickel_catalyst",
+      },
     ],
   });
 
@@ -100,6 +104,10 @@ ServerEvents.recipes((event) => {
       {
         amount: 50,
         id: "chemica:xylene",
+      },
+      {
+        chance: 0.5,
+        id: "chemica:platinum_catalyst",
       },
     ],
   });
