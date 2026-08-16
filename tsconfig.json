@@ -9,9 +9,8 @@
   },
   "include": [
     "src/**/*.ts",
-    ".probe/packages/generated-package/**/*.d.ts",
-    ".probe/server/generated-server/**/*.d.ts",
-    ".probe/startup/generated-startup/**/*.d.ts",
-    ".probe/client/generated-client/**/*.d.ts"
+    ".probe/@package/**/*.d.ts",
+    ".probe/@side-only/**/*.d.ts",
+    ".probe/@special/**/*.d.ts"
   ]
 }
