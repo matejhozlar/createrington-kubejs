@@ -1,0 +1,129 @@
+import { $Consumer_, $Function, $UnaryOperator_, $BiConsumer_ } from "@package/java/util/function";
+import { $TickableGuiEventListener } from "@package/net/createmod/catnip/gui";
+import { $Component } from "@package/net/minecraft/network/chat";
+import { $LerpedFloat } from "@package/net/createmod/catnip/animation";
+import { $AbstractWidget, $WidgetTooltipHolder } from "@package/net/minecraft/client/gui/components";
+import { $ScreenElement_, $BoxElement, $RenderElement, $FadableScreenElement } from "@package/net/createmod/catnip/gui/element";
+import { $GuiGraphics } from "@package/net/minecraft/client/gui";
+import { $Runnable_ } from "@package/java/lang";
+import { $List } from "@package/java/util";
+import { $Color } from "@package/net/createmod/catnip/theme";
+import { $Couple } from "@package/net/createmod/catnip/data";
+
+declare module "@package/net/createmod/catnip/gui/widget" {
+    export class $AbstractSimiWidget extends $AbstractWidget implements $TickableGuiEventListener {
+        tick(): void;
+        setActive<T extends $AbstractSimiWidget>(arg0: boolean): T;
+        withCallback<T extends $AbstractSimiWidget>(arg0: $BiConsumer_<number, number>): T;
+        withCallback<T extends $AbstractSimiWidget>(arg0: $Runnable_): T;
+        getToolTip(): $List<$Component>;
+        runCallback(arg0: number, arg1: number): void;
+        atZLevel<T extends $AbstractSimiWidget>(arg0: number): T;
+        static COLOR_SUCCESS: $Couple<$Color>;
+        visible: boolean;
+        static HEADER_RGB: $Color;
+        lockedTooltipY: number;
+        tooltip: $WidgetTooltipHolder;
+        static COLOR_HOVER: $Couple<$Color>;
+        active: boolean;
+        static COLOR_CLICK: $Couple<$Color>;
+        packedFGColor: number;
+        static UNSET_FG_COLOR: number;
+        static HINT_RGB: $Color;
+        static COLOR_IDLE: $Couple<$Color>;
+        lockedTooltipX: number;
+        alpha: number;
+        width: number;
+        x: number;
+        y: number;
+        static COLOR_DISABLED: $Couple<$Color>;
+        static COLOR_FAIL: $Couple<$Color>;
+        height: number;
+        get toolTip(): $List<$Component>;
+    }
+    export class $ElementWidget extends $AbstractSimiWidget {
+        fade(): $LerpedFloat;
+        fade<T extends $ElementWidget>(arg0: number): T;
+        showingElement<T extends $ElementWidget>(arg0: $RenderElement): T;
+        withPadding<T extends $ElementWidget>(arg0: number, arg1: number): T;
+        /**
+         * @deprecated
+         */
+        rescaleElement<T extends $ElementWidget>(arg0: number, arg1: number): T;
+        showing<T extends $ElementWidget>(arg0: $ScreenElement_): T;
+        enableFade<T extends $ElementWidget>(arg0: number, arg1: number): T;
+        getRenderElement(): $RenderElement;
+        doRender(arg0: $GuiGraphics, arg1: number, arg2: number, arg3: number): void;
+        mapElement<T extends $ElementWidget>(arg0: $UnaryOperator_<$RenderElement>): T;
+        modifyElement<T extends $ElementWidget>(arg0: $Consumer_<$RenderElement>): T;
+        disableFade<T extends $ElementWidget>(): T;
+        disableRescale<T extends $ElementWidget>(): T;
+        static COLOR_SUCCESS: $Couple<$Color>;
+        visible: boolean;
+        static HEADER_RGB: $Color;
+        lockedTooltipY: number;
+        tooltip: $WidgetTooltipHolder;
+        static COLOR_HOVER: $Couple<$Color>;
+        active: boolean;
+        static COLOR_CLICK: $Couple<$Color>;
+        packedFGColor: number;
+        static UNSET_FG_COLOR: number;
+        static HINT_RGB: $Color;
+        static COLOR_IDLE: $Couple<$Color>;
+        lockedTooltipX: number;
+        alpha: number;
+        width: number;
+        x: number;
+        y: number;
+        static COLOR_DISABLED: $Couple<$Color>;
+        static COLOR_FAIL: $Couple<$Color>;
+        height: number;
+        constructor(arg0: number, arg1: number);
+        constructor(arg0: number, arg1: number, arg2: number, arg3: number);
+        get renderElement(): $RenderElement;
+    }
+    export class $BoxWidget extends $ElementWidget {
+        updateGradientFromState(): void;
+        withBorderColors<T extends $BoxWidget>(arg0: $Couple<$Color>): T;
+        withBorderColors<T extends $BoxWidget>(arg0: $Color, arg1: $Color): T;
+        withBounds<T extends $BoxWidget>(arg0: number, arg1: number): T;
+        withCustomTheme<T extends $BoxWidget>(arg0: $Couple<$Color> | null, arg1: $Couple<$Color> | null, arg2: $Couple<$Color> | null, arg3: $Couple<$Color> | null): T;
+        getBox(): $BoxElement;
+        withCustomBackground<T extends $BoxWidget>(arg0: $Color): T;
+        animateGradientFromState(): void;
+        getColorHover(): $Couple<$Color>;
+        animateColors<T extends $BoxWidget>(arg0: boolean): T;
+        getColorClick(): $Couple<$Color>;
+        getColorIdle(): $Couple<$Color>;
+        getColorDisabled(): $Couple<$Color>;
+        static COLOR_SUCCESS: $Couple<$Color>;
+        visible: boolean;
+        static HEADER_RGB: $Color;
+        lockedTooltipY: number;
+        tooltip: $WidgetTooltipHolder;
+        static COLOR_HOVER: $Couple<$Color>;
+        active: boolean;
+        static gradientFactory: $Function<$BoxWidget, $FadableScreenElement>;
+        static COLOR_CLICK: $Couple<$Color>;
+        packedFGColor: number;
+        static UNSET_FG_COLOR: number;
+        static HINT_RGB: $Color;
+        static COLOR_IDLE: $Couple<$Color>;
+        lockedTooltipX: number;
+        alpha: number;
+        width: number;
+        x: number;
+        y: number;
+        static COLOR_DISABLED: $Couple<$Color>;
+        static COLOR_FAIL: $Couple<$Color>;
+        height: number;
+        constructor(arg0: number, arg1: number, arg2: number, arg3: number);
+        constructor(arg0: number, arg1: number);
+        constructor();
+        get box(): $BoxElement;
+        get colorHover(): $Couple<$Color>;
+        get colorClick(): $Couple<$Color>;
+        get colorIdle(): $Couple<$Color>;
+        get colorDisabled(): $Couple<$Color>;
+    }
+}

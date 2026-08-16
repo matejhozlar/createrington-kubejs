@@ -1,0 +1,43 @@
+import { $BlockPos } from "@package/net/minecraft/core";
+import { $CompoundTag } from "@package/net/minecraft/nbt";
+import { $AtomicReference } from "@package/java/util/concurrent/atomic";
+import { $ClientContraption } from "@package/com/simibubi/create/content/contraptions/render";
+import { $ModularGuiLine } from "@package/com/simibubi/create/foundation/gui";
+import { $Font } from "@package/net/minecraft/client/gui";
+import { $Map, $List } from "@package/java/util";
+import { $Train } from "@package/com/simibubi/create/content/trains/entity";
+
+declare module "@package/de/mrjulsen/crn/mixin" {
+    export class $ContraptionAccessor {
+    }
+    export interface $ContraptionAccessor {
+        crn$clientContraption(): $AtomicReference<$ClientContraption>;
+        crn$updateTags(): $Map<$BlockPos, $CompoundTag>;
+    }
+    export class $TrainStatusAccessor {
+    }
+    export interface $TrainStatusAccessor {
+        crn$conductor(): boolean;
+        crn$navigation(): boolean;
+        crn$track(): boolean;
+    }
+    export class $ScheduleRuntimeAccessor {
+    }
+    export interface $ScheduleRuntimeAccessor {
+        crn$getTicksInPreviousTransit(): number;
+        crn$getTransitTicks(): $List<number>;
+        crn$predictionTicks(): $List<number>;
+        crn$conditionProgress(): $List<number>;
+        crn$conditionContext(): $List<$CompoundTag>;
+        crn$getTrain(): $Train;
+        crn$runEstimateStayDuration(arg0: number): number;
+    }
+    export class $ModularGuiLineBuilderAccessor {
+    }
+    export interface $ModularGuiLineBuilderAccessor {
+        crn$getX(): number;
+        crn$getY(): number;
+        crn$getTarget(): $ModularGuiLine;
+        crn$getFont(): $Font;
+    }
+}
