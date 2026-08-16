@@ -5,8 +5,23 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const SRC_DATA = path.resolve(__dirname, "..", "src", "data");
-const DEST_DATA = path.resolve(__dirname, "..", "kubejs", "data");
+const COPY_DIRS = [
+  {
+    src: path.resolve(__dirname, "..", "src", "data"),
+    dest: path.resolve(__dirname, "..", "kubejs", "data"),
+    label: "src/data/ → kubejs/data/",
+  },
+  {
+    src: path.resolve(__dirname, "..", "src", "assets"),
+    dest: path.resolve(__dirname, "..", "kubejs", "assets"),
+    label: "src/assets/ → kubejs/assets/",
+  },
+  {
+    src: path.resolve(__dirname, "..", "src", "config"),
+    dest: path.resolve(__dirname, "..", "kubejs", "config"),
+    label: "src/config/ → kubejs/config/",
+  },
+];
 
 function copyDir(src, dest) {
   fs.mkdirSync(dest, { recursive: true });
@@ -21,7 +36,9 @@ function copyDir(src, dest) {
   }
 }
 
-if (fs.existsSync(SRC_DATA)) {
-  copyDir(SRC_DATA, DEST_DATA);
-  console.log("Copied src/data/ → kubejs/data/");
+for (const { src, dest, label } of COPY_DIRS) {
+  if (fs.existsSync(src)) {
+    copyDir(src, dest);
+    console.log(`Copied ${label}`);
+  }
 }

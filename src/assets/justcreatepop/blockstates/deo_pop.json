@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=west": { "model": "justcreatepop:block/deo_pop" },
+    "facing=north":  { "model": "justcreatepop:block/deo_pop", "y": 90 },
+    "facing=east": { "model": "justcreatepop:block/deo_pop", "y": 180 },
+    "facing=south":  { "model": "justcreatepop:block/deo_pop", "y": 270 }
+  }
+}

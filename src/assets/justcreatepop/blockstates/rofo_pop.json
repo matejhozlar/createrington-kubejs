@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=west": { "model": "justcreatepop:block/rofo_pop" },
+    "facing=north":  { "model": "justcreatepop:block/rofo_pop", "y": 90 },
+    "facing=east": { "model": "justcreatepop:block/rofo_pop", "y": 180 },
+    "facing=south":  { "model": "justcreatepop:block/rofo_pop", "y": 270 }
+  }
+}
