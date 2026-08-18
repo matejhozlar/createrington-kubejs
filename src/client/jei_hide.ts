@@ -1,7 +1,8 @@
 RecipeViewerEvents.removeEntries('item', event => {
     const itemsToHide = [
     //^sophisticatedbackpacks:(?!upgrade_base|stack_upgrade_(starter_tier|tier_1|tier_2|tier_3|tier_4)).*upgrade.*/,
-    /^create_sa:(?!brass_jetpack_chestplate$|netherite_jetpack_chestplate$|slime_helmet$|slime_boots$|small_filling_tank$|medium_filling_tank$|large_filling_tank$|small_fueling_tank$|medium_fueling_tank$|large_fueling_tank$).*/,
+    //^create_sa:(?!brass_jetpack_chestplate$|netherite_jetpack_chestplate$|slime_helmet$|slime_boots$|small_filling_tank$|medium_filling_tank$|large_filling_tank$|small_fueling_tank$|medium_fueling_tank$|large_fueling_tank$).*/,
+    'create_sa:flamethrower',
     /^createcasing:(.*creative|chorium_ingot)/,
     /^.*:.*incomplete.*/,
     /^.*:.*_spawn_egg$/,
