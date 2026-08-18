@@ -18,6 +18,12 @@ const byOutput = [
 	/^createframed:(.*_)?cardboard_window$/,
 	/^createframed:(?:shiny_)?karpboard_block$/,
 	'create_sa:flamethrower',
+	'create_sa:block_picker',
+	'create_sa:copper_magnet',
+	'create_sa:brass_drone_item',
+    'create_sa:drone_controller',
+	'petrolsparts:pneumatic_tube',
+	'petrolsparts:hydraulic_transmission',
 	'sophisticatedbackpacks:stack_upgrade_tier_4',
 	'sophisticatedbackpacks:stack_downgrade_tier_1',
 	'sophisticatedbackpacks:stack_downgrade_tier_2',
@@ -52,6 +58,20 @@ const byId = [
 	'minecraft:pink_shipping_container_from_dyeing_vaults'
 ]
 
+//Remove by Mod
+// - Add the mod id for the mod to remove all recipes from that mod
+const byMod = [
+	//'create_sa'
+]
+
+// Remove by Type
+// - Add the recipe type to remove all recipes of that type
+const byType = [
+	'easy_villagers:breeding',
+	'easy_villagers:converting',
+	'easy_villagers:incubating',
+]
+
 // Advance Remove
 // - Provide multiple options to target the removal
 // - Removes the base version and adds it as '_manual_only' in order to fix Create issues (set 'manual' property to true)
@@ -64,8 +84,10 @@ const advRemoval = [
 
 ServerEvents.recipes(event => {
     byOutput.forEach(item => event.remove({ output: item }));
-    byId.forEach(item => event.remove({ id: item }));
-	
+    byId.forEach(id => event.remove({ id: id }));
+	byMod.forEach(mod => event.remove({ mod: mod }));
+	byType.forEach(type => event.remove({ type: type }));
+
 	advRemoval.forEach(condition => {
 		let manual = condition.manual;
 		let test = condition.test;
