@@ -9,8 +9,9 @@ ServerEvents.recipes((event) => {
     ],
     results: [
       {
+        chance: 0.666,
         id: "minecraft:coal",
       },
     ],
-  });
+  }).id("kubejs:haunting/coal_via_charcoal");
 });
