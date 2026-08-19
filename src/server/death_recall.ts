@@ -83,12 +83,16 @@
     delete pendingRecall[player.stringUUID];
     if (!data) return; // end-return, or died in creative/spectator
 
+    // KubeJS's Rhino fork mishandles let/const declared inside nested blocks
+    // (try/for/if), hoisting them to a function-scoped var and then throwing
+    // "redeclaration of var" at runtime. Use var for locals inside this try,
+    // matching the pattern the /home script already relies on.
     try {
-      const loc = ResourceLocation.parse(data.dim);
+      var loc = ResourceLocation.parse(data.dim);
       if (parallelWorldsGivesToken(loc)) return;
 
-      const pos = new BlockPos(data.x, data.y, data.z);
-      const token = DeathRecallItem.createFor(loc, pos, data.yRot, data.xRot);
+      var pos = new BlockPos(data.x, data.y, data.z);
+      var token = DeathRecallItem.createFor(loc, pos, data.yRot, data.xRot);
       player.give(token);
     } catch (e) {
       console.warn(`[death_recall] failed to give token: ${e}`);
