@@ -91,6 +91,8 @@ RecipeViewerEvents.removeEntries('item', event => {
     'dragonlib:dragon',
     'hostile_skies:captains_orders',
     'azimuth:ponder_coordinate',
+    'foxysmod:bank_block',
+    'foxysmod:atm_block',
     ]
 
     event.remove(itemsToHide)
