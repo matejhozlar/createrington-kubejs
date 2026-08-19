@@ -56,7 +56,6 @@ ServerEvents.tags('block', event => {
         'createdeco:industrial_iron_mesh_fence',
         'createdeco:zinc_mesh_fence',
         'createdeco:andesite_hull',
-        '#c:glass_blocks'
     ]
     
     event.add('create:wrench_pickup', /.*:.*_trapdoor$/)
