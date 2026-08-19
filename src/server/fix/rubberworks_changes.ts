@@ -1,14 +1,17 @@
 ServerEvents.recipes(event => {
-    const recipesToChange = [
-        'simulatedcosters:coaster_cart',
+    const byOutput = [
+        'simulatedcoasters:coaster_cart',
         'offroad:small_tire',
         'offroad:tire',
-        'create_hypertube:hypertube_funnel'
+        'create_hypertube:hypertube_funnel',
+        'createcasing:andesite_spout',
+        'createcasing:brass_spout',
+        'createcasing:zinc_spout',
     ]
 
-    recipesToChange.forEach(recipe => {
+    byOutput.forEach(output => {
         event.replaceInput(
-            {id: recipe},
+            { output: output},
             'minecraft:dried_kelp',
             'rubberworks:rubber_sheet'
         )
