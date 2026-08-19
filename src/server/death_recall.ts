@@ -91,6 +91,9 @@
       var loc = ResourceLocation.parse(data.dim);
       if (parallelWorldsGivesToken(loc)) return;
 
+      // createFor bakes expiry and charge-up from PWConfig, so KubeJS tokens
+      // expire exactly like PW-issued ones (deathRecallExpireSeconds, default
+      // 300s; -1 disables expiry).
       var pos = new BlockPos(data.x, data.y, data.z);
       var token = DeathRecallItem.createFor(loc, pos, data.yRot, data.xRot);
       player.give(token);
