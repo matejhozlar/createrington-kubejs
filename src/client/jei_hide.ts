@@ -27,10 +27,13 @@ RecipeViewerEvents.removeEntries('item', event => {
     'petrolpark:dough',
     'petrolsparts:hydraulic_transmission',
     'petrolsparts:pneumatic_tube',
-    'sophisticatedbackpacks:stack_upgrade_tier_4',
-	'sophisticatedbackpacks:stack_downgrade_tier_1',
-	'sophisticatedbackpacks:stack_downgrade_tier_2',
-	'sophisticatedbackpacks:stack_downgrade_tier_3',
+    /^sophisticated.*:stack_upgrade_tier_(?:4|5)$/,
+    /^sophisticated.*:stack_upgrade_omega_tier$/,
+    /^sophisticated.*:stack_upgrade_.*_to_tier_(?:4|5)_conversion$/,
+	/^sophisticated.*:stack_downgrade_tier_1$/,
+	/^sophisticated.*:stack_downgrade_tier_2$/,
+	/^sophisticated.*:stack_downgrade_tier_3$/,
+    /^sophisticated.*:(?:pump|advanced_pump|xp_pump|hopper|advanced_hopper|infinity|survival_infinity|tank|battery|mob_catcher|advanced_mob_catcher)_upgrade$/,
     'easy_villagers:auto_trader',
     'easy_villagers:farmer',
     'easy_villagers:breeder',
@@ -93,6 +96,7 @@ RecipeViewerEvents.removeEntries('item', event => {
     'azimuth:ponder_coordinate',
     'foxysmod:bank_block',
     'foxysmod:atm_block',
+    /^aeroencasedpipe:.*$/
     ]
 
     event.remove(itemsToHide)
